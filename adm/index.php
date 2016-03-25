@@ -7,7 +7,6 @@ $action = "";
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
-
 $values = $_REQUEST;
 	switch ($action) {
 		case "index":
@@ -18,7 +17,8 @@ $values = $_REQUEST;
 		break;
 		case "bienvenida":
 			executeBienvenida($values);	
-		break;							
+		break;
+
 		default:
 			executeIndex($values);
 		break;
@@ -36,4 +36,4 @@ $values = $_REQUEST;
         $Menu = new Menu();
         $items_padres = $Menu ->getMenu(3, 1,0);	
 	require('main_page.php');
-	}								
+	}

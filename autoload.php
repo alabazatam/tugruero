@@ -46,7 +46,7 @@ define("image_url",full_url."/web/images/");
  * 
  * 
  * */
- 
+ define('mail_from',"noreply@frbcomputersgroup.com.ve");
 
 //Class definition
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/notorm-master/NotORM.php");//se debe incluir una sola vez en todo el cms
@@ -59,7 +59,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Menu.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/CarousselDetails.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/Mail.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Users.class.php");
-
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Message.class.php");
 /*validation class*/
 
 //include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/vendor/GUMP/gump.class.php");
