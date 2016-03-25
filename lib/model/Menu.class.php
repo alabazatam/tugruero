@@ -2,15 +2,15 @@
     class Menu 
     {
         
-        function getMenu($id_app, $id_page)
+        function getMenu($id_app, $id_page,$id_menu_ref = 0)
         {
 			
                         $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->menu
-			->select("*")
-                        ->where('id_app=?',1)
-                        ->order('orders');	
+                        ->select("*")
+                        ->where('id_app=?',$id_app)
+                        ->and('id_menuref =?',$id_menu_ref)
+                        ->order('orders');
 			return $q;            
         }
-        
     }
