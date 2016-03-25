@@ -58,7 +58,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/RegistroModel.clas
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Menu.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/CarousselDetails.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/Mail.class.php");
-
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Users.class.php");
 
 /*validation class*/
 
