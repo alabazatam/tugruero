@@ -1,4 +1,4 @@
-<?php include("../autoload.php");?>	
+<?php include("../../autoload.php");?>	
 <?php include("validator.php");?>	
 <?php $action = "";
 
@@ -11,6 +11,9 @@ $values = $_REQUEST;
 		case "index":
 			executeIndex($values);	
 		break;
+		case "new":
+			executeNew($values);	
+		break;
 		case "users_list_json":
 			executeUserListJson($values);	
 		break;	
@@ -21,6 +24,10 @@ $values = $_REQUEST;
 	function executeIndex($values = null)
 	{
 	require('users_list_view.php');
+	}
+	function executeNew($values = null)
+	{
+	require('users_form_view.php');
 	}
 	function executeUserListJson($values)
 	{
