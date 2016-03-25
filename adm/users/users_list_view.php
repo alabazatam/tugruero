@@ -19,6 +19,7 @@
             </tr>
         </tfoot>
     </table>
+<a class="btn btn-success"  href="<?php echo full_url."/adm/users/index.php?action=new"?>">Agregar</a>
 <?php include('../../view_footer.php')?>
 <script>
 $(document).ready(function() {

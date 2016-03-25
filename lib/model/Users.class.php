@@ -61,9 +61,43 @@
 				$where = "upper(login) like upper('%$str%') ";
 			}
             $ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect('tugruero')->users
+			$q = $ConnectionORM->getConnect()->users
 			->select("count(*) as cuenta")->where("$where")->fetch();
 			return $q['cuenta']; 			
+		}
+		public function getUserById($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users
+			->select("*")
+			->where("id_user=?",$values['id_user'])->fetch();
+			return $q; 				
+			
+		}
+		function deleteUser($id_user){
+			unset($values['action']);
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users("id_user", $id_user)->delete();
+			
+			
+		}		
+		function saveUser($values){
+			unset($values['action']);
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users()->insert($values);
+			return $q;
+			
+		}
+		function updateUser($values){
+			unset($values['action']);
+			if(isset($values['password']) and $values['password']!='')
+			{
+				$values['password'] = hash('sha256', $values['password']);
+			}
+			$id_user = $values['id_user'];
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users("id_user", $id_user)->update($values);
+			return $q;
+			
 		}
 	}
 	

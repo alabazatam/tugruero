@@ -14,6 +14,15 @@ $values = $_REQUEST;
 		case "new":
 			executeNew($values);	
 		break;
+		case "add":
+			executeSave($values);	
+		break;
+		case "edit":
+			executeEdit($values);	
+		break;
+		case "update":
+			executeUpdate($values);	
+		break;		
 		case "users_list_json":
 			executeUserListJson($values);	
 		break;	
@@ -27,8 +36,31 @@ $values = $_REQUEST;
 	}
 	function executeNew($values = null)
 	{
-	require('users_form_view.php');
+		$values['action'] = 'add';
+		require('users_form_view.php');
 	}
+	function executeSave($values = null)
+	{
+		
+		$Users = new Users();
+		$values = $Users->saveUser($values);
+		executeIndex($values);die;
+	}
+	function executeEdit($values = null)
+	{
+		
+		$Users = new Users();
+		$values = $Users->getUserById($values);
+		$values['action'] = 'update';
+		require('users_form_view.php');
+	}
+	function executeUpdate($values = null)
+	{
+		
+		$Users = new Users();
+		$Users->updateUser($values);		
+		executeEdit($values);die;
+	}	
 	function executeUserListJson($values)
 	{
 		$Users = new Users();
@@ -41,8 +73,9 @@ $values = $_REQUEST;
 		{
 			foreach ($users_list_json as $user) 
 			{
+				$id_user = $user['id_user'];
 				$array_json['data'][] = array(
-					"id_user" => $user['id_user'],
+					"id_user" => '<a href="index.php?action=edit&id_user='.$id_user.'" class="btn btn-default btn-sm"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>',
 					"login" => $user['login'],
 					"password" => "******",
 					"status" => $user['status'],
