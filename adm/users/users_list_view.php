@@ -1,4 +1,6 @@
 <?php include('../../view_header.php')?>
+<link href="<?php echo full_url;?>/web/css/datatables.css" rel="stylesheet">
+<script src="<?php echo full_url;?>/web/js/datatables.js"></script>
 <table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
         <thead>
             <tr>
@@ -6,7 +8,7 @@
                 <th>Login</th>
                 <th>Password</th>
                 <th>Status</th>
-				<th>Id rol</th>
+		<th>Id rol</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -17,7 +19,7 @@
                 <th>Password</th>
                 <th>Status</th>
                 <th>Id role</th>
-				 <th>Acciones</th>
+		<th>Acciones</th>
             </tr>
         </tfoot>
     </table>
@@ -26,6 +28,7 @@
 <script>
 $(document).ready(function() {
     $('#example').DataTable({
+        "scrollX": true,
         "processing": true,
         "serverSide": true,
         "ajax": "<?php echo full_url."/adm/users/index.php?action=users_list_json"?>",
@@ -35,7 +38,7 @@ $(document).ready(function() {
             { "data": "password" },
             { "data": "status" },
             { "data": "id_role" },
-			{ "data": "actions" }
+            { "data": "actions" }
         ],
       "aoColumnDefs": [
           { 'bSortable': false, 'aTargets': [ 5 ] }
@@ -44,3 +47,4 @@ $(document).ready(function() {
 } );
 
 </script>
+<script src="<?php echo full_url;?>/web/js/datatables.js"></script>

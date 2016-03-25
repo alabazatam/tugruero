@@ -77,14 +77,22 @@ class Message {
 			
 			
 		}        
-    function saveMessage($values) {
-	unset($values['action']);
-	$ConnectionORM = new ConnectionORM();
-        $values['status'] = 1;
-        $values['date_added'] = date('Y-m-d h:i:s');
-        $values['date_updated'] = date('Y-m-d h:i:s');
-	$q = $ConnectionORM->getConnect()->message()->insert($values);
-	$values['id_message'] = $ConnectionORM->getConnect()->message()->insert_id();
-	return $values;	        
-    }
+                function saveMessage($values) {
+                    unset($values['action']);
+                    $ConnectionORM = new ConnectionORM();
+                    $values['status'] = 1;
+                    $values['date_added'] = date('Y-m-d h:i:s');
+                    $values['date_updated'] = date('Y-m-d h:i:s');
+                    $q = $ConnectionORM->getConnect()->message()->insert($values);
+                    $values['id_message'] = $ConnectionORM->getConnect()->message()->insert_id();
+                    return $values;	        
+                }
+		function updateMessage($values){
+			unset($values['action']);
+			$id_message = $values['id_message'];
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->message("id_message", $id_message)->update($values);
+			return $q;
+			
+		}
 }
