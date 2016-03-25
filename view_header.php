@@ -13,6 +13,7 @@
     <!--<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">-->
 	<link href="<?php echo full_url;?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo full_url;?>/web/css/caroussel.css" rel="stylesheet">
+        <link href="<?php echo full_url;?>/web/css/datatables.css" rel="stylesheet">
     <!-- Custom styles for this template -->
             <!-- CSS -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
