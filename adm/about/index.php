@@ -37,7 +37,7 @@ $values = $_REQUEST;
 	function executeNew($values = null)
 	{
 		$values['action'] = 'add';
-		require('message_form_view.php');
+		require('about_form_view.php');
 	}
 	function executeSave($values = null)
 	{

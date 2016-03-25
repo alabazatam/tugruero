@@ -1,6 +1,5 @@
 <?php include('../../view_header.php')?>
 <link href="<?php echo full_url;?>/web/css/datatables.css" rel="stylesheet">
-
 <table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
         <thead>
             <tr>
