@@ -44,7 +44,7 @@ $values = $_REQUEST;
 		
 		$Users = new Users();
 		$values = $Users->saveUser($values);
-		executeIndex($values);die;
+		executeEdit($values);die;
 	}
 	function executeEdit($values = null)
 	{
@@ -75,18 +75,19 @@ $values = $_REQUEST;
 			{
 				$id_user = $user['id_user'];
 				$array_json['data'][] = array(
-					"id_user" => '<a href="index.php?action=edit&id_user='.$id_user.'" class="btn btn-default btn-sm"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>',
+					"id_user" => $id_user,
 					"login" => $user['login'],
 					"password" => "******",
 					"status" => $user['status'],
-					"id_role" => $user['id_role']
+					"id_role" => $user['id_role'],
+					"actions" => '<a href="index.php?action=edit&id_user='.$id_user.'" class="btn btn-default btn-sm"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'
 
 					);	
 			}	
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"login"=>"","password"=>"","status"=>"","id_role"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"login"=>"","password"=>"","status"=>"","id_role"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

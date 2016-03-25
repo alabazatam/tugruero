@@ -82,9 +82,11 @@
 		}		
 		function saveUser($values){
 			unset($values['action']);
+			$values['password'] = hash('sha256', $values['password']);
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users()->insert($values);
-			return $q;
+			$values['id_user'] = $ConnectionORM->getConnect()->users()->insert_id();
+			return $values;	
 			
 		}
 		function updateUser($values){
@@ -92,6 +94,9 @@
 			if(isset($values['password']) and $values['password']!='')
 			{
 				$values['password'] = hash('sha256', $values['password']);
+			}else
+			{
+				unset($values['password']);
 			}
 			$id_user = $values['id_user'];
 			$ConnectionORM = new ConnectionORM();

@@ -3,7 +3,7 @@
 	<input type="text" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
   <div class="form-group">
     <label for="">Id.Usuario</label>
-    <input type="text" class="form-control input-sm" id="" placeholder="" name="id_user" value="<?php if(isset($values['id_user'])) echo $values['id_user']?>">
+    <input readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_user" value="<?php if(isset($values['id_user'])) echo $values['id_user']?>">
   </div>
   <div class="form-group">
     <label for="">Login</label>

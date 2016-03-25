@@ -6,7 +6,8 @@
                 <th>Login</th>
                 <th>Password</th>
                 <th>Status</th>
-                <th>Id role</th>
+				<th>Id rol</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tfoot>
@@ -16,6 +17,7 @@
                 <th>Password</th>
                 <th>Status</th>
                 <th>Id role</th>
+				 <th>Acciones</th>
             </tr>
         </tfoot>
     </table>
@@ -32,8 +34,12 @@ $(document).ready(function() {
             { "data": "login" },
             { "data": "password" },
             { "data": "status" },
-            { "data": "id_role" }
-        ]		
+            { "data": "id_role" },
+			{ "data": "actions" }
+        ],
+      "aoColumnDefs": [
+          { 'bSortable': false, 'aTargets': [ 5 ] }
+       ]				
     });
 } );
 
