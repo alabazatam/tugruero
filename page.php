@@ -113,30 +113,96 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lobortis odio. In a tristique enim. In sodales placerat neque eget porttitor. Integer urna magna, commodo nec diam eget, fringilla efficitur mauris. In scelerisque odio sit amet semper faucibus. </p>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p class="text-justify">Somos Soluciones Tugruero, C.A. una empresa 100% venezolana de base tecnológica dedicada a la prestación de servicios de auxilia vial a través de distintas herramientas innovadoras de comunicación, entre todos los usuarios de nuestra plataforma que requieran de auxilio vial y los proveedores de grúas disponibles y más cercanos a ellos. </p>
                 </div>
-                <div class="col-lg-4">
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lobortis odio. In a tristique enim. In sodales placerat neque eget porttitor. Integer urna magna, commodo nec diam eget, fringilla efficitur mauris. In scelerisque odio sit amet semper faucibus. </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Nuestra mision</h2>
+                    <!--<hr class="star-light">-->
                 </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Acción
-                    </a>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p class="text-justify">Ofrecemos tranquilidad a los accidentados en la vía entregándoles el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, teniendo como principal objetivo construir una empresa sustentable donde todos queramos ir a trabajar para ayudar a los demás.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Hacia donde vamos</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p class="text-justify">Ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia,  trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado</p>
                 </div>
             </div>
         </div>
     </section>
+    <section class="" id="objectives">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Nuestros Objetivos</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+			<hr>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                                <div class="row">
+                <div class="col-lg-12 col-lg-offset-0">
+					<ul class="list-group">
+					  <li class="list-group-item">Construir una empresa sustentable donde todos queramos ir a trabajar para ayudar a los demás.</li>
+					  <li class="list-group-item">Tener afiliados a nuestra plataforma al 100% de los grueros que operan en Venezuela, para que brinden el mejor servicio de auxilio vial a los usuarios suscritos en la misma.</li>
+					  <li class="list-group-item">Contribuir notablemente a la mejora de la industria y el servicio de auxilio vial en Venezuela y el mundo.</li>
+					  <li class="list-group-item">Mejorar los tiempos de respuesta de parte de los grueros para con los accidentados en la vía, teniendo un tiempo promedio de respuesta y rescate de 20 - 30 minutos.</li>
+					  <li class="list-group-item">Mejorar notablemente el servicio de auxilio vial ofrecido por todas las compañías de seguros en Venezuela a sus clientes asegurados.</li>
+					  <li class="list-group-item">Colaborar con la creación de la red/comunidad de grueros más grande de Venezuela y América Latina, con la cual se realizarán constantemente convenciones donde se discutirán los problemas diarios de la profesión y sus posibles soluciones, donde se darán a conocer los últimos avances de la industria y se ajustará regularmente las tarifas de las carreras/remolques/auxilios de acuerdo a la situación económica-política y social de cada país donde nos encontremos operando.</li>
+					  <li class="list-group-item">Crear la fundación “Grueros de las Américas” donde constantemente se recaudarán fondos entre todos los pertenecientes a dicha red/comunidad, para así realizar obras benéficas en todos los países donde la empresa se encuentre presente.</li>
+					</ul>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Grid Section -->
+    <section id="work" class="success">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>¿Que hacemos?</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+					<p class="text-justify">Ofrecemos servicios de comunicación para el auxilio vial a través de nuestra aplicación móvil llamada TU/GRUERO®. La cual se puede conseguir y descargar gratuitamente en las tiendas de aplicación móvil más reconocidas a nivel mundial: Play Store y App Store.</p>
+					<p class="text-justify">Presentamos TU/GRUERO®, la primera aplicación móvil del mundo que ofrece el servicio de E-hailing (solicitud de servicios de transporte con teléfonos inteligentes) para grúas o remolcadoras de vehículos accidentados. TU/GRUERO® es pionera en el ámbito tecnológico para los servicios ofrecidos por las compañías de seguros ya que actualmente el 100% de estas ofrece el servicio de auxilio a través del tradicional Call Center de su operadora de asistencia en viajes, el cual resulta tedioso y poco eficiente debido a la triangulación existente entre: Accidentado - Operadora de asistencia en viaje - Gruero.</p>
+					<p class="text-justify">TU/GRUERO® garantiza por primera vez un servicio de auxilio vial de verdadera rapidez, seguridad y tranquilidad tanto para los accidentados como para los grueros gracias a su novedoso sistema de geolocalización, el cual permite ubicar a los grueros más cercanos (de manera directa y sin intermediarios) en el mapa y seguirlos en tiempo real vía GPS hasta que éste y el accidentado se encuentren en el sitio de la avería.</p>
+                </div>
+            </div>
+		</div>
+	</section>
     <!-- Portfolio Grid Section -->
     <section id="portfolio" class="">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>¿Cómo funcionamos?</h2>
-                    <!--<hr class="star-primary">-->
+                    <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+					<p class="text-justify">Actualmente le ofrecemos nuestros servicios de comunicación para el auxilio vial a las compañías de seguros venezolanas suscritas a TU/GRUERO®, para que sus clientes asegurados puedan comunicarse directamente con los proveedores de grúas afiliados a nuestra plataforma cuando éstos (clientes asegurados) se encuentren en la necesidad de solicitar servicios de auxilio vial.</p>
+					<p class="text-justify">¡Comuníquese con su corredor de seguros para poder optar por la póliza de asistencia en viajes que incluya disfrutar de los servicios de TU/GRUERO®!</p>
+                </div>
+            </div>
+            <!--<div class="row">
                 <div class="col-sm-4 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
@@ -167,7 +233,7 @@
                         <img src="web/img/g5247.png" class="img-responsive" alt="">
                     </a>
                 </div>
-            </div>
+            </div>-->
         </div>
     </section>
 
@@ -235,25 +301,19 @@
                 <div class="row">
                     <div class="footer-col col-md-4">
                         <h3>Dirección</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                        <p>Av. Principal Los Dos Caminos. Edificio Provincial. Piso 8. Oficina 8 “B”. Municipio Sucre. Caracas. Venezuela. Código Postal: 1071.</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Redes sociales</h3>
                         <ul class="list-inline">
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                <a class="btn-social btn-outline" href="https://wwww.facebook.com/tugruero" target="_blank"><i class="fa fa-fw fa-facebook"></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                                <a href="https://twitter.com/tugruero" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                                <a href="https://www.instagram.com/tugruero/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
