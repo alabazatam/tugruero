@@ -108,45 +108,49 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>¿Quiénes somos?</h2>
+                    <h2><?php echo $about1_title;?></h2>
                     <!--<hr class="star-light">-->
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <p class="text-justify">Somos Soluciones Tugruero, C.A. una empresa 100% venezolana de base tecnológica dedicada a la prestación de servicios de auxilia vial a través de distintas herramientas innovadoras de comunicación, entre todos los usuarios de nuestra plataforma que requieran de auxilio vial y los proveedores de grúas disponibles y más cercanos a ellos. </p>
-                </div>
+                    <?php foreach($about1_contents as $about1):?>
+						<p class="text-justify"><?php echo $about1['html'];?></p>
+					<?php endforeach;?>
+				</div>
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Nuestra mision</h2>
+                    <h2><?php echo $about2_title;?></h2>
                     <!--<hr class="star-light">-->
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <p class="text-justify">Ofrecemos tranquilidad a los accidentados en la vía entregándoles el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, teniendo como principal objetivo construir una empresa sustentable donde todos queramos ir a trabajar para ayudar a los demás.</p>
-                </div>
+                    <?php foreach($about2_contents as $about2):?>
+						<p class="text-justify"><?php echo $about2['html'];?></p>
+					<?php endforeach;?>
+				</div>
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Hacia donde vamos</h2>
-                    <hr class="star-light">
+                    <h2><?php echo $about3_title;?></h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <p class="text-justify">Ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia,  trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado</p>
-                </div>
+                    <?php foreach($about3_contents as $about3):?>
+						<p class="text-justify"><?php echo $about3['html'];?></p>
+					<?php endforeach;?>
+				</div>
             </div>
         </div>
     </section>
-    <section class="" id="objectives">
+    <section class="success2" id="objectives">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Nuestros Objetivos</h2>
-                    <hr class="star-light">
+                    <h2><?php echo $objectives_title;?></h2>
                 </div>
             </div>
 			<hr>
@@ -155,13 +159,11 @@
                                 <div class="row">
                 <div class="col-lg-12 col-lg-offset-0">
 					<ul class="list-group">
-					  <li class="list-group-item">Construir una empresa sustentable donde todos queramos ir a trabajar para ayudar a los demás.</li>
-					  <li class="list-group-item">Tener afiliados a nuestra plataforma al 100% de los grueros que operan en Venezuela, para que brinden el mejor servicio de auxilio vial a los usuarios suscritos en la misma.</li>
-					  <li class="list-group-item">Contribuir notablemente a la mejora de la industria y el servicio de auxilio vial en Venezuela y el mundo.</li>
-					  <li class="list-group-item">Mejorar los tiempos de respuesta de parte de los grueros para con los accidentados en la vía, teniendo un tiempo promedio de respuesta y rescate de 20 - 30 minutos.</li>
-					  <li class="list-group-item">Mejorar notablemente el servicio de auxilio vial ofrecido por todas las compañías de seguros en Venezuela a sus clientes asegurados.</li>
-					  <li class="list-group-item">Colaborar con la creación de la red/comunidad de grueros más grande de Venezuela y América Latina, con la cual se realizarán constantemente convenciones donde se discutirán los problemas diarios de la profesión y sus posibles soluciones, donde se darán a conocer los últimos avances de la industria y se ajustará regularmente las tarifas de las carreras/remolques/auxilios de acuerdo a la situación económica-política y social de cada país donde nos encontremos operando.</li>
-					  <li class="list-group-item">Crear la fundación “Grueros de las Américas” donde constantemente se recaudarán fondos entre todos los pertenecientes a dicha red/comunidad, para así realizar obras benéficas en todos los países donde la empresa se encuentre presente.</li>
+						<?php foreach($objectives_contents as $objectives):?>
+					  <li class="list-group-item">
+						  <p class="text-justify"><?php echo html_entity_decode($objectives['html']);?></p>
+					  </li>
+					  <?php endforeach;?>
 					</ul>
                 </div>
             </div>
@@ -174,32 +176,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>¿Que hacemos?</h2>
-                    <hr class="star-primary">
+                    <h2><?php echo $work_title;?></h2>
+                    <!--<hr class="star-primary">-->
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-					<p class="text-justify">Ofrecemos servicios de comunicación para el auxilio vial a través de nuestra aplicación móvil llamada TU/GRUERO®. La cual se puede conseguir y descargar gratuitamente en las tiendas de aplicación móvil más reconocidas a nivel mundial: Play Store y App Store.</p>
-					<p class="text-justify">Presentamos TU/GRUERO®, la primera aplicación móvil del mundo que ofrece el servicio de E-hailing (solicitud de servicios de transporte con teléfonos inteligentes) para grúas o remolcadoras de vehículos accidentados. TU/GRUERO® es pionera en el ámbito tecnológico para los servicios ofrecidos por las compañías de seguros ya que actualmente el 100% de estas ofrece el servicio de auxilio a través del tradicional Call Center de su operadora de asistencia en viajes, el cual resulta tedioso y poco eficiente debido a la triangulación existente entre: Accidentado - Operadora de asistencia en viaje - Gruero.</p>
-					<p class="text-justify">TU/GRUERO® garantiza por primera vez un servicio de auxilio vial de verdadera rapidez, seguridad y tranquilidad tanto para los accidentados como para los grueros gracias a su novedoso sistema de geolocalización, el cual permite ubicar a los grueros más cercanos (de manera directa y sin intermediarios) en el mapa y seguirlos en tiempo real vía GPS hasta que éste y el accidentado se encuentren en el sitio de la avería.</p>
+					<?php foreach($work_contents as $work):?>
+						<?php echo html_entity_decode($work['html']);?>
+					<?php endforeach;?>
                 </div>
             </div>
 		</div>
 	</section>
     <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="">
+    <section id="portfolio" class="success2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>¿Cómo funcionamos?</h2>
-                    <hr class="star-primary">
+                    <h2><?php echo $portfolio_title;?></h2>
+                   <!-- <hr class="star-primary">-->
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-					<p class="text-justify">Actualmente le ofrecemos nuestros servicios de comunicación para el auxilio vial a las compañías de seguros venezolanas suscritas a TU/GRUERO®, para que sus clientes asegurados puedan comunicarse directamente con los proveedores de grúas afiliados a nuestra plataforma cuando éstos (clientes asegurados) se encuentren en la necesidad de solicitar servicios de auxilio vial.</p>
-					<p class="text-justify">¡Comuníquese con su corredor de seguros para poder optar por la póliza de asistencia en viajes que incluya disfrutar de los servicios de TU/GRUERO®!</p>
+					<?php foreach($portfolio_contents as $portfolio):?>
+						<?php echo html_entity_decode($portfolio['html']);?>
+					<?php endforeach;?>
                 </div>
             </div>
             <!--<div class="row">
@@ -240,7 +243,7 @@
 
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="success2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

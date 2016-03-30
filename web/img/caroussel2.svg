@@ -16,7 +16,7 @@
    width="2299"
    height="927"
    sodipodi:docname="caroussel2.svg"
-   inkscape:export-filename="/var/www/html/tugruero/tugruero_disenio/img/caroussel1.png"
+   inkscape:export-filename="/var/www/html/tugruero/web/img/caroussel2.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <metadata
@@ -27,7 +27,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -288,10 +288,10 @@
          style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#f89f1f;fill-opacity:1;font-family:Webdings;-inkscape-font-specification:Webdings" /></flowRegion><flowPara
        id="flowPara3154"
        style="font-size:33.49651718px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Webdings;-inkscape-font-specification:Webdings"><flowSpan
-   style="-inkscape-font-specification:Webdings;font-family:Webdings;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:22.33101105000000075px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%;fill:#000000"
-   id="flowSpan3034">¡</flowSpan>Más de 2000 grueros e<flowSpan
-   style="fill:#000000"
-   id="flowSpan3032">n toda Venezuela </flowSpan></flowPara><flowPara
+         style="-inkscape-font-specification:Webdings;font-family:Webdings;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:22.33101105000000075px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%;fill:#000000"
+         id="flowSpan3034">¡</flowSpan><flowSpan
+         style="fill:#000000"
+         id="flowSpan3040">Más de 2000 grueros en toda Venezuela </flowSpan></flowPara><flowPara
        style="font-size:33.49651717999999789px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Webdings;-inkscape-font-specification:Webdings;fill:#000000"
        id="flowPara3028">al alcance de tu mano<flowSpan
    style="-inkscape-font-specification:Webdings;font-family:Webdings;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:22.33101105px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"

@@ -29,6 +29,32 @@ $values = $_REQUEST;
         $CarousselDetails = new CarousselDetails();
         $caroussel1_name = $CarousselDetails ->getCarousselName(1);
         $caroussel1_details = $CarousselDetails ->getCarousselDetails(1);
+		
+		/*Contents titles*/
+		
+		$HtmlContents = new ContentsHtml();
+		/*about*/
+		$about1_title = $HtmlContents ->getContentTitle(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
+		$about1_contents = $HtmlContents ->getContents(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
+
+		$about2_title = $HtmlContents ->getContentTitle(1, 'about', 'page.php', 'es', 1, 'NUESTRA_MISION' );
+		$about2_contents = $HtmlContents ->getContents(1, 'about', 'page.php', 'es', 1, 'NUESTRA_MISION' );		
+
+		$about3_title = $HtmlContents ->getContentTitle(1, 'about', 'page.php', 'es', 1, 'DONDE_VAMOS' );
+		$about3_contents = $HtmlContents ->getContents(1, 'about', 'page.php', 'es', 1, 'DONDE_VAMOS' );			
+		
+		/*work*/		
+		$work_title = $HtmlContents ->getContentTitle(1, 'work', 'page.php', 'es', 1, 'QUE_HACEMOS' );
+		$work_contents = $HtmlContents ->getContents(1, 'work', 'page.php', 'es', 1, 'QUE_HACEMOS' );		
+		
+		/*portfolio*/		
+		$portfolio_title = $HtmlContents ->getContentTitle(1, 'portfolio', 'page.php', 'es', 1, 'COMO_FUNCIONAMOS' );
+		$portfolio_contents = $HtmlContents ->getContents(1, 'portfolio', 'page.php', 'es', 1, 'COMO_FUNCIONAMOS' );			
+		
+		
+		/*objectives*/
+		$objectives_title = $HtmlContents ->getContentTitle(1, 'objectives', 'page.php', 'es', 1, 'OBJETIVOS' );
+		$objectives_contents = $HtmlContents ->getContents(1, 'objectives', 'page.php', 'es', 1, 'OBJETIVOS' );
         
         
 	require('page.php');
