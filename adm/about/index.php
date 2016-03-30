@@ -32,7 +32,11 @@ $values = $_REQUEST;
 	}
 	function executeIndex($values = null)
 	{
-	require('message_list_view.php');
+		$HtmlContents = new ContentsHtml();
+		$about_title = $HtmlContents ->getContentTitle(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
+		$about_contents = $HtmlContents ->getContents(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
+		
+	require('about_list_view.php');
 	}
 	function executeNew($values = null)
 	{
@@ -49,10 +53,10 @@ $values = $_REQUEST;
 	function executeEdit($values = null)
 	{
 		
-		$Message = new Message();
-		$values = $Message->getMessageById($values);
+		$HtmlContents = new ContentsHtml();
+		$values = $HtmlContents ->getContentsValue(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
 		$values['action'] = 'update';
-		require('message_form_view.php');
+		require('about_form_view.php');
 	}
 	function executeUpdate($values = null)
 	{

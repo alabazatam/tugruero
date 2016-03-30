@@ -30,7 +30,7 @@ $values = $_REQUEST;
         $caroussel1_name = $CarousselDetails ->getCarousselName(1);
         $caroussel1_details = $CarousselDetails ->getCarousselDetails(1);
 		
-		/*Contents titles*/
+		/*Contents*/
 		
 		$HtmlContents = new ContentsHtml();
 		/*about*/

@@ -49,6 +49,21 @@
 			return $q;  			
 			
 		}	
-		
+		public function getContentsValue($id_app,$section,$page, $language, $id_app, $name)
+		{
+            $ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->contents_html
+                        ->select("*")
+                        ->where('id_app=?',$id_app)
+                        ->and('section =?',$section)
+						->and('page=?',$page )
+						->and('language=?',$language)
+						->and('id_app=?',$id_app)
+						->and('name=?',$name)
+						->fetch();
+
+			return $q;  			
+			
+		}		
 	}
 	
