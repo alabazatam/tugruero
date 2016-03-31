@@ -10,6 +10,7 @@
                         ->select("*")
                         ->where('id_app=?',$id_app)
                         ->and('id_menuref =?',$id_menu_ref)
+						->and('status=?',1)
                         ->order('orders');
 			return $q;            
         }

@@ -20,8 +20,9 @@ class Message {
 			$columns[2] = 'email';
 			$columns[3] = 'phone';
 			$columns[4] = 'message';
-                        $columns[5] = 'date_added';
-                        $columns[6] = 'status';
+            $columns[5] = 'date_added';
+			$columns[6] = 'date_updated';
+            $columns[7] = 'status';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -90,6 +91,7 @@ class Message {
 		function updateMessage($values){
 			unset($values['action']);
 			$id_message = $values['id_message'];
+			$values['date_updated'] = date('Y-m-d h:i:s');
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->message("id_message", $id_message)->update($values);
 			return $q;
