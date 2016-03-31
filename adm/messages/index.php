@@ -32,19 +32,12 @@ $values = $_REQUEST;
 	}
 	function executeIndex($values = null)
 	{
-	require('message_list_view.php');
+	require('messages_list_view.php');
 	}
 	function executeNew($values = null)
 	{
 		$values['action'] = 'add';
-		require('message_form_view.php');
-	}
-	function executeSave($values = null)
-	{
-		
-		$Message = new Message();
-		$values = $Message->saveMessage($values);
-		executeEdit($values);die;
+		require('messages_form_view.php');
 	}
 	function executeEdit($values = null)
 	{
@@ -52,7 +45,7 @@ $values = $_REQUEST;
 		$Message = new Message();
 		$values = $Message->getMessageById($values);
 		$values['action'] = 'update';
-		require('message_form_view.php');
+		require('messages_form_view.php');
 	}
 	function executeUpdate($values = null)
 	{
@@ -69,19 +62,30 @@ $values = $_REQUEST;
 		$array_json = array();
 		$array_json['recordsTotal'] = $message_list_json_cuenta;
 		$array_json['recordsFiltered'] = $message_list_json_cuenta;
-		if(count($message_list_json)>0)
+		if(count($message_list_json_cuenta)>0)
 		{
 			foreach ($message_list_json as $message) 
 			{
 				$id_message = $message['id_message'];
+				$status = $message['status'];
+				
+				if($status == 1)
+				{
+					$message_status = "<label class='label label-danger'>No visualizado</label>";
+				}
+				if($status == 0)
+				{
+					$message_status = "<label class='label label-success'>Visualizado</label>";
+				}				
 				$array_json['data'][] = array(
 					"id_message" => $id_message,
 					"names" => $message['names'],
 					"email" => $message['email'],
 					"phone" => $message['phone'],
 					"message" => $message['message'],
-                                        "status" => $message['status'],
-                                        "date_added" => $message['date_added'],
+					"status" => $message_status,
+					"date_added" => $message['date_added'],
+					"date_updated" => $message['date_added'],
 					"actions" => '<a href="index.php?action=edit&id_message='.$id_message.'" class="btn btn-default btn-sm"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'
 
 					);	
@@ -89,14 +93,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_message" => $id_message,
-					"names" => "",
-					"email" => "",
-					"phone" => "",
-					"message" => "",
-                                        "status" => "",
-                                        "date_added" => "",
-					"actions" => "");
+			$array_json['data'][0] = array("id_message"=>null,"names"=>"","email"=>"","phone"=>"","message"=>"","status"=>"","date_added"=>"","actions"=>'',"date_updated"=>"");
 		}
 
 		echo json_encode($array_json);die;

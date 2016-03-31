@@ -73,12 +73,21 @@ $values = $_REQUEST;
 		{
 			foreach ($users_list_json as $user) 
 			{
+				$status = $user['status'];
+				if($status == 0)
+				{
+					$message_status = "<label class='label label-danger'>Desactivado</label>";
+				}
+				if($status == 1)
+				{
+					$message_status = "<label class='label label-success'>Activo</label>";
+				}
 				$id_user = $user['id_user'];
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
 					"login" => $user['login'],
 					"password" => "******",
-					"status" => $user['status'],
+					"status" => $message_status,
 					"id_role" => $user['id_role'],
 					"actions" => '<a href="index.php?action=edit&id_user='.$id_user.'" class="btn btn-default btn-sm"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'
 

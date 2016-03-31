@@ -33,9 +33,7 @@ $values = $_REQUEST;
 	function executeIndex($values = null)
 	{
 		$HtmlContents = new ContentsHtml();
-		$about_title = $HtmlContents ->getContentTitle(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
-		$about_contents = $HtmlContents ->getContents(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
-		
+		$contents_html = $HtmlContents ->getContentsList(1,'page.php', 'es');
 	require('about_list_view.php');
 	}
 	function executeNew($values = null)
@@ -54,15 +52,15 @@ $values = $_REQUEST;
 	{
 		
 		$HtmlContents = new ContentsHtml();
-		$values = $HtmlContents ->getContentsValue(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
+		$values = $HtmlContents ->getContentsValue($values['id_content'] );
 		$values['action'] = 'update';
 		require('about_form_view.php');
 	}
 	function executeUpdate($values = null)
 	{
 		
-		$Message = new Message();
-		$Message->updateMessage($values);		
+		$HtmlContents = new ContentsHtml();
+		$HtmlContents->updateContentsHtml($values);
 		executeEdit($values);die;
 	}	
 	function executeMessagesListJson($values)

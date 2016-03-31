@@ -23,11 +23,11 @@
                            <ul class="nav navbar-nav navbar-right">
                             <?php foreach($items_padres as $item):?>
                                 <li class="dropdown">
-                                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $item['name']?> <span class="caret"></span></a>
+                                  <a class="dropdown-toggle small text-capitalize" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $item['name']?> <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                       <?php $items_hijos = $Menu -> getMenu(3,1,$item['id_menu']);?>
                                       <?php foreach($items_hijos as $item2):?>
-                                        <li><a href="<?php echo full_url.$item2['url']?>" target="mainframe"><?php echo $item2['name']?></a></li>
+                                        <li class=""><a class="small text-capitalize" href="<?php echo full_url.$item2['url']?>" target="mainframe"><?php echo $item2['name']?></a></li>
                                       <?php endforeach;?>
                                     </ul>
                                 </li>
