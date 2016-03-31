@@ -60,7 +60,7 @@ $values = $_REQUEST;
 	}
 	function executeValidaFormulario1($values = null)
 	{
-	
+		
 		$errors = validaFormulario1($values);
 		$valido = true;
 		if(count($errors)>0)
@@ -82,10 +82,14 @@ $values = $_REQUEST;
 				foreach($registro as $id=> $valor)
 				{
 					if($valor["registrada"] == 1)
-						{
-							$values['errors']['YaRegistrada']="empresa ya registrada";
-							executePaso1($values);
-						}
+					{
+						$values['errors']['YaRegistrada']="empresa ya registrada";
+						executePaso1($values);
+					}else if($valor["publicado"] == 1)
+					{
+						$values['errors']['YaPendiente']="Ya existe un registro, esta en la espera por su aprobación.";
+						executePaso1($values);
+					}
 					else
 					{
 						$date = date("Y-m-d H:i:s");
@@ -114,8 +118,6 @@ $values = $_REQUEST;
 				executePaso1($values);
 			}
 			die;
-			
-			
 		}
 	}
 	
@@ -125,7 +127,7 @@ $values = $_REQUEST;
 	}
 	function executeValidaFormulario2($values = null)
 	{
-		$errors = validaFormulario2($values);
+		$errors = validaFormulario2($values,$_FILES);
 		$valido = true;
 		if(count($errors)>0)
 		{
@@ -142,10 +144,12 @@ $values = $_REQUEST;
 					$idEmpresa = $valor['idempresasregistradas'];
 					$idToken = $valor['id'];
 					$correo = $valor['mail'];
+					$correoAlternativo = $valor['alternativemail'];
 					utilizarToken($values['token']);
 					$DatosEmpresa = GetCompanyValidation($idEmpresa);
 					foreach ($DatosEmpresa as $id => $value) 
 					{
+						$idCompanyValidation=$value["id"];
 						$RegistrarEmpresa = array("rif" => $value["rif"],
 						"razon_social"=>$value["razonsocial"],
 						"responsible_name"=>$values["responsible_name"]);
@@ -156,10 +160,39 @@ $values = $_REQUEST;
 					$password = substr( md5(microtime()), 1, 8);
 					$userData = array("login" => "M-".$values["cedula"],
 						"password" => hash('sha256', $password),
-						"id_token" => $idToken,
-						"id_registered_company" => $idCompany);
+						"mail" => $correo,
+						"mail_alternative" => $correoAlternativo);
 					$user = RegisUser($userData);
 					$idUser = $user["id"];
+					$empresaRegistrada = array('rif' => $value['rif']
+												,'razonsocial' => $value['razonsocial']
+												,'publicado' => 1
+												,'registrada' => 0,"id"=>$idCompanyValidation);
+					$userForCompany = array("id_user" => $idUser,"id_company"=>$idCompany);
+					RegisUserForCompany($userForCompany);
+					updateCompanyValidation($empresaRegistrada);
+					$carpeta = "../web/files/".$userData["login"];
+					if(!file_exists($carpeta))
+					{
+						mkdir($carpeta, 0700,true);
+						chmod($carpeta,  0777);
+					}
+					$fichero_subido = $carpeta."/";
+					$cantidad = count($_FILES);
+					$i = 1;
+					while($i < $cantidad+1)
+					{
+						if (!move_uploaded_file($_FILES['file_'.$i]['tmp_name'], $fichero_subido.$i))
+						{
+					 
+							$values['error']['archivoNosubido']= "¡Posible ataque de subida de ficheros!\n";
+							executePaso2($values);
+							break;
+						
+						}
+						$i++;
+					}
+					
 					$message = "Usuario: ".$userData["login"]." Clave: ".$password;
 					$Mail = new Mail();
 					$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
@@ -175,10 +208,14 @@ $values = $_REQUEST;
 				$values['errors']['token'] = 'Token invalido';
 				executePaso1($values);
 			}
-		}else
+		}
+		else
 		{
+			$values = null;
 			$values['errors'] = $errors;
-			executePaso2($values);
+			executePaso1($values);
+			
+			
 		}
 	}
 							

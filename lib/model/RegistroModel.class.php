@@ -6,8 +6,7 @@
 			$q = $ConnectionORM->getConnect('tugruero')->company_validation_ve
 			->select("*")
 			->where("rif=?",$rif)
-			->and("razonSocial like ?","%$razonSocial%")
-			->and("publicado = 1");
+			->and("razonSocial like ?","%$razonSocial%");
 			return $q;
  }
  function createTokenRegis($datos)
@@ -23,7 +22,6 @@
 			->select("*")
 			->where("Token=?",$token)
 			->and("valid = 0")
-			->and("publicado = 0")
 			->and("timeExpire >=?",date("Y-m-d H:i:s"));
 			
 			return $q;
@@ -51,13 +49,26 @@ function GetCompanyValidation($idCompanyValidation)
 	$q = $ConnectionORM->getConnect('tugruero')->registered_company()->insert($values);
 	return $q;
  }
- function RegisUser($values)
+ function RegisUserForCompany($values)
+ {
+	$ConnectionORM = new ConnectionORM();
+	$q = $ConnectionORM->getConnect('tugruero')->user_for_company()->insert($values);
+	return $q;
+ }
+  function RegisUser($values)
  {
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')->users()->insert($values);
 	return $q;
  }
- 
+ function updateCompanyValidation($values)
+ {
+	$id = $values["id"];
+	$ConnectionORM = new ConnectionORM();
+	$q = $ConnectionORM->getConnect('tugruero')->company_validation_ve('id', $id)->update($values);
+	return $q;
+	
+ }
 function connect($login,$password)
 {
 
