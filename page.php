@@ -108,35 +108,104 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>¿Quiénes somos?</h2>
+                    <h2><?php echo $about1_title;?></h2>
                     <!--<hr class="star-light">-->
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lobortis odio. In a tristique enim. In sodales placerat neque eget porttitor. Integer urna magna, commodo nec diam eget, fringilla efficitur mauris. In scelerisque odio sit amet semper faucibus. </p>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <?php foreach($about1_contents as $about1):?>
+						<p class="text-justify"><?php echo $about1['html'];?></p>
+					<?php endforeach;?>
+				</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2><?php echo $about2_title;?></h2>
+                    <!--<hr class="star-light">-->
                 </div>
-                <div class="col-lg-4">
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at lobortis odio. In a tristique enim. In sodales placerat neque eget porttitor. Integer urna magna, commodo nec diam eget, fringilla efficitur mauris. In scelerisque odio sit amet semper faucibus. </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <?php foreach($about2_contents as $about2):?>
+						<p class="text-justify"><?php echo $about2['html'];?></p>
+					<?php endforeach;?>
+				</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2><?php echo $about3_title;?></h2>
                 </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Acción
-                    </a>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <?php foreach($about3_contents as $about3):?>
+						<p class="text-justify"><?php echo $about3['html'];?></p>
+					<?php endforeach;?>
+				</div>
+            </div>
+        </div>
+    </section>
+    <section class="success2" id="objectives">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2><?php echo $objectives_title;?></h2>
+                </div>
+            </div>
+			<hr>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                                <div class="row">
+                <div class="col-lg-12 col-lg-offset-0">
+					<ul class="list-group">
+						<?php foreach($objectives_contents as $objectives):?>
+					  <li class="list-group-item">
+						  <p class="text-justify"><?php echo html_entity_decode($objectives['html']);?></p>
+					  </li>
+					  <?php endforeach;?>
+					</ul>
+                </div>
+            </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="">
+    <section id="work" class="success">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>¿Cómo funcionamos?</h2>
+                    <h2><?php echo $work_title;?></h2>
                     <!--<hr class="star-primary">-->
                 </div>
             </div>
             <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+					<?php foreach($work_contents as $work):?>
+						<?php echo html_entity_decode($work['html']);?>
+					<?php endforeach;?>
+                </div>
+            </div>
+		</div>
+	</section>
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="success2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2><?php echo $portfolio_title;?></h2>
+                   <!-- <hr class="star-primary">-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+					<?php foreach($portfolio_contents as $portfolio):?>
+						<?php echo html_entity_decode($portfolio['html']);?>
+					<?php endforeach;?>
+                </div>
+            </div>
+            <!--<div class="row">
                 <div class="col-sm-4 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
@@ -167,14 +236,14 @@
                         <img src="web/img/g5247.png" class="img-responsive" alt="">
                     </a>
                 </div>
-            </div>
+            </div>-->
         </div>
     </section>
 
 
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="success2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -219,7 +288,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                                <button type="submit" id="btnSubmit" class="btn btn-success btn-lg">Enviar</button>
                             </div>
                         </div>
                     </form>
@@ -235,25 +304,19 @@
                 <div class="row">
                     <div class="footer-col col-md-4">
                         <h3>Dirección</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                        <p>Av. Principal Los Dos Caminos. Edificio Provincial. Piso 8. Oficina 8 “B”. Municipio Sucre. Caracas. Venezuela. Código Postal: 1071.</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Redes sociales</h3>
                         <ul class="list-inline">
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                <a class="btn-social btn-outline" href="https://wwww.facebook.com/tugruero" target="_blank"><i class="fa fa-fw fa-facebook"></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                                <a href="https://twitter.com/tugruero" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                                <a href="https://www.instagram.com/tugruero/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>

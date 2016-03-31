@@ -23,7 +23,7 @@
         $mailer = Swift_Mailer::newInstance($transport);
 
         // Create a message
-        $send = Swift_Message::newInstance('Asunto de prueba')
+        $send = Swift_Message::newInstance($subject)
           ->setFrom($from)
           ->setTo($to)
           ->setBody($message)

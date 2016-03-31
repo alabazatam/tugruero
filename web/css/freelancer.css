@@ -205,12 +205,48 @@ section h2 {
     margin: 0;
     font-size: 3em;
 }
-
-section.success {
-    color: #fff;
-    background: #2A2D32;
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+    section.success {
+            color: #fff;
+            background-color: #2A2D32;
+        }
 }
-
+@media (min-width: 481px){
+    section.success {
+        color: #fff;
+      background-color: #282C30;
+      background: transparent url("../img/success.png") no-repeat fixed top;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+     background-size: 100% auto;
+     height: auto;
+    }
+}
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+    section.success2 {
+            color: #000000;
+            background-color: #ffffff;
+        }
+}
+@media (min-width: 481px){
+    section.success2 {
+        color: #000000;
+      background-color: #2A2D32;
+      background: transparent url("../img/success2.png") no-repeat fixed top;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+     background-size: 100% auto;
+     height: auto;
+    }
+}
 section.success a,
 section.success a:hover,
 section.success a:focus,
@@ -230,7 +266,7 @@ section.success a.active {
     }
 }
 #portfolio  {
-    background-color: #cccccc;
+    background-color: #ffffff;
 }
 #portfolio .portfolio-item {
     right: 0;
@@ -485,4 +521,12 @@ footer .footer-below {
 .portfolio-modal .modal-backdrop {
     display: none;
     opacity: 0;
+}
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: transparent;
+  border: 1px solid #ddd;
 }

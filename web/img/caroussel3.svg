@@ -16,7 +16,7 @@
    width="2299"
    height="927"
    sodipodi:docname="caroussel3.svg"
-   inkscape:export-filename="/var/www/html/tugruero/tugruero_disenio/img/caroussel1.png"
+   inkscape:export-filename="/var/www/html/tugruero/web/img/caroussel3.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <metadata
@@ -27,7 +27,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1458,7 +1458,7 @@
      xml:space="preserve"
      id="flowRoot3148"
      style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f89f1f;fill-opacity:1;stroke:none;font-family:Webdings;-inkscape-font-specification:Webdings"
-     transform="matrix(1.153287,0,0,2.3289333,-226.07413,-733.23072)"
+     transform="matrix(1.495393,0,0,2.8082492,-279.98163,-1079.7435)"
      inkscape:export-filename="/var/www/html/tugruero/web/img/caroussel3.png"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90"><flowRegion
@@ -1469,26 +1469,10 @@
          x="233.21396"
          y="436.56476"
          style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#f89f1f;fill-opacity:1;font-family:Webdings;-inkscape-font-specification:Webdings" /></flowRegion><flowPara
-       id="flowPara3154"
-       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Webdings;-inkscape-font-specification:Webdings">Desde cualq<flowSpan
-   style="fill:#000000"
-   id="flowSpan4955">uier Dispositivo</flowSpan></flowPara></flowRoot>  <flowRoot
-     xml:space="preserve"
-     id="flowRoot3148-5"
-     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f89f1f;fill-opacity:1;stroke:none;font-family:Webdings;-inkscape-font-specification:Webdings"
-     transform="matrix(1.1353941,0,0,1.0442978,-168.51866,-64.456666)"
-     inkscape:export-filename="/var/www/html/tugruero/web/img/caroussel3.png"
-     inkscape:export-xdpi="90"
-     inkscape:export-ydpi="90"><flowRegion
-       id="flowRegion3150-6"><rect
-         id="rect3152-3"
-         width="922.56702"
-         height="109.74775"
-         x="233.21396"
-         y="436.56476"
-         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#f89f1f;fill-opacity:1;font-family:Webdings;-inkscape-font-specification:Webdings" /></flowRegion><flowPara
-       id="flowPara3154-9"
-       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#333333;font-family:Webdings;-inkscape-font-specification:Webdings">Rompe los límites</flowPara></flowRoot>  <g
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Webdings;-inkscape-font-specification:Webdings"
+       id="flowPara3260">¡Rapidez, Comodidad </flowPara><flowPara
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Webdings;-inkscape-font-specification:Webdings"
+       id="flowPara3274">y Seguridad!</flowPara></flowRoot>  <g
      transform="matrix(0.84945888,0,0,0.85821763,132.26069,444.64573)"
      id="g3334"
      inkscape:export-filename="/var/www/html/tugruero/web/img/caroussel3.png"
@@ -1508,4 +1492,14 @@
          id="path3340" />
     </g>
   </g>
-</svg>
+  <flowRoot
+     xml:space="preserve"
+     id="flowRoot3262"
+     style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:italic;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Sans Italic"><flowRegion
+       id="flowRegion3264"><rect
+         id="rect3266"
+         width="6.8592343"
+         height="72.021957"
+         x="356.68018"
+         y="199.92117" /></flowRegion><flowPara
+       id="flowPara3268"></flowPara></flowRoot></svg>
