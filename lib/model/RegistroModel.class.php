@@ -55,6 +55,18 @@ function GetCompanyValidation($idCompanyValidation)
 	$q = $ConnectionORM->getConnect('tugruero')->user_for_company()->insert($values);
 	return $q;
  }
+  function RegisCompanyFile($values)
+ {
+	$ConnectionORM = new ConnectionORM();
+	$q = $ConnectionORM->getConnect('tugruero')->company_files()->insert($values);
+	return $q;
+ }
+  function RegisDataUser($values)
+ {
+	$ConnectionORM = new ConnectionORM();
+	$q = $ConnectionORM->getConnect('tugruero')->users_data()->insert($values);
+	return $q;
+ }
   function RegisUser($values)
  {
 	$ConnectionORM = new ConnectionORM();
@@ -68,6 +80,14 @@ function GetCompanyValidation($idCompanyValidation)
 	$q = $ConnectionORM->getConnect('tugruero')->company_validation_ve('id', $id)->update($values);
 	return $q;
 	
+ }
+ function getBankList()
+ {
+	$ConnectionORM = new ConnectionORM();
+	$q = $ConnectionORM->getConnect('tugruero')
+			->type_bank
+			->select("*");
+	return $q;
  }
 function connect($login,$password)
 {

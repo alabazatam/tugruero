@@ -42,16 +42,49 @@
 				                        	<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" required>
 				                        </div>
 				                        <div class="form-group">
-											<label class="sr-only" for="name">Nombre del usuario</label>
-				                        	<input type="text" name="name" placeholder="Nombre del usuario..." class="form-twitter form-control" id="form-twitter" required>
+											<label class="sr-only" for="first_name">Primer nombre</label>
+				                        	<input type="text" name="first_name" placeholder="Primer nombre..." class="form-twitter form-control" id="form-twitter" required>
+				                        </div>
+										 <div class="form-group">
+											<label class="sr-only" for="second_name">Segundo nombre</label>
+				                        	<input type="text" name="second_name" placeholder="Segundo nombre..." class="form-twitter form-control" id="form-twitter">
 				                        </div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="lastname">Apellido del usuario</label>
-				                        	<input type="text" name="lastname" placeholder="Apellido del usuario..." class="form-google-plus form-control" id="form-google-plus" required>
+				                        	<label class="sr-only" for="first_lastname">Primer apellido</label>
+				                        	<input type="text" name="first_lastname" placeholder="Primer apellido..." class="form-google-plus form-control" id="form-google-plus" required>
 				                        </div>
 										<div class="form-group">
-				                        	<label class="sr-only" for="cedula">Cédula</label>
-				                        	<input type="text" name="cedula" placeholder="Cedula..." class="form-google-plus form-control" id="form-google-plus" equired>
+				                        	<label class="sr-only" for="second_lastname">Segundo apellido</label>
+				                        	<input type="text" name="second_lastname" placeholder="Segundo apellido..." class="form-google-plus form-control" id="form-google-plus" >
+				                        </div>
+										<div class="form-group">
+											<div class="input-group">
+											  <span class="input-group-btn">
+												<select name="nationality" class="btn btn-secondary">
+													<option value="V" selected>V</option>
+													<option value="E">E</option>
+												</select>
+											  </span>
+												<input type="text" class="form-control" placeholder="Cedula..." name="cedula" required="">
+											  </span>
+											</div>
+										</div>
+										<div class="form-group">
+				                        	<label class="sr-only" for="phone">Telefono</label>
+				                        	<input type="text" name="phone" placeholder="Telefono..." class="form-google-plus form-control" id="form-google-plus" required>
+				                        </div>
+										<div class="form-group">
+				                        	<label class="sr-only" for="type_bank">Banco</label>
+				                        	 <select name="type_bank" class="form-google-plus form-control" required>
+												<option value selected>Seleccione..</option>												
+												 <?php foreach($values['bank'] as $bank):?>
+													<option value="<?php echo $bank["id"]?>"><?php echo $bank["bank_name"]?></option>
+												<?php endforeach;?>
+											  </select> 
+				                        </div>
+										<div class="form-group">
+				                        	<label class="sr-only" for="NumCuenta">Número de Cuenta</label>
+				                        	<input type="text" name="NumCuenta" placeholder="Número de Cuenta..." class="form-google-plus form-control" id="form-google-plus" required>
 				                        </div>
 				                        <button type="submit" class="btn">Registrarme!</button>
 				                    </div>

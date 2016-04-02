@@ -16,10 +16,32 @@
 		                        		</div>
 		                            </div>
 		                            <div class="form-bottom">
-										<input type="hidden" name="action" id="formulario" value="validaFormulario1">
-				                    	<div class="form-group">
-				                    		<label class="sr-only" for="Rif">RIF</label>
-											<input type="text" name="Rif" id="registrarse-rif" placeholder="RIF..." class="form-first-name form-control" id="form-first-name" required>				                        
+									<input type="hidden" name="action" id="formulario" value="validaFormulario1">
+										<div class="input-group">
+										  <span class="input-group-btn">
+											<select name="Type_rif" class="btn btn-secondary">
+												<option value="V" selected>V</option>
+												<option value="E">E</option>
+												<option value="J">J</option>
+												<option value="P">P</option>
+												<option value="G">G</option>
+											</select>
+										  </span>
+										  <input type="text" class="form-control" placeholder="Product name">
+										  <span class="input-group-btn">
+											<select name="Last-number" class="btn btn-secondary">
+											  <option value="0" selected>0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+											</select>
+										  </span>
 										</div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="razonSocial">Razón social</label>

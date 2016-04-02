@@ -6,7 +6,6 @@
 		if(count($values)>0)
 		{
 			foreach($values as $campos)
-			
 				if(empty($campos))
 					{
 						$errors['campos']="Todos los campos deben ser llenados";
@@ -25,11 +24,14 @@
 		if(count($values)>0)
 		{
 			foreach($values as $campos)
+			if(!isset($campos['second_name']) == null && !isset($campos['second_lastname']) == null)
+			{
 			
 				if(empty($campos))
 					{
 						$errors['campos vacios']="Todos los campos deben ser llenados.";
 					}
+			}
 		}
 		$cantidad = count($archivos);
 		$i = 1;
