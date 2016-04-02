@@ -40,6 +40,8 @@ $values = $_REQUEST;
 				$data = validarToken($values['token']);
 				if(count($data)>0)
 				{
+					$values['bank'] = getBankList();
+					
 					require('paso2_view.php');
 				}
 				else
@@ -145,14 +147,17 @@ $values = $_REQUEST;
 					$idToken = $valor['id'];
 					$correo = $valor['mail'];
 					$correoAlternativo = $valor['alternativemail'];
-					utilizarToken($values['token']);
+					//utilizarToken($values['token']);
 					$DatosEmpresa = GetCompanyValidation($idEmpresa);
 					foreach ($DatosEmpresa as $id => $value) 
 					{
 						$idCompanyValidation=$value["id"];
 						$RegistrarEmpresa = array("rif" => $value["rif"],
 						"razon_social"=>$value["razonsocial"],
-						"responsible_name"=>$values["responsible_name"]);
+						"responsible_name"=>$values["responsible_name"],
+						"id_type_bank" =>$values["type_bank"],
+						"NumCuenta" => $values["NumCuenta"],
+						"responsible_cedula"=>$values["nationality"]."-".$values["cedula"]);
 						break;
 					}
 					$q = RegisCompany($RegistrarEmpresa);
@@ -170,25 +175,29 @@ $values = $_REQUEST;
 												,'registrada' => 0,"id"=>$idCompanyValidation);
 					$userForCompany = array("id_user" => $idUser,"id_company"=>$idCompany);
 					RegisUserForCompany($userForCompany);
+					$Datauser = array("first_name" => $values["first_name"],
+										"second_name" => $values["second_name"],
+										"first_last_name" => $values["first_lastname"],
+										"second_last_name" => $values["second_lastname"],
+										"id_users" => $idUser,
+										"phone" => $values["phone"]);
+					RegisDataUser($Datauser);
 					updateCompanyValidation($empresaRegistrada);
-					$carpeta = "../web/files/".$userData["login"];
-					if(!file_exists($carpeta))
-					{
-						mkdir($carpeta, 0700,true);
-						chmod($carpeta,  0777);
-					}
+					$carpeta = "../web/files";
 					$fichero_subido = $carpeta."/";
 					$cantidad = count($_FILES);
 					$i = 1;
 					while($i < $cantidad+1)
 					{
-						if (!move_uploaded_file($_FILES['file_'.$i]['tmp_name'], $fichero_subido.$i))
+						$nombreArchivo = $RegistrarEmpresa["rif"]."-".$i.".".pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION);
+						if (move_uploaded_file($_FILES['file_'.$i]['tmp_name'], $fichero_subido.$nombreArchivo))
 						{
 					 
-							$values['error']['archivoNosubido']= "¡Posible ataque de subida de ficheros!\n";
-							executePaso2($values);
-							break;
-						
+							$regisArchivo = array("name_file" =>$nombreArchivo,
+													"verif" => 0,
+													"eliminado"=> 0,
+													"company" =>$idCompany);
+							RegisCompanyFile($regisArchivo);
 						}
 						$i++;
 					}
