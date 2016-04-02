@@ -1,6 +1,6 @@
 <?php include('../../view_header.php')?>
+<?php include('../menu.php')?>
 
-    <section class="" id="">
         <div class="container">
 			<h1 class="text-center"><label class="label label-default">Contenido de secciones</label></h1>
              <?php foreach($contents_html as $contents):?>
@@ -31,4 +31,4 @@
             </div>
 			<?php endforeach;?>
 		</div>
-	</section>
+<?php include('../../view_footer.php')?>

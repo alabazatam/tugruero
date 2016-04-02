@@ -12,7 +12,7 @@ $values = $_REQUEST;
 		case "index":
 			executeIndex($values);	
 		break;
-                case "acceso":
+        case "acceso":
 			executeAcceso($values);	
 		break;
 		case "bienvenida":
@@ -32,8 +32,5 @@ $values = $_REQUEST;
 	require('bienvenida.php');
 	}
 	function executeAcceso($values = null){
-        /*Menu*/
-        $Menu = new Menu();
-        $items_padres = $Menu ->getMenu(3, 1,0);	
-	require('main_page.php');
+	require('bienvenida.php');
 	}

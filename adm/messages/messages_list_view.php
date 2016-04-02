@@ -1,36 +1,37 @@
 <?php include('../../view_header.php')?>
-<link href="<?php echo full_url;?>/web/css/datatables.css" rel="stylesheet">
-<script src="<?php echo full_url;?>/web/js/datatables.js"></script>
-<h1 class="text-center"><label class="label label-default">Contáctenos</label></h1>
-<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Contacto</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-				<th>Mensaje</th>
-                <th>Status</th>
-                <th>Fecha envio</th>
-				<th>Fecha visto</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>Id</th>
-                <th>Contacto</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-				<th>Mensaje</th>
-                <th>Status</th>
-                <th>Fecha envio</th>
-				<th>Fecha visto</th>
-                <th>Acciones</th>
-            </tr>
-        </tfoot>
-    </table>
-<!--<a class="btn btn-success"  href="<?php echo full_url."/adm/messages/index.php?action=new"?>">Agregar</a>-->
+<?php include('../menu.php')?>
+<div class="container">
+	<h1 class="text-center"><label class="label label-default">Contáctenos</label></h1>
+	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Contacto</th>
+					<th>Email</th>
+					<th>Teléfono</th>
+					<th>Mensaje</th>
+					<th>Status</th>
+					<th>Fecha envio</th>
+					<th>Fecha visto</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<th>Id</th>
+					<th>Contacto</th>
+					<th>Email</th>
+					<th>Teléfono</th>
+					<th>Mensaje</th>
+					<th>Status</th>
+					<th>Fecha envio</th>
+					<th>Fecha visto</th>
+					<th>Acciones</th>
+				</tr>
+			</tfoot>
+		</table>
+	<!--<a class="btn btn-success"  href="<?php echo full_url."/adm/messages/index.php?action=new"?>">Agregar</a>-->
+</div>
 <?php include('../../view_footer.php')?>
 <script>
 $(document).ready(function() {
@@ -60,4 +61,3 @@ $(document).ready(function() {
 } );
 
 </script>
-<script src="<?php echo full_url;?>/web/js/datatables.js"></script>

@@ -1,20 +1,20 @@
-<?php include("../view_header.php");?>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 "><!--header-->
-              
-</div><!--fin header-->
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<?php
+        $Menu = new Menu();
+        $items_padres = $Menu ->getMenu(3, 1,0);?>
+
+
         <div class=""><!--menu mobile-->
-                    <nav class="navbar navbar-default">
-                      <div class="container-fluid">
+                    <nav class="navbar navbar-inverse navbar-fixed-top">
+                      <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" aria-controls="navbar">
                             <span class="sr-only">Cerrar/Abrir</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                           </button>
-                          <a class="navbar-brand" href="#"> <img src="<?php echo full_url;?>/web/img/logo1.png" class="img-responsive" width="150"></a>
+                          <a class="navbar-brand" href="<?php echo full_url;?>/adm/index.php"> <img src="<?php echo full_url;?>/web/img/logo1.png" class="img-responsive" width="150"></a>
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,7 +27,7 @@
                                     <ul class="dropdown-menu">
                                       <?php $items_hijos = $Menu -> getMenu(3,1,$item['id_menu']);?>
                                       <?php foreach($items_hijos as $item2):?>
-                                        <li class=""><a class="small text-capitalize" href="<?php echo full_url.$item2['url']?>" target="mainframe"><?php echo $item2['name']?></a></li>
+                                        <li class=""><a class="small text-capitalize" href="<?php echo full_url.$item2['url']?>" target=""><?php echo $item2['name']?></a></li>
                                       <?php endforeach;?>
                                     </ul>
                                 </li>
@@ -37,18 +37,3 @@
                       </div><!-- /.container-fluid -->
                     </nav>          
         </div><!--fin menu mobile-->
-	
-		<div class="row">
-		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mainframediv" id="">
-			<div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
-			  <div class="embed-responsive embed-responsive-16by9 mainframediv">
-				<iframe class="embed-responsive-item" allowfullscreen="" id="mainframe" name="mainframe" src="index.php?action=bienvenida"></iframe>
-			  </div>
-			</div>
-		  </div>
-		</div>		
-
-
-
-</div>
-<?php include("../view_footer.php");?>	

@@ -17,6 +17,7 @@
     <!-- Custom styles for this template -->
             <!-- CSS -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+	<link href="<?php echo full_url;?>/web/css/datatables.css" rel="stylesheet">
+	<script src="<?php echo full_url;?>/web/js/datatables.js"></script>
  </head>
 <body>
-    <div class="container-fluid">
