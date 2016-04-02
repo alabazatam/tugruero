@@ -1,7 +1,7 @@
 <?php
 $project_folder = '';
 $development_env = false;
-if($_SERVER['HTTP_HOST'] == '127.0.0.1' or $_SERVER['HTTP_HOST'] == 'localhost')
+if($_SERVER['HTTP_HOST'] == '127.0.0.1' or $_SERVER['HTTP_HOST'] == 'localhost' or strpos($_SERVER['HTTP_HOST'], "192.168") !== false)
 {
 	$development_env = true;
 }

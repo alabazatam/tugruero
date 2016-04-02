@@ -16,13 +16,21 @@
 						  <?php echo htmlentities($contents['html']);?>
 						</div>
 						<div class="panel-footer">
-							  <a class="btn btn-default"  href="<?php echo full_url."/adm/about/index.php?action=edit&id_content=".$contents['id_content']?>"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>
-							  <?php if(isset($contents['status']) and $contents['status'] == 1):?>
+                                                    <form method="post" action="<?php echo full_url;?>/adm/about/index.php">
+                                                        <input type="hidden" name="action" value="edit">
+                                                        <input type="hidden" name="id_content" value="<?php echo $contents['id_content']?>">
+                                                        <button class="btn btn-default btn-sm" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>
+
+  
+                                                          <?php if(isset($contents['status']) and $contents['status'] == 1):?>
 								  <label class="label label-success">Activo</label>
 							  <?php endif;?>
 							  <?php if(isset($contents['status']) and $contents['status'] == 0):?>
 								  <label class="label label-danger">Desactivado</label>
 							  <?php endif;?>
+                                                           <label>Fecha de creación: <small><?php echo $contents['date_created']?></small></label>
+                                                           <label>Última modificación: <small><?php echo $contents['date_updated']?></small></label>
+                                                    </form>                
 						</div>
 					</div>
 					

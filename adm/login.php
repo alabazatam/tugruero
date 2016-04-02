@@ -47,7 +47,7 @@
 			                        </div>
 			                    </div>-->
 			
-			                    <button type="submit" class="btn btn-default"><span class="fa fa-users fa-pull-left"> Conectar</span></button>
+			                    <button type="submit" class="btn btn-default"><i class="fa fa-sign-out"></i> Conectar</button>
 							
 			                    <!-- For success/fail messages -->
 			                    

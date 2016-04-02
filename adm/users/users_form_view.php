@@ -32,6 +32,14 @@
 		<label for="">Rol</label>
 		<input type="text" id="" class="form-control input-sm" name="id_role" value="<?php if(isset($values['id_role'])) echo $values['id_role']?>">
 	  </div>
+	  <div class="form-group">
+		<label for="">Fecha creado</label>
+		<input type="text" class="form-control input-sm" id="" placeholder="" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">
+	  </div>
+	  <div class="form-group">
+		<label for="">Fecha modificado</label>
+		<input type="text" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
+	  </div>
 		<a class="btn btn-default"  href="<?php echo full_url."/adm/users/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
     <?php if(isset($values['msg']) and $values['msg']!=''):?>

@@ -18,7 +18,9 @@ $values = $_REQUEST;
 		case "bienvenida":
 			executeBienvenida($values);	
 		break;
-
+		case "logout":
+			executeLogout($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -33,4 +35,7 @@ $values = $_REQUEST;
 	}
 	function executeAcceso($values = null){
 	require('bienvenida.php');
+	}
+	function executeLogout($values = null){
+	require('login.php');
 	}

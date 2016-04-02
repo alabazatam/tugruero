@@ -91,14 +91,20 @@ $values = $_REQUEST;
 					"password" => "******",
 					"status" => $message_status,
 					"id_role" => $user['id_role'],
-					"actions" => '<a href="index.php?action=edit&id_user='.$id_user.'" class="btn btn-default btn-sm"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'
+                                        "date_created" => $user['date_created'],
+                                        "date_updated" => $user['date_updated'],
+					"actions" => 
+                                       '<form method="POST" action = "'.full_url.'/adm/users/index.php" >'
+                                       .'<input type="hidden" name="action" value="edit">  '
+                                       .'<input type="hidden" name="id_user" value="'.$id_user.'">  '
+                                       .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
 
 					);	
 			}	
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"login"=>"","password"=>"","status"=>"","id_role"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"login"=>"","password"=>"","status"=>"","id_role"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

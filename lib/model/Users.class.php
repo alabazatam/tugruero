@@ -25,6 +25,8 @@
 			$columns[2] = 'password';
 			$columns[3] = 'status';
 			$columns[4] = 'id_role';
+                        $columns[5] = 'date_created';
+                        $columns[6] = 'date_updated';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';

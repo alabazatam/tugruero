@@ -9,7 +9,9 @@
 					<th>Login</th>
 					<th>Password</th>
 					<th>Status</th>
-			<th>Id rol</th>
+                                        <th>Id rol</th>
+                                        <th>Fecha creado</th>
+                                        <th>Fecha modificado</th>
 					<th>Acciones</th>
 				</tr>
 			</thead>
@@ -19,8 +21,10 @@
 					<th>Login</th>
 					<th>Password</th>
 					<th>Status</th>
-					<th>Id role</th>
-			<th>Acciones</th>
+                                        <th>Id rol</th>
+                                        <th>Fecha creado</th>
+                                        <th>Fecha modificado</th>
+					<th>Acciones</th>
 				</tr>
 			</tfoot>
 		</table>
@@ -43,10 +47,12 @@ $(document).ready(function() {
             { "data": "password" },
             { "data": "status" },
             { "data": "id_role" },
+            { "data": "date_created" },
+            { "data": "date_updated" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 5 ] }
+          { 'bSortable': false, 'aTargets': [ 7 ] }
        ]				
     });
 } );
