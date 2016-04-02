@@ -1,4 +1,4 @@
-<?php include('../../view_header.php')?>
+<?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center"><label class="label label-default">Usuarios</label></h1>

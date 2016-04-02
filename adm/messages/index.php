@@ -39,12 +39,13 @@ $values = $_REQUEST;
 		$values['action'] = 'add';
 		require('messages_form_view.php');
 	}
-	function executeEdit($values = null)
+	function executeEdit($values = null,$msg = null)
 	{
 		
 		$Message = new Message();
 		$values = $Message->getMessageById($values);
 		$values['action'] = 'update';
+                $values['msg'] = $msg;
 		require('messages_form_view.php');
 	}
 	function executeUpdate($values = null)
@@ -52,7 +53,7 @@ $values = $_REQUEST;
 		
 		$Message = new Message();
 		$Message->updateMessage($values);		
-		executeEdit($values);die;
+		executeEdit($values,message_updated);die;
 	}	
 	function executeMessagesListJson($values)
 	{
@@ -63,7 +64,8 @@ $values = $_REQUEST;
 		$array_json['recordsTotal'] = $message_list_json_cuenta;
 		$array_json['recordsFiltered'] = $message_list_json_cuenta;
 		if(count($message_list_json_cuenta)>0)
-		{
+		{   
+                        
 			foreach ($message_list_json as $message) 
 			{
 				$id_message = $message['id_message'];
@@ -84,8 +86,8 @@ $values = $_REQUEST;
 					"phone" => $message['phone'],
 					"message" => $message['message'],
 					"status" => $message_status,
-					"date_added" => $message['date_added'],
-					"date_updated" => $message['date_added'],
+					"date_created" => $message['date_created'],
+					"date_updated" => $message['date_updated'],
 					"actions" => '<a href="index.php?action=edit&id_message='.$id_message.'" class="btn btn-default btn-sm"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'
 
 					);	
@@ -93,7 +95,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_message"=>null,"names"=>"","email"=>"","phone"=>"","message"=>"","status"=>"","date_added"=>"","actions"=>'',"date_updated"=>"");
+			$array_json['data'][0] = array("id_message"=>null,"names"=>"","email"=>"","phone"=>"","message"=>"","status"=>"","date_created"=>"","actions"=>'',"date_updated"=>"");
 		}
 
 		echo json_encode($array_json);die;

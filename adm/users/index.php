@@ -35,7 +35,8 @@ $values = $_REQUEST;
 	require('users_list_view.php');
 	}
 	function executeNew($values = null)
-	{
+	{       
+                $values['status'] = '1';
 		$values['action'] = 'add';
 		require('users_form_view.php');
 	}
@@ -44,14 +45,15 @@ $values = $_REQUEST;
 		
 		$Users = new Users();
 		$values = $Users->saveUser($values);
-		executeEdit($values);die;
+		executeEdit($values,message_created);die;
 	}
-	function executeEdit($values = null)
+	function executeEdit($values = null,$msg = null)
 	{
 		
 		$Users = new Users();
 		$values = $Users->getUserById($values);
 		$values['action'] = 'update';
+                $values['msg'] = $msg;
 		require('users_form_view.php');
 	}
 	function executeUpdate($values = null)
@@ -59,7 +61,7 @@ $values = $_REQUEST;
 		
 		$Users = new Users();
 		$Users->updateUser($values);		
-		executeEdit($values);die;
+		executeEdit($values,message_updated);die;
 	}	
 	function executeUserListJson($values)
 	{

@@ -46,7 +46,7 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->users
-			->select("*")
+			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
@@ -68,7 +68,7 @@
 		public function getUserById($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
-			->select("*")
+			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->where("id_user=?",$values['id_user'])->fetch();
 			return $q; 				
 			
@@ -83,6 +83,8 @@
 		function saveUser($values){
 			unset($values['action']);
 			$values['password'] = hash('sha256', $values['password']);
+                        $values['date_created'] = new NotORM_Literal("NOW()");
+                        $values['date_updated'] = new NotORM_Literal("NOW()");
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users()->insert($values);
 			$values['id_user'] = $ConnectionORM->getConnect()->users()->insert_id();
@@ -90,7 +92,8 @@
 			
 		}
 		function updateUser($values){
-			unset($values['action']);
+			unset($values['action'],$values['date_created']);
+                        $values['date_updated'] = new NotORM_Literal("NOW()");
 			if(isset($values['password']) and $values['password']!='')
 			{
 				$values['password'] = hash('sha256', $values['password']);

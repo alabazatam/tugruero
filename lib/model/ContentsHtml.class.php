@@ -76,7 +76,8 @@
 		}
 		public function updateContentsHtml($values)
 		{
-			unset($values['action']);
+			unset($values['action'],$values['date_created']);
+                        $values['date_updated'] = new NotORM_Literal("NOW()");
 			$id_content= $values['id_content'];
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->contents_html("id_content", $id_content)->update($values);		

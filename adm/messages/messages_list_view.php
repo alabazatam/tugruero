@@ -1,4 +1,4 @@
-<?php include('../../view_header.php')?>
+<?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center"><label class="label label-default">Contáctenos</label></h1>
@@ -50,7 +50,7 @@ $(document).ready(function() {
             { "data": "phone" },
             { "data": "message" },
 			{ "data": "status" },
-			{ "data": "date_added" },
+			{ "data": "date_created" },
 			{ "data": "date_updated" },
             { "data": "actions" }
         ],

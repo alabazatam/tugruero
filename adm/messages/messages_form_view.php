@@ -1,4 +1,4 @@
-<?php include('../../view_header.php')?>
+<?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center"><label class="label label-default">Contáctenos</label></h1>
@@ -38,7 +38,7 @@
 		</div>	
 	  <div class="form-group">
 		<label for="">Fecha envio</label>
-		<input readonly="readonly" type="text" id="" class="form-control input-sm" name="date_added" value="<?php if(isset($values['date_added'])) echo $values['date_added']?>">
+		<input readonly="readonly" type="text" id="" class="form-control input-sm" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">
 	  </div>
 	  <div class="form-group">
 		<label for="">Fecha visto</label>
@@ -48,5 +48,8 @@
 		<button type="submit" class="btn btn-default"><i class="fa fa-save  fa-pull-left fa-border"></i>Guardar</button>
 
 	</form>
+    <?php if(isset($values['msg']) and $values['msg']!=''):?>
+        <div class="alert alert-success" role="alert"><?php echo $values['msg'];?></div>
+    <?php endif;?>
 </div>
 <?php include('../../view_footer.php')?>

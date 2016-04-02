@@ -1,4 +1,4 @@
-<?php include('../../view_header.php')?>
+<?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center"><label class="label label-default">Usuarios</label></h1>
@@ -34,7 +34,9 @@
 	  </div>
 		<a class="btn btn-default"  href="<?php echo full_url."/adm/users/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
-
+    <?php if(isset($values['msg']) and $values['msg']!=''):?>
+        <div class="alert alert-success" role="alert"><?php echo $values['msg'];?></div>
+    <?php endif;?>
 	</form>
 </div>
 <?php include('../../view_footer.php')?>

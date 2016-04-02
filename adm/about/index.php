@@ -46,14 +46,15 @@ $values = $_REQUEST;
 		
 		$Message = new Message();
 		$values = $Message->saveMessage($values);
-		executeEdit($values);die;
+		executeEdit($values,message_created);die;
 	}
-	function executeEdit($values = null)
+	function executeEdit($values = null,$msg = null)
 	{
 		
 		$HtmlContents = new ContentsHtml();
 		$values = $HtmlContents ->getContentsValue($values['id_content'] );
 		$values['action'] = 'update';
+                $values['msg'] = $msg;
 		require('about_form_view.php');
 	}
 	function executeUpdate($values = null)
@@ -61,7 +62,7 @@ $values = $_REQUEST;
 		
 		$HtmlContents = new ContentsHtml();
 		$HtmlContents->updateContentsHtml($values);
-		executeEdit($values);die;
+		executeEdit($values,message_updated);die;
 	}	
 	function executeMessagesListJson($values)
 	{
