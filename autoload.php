@@ -1,7 +1,7 @@
 <?php
 $project_folder = '';
 $development_env = false;
-if($_SERVER['HTTP_HOST'] == '127.0.0.1' or $_SERVER['HTTP_HOST'] == 'localhost')
+if($_SERVER['HTTP_HOST'] == '127.0.0.1' or $_SERVER['HTTP_HOST'] == 'localhost' or strpos($_SERVER['HTTP_HOST'], "192.168") !== false)
 {
 	$development_env = true;
 }
@@ -47,6 +47,8 @@ define("image_url",full_url."/web/images/");
  * 
  * */
  define('mail_from',"noreply@frbcomputersgroup.com.ve");
+ define('message_updated',"Registro actualizado satisfactoriamente");
+ define('message_created',"Registro creado satisfactoriamente");
 
 //Class definition
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/notorm-master/NotORM.php");//se debe incluir una sola vez en todo el cms

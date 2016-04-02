@@ -20,8 +20,9 @@ class Message {
 			$columns[2] = 'email';
 			$columns[3] = 'phone';
 			$columns[4] = 'message';
-                        $columns[5] = 'date_added';
-                        $columns[6] = 'status';
+                        $columns[5] = 'date_created';
+			$columns[6] = 'date_updated';
+                        $columns[7] = 'status';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -43,7 +44,7 @@ class Message {
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->message
-			->select("*")
+			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
@@ -65,7 +66,7 @@ class Message {
 		public function getMessageById($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->message
-			->select("*")
+			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->where("id_message=?",$values['id_message'])->fetch();
 			return $q; 				
 			
@@ -81,15 +82,16 @@ class Message {
                     unset($values['action']);
                     $ConnectionORM = new ConnectionORM();
                     $values['status'] = 1;
-                    $values['date_added'] = date('Y-m-d h:i:s');
-                    $values['date_updated'] = date('Y-m-d h:i:s');
+                    $values['date_created'] = new NotORM_Literal("NOW()");
+                    $values['date_updated'] = new NotORM_Literal("NOW()");
                     $q = $ConnectionORM->getConnect()->message()->insert($values);
                     $values['id_message'] = $ConnectionORM->getConnect()->message()->insert_id();
                     return $values;	        
                 }
 		function updateMessage($values){
-			unset($values['action']);
+			unset($values['action'],$values['date_updated']);
 			$id_message = $values['id_message'];
+			$values['date_updated'] = new NotORM_Literal("NOW()");
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->message("id_message", $id_message)->update($values);
 			return $q;

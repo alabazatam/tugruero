@@ -35,7 +35,8 @@ $values = $_REQUEST;
 	require('users_list_view.php');
 	}
 	function executeNew($values = null)
-	{
+	{       
+                $values['status'] = '1';
 		$values['action'] = 'add';
 		require('users_form_view.php');
 	}
@@ -44,14 +45,15 @@ $values = $_REQUEST;
 		
 		$Users = new Users();
 		$values = $Users->saveUser($values);
-		executeEdit($values);die;
+		executeEdit($values,message_created);die;
 	}
-	function executeEdit($values = null)
+	function executeEdit($values = null,$msg = null)
 	{
 		
 		$Users = new Users();
 		$values = $Users->getUserById($values);
 		$values['action'] = 'update';
+                $values['msg'] = $msg;
 		require('users_form_view.php');
 	}
 	function executeUpdate($values = null)
@@ -59,7 +61,7 @@ $values = $_REQUEST;
 		
 		$Users = new Users();
 		$Users->updateUser($values);		
-		executeEdit($values);die;
+		executeEdit($values,message_updated);die;
 	}	
 	function executeUserListJson($values)
 	{
@@ -73,21 +75,36 @@ $values = $_REQUEST;
 		{
 			foreach ($users_list_json as $user) 
 			{
+				$status = $user['status'];
+				if($status == 0)
+				{
+					$message_status = "<label class='label label-danger'>Desactivado</label>";
+				}
+				if($status == 1)
+				{
+					$message_status = "<label class='label label-success'>Activo</label>";
+				}
 				$id_user = $user['id_user'];
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
 					"login" => $user['login'],
 					"password" => "******",
-					"status" => $user['status'],
+					"status" => $message_status,
 					"id_role" => $user['id_role'],
-					"actions" => '<a href="index.php?action=edit&id_user='.$id_user.'" class="btn btn-default btn-sm"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'
+                                        "date_created" => $user['date_created'],
+                                        "date_updated" => $user['date_updated'],
+					"actions" => 
+                                       '<form method="POST" action = "'.full_url.'/adm/users/index.php" >'
+                                       .'<input type="hidden" name="action" value="edit">  '
+                                       .'<input type="hidden" name="id_user" value="'.$id_user.'">  '
+                                       .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
 
 					);	
 			}	
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"login"=>"","password"=>"","status"=>"","id_role"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"login"=>"","password"=>"","status"=>"","id_role"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

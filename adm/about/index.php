@@ -33,9 +33,7 @@ $values = $_REQUEST;
 	function executeIndex($values = null)
 	{
 		$HtmlContents = new ContentsHtml();
-		$about_title = $HtmlContents ->getContentTitle(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
-		$about_contents = $HtmlContents ->getContents(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
-		
+		$contents_html = $HtmlContents ->getContentsList(1,'page.php', 'es');
 	require('about_list_view.php');
 	}
 	function executeNew($values = null)
@@ -48,22 +46,23 @@ $values = $_REQUEST;
 		
 		$Message = new Message();
 		$values = $Message->saveMessage($values);
-		executeEdit($values);die;
+		executeEdit($values,message_created);die;
 	}
-	function executeEdit($values = null)
+	function executeEdit($values = null,$msg = null)
 	{
 		
 		$HtmlContents = new ContentsHtml();
-		$values = $HtmlContents ->getContentsValue(1, 'about', 'page.php', 'es', 1, 'QUIENES_SOMOS' );
+		$values = $HtmlContents ->getContentsValue($values['id_content'] );
 		$values['action'] = 'update';
+                $values['msg'] = $msg;
 		require('about_form_view.php');
 	}
 	function executeUpdate($values = null)
 	{
 		
-		$Message = new Message();
-		$Message->updateMessage($values);		
-		executeEdit($values);die;
+		$HtmlContents = new ContentsHtml();
+		$HtmlContents->updateContentsHtml($values);
+		executeEdit($values,message_updated);die;
 	}	
 	function executeMessagesListJson($values)
 	{

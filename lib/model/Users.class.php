@@ -25,6 +25,8 @@
 			$columns[2] = 'password';
 			$columns[3] = 'status';
 			$columns[4] = 'id_role';
+                        $columns[5] = 'date_created';
+                        $columns[6] = 'date_updated';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -33,7 +35,7 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "upper(login) like upper('%$str%') ";
+				$where = "upper(login) like upper('%$str%')";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -46,7 +48,7 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->users
-			->select("*")
+			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
@@ -68,7 +70,7 @@
 		public function getUserById($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
-			->select("*")
+			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->where("id_user=?",$values['id_user'])->fetch();
 			return $q; 				
 			
@@ -83,6 +85,8 @@
 		function saveUser($values){
 			unset($values['action']);
 			$values['password'] = hash('sha256', $values['password']);
+                        $values['date_created'] = new NotORM_Literal("NOW()");
+                        $values['date_updated'] = new NotORM_Literal("NOW()");
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users()->insert($values);
 			$values['id_user'] = $ConnectionORM->getConnect()->users()->insert_id();
@@ -90,7 +94,8 @@
 			
 		}
 		function updateUser($values){
-			unset($values['action']);
+			unset($values['action'],$values['date_created']);
+                        $values['date_updated'] = new NotORM_Literal("NOW()");
 			if(isset($values['password']) and $values['password']!='')
 			{
 				$values['password'] = hash('sha256', $values['password']);

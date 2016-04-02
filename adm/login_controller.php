@@ -18,6 +18,6 @@ $values = $_REQUEST;
 						
 	function executeAcceso($values = null){
 	
-	require('main_page.php');
+	require('bienvenida.php');
 	}
 					
