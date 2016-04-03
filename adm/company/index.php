@@ -35,7 +35,9 @@ $values = $_REQUEST;
 	require('company_list_view.php');
 	}
 	function executeNew($values = null)
-	{       
+	{
+        $Bank = new Bank();
+        $bank_list = $Bank ->getBankList();
         $values['status'] = '1';
 		$values['action'] = 'add';
 		
@@ -50,10 +52,14 @@ $values = $_REQUEST;
 	}
 	function executeEdit($values = null,$msg = null)
 	{
-		
+		$Bank = new Bank();
+                $bank_list = $Bank ->getBankList();
 		$Company = new Company();
 		$values = $Company->getCompanyById($values);
-		$values['action'] = 'update';
+                $id_company = $values['id'];
+                $CompanyFiles = new CompanyFiles();
+                $company_files_list = $CompanyFiles ->getCompanyFilesList($id_company);
+                $values['action'] = 'update';
                 $values['msg'] = $msg;
 		require('company_form_view.php');
 	}

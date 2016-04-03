@@ -6,9 +6,9 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>responsible_name</th>
-					<th>RIF</th>
-					<th>Razon_social</th>
+					<th>Responsable</th>
+					<th>Rif</th>
+					<th>Razón social</th>
 					<th>Status</th>
 					<th>Fecha creado</th>
 					<th>Fecha modificado</th>
@@ -18,9 +18,9 @@
 			<tfoot>
 				<tr>
 					<th>Id</th>
-					<th>responsible_name</th>
-					<th>RIF</th>
-					<th>Razon_social</th>
+					<th>Responsable</th>
+					<th>Rif</th>
+					<th>Razón social</th>
 					<th>Status</th>
 					<th>Fecha creado</th>
 					<th>Fecha modificado</th>

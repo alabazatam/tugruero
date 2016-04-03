@@ -46,7 +46,7 @@
 				$order = $values['order'][0]['dir'];//asc o desc
 			}
 			//echo $column_order;die;
-			$ConnectionORM = new ConnectionORM();
+                        $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->company
 			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->order("$column_order $order")
