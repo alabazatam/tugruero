@@ -70,15 +70,19 @@
 											</div>
 										</div>
 										<div class="form-group">
+											<label class="radio-inline"><input type="radio" value="M" name="gender">Masculino</label>
+											<label class="radio-inline"><input type="radio" value="F" name="gender">Femenino</label>
+										</div>
+										<div class="form-group">
 				                        	<label class="sr-only" for="phone">Telefono</label>
 				                        	<input type="text" name="phone" placeholder="Telefono..." class="form-google-plus form-control" id="form-google-plus" required>
 				                        </div>
 										<div class="form-group">
 				                        	<label class="sr-only" for="type_bank">Banco</label>
 				                        	 <select name="type_bank" class="form-google-plus form-control" required>
-												<option value selected>Seleccione..</option>												
+												<option value selected>Banco..</option>												
 												 <?php foreach($values['bank'] as $bank):?>
-													<option value="<?php echo $bank["id"]?>"><?php echo $bank["bank_name"]?></option>
+													<option value="<?php echo $bank["id"]?>"><?php echo $bank["name"]?></option>
 												<?php endforeach;?>
 											  </select> 
 				                        </div>

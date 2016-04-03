@@ -17,6 +17,7 @@
 		                            </div>
 		                            <div class="form-bottom">
 									<input type="hidden" name="action" id="formulario" value="validaFormulario1">
+									<div class="form-group">
 										<div class="input-group">
 										  <span class="input-group-btn">
 											<select name="Type_rif" class="btn btn-secondary">
@@ -27,7 +28,7 @@
 												<option value="G">G</option>
 											</select>
 										  </span>
-										  <input type="text" class="form-control" placeholder="Product name">
+										  <input type="text" class="form-control" placeholder="RIF..." name="rif">
 										  <span class="input-group-btn">
 											<select name="Last-number" class="btn btn-secondary">
 											  <option value="0" selected>0</option>
@@ -42,6 +43,7 @@
 												<option value="9">9</option>
 											</select>
 										  </span>
+										</div>
 										</div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="razonSocial">Razón social</label>

@@ -74,7 +74,7 @@ $values = $_REQUEST;
 
 		if($valido == TRUE)
 		{
-			$rif = $values["Rif"];
+			$rif=$values["Type_rif"]."-".$values["rif"]."-".$values["Last-number"];
 			$correo = $values["correo"];
 			$razonSocial = $values["razonSocial"];
 			$registro = validarRifRazonSocial($rif,$razonSocial,$correo);
@@ -83,11 +83,11 @@ $values = $_REQUEST;
 
 				foreach($registro as $id=> $valor)
 				{
-					if($valor["registrada"] == 1)
+					if($valor["validate"] == 1)
 					{
 						$values['errors']['YaRegistrada']="empresa ya registrada";
 						executePaso1($values);
-					}else if($valor["publicado"] == 1)
+					}else if($valor["status"] == 1)
 					{
 						$values['errors']['YaPendiente']="Ya existe un registro, esta en la espera por su aprobación.";
 						executePaso1($values);
@@ -99,9 +99,9 @@ $values = $_REQUEST;
 						$nuevafecha = date ( 'Y-m-d H:i:s' , $nuevafecha );
 						$id = $valor["id"];
 						$token = base64_encode($razonSocial.$rif.$correo.date('d-m-y h:i:s'));
-						$datos = array('token'=> $token,'idEmpresasRegistradas'=>$id,'timeExpire'=>$nuevafecha,'valid'=> 0,'publicado'=>'0',
-							'mail'=> $correo,'alternativeMail' => $correo);
-						$tokenCreate = createTokenRegis($datos);
+						$datos = array('token'=> $token,'id_company_validation'=>$id,'time_expire'=>$nuevafecha,'validate'=> 0,
+							'mail'=> $correo,'mail_alternative' => $correo);
+						$tokenCreate = addToken($datos);
 						$idCreado = $tokenCreate["id"];
 						$message = full_url."/ap/registrarse.php?token=".$token;
 						$Mail = new Mail();
@@ -155,33 +155,39 @@ $values = $_REQUEST;
 						$RegistrarEmpresa = array("rif" => $value["rif"],
 						"razon_social"=>$value["razonsocial"],
 						"responsible_name"=>$values["responsible_name"],
-						"id_type_bank" =>$values["type_bank"],
+						"id_bank" =>$values["type_bank"],
 						"NumCuenta" => $values["NumCuenta"],
 						"responsible_cedula"=>$values["nationality"]."-".$values["cedula"]);
 						break;
 					}
-					$q = RegisCompany($RegistrarEmpresa);
+					$q = addCompany($RegistrarEmpresa);
 					$idCompany = $q["id"];
 					$password = substr( md5(microtime()), 1, 8);
-					$userData = array("login" => "M-".$values["cedula"],
+					
+					$userData = array("login" => "M-".$values["nationality"].$values["cedula"],
 						"password" => hash('sha256', $password),
 						"mail" => $correo,
-						"mail_alternative" => $correoAlternativo);
-					$user = RegisUser($userData);
+						"mail_alternative" => $correoAlternativo,
+						"date_created"=> date("Y-m-d H:i:s"),
+						"date_updated" => date("Y-m-d H:i:s"));
+					$user = addUser($userData);
 					$idUser = $user["id"];
 					$empresaRegistrada = array('rif' => $value['rif']
 												,'razonsocial' => $value['razonsocial']
-												,'publicado' => 1
-												,'registrada' => 0,"id"=>$idCompanyValidation);
+												,'status' => 1
+												,'validate' => 0,"id"=>$idCompanyValidation);
 					$userForCompany = array("id_user" => $idUser,"id_company"=>$idCompany);
-					RegisUserForCompany($userForCompany);
+					addUserForCompany($userForCompany);
 					$Datauser = array("first_name" => $values["first_name"],
 										"second_name" => $values["second_name"],
 										"first_last_name" => $values["first_lastname"],
 										"second_last_name" => $values["second_lastname"],
 										"id_users" => $idUser,
-										"phone" => $values["phone"]);
-					RegisDataUser($Datauser);
+										"phone" => $values["phone"],
+										"gender" => $values["gender"],
+										"document" =>$values["cedula"],
+										"nationality" => $values["nationality"]);
+					addUserData($Datauser);
 					updateCompanyValidation($empresaRegistrada);
 					$carpeta = "../web/files";
 					$fichero_subido = $carpeta."/";
@@ -194,19 +200,18 @@ $values = $_REQUEST;
 						{
 					 
 							$regisArchivo = array("name_file" =>$nombreArchivo,
-													"verif" => 0,
-													"eliminado"=> 0,
-													"company" =>$idCompany);
-							RegisCompanyFile($regisArchivo);
+													"validate" => 0,
+													"status"=> 1,
+													"id_company" =>$idCompany);
+							addCompanyFiles($regisArchivo);
 						}
 						$i++;
 					}
-					
 					$message = "Usuario: ".$userData["login"]." Clave: ".$password;
 					$Mail = new Mail();
 					$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
 					$values = null;
-					$values['message']['UsuarioCreado'] = "Usuario creado satisfactoriamente, se enviaran datos con la clave del usuario.</ br> Recuerde que debe esperar la aprobación del usuario.";
+					$values['message'] = "Usuario creado satisfactoriamente, se enviaran datos con la clave del usuario.</ br> Recuerde que debe esperar la aprobación del usuario.";
 					$values["action"] = "login";
 					 require 'login.php';
 				}

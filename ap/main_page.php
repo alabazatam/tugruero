@@ -19,29 +19,34 @@
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                          <ul class="nav navbar-nav navbar-right">
-                        <?php foreach($items_padres as $item):?>
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $item['name']?> <span class="caret"></span></a>
-                              <ul class="dropdown-menu">
-                                
-                                <?php $items_hijos = $Menu -> getMenu(3,1,$item['id_menu']);?>
-                                <?php foreach($items_hijos as $item2):?>
-                                <li><a href="#"><?php echo $item2['name']?></a></li>
-                                <?php endforeach;?>
-                              </ul>
-                            </li>
-                        <?php endforeach;?>
+                          
+                           <ul class="nav navbar-nav navbar-right">
+                            <?php foreach($items_padres as $item):?>
+                                <li class="dropdown">
+                                  <a class="dropdown-toggle small text-capitalize" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $item['name']?> <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                      <?php $items_hijos = $Menu -> getMenu(3,1,$item['id_menu']);?>
+                                      <?php foreach($items_hijos as $item2):?>
+                                        <li class=""><a class="small text-capitalize" href="<?php echo full_url.$item2['url']?>" target="mainframe"><?php echo $item2['name']?></a></li>
+                                      <?php endforeach;?>
+                                    </ul>
+                                </li>
+                            <?php endforeach;?>
                           </ul>
                         </div><!-- /.navbar-collapse -->
                       </div><!-- /.container-fluid -->
                     </nav>          
         </div><!--fin menu mobile-->
-	<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10"><!--contenido-->
-		<div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="index.php?action=bienvenida" frameborder="0"></iframe>
-		</div>
-	</div><!--fin contenido-->
+	
+		<div class="row">
+		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mainframediv" id="">
+			<div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
+			  <div class="embed-responsive embed-responsive-16by9 mainframediv">
+				<iframe class="embed-responsive-item" allowfullscreen="" id="mainframe" name="mainframe" src="index.php?action=bienvenida"></iframe>
+			  </div>
+			</div>
+		  </div>
+		</div>		
 
 
 

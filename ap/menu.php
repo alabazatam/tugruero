@@ -1,6 +1,6 @@
 <?php
         $Menu = new Menu();
-        $items_padres = $Menu ->getMenu(3, 1,0);?>
+        $items_padres = $Menu ->getMenu(4, 0,9);?>
 
 
         <div class=""><!--menu mobile-->
@@ -25,7 +25,7 @@
                                 <li class="dropdown">
                                   <a class="dropdown-toggle small text-capitalize" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $item['name']?> <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                      <?php $items_hijos = $Menu -> getMenu(3,1,$item['id_menu']);?>
+                                      <?php $items_hijos = $Menu -> getMenu(4,0,9);?>
                                       <?php foreach($items_hijos as $item2):?>
                                         <li class=""><a class="small text-capitalize" href="<?php echo full_url.$item2['url']?>" target=""><?php echo $item2['name']?></a></li>
                                       <?php endforeach;?>

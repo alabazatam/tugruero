@@ -9,7 +9,7 @@
 			->and("razonSocial like ?","%$razonSocial%");
 			return $q;
  }
- function createTokenRegis($datos)
+ function addToken($datos)
  {
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')->users_token()->insert($datos);
@@ -20,16 +20,16 @@
 	 $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->users_token
 			->select("*")
-			->where("Token=?",$token)
-			->and("valid = 0")
-			->and("timeExpire >=?",date("Y-m-d H:i:s"));
+			->where("token=?",$token)
+			->and("validate = 0")
+			->and("time_expire >=?",date("Y-m-d H:i:s"));
 			
 			return $q;
  }
  function utilizarToken($token)
  {
 	$token = $token;
-	$values = array("publicado" => 1,"valid"=>1);
+	$values = array("validate" => 1);
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')->users_token('token', $token)->update($values);
 	return $q;
@@ -43,34 +43,44 @@ function GetCompanyValidation($idCompanyValidation)
 			->where("id=?",$idCompanyValidation);
 	return $q;
  } 
- function RegisCompany($values)
+ function addCompany($values)
  {
+	$values["date_created"] = date("Y-m-d H:i:s");
+	$values["date_updated"] = date("Y-m-d H:i:s");
 	$ConnectionORM = new ConnectionORM();
-	$q = $ConnectionORM->getConnect('tugruero')->registered_company()->insert($values);
+	$q = $ConnectionORM->getConnect('tugruero')->company()->insert($values);
 	return $q;
  }
- function RegisUserForCompany($values)
+ function addUserForCompany($values)
  {
+	$values["date_created"] = date("Y-m-d H:i:s");
+	$values["date_updated"] = date("Y-m-d H:i:s");
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')->user_for_company()->insert($values);
 	return $q;
  }
-  function RegisCompanyFile($values)
+  function addUser($values)
  {
+	$values["date_created"] = date("Y-m-d H:i:s");
+	$values["date_updated"] = date("Y-m-d H:i:s");
+	$ConnectionORM = new ConnectionORM();
+	$q = $ConnectionORM->getConnect('tugruero')->users()->insert($values);
+	return $q;
+ }
+  function addCompanyFiles($values)
+ {
+	$values["date_created"] = date("Y-m-d H:i:s");
+	$values["date_updated"] = date("Y-m-d H:i:s");
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')->company_files()->insert($values);
 	return $q;
  }
-  function RegisDataUser($values)
+  function addUserData($values)
  {
+	$values["date_created"] = date("Y-m-d H:i:s");
+	$values["date_updated"] = date("Y-m-d H:i:s");
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')->users_data()->insert($values);
-	return $q;
- }
-  function RegisUser($values)
- {
-	$ConnectionORM = new ConnectionORM();
-	$q = $ConnectionORM->getConnect('tugruero')->users()->insert($values);
 	return $q;
  }
  function updateCompanyValidation($values)
@@ -85,7 +95,7 @@ function GetCompanyValidation($idCompanyValidation)
  {
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')
-			->type_bank
+			->bank
 			->select("*");
 	return $q;
  }
@@ -110,51 +120,5 @@ function connect($login,$password)
 		return $valid;
 
 }
-function getUserList(){
-
-
-	$ConnectionORM = new ConnectionORM();
-	$q = $ConnectionORM->getConnect('fedcom')->users
-	->select("*");	
-	return $q;
-
-}
-function getUserId($id_user){
-
-
-	$ConnectionORM = new ConnectionORM();
-	$q = $ConnectionORM->getConnect('fedcom')->users
-	->select("*")
-	->where('id_user=?',$id_user)
-	->fetch();	
-	return $q;
-
-}				
-function deleteUser($id_user){
-
-
-	$ConnectionORM = new ConnectionORM();
-	$q = $ConnectionORM->getConnect('fedcom')->users("id_user", $id_user)->delete();
-
-
-}		
-function addUser($values){
-
-
-	$ConnectionORM = new ConnectionORM();
-	$q = $ConnectionORM->getConnect('fedcom')->users()->insert($values);
-
-	return $q;
-
-}
-function updateUser($values){
-
-	$id_user = $values['id_user'];
-	$ConnectionORM = new ConnectionORM();
-	$q = $ConnectionORM->getConnect('fedcom')->users("id_user", $id_user)->update($values);
-
-	return $q;
-
-}		
 
 

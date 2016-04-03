@@ -16,22 +16,8 @@ $values = $_REQUEST;
 		break;
 	}
 						
-	function executeAcceso($values = null)
-	{
-		$q = connect($values["login"],$values["password"]);
-		if($q)
-		{
-			$Menu = new Menu();
-			$items_padres = $Menu ->getMenu(3, 1,0);	
-			require('main_page.php');
-		}else
-		{
-			
-			$values = null;
-			$values["errors"]["ClaveUsuario"] = "Usuario o clave invalido";
-			require 'login.php';
-			
-		}
-		
+	function executeAcceso($values = null){
+	
+	require('bienvenida.php');
 	}
 					
