@@ -65,6 +65,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Users.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Hoist.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ContentsHtml.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Message.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Company.class.php");
 /*validation class*/
 
 //include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/vendor/GUMP/gump.class.php");

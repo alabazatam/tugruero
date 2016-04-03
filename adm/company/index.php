@@ -23,8 +23,8 @@ $values = $_REQUEST;
 		case "update":
 			executeUpdate($values);	
 		break;		
-		case "users_list_json":
-			executeUserListJson($values);	
+		case "company_list_json":
+			executeCompanyListJson($values);	
 		break;	
 		default:
 			executeIndex($values);
@@ -32,50 +32,59 @@ $values = $_REQUEST;
 	}
 	function executeIndex($values = null)
 	{
-	require('users_list_view.php');
+	require('company_list_view.php');
 	}
 	function executeNew($values = null)
 	{       
-                $values['status'] = '1';
+        $values['status'] = '1';
 		$values['action'] = 'add';
-		require('users_form_view.php');
+		
+		require('company_form_view.php');
 	}
 	function executeSave($values = null)
 	{
 		
-		$Users = new Users();
-		$values = $Users->saveUser($values);
+		$Company = new Company();
+		$values = $Company->saveCompany($values);
 		executeEdit($values,message_created);die;
 	}
 	function executeEdit($values = null,$msg = null)
 	{
 		
-		$Users = new Users();
-		$values = $Users->getUserById($values);
+		$Company = new Company();
+		$values = $Company->getCompanyById($values);
 		$values['action'] = 'update';
                 $values['msg'] = $msg;
-		require('users_form_view.php');
+		require('company_form_view.php');
 	}
 	function executeUpdate($values = null)
 	{
 		
+		$Company = new Company();
+		$Company->updateCompany($values);
 		$Users = new Users();
-		$Users->updateUser($values);		
+		if($values['status']==1)
+		{
+			$Users->activeUserMasterCompany($values['id']);
+		}elseif($values['status']==0)
+		{
+			$Users->inactiveUserMasterCompany($values['id']);
+		}				
 		executeEdit($values,message_updated);die;
 	}	
-	function executeUserListJson($values)
+	function executeCompanyListJson($values)
 	{
-		$Users = new Users();
-		$users_list_json = $Users ->getUsersList($values);
-		$users_list_json_cuenta = $Users ->getCountUsersList($values);
+		$Company = new Company();
+		$company_list_json = $Company ->getCompanyList($values);
+		$company_list_json_cuenta = $Company ->getCountCompanyList($values);
 		$array_json = array();
-		$array_json['recordsTotal'] = $users_list_json_cuenta;
-		$array_json['recordsFiltered'] = $users_list_json_cuenta;
-		if(count($users_list_json)>0)
+		$array_json['recordsTotal'] = $company_list_json_cuenta;
+		$array_json['recordsFiltered'] = $company_list_json_cuenta;
+		if(count($company_list_json)>0)
 		{
-			foreach ($users_list_json as $user) 
+			foreach ($company_list_json as $company) 
 			{
-				$status = $user['status'];
+				$status = $company['status'];
 				if($status == 0)
 				{
 					$message_status = "<label class='label label-danger'>Desactivado</label>";
@@ -84,18 +93,19 @@ $values = $_REQUEST;
 				{
 					$message_status = "<label class='label label-success'>Activo</label>";
 				}
-				$id_user = $user['id_user'];
+				$id = $company['id'];
 				$array_json['data'][] = array(
-					"id_user" => $id_user,
-					"login" => $user['login'],
-					"password" => "******",
+					"id" => $id,
+					"responsible_name" => $company['responsible_name'],
+					"RIF" => $company['rif'],
+					"Razon_social" => $company['razon_social'],
 					"status" => $message_status,
-                                        "date_created" => $user['date_created'],
-                                        "date_updated" => $user['date_updated'],
+					"date_created" => $company['date_created'],
+					"date_updated" => $company['date_updated'],
 					"actions" => 
-                                       '<form method="POST" action = "'.full_url.'/adm/users/index.php" >'
+                                       '<form method="POST" action = "'.full_url.'/adm/company/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
-                                       .'<input type="hidden" name="id_user" value="'.$id_user.'">  '
+                                       .'<input type="hidden" name="id" value="'.$id.'">  '
                                        .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
 
 					);	
@@ -103,7 +113,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"login"=>"","password"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
+			$array_json['data'][0] = array("id"=>null,"responsible_name"=>"","RIF"=>"","Razon_social"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

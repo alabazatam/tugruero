@@ -1,9 +1,0 @@
-[21-Mar-2016 12:50:41 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/frbcomfr/public_html/tugruero/lib/ConnectionORM.class.php:9
-Stack trace:
-#0 /home/frbcomfr/public_html/tugruero/lib/ConnectionORM.class.php(9): PDO->__construct('mysql:dbname=si...', 'root', '230386')
-#1 /home/frbcomfr/public_html/tugruero/lib/ConnectionORM.class.php(33): ConnectionORM->connect('mysql:dbname=si...', 'root', '230386')
-#2 /home/frbcomfr/public_html/tugruero/lib/model/RegistroModel.class.php(6): ConnectionORM->getConnect('sidiscam')
-#3 /home/frbcomfr/public_html/tugruero/ap/registrarse.php(57): validarRifRazonSocial('Iuh', 'Yth', 'Oiu')
-#4 /home/frbcomfr/public_html/tugruero/ap/registrarse.php(21): executeValidaFormulario1(Array)
-#5 {main}
-  thrown in /home/frbcomfr/public_html/tugruero/lib/ConnectionORM.class.php on line 9

@@ -32,7 +32,7 @@
                                     </ul>
                                 </li>
                             <?php endforeach;?>
-                                <li class=""><a class="small text-capitalize" href="<?php echo full_url?>/ap/index.php?action=logout" target=""><i class="fa fa-sign-out"></i> Cerrar sesión</a></li>
+                                <li class=""><a class="small text-capitalize" href="<?php echo full_url?>/adm/index.php?action=logout" target=""><i class="fa fa-sign-out"></i> Cerrar sesión</a></li>
                           </ul>
                         </div><!-- /.navbar-collapse -->
                       </div><!-- /.container-fluid -->
