@@ -143,20 +143,20 @@ $values = $_REQUEST;
 
 				foreach($data as $valor)
 				{
-					$idEmpresa = $valor['idempresasregistradas'];
+					$idEmpresa = $valor['id_company_validation'];
 					$idToken = $valor['id'];
 					$correo = $valor['mail'];
-					$correoAlternativo = $valor['alternativemail'];
-					//utilizarToken($values['token']);
+					$correoAlternativo = $valor['mail_alternative'];
+					utilizarToken($values['token']);
 					$DatosEmpresa = GetCompanyValidation($idEmpresa);
 					foreach ($DatosEmpresa as $id => $value) 
 					{
 						$idCompanyValidation=$value["id"];
 						$RegistrarEmpresa = array("rif" => $value["rif"],
-						"razon_social"=>$value["razonsocial"],
+						"razon_social"=>$value["razon_social"],
 						"responsible_name"=>$values["responsible_name"],
 						"id_bank" =>$values["type_bank"],
-						"NumCuenta" => $values["NumCuenta"],
+						"num_cuenta" => $values["NumCuenta"],
 						"responsible_cedula"=>$values["nationality"]."-".$values["cedula"]);
 						break;
 					}
@@ -173,11 +173,11 @@ $values = $_REQUEST;
 					$user = addUser($userData);
 					$idUser = $user["id"];
 					$empresaRegistrada = array('rif' => $value['rif']
-												,'razonsocial' => $value['razonsocial']
+												,'razon_social' => $value['razon_social']
 												,'status' => 1
 												,'validate' => 0,"id"=>$idCompanyValidation);
 					$userForCompany = array("id_user" => $idUser,"id_company"=>$idCompany);
-					addUserForCompany($userForCompany);
+					addUsersCompany($userForCompany);
 					$Datauser = array("first_name" => $values["first_name"],
 										"second_name" => $values["second_name"],
 										"first_last_name" => $values["first_lastname"],

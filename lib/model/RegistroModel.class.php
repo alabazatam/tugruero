@@ -6,7 +6,7 @@
 			$q = $ConnectionORM->getConnect('tugruero')->company_validation_ve
 			->select("*")
 			->where("rif=?",$rif)
-			->and("razonSocial like ?","%$razonSocial%");
+			->and("razon_social like ?","%$razonSocial%");
 			return $q;
  }
  function addToken($datos)
@@ -51,12 +51,12 @@ function GetCompanyValidation($idCompanyValidation)
 	$q = $ConnectionORM->getConnect('tugruero')->company()->insert($values);
 	return $q;
  }
- function addUserForCompany($values)
+ function addUsersCompany($values)
  {
 	$values["date_created"] = date("Y-m-d H:i:s");
 	$values["date_updated"] = date("Y-m-d H:i:s");
 	$ConnectionORM = new ConnectionORM();
-	$q = $ConnectionORM->getConnect('tugruero')->user_for_company()->insert($values);
+	$q = $ConnectionORM->getConnect('tugruero')->users_company()->insert($values);
 	return $q;
  }
   function addUser($values)
