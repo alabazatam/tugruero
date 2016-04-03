@@ -86,17 +86,17 @@
                         $values['date_created'] = new NotORM_Literal("NOW()");
                         $values['date_updated'] = new NotORM_Literal("NOW()");
 			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->users()->insert($values);
-			$values['id_hoist'] = $ConnectionORM->getConnect()->users()->insert_id();
+			$q = $ConnectionORM->getConnect()->hoist()->insert($values);
+			$values['id'] = $ConnectionORM->getConnect()->hoist()->insert_id();
 			return $values;	
 			
 		}
 		function updateHoist($values){
 			unset($values['action'],$values['date_created']);
             $values['date_updated'] = new NotORM_Literal("NOW()");
-			$id_hoist = $values['id_hoist'];
+			$id_hoist = $values['id'];
 			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->users("id_hoist", $id_hoist)->update($values);
+			$q = $ConnectionORM->getConnect()->hoist("id", $id_hoist)->update($values);
 			return $q;
 			
 		}

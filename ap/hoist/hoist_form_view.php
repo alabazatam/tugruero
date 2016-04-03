@@ -5,16 +5,16 @@
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 	  <div class="form-group">
-		<label for="">Id.Usuario</label>
-		<input readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_user" value="<?php if(isset($values['id_user'])) echo $values['id_user']?>">
+		<label for="">Id.Grua</label>
+		<input readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id" value="<?php if(isset($values['id'])) echo $values['id']?>">
 	  </div>
 	  <div class="form-group">
-		<label for="">Login</label>
-		<input type="text" class="form-control input-sm" id="" placeholder="" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>">
+		<label for="">Serial de motor</label>
+		<input type="text" class="form-control input-sm" id="" placeholder="" name="engine_serial" value="<?php if(isset($values['engine_serial'])) echo $values['engine_serial']?>">
 	  </div>
 	  <div class="form-group">
-		<label for="">Password</label>
-		<input type="password" id="" class="form-control input-sm" name="password" value="">
+		<label for="">Serial de carroceria</label>
+		<input type="body_serial" id="" class="form-control input-sm" name="body_serial" value="<?php if(isset($values['body_serial'])) echo $values['body_serial']?>">
 	  </div>
 		<div class="form-group">
 		  <label class="label label-danger">
@@ -29,8 +29,16 @@
 		  </label>
 		</div>	
 	  <div class="form-group">
-		<label for="">Rol</label>
-		<input type="text" id="" class="form-control input-sm" name="id_role" value="<?php if(isset($values['id_role'])) echo $values['id_role']?>">
+		<label for="">Matricula</label>
+		<input type="text" id="" class="form-control input-sm" name="registration_plate" value="<?php if(isset($values['registration_plate'])) echo $values['registration_plate']?>">
+	  </div>
+	  <div class="form-group">
+		<label for="">Año del Vehiculo</label>
+		<input type="text" id="" class="form-control input-sm" name="year_vehicle" value="<?php if(isset($values['year_vehicle'])) echo $values['year_vehicle']?>">
+	  </div>
+	 <div class="form-group">
+		<label for="">make</label>
+		<input type="text" id="" class="form-control input-sm" name="make" value="<?php if(isset($values['make'])) echo $values['make']?>">
 	  </div>
 	  <div class="form-group">
 		<label for="">Fecha creado</label>

@@ -44,7 +44,7 @@ $values = $_REQUEST;
 	{
 		
 		$Hoist = new Hoist();
-		$values = $Hoist->saveUser($values);
+		$values = $Hoist->saveHoist($values);
 		executeEdit($values,message_created);die;
 	}
 	function executeEdit($values = null,$msg = null)
@@ -60,7 +60,7 @@ $values = $_REQUEST;
 	{
 		
 		$Hoist = new Hoist();
-		$Hoist->updateUser($values);		
+		$Hoist->updateHoist($values);		
 		executeEdit($values,message_updated);die;
 	}	
 	function executeHoistListJson($values)
