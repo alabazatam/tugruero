@@ -34,11 +34,10 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = ""
-                                        . "upper(status.name) like upper('%$str%') "
-                                        . "or upper(users_company.razon_social) like upper('%$str%')"
-                                        . "or upper(users_company.responsible_name) like upper('%$str%')"
-                                        . "or upper(users_company.rif) like upper('%$str%')"
+				$where= ""
+                                        . "upper(users.login) like upper('%$str%') "
+                                        . "or upper(company.razon_social) like upper('%$str%' )"
+                                        . "or upper(status.name) like upper('%$str%')"
                                         . "";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
@@ -68,11 +67,20 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "upper(razon_social) like upper('%$str%') ";
+				$where= ""
+                                        . "upper(users.login) like upper('%$str%') "
+                                        . "or upper(company.razon_social) like upper('%$str%' )"
+                                        . "or upper(status.name) like upper('%$str%')"
+                                        . "";
 			}
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users_company
-			->select("count(*) as cuenta")->where("$where")->fetch();
+			->select("count(*) as cuenta")
+			->join("status","LEFT JOIN status on status.id_status = users_company.status")
+                        ->join("company","LEFT JOIN company on company.id = users_company.id_company")
+                        ->join("users","LEFT JOIN users on users.id_user = users_company.id_user")
+                        ->where("$where")
+                        ->fetch();
 			return $q['cuenta']; 			
 		}
 		public function getUsersCompanyById($values){
