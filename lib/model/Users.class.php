@@ -136,6 +136,9 @@
 			
 			//actualizo el status de la company_validation_ve a 1 activo
 			$q = $ConnectionORM->getConnect()->company_validation_ve->where("rif", $rif)->update(array('status'=>$status,'validate'=>$status));			
+
+                        //actualizo el status de los arcivos a 1 activo
+			$q = $ConnectionORM->getConnect()->company_files->where("id_company", $id_company)->update(array('status'=>$status,'date_updated'=>$date_updated,'validate'=>$status));			
 			
 		}
 		function inactiveUserMasterCompany($id_company){		
@@ -164,7 +167,7 @@
 			//actualizo el status de la compañia a 1 activo
 			$q = $ConnectionORM->getConnect()->company->where("id", $id_company)->update(array('status'=>$status,'date_updated'=>$date_updated));			
 			
-			
+
 		}		
 	}
 	
