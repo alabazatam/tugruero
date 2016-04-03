@@ -1,4 +1,4 @@
-<?php include("../view_header.php");?>	
+<?php include("../view_header_app.php");?>	
         	<div class="col-md-4 col-lg-4">
         	</div>
         	
