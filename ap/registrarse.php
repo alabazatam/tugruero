@@ -122,7 +122,6 @@ $values = $_REQUEST;
 			die;
 		}
 	}
-	
 	function executePaso2($values = null)
 	{
 		require('paso2_view.php');
@@ -207,6 +206,8 @@ $values = $_REQUEST;
 						}
 						$i++;
 					}
+					$UserPerms = array("id_user"=>$idUser,"id_perms" => 3,"status"=>0);
+					addUserPerms($UserPerms);
 					$message = "Usuario: ".$userData["login"]." Clave: ".$password;
 					$Mail = new Mail();
 					$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);

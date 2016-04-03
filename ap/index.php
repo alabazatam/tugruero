@@ -33,9 +33,35 @@ $values = $_REQUEST;
 	
 	require('bienvenida.php');
 	}
-	function executeAcceso($values = null){
-	$_SESSION['id_company'] = 1;
-	require('bienvenida.php');
+	function executeAcceso($values = null)
+	{
+		$Login = new Login();
+		$q = $Login->GetLogin($values["login"],$values["password"]);
+		if(count($q)> 0)
+		{	
+			$company = new Company();
+			$companyId['id'] = $q["users_company"]["id_company"];
+			$companyData = $company->getCompanyById($companyId);
+			if($companyData["status"] == 1)
+			{
+				$_SESSION['id_company'] = $q["users_company"]["id_company"];
+				$_SESSION['id_perms'] = $q["users_perms"]["id_perms"];
+				$_SESSION['id_user'] = $q["users"]["id_user"];
+				require('bienvenida.php');	
+			}
+			else 
+			{
+				$values = null;
+				$values["errors"] = "usuario pendiente por validar";
+				executeIndex($values);
+			}
+		}
+		else
+		{
+			$values = null;
+			$values["errors"] = "usuario o clave invalida";
+			executeIndex($values);
+		}
 	}
 	function executeLogout($values = null){
 	require('login.php');

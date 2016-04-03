@@ -11,6 +11,8 @@
  }
  function addToken($datos)
  {
+	$values["date_created"] = date("Y-m-d H:i:s");
+	$values["date_updated"] = date("Y-m-d H:i:s");
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')->users_token()->insert($datos);
 	return $q;
@@ -83,6 +85,15 @@ function GetCompanyValidation($idCompanyValidation)
 	$q = $ConnectionORM->getConnect('tugruero')->users_data()->insert($values);
 	return $q;
  }
+  function addUserPerms($values)
+ {
+	$values["date_created"] = date("Y-m-d H:i:s");
+	$values["date_updated"] = date("Y-m-d H:i:s");
+	$ConnectionORM = new ConnectionORM();
+	$q = $ConnectionORM->getConnect('tugruero')->users_perms()->insert($values);
+	return $q;
+ }
+ 
  function updateCompanyValidation($values)
  {
 	$id = $values["id"];

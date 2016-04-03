@@ -57,6 +57,10 @@
 			                    	
 			                    	<div id="" class="alert alert-success"><?php echo $values['message'];?></div>
 			                    <?php endif;?>
+								<?php if(isset($values['errors']) and $values['errors']!=''):?>
+			                    	
+			                    	<div id="" class="alert alert-danger"><?php echo $values['errors'];?></div>
+			                    <?php endif;?>
 			                </form>
 				  </div>
 				</div>
