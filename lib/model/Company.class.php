@@ -35,7 +35,11 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "upper(login) like upper('%$str%')";
+				$where = ""
+                                        . "upper(status.name) like upper('%$str%') "
+                                        . "or upper(company.razon_social) like upper('%$str%')"
+                                        . "or upper(company.responsible_name) like upper('%$str%')"
+                                        . "";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -47,10 +51,11 @@
 			}
 			//echo $column_order;die;
                         $ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->company
-			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
-			->order("$column_order $order")
-			->where("$where")
+			$q = $ConnectionORM->getConnect()->company()
+			->select("company.*,DATE_FORMAT(company.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(company.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->join("status","LEFT JOIN status on status.id_status = company.status")
+                        ->where("$where")
+                        ->order("$column_order $order")
 			->limit($limit,$offset);
 			return $q; 			
 		}
@@ -60,7 +65,7 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "upper(Razon_social) like upper('%$str%') ";
+				$where = "upper(razon_social) like upper('%$str%') ";
 			}
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->company
