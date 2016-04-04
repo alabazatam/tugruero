@@ -1,6 +1,6 @@
 <?php
         $Menu = new Menu();
-        $items_padres = $Menu ->getMenu(4, 0,9);?>
+        $items_padres = $Menu ->getMenu(4, 1,0);?>
 
 
         <div class=""><!--menu mobile-->
@@ -14,7 +14,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                           </button>
-                          <a class="navbar-brand" href="<?php echo full_url;?>/adm/index.php"> <img src="<?php echo full_url;?>/web/img/logo1.png" class="img-responsive" width="150"></a>
+                          <a class="navbar-brand" href="<?php echo full_url;?>/ap/index.php"> <img src="<?php echo full_url;?>/web/img/logo1.png" class="img-responsive" width="150"></a>
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -25,7 +25,7 @@
                                 <li class="dropdown">
                                   <a class="dropdown-toggle small text-capitalize" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $item['name']?> <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                      <?php $items_hijos = $Menu -> getMenu(4,0,9);?>
+                                      <?php $items_hijos = $Menu -> getMenu(4,1,$item['id_menu']);?>
                                       <?php foreach($items_hijos as $item2):?>
                                         <li class=""><a class="small text-capitalize" href="<?php echo full_url.$item2['url']?>" target=""><?php echo $item2['name']?></a></li>
                                       <?php endforeach;?>

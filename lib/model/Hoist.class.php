@@ -48,8 +48,10 @@
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->hoist
 			->select("*")
+			->join("hoist_company","INNER JOIN hoist_company on hoist_company.id_hoist = hoist.id")
 			->order("$column_order $order")
 			->where("$where")
+			->and("hoist_company.id_company =?",$values["company"])
 			->limit($limit,$offset);
 			return $q; 			
 		}
@@ -88,6 +90,10 @@
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->hoist()->insert($values);
 			$values['id'] = $ConnectionORM->getConnect()->hoist()->insert_id();
+			$ConnectionORM = new ConnectionORM();
+			$hoistCompany = array("id_hoist" => $values['id'],"id_company" => $_SESSION['id_company']);
+			$q = $ConnectionORM->getConnect()->hoist_company()->insert($hoistCompany);
+			
 			return $values;	
 			
 		}

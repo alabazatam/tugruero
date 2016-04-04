@@ -32,7 +32,7 @@ $values = $_REQUEST;
 	}
 	function executeIndex($values = null)
 	{
-	require('hoist_list_view.php');
+		require('hoist_list_view.php');
 	}
 	function executeNew($values = null)
 	{       

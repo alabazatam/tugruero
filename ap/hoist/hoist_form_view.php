@@ -37,7 +37,7 @@
 		<input type="text" id="" class="form-control input-sm" name="year_vehicle" value="<?php if(isset($values['year_vehicle'])) echo $values['year_vehicle']?>">
 	  </div>
 	 <div class="form-group">
-		<label for="">make</label>
+		<label for="">Marca</label>
 		<input type="text" id="" class="form-control input-sm" name="make" value="<?php if(isset($values['make'])) echo $values['make']?>">
 	  </div>
 	  <div class="form-group">
