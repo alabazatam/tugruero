@@ -39,6 +39,7 @@
                                         . "upper(status.name) like upper('%$str%') "
                                         . "or upper(company.razon_social) like upper('%$str%')"
                                         . "or upper(company.responsible_name) like upper('%$str%')"
+                                        . "or upper(company.rif) like upper('%$str%')"
                                         . "";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
