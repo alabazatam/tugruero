@@ -42,7 +42,7 @@
 	  </div>
 	  <div class="form-group">
 		<label for="">Modelo</label>
-		<input type="text" id="" class="form-control input-sm" name="make" value="<?php if(isset($values['model'])) echo $values['model']?>">
+		<input type="text" id="" class="form-control input-sm" name="model" value="<?php if(isset($values['model'])) echo $values['model']?>">
 	  </div>
 	  <div class="form-group">
 		<label for="">Fecha creado</label>
