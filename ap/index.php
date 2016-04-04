@@ -52,7 +52,7 @@ $values = $_REQUEST;
 			else 
 			{
 				$values = null;
-				$values["errors"] = "usuario pendiente por validar";
+				$values["errors"] = "Usuario inactivo";
 				executeIndex($values);
 			}
 		}

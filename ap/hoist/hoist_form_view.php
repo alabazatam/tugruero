@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center"><label class="label label-default">Usuarios</label></h1>
+	<h1 class="text-center"><label class="label label-default">Grúas</label></h1>
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 	  <div class="form-group">
@@ -39,6 +39,10 @@
 	 <div class="form-group">
 		<label for="">Marca</label>
 		<input type="text" id="" class="form-control input-sm" name="make" value="<?php if(isset($values['make'])) echo $values['make']?>">
+	  </div>
+	  <div class="form-group">
+		<label for="">Modelo</label>
+		<input type="text" id="" class="form-control input-sm" name="make" value="<?php if(isset($values['model'])) echo $values['model']?>">
 	  </div>
 	  <div class="form-group">
 		<label for="">Fecha creado</label>
