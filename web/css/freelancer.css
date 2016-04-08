@@ -205,48 +205,34 @@ section h2 {
     margin: 0;
     font-size: 3em;
 }
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
-    section.success {
-            color: #fff;
-            background-color: #2A2D32;
-        }
+@media (min-width: 481px){
+    html { 
+      background: url(../img/cover.png) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
 }
 @media (min-width: 481px){
     section.success {
-        color: #fff;
+        color: #000;
       background-color: #282C30;
-      background: transparent url("../img/success.png") no-repeat fixed top;
-    -webkit-background-size: 100% auto;
-    -moz-background-size: 100% auto;
-    -o-background-size: 100% auto;
-     background-size: 100% auto;
-     height: auto;
+      background: transparent url("../img/bg.png");
     }
-}
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
-    section.success2 {
-            color: #000000;
-            background-color: #ffffff;
-        }
 }
 @media (min-width: 481px){
     section.success2 {
         color: #000000;
-      background-color: #2A2D32;
-      background: transparent url("../img/success2.png") no-repeat fixed top;
-    -webkit-background-size: 100% auto;
-    -moz-background-size: 100% auto;
-    -o-background-size: 100% auto;
-     background-size: 100% auto;
-     height: auto;
+      background-color: #000000;;
+      background: transparent url("../img/bg2.png");
     }
 }
+    section.success3 {
+        color: #000;
+      background-color: #282C30;
+      background: transparent url("../img/bg3.png");
+    }
 section.success a,
 section.success a:hover,
 section.success a:focus,
@@ -552,5 +538,23 @@ and (max-device-width : 480px) {
 input[readonly="readonly"] {
 
    background-color: #ccc !important;
+
+}
+.thumbnail {
+  display: block;
+  padding: 20px;
+  margin-bottom: 40px;
+  line-height: 1.42857143;
+  background-color: transparent !important;
+  border: 8px solid #ffffff;
+  border-radius: 20px;
+  -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
+}
+.background_nav {
+
+   background-color: #D8D9DB !important;
+   border: 0px solid #ffffff !important;
 
 }

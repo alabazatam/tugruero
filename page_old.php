@@ -56,7 +56,7 @@
     </nav>    
     <!-- Navigation -->
     <header id="scroll" class="">       
-    <div class="visible-lg visible-md background_nav" align="center"><a href="#page-top"><img src="web/img/g362.png" class="img-responsive" width="200" alt="tugruero.com"></a></div>
+    <div class="visible-lg visible-md" align="center"><a href="#page-top"><img src="web/img/g362.png" class="img-responsive" width="200" alt="tugruero.com"></a></div>
 	<div class="menu" ng-class="{ 'toggled' : menu }">
 		<a ng-click="toggle()" class="bars"><i class="fa fa-bars"></i></a>
 		<nav ng-class="{ 'toggled' : menu }" ng-mouseleave="menu=''">
@@ -102,90 +102,7 @@
 
     </div><!-- /.carousel -->
 </section>
-    <section class="success2" id="presentation">
-        <div class="container">
-					
-					<div class="row">
-					  <div class=" col-md-4 col-lg-4">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon4.png">
-						  <div class="caption">
-							  <h2 class="text-center">GPS</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					  <div class=" col-md-4 col-lg-4">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon6.png">
-						  <div class="caption">
-							  <h2 class="text-center">Calidad</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					  <div class=" col-md-4 col-lg-4">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon1.png">
-						  <div class="caption">
-							  <h2 class="text-center">Rápidez</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					</div>			
-			
-					<div class="row">
-					  <div class=" col-md-4 col-lg-4">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon4.png">
-						  <div class="caption">
-							  <h2 class="text-center">GPS</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					  <div class=" col-md-4 col-lg-4">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon6.png">
-						  <div class="caption">
-							  <h2 class="text-center">Calidad</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					  <div class=" col-md-4 col-lg-4">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon1.png">
-						  <div class="caption">
-							  <h2 class="text-center">Rápidez</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					</div>
-					<div class="row">
-					  <div class=" col-md-4 col-lg-4 col-lg-offset-1">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon5.png">
-						  <div class="caption">
-							  <h2 class="text-center">Sencillez</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					  <div class=" col-md-4 col-lg-4 col-lg-offset-1">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon2.png">
-						  <div class="caption">
-							  <h2 class="text-center">Grueros</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					</div>
-        </div>
-    </section>
+ 
     <!-- About Section -->
     <section class="success" id="about">
         <div class="container">
@@ -233,19 +150,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2><?php //echo $objectives_title;?></h2>
+                    <h2><?php echo $objectives_title;?></h2>
                 </div>
             </div>
+			<hr>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-            <div class="row">
+                                <div class="row">
                 <div class="col-lg-12 col-lg-offset-0">
 					<ul class="list-group">
-						<?php //foreach($objectives_contents as $objectives):?>
+						<?php foreach($objectives_contents as $objectives):?>
 					  <li class="list-group-item">
-						  <p class="text-justify"><?php //echo html_entity_decode($objectives['html']);?></p>
+						  <p class="text-justify"><?php echo html_entity_decode($objectives['html']);?></p>
 					  </li>
-					  <?php //endforeach;?>
+					  <?php endforeach;?>
 					</ul>
                 </div>
             </div>
@@ -322,41 +240,10 @@
         </div>
     </section>
 
-	<section id="testimonials" class="success"> 
-        <div class="container">
-            <div class="row">		
-				<div class="media">
-					<div class="media-left">
-					  <a href="#">
-						  <img class="img-responsive img-circle" width="200" src="<?php echo full_url?>/web/img/Carlos_Germani.PNG" alt="">
-					  </a>
-					</div>
-					<div class="media-body">
-						<h2 class="media-heading">Carlos Germani <small class="text-info">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela.</small></h2>
-						<p class="text-justify text-muted">"Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor."</p>
-					</div>
-				</div>
-			</div>
-		</div>
-        <div class="container">
-            <div class="row">		
-				<div class="media">
-					<div class="media-left">
-					  <a href="#">
-						  <img class="media-object img-responsive img-circle" width="200" src="<?php echo full_url?>/web/img/Juan_Panto.PNG" alt="">
-					  </a>
-					</div>
-					<div class="media-body ">
-						<h2 class="media-heading">Juan Panto <small class="text-info">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas.</small></h2>
-						<p class="text-justify text-muted">"Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena"</p>
-					</div>
-				</div>
-			</div>
-		</div>		
-	</section>
+
 
     <!-- Contact Section -->
-    <section id="contact" class="">
+    <section id="contact" class="success2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
