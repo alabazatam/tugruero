@@ -16,7 +16,20 @@
     <!-- Custom styles for this template -->
             <!-- CSS -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-	<link href="<?php echo full_url;?>/web/css/datatables.css" rel="stylesheet">
-	<script src="<?php echo full_url;?>/web/js/datatables.js"></script>
  </head>
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="200"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
+  </div>
+</nav>
