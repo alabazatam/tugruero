@@ -159,7 +159,7 @@ $values = $_REQUEST;
 						$idCompanyValidation=$value["id"];
 						$RegistrarEmpresa = array("rif" => $value["rif"],
 						"razon_social"=>$value["razon_social"],
-						"responsible_name"=>$values["first_name"]." ".values["first_last_name"],
+						"responsible_name"=>$values["first_name"]." ".$values["first_last_name"],
 						"id_bank" =>$values["type_bank"],
 						"num_cuenta" => $values["NumCuenta"],
 						"responsible_cedula"=>$values["nationality"]."-".$values["cedula"]);
