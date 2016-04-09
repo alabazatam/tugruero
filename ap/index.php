@@ -27,6 +27,7 @@ $values = $_REQUEST;
 	}
 						
 	function executeIndex($values = null){
+        session_destroy();
 	require('login.php');
 	}
 	function executeBienvenida($values = null){
