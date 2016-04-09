@@ -69,6 +69,13 @@ function GetCompanyValidation($idCompanyValidation)
 	$q = $ConnectionORM->getConnect('tugruero')->users()->insert($values);
 	return $q;
  }
+ function updateUser($values)
+ {
+	$id = $values["id_user"];
+	$ConnectionORM = new ConnectionORM();
+	$q = $ConnectionORM->getConnect('tugruero')->users('id_user', $id)->update($values);
+	return $q;
+ }
   function addCompanyFiles($values)
  {
 	$values["date_created"] = date("Y-m-d H:i:s");
@@ -129,6 +136,25 @@ function connect($login,$password)
 		}
 
 		return $valid;
+
+}
+function validateForgottenPassword($document,$nationality,$InitialFirstName,$InitialFirstLastName,$mail)
+{
+
+		$InitialFirstName = strtoupper($InitialFirstName);
+		$InitialFirstLastName = strtoupper($InitialFirstLastName);
+		$ConnectionORM = new ConnectionORM();
+		$q = $ConnectionORM->getConnect('tugruero')->users
+		->select("users.id_user,users.mail")
+		->join("users_data","inner join users_data on users.id_user = users.id_user")
+		->where("users.mail =?", $mail)
+		->and('UPPER(LEFT(users_data.first_name,1))=?',$InitialFirstName)
+		->and('UPPER(LEFT(users_data.first_last_name,1))=?',$InitialFirstLastName)
+		->and('users_data.document=?', $document)
+		->and('users_data.nationality=?', $nationality)
+		->and('status=?',1);
+		
+		return $q;
 
 }
 

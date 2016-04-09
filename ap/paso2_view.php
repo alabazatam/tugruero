@@ -1,12 +1,4 @@
 <?php include("../view_header.php");?>
-<?php if(isset($values['errors']) and count($values['errors'])>0):?>
-	<?php foreach($values['errors'] as $errors):?>
-		<?php echo $errors;?>
-	<?php endforeach;?>
-<?php endif;?>
-<?php if(!isset($values['token']) and !count($values['token'])>0):?>
-	<?php redirect('registro.php');?>
-<?php endif;?>
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
@@ -91,6 +83,17 @@
 				                        	<input type="text" name="NumCuenta" placeholder="Número de Cuenta..." class="form-google-plus form-control" id="form-google-plus" required>
 				                        </div>
 				                        <button type="submit" class="btn">Registrarme!</button>
+										<?php if(isset($values['message']) and count($values['message'])>0):?>
+											<?php foreach($values['message'] as $message):?>
+												<div class="alert alert-success" role="alert"><?php echo $message;?></div>
+											<?php endforeach;?>
+										<?php endif;?>
+										
+										<?php if(isset($values['errors']) and count($values['errors'])>0):?>
+											<?php foreach($values['errors'] as $errors):?>
+												<div class="alert alert-danger" role="alert"><?php echo $errors;?></div>
+											<?php endforeach;?>
+										<?php endif;?>
 				                    </div>
 			                    </fieldset>               
 		                    </form>

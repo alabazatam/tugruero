@@ -8,53 +8,37 @@
                         		<fieldset>
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
-		                        			<h3>Paso 1 / 2</h3>
-											<p>Identificaci&oacute;n</p>
+		                        			<h3>¿Olvidó contraseña?</h3>
 		                        		</div>
 		                        		<div class="form-top-right">
 		                        			<i class="fa fa-user"></i>
 		                        		</div>
 		                            </div>
 		                            <div class="form-bottom">
-									<input type="hidden" name="action" id="formulario" value="validaFormulario1">
+									<input type="hidden" name="action" id="formulario" value="valideForgottenPassword">
 									<div class="form-group">
 										<div class="input-group">
 										  <span class="input-group-btn">
-											<select name="Type_rif" class="btn btn-secondary">
+											<select name="nationality" class="btn btn-secondary">
 												<option value="V" selected>V</option>
 												<option value="E">E</option>
-												<option value="J">J</option>
-												<option value="P">P</option>
-												<option value="G">G</option>
 											</select>
 										  </span>
-										  <input type="text" class="form-control" placeholder="RIF..." name="rif">
-										  <span class="input-group-btn">
-											<select name="Last-number" class="btn btn-secondary">
-											  <option value="0" selected>0</option>
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-											</select>
-										  </span>
-										</div>
+										  <input type="text" class="form-control" placeholder="Cedula..." name="document">
 										</div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="razonSocial">Razón social</label>
-											<input type="text" name="razonSocial" id="registrarse-razon-social" placeholder="Raz&oacute;n social..." class="form-last-name form-control" id="form-last-name" required>
+				                        	<label class="sr-only" for="mail">Correo Electrónico</label>
+											<input type="text" name="mail" id="registrarse-razon-social" placeholder="Correo Electrónico..." class="form-last-name form-control" id="form-last-name" required>
 				                        </div>
-				                        <div class="form-group">
-											<label class="sr-only" for="correo">Correo Electr&oacute;nico</label>
-											<input type="text" name="correo" id="form-correo" placeholder="Correo Electr&oacute;nico..."
-												   class="form-about-yourself form-control" id="form-about-yourself" required></input>
+										<div class="form-group">
+				                        	<label class="sr-only" for="InitialFirstName">Inical del primer nombre</label>
+											<input type="text" name="InitialFirstName" id="registrarse-IniciarNombre" placeholder="Inicial del primer nombre..." class="form-last-name form-control" id="form-last-name" maxlength="1" required>
 				                        </div>
-				                        <button type="submit" name="next-1" value="siguiente" class="btn btn-next">Siguiente</button>
+										<div class="form-group">
+				                        	<label class="sr-only" for="InitialFirstLastName">Inical del primer apellido</label>
+											<input type="text" name="InitialFirstLastName" id="registrarse-InicialNombre" placeholder="Inicial del primer apellido..." class="form-last-name form-control" id="form-last-name"maxlength="1" required>
+				                        </div>
+				                        <button type="submit" name="next-1" value="Recuperar" class="btn btn-next">Recuperar</button>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
 											<?php foreach($values['message'] as $message):?>
 												<div class="alert alert-success" role="alert"><?php echo $message;?></div>
