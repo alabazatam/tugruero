@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="www.tugruero.com.ve">
     <meta name="author" content="">
     <link href="web/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
@@ -18,7 +18,7 @@
 	<link href="web/css/freelancer.css" rel="stylesheet">
      <title>Tugruero.com</title>
 </head>
-<body id="page-top" class="" ng-controller="BaseController" ng-class="{ min:boolClass, 'toggled':menu }">
+<body  class="" ng-controller="BaseController" ng-class="{ min:boolClass, 'toggled':menu }">
      <nav class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -68,17 +68,22 @@
         <div class="container visible-lg visible-md">
 			<div class="row" class="visible-lg visible-md">
 						<div class="col-md-3 col-lg-3 ">
-							<img src="<?php echo full_url?>/web/img/cel/cel1.png" class="img-responsive">
+							<img src="<?php echo full_url?>/web/img/cel/iphone1.png" class="img-responsive">
 						</div>
 						<div class="col-md-6 col-lg-6">
 							<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>
 							<p><h3 class="text-center white-font big-font">“¡La  solución perfecta para el auxilio vial!”</h3></p>
 							<p><h3 class="text-center white-font">“Más de 2000 grueros al alcance de tu mano con un solo click”</h3></p>
 							<br><br><br><br>
-								<p align="center"><a class="btn text-center black-font" style="background-color: #ffffff;"><i class="fa fa-users fa-3x fa-lg"></i> Acceso grueros</a></p>
+								<p align="center">
+                                                                    <a class="btn text-center black-font">
+                                                                        <img src="<?php echo full_url?>/web/img/icon2.png">
+                                                                        <small><b>Acceso grueros</b></small>
+                                                                    </a>
+                                                                </p>
 						</div>
 						<div class="col-md-3 col-lg-3">
-							<img src="<?php echo full_url?>/web/img/cel/cel6.png" class="img-responsive">
+							<img src="<?php echo full_url?>/web/img/cel/iphone2.png" class="img-responsive">
 						</div>
 
 			</div>
@@ -94,64 +99,71 @@
 						<div class="col-xs-12 col-sm-12">
 							<p>“¡La  soluciones perfecta para el auxilio vial!”</p>
 							<p>“Más de 2000 grueros al alcance de tu mano con un solo click”</p>
-							<p align="center"><a class="btn text-center" style="background-color: #404040;color:#fff;"><i class="fa fa-users fa-3x fa-lg"></i> Acceso grueros</a></p>
+							<p align="center">
+                                                        <p align="center">
+                                                                    <a class="btn text-center black-font">
+                                                                        <img src="<?php echo full_url?>/web/img/icon2.png">
+                                                                        <small><b>Acceso grueros</b></small>
+                                                                    </a>
+                                                        </p>
+                                                        </p>
 						</div>
 			</div>	
 		</div>
 	</section>
-    <section class="success5" id="">
+    <section class="success5" id="work">
         <div class="container-fluid">
-			<div class="col-lg-offset-1">
-				<div class="col-md-2 col-lg-2">
+			<div class="col-lg-offset-0 col-md-offset-0">
+				<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/icon4.png" width="80">
+							<img src="<?php echo full_url;?>/web/img/ic2.png">
 							
 							<div class="caption">
-								 <p class="text-center">GPS</p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
+                                                                <p class="text-center"><b>GPS</b></p>
+								 <p class="text-center text-info"><small>Ubicamos a los grueros más cercanos a tu ubicación</small></p>
 							  </a>
 							</div>
 						</div>
 				</div>
-				<div class="col-md-2 col-lg-2">
+				<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/icon1.png" >
+							<img src="<?php echo full_url;?>/web/img/ic3.png" >
 
 							<div class="caption">
-								 <p class="text-center">Calidad</p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
+								 <p class="text-center"><b>Calidad</b></p>
+								 <p class="text-center text-info"><small>Nuestros grueros son los más calificados del mercado</small></p>
 							  </a>
 							</div>
 						</div>
 				</div>
-				<div class="col-md-2 col-lg-2">
+				<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/faster.png">
+							<img src="<?php echo full_url;?>/web/img/ic4.png">
 
 							<div class="caption">
-								 <p class="text-center">Rapidez</p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
+								 <p class="text-center"><b>Rapidez</b></p>
+								 <p class="text-center text-info"><small>Grúas en menos de 30 minutos</small></p>
 							  </a>
 							</div>
 						</div>
 				</div>
-				<div class="col-md-2 col-lg-2">
+				<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/icon5.png" width="130">
+							<img src="<?php echo full_url;?>/web/img/ic5.png">
 
 							<div class="caption">
-								 <p class="text-center">Sencillez</p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
+								 <p class="text-center"><b>Sencillez</b></p>
+								 <p class="text-center text-info"><small>Un botón y ¡Listo! La grúa viene en camino</small></p>
 							  </a>
 							</div>
 						</div>
 				</div>
-				<div class="col-md-2 col-lg-2">
+				<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/icon2.png">
+							<img src="<?php echo full_url;?>/web/img/ic6.png">
 
 							<div class="caption">
-								<p class="text-center">Grueros</p>
+								<p class="text-center"><b>Grueros</b></p>
 								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
 							  </a>
 							</div>
@@ -160,92 +172,58 @@
 			</div>
         </div>
     </section>
-	<section class="success3">		
+	<section class="success3" id="about">		
 			<div class="row">
-				<div class="col-md-3 col-lg-3">
+				<div class="col-md-3 col-lg-3 portfolio-item">
 						<div class="thumbnail">
-						<a class="" role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-						  <img src="<?php echo full_url;?>/web/img/icon5.png">
+						<a class="portfolio-link" role="button" data-toggle="modal" href="#portfolioModal1" aria-expanded="false" aria-controls="portfolioModal1">
+						  <img src="<?php echo full_url;?>/web/img/ic7.png">
 						</a>
 							<div class="caption">
 							
-							   <p class="text-center">¿Qué hacemos?</p>
-							</div>
-							<div class="collapse" id="collapseExample1">
-								<div class="well">
-
-									<p class="text-justify">
-										Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad.
-									</p>
-								</div>
+							   <p class="text-center white-font">¿Qué hacemos?</p>
 							</div>
 						</div>
 				</div>
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
-						<a class="" role="button" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
-							<img src="<?php echo full_url;?>/web/img/g190.png" width="150">
+						<a class="" role="button" data-toggle="modal" href="#portfolioModal2" aria-expanded="false" aria-controls="portfolioModal2">
+							<img src="<?php echo full_url;?>/web/img/ic8.png">
 						</a>
 							<div class="caption">
 							
-							   <p class="text-center">Sobre nosotros</p>
+							   <p class="text-center white-font">Sobre nosotros</p>
 							</a>
-							</div>
-							<div class="collapse" id="collapseExample2">
-								<div class="well">
-									<p class="text-justify">
-										Nuestra plataforma de comunicación se llama TU/GRUERO®, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados con las grúas más cercanas vía geolocalización, permitiéndoles obtener un servicio rápido, eficiente y seguro, simplemente con tocar un botón. 
-									</p>
-								</div>
-
 							</div>
 						</div>
 				</div>
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
-						<a class="" role="button" data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
-							<img src="<?php echo full_url;?>/web/img/icon5.png">
+						<a class="" role="button" data-toggle="modal" href="#portfolioModal3" aria-expanded="false" aria-controls="portfolioModal3">
+							<img src="<?php echo full_url;?>/web/img/ic9.png">
 						</a>
 							<div class="caption">
 							
-								<p class="text-center">¿A dónde vamos?</p>
+								<p class="text-center white-font">¿A dónde vamos?</p>
 							</a>
 							</div>
-							<div class="collapse" id="collapseExample3">
-								<div class="well">
-									<p class="text-justify">
-										TU/GRUERO® ser perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado.
-									</p>
-								</div>
 
-							</div>
 						</div>
 				</div>				
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
-							<a class="" role="button" data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">
-								<img src="<?php echo full_url;?>/web/img/icon5.png">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal4" aria-expanded="false" aria-controls="portfolioModal4">
+								<img src="<?php echo full_url;?>/web/img/ic10.png">
 							</a>
 							<div class="caption">
-								 <p class="text-center">¿Cómo funcionamos?</p>
+								 <p class="text-center white-font">¿Cómo funcionamos?</p>
 							  </a>
-							</div>
-							<div class="collapse" id="collapseExample4">
-								<div class="well">
-									<p class="text-justify">
-										Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO® funciona como intermediario directo entre al accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO®.
-									</p>
-									<p class="text-justify">
-										Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil.
-									</p>
-								</div>
-
 							</div>
 						</div>
 				</div>					
 			</div>
 	</section>
-	<section class="success5">
+	<section class="success5" id="video">
 	<div class="row" >
 		<div class="container">
 			<div class="embed-responsive embed-responsive-16by9">
@@ -254,43 +232,50 @@
 		</div>
 	</div>
 	</section>
-	<section id="testimonials" class="success2" style="background-color: #dddddd;"> 
-        <div class="container">
-            <div class="row">		
-				<div class="media">
-					<div class="media-left">
-					  <a href="#">
-						  <img class="img-responsive img-circle" width="200" src="<?php echo full_url?>/web/img/Carlos_Germani.PNG" alt="">
-					  </a>
-					</div>
-					<div class="media-body">
-						<h3 class="media-heading">Carlos Germani </h3>
-						<small class="text-info">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela.</small>
-						<p class="text-justify">"Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor."</p>
-					</div>
-				</div>
-			</div>
-		</div>
-        <div class="container">
-            <div class="row">		
-				<div class="media">
-					<div class="media-left">
-					  <a href="#">
-						  <img class="media-object img-responsive img-circle" width="200" src="<?php echo full_url?>/web/img/Juan_Panto.PNG" alt="">
-					  </a>
-					</div>
-					<div class="media-body ">
-						<h3 class="media-heading">Juan Panto </h3>
-						<small class="text-info">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas.</small>
-						<p class="text-justify">"Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena"</p>
-					</div>
-				</div>
-			</div>
-		</div>		
+	<section id="testimonials" class="success"> 
+            <div class="container content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="testimonials">
+                            <div class="active item">
+
+                              <div class="carousel-info">
+
+                                <div class="pull-left">
+                                  <span class="testimonials-name white-font">Carlos Germani </span>
+                                  <span class="testimonials-post white-font">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</span>
+                                </div>
+                              </div>
+                                <blockquote>
+                                    <p>
+                                        “Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor.”
+                                    </p>
+                                </blockquote>
+                            </div>
+                            <div class="active item">
+
+                              <div class="carousel-info">
+                                <!--<img alt="" src="<?php echo full_url?>/web/img/Carlos_Germani.png" class="pull-right">-->
+                                <div class="pull-left">
+                                  <span class="testimonials-name white-font">Juan Panto </span>
+                                  <span class="testimonials-post white-font">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</span>
+                                </div>
+                              </div>
+                                <blockquote>
+                                    <p>
+                                        “Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena”.
+                                    </p>
+                                </blockquote>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+            </div>
+	
 	</section>
 
     <!-- Contact Section -->
-    <section id="contact" class="success3">
+    <section id="contact" class="success5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -335,7 +320,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" id="btnSubmit" class="btn btn-success btn-lg">Enviar</button>
+                                <button type="submit" id="btnSubmit" class="btn btn-default btn-lg">Enviar</button>
                             </div>
                         </div>
                     </form>
@@ -350,11 +335,11 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Dirección</h3>
-                        <p>Av. Principal Los Dos Caminos. Edificio Provincial. Piso 8. Oficina 8 “B”. Municipio Sucre. Caracas. Venezuela. Código Postal: 1071.</p>
+                        <h3 class="white-font">Dirección</h3>
+                        <p class="white-font">Av. Principal Los Dos Caminos. Edificio Provincial. Piso 8. Oficina 8 “B”. Municipio Sucre. Caracas. Venezuela. Código Postal: 1071.</p>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Redes sociales</h3>
+                        <h3 class="white-font">Redes sociales</h3>
                         <ul class="list-inline">
                             <li>
                                 <a class="btn-social btn-outline" href="https://wwww.facebook.com/tugruero" target="_blank"><i class="fa fa-fw fa-facebook"></i></a>
@@ -368,7 +353,7 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <p><img src="web/img/g190.png" class="img-responsive" width="300"></p>
+                        <div align="center"><p><img src="web/img/titulo3.png" class="img-responsive" width="200"></p></div>
                     </div>                    
                 </div>
             </div>
@@ -377,7 +362,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; tugruero.com 2016
+                        <p class="white-font">Copyright &copy; tugruero.com 2016</p>
                     </div>
                 </div>
             </div>
@@ -385,18 +370,19 @@
     </footer>
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll visible-xs visible-sm">
-        <a class="btn btn-primary" href="#page-top">
+    <!--<div class="scroll-top page-scroll">
+        <a class="btn btn-default" href="#page-top">
             <i class="fa fa-chevron-up"></i>
         </a>
-    </div>
+    </div>-->
 
-    <!-- Portfolio Modals -->
+    <!-- Modals -->
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
                     <div class="rl">
+                        
                     </div>
                 </div>
             </div>
@@ -404,11 +390,11 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <!--<h2>Project Title</h2>-->
-                            <!--<hr class="star-primary">-->
-                            <!--<img src="web/img/ASEGURADOS.png" class="img-responsive img-centered" alt="">-->
-                            <p> <img src="web/img/diagrama1.png" class="img-responsive img-centered" alt=""></p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                            <h2 class="white-font">¿Qué hacemos?</h2>
+                            <br>
+			<p class="text-justify white-font">
+                            Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad.
+			</p>
                         </div>
                     </div>
                 </div>
@@ -427,18 +413,19 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <!--<h2>Project Title</h2>-->
-                             <!--<hr class="star-primary">-->
-                            <img src="web/img/GRUERAS.png" class="img-responsive img-centered" alt="">
-                            <p>Proceso grueras</p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                            <h2 class="white-font">Sobre nosotros</h2>
+                            <br>
+                            <!--<hr class="star-primary">-->
+			<p class="text-justify white-font">
+                            Nuestra plataforma de comunicación se llama TU/GRUERO®, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados con las grúas más cercanas vía geolocalización, permitiéndoles obtener un servicio rápido, eficiente y seguro, simplemente con tocar un botón. 
+			</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -450,11 +437,39 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <!--<h2>Project Title</h2>-->
-                             <!--<hr class="star-primary">-->
-                            <img src="web/img/CONDUCTORES.png" class="img-responsive img-centered" alt="">
-                            <p>Proceso conductores</p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                            <h2 class="white-font">¿A dónde vamos?</h2>
+                            <br>
+                            <!--<hr class="star-primary">-->
+			<p class="text-justify white-font">
+                            TU/GRUERO® ser perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado.
+			</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2 class="white-font">¿Cómo funcionamos?</h2>
+                            <br>
+                            <!--<hr class="star-primary">-->
+			<p class="text-justify white-font">
+                            Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO® funciona como intermediario directo entre al accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO®.
+			</p>
+			<p class="text-justify">
+                            Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil.
+			</p>
                         </div>
                     </div>
                 </div>
