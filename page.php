@@ -69,260 +69,173 @@
 			</ul>
 		</nav>
         </div>
-</header>
+	</header>
     <!-- Header -->  
-<section id="header">
-   <div id="<?php echo $caroussel1_name;?>" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <?php foreach($caroussel1_details as $caroussel1):?>
-            <li data-target="#<?php echo $caroussel1_name;?>" data-slide-to="<?php echo $caroussel1['data_slide_to']?>" class="<?php echo $caroussel1['class']?>"></li>     
-        <?php endforeach;?>
-
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        
-        <?php foreach($caroussel1_details as $caroussel1):?>
-            <div class="item <?php echo $caroussel1['class']?>">
-              <img class="first-slide" src="web/img/<?php echo $caroussel1['image']?>" alt="<?php echo $caroussel1['alt']?>">
-              <div class="container">
-                <div class="carousel-caption">
-                    <!--<div class="well">
-                        <h1>No importa donde estés</h1>
-                        <p>Contamos con tecnologia satelital que nos permite ubicarte en pocos minutos</p>                   
-                    </div>-->
-
-                    <p align="center" class="visible-lg visible-md"><img src="web/img/download_android.png" class="img-responsive"></p>
-                    <p align="center" class="visible-lg visible-md"><a class="btn btn-primary">Regístrate aqui</a></p>
-                </div>
-              </div>
-            </div>
-        <?php endforeach;?>          
-      </div>
-
-    </div><!-- /.carousel -->
-</section>
-    <section class="success2" id="presentation">
+	<section id="" class="" >
         <div class="container">
-					
+			<div class="row">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<img src="<?php echo full_url?>/web/img/cel/cel1.png" class="img-responsive">
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<p><h3 class="text-center">“¡La  soluciones perfecta para el auxilio vial!”</h3></p>
+							<p><h3 class="text-center">“Más de 2000 grueros al alcance de tu mano con un solo click”</h3></p>
+							<p align="center"><a class="btn text-center" style="background-color: #404040;color:#fff;"><i class="fa fa-users fa-3x fa-lg"></i> Acceso grueros</a></p>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<img src="<?php echo full_url?>/web/img/cel/cel1.png" class="img-responsive">
+						</div>
+
+			</div>	
+		</div>
+	</section>
+    <section class="success2" id="" style="background-color: #000000;">
+        <div class="container">			
 					<div class="row">
-					  <div class=" col-md-4 col-lg-4">
 						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon4.png">
+							<img src="<?php echo full_url;?>/web/img/icon4.png">
 						  <div class="caption">
 							  <h2 class="text-center">GPS</h2>
 							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
 						  </div>
-						</div>
+
 					  </div>
-					  <div class=" col-md-4 col-lg-4">
+					 
 						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon6.png">
+						  <img src="<?php echo full_url;?>/web/img/icon6.png" width="100" height="105">
 						  <div class="caption">
 							  <h2 class="text-center">Calidad</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
+							<p class="text-center text-muted">Nuestros grueros son los más calificados del mercado</p>
 						  </div>
 						</div>
-					  </div>
-					  <div class=" col-md-4 col-lg-4">
+
+					 
 						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon1.png">
+						  <img src="<?php echo full_url;?>/web/img/icon1.png" width="100" height="105">
 						  <div class="caption">
 							  <h2 class="text-center">Rápidez</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
+							<p class="text-center text-muted">Grúas en menos de 30 minutos</p>
 						  </div>
 						</div>
-					  </div>
-					</div>			
-			
-					<div class="row">
-					  <div class=" col-md-4 col-lg-4">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon4.png">
-						  <div class="caption">
-							  <h2 class="text-center">GPS</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					  <div class=" col-md-4 col-lg-4">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon6.png">
-						  <div class="caption">
-							  <h2 class="text-center">Calidad</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
-					  <div class=" col-md-4 col-lg-4">
-						<div class="thumbnail">
-						  <img src="<?php echo full_url;?>/web/img/icon1.png">
-						  <div class="caption">
-							  <h2 class="text-center">Rápidez</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
-						  </div>
-						</div>
-					  </div>
+
 					</div>
 					<div class="row">
-					  <div class=" col-md-4 col-lg-4 col-lg-offset-1">
+					  
 						<div class="thumbnail">
 						  <img src="<?php echo full_url;?>/web/img/icon5.png">
 						  <div class="caption">
 							  <h2 class="text-center">Sencillez</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
+							<p class="text-center text-muted">Un botón y ¡Listo! La grúa viene en camino</p>
 						  </div>
 						</div>
-					  </div>
-					  <div class=" col-md-4 col-lg-4 col-lg-offset-1">
+					  
+					  
 						<div class="thumbnail">
 						  <img src="<?php echo full_url;?>/web/img/icon2.png">
 						  <div class="caption">
 							  <h2 class="text-center">Grueros</h2>
-							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
+							<p class="text-center text-muted">Contamos con más de 2000 grueros en todo el territorio nacional</p>
 						  </div>
 						</div>
-					  </div>
+					  
 					</div>
         </div>
     </section>
-    <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2><?php echo $about1_title;?></h2>
-                    <!--<hr class="star-light">-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <?php foreach($about1_contents as $about1):?>
-						<p class="text-justify"><?php echo $about1['html'];?></p>
-					<?php endforeach;?>
-				</div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2><?php echo $about2_title;?></h2>
-                    <!--<hr class="star-light">-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <?php foreach($about2_contents as $about2):?>
-						<p class="text-justify"><?php echo $about2['html'];?></p>
-					<?php endforeach;?>
-				</div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2><?php echo $about3_title;?></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <?php foreach($about3_contents as $about3):?>
-						<p class="text-justify"><?php echo $about3['html'];?></p>
-					<?php endforeach;?>
-				</div>
-            </div>
-        </div>
-    </section>
-    <section class="success2" id="objectives">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2><?php //echo $objectives_title;?></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-            <div class="row">
-                <div class="col-lg-12 col-lg-offset-0">
-					<ul class="list-group">
-						<?php //foreach($objectives_contents as $objectives):?>
-					  <li class="list-group-item">
-						  <p class="text-justify"><?php //echo html_entity_decode($objectives['html']);?></p>
-					  </li>
-					  <?php //endforeach;?>
-					</ul>
-                </div>
-            </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Portfolio Grid Section -->
-    <section id="work" class="success">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2><?php echo $work_title;?></h2>
-                    <!--<hr class="star-primary">-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-					<?php foreach($work_contents as $work):?>
-						<?php echo html_entity_decode($work['html']);?>
-					<?php endforeach;?>
-                </div>
-            </div>
-		</div>
-	</section>
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="success2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2><?php echo $portfolio_title;?></h2>
-                   <!-- <hr class="star-primary">-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-					<?php foreach($portfolio_contents as $portfolio):?>
-						<?php echo html_entity_decode($portfolio['html']);?>
-					<?php endforeach;?>
-                </div>
-            </div>
-            <!--<div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="web/img/diagrama1.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="web/img/g5248.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="web/img/g5247.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-            </div>-->
-        </div>
-    </section>
+	<section style="background-color: #cccccc;">		
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+						<a class="" role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+						  <img src="<?php echo full_url;?>/web/img/icon5.png">
+						</a>
+							<div class="caption">
+							
+							   <h3 class="text-center">¿Qué hacemos?</h3>
+							</div>
+							<div class="collapse" id="collapseExample1">
+								<div class="well">
 
-	<section id="testimonials" class="success"> 
+									<p class="text-justify">
+										Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad.
+									</p>
+								</div>
+							</div>
+						</div>
+				</div>
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+						<a class="" role="button" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+							<img src="<?php echo full_url;?>/web/img/g190.png" width="150">
+						</a>
+							<div class="caption">
+							
+							   <h3 class="text-center">Sobre nosotros</h3>
+							</a>
+							</div>
+							<div class="collapse" id="collapseExample2">
+								<div class="well">
+									<p class="text-justify">
+										Nuestra plataforma de comunicación se llama TU/GRUERO®, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados con las grúas más cercanas vía geolocalización, permitiéndoles obtener un servicio rápido, eficiente y seguro, simplemente con tocar un botón. 
+									</p>
+								</div>
+
+							</div>
+						</div>
+				</div>
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+						<a class="" role="button" data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
+							<img src="<?php echo full_url;?>/web/img/icon5.png">
+						</a>
+							<div class="caption">
+							
+								<h3 class="text-center">¿A dónde vamos?</h3>
+							</a>
+							</div>
+							<div class="collapse" id="collapseExample3">
+								<div class="well">
+									<p class="text-justify">
+										TU/GRUERO® ser perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado.
+									</p>
+								</div>
+
+							</div>
+						</div>
+				</div>				
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+							<a class="" role="button" data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">
+								<img src="<?php echo full_url;?>/web/img/icon5.png">
+							</a>
+							<div class="caption">
+								 <h3 class="text-center">¿Cómo funcionamos?</h3>
+							  </a>
+							</div>
+							<div class="collapse" id="collapseExample4">
+								<div class="well">
+									<p class="text-justify">
+										Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO® funciona como intermediario directo entre al accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO®.
+									</p>
+									<p class="text-justify">
+										Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil.
+									</p>
+								</div>
+
+							</div>
+						</div>
+				</div>					
+			</div>
+	</section>
+	<section>
+	<div class="row">
+		<div class="container">
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="" height="" frameborder="0" wmode="Opaque" allowfullscreen="" src="https://www.youtube.com/embed/oqDRPoPDehE?wmode=transparent"></iframe>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section id="testimonials" class="" style="background-color: #dddddd;"> 
         <div class="container">
             <div class="row">		
 				<div class="media">

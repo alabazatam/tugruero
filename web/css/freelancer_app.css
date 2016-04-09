@@ -139,10 +139,6 @@ header .intro-text .skills {
     font-size: 1.25em;
     font-weight: 300;
 }
-#header {
-    background-color: #ffffff;/*Fondo header #FF5E29 #BCC0C6 #F8B92C*/    
-    
-}
 @media(min-width:768px) {
     header .container {
         padding-top: 200px;
