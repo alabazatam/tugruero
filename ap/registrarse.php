@@ -109,7 +109,7 @@ $values = $_REQUEST;
 							'mail'=> $correo,'mail_alternative' => $correo);
 						$tokenCreate = addToken($datos);
 						$idCreado = $tokenCreate["id"];
-						$message = full_url."/ap/registrarse.php?token=".$token;
+						$message = "<a href=".full_url."/ap/registrarse.php?token=".$token."></a>";
 						$Mail = new Mail();
 						$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
 						$values = null;
@@ -218,7 +218,7 @@ $values = $_REQUEST;
 					$Mail = new Mail();
 					$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
 					$values = null;
-					$values['message'] = "Su usuario creado satisfactoriamente, se ha enviado con los datos.</ br> Recuerde que debe esperar la aprobación del administrador.";
+					$values['message'] = "Su usuario ha sido creado satisfactoriamente, se ha enviado un correo electrónico con los datos.</ br> Recuerde que debe esperar la aprobación del administrador.";
 					$values["action"] = "login";
 					 require 'login.php';
 				}
