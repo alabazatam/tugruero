@@ -32,7 +32,7 @@ body:before{
         line-height:50px;
         display:inline-block;
         margin-right:-5px;cursor:pointer;
-        text-transform:uppercase;font-weight:800}
+        ;font-weight:800}
     header 
     .menu 
     .search{
@@ -65,7 +65,7 @@ body:before{
                 -webkit-transition-timing-function:ease;
                 transition-timing-function:ease}
     header .menu nav a{
-        color:#ffffff;text-transform:uppercase;
+        color:#ffffff;
         font-weight:700;display:block}
     header .menu nav a:hover{color:#fff}
     header .menu nav.toggled li
