@@ -18,7 +18,7 @@
 	<link href="web/css/freelancer.css" rel="stylesheet">
      <title>Tugruero.com</title>
 </head>
-<body  class="" ng-controller="BaseController" ng-class="{ min:boolClass, 'toggled':menu }">
+<body id="page-top" class="" ng-controller="BaseController" ng-class="{ min:boolClass, 'toggled':menu }">
      <nav class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                         <?php foreach($items as $item):?>
-                            <li class="page-scroll">
+                            <li class="">
                                 <a href="<?php echo $item['url'];?>"><?php echo $item['name'];?></a>
                             </li>
                         <?php endforeach;?>
@@ -101,8 +101,8 @@
 							<p>“Más de 2000 grueros al alcance de tu mano con un solo click”</p>
 							<p align="center">
                                                         <p align="center">
-                                                                    <a class="btn text-center black-font">
-                                                                        <img src="<?php echo full_url?>/web/img/icon2.png">
+                                                                    <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/index.php">
+                                                                        <img src="<?php echo full_url?>/web/img/icon2.png" >
                                                                         <small><b>Acceso grueros</b></small>
                                                                     </a>
                                                         </p>
