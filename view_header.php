@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="icon" href="<?php echo full_url;?>/web/img/favicon.ico" type="image/x-icon"/>
     <title><?php echo title;?></title>
     <!-- Bootstrap core CSS -->
     <link href="<?php echo full_url;?>/web/css/bootstrap.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
  </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-default">
+<nav class="navbar navbar-inverse navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">

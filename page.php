@@ -76,7 +76,7 @@
 							<p><h3 class="text-center white-font">“Más de 2000 grueros al alcance de tu mano con un solo click”</h3></p>
 							<br><br><br><br>
 								<p align="center">
-                                                                    <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/registrarse.php">
+                                                                    <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/index.php">
                                                                         <img src="<?php echo full_url?>/web/img/icon2.png">
                                                                         <small><b>Acceso grueros</b></small>
                                                                     </a>

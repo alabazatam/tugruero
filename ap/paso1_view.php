@@ -1,5 +1,4 @@
 <?php include("../view_header.php");?>
-<section class="success">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
@@ -74,4 +73,3 @@
                         </div>
                     </div>
                 </div>
-</section>
