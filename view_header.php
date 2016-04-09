@@ -12,7 +12,6 @@
     <link href="<?php echo full_url;?>/web/css/freelancer.css" rel="stylesheet">
     <!--<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">-->
 	<link href="<?php echo full_url;?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="<?php echo full_url;?>/web/css/caroussel.css" rel="stylesheet">
          
     <!-- Custom styles for this template -->
             <!-- CSS -->

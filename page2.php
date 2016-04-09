@@ -9,16 +9,22 @@
     <meta name="author" content="">
     <link href="web/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
+    <!-- Custom CSS -->
+    <link href="web/css/freelancer.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
     <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300|Roboto:400,300,500,700">
     <!-- <link rel="stylesheet" href="http://cssa.cssawards123.netdna-cdn.com/wp-content/themes/cssawds/assets/css/cssawds.min.css"> -->
     <link rel="stylesheet" href="web/ccsa/css/cssa.css">  
-	<link href="web/css/freelancer.css" rel="stylesheet">
      <title>Tugruero.com</title>
 </head>
+
 <body id="page-top" class="" ng-controller="BaseController" ng-class="{ min:boolClass, 'toggled':menu }">
+
      <nav class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +36,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand text" href="#page-top"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="100"></a>
+                <a class="navbar-brand text" href="#page-top"><img class="img-responsive" src="web/img/g362.png" alt="" width="100"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -49,7 +55,7 @@
     </nav>    
     <!-- Navigation -->
     <header id="scroll" class="">       
-    <div class="visible-lg visible-md background_nav" align="center"><a href="#page-top"><img src="web/img/logo_blanco.png" class="img-responsive" width="200" alt="tugruero.com"></a></div>
+    <div class="visible-lg visible-md background_nav" align="center"><a href="#page-top"><img src="web/img/g362.png" class="img-responsive" width="200" alt="tugruero.com"></a></div>
 	<div class="menu" ng-class="{ 'toggled' : menu }">
 		<a ng-click="toggle()" class="bars"><i class="fa fa-bars"></i></a>
 		<nav ng-class="{ 'toggled' : menu }" ng-mouseleave="menu=''">
@@ -62,23 +68,20 @@
 			</ul>
 		</nav>
         </div>
-	</header>	
-	
-	<section id="header" class="success">
+	</header>
+	<section>
         <div class="container visible-lg visible-md">
 			<div class="row" class="visible-lg visible-md">
-						<div class="col-md-3 col-lg-3 ">
-							<img src="<?php echo full_url?>/web/img/cel/cel1.png" class="img-responsive">
+						<div class="col-md-4 col-lg-4 ">
+							<img src="<?php echo full_url?>/web/img/cel/cel2.png" class="img-responsive">
 						</div>
-						<div class="col-md-6 col-lg-6">
-							<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>
-							<p><h3 class="text-center white-font big-font">“¡La  solución perfecta para el auxilio vial!”</h3></p>
-							<p><h3 class="text-center white-font">“Más de 2000 grueros al alcance de tu mano con un solo click”</h3></p>
-							<br><br><br><br>
-								<p align="center"><a class="btn text-center black-font" style="background-color: #ffffff;"><i class="fa fa-users fa-3x fa-lg"></i> Acceso grueros</a></p>
+						<div class="col-md-4 col-lg-4">
+							<p><h3 class="text-center">“¡La  soluciones perfecta para el auxilio vial!”</h3></p>
+							<p><h3 class="text-center">“Más de 2000 grueros al alcance de tu mano con un solo click”</h3></p>
+							<p align="center"><a class="btn text-center" style="background-color: #404040;color:#fff;"><i class="fa fa-users fa-3x fa-lg"></i> Acceso grueros</a></p>
 						</div>
-						<div class="col-md-3 col-lg-3">
-							<img src="<?php echo full_url?>/web/img/cel/cel6.png" class="img-responsive">
+						<div class="col-md-4 col-lg-4">
+							<img src="<?php echo full_url?>/web/img/cel/cel2.png" class="img-responsive">
 						</div>
 
 			</div>
@@ -87,7 +90,7 @@
 			<div class="row">
 						<div class="col-xs-12 col-sm-12">
 
-							<p align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive" width="200"></p>
+							<p align="center"><img src="<?php echo full_url?>/web/img/g190.png" class="img-responsive" width="200"></p>
 
 
 						</div>
@@ -99,68 +102,59 @@
 			</div>	
 		</div>
 	</section>
-    <section class="success5" id="">
-        <div class="container-fluid">
-			<div class="col-lg-offset-1">
-				<div class="col-md-2 col-lg-2">
+    <section class="success2" id="" style="background-color: #000000;">
+        <div class="container">			
+					<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/icon4.png" width="80">
-							
-							<div class="caption">
-								 <p class="text-center">GPS</p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
-							  </a>
-							</div>
-						</div>
-				</div>
-				<div class="col-md-2 col-lg-2">
-						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/icon1.png" >
+							<img src="<?php echo full_url;?>/web/img/icon4.png">
+						  <div class="caption">
+							  <h2 class="text-center">GPS</h2>
+							<p class="text-center text-muted">Ubicamos a los grueros más cercanos a tu ubicación</p>
+						  </div>
 
-							<div class="caption">
-								 <p class="text-center">Calidad</p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
-							  </a>
-							</div>
-						</div>
-				</div>
-				<div class="col-md-2 col-lg-2">
+					  </div>
+					 
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/faster.png">
-
-							<div class="caption">
-								 <p class="text-center">Rapidez</p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
-							  </a>
-							</div>
+						  <img src="<?php echo full_url;?>/web/img/icon6.png" width="100" height="105">
+						  <div class="caption">
+							  <h2 class="text-center">Calidad</h2>
+							<p class="text-center text-muted">Nuestros grueros son los más calificados del mercado</p>
+						  </div>
 						</div>
-				</div>
-				<div class="col-md-2 col-lg-2">
+
+					 
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/icon5.png" width="130">
-
-							<div class="caption">
-								 <p class="text-center">Sencillez</p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
-							  </a>
-							</div>
+						  <img src="<?php echo full_url;?>/web/img/icon1.png" width="100" height="105">
+						  <div class="caption">
+							  <h2 class="text-center">Rápidez</h2>
+							<p class="text-center text-muted">Grúas en menos de 30 minutos</p>
+						  </div>
 						</div>
-				</div>
-				<div class="col-md-2 col-lg-2">
+
+					</div>
+					<div class="row">
+					  
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/icon2.png">
-
-							<div class="caption">
-								<p class="text-center">Grueros</p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
-							  </a>
-							</div>
+						  <img src="<?php echo full_url;?>/web/img/icon5.png">
+						  <div class="caption">
+							  <h2 class="text-center">Sencillez</h2>
+							<p class="text-center text-muted">Un botón y ¡Listo! La grúa viene en camino</p>
+						  </div>
 						</div>
-				</div>
-			</div>
+					  
+					  
+						<div class="thumbnail">
+						  <img src="<?php echo full_url;?>/web/img/icon2.png">
+						  <div class="caption">
+							  <h2 class="text-center">Grueros</h2>
+							<p class="text-center text-muted">Contamos con más de 2000 grueros en todo el territorio nacional</p>
+						  </div>
+						</div>
+					  
+					</div>
         </div>
     </section>
-	<section class="success3">		
+	<section style="background-color: #cccccc;">		
 			<div class="row">
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
@@ -169,7 +163,7 @@
 						</a>
 							<div class="caption">
 							
-							   <p class="text-center">¿Qué hacemos?</p>
+							   <h3 class="text-center">¿Qué hacemos?</h3>
 							</div>
 							<div class="collapse" id="collapseExample1">
 								<div class="well">
@@ -188,7 +182,7 @@
 						</a>
 							<div class="caption">
 							
-							   <p class="text-center">Sobre nosotros</p>
+							   <h3 class="text-center">Sobre nosotros</h3>
 							</a>
 							</div>
 							<div class="collapse" id="collapseExample2">
@@ -208,7 +202,7 @@
 						</a>
 							<div class="caption">
 							
-								<p class="text-center">¿A dónde vamos?</p>
+								<h3 class="text-center">¿A dónde vamos?</h3>
 							</a>
 							</div>
 							<div class="collapse" id="collapseExample3">
@@ -227,7 +221,7 @@
 								<img src="<?php echo full_url;?>/web/img/icon5.png">
 							</a>
 							<div class="caption">
-								 <p class="text-center">¿Cómo funcionamos?</p>
+								 <h3 class="text-center">¿Cómo funcionamos?</h3>
 							  </a>
 							</div>
 							<div class="collapse" id="collapseExample4">
@@ -245,8 +239,8 @@
 				</div>					
 			</div>
 	</section>
-	<section class="success5">
-	<div class="row" >
+	<section>
+	<div class="row">
 		<div class="container">
 			<div class="embed-responsive embed-responsive-16by9">
 				<iframe class="" height="" frameborder="0" wmode="Opaque" allowfullscreen="" src="https://www.youtube.com/embed/oqDRPoPDehE?wmode=transparent"></iframe>
@@ -254,7 +248,7 @@
 		</div>
 	</div>
 	</section>
-	<section id="testimonials" class="success2" style="background-color: #dddddd;"> 
+	<section id="testimonials" class="" style="background-color: #dddddd;"> 
         <div class="container">
             <div class="row">		
 				<div class="media">
@@ -264,9 +258,8 @@
 					  </a>
 					</div>
 					<div class="media-body">
-						<h3 class="media-heading">Carlos Germani </h3>
-						<small class="text-info">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela.</small>
-						<p class="text-justify">"Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor."</p>
+						<h2 class="media-heading">Carlos Germani <small class="text-info">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela.</small></h2>
+						<p class="text-justify text-muted">"Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor."</p>
 					</div>
 				</div>
 			</div>
@@ -280,9 +273,8 @@
 					  </a>
 					</div>
 					<div class="media-body ">
-						<h3 class="media-heading">Juan Panto </h3>
-						<small class="text-info">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas.</small>
-						<p class="text-justify">"Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena"</p>
+						<h2 class="media-heading">Juan Panto <small class="text-info">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas.</small></h2>
+						<p class="text-justify text-muted">"Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena"</p>
 					</div>
 				</div>
 			</div>
@@ -290,11 +282,11 @@
 	</section>
 
     <!-- Contact Section -->
-    <section id="contact" class="success3">
+    <section id="contact" class="">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="white-font">Contáctanos</h2>
+                    <h2>Contáctanos</h2>
                     <!--<hr class="star-contacts">-->
                 </div>
             </div>
@@ -461,19 +453,31 @@
             </div>
         </div>
     </div>
-</body>
-</html>
 
+    <!-- jQuery -->
     <script src="web/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
     <script src="web/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="web/js/classie.js"></script>
     <script src="web/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
     <script src="web/js/jqBootstrapValidation.js"></script>
     <script src="web/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
     <script src="web/js/freelancer.js"></script>
-	<script src="web/ccsa/js/angular.js"></script>
-	<script src="web/ccsa/js/vendors.js"></script>
-	<script src="web/ccsa/js/cssawds.min.js"></script>
+<script>
+    $('#myCarousel').carousel();
+</script>
+<script src="web/ccsa/js/angular.js"></script>
+<script src="web/ccsa/js/vendors.js"></script>
+<script src="web/ccsa/js/cssawds.min.js"></script>
+</body>
+</html>
 
     

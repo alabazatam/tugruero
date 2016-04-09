@@ -44,7 +44,7 @@ body:before{
     .search i{font-size:20px}header 
     .menu 
     .bars{
-        background-color: transparent;color:#000000;padding:0 15px;
+        background-color: transparent;color:#ffffff;padding:0 15px;
         height:50px;line-height:50px;
         display:inline-block;
         margin-right:-5px;
@@ -65,7 +65,7 @@ body:before{
                 -webkit-transition-timing-function:ease;
                 transition-timing-function:ease}
     header .menu nav a{
-        color:#000;text-transform:uppercase;
+        color:#ffffff;text-transform:uppercase;
         font-weight:700;display:block}
     header .menu nav a:hover{color:#fff}
     header .menu nav.toggled li

@@ -10,17 +10,34 @@
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 26.4px;
+        color: #000000 !important;
 }
 body {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
+    background: url(../img/cover.png) no-repeat center center fixed ;
+    
     overflow-x: hidden;
+    margin: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+@media (min-width: 200px ) and (max-width: 600px ) {
+    html { 
+           overflow-x: hidden;
+    }
+}
+html { 
+    
 }
 
 p {
-    font-size: 20px;
+    /*font-size: 20px;*/
 }
 
 p.small {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 a,
@@ -207,6 +224,7 @@ header .intro-text .skills {
 
 section {
     padding: 100px 0;
+    background-color: transparent !important;
 }
 
 section h2 {
@@ -522,19 +540,19 @@ input[readonly="readonly"] {
 }
 .thumbnail {
   display: block;
-  padding: 20px;
-  margin-bottom: 40px;
+  padding: 4px;
+  margin-bottom: 20px;
   line-height: 1.42857143;
-  background-color: transparent !important;
-  /*border: 8px solid #ffffff;*/
-  border-radius: 20px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
   -webkit-transition: border .2s ease-in-out;
        -o-transition: border .2s ease-in-out;
           transition: border .2s ease-in-out;
 }
 .background_nav {
 
-   background-color: #D8D9DB !important;
+   background-color: #404040 !important;
    border: 0px solid #ffffff !important;
 
 }
@@ -544,4 +562,37 @@ input[readonly="readonly"] {
   margin-bottom: 30px;
   color: inherit;
     background: transparent url("../img/bg4.png");
+}
+.navbar-default {
+  background-color: #000000;
+  border-color: #e7e7e7;
+}
+section.success{
+   background-image: url("../img/bg3.png");
+}
+section.success2{
+   background-image: url("../img/bg2.png");
+    
+}
+section.success3{
+   background-image: url("../img/bg3.png");
+    
+}
+section.success4{
+   background-image: url("../img/bg4.png");
+    
+}
+section.success5{
+   background-image: url("../img/bg5.png");
+    
+}
+.white-font{
+    color: #fff !important;
+}
+.black-font{
+    color: #000000 !important;
+}
+.big-font{
+    color: #fff !important;
+    font-size: 18px !important;
 }

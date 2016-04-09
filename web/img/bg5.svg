@@ -14,8 +14,8 @@
    id="svg3673"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="bg3.svg"
-   inkscape:export-filename="/var/www/html/tugruero/web/img/bg3.png"
+   sodipodi:docname="bg5.svg"
+   inkscape:export-filename="/var/www/html/tugruero/web/img/bg5.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -28,10 +28,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="105.08012"
+     inkscape:cx="38.472977"
      inkscape:cy="105.35581"
      inkscape:document-units="px"
-     inkscape:current-layer="g3827"
+     inkscape:current-layer="g3763"
      showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="961"
@@ -103,18 +103,17 @@
                  inkscape:export-xdpi="90"
                  inkscape:export-ydpi="90">
                 <g
-                   id="g3827"
-                   inkscape:export-filename="/var/www/html/tugruero/web/img/bg2.png"
+                   id="g2992"
                    inkscape:export-xdpi="90"
-                   inkscape:export-ydpi="90">
+                   inkscape:export-ydpi="90"
+                   transform="matrix(0.96582136,0,0,0.97675963,-0.02731219,19.390887)"
+                   style="opacity:0.99236642"
+                   inkscape:export-filename="/var/www/html/tugruero/web/img/bg5.png">
                   <path
                      inkscape:connector-curvature="0"
                      id="path3014"
-                     style="opacity:0.81297709;fill:#404040;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                     d="m -0.79910116,1050.9146 212.99342116,0 0,-216.55242 -212.99342116,0 0,216.55242 z"
-                     inkscape:export-filename="/var/www/html/tugruero/web/img/bg3.png"
-                     inkscape:export-xdpi="90"
-                     inkscape:export-ydpi="90" />
+                     style="opacity:0.8816794;fill:#cc5a27;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                     d="m -0.79910116,1052.3622 219.42159116,0 0,-218.00002 -219.42159116,0 0,218.00002 z" />
                 </g>
               </g>
             </g>
