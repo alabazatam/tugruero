@@ -26,7 +26,7 @@
         $send = Swift_Message::newInstance($subject)
           ->setFrom($from)
           ->setTo($to)
-          ->setBody($message)
+          ->setBody($message,'text/html')
           ;
 
         // Send the message
