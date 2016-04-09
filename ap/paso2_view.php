@@ -17,10 +17,6 @@
 		                        		</div>
 		                            </div>
 		                            <div class="form-bottom">
-				                    	<div class="form-group">
-				                    		<label class="sr-only" for="responsable">Responsable de la empresa</label>
-											<input type="text" name="responsible_name" placeholder="Responsable de la empresa..." class="form-facebook form-control" id="form-facebook" required>
-				                        </div>
 										<div class="form-group">
 				                        	<label class="sr-only" for="file_1">Archivo 1</label>
 				                        	<input type="file" name="file_1" placeholder="Seleccione..." class="form-google-plus form-control" required>
