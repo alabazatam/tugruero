@@ -29,6 +29,9 @@ $values = $_REQUEST;
 		case "ForgottenYourPassword":
 			executeForgottenYourPassword($values);	
 		break;	
+		case "valideForgottenPassword":
+			executeValideForgottenYourPassword($values);	
+		break;
 		default:
 			executePaso1($values);
 		break;
@@ -110,7 +113,7 @@ $values = $_REQUEST;
 						$Mail = new Mail();
 						$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
 						$values = null;
-						$values['message']['tokenSend'] = "Se ha enviado una validación al correo, siga las instrucciones indicadas";
+						$values['message']['tokenSend'] = "Se ha enviado una validación a su correo electrónico, siga las instrucciones indicadas";
 						
 						executePaso1($values);
 					}
@@ -215,7 +218,7 @@ $values = $_REQUEST;
 					$Mail = new Mail();
 					$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
 					$values = null;
-					$values['message'] = "Usuario creado satisfactoriamente, se enviaran datos con la clave del usuario.</ br> Recuerde que debe esperar la aprobación del usuario.";
+					$values['message'] = "Su usuario creado satisfactoriamente, se ha enviado con los datos.</ br> Recuerde que debe esperar la aprobación del administrador.";
 					$values["action"] = "login";
 					 require 'login.php';
 				}
@@ -229,9 +232,8 @@ $values = $_REQUEST;
 		}
 		else
 		{
-			$values = null;
 			$values['errors'] = $errors;
-			executePaso1($values);
+			executePaso2($values);
 			
 			
 		}
@@ -239,5 +241,56 @@ $values = $_REQUEST;
 	function executeForgottenYourPassword($values = null)
 	{
 		require 'ForgottenPassword_view.php';
+	}
+	function executeValideForgottenYourPassword($values = null)
+	{
+		$errors = validaForgottenPassword($values);
+		$valido = true;
+		if(count($errors)>0)
+		{
+			$values['errors'] = $errors;
+			$valido = false;
+			executeForgottenYourPassword($values);die;
+		}
+		else
+		{
+			
+			$document = $values['document'];
+			$nationality = $values['nationality'];
+			$InitialFirstName = $values["InitialFirstName"];
+			$InitialFirstLastName = $values["InitialFirstLastName"];
+			$mail = $values["mail"];
+			$user = validateForgottenPassword($document,$nationality,$InitialFirstName,$InitialFirstLastName,$mail);
+			foreach($user as $id=> $valor)
+			{
+				if(empty($valor))
+				{
+					$values = null;
+					$values["errors"]["datosIncorrectos"] = "sus datos no coinciden";
+					executeForgottenYourPassword($values);die;
+				}
+				else
+				{
+					$idUser = $valor["id_user"];
+					$mail = $valor["mail"];
+					forwardPassword($idUser,$mail);
+				}
+				break;
+			}
+		}	
+	}
+	function forwardPassword($idUser,$mail)
+	{
+		$password = substr( md5(microtime()), 1, 8);
+		$values = array("id_user" => $idUser,"password" => hash('sha256', $password));
+		updateUser($values);
+		$message = "Clave: ".$password;
+		$Mail = new Mail();
+		$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
+		$values = null;
+		$values['message'] = "se ha enviado la clave a su correo electrónico.";
+		$values["action"] = "login";
+		 require 'login.php';
+		
 	}
 							

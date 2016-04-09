@@ -18,6 +18,24 @@
 		
 		return $errors;
 	}
+	function validaForgottenPassword($values)
+	{
+		$errors = array();
+		if(count($values)>0)
+		{
+			foreach($values as $campos)
+				if(empty($campos))
+					{
+						$errors['campos']="Todos los campos deben ser llenados";
+					}
+					if(!filter_var($values["mail"], FILTER_VALIDATE_EMAIL))
+					{
+						$errors['mail'] = "correo invalido";
+					}
+		}
+		
+		return $errors;
+	}
 	function validaFormulario2($values,$archivos)
 	{
 		$errors = array();
@@ -40,7 +58,7 @@
 			if (($_FILES['file_'.$i]['size'])>1000000)
 			{
 
-				$errors['Tamano de archivo']= "Los archivos no pueden pesar mas de 1000b";
+				$errors['Tamano de archivo']= "Los archivos no pueden pesar mas de 10 Megabyte";
 				
 			}
 			if(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "jpg" && pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "png" 
