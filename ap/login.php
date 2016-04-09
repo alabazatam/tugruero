@@ -46,11 +46,15 @@
 			                            <input  autocomplete="off" type="text" class="form-control" name='captcha' id="captcha" required data-validation-required-message="Please enter image text.">
 			                        </div>
 			                    </div>-->
-			
+							<div class="row">
 			                    <button type="submit" class="btn btn-default"><i class="fa fa-sign-out"></i> Conectar</button>
 								
 								<a href="<?php echo full_url;?>/ap/registrarse.php"><button type="button" class="btn btn-default"><i class="fa"></i> Registrarse</button></a>
-							
+							</div>
+							   </br>
+							<div class="row">   
+								<a href="<?php echo full_url;?>/ap/registrarse.php?action=ForgottenYourPassword">Forgotten your password?</a>
+							</div>
 			                    <!-- For success/fail messages -->
 			                    
 			                    <?php if(isset($values['message']) and $values['message']!=''):?>

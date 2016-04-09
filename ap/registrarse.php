@@ -26,6 +26,9 @@ $values = $_REQUEST;
 		case "validaFormulario2":
 			executeValidaFormulario2($values);	
 		break;	
+		case "ForgottenYourPassword":
+			executeForgottenYourPassword($values);	
+		break;	
 		default:
 			executePaso1($values);
 		break;
@@ -232,5 +235,9 @@ $values = $_REQUEST;
 			
 			
 		}
+	}
+	function executeForgottenYourPassword($values = null)
+	{
+		require 'ForgottenPassword_view.php';
 	}
 							
