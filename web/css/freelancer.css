@@ -454,9 +454,9 @@ footer .footer-below {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.portfolio-modal .container nosotros{
+.portfolio-modal .container{
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
-    background: url(../img/nosotros.png) no-repeat center center fixed ;
+   
     
     overflow-x: hidden;
     margin: 0;
@@ -464,6 +464,10 @@ footer .footer-below {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+.nosotros{
+     background: url(../img/grua_roja.png) no-repeat center center fixed ;
+    
 }
 @media(max-width:768px) {
     h2{
