@@ -113,6 +113,7 @@
         <div class="container-fluid">
 			<div class="col-lg-offset-0 col-md-offset-0">
 				<div class="row">
+                                    <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
 							<img src="<?php echo full_url;?>/web/img/ic2.png">
 							
@@ -122,8 +123,8 @@
 							  </a>
 							</div>
 						</div>
-				</div>
-				<div class="row">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
 							<img src="<?php echo full_url;?>/web/img/ic3.png" >
 
@@ -133,8 +134,10 @@
 							  </a>
 							</div>
 						</div>
-				</div>
+                                    </div>
+                                </div>
 				<div class="row">
+                                    <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
 							<img src="<?php echo full_url;?>/web/img/ic4.png">
 
@@ -144,8 +147,8 @@
 							  </a>
 							</div>
 						</div>
-				</div>
-				<div class="row">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
 							<img src="<?php echo full_url;?>/web/img/ic5.png">
 
@@ -155,6 +158,7 @@
 							  </a>
 							</div>
 						</div>
+                                    </div>
 				</div>
 				<div class="row">
 						<div class="thumbnail">
@@ -233,12 +237,12 @@
 	<section id="testimonials" class="success"> 
 		<div class="container">
 		  <div class="row">
-			<div class='col-md-offset-2 col-md-8 text-center'>
+			<div class=' col-md-10 col-md-offset-1 text-center'>
 				<!--<h2 class="white-font">Nuestros clientes</h2>-->
 			</div>
 		  </div>
 		  <div class='row'>
-			<div class='col-md-offset-2 col-md-8'>
+			<div class='col-md-10 col-md-offset-1'>
 			  <div class="carousel slide" data-ride="carousel" id="quote-carousel">
 				<!-- Bottom Carousel Indicators -->
 				<ol class="carousel-indicators">
@@ -258,7 +262,7 @@
 						  <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
 						</div>
 						<div class="col-sm-9">
-						  <p>Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor</p>
+                                                    <p class="text-justify white-font">Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor</p>
 						  
 						</div>
 					  </div>
@@ -272,7 +276,7 @@
 						  <img class="img-circle" src="<?php echo full_url?>/web/img/juan_panto.png" style="width: 150px;height:150px;">
 						</div>
 						<div class="col-sm-9">
-						  <p>Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena</p>
+						  <p class="text-justify white-font">Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena</p>
 						 
 						</div>
 					  </div>
@@ -289,9 +293,48 @@
 		  </div>
 		</div>
 	</section>
-
+	<section class="success5" id="use">
+	<div class="row" >
+		<div class="container">
+ 				<div class="col-md-4 col-lg-4">
+						<div class="thumbnail">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal5" aria-expanded="false" aria-controls="portfolioModal5">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone5.png" class="img-responsive" width="250">
+							</a>
+							<div class="caption">
+								 <p class="text-center white-font">Busca una grúa</p>
+							  </a>
+							</div>
+						</div>
+				</div>
+ 				<div class="col-md-4 col-lg-4">
+						<div class="thumbnail">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal6" aria-expanded="false" aria-controls="portfolioModal6">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone3.png" class="img-responsive" width="250">
+							</a>
+							<div class="caption">
+								 <p class="text-center white-font">Gruero llega a auxiliarte</p>
+							  </a>
+							</div>
+						</div>
+				</div>
+ 				<div class="col-md-4 col-lg-4">
+						<div class="thumbnail">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal7" aria-expanded="false" aria-controls="portfolioModal7">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone4.png" class="img-responsive" width="250">
+							</a>
+							<div class="caption">
+								 <p class="text-center white-font">Vuelve a la vía</p>
+							  </a>
+							</div>
+						</div>
+				</div>
+                    
+		</div>
+	</div>
+	</section>
     <!-- Contact Section -->
-    <section id="contact" class="success5">
+    <section id="contact" class="success">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -441,7 +484,7 @@
             </div>
         </div>
     </div>
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -464,8 +507,8 @@
                 </div>
             </div>
         </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -486,6 +529,95 @@
 			<p class="text-justify white-font">
                             Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil.
 			</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body modal-bg">
+                            <h2 class="white-font">Busca una grúa</h2>
+						<div class="thumbnail ">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal4" aria-expanded="false" aria-controls="portfolioModal4">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone5.png" class="img-responsive" width="100">
+							</a>
+							<div class="caption">
+								 <p class="text-center white-font">
+                                                                    Usa  la aplicación para decirnos tu problema, ubicación y destino, y TU/GRUERO® se encargará de buscar al gruero más cercano a ti
+                                                                 
+                                                                 </p>
+							</div>
+						</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body modal-bg">
+                            <h2 class="white-font">Busca una grúa</h2>
+						<div class="thumbnail ">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal4" aria-expanded="false" aria-controls="portfolioModal4">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone3.png" class="img-responsive" width="100">
+							</a>
+							<div class="caption">
+								 <p class="text-center white-font">
+                                                                    Usa  la aplicación para decirnos tu problema, ubicación y destino, y TU/GRUERO® se encargará de buscar al gruero más cercano a ti
+                                                                 
+                                                                 </p>
+							</div>
+						</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2 class="white-font">Busca una grúa</h2>
+						<div class="thumbnail ">
+                                                    <div class="col-md-3 col-lg-3 col-md-offset-1">
+                                                        <img src="<?php echo full_url;?>/web/img/cel/iphone4.png" class="img-responsive" width="200">
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-6 col-md-offset-1">
+                                                        <p class="text-justify white-font">
+                                                            Usa  la aplicación para decirnos tu problema, ubicación y destino, y TU/GRUERO® se encargará de buscar al gruero más cercano a ti   
+                                                        </p>
+                                                    </div>							
+						</div>
                         </div>
                     </div>
                 </div>
