@@ -140,19 +140,24 @@ function connect($login,$password)
 }
 function validateForgottenPassword($document,$nationality,$InitialFirstName,$InitialFirstLastName,$mail)
 {
-
+		$where = "users.mail = '".$mail."' "
+				. "AND UPPER(LEFT(users_data.first_name,1))='".$InitialFirstName."' "
+				. "AND UPPER(LEFT(users_data.first_last_name,1))= '".$InitialFirstLastName."' "
+				. "AND users_data.document= '".$document."' "
+				. "AND users_data.nationality= '".$nationality."' "
+				. "AND users.status= 1";
 		$InitialFirstName = strtoupper($InitialFirstName);
 		$InitialFirstLastName = strtoupper($InitialFirstLastName);
 		$ConnectionORM = new ConnectionORM();
 		$q = $ConnectionORM->getConnect('tugruero')->users
 		->select("users.id_user,users.mail")
-		->join("users_data","inner join users_data on users.id_user = users.id_user")
-		->where("users.mail =?", $mail)
-		->and('UPPER(LEFT(users_data.first_name,1))=?',$InitialFirstName)
-		->and('UPPER(LEFT(users_data.first_last_name,1))=?',$InitialFirstLastName)
-		->and('users_data.document=?', $document)
-		->and('users_data.nationality=?', $nationality)
-		->and('status=?',1);
+		->join("users_data","inner join users_data on users_data.id_users = users.id_user")
+		->where($where);
+//		->and('UPPER(LEFT(users_data.first_name,1))=?',$InitialFirstName)
+//		->and('UPPER(LEFT(users_data.first_last_name,1))=?',$InitialFirstLastName)
+//		->and('users_data.document=?', $document)
+//		->and('users_data.nationality=?', $nationality)
+//		->and('status=?',1);
 		
 		return $q;
 

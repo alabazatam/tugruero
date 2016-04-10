@@ -25,7 +25,10 @@ $values = $_REQUEST;
 		break;		
 		case "usersOperator_list_json":
 			executeUserListJson($values);	
-		break;	
+		break;
+		case "forwardPassword":
+			executeforwardPassword($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -72,7 +75,7 @@ $values = $_REQUEST;
 		$Users = new Users();
 		$values = $Users->getUserOperatorById($values);
 		$values['action'] = 'update';
-                $values['msg'] = $msg;
+        $values['msg'] = $msg;
 		require('users_form_view.php');
 	}
 	function executeUpdate($values = null)
@@ -127,4 +130,19 @@ $values = $_REQUEST;
 
 		echo json_encode($array_json);die;
 		
+	}
+	function executeforwardPassword($values)
+	{
+		$user = new Users();
+		$usuario = $user->getUserById($values);
+		$mail = $usuario["mail"];
+		$password = substr( md5(microtime()), 1, 8);
+		unset($values);
+		$values = array("id_user" => $usuario["id_user"],"password" => $password);
+		$user->updateUser($values);
+		$message = "Clave: ".$password;
+		$Mail = new Mail();
+		$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
+		$msg = "se ha enviado la clave al correo electrónico del usuario.";
+		executeEdit($values,$msg);
 	}

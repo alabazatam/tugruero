@@ -100,7 +100,7 @@
 		<label for="">Fecha modificado</label>
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
 	  </div>
-	  <a class="btn btn-default"  href="<?php echo full_url."/ap/users/index.php"?>"><i class="fa fa-arrow-right  fa-pull-right fa-border"></i> Reenviar contraseña</a>
+	  <a class="btn btn-default"  href="<?php echo full_url."/ap/users/index.php?action=forwardPassword&id_user=".$values['id_user']?>"><i class="fa fa-arrow-right  fa-pull-right fa-border"></i> Reenviar contraseña</a>
 		<?php endif;?>
 		<a class="btn btn-default"  href="<?php echo full_url."/ap/users/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
