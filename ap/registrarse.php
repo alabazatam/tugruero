@@ -273,10 +273,12 @@ $values = $_REQUEST;
 				else
 				{
 					$idUser = $valor["id_user"];
+					
 					$mail = $valor["mail"];
 					forwardPassword($idUser,$mail);
+					echo $idUser;
 				}
-				break;
+				
 			}
 		}	
 	}
