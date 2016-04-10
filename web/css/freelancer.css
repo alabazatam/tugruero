@@ -442,9 +442,9 @@ footer .footer-below {
 .scroll-top .btn:focus {
     outline: 0;
 }
-
 .portfolio-modal .modal-content {
-    background-image: url("../img/bg3.png") !important;
+    /*background-image: url("../img/cover.png") !important;*/
+   background-image: url("../img/bg5.png") !important;
     padding: 100px 0;
     min-height: 100%;
     border: 0;
@@ -454,16 +454,25 @@ footer .footer-below {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.portfolio-modal .modal-bg {
-    background-image: url("../img/cover.png") !important;
-    min-height: 100%;
-    border: 0;
-    border-radius: 0;
-    text-align: center;
-    background-clip: border-box;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+.portfolio-modal .container {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
+    background: url(../img/cover.png) no-repeat center center fixed ;
+    
+    overflow-x: hidden;
+    margin: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+@media(max-width:768px) {
+    h2{
+        font-size: 20px !important;
+    }
+    .portfolio-modal .modal-content img {
+    width: 100px;
+    }
+    }
 .portfolio-modal .modal-content h2 {
     margin: 0;
     font-size: 3em;
