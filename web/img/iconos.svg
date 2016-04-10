@@ -14,7 +14,7 @@
    viewBox="0 0 744.09448819 1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="iconos.svg">
   <defs
      id="defs4">
@@ -107,15 +107,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="201.28284"
-     inkscape:cy="355.82323"
+     inkscape:cx="13.899542"
+     inkscape:cy="32.574415"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g5"
      showgrid="false"
-     inkscape:window-width="1024"
-     inkscape:window-height="705"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1680"
+     inkscape:window-height="961"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -125,7 +125,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -403,10 +403,11 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="matrix(1.3926572,0,0,-1.3926572,-52.516532,917.59472)"
+       transform="matrix(2.0672262,0,0,-2.0672262,-392.14059,1085.8046)"
        id="g634"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/ic4.png">
       <g
          id="g636"
          clip-path="url(#clipPath638)">
@@ -440,15 +441,15 @@
          clip-path="url(#clipPath654)">
         <text
            transform="matrix(1,0,0,-1,500.5303,226.2266)"
-           style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.10009956px;font-family:'Myriad Pro';-inkscape-font-specification:KelsonSans-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
+           style="font-size:21.10009956px;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Myriad Pro;-inkscape-font-specification:KelsonSans-Bold"
            id="text658"
            inkscape:export-xdpi="90"
            inkscape:export-ydpi="90">
           <tspan
-             x="0 9.7904463 19.559793 36.123371 40.005791"
-             y="0"
              sodipodi:role="line"
-             id="tspan660">15min</tspan>
+             id="tspan660"
+             x="0"
+             y="0" />
         </text>
       </g>
     </g>
@@ -1647,6 +1648,29 @@
          style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path6940"
          inkscape:connector-curvature="0" />
+    </g>
+    <g
+       transform="matrix(0.10387571,0,0,0.10387571,121.88032,1205.4122)"
+       id="g3">
+      <g
+         id="g5">
+        <path
+           inkscape:connector-curvature="0"
+           d="m 964.1308,-1646.13 115.735,129.039 111.377,-275.766 111.377,275.766 115.735,-129.039 172.888,12.469 -88.0592,-218.03 -58.8078,-145.605 c 35.706,-51.094 54.944,-111.771 54.944,-175.408 0,-82.023 -31.941,-159.138 -89.941,-217.137 -58,-57.998 -135.113,-89.939 -217.136,-89.939 -82.023,0 -159.137,31.941 -217.136,89.94 -58,57.999 -89.941,135.113 -89.941,217.137 0,62.88 18.792,122.864 53.685,173.573 l -147.608,365.469 z m 228.112,-765.65 c 63.86,0 123.896,24.868 169.053,70.024 45.156,45.155 70.024,105.193 70.024,169.053 0,33.158 -6.72,65.28 -19.489,94.829 -10.885,25.191 -26.171,48.508 -45.473,68.99 -1.661,1.764 -3.342,3.513 -5.063,5.232 -30.952,30.954 -68.897,52.37 -110.272,62.782 -14.146,3.561 -28.693,5.82 -43.498,6.748 -5.067,0.316 -10.16,0.494 -15.282,0.494 -5.779,0 -11.526,-0.209 -17.234,-0.613 -14.914,-1.057 -29.555,-3.488 -43.784,-7.217 -40.504,-10.615 -77.643,-31.801 -108.035,-62.194 -2.206,-2.205 -4.349,-4.457 -6.457,-6.731 -19.25,-20.774 -34.424,-44.396 -45.108,-69.894 -12.103,-28.885 -18.459,-60.167 -18.459,-92.428 0,-63.859 24.868,-123.897 70.024,-169.053 45.155,-45.154 105.192,-70.022 169.053,-70.022 z m 295.1,702.449 -97.351,-7.021 -65.168,72.66 -31.954,-79.1165 -58.824,-145.6455 c 59.204,-8.01 114.369,-32.984 159.727,-72.555 z m -498.104,-232.98 c 45.152,39.895 100.174,65.229 159.303,73.602 l -90.881,225.02 -65.168,-72.66 -97.351,7.02 z"
+           id="path7"
+           sodipodi:nodetypes="ccccccccssssscccssscccccscsccssssccccccccccccc"
+           inkscape:export-filename="/var/www/html/tugruero/web/img/ic9.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90"
+           style="opacity:1" />
+        <polygon
+           points="532.764,132.962 375.254,237.944 412.968,294.528 464.764,260.005 464.764,437.148 464.764,450.542 464.764,459.668 520.521,459.668 532.764,459.668 532.764,423.078 "
+           id="polygon9"
+           transform="translate(709.8978,-2479.78)"
+           inkscape:export-filename="/var/www/html/tugruero/web/img/ic9.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+      </g>
     </g>
   </g>
 </svg>
