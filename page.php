@@ -97,16 +97,14 @@
 
 						</div>
 						<div class="col-xs-12 col-sm-12">
-							<p>“¡La  soluciones perfecta para el auxilio vial!”</p>
-							<p>“Más de 2000 grueros al alcance de tu mano con un solo click”</p>
+							<p><h3 class="text-center white-font big-font">“¡La  solución perfecta para el auxilio vial!”</h3></p>
+							<p><h3 class="text-center white-font">“Más de 2000 grueros al alcance de tu mano con un solo click”</h3></p>
 							<p align="center">
-                                                        <p align="center">
                                                                     <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/index.php">
                                                                         <img src="<?php echo full_url?>/web/img/icon2.png" >
                                                                         <small><b>Acceso grueros</b></small>
                                                                     </a>
-                                                        </p>
-                                                        </p>
+                            </p>
 						</div>
 			</div>	
 		</div>
@@ -298,7 +296,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Dirección de correo</label>
-                                <input type="email" class="form-control" placeholder="Dirección de correo" id="email" required data-validation-required-message="Por favor indique su Dirección de correo.">
+                                <input type="email" class="form-control input-sm" placeholder="Dirección de correo" id="email" required data-validation-required-message="Por favor indique su Dirección de correo.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -312,7 +310,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Mensaje</label>
-                                <textarea rows="5" class="form-control" placeholder="Mensaje" id="message" required data-validation-required-message="Por favor indique su Mensaje."></textarea>
+                                <input type="text"  class="form-control" placeholder="Mensaje" id="message" required data-validation-required-message="Por favor indique su Mensaje.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
