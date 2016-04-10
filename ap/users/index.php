@@ -36,16 +36,35 @@ $values = $_REQUEST;
 	}
 	function executeNew($values = null)
 	{       
-                $values['status'] = '1';
+        $values['status'] = '1';
 		$values['action'] = 'add';
 		require('users_form_view.php');
 	}
 	function executeSave($values = null)
 	{
+		$errors = validaFormularioUsers($values);
+		if(count($errors)>0)
+		{
+			$values["errors"] = $errors;
+			executeNew($values);
+		}
 		
-		$Users = new Users();
-		$values = $Users->saveUserOperator($values);
-		executeEdit($values,message_created);die;
+		else 
+		{
+			$password = substr( md5(microtime()), 1, 8);
+			$loggin = 'O-'.$values['nationality'].$values['document'];
+			$mail = $values['mail'];
+			$Users = new Users();
+			$values['login'] = $loggin;
+			$values['password'] = $password;
+			$values = $Users->saveUserOperator($values);
+			$message = "Usuario: ".$loggin." Clave: ".$password;
+			$Mail = new Mail();
+			$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
+			$values['message'] = "se ha enviado la clave a su correo electrónico.";
+			$values["action"] = "edit";
+			executeEdit($values,message_created);die;
+		}
 	}
 	function executeEdit($values = null,$msg = null)
 	{

@@ -275,35 +275,18 @@
 		}
 		function updateUserOperator($values){
 			unset($values['action'],$values['date_created']);
-            $user = array("login" => $values["login"],
-						  "status" => $values["status"],
-						  "mail"=>$values["mail"]);
-			$user["date_created"] = date("Y-m-d H:i:s");
+            $user = array("status" => $values["status"]);
 			$user["date_updated"] = date("Y-m-d H:i:s");
-			if(isset($values['password']) and $values['password']!='')
-			{
-				$user['password'] = hash('sha256', $values['password']);
-			}else
-			{
-				unset($values['password']);
-			}
 			$id_user = $values['id_user'];
 			$ConnectionORM = new ConnectionORM();
 			
 			
-			$userData = array("first_name"=>$values["first_name"],
-							  "second_name"=>$values["second_name"],
-							  "first_last_name"=>$values["first_last_name"],
-							  "second_last_name"=>$values["second_last_name"],
-							  "gender"=>$values["gender"],
-							  "nationality"=>$values["nationality"],
-							  "document"=>$values["document"],
-							  "phone"=>$values["phone"],
-							  "id_users" => $values['id_user']);
+			$userData = array("status"=>$values["status"],
+							  "id_user" => $values['id_user']);
 			$userData['date_updated'] = date("Y-m-d H:i:s");
 			
 			
-			$q = $ConnectionORM->getConnect()->users_data("id_users", $id_user)->update($userData);
+			$q = $ConnectionORM->getConnect()->users("id_user", $id_user)->update($userData);
 			return $q;
 			
 		}
