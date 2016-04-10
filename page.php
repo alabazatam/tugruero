@@ -83,7 +83,7 @@
                                                                 </p>
 						</div>
 						<div class="col-md-3 col-lg-3">
-							<img src="<?php echo full_url?>/web/img/cel/iphone2.png" class="img-responsive">
+                                                    <img src="<?php echo full_url?>/web/img/cel/iphone2.png" class="img-responsive">
 						</div>
 
 			</div>
