@@ -16,7 +16,7 @@
     <!-- <link rel="stylesheet" href="http://cssa.cssawards123.netdna-cdn.com/wp-content/themes/cssawds/assets/css/cssawds.min.css"> -->
     <link rel="stylesheet" href="web/ccsa/css/cssa.css">  
 	<link href="web/css/freelancer.css" rel="stylesheet">
-     <title>Tugruero.com</title>
+     <title>TU/GRUERO®</title>
 </head>
 <body id="page-top" class="" ng-controller="BaseController" ng-class="{ min:boolClass, 'toggled':menu }">
      <nav class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
