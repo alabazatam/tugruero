@@ -231,45 +231,63 @@
 	</div>
 	</section>
 	<section id="testimonials" class="success"> 
-            <div class="container content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="testimonials">
-                            <div class="active item">
+		<div class="container">
+		  <div class="row">
+			<div class='col-md-offset-2 col-md-8 text-center'>
+				<!--<h2 class="white-font">Nuestros clientes</h2>-->
+			</div>
+		  </div>
+		  <div class='row'>
+			<div class='col-md-offset-2 col-md-8'>
+			  <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+				<!-- Bottom Carousel Indicators -->
+				<ol class="carousel-indicators">
+				  <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+				  <li data-target="#quote-carousel" data-slide-to="1"></li>
+				</ol>
 
-                              <div class="carousel-info">
+				<!-- Carousel Slides / Quotes -->
+				<div class="carousel-inner">
 
-                                <div class="pull-left">
-                                  <span class="testimonials-name white-font">Carlos Germani </span>
-                                  <span class="testimonials-post white-font">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</span>
-                                </div>
-                              </div>
-                                <blockquote>
-                                    <p>
-                                        “Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor.”
-                                    </p>
-                                </blockquote>
-                            </div>
-                            <div class="active item">
+				  <!-- Quote 1 -->
+				  <div class="item active">
+					<blockquote>
+					  <div class="row">
+						<div class="col-sm-3 text-center">
+						  <img class="img-circle" src="<?php echo full_url?>/web/img/carlos_germani.png" style="width: 150px;height:150px;">
+						  <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+						</div>
+						<div class="col-sm-9">
+						  <p>Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor</p>
+						  
+						</div>
+					  </div>
+					</blockquote>
+				  </div>
+				  <!-- Quote 2 -->
+				  <div class="item">
+					<blockquote>
+					  <div class="row">
+						<div class="col-sm-3 text-center">
+						  <img class="img-circle" src="<?php echo full_url?>/web/img/juan_panto.png" style="width: 150px;height:150px;">
+						</div>
+						<div class="col-sm-9">
+						  <p>Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena</p>
+						 
+						</div>
+					  </div>
+					</blockquote>
+				  </div>
 
-                              <div class="carousel-info">
-                                <!--<img alt="" src="<?php echo full_url?>/web/img/Carlos_Germani.png" class="pull-right">-->
-                                <div class="pull-left">
-                                  <span class="testimonials-name white-font">Juan Panto </span>
-                                  <span class="testimonials-post white-font">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</span>
-                                </div>
-                              </div>
-                                <blockquote>
-                                    <p>
-                                        “Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena”.
-                                    </p>
-                                </blockquote>
-                            </div>                
-                        </div>
-                    </div>
-                </div>
-            </div>
-	
+				</div>
+
+				<!-- Carousel Buttons Next/Prev -->
+				<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+				<a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+			  </div>                          
+			</div>
+		  </div>
+		</div>
 	</section>
 
     <!-- Contact Section -->
@@ -465,7 +483,7 @@
 			<p class="text-justify white-font">
                             Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO® funciona como intermediario directo entre al accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO®.
 			</p>
-			<p class="text-justify">
+			<p class="text-justify white-font">
                             Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil.
 			</p>
                         </div>
@@ -488,5 +506,16 @@
 	<script src="web/ccsa/js/angular.js"></script>
 	<script src="web/ccsa/js/vendors.js"></script>
 	<script src="web/ccsa/js/cssawds.min.js"></script>
+	<script>
+	
+	$(document).ready(function() {
+  //Set the carousel options
+  $('#quote-carousel').carousel({
+    pause: true,
+    interval: 12000,
+  });
+});
+	
+	</script>
 
     
