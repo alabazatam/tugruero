@@ -134,7 +134,7 @@ hr.star-contacts:after {
 header {
     /*text-align: center;*/
     color: #000000;
-    background: #000000;;/*Fondo header #FF5E29 #BCC0C6*/
+    background: #404040;;/*Fondo header #FF5E29 #BCC0C6*/
 }
 
 header .container {
@@ -689,6 +689,12 @@ section.success5{
     float: left;
     margin-right: 10px;
 }
+.item blockquote p:after {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
 
 
 
@@ -754,4 +760,9 @@ vertical-align: middle;
 -webkit-border-radius: 4px;
 -moz-border-radius: 4px;
 border-radius: 4px;
+}
+    @media (min-width: 768px) { 
+    .icon_media {
+ 
+    }
 }

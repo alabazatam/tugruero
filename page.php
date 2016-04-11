@@ -49,19 +49,19 @@
     </nav>    
     <!-- Navigation -->
     <header id="scroll" class="">       
-    <div class="visible-lg visible-md background_nav" align="center"><a href="#page-top"><img src="web/img/logo_blanco.png" class="img-responsive" width="200" alt="tugruero.com"></a></div>
-	<div class="menu" ng-class="{ 'toggled' : menu }">
-		<a ng-click="toggle()" class="bars"><i class="fa fa-bars"></i></a>
-		<nav ng-class="{ 'toggled' : menu }" ng-mouseleave="menu=''">
-			<ul class="list-unstyled">
-                        <?php foreach($items as $item):?>
-                            <li class="page-scroll">
-                                <a href="<?php echo $item['url'];?>"><?php echo $item['name'];?></a>
-                            </li>
-                        <?php endforeach;?>
-			</ul>
-		</nav>
-        </div>
+		<div class="visible-lg visible-md background_nav page-scroll" align="center"><a href="#page-top" class=""><img src="web/img/logo_blanco.png" class="img-responsive" width="170" alt="tugruero.com"></a></div>
+			<div class="menu" ng-class="{ 'toggled' : menu }" class="visible-lg visible-md background_nav page-scroll" >
+				<a ng-click="toggle()" class="bars"><i class="fa fa-bars"></i></a>
+				<nav ng-class="{ 'toggled' : menu }" ng-mouseleave="menu=''">
+					<ul class="list-unstyled">
+								<?php foreach($items as $item):?>
+									<li class="page-scroll">
+										<a href="<?php echo $item['url'];?>"><?php echo $item['name'];?></a>
+									</li>
+								<?php endforeach;?>
+					</ul>
+				</nav>
+			</div>
 	</header>	
 	
 	<section id="header" class="success">
@@ -74,13 +74,24 @@
 							<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>
 							<p><h3 class="text-center white-font big-font">¡La  solución perfecta para el auxilio vial!</h3></p>
 							<p><h3 class="text-center white-font">Más de 2000 grueros al alcance de tu mano con un solo click</h3></p>
-							<br><br><br><br>
+							<br><br>
 								<p align="center">
-                                                                    <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/index.php">
-                                                                        <img src="<?php echo full_url?>/web/img/icon2.png">
-                                                                        <small><b>Acceso grueros</b></small>
-                                                                    </a>
-                                                                </p>
+                                    <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/index.php">
+                                        <img src="<?php echo full_url?>/web/img/icon2.png">
+                                        <small><b>Acceso grueros</b></small>
+                                    </a>
+                                </p>
+								<p align="center">
+									<small ><b class="white-font">¡Descarga la aplicación!</b></small>
+									<br>
+                                    <a class="btn text-center black-font" href="#">
+										<img src="<?php echo full_url?>/web/img/google_button.png">
+                                    </a>
+                                    <a class="btn text-center black-font" href="#">
+										<img src="<?php echo full_url?>/web/img/apple_button.png">
+                                    </a>
+                                </p>
+
 						</div>
 						<div class="col-md-3 col-lg-3">
                                                     <img src="<?php echo full_url?>/web/img/cel/iphone2.png" class="img-responsive">
@@ -105,6 +116,15 @@
                                                                         <small><b>Acceso grueros</b></small>
                                                                     </a>
                             </p>
+								<p align="center">
+									<small ><b class="white-font">¡Descarga la aplicación!</b></small>
+                                    <a class="btn text-center black-font" href="#">
+										<img src="<?php echo full_url?>/web/img/google_button.png">
+                                    </a>
+                                    <a class="btn text-center black-font" href="#">
+										<img src="<?php echo full_url?>/web/img/apple_button.png">
+                                    </a>
+                                </p>
 						</div>
 			</div>	
 		</div>
@@ -115,7 +135,7 @@
 				<div class="row">
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic2.png">
+							<img src="<?php echo full_url;?>/web/img/ic2.png" class="icon_media">
 							
 							<div class="caption">
                                                                 <p class="text-center"><b>GPS</b></p>
@@ -126,7 +146,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic3.png" >
+							<img src="<?php echo full_url;?>/web/img/ic3.png" class="icon_media">
 
 							<div class="caption">
 								 <p class="text-center"><b>Calidad</b></p>
@@ -139,7 +159,7 @@
 				<div class="row">
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic4.png">
+							<img src="<?php echo full_url;?>/web/img/ic4.png" class="icon_media">
 
 							<div class="caption">
 								 <p class="text-center"><b>Rapidez</b></p>
@@ -149,20 +169,20 @@
 						</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
-						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic5.png">
+										<div class="thumbnail">
+											<img src="<?php echo full_url;?>/web/img/ic5.png" class="icon_media">
 
-							<div class="caption">
-								 <p class="text-center"><b>Sencillez</b></p>
-								 <p class="text-center text-info"><small>Un botón y ¡Listo! La grúa viene en camino</small></p>
-							  </a>
-							</div>
-						</div>
+											<div class="caption">
+												 <p class="text-center"><b>Sencillez</b></p>
+												 <p class="text-center text-info"><small>Un botón y ¡Listo! La grúa viene en camino</small></p>
+											  </a>
+											</div>
+										</div>
                                     </div>
 				</div>
 				<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic6.png">
+							<img src="<?php echo full_url;?>/web/img/ic6.png" class="icon_media">
 
 							<div class="caption">
 								<p class="text-center"><b>Grueros</b></p>
@@ -179,7 +199,7 @@
 				<div class="col-md-3 col-lg-3 portfolio-item">
 						<div class="thumbnail">
 						<a class="portfolio-link" role="button" data-toggle="modal" href="#portfolioModal1" aria-expanded="false" aria-controls="portfolioModal1">
-						  <img src="<?php echo full_url;?>/web/img/ic7.png">
+						  <img src="<?php echo full_url;?>/web/img/ic7.png" class="icon_media">
 						</a>
 							<div class="caption">
 							
@@ -190,7 +210,7 @@
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 						<a class="" role="button" data-toggle="modal" href="#portfolioModal2" aria-expanded="false" aria-controls="portfolioModal2">
-							<img src="<?php echo full_url;?>/web/img/ic8.png">
+							<img src="<?php echo full_url;?>/web/img/ic8.png" class="icon_media">
 						</a>
 							<div class="caption">
 							
@@ -202,7 +222,7 @@
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 						<a class="" role="button" data-toggle="modal" href="#portfolioModal3" aria-expanded="false" aria-controls="portfolioModal3">
-							<img src="<?php echo full_url;?>/web/img/where.png">
+							<img src="<?php echo full_url;?>/web/img/where.png" class="icon_media">
 						</a>
 							<div class="caption">
 							
@@ -215,7 +235,7 @@
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 							<a class="" role="button" data-toggle="modal" href="#portfolioModal4" aria-expanded="false" aria-controls="portfolioModal4">
-								<img src="<?php echo full_url;?>/web/img/ic10.png">
+								<img src="<?php echo full_url;?>/web/img/ic10.png" class="icon_media">
 							</a>
 							<div class="caption">
 								 <p class="text-center white-font">¿Cómo funcionamos?</p>
@@ -228,8 +248,8 @@
 	<section class="success5" id="video">
 	<div class="row" >
 		<div class="container">
-			<div class="embed-responsive embed-responsive-16by9">
-				<iframe class="" height="" frameborder="0" wmode="Opaque" allowfullscreen="" src="https://www.youtube.com/embed/oqDRPoPDehE?wmode=transparent"></iframe>
+			<div class="">
+				<iframe class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" height="400" src="https://www.youtube-nocookie.com/embed/Lw_e0vF1IB4" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>
@@ -242,7 +262,7 @@
 			</div>
 		  </div>
 		  <div class='row'>
-			<div class='col-md-10 col-md-offset-1'>
+			<div class='col-md-10 col-md-offset-1 '>
                             <div class="carousel slide" data-ride="carousel" id="quote-carousel">
 				<!-- Bottom Carousel Indicators -->
 				<ol class="carousel-indicators">
@@ -260,8 +280,9 @@
 						  <img class="img-circle" src="<?php echo full_url?>/web/img/carlos_germani.png" style="width: 150px;height:150px;">
 						  <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
 						</div>
-						<div class="col-sm-9">
-                                                    <p class="text-justify white-font">Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor</p>
+						<div class="col-sm-9 col-lg-8 col-md-8">
+							<h3 class="white-font">Carlos Germani<small class="white-font">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
+                            <p class="text-justify white-font">Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor</p>
 						  
 						</div>
 					  </div>
@@ -274,7 +295,8 @@
 						<div class="col-sm-3 text-center">
 						  <img class="img-circle" src="<?php echo full_url?>/web/img/juan_panto.png" style="width: 150px;height:150px;">
 						</div>
-						<div class="col-sm-9">
+						<div class="col-sm-9 col-lg-8 col-md-8">
+							<h3 class="white-font">Juan Panto <small class="white-font">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
 						  <p class="text-justify white-font">Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena</p>
 						 
 						</div>
@@ -323,7 +345,7 @@
                                                             <img src="<?php echo full_url;?>/web/img/cel/iphone4.png" class="img-responsive" width="200">
 							</a>
 							<div class="caption">
-								 <p class="text-center white-font"><h3 class="white-font text-center">Vuelve a la vía</h3></p>
+								 <p class="text-center white-font"><h3 class="white-font text-center">Califica al gruero y ¡vuelve a la vía!</h3></p>
 							  </a>
 							</div>
 						</div>
@@ -395,6 +417,8 @@
                     <div class="footer-col col-md-4">
                         <h3 class="white-font">Dirección</h3>
                         <p class="white-font">Av. Principal Los Dos Caminos. Edificio Provincial. Piso 8. Oficina 8 “B”. Municipio Sucre. Caracas. Venezuela. Código Postal: 1071.</p>
+						<p class="white-font">tugruero@gmail.com</p>
+						<p class="white-font">02122357207 / 02122391093</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3 class="white-font">Redes sociales</h3>
@@ -420,7 +444,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="white-font">Copyright &copy; tugruero.com 2016</p>
+                        <p class="white-font">Copyright &copy; Soluciones Tugruero, C.A. 2016. J-40680605-6</p>
                     </div>
                 </div>
             </div>
@@ -636,7 +660,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2 class="black-font">Vuelve a la vía</h2>
+                            <h2 class="black-font">Califica al gruero y ¡vuelve a la vía!</h2>
 						<div class="thumbnail ">
                                                     <div class="col-md-3 col-lg-3 col-md-offset-1">
                                                         <div align="center">
@@ -675,7 +699,7 @@
   //Set the carousel options
   $('#quote-carousel').carousel({
     pause: true,
-    interval: 12000,
+    interval: 18000,
   });
 });
 	
