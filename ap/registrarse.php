@@ -8,8 +8,9 @@ $action = "";
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
+	
 
-$values = $_REQUEST;
+$values = trimValues($_REQUEST);;
 	switch ($action) {
 		case "index":
 			executeIndex($values);	

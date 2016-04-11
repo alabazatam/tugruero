@@ -70,3 +70,11 @@
 		}
 		return $errors;
 	}
+	function trimValues($values)
+	{
+		foreach ($values as $valor => $dato) 
+		{
+				$values[$valor] = trim($dato);
+		}
+		return $values;
+	}
