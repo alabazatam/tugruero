@@ -1,16 +1,24 @@
 <?php include("../view_header_app.php");?>	
+<nav class="navbar navbar-inverse navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="200"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
+  </div>
+</nav>
         	<div class="col-md-4 col-lg-4">
         	</div>
         	
             <div class="col-md-4 col-lg-4">
 				 <div class="panel panel-default ">
-				  <div class="panel-heading black">
-				    <h3 class="panel-title">
-				    <img src="<?php echo full_url;?>/web/img/logo1.png" class="img-responsive" width="100">	<?php echo title; ?> <small> <?php echo version; ?></small>
-				    <!--<img width='100' class="img-responsive img-hover img-thumbnail img-rounded" src="<?php echo full_url?>/web/images/fedcom1.png"/>-->
-				    
-				    </h3>
-				  </div>
 				  <div class="panel-body">
                                       <div align='center' class="visible-lg visible-md">
                                          <img src="<?php echo full_url;?>/web/img/g190.png" class="img-responsive" width="200"> 
@@ -57,10 +65,7 @@
 			                    <?php endif;?>
 			                </form>
 				  </div>
-				</div>
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><!--footer-->
-                                        <div class="well well-sm black">Desarrollado por: <?php echo development_by;?> - <?php echo version;?></div>
-                                </div><!--fin footer-->                
+				</div>               
             </div>
         	<div class="col-md-4 col-lg-4">
         	</div>

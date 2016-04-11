@@ -14,7 +14,7 @@
 }
 body {
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
-    background: url(../img/cover.png) no-repeat center center fixed ;
+    background: url(../img/nosotros.png) no-repeat center center fixed ;
     
     overflow-x: hidden;
     margin: 0;
@@ -134,7 +134,7 @@ hr.star-contacts:after {
 header {
     /*text-align: center;*/
     color: #000000;
-    background: #000000;;/*Fondo header #FF5E29 #BCC0C6*/
+    background: #404040;;/*Fondo header #FF5E29 #BCC0C6*/
 }
 
 header .container {
@@ -442,9 +442,9 @@ footer .footer-below {
 .scroll-top .btn:focus {
     outline: 0;
 }
-
 .portfolio-modal .modal-content {
-    background-image: url("../img/bg3.png") !important;
+    /*background-image: url("../img/cover.png") !important;*/
+   background-image: url("../img/bg5.png") !important;
     padding: 100px 0;
     min-height: 100%;
     border: 0;
@@ -454,7 +454,29 @@ footer .footer-below {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-
+.portfolio-modal .container{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
+   
+    
+    overflow-x: hidden;
+    margin: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.nosotros{
+     background: url(../img/grua_roja.png) no-repeat center center fixed ;
+    
+}
+@media(max-width:768px) {
+    h2{
+        font-size: 20px !important;
+    }
+    .portfolio-modal .modal-content img {
+    width: 100px;
+    }
+    }
 .portfolio-modal .modal-content h2 {
     margin: 0;
     font-size: 3em;
@@ -620,11 +642,13 @@ section.success5{
 #quote-carousel .carousel-control.left 
 {
   left: -12px;
+  cursor: pointer;
 }
 /* Next button  */
 #quote-carousel .carousel-control.right 
 {
   right: -12px !important;
+    cursor: pointer;
 }
 /* Changes the position of the indicators */
 #quote-carousel .carousel-indicators 
@@ -660,6 +684,12 @@ section.success5{
 }
 
 .item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+.item blockquote p:after {
     content: "\f10d";
     font-family: 'Fontawesome';
     float: left;
@@ -730,4 +760,9 @@ vertical-align: middle;
 -webkit-border-radius: 4px;
 -moz-border-radius: 4px;
 border-radius: 4px;
+}
+    @media (min-width: 768px) { 
+    .icon_media {
+ 
+    }
 }
