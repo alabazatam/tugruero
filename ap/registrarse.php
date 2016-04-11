@@ -92,7 +92,7 @@ $values = trimValues($_REQUEST);;
 				{
 					if($valor["validate"] == 1)
 					{
-						$values['errors']['YaRegistrada']="empresa ya registrada";
+						$values['errors']['YaRegistrada']="Empresa ya registrada";
 						executePaso1($values);
 					}else if($valor["status"] == 1)
 					{
@@ -268,7 +268,7 @@ $values = trimValues($_REQUEST);;
 				if(empty($valor))
 				{
 					$values = null;
-					$values["errors"]["datosIncorrectos"] = "sus datos no coinciden";
+					$values["errors"]["datosIncorrectos"] = "Sus datos no coinciden";
 					executeForgottenYourPassword($values);die;
 				}
 				else
@@ -292,7 +292,7 @@ $values = trimValues($_REQUEST);;
 		$Mail = new Mail();
 		$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
 		$values = null;
-		$values['message'] = "se ha enviado la clave a su correo electrónico.";
+		$values['message'] = "Se ha enviado la clave a su correo electrónico.";
 		$values["action"] = "login";
 		 require 'login.php';
 		

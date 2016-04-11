@@ -6,22 +6,22 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>engine motor</th>
-					<th>body serial</th>
-					<th>registration plate</th>
-					<th>Year vehicle</th>
-					<th>make</th>
+					<th>Serial de motor</th>
+					<th>Serial de carrocería</th>
+					<th>Matrícula</th>
+					<th>Año del vehiculo</th>
+					<th>Marca</th>
 					<th>Acciones</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<th>Id</th>
-					<th>engine motor</th>
-					<th>body serial</th>
-					<th>registration plate</th>
-					<th>Year vehicle</th>
-					<th>make</th>
+					<th>Serial de motor</th>
+					<th>Serial de carrocería</th>
+					<th>Matrícula</th>
+					<th>Año del vehiculo</th>
+					<th>Marca</th>
 					<th>Acciones</th>
 				</tr>
 			</tfoot>
