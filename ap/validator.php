@@ -76,5 +76,9 @@
 		{
 				$values[$valor] = trim($dato);
 		}
+		if(isset($values['PHPSESSID'])){
+			unset($values['PHPSESSID']);
+		}
+
 		return $values;
 	}
