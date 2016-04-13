@@ -749,18 +749,36 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-color: #000 !important;
+color: #fff !important;
 display: inline-block;
-height: 30px;
+height: 36px;
 padding: 4px 6px;
 margin-bottom: 10px;
-font-size: 14px;
-line-height: 30px;
+font-size: 18px;
+line-height: 36px;
 vertical-align: middle;
 -webkit-border-radius: 4px;
 -moz-border-radius: 4px;
 border-radius: 4px;
+
 }
+.form-control::-moz-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+  color: #fff;
+}
+.form-control::-webkit-input-placeholder {
+  color: #fff;
+}
+.has-error .help-block{
+    color: #fff !important;
+}
+.help-block ul li{
+    color: #fff !important;
+}
+
     @media (min-width: 768px) { 
     .icon_media {
  
@@ -777,4 +795,10 @@ border-radius: 10px 10px 10px 10px;
 -webkit-border-radius: 200px 200px 200px 200px;
 border: 0px solid #000000;
 
+}
+h2 b {
+    	font-size: 38px;
+        font-weight: bold;
+}
+.contactForm form-group label{
 }
