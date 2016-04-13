@@ -52,7 +52,7 @@ body:before{
         width:170px;
         display:inline-block;vertical-align:top}
     header .menu nav ul{
-        padding:35px 30px}
+        padding:35px 10px}
     header .menu nav li{padding:6px 0;position:relative;right:-90px;
                 -webkit-transition-property:right;
                 transition-property:right;
@@ -62,7 +62,10 @@ body:before{
                 transition-timing-function:ease}
     header .menu nav a{
         color:#ffffff;
-        font-weight:700;display:block}
+        font-size: 14px !important;
+        font-weight: 600;
+        display:block
+    }
     header .menu nav a:hover{color:#fff}
     header .menu nav.toggled li
     {right:0}

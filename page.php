@@ -135,22 +135,22 @@
 				<div class="row">
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic2.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/ic2_big.png" class="">
 							
 							<div class="caption">
-                                                                <p class="text-center"><b>GPS</b></p>
-								 <p class="text-center text-info"><small>Ubicamos a los grueros más cercanos a tu ubicación</small></p>
+                                                                <p class="text-center white-font"><h2 class="text-center white-font">GPS</h2></p>
+								 <p class="text-center text-info"><small><b class="white-font">Ubicamos a los grueros más cercanos a tu ubicación</b></small></p>
 							  </a>
 							</div>
 						</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic3.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/ic3_big.png" class="">
 
 							<div class="caption">
-								 <p class="text-center"><b>Calidad</b></p>
-								 <p class="text-center text-info"><small>Nuestros grueros son los más calificados del mercado</small></p>
+								 <p class="text-center"><h2 class="text-center white-font">Calidad</h2></p>
+							<p class="text-center text-info"><small><b class="white-font">Nuestros grueros son los más calificados del mercado</b></small></p>
 							  </a>
 							</div>
 						</div>
@@ -159,22 +159,22 @@
 				<div class="row">
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic4.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/ic4_big.png" class="">
 
 							<div class="caption">
-								 <p class="text-center"><b>Rapidez</b></p>
-								 <p class="text-center text-info"><small>Grúas en menos de 30 minutos</small></p>
+								 <p class="text-center"><h2 class="text-center white-font">Rapidez</h2></p>
+							<p class="text-center text-info"><small><b class="white-font">Grúas en menos de 30 minutos</b></small></p>
 							  </a>
 							</div>
 						</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
 										<div class="thumbnail">
-											<img src="<?php echo full_url;?>/web/img/ic5.png" class="icon_media">
+											<img src="<?php echo full_url;?>/web/img/sencillez_big.png" class="">
 
 											<div class="caption">
-												 <p class="text-center"><b>Sencillez</b></p>
-												 <p class="text-center text-info"><small>Un botón y ¡Listo! La grúa viene en camino</small></p>
+												 <p class="text-center"><h2 class="text-center white-font">Sencillez</h2></p>
+											<p class="text-center text-info"><small><b class="white-font">Un botón y ¡Listo! La grúa viene en camino</b></small></p>
 											  </a>
 											</div>
 										</div>
@@ -182,11 +182,11 @@
 				</div>
 				<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic6.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/ic6_big.png" class="">
 
 							<div class="caption">
-								<p class="text-center"><b>Grueros</b></p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
+								<p class="text-center"><h2 class="text-center white-font">Grueros</h2></p>
+							<p class="text-center text-info"><small><b class="white-font">Contamos con más de 2000 grueros en todo el territorio nacional</b></small></p>
 							  </a>
 							</div>
 						</div>
@@ -199,22 +199,22 @@
 				<div class="col-md-3 col-lg-3 portfolio-item">
 						<div class="thumbnail">
 						<a class="portfolio-link" role="button" data-toggle="modal" href="#portfolioModal1" aria-expanded="false" aria-controls="portfolioModal1">
-						  <img src="<?php echo full_url;?>/web/img/ic7.png" class="icon_media">
+						  <img src="<?php echo full_url;?>/web/img/ic7_big.png" class="icon_media">
 						</a>
 							<div class="caption">
 							
-							   <p class="text-center white-font">¿Qué hacemos?</p>
+								<p class="text-center white-font"><small><b class="">¿Qué hacemos?</b></small></p>
 							</div>
 						</div>
 				</div>
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 						<a class="" role="button" data-toggle="modal" href="#portfolioModal2" aria-expanded="false" aria-controls="portfolioModal2">
-							<img src="<?php echo full_url;?>/web/img/ic8.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/ic8_big.png" class="icon_media">
 						</a>
 							<div class="caption">
 							
-							   <p class="text-center white-font">Sobre nosotros</p>
+								<p class="text-center white-font"><small><b class="">Sobre nosotros</b></small></p>
 							</a>
 							</div>
 						</div>
@@ -222,11 +222,11 @@
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 						<a class="" role="button" data-toggle="modal" href="#portfolioModal3" aria-expanded="false" aria-controls="portfolioModal3">
-							<img src="<?php echo full_url;?>/web/img/where.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/where_big.png" class="icon_media">
 						</a>
 							<div class="caption">
 							
-								<p class="text-center white-font">¿A dónde vamos?</p>
+								<p class="text-center white-font"><small><b class="">¿A dónde vamos?</b></small></p>
 							</a>
 							</div>
 
@@ -235,10 +235,10 @@
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 							<a class="" role="button" data-toggle="modal" href="#portfolioModal4" aria-expanded="false" aria-controls="portfolioModal4">
-								<img src="<?php echo full_url;?>/web/img/ic10.png" class="icon_media">
+								<img src="<?php echo full_url;?>/web/img/ic10_big.png" class="icon_media">
 							</a>
 							<div class="caption">
-								 <p class="text-center white-font">¿Cómo funcionamos?</p>
+								<p class="text-center white-font"><small><b class="">¿Cómo funcionamos?</b></small></p>
 							  </a>
 							</div>
 						</div>
@@ -282,7 +282,7 @@
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
 							<h3 class="white-font">Carlos Germani<small class="white-font">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
-                            <p class="text-justify white-font">Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor</p>
+                            <p class="text-justify white-font"><i class="fa fa-quote-left white-font"></i> Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor <i class="fa fa-quote-right white-font"></i></p>
 						  
 						</div>
 					  </div>
@@ -297,7 +297,7 @@
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
 							<h3 class="white-font">Juan Panto <small class="white-font">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
-						  <p class="text-justify white-font">Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena</p>
+							<p class="text-justify white-font"><i class="fa fa-quote-left white-font"></i> Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena <i class="fa fa-quote-right white-font"></i></p>
 						 
 						</div>
 					  </div>
