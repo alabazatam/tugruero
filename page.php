@@ -52,7 +52,7 @@
 		<div class="visible-lg visible-md background_nav page-scroll" align="center"><a href="#page-top" class=""><img src="web/img/logo_blanco.png" class="img-responsive" width="170" alt="tugruero.com"></a></div>
 			<div class="menu" ng-class="{ 'toggled' : menu }" class="visible-lg visible-md background_nav page-scroll" >
 				<a ng-click="toggle()" class="bars"><i class="fa fa-bars"></i></a>
-				<nav ng-class="{ 'toggled' : menu }" ng-mouseleave="menu=''">
+				<nav ng-class="{ 'toggled' : menu }" ng-click="menu=''">
 					<ul class="list-unstyled">
 								<?php foreach($items as $item):?>
 									<li class="page-scroll">
@@ -76,13 +76,14 @@
 							<p><h3 class="text-center white-font">Más de 2000 grueros al alcance de tu mano con un solo click</h3></p>
 							<br><br>
 								<p align="center">
-                                    <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/index.php">
-                                        <img src="<?php echo full_url?>/web/img/icon2.png">
-                                        <small><b>Acceso grueros</b></small>
-                                    </a>
+                                    
+									<a class="btn black"  href="<?php echo full_url;?>/ap/index.php"><img src="<?php echo full_url?>/web/img/ic_acceso.png" width="50">
+											<small><b class="text-center white-font">Acceso grueros</b></small>
+										</a>
+                                    
                                 </p>
 								<p align="center">
-									<small ><b class="white-font">¡Descarga la aplicación!</b></small>
+									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
 									<br>
                                     <a class="btn text-center black-font" href="#">
 										<img src="<?php echo full_url?>/web/img/google_button.png">
@@ -111,10 +112,9 @@
 							<p><h3 class="text-center white-font big-font">¡La  solución perfecta para el auxilio vial!</h3></p>
 							<p><h3 class="text-center white-font">Más de 2000 grueros al alcance de tu mano con un solo click</h3></p>
 							<p align="center">
-                                                                    <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/index.php">
-                                                                        <img src="<?php echo full_url?>/web/img/icon2.png" >
-                                                                        <small><b>Acceso grueros</b></small>
-                                                                    </a>
+								<a class="btn black"  href="<?php echo full_url;?>/ap/index.php"><img src="<?php echo full_url?>/web/img/ic_acceso.png" width="50">
+											<small><b class="text-center white-font">Acceso grueros</b></small>
+										</a>
                             </p>
 								<p align="center">
 									<small ><b class="white-font">¡Descarga la aplicación!</b></small>
@@ -182,7 +182,7 @@
 				</div>
 				<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic6_big.png" class="">
+							<img src="<?php echo full_url;?>/web/img/grua_linea_negra.png" class="">
 
 							<div class="caption">
 								<p class="text-center"><h2 class="text-center white-font">Grueros</h2></p>
