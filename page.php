@@ -282,8 +282,8 @@
 						  <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
-							<h3 class="white-font">Carlos Germani<small class="">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
-                            <p class="text-justify white-font"><i class="fa fa-quote-left "></i> Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor <i class="fa fa-quote-right white-font"></i></p>
+							<h3 class="">Carlos Germani<small class="">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
+                            <p class="text-justify"><i class="fa fa-quote-left "></i> Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor <i class="fa fa-quote-right"></i></p>
 						  
 						</div>
 					  </div>
@@ -297,8 +297,8 @@
 						  <img class="img-circle" src="<?php echo full_url?>/web/img/juan_panto.png" style="width: 150px;height:150px;">
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
-							<h3 class="white-font">Juan Panto <small class="">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
-							<p class="text-justify white-font"><i class="fa fa-quote-left "></i> Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena <i class="fa fa-quote-right white-font"></i></p>
+							<h3 class="">Juan Panto <small class="">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
+							<p class="text-justify"><i class="fa fa-quote-left "></i> Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena <i class="fa fa-quote-right"></i></p>
 						 
 						</div>
 					  </div>
