@@ -52,7 +52,7 @@
 		<div class="visible-lg visible-md background_nav page-scroll" align="center"><a href="#page-top" class=""><img src="web/img/logo_blanco.png" class="img-responsive" width="170" alt="tugruero.com"></a></div>
 			<div class="menu" ng-class="{ 'toggled' : menu }" class="visible-lg visible-md background_nav page-scroll" >
 				<a ng-click="toggle()" class="bars"><i class="fa fa-bars"></i></a>
-				<nav ng-class="{ 'toggled' : menu }" ng-mouseleave="menu=''">
+				<nav ng-class="{ 'toggled' : menu }" ng-click="menu=''">
 					<ul class="list-unstyled">
 								<?php foreach($items as $item):?>
 									<li class="page-scroll">
@@ -73,16 +73,17 @@
 						<div class="col-md-6 col-lg-6">
 							<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>
 							<p><h3 class="text-center white-font big-font">¡La  solución perfecta para el auxilio vial!</h3></p>
-							<p><h3 class="text-center white-font">Más de 2000 grueros al alcance de tu mano con un solo click</h3></p>
+							<p><h3 class="text-center white-font">Más de 2000 grúas al alcance de un click</h3></p>
 							<br><br>
 								<p align="center">
-                                    <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/index.php">
-                                        <img src="<?php echo full_url?>/web/img/icon2.png">
-                                        <small><b>Acceso grueros</b></small>
-                                    </a>
+                                    
+									<a class="btn black"  href="<?php echo full_url;?>/ap/index.php"><img src="<?php echo full_url?>/web/img/ic_acceso.png" width="50">
+											<small><b class="text-center white-font">Acceso grueros</b></small>
+										</a>
+                                    
                                 </p>
 								<p align="center">
-									<small ><b class="white-font">¡Descarga la aplicación!</b></small>
+									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
 									<br>
                                     <a class="btn text-center black-font" href="#">
 										<img src="<?php echo full_url?>/web/img/google_button.png">
@@ -109,12 +110,11 @@
 						</div>
 						<div class="col-xs-12 col-sm-12">
 							<p><h3 class="text-center white-font big-font">¡La  solución perfecta para el auxilio vial!</h3></p>
-							<p><h3 class="text-center white-font">Más de 2000 grueros al alcance de tu mano con un solo click</h3></p>
+							<p><h3 class="text-center white-font">Más de 2000 grúas al alcance de un click</h3></p>
 							<p align="center">
-                                                                    <a class="btn text-center black-font" href="<?php echo full_url;?>/ap/index.php">
-                                                                        <img src="<?php echo full_url?>/web/img/icon2.png" >
-                                                                        <small><b>Acceso grueros</b></small>
-                                                                    </a>
+								<a class="btn black"  href="<?php echo full_url;?>/ap/index.php"><img src="<?php echo full_url?>/web/img/ic_acceso.png" width="50">
+											<small><b class="text-center white-font">Acceso grueros</b></small>
+										</a>
                             </p>
 								<p align="center">
 									<small ><b class="white-font">¡Descarga la aplicación!</b></small>
@@ -135,22 +135,22 @@
 				<div class="row">
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic2.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/ic2_big.png" class="">
 							
 							<div class="caption">
-                                                                <p class="text-center"><b>GPS</b></p>
-								 <p class="text-center text-info"><small>Ubicamos a los grueros más cercanos a tu ubicación</small></p>
+                                                                <p class="text-center white-font"><h2 class="text-center white-font">GPS</h2></p>
+								 <p class="text-center text-info"><small><b class="white-font">Ubicamos a los grueros más cercanos a tu ubicación</b></small></p>
 							  </a>
 							</div>
 						</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic3.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/ic3_big.png" class="">
 
 							<div class="caption">
-								 <p class="text-center"><b>Calidad</b></p>
-								 <p class="text-center text-info"><small>Nuestros grueros son los más calificados del mercado</small></p>
+								 <p class="text-center"><h2 class="text-center white-font">Calidad</h2></p>
+							<p class="text-center text-info"><small><b class="white-font">Nuestros grueros son los más calificados del mercado</b></small></p>
 							  </a>
 							</div>
 						</div>
@@ -159,22 +159,22 @@
 				<div class="row">
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic4.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/ic4_big.png" class="">
 
 							<div class="caption">
-								 <p class="text-center"><b>Rapidez</b></p>
-								 <p class="text-center text-info"><small>Grúas en menos de 30 minutos</small></p>
+								 <p class="text-center"><h2 class="text-center white-font">Rapidez</h2></p>
+							<p class="text-center text-info"><small><b class="white-font">Grúas en menos de 30 minutos</b></small></p>
 							  </a>
 							</div>
 						</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
 										<div class="thumbnail">
-											<img src="<?php echo full_url;?>/web/img/ic5.png" class="icon_media">
+											<img src="<?php echo full_url;?>/web/img/sencillez_big.png" class="">
 
 											<div class="caption">
-												 <p class="text-center"><b>Sencillez</b></p>
-												 <p class="text-center text-info"><small>Un botón y ¡Listo! La grúa viene en camino</small></p>
+												 <p class="text-center"><h2 class="text-center white-font">Sencillez</h2></p>
+											<p class="text-center text-info"><small><b class="white-font">Un botón y ¡Listo! La grúa viene en camino</b></small></p>
 											  </a>
 											</div>
 										</div>
@@ -182,11 +182,11 @@
 				</div>
 				<div class="row">
 						<div class="thumbnail">
-							<img src="<?php echo full_url;?>/web/img/ic6.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/grua_linea_negra.png" class="">
 
 							<div class="caption">
-								<p class="text-center"><b>Grueros</b></p>
-								 <p class="text-center text-info"><small>Contamos con más de 2000 grueros en todo el territorio nacional</small></p>
+								<p class="text-center"><h2 class="text-center white-font">Grueros</h2></p>
+							<p class="text-center text-info"><small><b class="white-font">Contamos con más de 2000 grueros en todo el territorio nacional</b></small></p>
 							  </a>
 							</div>
 						</div>
@@ -199,22 +199,22 @@
 				<div class="col-md-3 col-lg-3 portfolio-item">
 						<div class="thumbnail">
 						<a class="portfolio-link" role="button" data-toggle="modal" href="#portfolioModal1" aria-expanded="false" aria-controls="portfolioModal1">
-						  <img src="<?php echo full_url;?>/web/img/ic7.png" class="icon_media">
+						  <img src="<?php echo full_url;?>/web/img/ic7_big.png" class="icon_media">
 						</a>
 							<div class="caption">
 							
-							   <p class="text-center white-font">¿Qué hacemos?</p>
+								<p class="text-center white-font"><small><b class="">¿Qué hacemos?</b></small></p>
 							</div>
 						</div>
 				</div>
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 						<a class="" role="button" data-toggle="modal" href="#portfolioModal2" aria-expanded="false" aria-controls="portfolioModal2">
-							<img src="<?php echo full_url;?>/web/img/ic8.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/ic8_big.png" class="icon_media">
 						</a>
 							<div class="caption">
 							
-							   <p class="text-center white-font">Sobre nosotros</p>
+								<p class="text-center white-font"><small><b class="">Sobre nosotros</b></small></p>
 							</a>
 							</div>
 						</div>
@@ -222,11 +222,11 @@
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 						<a class="" role="button" data-toggle="modal" href="#portfolioModal3" aria-expanded="false" aria-controls="portfolioModal3">
-							<img src="<?php echo full_url;?>/web/img/where.png" class="icon_media">
+							<img src="<?php echo full_url;?>/web/img/where_big.png" class="icon_media">
 						</a>
 							<div class="caption">
 							
-								<p class="text-center white-font">¿A dónde vamos?</p>
+								<p class="text-center white-font"><small><b class="">¿A dónde vamos?</b></small></p>
 							</a>
 							</div>
 
@@ -235,10 +235,10 @@
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 							<a class="" role="button" data-toggle="modal" href="#portfolioModal4" aria-expanded="false" aria-controls="portfolioModal4">
-								<img src="<?php echo full_url;?>/web/img/ic10.png" class="icon_media">
+								<img src="<?php echo full_url;?>/web/img/ic10_big.png" class="icon_media">
 							</a>
 							<div class="caption">
-								 <p class="text-center white-font">¿Cómo funcionamos?</p>
+								<p class="text-center white-font"><small><b class="">¿Cómo funcionamos?</b></small></p>
 							  </a>
 							</div>
 						</div>
@@ -255,6 +255,7 @@
 	</div>
 	</section>
 	<section id="testimonials" class="success"> 
+		<h2 class="text-center">Testimonios</h2>
 		<div class="container">
 		  <div class="row">
 			<div class=' col-md-10 col-md-offset-1 text-center'>
@@ -281,8 +282,8 @@
 						  <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
-							<h3 class="white-font">Carlos Germani<small class="white-font">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
-                            <p class="text-justify white-font">Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor</p>
+							<h3 class="">Carlos Germani<small class="">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
+                            <p class="text-justify"><i class="fa fa-quote-left "></i> Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor <i class="fa fa-quote-right"></i></p>
 						  
 						</div>
 					  </div>
@@ -296,8 +297,8 @@
 						  <img class="img-circle" src="<?php echo full_url?>/web/img/juan_panto.png" style="width: 150px;height:150px;">
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
-							<h3 class="white-font">Juan Panto <small class="white-font">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
-						  <p class="text-justify white-font">Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena</p>
+							<h3 class="">Juan Panto <small class="">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
+							<p class="text-justify"><i class="fa fa-quote-left "></i> Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena <i class="fa fa-quote-right"></i></p>
 						 
 						</div>
 					  </div>
@@ -317,14 +318,15 @@
 	<section class="success5" id="use">
 	<div class="row" >
 		<div class="container">
+			<h2 class="text-center white-font">Usa <b class="white-font">TU/GRUERO®</b></h2>
+			<br>
  				<div class="col-md-4 col-lg-4">
 						<div class="thumbnail">
 							<a class="" role="button" data-toggle="modal" href="#portfolioModal5" aria-expanded="false" aria-controls="portfolioModal5">
                                                             <img src="<?php echo full_url;?>/web/img/cel/iphone5.png" class="img-responsive" width="200">
 							</a>
 							<div class="caption">
-                                                            <p class="text-center"><h3 class="white-font text-center">Busca una grúa</h3></p>
-							  </a>
+								<p class="text-center"><h3 class="white-font text-center">Solicita una grúa</h3></p>
 							</div>
 						</div>
 				</div>
@@ -334,8 +336,7 @@
                                                             <img src="<?php echo full_url;?>/web/img/cel/iphone3.png" class="img-responsive" width="200">
 							</a>
 							<div class="caption">
-								 <p class="text-center white-font"><h3 class="white-font text-center">Gruero llega a auxiliarte</h3></p>
-							  </a>
+								<p class="text-center white-font"><h3 class="white-font text-center">El gruero más cercano llega a auxiliarte</h3></p>
 							</div>
 						</div>
 				</div>
@@ -345,8 +346,7 @@
                                                             <img src="<?php echo full_url;?>/web/img/cel/iphone4.png" class="img-responsive" width="200">
 							</a>
 							<div class="caption">
-								 <p class="text-center white-font"><h3 class="white-font text-center">Califica al gruero y ¡vuelve a la vía!</h3></p>
-							  </a>
+								 <p class="text-center white-font"><h3 class="white-font text-center">Califica nuestro servicio y ¡Vuelve a la vía!</h3></p>
 							</div>
 						</div>
 				</div>
@@ -360,6 +360,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="white-font">Contáctanos</h2>
+					<br>
                     <!--<hr class="star-contacts">-->
                 </div>
             </div>
@@ -370,28 +371,28 @@
                     <form name="sentMessage" id="contactForm" novalidate>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Nombres y Apellidos</label>
+                                <label class="white-font">Nombres y Apellidos</label>
                                 <input type="text" class="form-control" placeholder="Nombres y Apellidos" id="name" required data-validation-required-message="Por favor indique sus Nombres y apellidos.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Dirección de correo</label>
+                                <label class="white-font">Dirección de correo</label>
                                 <input type="email" class="form-control input-sm" placeholder="Dirección de correo" id="email" required data-validation-required-message="Por favor indique su Dirección de correo.">
-                                <p class="help-block text-danger"></p>
+                                <p class="white-font"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Número de Teléfono</label>
+                                <label class="white-font">Número de Teléfono</label>
                                 <input type="tel" class="form-control" placeholder="Número de Teléfono" id="phone" required data-validation-required-message="Por favor indique su Número de teléfono.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Mensaje</label>
+                                <label class="white-font">Mensaje</label>
                                 <input type="text"  class="form-control" placeholder="Mensaje" id="message" required data-validation-required-message="Por favor indique su Mensaje.">
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -467,18 +468,18 @@
                     </div>
                 </div>
             </div>
-            <div class="container nosotros">
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-lg-12">
                         <div class="modal-body">
-                            <h2 class="black-font">¿Qué hacemos?</h2>
+                            <h2 class="black-font">¿Qué hacemos?</h2><br><br>
 						<div class="thumbnail ">
-                                                    <div class="col-md-3 col-lg-3 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <div align="center">
-                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone_generic.png" class="img-responsive" width="200">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-lg-6 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <p class="text-justify white-font">
                                                             Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad
                                                         </p>
@@ -500,16 +501,16 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-lg-12">
                         <div class="modal-body">
-                            <h2 class="black-font">Sobre nosotros</h2>
+                            <h2 class="black-font">Sobre nosotros</h2><br><br>
 						<div class="thumbnail ">
-                                                    <div class="col-md-3 col-lg-3 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <div align="center">
-                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone_generic.png" class="img-responsive" width="200">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-lg-6 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <p class="text-justify white-font">
                                                             Nuestra plataforma de comunicación se llama TU/GRUERO®, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados con las grúas más cercanas vía geolocalización, permitiéndoles obtener un servicio rápido, eficiente y seguro, simplemente con tocar un botón
                                                         </p>
@@ -531,16 +532,16 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-lg-12">
                         <div class="modal-body">
-                            <h2 class="black-font">¿A dónde vamos?</h2>
+                            <h2 class="black-font">¿A dónde vamos?</h2><br><br>
 						<div class="thumbnail ">
-                                                    <div class="col-md-3 col-lg-3 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <div align="center">
-                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone_generic.png" class="img-responsive" width="200">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-lg-6 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <p class="text-justify white-font">
                                                             TU/GRUERO® se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado
                                                         </p>
@@ -562,16 +563,16 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-lg-12">
                         <div class="modal-body">
-                            <h2 class="black-font">¿Cómo funcionamos?</h2>
+                            <h2 class="black-font">¿Cómo funcionamos?</h2><br><br>
 						<div class="thumbnail ">
-                                                    <div class="col-md-3 col-lg-3 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <div align="center">
-                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone_generic.png" class="img-responsive" width="200">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-lg-6 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12 ">
                                                         <p class="text-justify white-font">
                                                             Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO® funciona como intermediario directo entre al accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO®.
                                                         </p>
@@ -596,16 +597,17 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-lg-12">
                         <div class="modal-body">
-                            <h2 class="black-font">Busca una grúa</h2>
+                            <h2 class="black-font">Solicita una grúa</h2><br><br>
 						<div class="thumbnail ">
-                                                    <div class="col-md-3 col-lg-3 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <div align="center">
-                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone5.png" class="img-responsive" width="200">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-lg-6 col-md-offset-1">
+							
+                                                    <div class="col-md-12 col-lg-12">
                                                         <p class="text-justify white-font">
                                                             Usa  la aplicación para decirnos tu problema, ubicación y destino, y TU/GRUERO® se encargará de buscar al gruero más cercano a ti
                                                         </p>
@@ -629,14 +631,14 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2 class="black-font">Gruero llega a auxiliarte</h2>
+                            <h2 class="black-font">El gruero más cercano llega a auxiliarte</h2><br><br>
 						<div class="thumbnail ">
-                                                    <div class="col-md-3 col-lg-3 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <div align="center">
                                                             <img src="<?php echo full_url;?>/web/img/cel/iphone3.png" class="img-responsive" width="200">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-lg-6 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12 ">
                                                         <p class="text-justify white-font">
                                                             Uno de nuestros 2000+  grueros llegará en cuestión de minutos para auxiliarte
                                                         </p>
@@ -660,14 +662,14 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2 class="black-font">Califica al gruero y ¡vuelve a la vía!</h2>
+                            <h2 class="black-font">Califica nuestro servicio y ¡Vuelve a la vía!</h2><br><br>
 						<div class="thumbnail ">
-                                                    <div class="col-md-3 col-lg-3 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <div align="center">
                                                             <img src="<?php echo full_url;?>/web/img/cel/iphone4.png" class="img-responsive" width="200">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-lg-6 col-md-offset-1">
+                                                    <div class="col-md-12 col-lg-12">
                                                         <p class="text-justify white-font">
                                                             ¡Listo! Así  de fácil es disfrutar de los servicios de TU/GRUERO®
                                                         </p>
