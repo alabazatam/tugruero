@@ -1,12 +1,11 @@
 <?php
 
- function validarRifRazonSocial($rif,$razonSocial)
+ function validarRifRazonSocial($rif)
  {
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->company_validation_ve
 			->select("*")
-			->where("rif=?",$rif)
-			->and("razon_social like ?","%$razonSocial%");
+			->where("rif=?",$rif);
 			return $q;
  }
  function addToken($datos)

@@ -32,7 +32,7 @@ $values = $_REQUEST;
 	}
 	function executeIndex($values = null)
 	{
-	require('users_hoist_company_list_view.php');
+		require('users_hoist_company_list_view.php');
 	}
 	function executeNew($values = null)
 	{       
@@ -92,8 +92,6 @@ $values = $_REQUEST;
 					"first_last_name" => $users_hoist['first_name'],
 					"id_hoist" => $users_hoist['id_hoist'],
 					"status" => $message_status,
-					"date_created" => $users_hoist['date_created'],
-					"date_updated" => $users_hoist['date_updated'],
 					"actions" => 
                                        '<form method="POST" action = "'.full_url.'/ap/users_hoist_company/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
@@ -105,7 +103,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id"=>null,"id_user"=>"","document"=>"","first_name"=>"","first_last_name" =>"","id_hoist"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
+			$array_json['data'][0] = array("id"=>null,"id_users"=>"","first_name"=>"","first_last_name" =>"","id_hoist"=>"","status"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

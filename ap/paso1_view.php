@@ -9,10 +9,11 @@
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Paso 1 / 2</h3>
-											<p>Identificaci&oacute;n</p>
+											<p>Identificación de Gruero Master.</p>
 		                        		</div>
 		                        		<div class="form-top-right">
-		                        			<i class="fa fa-user"></i>
+											<h6 class="text-info">El Gruero Master podrá registrar su empresa en la plataforma, al igual que su(s) grua(s) y chofer(es).</h6>
+											<i class="fa fa-user"></i>
 		                        		</div>
 		                            </div>
 		                            <div class="form-bottom">
@@ -28,33 +29,32 @@
 												<option value="G">G</option>
 											</select>
 										  </span>
-										  <input type="text" class="form-control" placeholder="RIF..." name="rif">
-										  <span class="input-group-btn">
-											<select name="Last-number" class="btn btn-secondary">
-											  <option value="0" selected>0</option>
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-											</select>
-										  </span>
+											<input type="text" class="form-control" placeholder="RIF..." name="rif" required oninvalid="setCustomValidity('Debe colocar su RIF para poder registrarse.')" 
+   oninput="setCustomValidity('')" />
+										   <span class="input-group-addon">(*)</span>
 										</div>
 										</div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="razonSocial">Razón social</label>
-											<input type="text" name="razonSocial" id="registrarse-razon-social" placeholder="Raz&oacute;n social..." class="form-last-name form-control" id="form-last-name" required>
+											<div class="input-group">
+												<label class="sr-only" for="razonSocial">Razón social</label>
+												<input type="text" name="razonSocial" id="registrarse-razon-social" placeholder="Raz&oacute;n social..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Razón Social o Nombre para poder registrarse.')" 
+	oninput="setCustomValidity('')" />
+												 <span class="input-group-addon" id="basic-addon2">(*)</span>
+											</div>
 				                        </div>
 				                        <div class="form-group">
-											<label class="sr-only" for="correo">Correo Electr&oacute;nico</label>
-											<input type="text" name="correo" id="form-correo" placeholder="Correo Electr&oacute;nico..."
-												   class="form-about-yourself form-control" id="form-about-yourself" required></input>
+											<div class="input-group">
+												<label class="sr-only" for="correo">Correo Electr&oacute;nico</label>
+												<input type="text" name="correo" id="form-correo" placeholder="Correo Electr&oacute;nico..."
+													   class="form-about-yourself form-control" id="form-about-yourself" required oninvalid="setCustomValidity('Debe colocar su correo electrónico para poder registrarse.')" 
+	oninput="setCustomValidity('')" /></input>
+												<span class="input-group-addon">(*)</span>
+											</div>
 				                        </div>
-				                        <button type="submit" name="next-1" value="siguiente" class="btn btn-next">Siguiente</button>
+				                        <button type="submit" name="next-1" value="siguiente" class="btn btn-success">Siguiente</button>
+										<div class="form-top-right">
+											<h6 class="text-danger">(*) Campos obligatorios.</h6>
+										</div>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
 											<?php foreach($values['message'] as $message):?>
 												<div class="alert alert-success" role="alert"><?php echo $message;?></div>
@@ -68,8 +68,7 @@
 										<?php endif;?>
 									</div>
 			                    </fieldset>		                    
-		                    </form>
-		                    
+		                    </form>	                    
                         </div>
                     </div>
                 </div>

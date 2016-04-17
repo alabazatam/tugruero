@@ -1,6 +1,6 @@
 <?php
 
-	function validaFormulario1($values)
+	function validaFormularioPaso1($values)
 	{
 		$errors = array();
 		if(count($values)>0)
@@ -8,11 +8,11 @@
 			foreach($values as $campos)
 				if(empty($campos))
 					{
-						$errors['campos']="Todos los campos deben ser llenados";
+						$errors['campos']="Por favor llenar los campos de textos indicados como obligatorios (*).";
 					}
 			if(!filter_var($values["correo"], FILTER_VALIDATE_EMAIL))
 			{
-				$errors['correo'] = "correo invalido";
+				$errors['correo'] = "El correo electrónico ingresado no es válido, por favor asegúrese de ingresar el correcto";
 			}
 		}
 		
@@ -69,12 +69,4 @@
 			$i++;
 		}
 		return $errors;
-	}
-	function trimValues($values)
-	{
-		foreach ($values as $valor => $dato) 
-		{
-				$values[$valor] = trim($dato);
-		}
-		return $values;
 	}

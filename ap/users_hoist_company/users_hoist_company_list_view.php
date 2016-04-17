@@ -11,8 +11,6 @@
 					<th>primer apellido</th>
 					<th>Grúa</th>
 					<th>Status</th>
-                                        <th>Fecha creado</th>
-                                        <th>Fecha modificado</th>
 					<th>Acciones</th>
 				</tr>
 			</thead>
@@ -24,8 +22,6 @@
 					<th>primer apellido</th>
 					<th>Grúa</th>
 					<th>Status</th>
-                                        <th>Fecha creado</th>
-                                        <th>Fecha modificado</th>
 					<th>Acciones</th>
 				</tr>
 			</tfoot>
@@ -39,7 +35,7 @@ $(document).ready(function() {
         "scrollX": true,
         "processing": true,
         "serverSide": true,
-        "ajax": "<?php echo full_url."/ap/users_hoist_company/index.php?action=users_hoist_company_list_json"?>",
+        "ajax": "<?php echo full_url."/ap/users_hoist_company/index.php?action=users_hoist_company_list_json&id_hoist=".$values['id_hoist']?>",
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
         },
@@ -50,12 +46,10 @@ $(document).ready(function() {
             { "data": "first_last_name" },
             { "data": "id_hoist" },
 			{ "data": "status" },
-			{ "data": "date_created" },
-            { "data": "date_updated" },
             { "data": "actions" }		
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 8 ] }
+          { 'bSortable': false, 'aTargets': [ 6 ] }
        ]				
     });
 } );

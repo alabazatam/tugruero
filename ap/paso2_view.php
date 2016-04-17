@@ -78,7 +78,7 @@
 				                        	<label class="sr-only" for="NumCuenta">Número de Cuenta</label>
 				                        	<input type="text" name="NumCuenta" placeholder="Número de Cuenta..." class="form-google-plus form-control" id="form-google-plus" required>
 				                        </div>
-				                        <button type="submit" class="btn">Registrarme!</button>
+				                        <button type="submit" class="btn btn-success">Registrarme!</button>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
 											<?php foreach($values['message'] as $message):?>
 												<div class="alert alert-success" role="alert"><?php echo $message;?></div>

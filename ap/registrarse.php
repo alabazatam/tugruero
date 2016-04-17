@@ -70,7 +70,7 @@ $values = trimValues($_REQUEST);;
 	function executeValidaFormulario1($values = null)
 	{
 		
-		$errors = validaFormulario1($values);
+		$errors = validaFormularioPaso1($values);
 		$valido = true;
 		if(count($errors)>0)
 		{
@@ -81,18 +81,24 @@ $values = trimValues($_REQUEST);;
 
 		if($valido == TRUE)
 		{
-			$rif=$values["Type_rif"]."-".$values["rif"]."-".$values["Last-number"];
+			$rif=$values["Type_rif"]."-".$values["rif"];
 			$correo = $values["correo"];
 			$razonSocial = $values["razonSocial"];
-			$registro = validarRifRazonSocial($rif,$razonSocial,$correo);
+			$registro = validarRifRazonSocial($rif);
 			if(count($registro)>0)
 			{
 
 				foreach($registro as $id=> $valor)
 				{
+					if(stristr($valor['razon_social'], $razonSocial) === FALSE)
+					{
+						$values['errors']['razonSocialError']="La Razón Social o Nombre ingresado no es válido, por favor asegúrese de ingresar los datos correctos.";
+						executePaso1($values);
+						break;
+					}
 					if($valor["validate"] == 1)
 					{
-						$values['errors']['YaRegistrada']="Empresa ya registrada";
+						$values['errors']['YaRegistrada']="Esta empresa ya se encuentra registrada. Ingrese a la plataforma con su Usuario y Clave en la sección anterior.";
 						executePaso1($values);
 					}else if($valor["status"] == 1)
 					{
@@ -115,7 +121,7 @@ $values = trimValues($_REQUEST);;
 						$Mail = new Mail();
 						$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
 						$values = null;
-						$values['message']['tokenSend'] = "Se ha enviado una validación a su correo electrónico, siga las instrucciones indicadas";
+						$values['message']['tokenSend'] = "¡Muy bien! Te hemos enviado al email que nos indicaste un link de acceso a nuestra plataforma. Chequea tu Bandeja de Entrada o la bandeja de <u>Spam</u>, dale click y sigue con el Registro.";
 						
 						executePaso1($values);
 					}
@@ -124,7 +130,7 @@ $values = trimValues($_REQUEST);;
 			}
 			else
 			{
-				$values['errors']['EmpresaNoExiste'] = "Empresa no registrada.";
+				$values['errors']['EmpresaNoExiste'] = "El RIF ingresado no es válido, por favor asegúrese de ingresa el RIF correcto.";
 				executePaso1($values);
 			}
 			die;
