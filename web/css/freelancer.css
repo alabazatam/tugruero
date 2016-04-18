@@ -590,6 +590,10 @@ input[readonly="readonly"] {
   background-color: #404040;
   border-color: #e7e7e7;
 }
+.navbar-right {
+  background-color: #404040;
+  border-color: #e7e7e7;
+}
 section.success{
    background-image: url("../img/bg3_transparente.png");
 }
@@ -801,4 +805,7 @@ h2 b {
         font-weight: bold;
 }
 .contactForm form-group label{
+}
+.clear-padding{
+    padding: 3px;
 }

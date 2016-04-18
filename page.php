@@ -14,12 +14,12 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300|Roboto:400,300,500,700">
     <!-- <link rel="stylesheet" href="http://cssa.cssawards123.netdna-cdn.com/wp-content/themes/cssawds/assets/css/cssawds.min.css"> -->
-    <link rel="stylesheet" href="web/ccsa/css/cssa.css">  
+    <link rel="stylesheet" href="web/css/menu.css">  
 	<link href="web/css/freelancer.css" rel="stylesheet">
         <title>TU/GRUERO®</title>
 </head>
-<body id="page-top" class="" ng-controller="BaseController" ng-class="{ min:boolClass, 'toggled':menu }">
-     <nav class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
+<body id="page-top">
+     <nav class="navbar navbar-default visible-sm visible-xs">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -48,21 +48,32 @@
         <!-- /.container-fluid -->
     </nav>    
     <!-- Navigation -->
-    <header id="scroll" class="">       
-		<div class="visible-lg visible-md background_nav page-scroll" align="center"><a href="#page-top" class=""><img src="web/img/logo_blanco.png" class="img-responsive" width="170" alt="tugruero.com"></a></div>
-			<div class="menu" ng-class="{ 'toggled' : menu }" class="visible-lg visible-md background_nav page-scroll" >
-				<a ng-click="toggle()" class="bars"><i class="fa fa-bars"></i></a>
-				<nav ng-class="{ 'toggled' : menu }" ng-click="menu=''">
-					<ul class="list-unstyled">
-								<?php foreach($items as $item):?>
-									<li class="page-scroll">
-										<a href="<?php echo $item['url'];?>"><?php echo $item['name'];?></a>
-									</li>
-								<?php endforeach;?>
-					</ul>
-				</nav>
-			</div>
-	</header>	
+	<nav>
+		
+	  <ul class="list-unstyled main-menu">
+								<li class="text-right"><a href="#" id="nav-close">X</a></li>
+							<?php foreach($items as $item):?>
+								<li class="page-scroll">
+									<a href="<?php echo $item['url'];?>"><?php echo $item['name'];?></a>
+								</li>
+							<?php endforeach;?>
+	  </ul>
+	</nav>
+ 
+	<div class="navbar navbar-default navbar-fixed-top clear-padding">      
+
+		<!--Include your brand here-->
+		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5">
+			<a class="navbar-brand " href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="140"></a>
+		</div>
+		
+		<div class="navbar-header pull-right">
+		  <a id="nav-expander" class="nav-expander fixed">
+			<i class="fa fa-bars fa-lg white-font"></i>
+		  </a>
+		</div>
+	</div>
+
 	
 	<section id="header" class="success">
         <div class="container visible-lg visible-md">
@@ -688,7 +699,7 @@
     <script src="web/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="web/js/classie.js"></script>
-    <script src="web/js/cbpAnimatedHeader.js"></script>
+    <!--<script src="web/js/cbpAnimatedHeader.js"></script>-->
     <script src="web/js/jqBootstrapValidation.js"></script>
     <script src="web/js/contact_me.js"></script>
     <script src="web/js/freelancer.js"></script>
@@ -708,3 +719,35 @@
 	</script>
 
     
+	<script>
+		$(document).ready(function(){												
+ 
+       //Navigation Menu Slider
+        $('#nav-expander').on('click',function(e){
+      		e.preventDefault();
+      		$('body').toggleClass('nav-expanded');
+      	});
+      	$('#nav-close').on('click',function(e){
+      		e.preventDefault();
+      		$('body').removeClass('nav-expanded');
+      	});
+ 
+      	// Initialize navgoco with default options
+        $(".main-menu").navgoco({
+            caret: '<span class="caret"></span>',
+            accordion: false,
+            openClass: 'open',
+            save: true,
+            cookie: {
+                name: 'navgoco',
+                expires: false,
+                path: '/'
+            },
+            slide: {
+                duration: 300,
+                easing: 'swing'
+            }
+        });
+ 
+      });
+	</script>
