@@ -70,15 +70,3 @@
 		}
 		return $errors;
 	}
-	function trimValues($values)
-	{
-		foreach ($values as $valor => $dato) 
-		{
-				$values[$valor] = trim($dato);
-		}
-		if(isset($values['PHPSESSID'])){
-			unset($values['PHPSESSID']);
-		}
-
-		return $values;
-	}
