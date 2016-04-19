@@ -18,7 +18,7 @@
 	<link href="web/css/freelancer.css" rel="stylesheet">
         <title>TU/GRUERO®</title>
 </head>
-<body id="page-top">
+<body id="page-top" class="index" class="">
      <nav class="navbar navbar-default visible-sm visible-xs">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand text" href="#page-top"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="100"></a>
+                <a class="navbar-brand text" href="#page-top"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="500"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,10 +48,10 @@
         <!-- /.container-fluid -->
     </nav>    
     <!-- Navigation -->
-	<nav>
+	<nav class="visible-lg visible-md">
 		
 	  <ul class="list-unstyled main-menu">
-								<li class="text-right"><a href="#" id="nav-close">X</a></li>
+								<li class="text-right nav-close"><a href="#" id="nav-close">X</a></li>
 							<?php foreach($items as $item):?>
 								<li class="page-scroll">
 									<a href="<?php echo $item['url'];?>"><?php echo $item['name'];?></a>
@@ -60,11 +60,11 @@
 	  </ul>
 	</nav>
  
-	<div class="navbar navbar-default navbar-fixed-top clear-padding">      
+	<div class="navbar navbar-default navbar-fixed-top clear-padding visible-lg visible-md">      
 
 		<!--Include your brand here-->
-		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5">
-			<a class="navbar-brand " href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="140"></a>
+		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">
+			<a class="navbar-brand" href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="180"></a>
 		</div>
 		
 		<div class="navbar-header pull-right">
@@ -75,7 +75,7 @@
 	</div>
 
 	
-	<section id="header" class="success">
+	<section id="header" class="success nav-close">
         <div class="container visible-lg visible-md">
 			<div class="row" class="visible-lg visible-md">
 						<div class="col-md-3 col-lg-3 ">
@@ -140,7 +140,7 @@
 			</div>	
 		</div>
 	</section>
-    <section class="success5" id="work">
+    <section class="success5 nav-close" id="work">
         <div class="container-fluid">
 			<div class="col-lg-offset-0 col-md-offset-0">
 				<div class="row">
@@ -205,7 +205,7 @@
 			</div>
         </div>
     </section>
-	<section class="success3" id="about">		
+	<section class="success3 nav-close" id="about">		
 			<div class="row">
 				<div class="col-md-3 col-lg-3 portfolio-item">
 						<div class="thumbnail">
@@ -256,7 +256,7 @@
 				</div>					
 			</div>
 	</section>
-	<section class="success5" id="video">
+	<section class="success5 nav-close" id="video">
 	<div class="row" >
 		<div class="container">
 			<div class="">
@@ -326,7 +326,7 @@
 		  </div>
 		</div>
 	</section>
-	<section class="success5" id="use">
+	<section class="success5 nav-close" id="use">
 	<div class="row" >
 		<div class="container">
 			<h2 class="text-center white-font">Usa <b class="white-font">TU/GRUERO®</b></h2>
@@ -366,7 +366,7 @@
 	</div>
 	</section>
     <!-- Contact Section -->
-    <section id="contact" class="success">
+    <section id="contact" class="success nav-close">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -422,7 +422,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center">
+    <footer class="text-center nav-close">
         <div class="footer-above">
             <div class="container">
                 <div class="row">
@@ -727,7 +727,7 @@
       		e.preventDefault();
       		$('body').toggleClass('nav-expanded');
       	});
-      	$('#nav-close').on('click',function(e){
+      	$('.nav-close').on('click',function(e){
       		e.preventDefault();
       		$('body').removeClass('nav-expanded');
       	});

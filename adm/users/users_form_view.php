@@ -11,10 +11,16 @@
 	  <div class="form-group">
 		<label for="">Login</label>
 		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>">
+		<?php if(isset($values['errors']['login']) and $values['errors']['login']!=''):?>
+			<label class="alert alert-danger"><?php echo $values['errors']['login']?></label>
+		<?php endif;?>
 	  </div>
 	  <div class="form-group">
 		<label for="">Password</label>
 		<input autocomplete="off" type="password" id="" class="form-control input-sm" name="password" value="">
+		<?php if(isset($values['errors']['password']) and $values['errors']['password']!=''):?>
+			<label class="alert alert-danger"><?php echo $values['errors']['password']?></label>
+		<?php endif;?>
 	  </div>
 		<div class="form-group">
 		  <label class="label label-danger">

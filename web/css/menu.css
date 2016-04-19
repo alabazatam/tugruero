@@ -35,7 +35,7 @@ a.nav-expander.fixed {
     right: 20em;
 }
 nav {
-  background: #2d2f33;
+  background-image: url("../img/bg3_menu.png");
   display: block;
   height: 100%;
   overflow: auto;
@@ -75,14 +75,14 @@ body.nav-expanded {
 }
  
 .main-menu li {
-  border-bottom: 1px solid #323949;
+  border-bottom: 1px solid #ffffff;
   margin-left: 20px;
   font-size: 18px;
   padding: 12px;
 }
  
 .main-menu li a {
-  color: #6F7D8C;
+  color: #ffffff !important;
   text-decoration: none;
 }
  

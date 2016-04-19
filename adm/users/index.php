@@ -44,8 +44,15 @@ $values = $_REQUEST;
 	{
 		
 		$Users = new Users();
-		$values = $Users->saveUser($values);
-		executeEdit($values,message_created);die;
+		$errors = validate($values);
+		if(count($errors)>0)
+		{	
+			$values['errors'] = $errors;
+			require('users_form_view.php');die;
+		}else{		
+			$values = $Users->saveUser($values);			
+			executeEdit($values,message_created);die;
+		}
 	}
 	function executeEdit($values = null,$msg = null)
 	{
@@ -54,14 +61,22 @@ $values = $_REQUEST;
 		$values = $Users->getUserById($values);
 		$values['action'] = 'update';
                 $values['msg'] = $msg;
+		$values['errors'] = array();
 		require('users_form_view.php');
 	}
 	function executeUpdate($values = null)
 	{
 		
 		$Users = new Users();
-		$Users->updateUser($values);		
-		executeEdit($values,message_updated);die;
+		$errors = validate($values);
+		if(count($errors)>0)
+		{	
+			$values['errors'] = $errors;
+			require('users_form_view.php');die;
+		}else{		
+			$Users->updateUser($values);			
+			executeEdit($values,message_updated);die;
+		}
 	}	
 	function executeUserListJson($values)
 	{
