@@ -75,7 +75,7 @@
 	</div>
 
 	
-	<section id="header" class="success nav-close">
+	<section id="header" class="success">
         <div class="container visible-lg visible-md">
 			<div class="row" class="visible-lg visible-md">
 						<div class="col-md-3 col-lg-3 ">
@@ -88,9 +88,10 @@
 							<br><br>
 								<p align="center">
                                     
-									<a class="btn black"  href="<?php echo full_url;?>/ap/index.php"><img src="<?php echo full_url?>/web/img/ic_acceso.png" width="50">
-											<small><b class="text-center white-font">Acceso grueros</b></small>
-										</a>
+									<a class="btn black" href="<?php echo full_url;?>/ap/index.php" target="blank">
+										<img src="<?php echo full_url?>/web/img/ic_acceso.png" width="50">
+										<small><b class="text-center white-font">Acceso grueros</b></small>
+									</a>
                                     
                                 </p>
 								<p align="center">
