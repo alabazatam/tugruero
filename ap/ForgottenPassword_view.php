@@ -53,6 +53,30 @@
 												<span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 				                        </div>
+										<div class="control-group form-group">
+												<div class="controls">
+													<?php
+														  // show captcha HTML using Securimage::getCaptchaHtml()
+
+														  $options = array();
+														  $options['input_name']             = 'ct_captcha'; // change name of input element for form post
+														  $options['disable_flash_fallback'] = false; // allow flash fallback
+
+														  if (!empty($_SESSION['ctform']['captcha_error'])) {
+															// error html to show in captcha output
+															$options['error_html'] = $_SESSION['ctform']['captcha_error'];
+														  }
+
+														  echo "<div id='captcha_container_1' class='text-center'>\n";
+														  echo Securimage::getCaptchaHtml($options);
+														  echo "\n</div>\n";
+													 ?>
+
+
+
+
+												</div>
+											</div>
 				                        <button type="submit" name="next-1" value="Recuperar" class="btn btn-next btn-success btn-lg">Recuperar <i class="fa fa-arrow-right"></i></button>
 										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger btn-lg">Cancelar <i class="fa fa-remove"></i></button></a>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>

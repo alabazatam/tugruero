@@ -69,7 +69,13 @@ $values = trimValues($_REQUEST);;
 	}
 	function executeValidaFormulario1($values = null)
 	{
-		
+		$securimage = new Securimage();
+		$captcha = $values['ct_captcha'];
+		if ($securimage->check($captcha) == false) {
+		  $errors['captcha_error'] = 'Incorrect security code entered<br />';
+				$values['errors']['captcha'] = "Imagen incorrecta";
+				executePaso1($values);die;
+		}
 		$errors = validaFormularioPaso1($values);
 		$valido = true;
 		if(count($errors)>0)
@@ -252,6 +258,13 @@ $values = trimValues($_REQUEST);;
 	}
 	function executeValideForgottenYourPassword($values = null)
 	{
+		$securimage = new Securimage();
+		$captcha = $values['ct_captcha'];
+		if ($securimage->check($captcha) == false) {
+		  $errors['captcha_error'] = 'Incorrect security code entered<br />';
+				$values['errors']['captcha'] = "Imagen incorrecta";
+				executeForgottenYourPassword($values);die;
+		}
 		$errors = validaForgottenPassword($values);
 		$valido = true;
 		if(count($errors)>0)
