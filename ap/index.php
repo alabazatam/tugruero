@@ -60,7 +60,7 @@ $values = $_REQUEST;
 		else
 		{
 			$values = null;
-			$values["errors"] = "usuario o clave invalida";
+			$values["errors"] = "Usuario o clave incorrecto";
 			executeIndex($values);
 		}
 	}
