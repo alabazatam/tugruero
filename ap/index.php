@@ -36,6 +36,13 @@ $values = $_REQUEST;
 	}
 	function executeAcceso($values = null)
 	{
+		$securimage = new Securimage();
+		$captcha = $values['ct_captcha'];
+		if ($securimage->check($captcha) == false) {
+		  $errors['captcha_error'] = 'Incorrect security code entered<br />';
+				$values['errors'] = "Imagen incorrecta";
+				require('login.php');die;
+		}
 		$Login = new Login();
 		$q = $Login->GetLogin($values["login"],$values["password"]);
 		if(count($q)> 0)
