@@ -17,7 +17,7 @@
 			                    <div class="control-group form-group">
 			                        <div class="controls">
 			                            <label>Usuario:</label>
-			                            <input  autocomplete="off" name='login' type="text" class="form-control" id="login" required data-validation-required-message="Please enter your login.">
+										<input  autocomplete="off" name='login' type="text" class="form-control" id="login" required/>
 			                            <p class="help-block"></p>
 			                        </div>
 			                    </div>
@@ -27,10 +27,33 @@
 			                            <input autocomplete="off" name='password' type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password.">
 			                        </div>
 			                    </div>
+								<div class="control-group form-group">
+			                        <div class="controls">
+										<?php
+											  // show captcha HTML using Securimage::getCaptchaHtml()
 
+											  $options = array();
+											  $options['input_name']             = 'ct_captcha'; // change name of input element for form post
+											  $options['disable_flash_fallback'] = false; // allow flash fallback
+
+											  if (!empty($_SESSION['ctform']['captcha_error'])) {
+												// error html to show in captcha output
+												$options['error_html'] = $_SESSION['ctform']['captcha_error'];
+											  }
+
+											  echo "<div id='captcha_container_1' class='text-center'>\n";
+											  echo Securimage::getCaptchaHtml($options);
+											  echo "\n</div>\n";
+										 ?>
+			 							
+							
+								                           
+			                           
+			                        </div>
+			                    </div>
 							<div class="row">
                                                             <div align="center">
-                                                                <button type="submit" class="btn-lg btn-info">Conectar</button>
+                                                                <input type="submit" class="btn-lg btn-info" value="Conectar"/>
 
                                                                 <a href="<?php echo full_url;?>/ap/registrarse.php"><button type="button" class="btn-lg btn-sucess"><i class="fa"></i> Registrarse</button></a>
 
@@ -38,7 +61,7 @@
 							</div>
 							<div class="row">
                                                             <div align="center">
-                                                                <a href="<?php echo full_url;?>/ap/registrarse.php?action=ForgottenYourPassword"><small>¿Olvidó su clave?</small></a>
+                                                                <h5><a href="<?php echo full_url;?>/ap/registrarse.php?action=ForgottenYourPassword">¿Olvidó su clave?</a><h5>
                                                             </div>
                                                             
 							</div>
