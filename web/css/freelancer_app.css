@@ -6,14 +6,7 @@
 
 body {
     overflow-x: hidden;
-        font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
-    background: url(../img/fondos/Fondo-Tu-Gruero2.jpg) no-repeat center center fixed ;
-    overflow-x: hidden;
-    margin: 0;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    
 }
 * {
    font-size: 12px;  
