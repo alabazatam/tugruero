@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="<?php echo full_url;?>/web/img/favicon.ico" type="image/x-icon"/>
-    <title><?php echo title;?></title>
+    <title>TU/GRUERO®</title>
     <!-- Bootstrap core CSS -->
     <link href="<?php echo full_url;?>/web/css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo full_url;?>/web/css/freelancer_app.css" rel="stylesheet">

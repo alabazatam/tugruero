@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo full_url;?>/web/img/favicon.png">
-    <title><?php echo title;?></title>
+    <title>TU/GRUERO®</title>
     <link href="<?php echo full_url;?>/web/css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo full_url;?>/web/css/freelancer_app.css" rel="stylesheet">
 	<link href="<?php echo full_url;?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet">
