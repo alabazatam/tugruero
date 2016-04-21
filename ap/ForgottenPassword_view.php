@@ -53,8 +53,8 @@
 												<span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 				                        </div>
-				                        <button type="submit" name="next-1" value="Recuperar" class="btn btn-next btn-success">Recuperar</button>
-										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger"><i class="fa"></i>Cancelar</button></a>
+				                        <button type="submit" name="next-1" value="Recuperar" class="btn btn-next btn-success btn-lg">Recuperar <i class="fa fa-arrow-right"></i></button>
+										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger btn-lg">Cancelar <i class="fa fa-remove"></i></button></a>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
 											<?php foreach($values['message'] as $message):?>
 												<div class="alert alert-success" role="alert"><?php echo $message;?></div>

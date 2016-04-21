@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5{
 h6{
     font-family: 'Open Sans',serif;
     font-weight: 600;
-    font-size: 12px !important;
+    font-size: 16px !important;
 }
 p {
     font-size: 20px;
@@ -567,4 +567,8 @@ input[readonly="readonly"] {
 }
 .btn {
    font-size: 12px !important;  
+}
+.btn-naranja {
+    background-color: #CC5A27 !important;
+    color: #fff;
 }

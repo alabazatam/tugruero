@@ -53,15 +53,16 @@
 			                    </div>
 							<div class="row">
                                                             <div align="center">
-                                                                <input type="submit" class="btn-lg btn-success" value="Conectar"/>
+                                                                <button type="submit" class="btn-lg btn-success">Conectar <i class="fa fa-arrow-right"></i></button>
 
-                                                                <a href="<?php echo full_url;?>/ap/registrarse.php"><button type="button" class="btn-lg btn-sucess"><i class="fa"></i> Registrarse</button></a>
+                                                                <a href="<?php echo full_url;?>/ap/registrarse.php"><button type="button" class="btn-lg btn-naranja"> ¡Registrarse! <i class="fa fa-users"></i></button></a>
 
                                                             </div>
 							</div>
 							<div class="row">
                                                             <div align="center">
-                                                                <h5><a href="<?php echo full_url;?>/ap/registrarse.php?action=ForgottenYourPassword">¿Olvidó su clave?</a><h5>
+																<hr>
+                                                                <a class="btn btn-default" href="<?php echo full_url;?>/ap/registrarse.php?action=ForgottenYourPassword"><b style="font-size: 14px !important; color: #000 !important;">¿Olvidó su clave? <i class="fa fa-question-circle"></i></b></a>
                                                             </div>
                                                             
 							</div>
