@@ -12,9 +12,10 @@
 											<p>Identificación de Gruero Master.</p>
 		                        		</div>
 		                        		<div class="form-top-right">
-											<div class="well"><label class="text-info text-justify">
+											<div class="alert alert-warning">
+												<h6 class="text-justify">
 													El Gruero Master podrá registrar su empresa en la plataforma, al igual que su(s) grua(s) y chofer(es).
-															</label>
+												</h6>
 											</div>
 											<i class="fa fa-user"></i>
 		                        		</div>
@@ -32,7 +33,7 @@
 												<option value="G">G</option>
 											</select>
 										  </span>
-											<input type="text" class="form-control" placeholder="RIF..." name="rif" required oninvalid="setCustomValidity('Debe colocar su RIF para poder registrarse.')" 
+											<input type="text" class="form-control" placeholder="RIF...12345678-9" name="rif" required oninvalid="setCustomValidity('Debe colocar su RIF para poder registrarse.')" 
    oninput="setCustomValidity('')" />
 										   <span class="input-group-addon">(*)</span>
 										</div>
