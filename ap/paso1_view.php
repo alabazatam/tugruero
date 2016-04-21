@@ -12,7 +12,10 @@
 											<p>Identificación de Gruero Master.</p>
 		                        		</div>
 		                        		<div class="form-top-right">
-											<h6 class="text-info">El Gruero Master podrá registrar su empresa en la plataforma, al igual que su(s) grua(s) y chofer(es).</h6>
+											<div class="well"><label class="text-info text-justify">
+													El Gruero Master podrá registrar su empresa en la plataforma, al igual que su(s) grua(s) y chofer(es).
+															</label>
+											</div>
 											<i class="fa fa-user"></i>
 		                        		</div>
 		                            </div>

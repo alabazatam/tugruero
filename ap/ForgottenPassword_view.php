@@ -29,7 +29,7 @@
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="mail">Correo Electrónico</label>
 											<input type="text" name="mail" id="registrarse-razon-social" placeholder="Correo Electrónico..." class="form-last-name form-control" id="form-last-name" required>
-				                        </div>
+										</div>
 										<div class="form-group">
 				                        	<label class="sr-only" for="InitialFirstName">Inical del primer nombre</label>
 											<input type="text" name="InitialFirstName" id="registrarse-IniciarNombre" placeholder="Inicial del primer nombre..." class="form-last-name form-control" id="form-last-name" maxlength="1" required>
@@ -38,7 +38,8 @@
 				                        	<label class="sr-only" for="InitialFirstLastName">Inical del primer apellido</label>
 											<input type="text" name="InitialFirstLastName" id="registrarse-InicialNombre" placeholder="Inicial del primer apellido..." class="form-last-name form-control" id="form-last-name"maxlength="1" required>
 				                        </div>
-				                        <button type="submit" name="next-1" value="Recuperar" class="btn btn-next">Recuperar</button>
+				                        <button type="submit" name="next-1" value="Recuperar" class="btn btn-next btn-success">Recuperar</button>
+										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger"><i class="fa"></i>Cancelar</button></a>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
 											<?php foreach($values['message'] as $message):?>
 												<div class="alert alert-success" role="alert"><?php echo $message;?></div>
