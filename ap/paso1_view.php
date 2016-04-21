@@ -52,6 +52,7 @@
 											</div>
 				                        </div>
 				                        <button type="submit" name="next-1" value="siguiente" class="btn btn-success">Siguiente</button>
+										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger"><i class="fa"></i>Cancelar</button></a>
 										<div class="form-top-right">
 											<h6 class="text-danger">(*) Campos obligatorios.</h6>
 										</div>

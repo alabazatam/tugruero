@@ -100,6 +100,7 @@
 											</div>
 				                        </div>
 				                        <button type="submit" class="btn btn-success">Registrarme!</button>
+										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger"><i class="fa"></i> Cancelar</button></a>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
 											<?php foreach($values['message'] as $message):?>
 												<div class="alert alert-success" role="alert"><?php echo $message;?></div>

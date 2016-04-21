@@ -30,9 +30,9 @@
 
 							<div class="row">
                                                             <div align="center">
-                                                                <button type="submit" class="btn btn-default">Conectar</button>
+                                                                <button type="submit" class="btn-lg btn-info">Conectar</button>
 
-                                                                <a href="<?php echo full_url;?>/ap/registrarse.php"><button type="button" class="btn btn-default"><i class="fa"></i> Registrarse</button></a>
+                                                                <a href="<?php echo full_url;?>/ap/registrarse.php"><button type="button" class="btn-lg btn-sucess"><i class="fa"></i> Registrarse</button></a>
 
                                                             </div>
 							</div>
