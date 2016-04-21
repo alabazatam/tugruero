@@ -30,16 +30,24 @@
 				                        	<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" required>
 				                        </div>
 				                        <div class="form-group">
-											<label class="sr-only" for="first_name">Primer nombre</label>
-				                        	<input type="text" name="first_name" placeholder="Primer nombre..." class="form-twitter form-control" id="form-twitter" required>
+											<div class="input-group">
+												<label class="sr-only" for="first_name">Primer Nombre</label>
+												<input type="text" name="first_name" id="registrarse-razon-social" placeholder="Primer nombre..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
+	oninput="setCustomValidity('')" />
+												 <span class="input-group-addon" id="basic-addon2">(*)</span>
+											</div>
 				                        </div>
 										 <div class="form-group">
 											<label class="sr-only" for="second_name">Segundo nombre</label>
 				                        	<input type="text" name="second_name" placeholder="Segundo nombre..." class="form-twitter form-control" id="form-twitter">
 				                        </div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="first_lastname">Primer apellido</label>
-				                        	<input type="text" name="first_lastname" placeholder="Primer apellido..." class="form-google-plus form-control" id="form-google-plus" required>
+											<div class="input-group">
+												<label class="sr-only" for="first_name">Primer apellido</label>
+												<input type="text" name="first_lastname" id="registrarse-razon-social" placeholder="Primer Apellido..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Apellido para poder registrarse.')" 
+	oninput="setCustomValidity('')" />
+												 <span class="input-group-addon" id="basic-addon2">(*)</span>
+											</div>
 				                        </div>
 										<div class="form-group">
 				                        	<label class="sr-only" for="second_lastname">Segundo apellido</label>
@@ -53,30 +61,43 @@
 													<option value="E">E</option>
 												</select>
 											  </span>
-												<input type="text" class="form-control" placeholder="Cedula..." name="cedula" required="">
+												<input type="text" class="form-control" placeholder="Cédula..." name="cedula" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" 
+	oninput="setCustomValidity('')" />
 											  </span>
+											  <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="radio-inline"><input type="radio" value="M" name="gender">Masculino</label>
+											<label class="radio-inline"><input type="radio" value="M" name="gender" checked>Masculino</label>
 											<label class="radio-inline"><input type="radio" value="F" name="gender">Femenino</label>
 										</div>
 										<div class="form-group">
-				                        	<label class="sr-only" for="phone">Telefono</label>
-				                        	<input type="text" name="phone" placeholder="Telefono..." class="form-google-plus form-control" id="form-google-plus" required>
+											<div class="input-group">
+												<label class="sr-only" for="phone">Razón social</label>
+												<input type="text" name="phone" id="registrarse-razon-social" placeholder="Telefono..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Teléfono para poder registrarse.')" 
+	oninput="setCustomValidity('')" />
+												 <span class="input-group-addon" id="basic-addon2">(*)</span>
+											</div>
 				                        </div>
 										<div class="form-group">
-				                        	<label class="sr-only" for="type_bank">Banco</label>
-				                        	 <select name="type_bank" class="form-google-plus form-control" required>
-												<option value selected>Banco..</option>												
-												 <?php foreach($values['bank'] as $bank):?>
-													<option value="<?php echo $bank["id"]?>"><?php echo $bank["name"]?></option>
-												<?php endforeach;?>
-											  </select> 
+											<div class="input-group">
+												<label class="sr-only" for="type_bank">Banco</label>
+												<select name="type_bank" class="form-google-plus form-control" required>
+													<option value selected>Banco..</option>												
+													 <?php foreach($values['bank'] as $bank):?>
+														<option value="<?php echo $bank["id"]?>"><?php echo $bank["name"]?></option>
+													<?php endforeach;?>
+												  </select> 
+												<span class="input-group-addon" id="basic-addon2">(*)</span>
+											</div>
 				                        </div>
 										<div class="form-group">
-				                        	<label class="sr-only" for="NumCuenta">Número de Cuenta</label>
-				                        	<input type="text" name="NumCuenta" placeholder="Número de Cuenta..." class="form-google-plus form-control" id="form-google-plus" required>
+											<div class="input-group">
+												<label class="sr-only" for="NumCuenta">Razón social</label>
+												<input type="text" name="NumCuenta" id="registrarse-razon-social" placeholder="Número de cuenta..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número De Cuenta para poder registrarse.')" 
+	oninput="setCustomValidity('')" />
+												 <span class="input-group-addon" id="basic-addon2">(*)</span>
+											</div>
 				                        </div>
 				                        <button type="submit" class="btn btn-success">Registrarme!</button>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
@@ -93,7 +114,9 @@
 				                    </div>
 			                    </fieldset>               
 		                    </form>
-		                    
+		                    <div class="form-top-right">
+											<h6 class="text-danger">(*) Campos obligatorios.</h6>
+							</div>
                         </div>
                     </div>
                 </div>
