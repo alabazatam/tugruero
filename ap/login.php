@@ -53,7 +53,7 @@
 			                    </div>
 							<div class="row">
                                                             <div align="center">
-                                                                <input type="submit" class="btn-lg btn-info" value="Conectar"/>
+                                                                <input type="submit" class="btn-lg btn-success" value="Conectar"/>
 
                                                                 <a href="<?php echo full_url;?>/ap/registrarse.php"><button type="button" class="btn-lg btn-sucess"><i class="fa"></i> Registrarse</button></a>
 

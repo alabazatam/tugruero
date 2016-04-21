@@ -24,19 +24,34 @@
 												<option value="E">E</option>
 											</select>
 										  </span>
-										  <input type="text" class="form-control" placeholder="Cedula..." name="document">
+										  <input type="text" class="form-control" placeholder="Cedula..." name="document" required oninvalid="setCustomValidity('Debe colocar su Cédula para poder recuperar contraseña.')" 
+	oninput="setCustomValidity('')" /></input>
+										  <span class="input-group-addon" id="basic-addon2">(*)</span>
 										</div>
+									</div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="mail">Correo Electrónico</label>
-											<input type="text" name="mail" id="registrarse-razon-social" placeholder="Correo Electrónico..." class="form-last-name form-control" id="form-last-name" required>
+											<div class="input-group">
+												<label class="sr-only" for="mail">Correo Electrónico</label>
+												<input type="text" name="mail" id="registrarse-razon-social" placeholder="Correo Electrónico..." class="form-last-name form-control" id="form-last-name" required oninvalid="setCustomValidity('Debe colocar su Correo Electrónico para poder recuperar contraseña.')" 
+		oninput="setCustomValidity('')" /></input>
+												<span class="input-group-addon" id="basic-addon2">(*)</span>
+											</div>
 										</div>
 										<div class="form-group">
-				                        	<label class="sr-only" for="InitialFirstName">Inical del primer nombre</label>
-											<input type="text" name="InitialFirstName" id="registrarse-IniciarNombre" placeholder="Inicial del primer nombre..." class="form-last-name form-control" id="form-last-name" maxlength="1" required>
+											<div class="input-group">
+												<label class="sr-only" for="InitialFirstName">Inical del primer nombre</label>
+												<input type="text" name="InitialFirstName" id="registrarse-IniciarNombre" placeholder="Inicial del primer nombre..." class="form-last-name form-control" id="form-last-name" maxlength="1" required oninvalid="setCustomValidity('Debe colocar su Inicial del Primer Nombre para poder recuperar contraseña.')" 
+		oninput="setCustomValidity('')" /></input>
+												<span class="input-group-addon" id="basic-addon2">(*)</span>
+											</div>
 				                        </div>
 										<div class="form-group">
-				                        	<label class="sr-only" for="InitialFirstLastName">Inical del primer apellido</label>
-											<input type="text" name="InitialFirstLastName" id="registrarse-InicialNombre" placeholder="Inicial del primer apellido..." class="form-last-name form-control" id="form-last-name"maxlength="1" required>
+											<div class="input-group">
+												<label class="sr-only" for="InitialFirstLastName">Inical del primer apellido</label>
+												<input type="text" name="InitialFirstLastName" id="registrarse-InicialNombre" placeholder="Inicial del primer apellido..." class="form-last-name form-control" id="form-last-name"maxlength="1" required oninvalid="setCustomValidity('Debe colocar su Inicial del Primer Apellido para poder recuperar contraseña.')" 
+		oninput="setCustomValidity('')" /></input>
+												<span class="input-group-addon" id="basic-addon2">(*)</span>
+											</div>
 				                        </div>
 				                        <button type="submit" name="next-1" value="Recuperar" class="btn btn-next btn-success">Recuperar</button>
 										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger"><i class="fa"></i>Cancelar</button></a>
@@ -54,7 +69,9 @@
 									</div>
 			                    </fieldset>		                    
 		                    </form>
-		                    
+								 <div class="form-top-right">
+											<h6 class="text-danger">(*) Campos obligatorios.</h6>
+							</div>
                         </div>
                     </div>
                 </div>
