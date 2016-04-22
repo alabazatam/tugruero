@@ -20,9 +20,8 @@
         <title>TU/GRUERO®</title>
 </head>
 <body id="page-top" class="index" class="">
-     <nav class="navbar navbar-default visible-sm visible-xs">
+     <!--<nav class="navbar navbar-default visible-sm visible-xs">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -33,8 +32,6 @@
                 
                 <a class="navbar-brand text" href="#page-top"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="100"></a>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                         <?php foreach($items as $item):?>
@@ -44,12 +41,10 @@
                         <?php endforeach;?>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
-    </nav>    
+    </nav> -->   
     <!-- Navigation -->
-	<nav class="visible-lg visible-md">
+	<nav class="">
 		
 	  <ul class="list-unstyled main-menu">
 								<li class="text-right nav-close"><a href="#" id="nav-close">X</a></li>
@@ -61,7 +56,7 @@
 	  </ul>
 	</nav>
  
-	<div class="navbar navbar-default navbar-fixed-top clear-padding visible-lg visible-md">      
+	<div class="navbar navbar-default navbar-fixed-top clear-padding">      
 
 		<!--Include your brand here-->
 		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">

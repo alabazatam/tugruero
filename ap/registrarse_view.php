@@ -25,8 +25,8 @@
 				                        	<input type="text" name="registrarse-rif" id="registrarse-rif" placeholder="RIF..." class="form-first-name form-control" id="form-first-name">
 				                        </div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="registrarse-razon-social">Razón social</label>
-											<input type="text" name="registrarse-razon-social" id="registrarse-razon-social" placeholder="Raz&oacute;n social..." class="form-last-name form-control" id="form-last-name">
+				                        	<label class="sr-only" for="registrarse-razon-social">Nombre o Razón social</label>
+											<input type="text" name="registrarse-razon-social" id="registrarse-razon-social" placeholder="Nombre o Raz&oacute;n social..." class="form-last-name form-control" id="form-last-name">
 				                        </div>
 				                        <div class="form-group">
 											<label class="sr-only" for="form-correo">Correo Electr&oacute;nico</label>

@@ -40,7 +40,7 @@
 										</div>
 				                        <div class="form-group">
 											<div class="input-group">
-												<label class="sr-only" for="razonSocial">Razón social</label>
+												<label class="sr-only" for="razonSocial">Nombre o Razón social</label>
 												<input type="text" name="razonSocial" id="registrarse-razon-social" placeholder="Raz&oacute;n social..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Razón Social o Nombre para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>

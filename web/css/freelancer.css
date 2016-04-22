@@ -784,22 +784,20 @@ border-radius: 4px;
 }
 
     @media (min-width: 768px) { 
-    .icon_media {
- 
+    .icon_media{
+       width: auto;
+    -webkit-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
+    -moz-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
+    box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
+
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 0px solid #000000;
+
     }
 }
-.icon_media{
-   width: auto;
--webkit-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
--moz-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
 
-border-radius: 10px 10px 10px 10px;
--moz-border-radius: 200px 200px 200px 200px;
--webkit-border-radius: 200px 200px 200px 200px;
-border: 0px solid #000000;
-
-}
 h2 b {
     	font-size: 38px;
         font-weight: bold;
