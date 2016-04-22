@@ -491,7 +491,7 @@
 										<img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
 									</div>
 								</div>
-								 <div class="col-md-8 col-lg-8">
+								<div class="col-md-8 col-lg-8">
 									<p class="text-justify white-font font-grande-p">
 										Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad
 									</p>

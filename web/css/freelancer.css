@@ -818,8 +818,15 @@ h2 b {
     font-weight: bold !important;
     
 }
-.font-grande-p {
-    font-size: 30px;
+@media (min-width: 768px) { 
+    .font-grande-p {
+        font-size: 30px;
+    }
+}
+@media (max-width: 768px) { 
+    .font-grande-p {
+        font-size: 16px;
+    }
 }
 .fa-quote-left{
    color: orangered !important; 
