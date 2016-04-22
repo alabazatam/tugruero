@@ -471,29 +471,32 @@
     <!-- Modals -->
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
+			<div class="close-modal" data-dismiss="modal">
+				<div class="lr">
+					<div class="rl">
+					</div>
+				</div>
+			</div>
+			<div class="modal-header">
+				<h2 class="white-font">¿Qué hacemos?</h2>
+			</div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="modal-body">
-                            <h2 class="black-font">¿Qué hacemos?</h2><br><br>
-						<div class="thumbnail ">
-                                                    <div class="col-md-12 col-lg-12">
-                                                        <div align="center">
-                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 col-lg-12">
-                                                        <p class="text-justify white-font">
-                                                            Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad
-                                                        </p>
-                                                    </div>							
-						</div>
+                           
+							
+								<div class="col-md-4 col-lg-4">
+									<div align="center">
+										<img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
+									</div>
+								</div>
+								 <div class="col-md-8 col-lg-8">
+									<p class="text-justify white-font font-grande-p">
+										Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad
+									</p>
+								</div>							
+							
                         </div>
                     </div>
                 </div>

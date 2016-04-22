@@ -445,7 +445,7 @@ footer .footer-below {
 .portfolio-modal .modal-content {
     /*background-image: url("../img/cover.png") !important;*/
    background-image: url("../img/bg5.png") !important;
-    padding: 100px 0;
+    padding: 40px 0;
     min-height: 100%;
     border: 0;
     border-radius: 0;
@@ -492,10 +492,10 @@ footer .footer-below {
 
 .portfolio-modal .close-modal {
     position: absolute;
-    top: 25px;
+    top: 8px;
     right: 25px;
     width: 75px;
-    height: 75px;
+    height: 10px;
     background-color: transparent;
     cursor: pointer;
 }
@@ -506,8 +506,8 @@ footer .footer-below {
 
 .portfolio-modal .close-modal .lr {
     z-index: 1051;
-    width: 1px;
-    height: 75px;
+    width: 2px;
+    height: 20px;
     margin-left: 35px;
     background-color: #000000;
     -webkit-transform: rotate(45deg);
@@ -517,8 +517,8 @@ footer .footer-below {
 
 .portfolio-modal .close-modal .lr .rl {
     z-index: 1052;
-    width: 1px;
-    height: 75px;
+    width: 2px;
+    height: 20px;
     background-color: #000000;
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -818,6 +818,9 @@ h2 b {
     font-weight: bold !important;
     
 }
+.font-grande-p {
+    font-size: 30px;
+}
 .fa-quote-left{
    color: orangered !important; 
 }
@@ -836,4 +839,10 @@ h2 b {
 .big_title {
         font-size: 64px !important;
         font-weight: bold;
+}
+.modal-header {
+    padding: 15px;
+    border-bottom: 4px solid #fff;
+    border-top: 4px solid #fff;
+    background-color: #000;
 }
