@@ -80,7 +80,14 @@ body.nav-expanded {
   font-size: 18px;
   padding: 12px;
 }
-
+.main-menu li:hover {
+  color: #fff;
+  background-color: #000;
+  border-bottom: 1px  solid #ffffff;
+  margin-left: 20px;
+  font-size: 18px;
+  padding: 12px;
+}
 .main-menu li a {
   color: #ffffff !important;
   text-decoration: none;

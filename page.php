@@ -85,12 +85,13 @@
 								<p align="center">
                                     
 									<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank">
-										<img src="<?php echo full_url?>/web/img/ic_acceso2.png">
+										<img src="<?php echo full_url?>/web/img/ic_acceso2.png" class="img-responsive">
 										
 									</a>
                                     
                                 </p>
 								<p align="center">
+									<br><br>
 									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
 									<br>
                                     <a class="btn text-center black-font" href="#">
@@ -103,7 +104,7 @@
 
 						</div>
 						<div class="col-md-3 col-lg-3">
-                                                    <img src="<?php echo full_url?>/web/img/cel/iphone2.png" class="img-responsive">
+							<img src="<?php echo full_url?>/web/img/cel/iphone2.png" class="img-responsive">
 						</div>
 
 			</div>
