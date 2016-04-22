@@ -63,6 +63,7 @@
 														  $options = array();
 														  $options['input_name']             = 'ct_captcha'; // change name of input element for form post
 														  $options['disable_flash_fallback'] = false; // allow flash fallback
+														  $options['show_audio_button'] = false;
 
 														  if (!empty($_SESSION['ctform']['captcha_error'])) {
 															// error html to show in captcha output
