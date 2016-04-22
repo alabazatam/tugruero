@@ -75,12 +75,12 @@ body.nav-expanded {
 }
  
 .main-menu li {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px  solid #ffffff;
   margin-left: 20px;
   font-size: 18px;
   padding: 12px;
 }
- 
+
 .main-menu li a {
   color: #ffffff !important;
   text-decoration: none;
@@ -105,7 +105,7 @@ body.nav-expanded {
 	border-right: 4px solid transparent;
 	border-left: 4px solid transparent;
 	content: "";
-    margin-top: 8px;
+        margin-top: 8px;
 }
  
 .main-menu a:hover .caret {
@@ -149,3 +149,4 @@ body.nav-expanded {
   margin: 0.1em 0.8em -0.1em 0;
   opacity: 1;
 }
+

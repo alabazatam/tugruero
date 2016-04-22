@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300|Roboto:400,300,500,700">
     <!-- <link rel="stylesheet" href="http://cssa.cssawards123.netdna-cdn.com/wp-content/themes/cssawds/assets/css/cssawds.min.css"> -->
     <link rel="stylesheet" href="web/css/menu.css">  
+	<link rel="stylesheet" href="web/css/hover.css">  
 	<link href="web/css/freelancer.css" rel="stylesheet">
         <title>TU/GRUERO®</title>
 </head>
@@ -30,7 +31,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand text" href="#page-top"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="500"></a>
+                <a class="navbar-brand text" href="#page-top"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="100"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,8 +54,8 @@
 	  <ul class="list-unstyled main-menu">
 								<li class="text-right nav-close"><a href="#" id="nav-close">X</a></li>
 							<?php foreach($items as $item):?>
-								<li class="page-scroll">
-									<a href="<?php echo $item['url'];?>"><?php echo $item['name'];?></a>
+								<li class="page-scroll ">
+									<a href="<?php echo $item['url'];?>" class="hvr-underline-from-center"><?php echo $item['name'];?></a>
 								</li>
 							<?php endforeach;?>
 	  </ul>
@@ -64,7 +65,7 @@
 
 		<!--Include your brand here-->
 		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">
-			<a class="navbar-brand" href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="180"></a>
+			<a class="navbar-brand" href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="220"></a>
 		</div>
 		
 		<div class="navbar-header pull-right">
