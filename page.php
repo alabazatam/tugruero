@@ -60,7 +60,7 @@
 
 		<!--Include your brand here-->
 		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">
-			<a class="navbar-brand" href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="200"></a>
+			<a class="navbar-brand nav-close" href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="200"></a>
 		</div>
 		
 		<div class="navbar-header pull-right">
@@ -142,38 +142,38 @@
         <div class="container-fluid">
 			<div class="col-lg-offset-0 col-md-offset-0">
 				<div class="row">
-                                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
 							<img src="<?php echo full_url;?>/web/img/ic2_big.png" class="">
 							
 							<div class="caption">
-                                                                <p class="text-center white-font"><h2 class="text-center white-font">GPS</h2></p>
-								 <p class="text-center text-info"><small><b class="white-font">Ubicamos a los grueros más cercanos a tu ubicación</b></small></p>
-							  </a>
+                                <p class="text-center white-font"><h2 class="text-center white-font">GPS</h2></p>
+								<p class="text-center text-info"><small><b class="white-font">Ubicamos a los grueros más cercanos a tu ubicación</b></small></p>
+	
 							</div>
 						</div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
 							<img src="<?php echo full_url;?>/web/img/ic3_big.png" class="">
 
 							<div class="caption">
-								 <p class="text-center"><h2 class="text-center white-font">Calidad</h2></p>
-							<p class="text-center text-info"><small><b class="white-font">Nuestros grueros son los más calificados del mercado</b></small></p>
-							  </a>
+								<p class="text-center"><h2 class="text-center white-font">Calidad</h2></p>
+								<p class="text-center text-info"><small><b class="white-font">Nuestros grueros son los más calificados del mercado</b></small></p>
+							  
 							</div>
 						</div>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
 				<div class="row">
                                     <div class="col-lg-6 col-md-6">
 						<div class="thumbnail">
 							<img src="<?php echo full_url;?>/web/img/ic4_big.png" class="">
 
 							<div class="caption">
-								 <p class="text-center"><h2 class="text-center white-font">Rapidez</h2></p>
-							<p class="text-center text-info"><small><b class="white-font">Grúas en menos de 30 minutos</b></small></p>
-							  </a>
+								<p class="text-center"><h2 class="text-center white-font">Rapidez</h2></p>
+								<p class="text-center text-info"><small><b class="white-font">Grúas en menos de 30 minutos</b></small></p>
+							  
 							</div>
 						</div>
                                     </div>
@@ -182,9 +182,9 @@
 											<img src="<?php echo full_url;?>/web/img/sencillez_big.png" class="">
 
 											<div class="caption">
-												 <p class="text-center"><h2 class="text-center white-font">Sencillez</h2></p>
-											<p class="text-center text-info"><small><b class="white-font">Un botón y ¡Listo! La grúa viene en camino</b></small></p>
-											  </a>
+												<p class="text-center"><h2 class="text-center white-font">Sencillez</h2></p>
+												<p class="text-center text-info"><small><b class="white-font">Un botón y ¡Listo! La grúa viene en camino</b></small></p>
+											 
 											</div>
 										</div>
                                     </div>
@@ -194,9 +194,9 @@
 							<img src="<?php echo full_url;?>/web/img/grua_linea_negra.png" class="">
 
 							<div class="caption">
-								<p class="text-center"><h2 class="text-center white-font">Grueros</h2></p>
+							<p class="text-center"><h2 class="text-center white-font">Grueros</h2></p>
 							<p class="text-center text-info"><small><b class="white-font">Contamos con más de 2000 grueros en todo el territorio nacional</b></small></p>
-							  </a>
+							  
 							</div>
 						</div>
 				</div>
@@ -212,7 +212,7 @@
 						</a>
 							<div class="caption">
 							
-								<p class="text-center white-font"><small><b class="">¿Qué hacemos?</b></small></p>
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Qué hacemos?</b></small></p>
 							</div>
 						</div>
 				</div>
@@ -223,8 +223,8 @@
 						</a>
 							<div class="caption">
 							
-								<p class="text-center white-font"><small><b class="">Sobre nosotros</b></small></p>
-							</a>
+								<p class="text-center white-font"><small><b class="white-font extra_bold">Sobre nosotros</b></small></p>
+
 							</div>
 						</div>
 				</div>
@@ -235,8 +235,7 @@
 						</a>
 							<div class="caption">
 							
-								<p class="text-center white-font"><small><b class="">¿A dónde vamos?</b></small></p>
-							</a>
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿A dónde vamos?</b></small></p>
 							</div>
 
 						</div>
@@ -247,8 +246,8 @@
 								<img src="<?php echo full_url;?>/web/img/ic10_big.png" class="icon_media">
 							</a>
 							<div class="caption">
-								<p class="text-center white-font"><small><b class="">¿Cómo funcionamos?</b></small></p>
-							  </a>
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Cómo funcionamos?</b></small></p>
+							  
 							</div>
 						</div>
 				</div>					
@@ -264,7 +263,7 @@
 	</div>
 	</section>
 	<section id="testimonials" class="success"> 
-		<h2 class="text-center">Testimonios</h2>
+		<h2 class="text-center white-font big_title">Testimonios</h2>
 		<div class="container">
 		  <div class="row">
 			<div class=' col-md-10 col-md-offset-1 text-center'>
@@ -273,7 +272,7 @@
 		  </div>
 		  <div class='row'>
 			<div class='col-md-10 col-md-offset-1 '>
-                            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+              <div class="carousel slide" data-ride="carousel" id="quote-carousel">
 				<!-- Bottom Carousel Indicators -->
 				<ol class="carousel-indicators">
 				  <li data-target="#quote-carousel" data-slide-to="0" class="active "></li>
@@ -291,8 +290,8 @@
 						  <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
-							<h3 class="">Carlos Germani<small class="">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
-                            <p class="text-justify"><i class="fa fa-quote-left "></i> Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor <i class="fa fa-quote-right"></i></p>
+							<h3 class="white-font extra_bold">Carlos Germani<small class="white-font extra_bold">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
+                            <p class="text-justify white-font extra_bold font-inclinado"><i class="fa fa-quote-left "></i> Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor <i class="fa fa-quote-right"></i></p>
 						  
 						</div>
 					  </div>
@@ -306,8 +305,8 @@
 						  <img class="img-circle" src="<?php echo full_url?>/web/img/juan_panto.png" style="width: 150px;height:150px;">
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
-							<h3 class="">Juan Panto <small class="">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
-							<p class="text-justify"><i class="fa fa-quote-left "></i> Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena <i class="fa fa-quote-right"></i></p>
+							<h3 class="white-font extra_bold">Juan Panto <small class="white-font extra_bold">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
+							<p class="text-justify white-font extra_bold font-inclinado"><i class="fa fa-quote-left "></i> Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena <i class="fa fa-quote-right"></i></p>
 						 
 						</div>
 					  </div>
@@ -327,7 +326,7 @@
 	<section class="success5 nav-close" id="use">
 	<div class="row" >
 		<div class="container">
-			<h2 class="text-center white-font">Usa <b class="white-font">TU/GRUERO®</b></h2>
+			<h2 class="text-center white-font big_title">Usa <b class="white-font big_title">TU/GRUERO®</b></h2>
 			<br>
  				<div class="col-md-4 col-lg-4">
 						<div class="thumbnail">
@@ -368,7 +367,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="white-font">Contáctanos</h2>
+                    <h2 class="white-font big_title">Contáctanos</h2>
 					<br>
                     <!--<hr class="star-contacts">-->
                 </div>
@@ -428,6 +427,7 @@
                         <h3 class="white-font">Dirección</h3>
                         <p class="white-font">Av. Principal Los Dos Caminos. Edificio Provincial. Piso 8. Oficina 8 “B”. Municipio Sucre. Caracas. Venezuela. Código Postal: 1071.</p>
 						<p class="white-font">tugruero@gmail.com</p>
+						<p class="white-font">info@tugruero.com</p>						
 						<p class="white-font">02122357207 / 02122391093</p>
                     </div>
                     <div class="footer-col col-md-4">

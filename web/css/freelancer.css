@@ -785,7 +785,7 @@ border-radius: 4px;
 
     @media (min-width: 768px) { 
     .icon_media{
-       width: auto;
+    /*width: auto;
     -webkit-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
     -moz-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
     box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
@@ -793,7 +793,7 @@ border-radius: 4px;
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 200px 200px 200px 200px;
     -webkit-border-radius: 200px 200px 200px 200px;
-    border: 0px solid #000000;
+    border: 0px solid #000000;*/
 
     }
 }
@@ -813,4 +813,27 @@ h2 b {
   padding: 0px 0px;
   font-size: 18px;
   line-height: 20px;
+}
+.extra_bold {
+    font-weight: bold !important;
+    
+}
+.fa-quote-left{
+   color: orangered !important; 
+}
+.fa-quote-right{
+    color: orangered !important;  
+}
+.fa fa-chevron-left{
+        color: whitesmoke !important; 
+}
+.fa fa-chevron-right{
+        color: whitesmoke !important; 
+}
+.font-inclinado {
+    font-style: italic !important;
+}
+.big_title {
+        font-size: 64px !important;
+        font-weight: bold;
 }
