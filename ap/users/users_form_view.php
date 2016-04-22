@@ -10,16 +10,24 @@
 	  </div>
 		<?php if(isset($values['action']) and $values['action'] =="add" ):?>
 	  <div class="form-group">
-		<label for="">Primer Nombre</label>
-		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="first_name" value="<?php if(isset($values['first_name'])) echo $values['first_name']?>" required>
-	  </div>
+		  <label for="">Primer Nombre</label>
+			<div class="input-group">
+				<input type="text" name="first_name" id="registrarse-razon-social"  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
+oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) echo $values['first_name']?>"/>
+				 <span class="input-group-addon" id="basic-addon2">(*)</span>
+			</div>
+		</div>
 	  <div class="form-group">
 		<label for="">Segundo Nombre</label>
 		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="second_name" value="<?php if(isset($values['second_name'])) echo $values['second_name']?>" >
 	  </div>
 	  <div class="form-group">
 		<label for="">Primer Apellido</label>
-		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="first_last_name" value="<?php if(isset($values['first_last_name'])) echo $values['first_last_name']?>" required>
+		<div class="input-group">
+				<input type="text" name="first_last_name" id="first_last_name"  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Apellido para poder registrarse.')" 
+					oninput="setCustomValidity('')" value="<?php if(isset($values['first_last_name'])) echo $values['first_last_name']?>"/>
+				 <span class="input-group-addon" id="basic-addon2">(*)</span>
+			</div>
 	  </div>
 	  <div class="form-group">
 		<label for="">Segundo Apellido</label>
@@ -34,22 +42,32 @@
 				<option value="E">E</option>
 			</select>
 		  </span>
-			<input type="text" class="form-control" name="document" value="<?php if(isset($values['document'])) echo $values['document']?>" required>
+			<input type="text" class="form-control" name="document" value="<?php if(isset($values['document'])) echo $values['document']?>" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" 
+	oninput="setCustomValidity('')" />
 		  </span>
+		  <span class="input-group-addon" id="basic-addon2">(*)</span>
 		</div>
 	</div>
 	<div class="form-group">
 	 
-			<label class="radio-inline"><input type="radio" value="M" name="gender" <?php if(isset($values['gender']) and $values['gender'] =='M' ) echo "checked=checked"?>>Masculino</label>
+		<label class="radio-inline"><input type="radio" value="M" name="gender" <?php if(isset($values['gender']) and $values['gender'] =='M' ) echo "checked=checked"?> checked>Masculino</label>
 			<label class="radio-inline"><input type="radio" value="F" name="gender" <?php if(isset($values['gender']) and $values['gender'] =='F' ) echo "checked=checked"?>>Femenino</label>
 	</div>
 	<div class="form-group">
-		<label for="">Correo</label>
-		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="mail" value="<?php if(isset($values['mail'])) echo $values['mail']?>" required>
+		<label for="">Correo Electrónico</label>
+		<div class="input-group">
+				<input type="text" name="mail" id="first_last_name"  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Correo Electrónico para poder registrarse.')" 
+					oninput="setCustomValidity('')" value="<?php if(isset($values['mail'])) echo $values['mail']?>"/>
+				 <span class="input-group-addon" id="basic-addon2">(*)</span>
+			</div>
 	  </div>
-	 <div class="form-group">
-		<label for="">Telefono</label>
-		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="phone" value="<?php if(isset($values['phone'])) echo $values['phone']?>" required>
+	<div class="form-group">
+		<label for="">Teléfono</label>
+		<div class="input-group">
+				<input type="text" name="phone" id=""  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Teléfono para poder registrarse.')" 
+					oninput="setCustomValidity('')" value="<?php if(isset($values['phone'])) echo $values['phone']?>"/>
+				 <span class="input-group-addon" id="basic-addon2">(*)</span>
+			</div>
 	  </div>
 	  <div class="form-group">
 		<label for="">Login</label>
