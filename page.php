@@ -60,7 +60,7 @@
 
 		<!--Include your brand here-->
 		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">
-			<a class="navbar-brand" href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="220"></a>
+			<a class="navbar-brand" href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="200"></a>
 		</div>
 		
 		<div class="navbar-header pull-right">
@@ -84,9 +84,9 @@
 							<br><br>
 								<p align="center">
                                     
-									<a class="btn black" href="<?php echo full_url;?>/ap/index.php" target="blank">
-										<img src="<?php echo full_url?>/web/img/ic_acceso.png" width="50">
-										<small><b class="text-center white-font">Acceso grueros</b></small>
+									<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank">
+										<img src="<?php echo full_url?>/web/img/ic_acceso2.png">
+										
 									</a>
                                     
                                 </p>
@@ -120,9 +120,9 @@
 							<p><h3 class="text-center white-font big-font">¡La  solución perfecta para el auxilio vial!</h3></p>
 							<p><h3 class="text-center white-font">Más de 2000 grúas al alcance de un click</h3></p>
 							<p align="center">
-								<a class="btn black"  href="<?php echo full_url;?>/ap/index.php"><img src="<?php echo full_url?>/web/img/ic_acceso.png" width="50">
-											<small><b class="text-center white-font">Acceso grueros</b></small>
-										</a>
+									<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank">
+										<img src="<?php echo full_url?>/web/img/ic_acceso2.png" class="img-responsive">
+									</a>
                             </p>
 								<p align="center">
 									<small ><b class="white-font">¡Descarga la aplicación!</b></small>
