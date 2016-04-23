@@ -25,7 +25,13 @@ body {
 }
 @media (min-width: 200px ) and (max-width: 600px ) {
     html { 
-           overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-x: hidden;
+    margin: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     }
 }
 html { 
@@ -507,7 +513,7 @@ footer .footer-below {
 .portfolio-modal .close-modal .lr {
     z-index: 1051;
     width: 2px;
-    height: 20px;
+    height: 35px;
     margin-left: 35px;
     background-color: #000000;
     -webkit-transform: rotate(45deg);
@@ -518,7 +524,7 @@ footer .footer-below {
 .portfolio-modal .close-modal .lr .rl {
     z-index: 1052;
     width: 2px;
-    height: 20px;
+    height: 35px;
     background-color: #000000;
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -821,11 +827,20 @@ h2 b {
 @media (min-width: 768px) { 
     .font-grande-p {
         font-size: 30px;
+        line-height: 1.2em;
+    }
+    .big_title {
+            font-size: 64px !important;
+            font-weight: bold;
     }
 }
 @media (max-width: 768px) { 
     .font-grande-p {
         font-size: 16px;
+    }
+    .big_title {
+            font-size: 50px !important;
+            font-weight: bold;
     }
 }
 .fa-quote-left{
@@ -843,13 +858,14 @@ h2 b {
 .font-inclinado {
     font-style: italic !important;
 }
-.big_title {
-        font-size: 64px !important;
-        font-weight: bold;
-}
+
 .modal-header {
     padding: 15px;
     border-bottom: 4px solid #fff;
     border-top: 4px solid #fff;
     background-color: #000;
+}
+.modal-body {
+  position: relative;
+  padding: 15px;
 }
