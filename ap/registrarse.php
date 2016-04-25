@@ -174,7 +174,13 @@ $values = trimValues($_REQUEST);;
 						$RegistrarEmpresa = array("rif" => $value["rif"],
 						"razon_social"=>$value["razon_social"],
 						"responsible_name"=>$values["first_name"]." ".$values["first_lastname"],
-						"id_bank" =>$values["type_bank"],
+						"id_bank" =>$values["id_bank"],
+						"tipo_cuenta" =>$values["tipo_cuenta"],
+						"location" =>$values["location"],
+						"zone_work" =>$values["zone_work"],
+						"club_gruas" =>$values["club_gruas"],
+						"num_socio" =>$values["num_socio"],
+						"company_name" =>$values["company_name"],
 						"num_cuenta" => $values["NumCuenta"],
 						"responsible_cedula"=>$values["nationality"]."-".$values["cedula"]);
 						break;
