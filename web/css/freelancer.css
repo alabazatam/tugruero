@@ -25,7 +25,13 @@ body {
 }
 @media (min-width: 200px ) and (max-width: 600px ) {
     html { 
-           overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-x: hidden;
+    margin: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     }
 }
 html { 
@@ -445,7 +451,7 @@ footer .footer-below {
 .portfolio-modal .modal-content {
     /*background-image: url("../img/cover.png") !important;*/
    background-image: url("../img/bg5.png") !important;
-    padding: 100px 0;
+    padding: 40px 0;
     min-height: 100%;
     border: 0;
     border-radius: 0;
@@ -492,10 +498,10 @@ footer .footer-below {
 
 .portfolio-modal .close-modal {
     position: absolute;
-    top: 25px;
+    top: 8px;
     right: 25px;
     width: 75px;
-    height: 75px;
+    height: 10px;
     background-color: transparent;
     cursor: pointer;
 }
@@ -506,8 +512,8 @@ footer .footer-below {
 
 .portfolio-modal .close-modal .lr {
     z-index: 1051;
-    width: 1px;
-    height: 75px;
+    width: 2px;
+    height: 35px;
     margin-left: 35px;
     background-color: #000000;
     -webkit-transform: rotate(45deg);
@@ -517,8 +523,8 @@ footer .footer-below {
 
 .portfolio-modal .close-modal .lr .rl {
     z-index: 1052;
-    width: 1px;
-    height: 75px;
+    width: 2px;
+    height: 35px;
     background-color: #000000;
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -784,22 +790,20 @@ border-radius: 4px;
 }
 
     @media (min-width: 768px) { 
-    .icon_media {
- 
+    .icon_media{
+    /*width: auto;
+    -webkit-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
+    -moz-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
+    box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
+
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 0px solid #000000;*/
+
     }
 }
-.icon_media{
-   width: auto;
--webkit-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
--moz-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
 
-border-radius: 10px 10px 10px 10px;
--moz-border-radius: 200px 200px 200px 200px;
--webkit-border-radius: 200px 200px 200px 200px;
-border: 0px solid #000000;
-
-}
 h2 b {
     	font-size: 38px;
         font-weight: bold;
@@ -807,5 +811,61 @@ h2 b {
 .contactForm form-group label{
 }
 .clear-padding{
-    padding: 0px 0px 16px 0px;
+    padding: 0px 0px 10px 0px;
+}
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 0px 0px;
+  font-size: 18px;
+  line-height: 20px;
+}
+.extra_bold {
+    font-weight: bold !important;
+    
+}
+@media (min-width: 768px) { 
+    .font-grande-p {
+        font-size: 30px;
+        line-height: 1.2em;
+    }
+    .big_title {
+            font-size: 64px !important;
+            font-weight: bold;
+    }
+}
+@media (max-width: 768px) { 
+    .font-grande-p {
+        font-size: 16px;
+    }
+    .big_title {
+            font-size: 50px !important;
+            font-weight: bold;
+    }
+}
+.fa-quote-left{
+   color: orangered !important; 
+}
+.fa-quote-right{
+    color: orangered !important;  
+}
+.fa fa-chevron-left{
+        color: whitesmoke !important; 
+}
+.fa fa-chevron-right{
+        color: whitesmoke !important; 
+}
+.font-inclinado {
+    font-style: italic !important;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 4px solid #fff;
+    border-top: 4px solid #fff;
+    background-color: #000;
+}
+.modal-body {
+  position: relative;
+  padding: 15px;
 }

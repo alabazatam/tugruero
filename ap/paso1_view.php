@@ -40,8 +40,8 @@
 										</div>
 				                        <div class="form-group">
 											<div class="input-group">
-												<label class="sr-only" for="razonSocial">Razón social</label>
-												<input type="text" name="razonSocial" id="registrarse-razon-social" placeholder="Raz&oacute;n social..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Razón Social o Nombre para poder registrarse.')" 
+												<label class="sr-only" for="razonSocial">Nombre o Razón social</label>
+												<input type="text" name="razonSocial" id="registrarse-razon-social" placeholder="Nombre o Raz&oacute;n social..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Razón Social o Nombre para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
@@ -63,6 +63,7 @@
 														  $options = array();
 														  $options['input_name']             = 'ct_captcha'; // change name of input element for form post
 														  $options['disable_flash_fallback'] = false; // allow flash fallback
+														  $options['show_audio_button'] = false;
 
 														  if (!empty($_SESSION['ctform']['captcha_error'])) {
 															// error html to show in captcha output
