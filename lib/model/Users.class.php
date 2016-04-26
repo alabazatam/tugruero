@@ -82,6 +82,8 @@
 			
 		}		
 		function saveUser($values){
+			
+			unset($values['PHPSESSID']);
 			unset($values['action']);
 			$values['password'] = hash('sha256', $values['password']);
                         $values['date_created'] = new NotORM_Literal("NOW()");
@@ -93,6 +95,7 @@
 			
 		}
 		function updateUser($values){
+			unset($values['PHPSESSID']);
 			unset($values['action'],$values['date_created']);
                         $values['date_updated'] = new NotORM_Literal("NOW()");
 			if(isset($values['password']) and $values['password']!='')
@@ -229,7 +232,7 @@
 			return $q['cuenta']; 			
 		}
 		function saveUserOperator($values){
-			
+			unset($values['PHPSESSID']);
 			$user = array("login" => $values["login"],
 						  "password" => hash('sha256', $values['password']),
 						  "status" => $values["status"],
@@ -274,6 +277,7 @@
 			
 		}
 		function updateUserOperator($values){
+			unset($values['PHPSESSID']);
 			unset($values['action'],$values['date_created']);
             $user = array("status" => $values["status"]);
 			$user["date_updated"] = date("Y-m-d H:i:s");
