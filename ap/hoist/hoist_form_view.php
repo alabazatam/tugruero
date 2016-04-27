@@ -9,12 +9,20 @@
 		<input readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id" value="<?php if(isset($values['id'])) echo $values['id']?>">
 	  </div>
 	  <div class="form-group">
-		<label for="">Serial de motor</label>
-		<input type="text" class="form-control input-sm" id="" placeholder="" name="engine_serial" value="<?php if(isset($values['engine_serial'])) echo $values['engine_serial']?>">
+		<label for="">Serial de motor</label>	
+		<div class="input-group">
+			<input type="text" class="form-control input-sm" id="" placeholder="" name="engine_serial" required  oninvalid="setCustomValidity('Debe colocar el Serial del motor para poder registrarla.')" 
+	oninput="setCustomValidity('')" value="<?php if(isset($values['engine_serial'])) echo $values['engine_serial']?>">
+		<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
 	  </div>
 	  <div class="form-group">
 		<label for="">Serial de carroceria</label>
-		<input type="body_serial" id="" class="form-control input-sm" name="body_serial" value="<?php if(isset($values['body_serial'])) echo $values['body_serial']?>">
+		<div class="input-group">
+			<input type="body_serial" id="" class="form-control input-sm" name="body_serial" required  oninvalid="setCustomValidity('Debe colocar el Serial de la carroceria para poder registrarla.')" 
+			oninput="setCustomValidity('')"  value="<?php if(isset($values['body_serial'])) echo $values['body_serial']?>">
+			<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
 	  </div>
 		<div class="form-group">
 		  <label class="label label-danger">
@@ -30,27 +38,43 @@
 		</div>	
 	  <div class="form-group">
 		<label for="">Matricula</label>
-		<input type="text" id="" class="form-control input-sm" name="registration_plate" value="<?php if(isset($values['registration_plate'])) echo $values['registration_plate']?>">
+		<div class="input-group">
+			<input type="text" id="" class="form-control input-sm" name="registration_plate" value="<?php if(isset($values['registration_plate'])) echo $values['registration_plate']?>"
+			   required  oninvalid="setCustomValidity('Debe colocar la Matricula para poder registrarla.')" oninput="setCustomValidity('')"  >
+			<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
 	  </div>
 	  <div class="form-group">
 		<label for="">Año del Vehiculo</label>
-		<input type="text" id="" class="form-control input-sm" name="year_vehicle" value="<?php if(isset($values['year_vehicle'])) echo $values['year_vehicle']?>">
+		<div class="input-group">
+			<input type="text" id="" class="form-control input-sm" name="year_vehicle" value="<?php if(isset($values['year_vehicle'])) echo $values['year_vehicle']?>"
+				   required  oninvalid="setCustomValidity('Debe colocar el Año del vehiculo para poder registrarla.')" oninput="setCustomValidity('')"  >
+			<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
 	  </div>
 	 <div class="form-group">
 		<label for="">Marca</label>
-		<input type="text" id="" class="form-control input-sm" name="make" value="<?php if(isset($values['make'])) echo $values['make']?>">
+		<div class="input-group">
+			<input type="text" id="" class="form-control input-sm" name="make" value="<?php if(isset($values['make'])) echo $values['make']?>"
+				   required  oninvalid="setCustomValidity('Debe colocar la Marca para poder registrarla.')" oninput="setCustomValidity('')"  >
+			<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
 	  </div>
 	  <div class="form-group">
 		<label for="">Modelo</label>
-		<input type="text" id="" class="form-control input-sm" name="model" value="<?php if(isset($values['model'])) echo $values['model']?>">
+		<div class="input-group">
+			<input type="text" id="" class="form-control input-sm" name="model" value="<?php if(isset($values['model'])) echo $values['model']?>"
+				   required  oninvalid="setCustomValidity('Debe colocar la Marca para poder registrarla.')" oninput="setCustomValidity('')"  >
+			<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
 	  </div>
 	  <div class="form-group">
 		<label for="">Fecha creado</label>
-		<input type="text" class="form-control input-sm" id="" placeholder="" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">
+		<input type="text" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">
 	  </div>
 	  <div class="form-group">
 		<label for="">Fecha modificado</label>
-		<input type="text" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
+		<input type="text" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
 	  </div>
 		<a class="btn btn-default"  href="<?php echo full_url."/ap/hoist/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>

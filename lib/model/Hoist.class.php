@@ -84,6 +84,7 @@
 			
 		}		
 		function saveHoist($values){
+			unset($values['PHPSESSID']);
 			unset($values['action']);
                         $values['date_created'] = new NotORM_Literal("NOW()");
                         $values['date_updated'] = new NotORM_Literal("NOW()");
@@ -98,6 +99,7 @@
 			
 		}
 		function updateHoist($values){
+			unset($values['PHPSESSID']);
 			unset($values['action'],$values['date_created']);
             $values['date_updated'] = new NotORM_Literal("NOW()");
 			$id_hoist = $values['id'];

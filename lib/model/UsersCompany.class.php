@@ -99,6 +99,7 @@
 			
 		}		
 		function saveUsersCompany($values){
+			unset($values['PHPSESSID']);
 			unset($values['action']);
 			$values['date_created'] = new NotORM_Literal("NOW()");
 			$values['date_updated'] = new NotORM_Literal("NOW()");
@@ -109,6 +110,7 @@
 			
 		}
 		function updateUsersCompany($values){
+			unset($values['PHPSESSID']);
 			unset($values['action'],$values['date_created']);
 			$values['date_updated'] = new NotORM_Literal("NOW()");
 			$id = $values['id'];
