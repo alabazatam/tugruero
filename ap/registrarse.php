@@ -238,7 +238,7 @@ $values = trimValues($_REQUEST);;
 					$Mail = new Mail();
 					$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
 					$values = null;
-					$values['message'] = "Su usuario ha sido creado satisfactoriamente, se ha enviado un correo electrónico con los datos.</ br> Recuerde que debe esperar la aprobación del administrador.";
+					$values['message'] = "¡Muy bien, ha completado su registro! Le hemos enviado su Usuario Master y Clave a su correo electrónico para que pueda ingresar a la plataforma y registrar a su(s) grua(s) y/o choferes.";
 					$values["action"] = "login";
 					 require 'login.php';
 				}
