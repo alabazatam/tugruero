@@ -78,7 +78,7 @@
 												<input type="text" name="phone1" placeholder="Número movil secundario..." class="form-google-plus form-control" id="form-google-plus" >
 										 </div>
 										 <div class="form-group">
-				                        	<label class="label label-default" for="file_1">Suba su cédula de identidad.</label>
+				                        	<h6 class="label label-default" for="file_1">Suba su cédula de identidad.</h6>
 				                        	<input type="file" name="file_1" placeholder="Cedula..." class="form-google-plus form-control" required>
 				                        </div>
 									<hr>
@@ -137,21 +137,21 @@
 											<input type="text" name="num_socio" placeholder="Indique número de socio en el Club de Grúas Venezuela..." class="form-google-plus form-control" id="form-google-plus" >
 				                        </div>
 										<div class="form-group">
-				                        	<label class="label label-default" for="file_2">Suba su RIF jurídico o natural.</label>
+				                        	<h6 class="label label-default" for="file_2">Suba su RIF jurídico o natural.</h6>
 											<div class="input-group">
 												<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" required>
 												<span class="input-group-addon">(*)</span>
 											</div>
 				                        </div>
 										<div class="form-group">
-				                        	<label class="label label-default" for="file_3">Suba su Licencia de conducir.</label>
+				                        	<h6 class="label label-default" for="file_3">Suba su Licencia de conducir.</h6>
 											<div class="input-group">
 												<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" required>
 												<span class="input-group-addon">(*)</span>
 											</div>
 				                        </div>
 										<div class="form-group">
-				                        	<label class="label label-default" for="file_4">Suba su carnet de circulación.</label>
+				                        	<h6 class="label label-default" for="file_4">Suba su carnet de circulación.</h6>
 											<div class="input-group">
 												<input type="file" name="file_4" placeholder="Seleccione..." class="form-google-plus form-control" required>
 												<span class="input-group-addon">(*)</span>
