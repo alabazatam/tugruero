@@ -1,5 +1,5 @@
 <?php include("../view_header_app.php");?>	
-<nav class="navbar navbar-inverse navbar-default">
+<nav class="navbar navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="200"></a>
+      <a class="img-logo" href="<?php echo full_url;?>/index.php"><img  src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="200"></a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
   </div>

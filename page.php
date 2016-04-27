@@ -60,7 +60,7 @@
 
 		<!--Include your brand here-->
 		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">
-			<a class="navbar-brand nav-close visible-md visible-lg" href="#header"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="200"></a>
+			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="web/img/logo_blanco.png" alt="" width="220"></a>
 			
 
 		</div>
@@ -73,7 +73,7 @@
 	</div>
 
 	
-	<section id="header" class="success">
+	<section id="header" class="success nav-close">
         <div class="container visible-lg visible-md">
 			<div class="row" class="visible-lg visible-md">
 						<div class="col-md-3 col-lg-3 ">
@@ -86,7 +86,7 @@
 							<br><br>
 								<p align="center">
                                     
-									<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank">
+									<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank" onclick="window.location.href = '<?php echo full_url."/ap/index.php"?>';">
 										<img src="<?php echo full_url?>/web/img/ic_acceso2.png" class="img-responsive">
 										
 									</a>
@@ -97,10 +97,10 @@
 									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
 									<br>
                                     <a class="btn text-center black-font" href="#">
-										<img src="<?php echo full_url?>/web/img/google_button.png">
+										<img src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="150" class="img-responsive">
                                     </a>
                                     <a class="btn text-center black-font" href="#">
-										<img src="<?php echo full_url?>/web/img/apple_button.png">
+										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="170" class="img-responsive">
                                     </a>
                                 </p>
 
@@ -474,10 +474,7 @@
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
+				<i class="fa fa-close fa-2x"></i>
 			</div>
 			<div class="modal-header">
 				<h2 class="white-font">¿Qué hacemos?</h2>
@@ -506,10 +503,7 @@
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
+				<i class="fa fa-close fa-2x"></i>
 			</div>
 			<div class="modal-header">
 				<h2 class="white-font">Sobre nosotros</h2>
@@ -537,10 +531,7 @@
     <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
+				<i class="fa fa-close fa-2x"></i>
 			</div>
 			<div class="modal-header">
 				<h2 class="white-font">¿A dónde vamos?</h2>
@@ -568,10 +559,7 @@
     <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
+				<i class="fa fa-close fa-2x"></i>
 			</div>
 			<div class="modal-header">
 				<h2 class="white-font">¿Cómo funcionamos?</h2>
@@ -600,10 +588,7 @@
     <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
+				<i class="fa fa-close fa-2x"></i>
 			</div>
 			<div class="modal-header">
 				<h2 class="white-font">Solicita una grúa</h2>
@@ -632,10 +617,7 @@
     <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
+				<i class="fa fa-close fa-2x"></i>
 			</div>
 			<div class="modal-header">
 				<h2 class="white-font">El gruero más cercano llega a auxiliarte</h2>
@@ -663,10 +645,7 @@
     <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
+				<i class="fa fa-close fa-2x"></i>
 			</div>
 			<div class="modal-header">
 				<h2 class="white-font">Califica nuestro servicio y ¡Vuelve a la vía!</h2>

@@ -204,7 +204,10 @@ header .intro-text .skills {
     outline: 0;
 }
 
-.navbar-default,
+.navbar-default {
+  background-color: #404040;
+  border-color: #e7e7e7;
+}
 .navbar-inverse {
     border: 0;
 }
@@ -573,10 +576,7 @@ input[readonly="readonly"] {
     background-color: #CC5A27 !important;
     color: #fff;
 }
-.navbar-brand {
-  float: left;
-  height: 50px;
-  padding: 0px 0px;
-  font-size: 18px;
-  line-height: 20px;
+
+.img-logo {
+    padding-top: 10px;
 }
