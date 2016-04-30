@@ -4,8 +4,8 @@
 
 
         <div class=""><!--menu mobile-->
-                    <nav class="navbar navbar-default">
-                      <div class="container black">
+                    <nav class="navbar navbar-default ">
+                      <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
                           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" aria-controls="navbar">
@@ -14,7 +14,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                           </button>
-                          <a class="navbar-brand" href="<?php echo full_url;?>/ap/index.php"> <img src="<?php echo full_url;?>/web/img/logo1.png" class="img-responsive" width="150"></a>
+                          <a class="img-logo" href="<?php echo full_url;?>/ap/index.php"> <img src="<?php echo full_url;?>/web/img/logo_blanco.png" class="" width="200"></a>
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->

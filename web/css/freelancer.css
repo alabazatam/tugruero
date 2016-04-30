@@ -498,7 +498,7 @@ footer .footer-below {
 
 .portfolio-modal .close-modal {
     position: absolute;
-    top: 8px;
+    top: 4px;
     right: 25px;
     width: 75px;
     height: 10px;
@@ -820,6 +820,19 @@ h2 b {
   font-size: 18px;
   line-height: 20px;
 }
+.navbar-brand {
+  padding: 0px; /* firefox bug fix */
+}
+.navbar-brand>img {
+   max-height: 100%;
+   height: 100%;
+   width: auto;
+   margin: 0 auto;
+   /* probably not needed anymore, but doesn't hurt */
+   -o-object-fit: contain;
+   object-fit: contain; 
+
+}
 .extra_bold {
     font-weight: bold !important;
     
@@ -868,4 +881,7 @@ h2 b {
 .modal-body {
   position: relative;
   padding: 15px;
+}
+.img-logo {
+    padding-top: 10px;
 }
