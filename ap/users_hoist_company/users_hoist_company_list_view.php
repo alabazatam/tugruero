@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center"><label class="label label-default">Usuarios compañias</label></h1>
+	<h1 class="text-center"><label class="label label-default">Choferes asociados a la grúa</label></h1>
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
 			<thead>
 				<tr>
@@ -9,7 +9,6 @@
 					<th>Usuario</th>
 					<th>primer nombre</th>
 					<th>primer apellido</th>
-					<th>Grúa</th>
 					<th>Status</th>
 					<th>Acciones</th>
 				</tr>
@@ -20,13 +19,12 @@
 					<th>Usuario</th>
 					<th>primer nombre</th>
 					<th>primer apellido</th>
-					<th>Grúa</th>
 					<th>Status</th>
 					<th>Acciones</th>
 				</tr>
 			</tfoot>
 		</table>
-	<a class="btn btn-default"  href="<?php echo full_url."/ap/users_hoist_company/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar</a>
+	<a class="btn btn-default"  href="<?php echo full_url."/ap/users_hoist_company/index.php?action=new&id_hoist=".$values["id_hoist"]?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar</a>
 </div>
 	<?php include('../../view_footer.php')?>
 <script>
@@ -41,15 +39,14 @@ $(document).ready(function() {
         },
         "columns": [
             { "data": "id" },
-            { "data": "id_users" },
+            { "data": "login" },
             { "data": "first_name" },
             { "data": "first_last_name" },
-            { "data": "id_hoist" },
 			{ "data": "status" },
             { "data": "actions" }		
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 6 ] }
+          { 'bSortable': false, 'aTargets': [ 5 ] }
        ]				
     });
 } );

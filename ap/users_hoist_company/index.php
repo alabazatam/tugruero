@@ -36,7 +36,9 @@ $values = $_REQUEST;
 	}
 	function executeNew($values = null)
 	{       
-                $values['status'] = '1';
+		$userhoistcompany = new UsersHoistCompany();
+        $values['operadores'] = $userhoistcompany->getUsersWithout($values);
+		$values['status'] = '1';
 		$values['action'] = 'add';
 		require('users_hoist_company_form_view.php');
 	}
@@ -44,16 +46,15 @@ $values = $_REQUEST;
 	{
 		
 		$UsersCompany = new UsersHoistCompany();
-		$values = $UsersHoist->saveUsersHoistCompany($values);
+		$values = $UsersCompany->saveUsersHoistCompany($values);
 		executeEdit($values,message_created);die;
 	}
 	function executeEdit($values = null,$msg = null)
 	{
-		
 		$UsersHoist = new UsersHoistCompany();
 		$values = $UsersHoist->getUsersHoistCompanyById($values);
 		$values['action'] = 'update';
-                $values['msg'] = $msg;
+        $values['msg'] = $msg;
 		require('users_hoist_company_form_view.php');
 	}
 	function executeUpdate($values = null)
@@ -87,15 +88,14 @@ $values = $_REQUEST;
 				$id = $users_hoist['id_user_hoist_company'];
 				$array_json['data'][] = array(
 					"id" => $id,
-					"id_users" => $users_hoist['id_users'],
+					"login" => $users_hoist['login'],
 					"first_name" => $users_hoist['first_name'],
-					"first_last_name" => $users_hoist['first_name'],
-					"id_hoist" => $users_hoist['id_hoist'],
+					"first_last_name" => $users_hoist['first_last_name'],
 					"status" => $message_status,
 					"actions" => 
                                        '<form method="POST" action = "'.full_url.'/ap/users_hoist_company/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
-                                       .'<input type="hidden" name="id" value="'.$id.'">  '
+                                       .'<input type="hidden" name="id_user_hoist_company" value="'.$id.'">  '
                                        .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
 
 					);	
@@ -103,7 +103,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id"=>null,"id_users"=>"","first_name"=>"","first_last_name" =>"","id_hoist"=>"","status"=>"","actions"=>"");
+			$array_json['data'][0] = array("id"=>null,"login"=>"","first_name"=>"","first_last_name" =>"","status"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

@@ -4,17 +4,31 @@
 	<h1 class="text-center"><label class="label label-default">Usuarios compañias</label></h1>
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
-	  <div class="form-group">
-		<label for="">Id</label>
-		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id" value="<?php if(isset($values['id'])) echo $values['id']?>">
+	  <div class="form-group" style="display:none;">
+		<label for="">id_user_hoist_company</label>
+		<input autocomplete="off" hidden="readonly" type="text" class="form-control input-sm" id="id_user_hoist_company" placeholder="" name="id_user_hoist_company" value="<?php if(isset($values['id_user_hoist_company'])) echo $values['id_user_hoist_company']?>">
 	  </div>
 	  <div class="form-group">
-		<label for="">Id_user</label>
-		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_user" value="<?php if(isset($values['id_user'])) echo $values['id_user']?>">
+		<label for="">Usuario</label>
+		<div class="input-group">
+		<select id="id_user" name="id_user" class="form-control input-sm" >
+			<option value='<?php if(isset($values['id_user']))echo $values['id_user']; else echo "Seleccione...";?>'><?php if(isset($values['login']))echo $values['login']; else echo "Seleccione...";?></option>
+			 <?php foreach($values['operadores'] as $operador) 
+				{
+					echo '<option value="'.$operador["id_user"].'">'.$operador['login'].'</option>';
+				}
+			?>
+		</select>
+		<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
 	  </div>
-	  <div class="form-group">
+	  <div class="form-group" style="display:none;">
 		<label for="">id_company</label>
-		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_company" value="<?php if(isset($values['id_company'])) echo $values['id_company']?>">
+		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_company" value="<?php echo $_SESSION['id_company'];?>">
+	  </div>
+		<div class="form-group" style="display:none;">
+		<label for="">id_hoist</label>
+		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_hoist" value="<?php if(isset($values['id_hoist']))echo $values['id_hoist'];?>">
 	  </div>
 		<div class="form-group">
 		  <label class="label label-danger">
@@ -36,7 +50,7 @@
 		<label for="">Fecha modificado</label>
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
 	  </div>
-		<a class="btn btn-default"  href="<?php echo full_url."/ap/users_hoist_company/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
+		<a class="btn btn-default"  href="<?php echo full_url."/ap/users_hoist_company/index.php?id_hoist=".$values["id_hoist"]?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
     <?php if(isset($values['msg']) and $values['msg']!=''):?>
         <div class="alert alert-success" role="alert"><?php echo $values['msg'];?></div>

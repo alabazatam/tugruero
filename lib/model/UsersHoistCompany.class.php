@@ -21,7 +21,7 @@
 		{	
 			$columns = array();
 			$columns[0] = 'id_hoist_company';
-			$columns[1] = 'id_users';
+			$columns[1] = 'login';
 			$columns[3] = 'first_name';
 			$columns[4] = 'first_last_name';
 			$columns[6] = 'id_hoist';
@@ -54,15 +54,15 @@
                         $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->hoist_company()
 			->select("users_hoist_company.id_user_hoist_company,
-					users_data.id_users,
+					users.login,
 					users_data.first_name,
 					users_data.first_last_name,
-					users_hoist_company.id_hoist,
 					users_hoist_company.status,
 					DATE_FORMAT(users_hoist_company.date_created, '%d/%m/%Y %H:%i:%s') as date_created,
 					DATE_FORMAT(users_hoist_company.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->join("users_company","inner join users_company on users_company.id_company = hoist_company.id_company")
 			->join("users_hoist_company","inner join users_hoist_company on users_hoist_company.id_company = hoist_company.id_company and users_hoist_company.id_user = users_company.id_user")
+			->join("users","inner join users on users.id_user = users_hoist_company.id_user")
 			->join("users_data","inner join users_data on users_data.id_users = users_company.id_user")
                         ->where("$where")
                         ->order("$column_order $order")
@@ -87,6 +87,7 @@
 			->select("count(*) as cuenta")
 			->join("users_company","inner join users_company on users_company.id_company = hoist_company.id_company")
 			->join("users_hoist_company","inner join users_hoist_company on users_hoist_company.id_company = hoist_company.id_company and users_hoist_company.id_user = users_company.id_user")
+			->join("users","inner join users on users.id_user = users_hoist_company.id_user")
 			->join("users_data","inner join users_data on users_data.id_users = users_company.id_user")
                         ->where("$where")
                         ->fetch();
@@ -94,9 +95,10 @@
 		}
 		public function getUsersHoistCompanyById($values){
 			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->users_company
-			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
-			->where("id=?",$values['id'])->fetch();
+			$q = $ConnectionORM->getConnect()->users_hoist_company
+			->select("*, DATE_FORMAT(users_hoist_company.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users_hoist_company.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->join("users","inner join users on users_hoist_company.id_user = users.id_user")
+			->where("id_user_hoist_company=?",$values['id_user_hoist_company'])->fetch();
 			return $q; 				
 			
 		}
@@ -113,8 +115,12 @@
 			$values['date_created'] = new NotORM_Literal("NOW()");
 			$values['date_updated'] = new NotORM_Literal("NOW()");
 			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->users_company()->insert($values);
-			$values['id'] = $ConnectionORM->getConnect()->UsersCompany()->insert_id();
+			$q = $ConnectionORM->getConnect()->users_hoist_company()->insert($values);
+			$id = $ConnectionORM->getConnect()->users_hoist_company()->insert_id();
+			$values = $ConnectionORM->getConnect()->users_hoist_company
+					->select("*")
+					->join("users","inner join users on users.id_user = users_hoist_company.id_user")
+					->where("id_user_hoist_company=?",$id)->fetch();
 			return $values;	
 			
 		}
@@ -124,9 +130,21 @@
 			$values['date_updated'] = new NotORM_Literal("NOW()");
 			$id = $values['id'];
 			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->users_company("id", $id)->update($values);
+			$q = $ConnectionORM->getConnect()->users_hoist_company("id_user_hoist_company", $id)->update($values);
 			return $q;
 			
+		}
+		function getUsersWithout($values)
+		{
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users()
+			->select("users.id_user,login")
+			->join("users_hoist_company","left join users_hoist_company on users_hoist_company.id_user = users.id_user")
+             ->where("users_hoist_company.id_user_hoist_company is null");
+               //         ->order("$column_order $order")
+			//->limit($limit,$offset);
+                       // echo $q;
+			return $q; 			
 		}
 	}
 	
