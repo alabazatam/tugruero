@@ -1445,7 +1445,7 @@ class Securimage
             if (!is_array($input_attrs)) $input_attrs = array();
             $input_attrs['type'] = 'text';
             $input_attrs['name'] = $input_name;
-            $input_attrs['id']   = $input_id;
+            $input_attrs['autocomplete']   = 'off';
 
             foreach($input_attrs as $name => $val) {
                 $input_attr .= sprintf('%s="%s" ', $name, htmlspecialchars($val));
