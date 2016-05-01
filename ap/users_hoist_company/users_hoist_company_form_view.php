@@ -11,7 +11,7 @@
 	  <div class="form-group">
 		<label for="">Usuario</label>
 		<div class="input-group">
-		<select id="id_user" name="id_user" class="form-control input-sm" >
+			<select id="id_user" name="id_user" class="form-control input-sm" required>
 			<option value='<?php if(isset($values['id_user']))echo $values['id_user']; else echo "Seleccione...";?>'><?php if(isset($values['login']))echo $values['login']; else echo "Seleccione...";?></option>
 			 <?php foreach($values['operadores'] as $operador) 
 				{
@@ -20,6 +20,13 @@
 			?>
 		</select>
 		<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
+	  </div>
+	  <div class="form-group">
+		<label for="">Clave de usuario</label>
+		<div class="input-group">
+			<input autocomplete="off" type="password" id="" class="form-control input-sm" name="password" value="" required>
+			<span class="input-group-addon" id="basic-addon2">(*)</span>
 		</div>
 	  </div>
 	  <div class="form-group" style="display:none;">

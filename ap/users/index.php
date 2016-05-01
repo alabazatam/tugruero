@@ -39,7 +39,7 @@ $values = $_REQUEST;
 	}
 	function executeNew($values = null)
 	{       
-        $values['status'] = '1';
+        $values['status'] = '0';
 		$values['action'] = 'add';
 		require('users_form_view.php');
 	}
@@ -62,9 +62,7 @@ $values = $_REQUEST;
 			$values['password'] = $password;
 			$values = $Users->saveUserOperator($values);
 			$message = "Usuario: ".$loggin." Clave: ".$password;
-			$Mail = new Mail();
-			$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
-			$values['message'] = "se ha enviado la clave a su correo electrónico.";
+			$values['message'] = "se ha creado satisfactoriamente el usuario.";
 			$values["action"] = "edit";
 			executeEdit($values,message_created);die;
 		}

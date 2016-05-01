@@ -8,7 +8,7 @@
 					<th>Id</th>
 					<th>Serial de motor</th>
 					<th>Serial de carrocería</th>
-					<th>Matrícula</th>
+					<th>Placa</th>
 					<th>Año del vehiculo</th>
 					<th>Marca</th>
 					<th>Acciones</th>
@@ -19,7 +19,7 @@
 					<th>Id</th>
 					<th>Serial de motor</th>
 					<th>Serial de carrocería</th>
-					<th>Matrícula</th>
+					<th>Placa</th>
 					<th>Año del vehiculo</th>
 					<th>Marca</th>
 					<th>Acciones</th>

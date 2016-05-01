@@ -44,9 +44,17 @@ $values = $_REQUEST;
 	}
 	function executeSave($values = null)
 	{
-		
+		$password = $values["password"];
+		unset($values["password"]);
 		$UsersCompany = new UsersHoistCompany();
+		$user = new Users();
+		$userValues = array("password" => $password, "id_user" => $values["id_user"], "status" => $values["status"]);		
+		$user->updateUser($userValues);
 		$values = $UsersCompany->saveUsersHoistCompany($values);
+		$valuesAws = array('idGrua' => $values['id_hoist']);
+		$Aws = new Aws();
+		$Aws->saveGrueros($valuesAws);
+		$Aws->saveGruas($valuesAws);
 		executeEdit($values,message_created);die;
 	}
 	function executeEdit($values = null,$msg = null)
@@ -59,7 +67,12 @@ $values = $_REQUEST;
 	}
 	function executeUpdate($values = null)
 	{
+		$password = $values["password"];
+		unset($values["password"]);
+		$user = new Users();
+		$userValues = array("password" => $password, "id_user" => $values["id_user"], "status" => $values["status"]);
 		
+		$user->updateUser($userValues);
 		$UsersHoist = new UsersHoistCompany();
 		$UsersHoist->updateUsersHoistCompany($values);		
 		executeEdit($values,message_updated);die;

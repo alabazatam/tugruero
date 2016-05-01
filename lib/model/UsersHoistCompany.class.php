@@ -39,8 +39,7 @@
 				$where= ""
                                         . "or upper(users_data.first_name) like upper('%$str%' )"
 										. "or upper(users_data.first_last_name) like upper('%$str%' )"
-                                        . "or upper(status.name) like upper('%$str%')"
-                                        . "";
+                                        . "or upper(status.name) like upper('%$str%')";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -53,7 +52,7 @@
 			//echo $column_order;die;
                         $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->hoist_company()
-			->select("users_hoist_company.id_user_hoist_company,
+			->select("DISTINCT users_hoist_company.id_user_hoist_company,
 					users.login,
 					users_data.first_name,
 					users_data.first_last_name,
@@ -65,6 +64,7 @@
 			->join("users","inner join users on users.id_user = users_hoist_company.id_user")
 			->join("users_data","inner join users_data on users_data.id_users = users_company.id_user")
                         ->where("$where")
+						->and("users_hoist_company.id_hoist =?",$values["id_hoist"])
                         ->order("$column_order $order")
 			->limit($limit,$offset);
                        // echo $q;
@@ -128,7 +128,7 @@
 			unset($values['PHPSESSID']);
 			unset($values['action'],$values['date_created']);
 			$values['date_updated'] = new NotORM_Literal("NOW()");
-			$id = $values['id'];
+			$id = $values['id_user_hoist_company'];
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users_hoist_company("id_user_hoist_company", $id)->update($values);
 			return $q;

@@ -24,6 +24,25 @@
 			<span class="input-group-addon" id="basic-addon2">(*)</span>
 		</div>
 	  </div>
+	   <div class="form-group">
+		<label for="">Color</label>
+		<div class="input-group">
+			<input type="body_serial" id="" class="form-control input-sm" name="color" required  oninvalid="setCustomValidity('Debe colocar el color para poder registrarla.')" 
+			oninput="setCustomValidity('')"  value="<?php if(isset($values['color'])) echo $values['color']?>">
+			<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
+	  </div>
+	  <div class="form-group">
+		<label for="">Tipo de Grúa</label>
+		<div class="input-group">
+			<select type="body_serial" id="type_hoist" class="form-control input-sm" name="type_hoist" required  oninvalid="setCustomValidity('Debe colocar el Serial de la carroceria para poder registrarla.')" 
+			oninput="setCustomValidity('')">
+				<option value="Plataforma" <?php if(isset($values['body_serial'])) echo "selected"?>>Plataforma</option>
+				<option value="Gancho" <?php if(isset($values['body_serial'])) echo "selected"?>>Gancho</option>
+			</select>
+			<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
+	  </div>
 		<div class="form-group">
 		  <label class="label label-danger">
 			<input type="radio" name="status" id="status" value="0" <?php if(isset($values['status']) and $values['status'] =='0' ) echo "checked=checked"?>>
@@ -37,7 +56,7 @@
 		  </label>
 		</div>	
 	  <div class="form-group">
-		<label for="">Matricula</label>
+		<label for="">Placa</label>
 		<div class="input-group">
 			<input type="text" id="" class="form-control input-sm" name="registration_plate" value="<?php if(isset($values['registration_plate'])) echo $values['registration_plate']?>"
 			   required  oninvalid="setCustomValidity('Debe colocar la Matricula para poder registrarla.')" oninput="setCustomValidity('')"  >
