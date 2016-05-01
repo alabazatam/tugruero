@@ -12,7 +12,7 @@
 			$values['LastUpdate'] = null;
 			$values['Token'] = null;				
 			$ConnectionAws= new ConnectionAws();
-			$q = $ConnectionAws->getConnect()->Gruas()->insert($values);
+			$q = $ConnectionAws->getConnect()->GruasPagina()->insert($values);
 			return $values;	
 			
 		}
@@ -34,7 +34,7 @@
 			$values['TotalVehiculo'] = "0";
 			$values['Rating'] = "0";
 			$ConnectionAws= new ConnectionAws();
-			$q = $ConnectionAws->getConnect()->Grueros()->insert($values);
+			$q = $ConnectionAws->getConnect()->GruerosPagina()->insert($values);
 			return $values;	
 			
 		}
