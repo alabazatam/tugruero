@@ -33,14 +33,14 @@
 			$columns[10] = 'Puntual';
 			$columns[11] = 'Observacion';
 			$column_order = $columns[0];
-			$where = '1 = 1';
+			$where = " Grueros.Cedula = 'V-123456' ";
 			$order = 'asc';
 			$limit = $values['length'];
 			$offset = $values['start'];
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "1 = 1 ";
+				$where.= " and 1 = 1 ";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -55,21 +55,24 @@
 			$q = $ConnectionAws->getConnect()->Servicios
 			->select("*")
 			->order("$column_order $order")
+			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
 			->where("$where")
 			->limit($limit,$offset);
 			return $q; 			
 		}
 		public function getCountServicesOperatorList($values)
 		{	
-			$where = '1 = 1';
+			$where = " Grueros.Cedula = 'V-123456' ";
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				//$where = "upper(login) like upper('%$str%') ";
+				//$where.= "upper(login) like upper('%$str%') ";
 			}
             $ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
-			->select("count(*) as cuenta")->where("$where")->fetch();
+			->select("count(*) as cuenta")
+			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
+			->where("$where")->fetch();
 			return $q['cuenta']; 			
 		}
 		public function getServiceOperatorById($values){
