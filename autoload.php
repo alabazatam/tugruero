@@ -54,6 +54,7 @@ define("image_url",full_url."/web/images/");
 //Class definition
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/notorm-master/NotORM.php");//se debe incluir una sola vez en todo el cms
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ConnectionORM.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ConnectionAws.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/vendors/swiftmailer/lib/swift_required.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ValidateBase.class.php");
 require($_SERVER["DOCUMENT_ROOT"]."/".main_folder.'/lib/vendors/securimage/securimage.php');
@@ -74,6 +75,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Bank.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/CompanyFiles.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsersCompany.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsersHoistCompany.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ServicesOperator.class.php");
 /*validation class*/
 
 //include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/vendor/GUMP/gump.class.php");
