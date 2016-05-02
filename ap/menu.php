@@ -14,7 +14,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                           </button>
-                          <a class="img-logo" href="<?php echo full_url;?>/ap/index.php"> <img src="<?php echo full_url;?>/web/img/logo_blanco.png" class="" width="200"></a>
+                          <a class="img-logo" href="<?php echo full_url;?>/ap/index.php?action=bienvenida"> <img src="<?php echo full_url;?>/web/img/logo_blanco.png" class="" width="200"></a>
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,3 +38,5 @@
                       </div><!-- /.container-fluid -->
                     </nav>          
         </div><!--fin menu mobile-->
+		
+		<div class="col-sm-2"><a href="<?php echo full_url?>/ap/index.php?action=bienvenida"><i class="btn btn-default fa fa-home fa-2x"> Inicio</i> </a></div>
