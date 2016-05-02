@@ -6,8 +6,8 @@
     </div>
 </div>
 <div class="col-sm-8 col-sm-offset-2">
-	<div class="alert alert-info"><h6>Da click en una de las opciones y comienza a registrar toda tu información, también puedes utilizar el menu ubicado en la parte superior derecha de tu monitor</h6></div>
-							<table class="table table-responsive table-condensed">
+	<div class="alert alert-info"><h6>Da click en una de las opciones en la parte inferior y comienza a registrar toda tu información, también puedes utilizar el menú ubicado en la parte superior derecha de tu monitor</h6></div>
+							<table class="table table-responsive table-condensed table-bordered table-hover bg-warning">
 								<tr>
                             <?php foreach($items_padres as $item):?>
 													
@@ -30,34 +30,6 @@
 								</tr>
 							</table>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<div class="col-xs-1 col-sm-1 col-md-4 col-lg-4">
 
-	</div>
-	<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4">
-		<div class="panel panel-default">
-		  <div class="panel-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">Empresa: <small>Distribuidora 1</small></li>
-                        <li class="list-group-item">Usuario: <small>Usuario</small></li>
-                        <li class="list-group-item">Ultima Conexion: <small> <?php echo date('d-m-Y h:i:s')?></small></li>
-                        
-                    </ul>  
-			        <?php $Menu = new Menu();
-					$items_padres = $Menu ->getMenu(4, 1,0);?>
-			  
-			  
-
-								
-
-								
-								
-			  
-		  </div>
-		</div>	
-	</div>
-	<div class="col-xs-1 col-sm-1 col-md-4 col-lg-4">
-	</div>
-</div>
 
 <?php include("../view_footer.php");?>

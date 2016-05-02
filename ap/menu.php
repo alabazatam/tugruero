@@ -39,4 +39,4 @@
                     </nav>          
         </div><!--fin menu mobile-->
 		
-		<div class="col-sm-2"><a href="<?php echo full_url?>/ap/index.php?action=bienvenida"><i class="btn btn-default fa fa-home fa-2x"> Inicio</i> </a></div>
+		<div class="col-sm-2"><a href="<?php echo full_url?>/ap/index.php?action=bienvenida"><i class="btn btn-default fa fa-home fa-2x"> Inicio</i> </a> Usuario: usuario</div>
