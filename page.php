@@ -421,7 +421,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center nav-close">
+    <footer class="text-center">
         <div class="footer-above">
             <div class="container">
                 <div class="row">
@@ -445,6 +445,10 @@
                                 <a href="https://www.instagram.com/tugruero/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
                             </li>
                         </ul>
+						<div class="col-sm-12">
+							<a class="btn-social btn-outline" href="<?php echo full_url?>/security_politics.php" target="_blank"><i class="fa fa-fw fa-book"></i></a>
+							
+						</div>
                     </div>
                     <div class="footer-col col-md-4">
                         <div align="center"><p><img src="web/img/titulo3.png" class="img-responsive" width="200"></p></div>
