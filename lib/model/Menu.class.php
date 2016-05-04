@@ -31,8 +31,7 @@
                         ->and('id_menuref =?',$id_menu_ref)
 						->and('status=?',1)
                         ->order('orders');
-			$query = $q;
-			$q = null;
-			return $query;            
+			$ConnectionORM -> close();
+			return $q;            
         }
     }

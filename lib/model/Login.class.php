@@ -24,26 +24,30 @@
 			$q = $ConnectionORM->getConnect('tugruero')->users
 			->where('login =?',$user)
 			->and('password =?',hash('sha256', $password));
+			
 			$user = array();
 			foreach($q as $users)
 			{
 				$user["users"] = $users;
-					$q = $ConnectionORM->getConnect('tugruero')->users_data
+					$q = $ConnectionORM->getConnect()->users_data
 					->where('id_users =?',$users["id_user"]);
+					
 					foreach($q as $userData)
 					{
 						$user["users_data"] = $userData;
 						break;
 					}
-					$q = $ConnectionORM->getConnect('tugruero')->users_perms
+					$q = $ConnectionORM->getConnect()->users_perms
 					->where('id_user =?',$users["id_user"]);
+					
 					foreach($q as $userPerms)
 					{
 						$user["users_perms"] = $userPerms;
 						break;
 					}
-					$q = $ConnectionORM->getConnect('tugruero')->users_company
+					$q = $ConnectionORM->getConnect()->users_company
 					->where('id_user =?',$users["id_user"]);
+					
 					foreach($q as $userCompany)
 					{
 						$user["users_company"] = $userCompany;
@@ -51,7 +55,7 @@
 					}
 				break;
 			}
-			
+		$ConnectionORM->close();	
 		return $user;
 		}		
 	}

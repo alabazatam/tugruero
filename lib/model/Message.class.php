@@ -48,6 +48,7 @@ class Message {
 			->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
+			$ConnectionORM -> close();
 			return $q; 			
 		}
 		public function getCountMessageList($values)
@@ -61,6 +62,7 @@ class Message {
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->message
 			->select("count(*) as cuenta")->where("$where")->fetch();
+			$ConnectionORM -> close();
 			return $q['cuenta']; 			
 		}
 		public function getMessageById($values){
@@ -68,6 +70,7 @@ class Message {
 			$q = $ConnectionORM->getConnect()->message
 			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->where("id_message=?",$values['id_message'])->fetch();
+			$ConnectionORM -> close();
 			return $q; 				
 			
 		}
@@ -75,7 +78,7 @@ class Message {
 			unset($values['action']);
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->message("id_message", $id_message)->delete();
-			
+			$ConnectionORM -> close();
 			
 		}        
                 function saveMessage($values) {
@@ -86,6 +89,7 @@ class Message {
                     $values['date_updated'] = new NotORM_Literal("NOW()");
                     $q = $ConnectionORM->getConnect()->message()->insert($values);
                     $values['id_message'] = $ConnectionORM->getConnect()->message()->insert_id();
+					$ConnectionORM -> close();
                     return $values;	        
                 }
 		function updateMessage($values){
@@ -94,6 +98,7 @@ class Message {
 			$values['date_updated'] = new NotORM_Literal("NOW()");
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->message("id_message", $id_message)->update($values);
+			$ConnectionORM -> close();
 			return $q;
 			
 		}

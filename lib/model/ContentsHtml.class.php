@@ -31,7 +31,7 @@
 						->and('title <>?','')
 						->and('status=?',1)
 						->fetch();
-
+			$ConnectionORM -> close();
 			return $q['title'];  			
 			
 		}
@@ -47,10 +47,8 @@
 						->and('id_app=?',$id_app)
 						->and('name=?',$name)
 						->and('status=?',1);
-
-			$query = $q;
-			$q = null;
-			return $query;    			
+			$ConnectionORM -> close();
+			return $q;
 			
 		}
 		public function getContentsList($id_app,$page, $language)
@@ -62,9 +60,8 @@
 						->and('page=?',$page )
 						->and('language=?',$language);
 
-			$query = $q;
-			$q = null;
-			return $query;   			
+			$ConnectionORM -> close();
+			return $q;   			
 			
 		}
 		public function getContentsValue($id_content)
@@ -75,9 +72,8 @@
                         ->where('id_content=?',$id_content)
 						->fetch();
 
-			$query = $q;
-			$q = null;
-			return $query;   			
+			$ConnectionORM -> close();			
+			return $q;   			
 			
 		}
 		public function updateContentsHtml($values)
@@ -87,5 +83,7 @@
 			$id_content= $values['id_content'];
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->contents_html("id_content", $id_content)->update($values);		
+			$ConnectionORM -> close();
+		
 		}
 	}
