@@ -97,10 +97,10 @@
 									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
 									<br>
                                     <a class="btn text-center black-font" href="#">
-										<img src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="150" class="img-responsive">
+										<img src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="" class="img-responsive">
                                     </a>
                                     <a class="btn text-center black-font" href="#">
-										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="170" class="img-responsive">
+										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="" class="img-responsive">
                                     </a>
                                 </p>
 
