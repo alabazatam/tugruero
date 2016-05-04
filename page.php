@@ -445,10 +445,7 @@
                                 <a href="https://www.instagram.com/tugruero/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
                             </li>
                         </ul>
-						<div class="col-sm-12">
-							<a class="btn-social btn-outline" href="<?php echo full_url?>/security_politics.php" target="_blank"><i class="fa fa-fw fa-book"></i></a>
-							
-						</div>
+
                     </div>
                     <div class="footer-col col-md-4">
                         <div align="center"><p><img src="web/img/titulo3.png" class="img-responsive" width="200"></p></div>
@@ -462,6 +459,11 @@
                     <div class="col-lg-12">
                         <p class="white-font">Copyright &copy; Soluciones Tugruero, C.A. 2016. J-40680605-6</p>
                     </div>
+					<div class="col-lg-12">
+						<a class="white-font" href="<?php echo full_url?>/security_politics.php" target="_blank"><small class="white-font">Políticas de privacidad</small></a>
+						<small class="white-font"> - </small>
+						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font">Políticas de uso</small></a>	
+					</div>
                 </div>
             </div>
         </div>
