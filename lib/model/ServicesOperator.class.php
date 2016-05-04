@@ -19,6 +19,7 @@
 		}
 		public function getServicesOperatorList($values)
 		{	
+			$id_user = $_SESSION['id_user'];
 			$columns = array();
 			$columns[0] = 'idSolicitud';
 			$columns[1] = 'idGrua';
@@ -33,7 +34,7 @@
 			$columns[10] = 'Puntual';
 			$columns[11] = 'Observacion';
 			$column_order = $columns[0];
-			$where = " Grueros.Cedula = 'V-123456' ";
+			$where = " Grueros.idGrua = $id_user ";
 			$order = 'asc';
 			$limit = $values['length'];
 			$offset = $values['start'];

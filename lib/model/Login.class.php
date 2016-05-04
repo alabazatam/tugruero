@@ -22,8 +22,8 @@
 			
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->users
-					->where('login =?',$user)
-					->and('password =?',hash('sha256', $password));
+			->where('login =?',$user)
+			->and('password =?',hash('sha256', $password));
 			$user = array();
 			foreach($q as $users)
 			{

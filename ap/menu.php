@@ -2,7 +2,7 @@
         $Menu = new Menu();
         $items_padres = $Menu ->getMenu(4, 1,0);?>
 
-
+		id_user = <?php echo $_SESSION['id_user'];?>
         <div class=""><!--menu mobile-->
                     <nav class="navbar navbar-default ">
                       <div class="container">
