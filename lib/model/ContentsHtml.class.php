@@ -48,7 +48,9 @@
 						->and('name=?',$name)
 						->and('status=?',1);
 
-			return $q;  			
+			$query = $q;
+			$q = null;
+			return $query;    			
 			
 		}
 		public function getContentsList($id_app,$page, $language)
@@ -60,7 +62,9 @@
 						->and('page=?',$page )
 						->and('language=?',$language);
 
-			return $q;  			
+			$query = $q;
+			$q = null;
+			return $query;   			
 			
 		}
 		public function getContentsValue($id_content)
@@ -71,7 +75,9 @@
                         ->where('id_content=?',$id_content)
 						->fetch();
 
-			return $q;  			
+			$query = $q;
+			$q = null;
+			return $query;   			
 			
 		}
 		public function updateContentsHtml($values)
