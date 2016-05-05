@@ -88,11 +88,9 @@ $values = $_REQUEST;
                                        .'<input type="hidden" name="action" value="edit">  '
                                        .'<input type="hidden" name="id" value="'.$id_hoist.'">  '
                                        .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
-									   .'<a href="'.full_url.'/ap/users_hoist_company/index.php?id_hoist='.$id_hoist.'" class="btn btn-default btn-sm"><i class="fa fa-users  fa-pull-left fa-border"></i></a>'
                                        .'</form>'
-
 					);	
-			}	
+			}		
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
