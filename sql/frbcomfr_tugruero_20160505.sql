@@ -1,6 +1,6 @@
 /*
-SQLyog Community v12.15 (64 bit)
-MySQL - 5.5.49-0ubuntu0.14.04.1 : Database - frbcomfr_tugruero
+SQLyog Community v12.2.1 (64 bit)
+MySQL - 5.6.17 : Database - frbcomfr_tugruero
 *********************************************************************
 */
 
@@ -27,15 +27,14 @@ CREATE TABLE `apps` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id_app`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `apps` */
 
 insert  into `apps`(`id_app`,`name_app`,`status`,`date_created`,`date_updated`) values 
 (1,'PAGINA_WEB',1,'2016-03-21 22:30:41','2016-03-21 22:30:43'),
 (2,'GRUEROS',1,'2016-03-21 22:30:59','2016-03-21 22:31:01'),
-(3,'ADMINISTRADOR',1,'2016-03-21 22:31:11','2016-03-21 22:31:13'),
-(4,'MASTERS',1,'2016-05-03 21:54:47','2016-05-03 21:54:49');
+(3,'ADMINISTRADOR',1,'2016-03-21 22:31:11','2016-03-21 22:31:13');
 
 /*Table structure for table `bank` */
 
@@ -122,7 +121,9 @@ CREATE TABLE `company` (
 /*Data for the table `company` */
 
 insert  into `company`(`id`,`responsible_name`,`responsible_cedula`,`num_cuenta`,`rif`,`id_bank`,`razon_social`,`status`,`date_created`,`date_updated`,`company_name`,`tipo_cuenta`,`location`,`zone_work`,`club_gruas`,`num_socio`) values 
-(4,'MARCOS DE ANDRADE','V-18020594','01348855555555555','V-18020594-9',1,'Marcos gruas',1,'2016-05-05 09:36:10','2016-05-05 09:37:53','MARCOS GRUAS','Empresa','CARACAS','Distrito Capital','0','');
+(2,'marcos aaaaaaaaaaa','V-18020594','01354444444444444','V-18020594-9',1,'marcos',1,'2016-04-26 02:17:57','2016-04-25 21:50:35','aaaaaaaaaaaaa','Personal','aaaaaaaaaaaaaa','Distrito Capital','1','6666666666666'),
+(3,'Carlos Echeverria','V-20704086','01340940056111712512','V-20704086-6',1,'carlos',1,'2016-04-26 12:15:33','2016-04-26 08:12:33','Gruas Carlos, C.A.','Empresa','Av Principal los dos caminos.','Distrito Capital','1','1234'),
+(4,'MARCOS DE ANDRADE','V-18020594','01341111111111111111111111111','V-18020594-1',1,'marcos',1,'2016-05-01 20:59:18','2016-05-01 14:38:52','MARCOS GRUAS','Personal','CARACAS','Distrito Capital','0','');
 
 /*Table structure for table `company_files` */
 
@@ -137,12 +138,23 @@ CREATE TABLE `company_files` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `company_files` */
 
 insert  into `company_files`(`id`,`name_file`,`validate`,`status`,`id_company`,`date_created`,`date_updated`) values 
-(15,'V-18020594-9-4.png',1,1,4,'2016-05-05 09:36:10','2016-05-05 09:37:53');
+(1,'V-18020594-9-1.pdf',1,1,2,'2016-04-26 02:18:09','2016-04-25 21:50:35'),
+(2,'V-18020594-9-2.pdf',1,1,2,'2016-04-26 02:18:11','2016-04-25 21:50:35'),
+(3,'V-18020594-9-3.pdf',1,1,2,'2016-04-26 02:18:12','2016-04-25 21:50:35'),
+(4,'V-18020594-9-4.pdf',1,1,2,'2016-04-26 02:18:13','2016-04-25 21:50:35'),
+(5,'V-20704086-6-1.pdf',1,1,3,'2016-04-26 12:15:34','2016-04-26 08:12:33'),
+(6,'V-20704086-6-2.pdf',1,1,3,'2016-04-26 12:15:34','2016-04-26 08:12:33'),
+(7,'V-20704086-6-3.jpg',1,1,3,'2016-04-26 12:15:35','2016-04-26 08:12:33'),
+(8,'V-20704086-6-4.jpg',1,1,3,'2016-04-26 12:15:35','2016-04-26 08:12:33'),
+(9,'V-18020594-1-1.jpg',1,1,4,'2016-05-01 20:59:19','2016-05-01 14:38:52'),
+(10,'V-18020594-1-2.jpg',1,1,4,'2016-05-01 20:59:19','2016-05-01 14:38:52'),
+(11,'V-18020594-1-3.jpg',1,1,4,'2016-05-01 20:59:19','2016-05-01 14:38:52'),
+(12,'V-18020594-1-4.jpg',1,1,4,'2016-05-01 20:59:19','2016-05-01 14:38:52');
 
 /*Table structure for table `company_validation_ve` */
 
@@ -155,13 +167,9 @@ CREATE TABLE `company_validation_ve` (
   `status` int(11) NOT NULL DEFAULT '0' COMMENT 'cuando es estatus 1 significa que esta pendiente por validar el usuario',
   `validate` int(11) NOT NULL DEFAULT '0' COMMENT 'cuando esta en 1 significa que la empresa ya esta registrada.',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `company_validation_ve` */
-
-insert  into `company_validation_ve`(`id`,`razon_social`,`rif`,`status`,`validate`) values 
-(7,'Marcos gruas','V-18020594-9',1,1),
-(9,'hola','V-20303709-9',0,0);
 
 /*Table structure for table `contents_html` */
 
@@ -273,19 +281,17 @@ DROP TABLE IF EXISTS `hoist`;
 
 CREATE TABLE `hoist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type_hoist` varchar(50) DEFAULT NULL,
   `engine_serial` varchar(45) NOT NULL,
   `body_serial` varchar(45) NOT NULL,
   `registration_plate` varchar(45) NOT NULL,
   `year_vehicle` varchar(45) NOT NULL,
-  `color` varchar(50) DEFAULT NULL,
   `make` varchar(45) NOT NULL,
   `model` varchar(45) NOT NULL,
   `status` int(11) NOT NULL,
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `hoist` */
 
@@ -298,7 +304,7 @@ CREATE TABLE `hoist_company` (
   `id_hoist` int(11) NOT NULL,
   `id_company` int(11) NOT NULL,
   PRIMARY KEY (`id_hoist_company`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `hoist_company` */
 
@@ -310,43 +316,42 @@ CREATE TABLE `menu` (
   `id_menu` int(11) NOT NULL AUTO_INCREMENT,
   `id_menuref` int(11) DEFAULT NULL,
   `name` varchar(100) NOT NULL,
-  `name2` varchar(50) DEFAULT NULL,
+  `name2` varchar(100) DEFAULT NULL,
   `url` varchar(200) NOT NULL,
   `url2` varchar(200) DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
-  `image` varchar(50) DEFAULT NULL,
   `date_added` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   `id_app` int(11) NOT NULL,
   `orders` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 /*Data for the table `menu` */
 
-insert  into `menu`(`id_menu`,`id_menuref`,`name`,`name2`,`url`,`url2`,`status`,`image`,`date_added`,`date_updated`,`id_app`,`orders`) values 
-(1,0,'Inicio',NULL,'#header',NULL,1,NULL,'2016-03-21 22:30:22','2016-03-21 22:30:16',1,1),
-(2,0,'Nuestro trabajo',NULL,'#work',NULL,1,NULL,'2016-03-21 22:32:20','2016-03-21 22:32:24',1,2),
-(3,0,'¿Quienes somos?',NULL,'#about',NULL,1,NULL,'2016-03-21 22:33:00','2016-03-21 22:33:03',1,3),
-(4,0,'Video',NULL,'#video',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:40',1,4),
-(5,0,'Administrador web',NULL,'#prueba',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1),
-(6,5,'Contenido de secciones',NULL,'/adm/about/index.php',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1),
-(7,5,'Nuestros Objetivos',NULL,'#Menu',NULL,0,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,2),
-(8,0,'Manejo de Aplicaciones',NULL,'#prueba',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1),
-(9,8,'Usuarios',NULL,'/adm/users/index.php',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1),
-(10,0,'Testimonios',NULL,'#testimonials',NULL,1,NULL,'2016-03-28 21:50:42','2016-03-28 21:50:44',1,5),
-(11,0,'Contáctanos',NULL,'#contact',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:40',1,7),
-(12,5,'Contáctenos',NULL,'/adm/messages/index.php',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,3),
-(13,5,'¿Como funcionamos?',NULL,'#menu',NULL,0,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,4),
-(14,16,'Grúas','Agregar','/ap/hoist/index.php','/ap/hoist/index.php?action=new',1,'gruas.png','0000-00-00 00:00:00','0000-00-00 00:00:00',4,2),
-(15,8,'Compañias',NULL,'/adm/company/index.php',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,2),
-(16,0,'Admin. Grúas',NULL,'#menu',NULL,1,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',4,1),
-(17,0,'Admin. Operador',NULL,'#menu',NULL,1,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00',4,1),
-(18,17,'Operadores','Agregar','/ap/users/index.php','/ap/users/index.php?action=new',1,'cardriver.png','0000-00-00 00:00:00','0000-00-00 00:00:00',4,2),
-(19,0,'Usa TU/GRUERO®',NULL,'#use',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:40',1,6),
-(20,0,'Servicios',NULL,'/ap/services_operator/index.php','',1,NULL,'2016-05-03 21:57:41','2016-05-03 21:57:43',2,1),
-(21,20,'Servicios','Consultar','/ap/services_operator/index.php','/ap/services_operator/index.php',1,'gruas.png','2016-05-03 21:57:41','2016-05-03 21:57:43',2,1),
-(22,17,'Servicios','Consultar','/ap/services_masters/index.php','/ap/services_masters/index.php',1,'cardriver.png','0000-00-00 00:00:00','0000-00-00 00:00:00',4,3);
+insert  into `menu`(`id_menu`,`id_menuref`,`name`,`name2`,`url`,`url2`,`image`,`status`,`date_added`,`date_updated`,`id_app`,`orders`) values 
+(1,0,'Inicio',NULL,'#header',NULL,NULL,1,'2016-03-21 22:30:22','2016-03-21 22:30:16',1,1),
+(2,0,'Nuestro trabajo',NULL,'#work',NULL,NULL,1,'2016-03-21 22:32:20','2016-03-21 22:32:24',1,2),
+(3,0,'¿Quienes somos?',NULL,'#about',NULL,NULL,1,'2016-03-21 22:33:00','2016-03-21 22:33:03',1,3),
+(4,0,'Video',NULL,'#video',NULL,NULL,0,'2016-03-21 22:33:38','2016-03-21 22:33:40',1,4),
+(5,0,'Administrador web',NULL,'#prueba',NULL,NULL,1,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1),
+(6,5,'Contenido de secciones',NULL,'/adm/about/index.php',NULL,NULL,1,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1),
+(7,5,'Nuestros Objetivos',NULL,'#Menu',NULL,NULL,0,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,2),
+(8,0,'Manejo de Aplicaciones',NULL,'#prueba',NULL,NULL,1,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1),
+(9,8,'Usuarios',NULL,'/adm/users/index.php',NULL,NULL,1,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1),
+(10,0,'Testimonios',NULL,'#testimonials',NULL,NULL,1,'2016-03-28 21:50:42','2016-03-28 21:50:44',1,5),
+(11,0,'Contáctanos',NULL,'#contact',NULL,NULL,1,'2016-03-21 22:33:38','2016-03-21 22:33:40',1,7),
+(12,5,'Contáctenos',NULL,'/adm/messages/index.php',NULL,NULL,1,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,3),
+(13,5,'¿Como funcionamos?',NULL,'#menu',NULL,NULL,0,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,4),
+(14,16,'Grúas','Agregar','/ap/hoist/index.php','/ap/hoist/index.php?action=new','gruas.png',1,'0000-00-00 00:00:00','0000-00-00 00:00:00',4,2),
+(15,8,'Compañias',NULL,'/adm/company/index.php',NULL,NULL,1,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,2),
+(16,0,'Admin. Grúas',NULL,'#menu',NULL,NULL,1,'0000-00-00 00:00:00','0000-00-00 00:00:00',4,1),
+(17,0,'Admin. Operador',NULL,'#menu',NULL,NULL,1,'0000-00-00 00:00:00','0000-00-00 00:00:00',4,1),
+(18,17,'Operadores','Agregar','/ap/users/index.php','/ap/users/index.php?action=new','cardriver.png',1,'0000-00-00 00:00:00','0000-00-00 00:00:00',4,2),
+(19,0,'Usa TU/GRUERO®',NULL,'#use',NULL,NULL,1,'2016-03-21 22:33:38','2016-03-21 22:33:40',1,6),
+(20,0,'Servicios',NULL,'#menu',NULL,NULL,1,'0000-00-00 00:00:00','0000-00-00 00:00:00',2,1),
+(21,20,'Servicios','Consultar','/ap/services_operator/index.php','/ap/services_operator/index.php','cardriver.png',1,'0000-00-00 00:00:00','0000-00-00 00:00:00',2,2);
 
 /*Table structure for table `menu_page` */
 
@@ -415,19 +420,9 @@ CREATE TABLE `message` (
   `date_created` datetime DEFAULT NULL,
   `date_updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id_message`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `message` */
-
-insert  into `message`(`id_message`,`names`,`email`,`phone`,`message`,`status`,`date_created`,`date_updated`) values 
-(7,'Marcos de andrade','deandrademarcos@hotmail.com','gdfgdfgdfg','aaaaaaaaaaa',1,'0000-00-00 00:00:00','2016-04-02 12:14:24'),
-(8,'Marcos de andrade','deandrademarcos@hotmail.com','04142695880','9999999999999999999',1,'2016-03-25 08:50:55','2016-03-25 08:50:55'),
-(9,'Marcos de andrade','deandrademarcos@hotmail.com','04142695880','9999999999999999999',1,'2016-03-25 08:51:15','2016-03-25 08:51:15'),
-(10,'Marcos de andrade','deandrademarcos@hotmail.com','04142695880','9999999999999999999',1,'2016-03-25 08:51:21','2016-03-25 08:51:21'),
-(11,'Marcos de andrade','deandrademarcos@hotmail.com','04142695880','asdasdasdasdasdasdasds',1,'2016-03-25 08:53:07','2016-03-25 08:53:07'),
-(12,'marcos de andrade','deandrademarcos@hotmail.com','04142695880','mensaje',1,'2016-03-25 09:21:49','2016-03-25 09:21:49'),
-(13,'asdasdas','deandrademarcos@gmail.com','5454545','dlfjsldkfjlsdfjlsdkfjlskdf',1,'2016-03-28 11:16:14','2016-03-28 11:16:14'),
-(14,'ssssssssssss','ddddd@h.net','54654654','',1,'2016-04-29 22:18:09','2016-04-29 22:18:09');
 
 /*Table structure for table `modals` */
 
@@ -554,12 +549,9 @@ CREATE TABLE `users` (
   `mail` varchar(45) NOT NULL,
   `mail_alternative` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `users` */
-
-insert  into `users`(`id_user`,`login`,`password`,`status`,`date_created`,`date_updated`,`mail`,`mail_alternative`) values 
-(14,'M-V18020594','d89a0fd9283366e2799e46386b52837a611184db1ab415006ec03da0ff2f8f3a',1,'2016-05-05 09:36:10','2016-05-05 09:37:53','deandrademarcos@hotmail.com','deandrademarcos@hotmail.com');
 
 /*Table structure for table `users_company` */
 
@@ -573,12 +565,9 @@ CREATE TABLE `users_company` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `users_company` */
-
-insert  into `users_company`(`id`,`id_user`,`id_company`,`status`,`date_created`,`date_updated`) values 
-(22,14,4,1,'2016-05-05 09:36:10','2016-05-05 09:37:53');
 
 /*Table structure for table `users_data` */
 
@@ -600,12 +589,9 @@ CREATE TABLE `users_data` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `users_data` */
-
-insert  into `users_data`(`id`,`id_users`,`first_name`,`second_name`,`first_last_name`,`second_last_name`,`nationality`,`document`,`birthdate`,`gender`,`phone`,`phone1`,`date_created`,`date_updated`) values 
-(12,14,'MARCOS','ARLINDO','DE ANDRADE','CARREA','V','18020594',NULL,'M','04268141850',NULL,'2016-05-05 09:36:10','2016-05-05 09:36:10');
 
 /*Table structure for table `users_hoist_company` */
 
@@ -620,7 +606,7 @@ CREATE TABLE `users_hoist_company` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id_user_hoist_company`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `users_hoist_company` */
 
@@ -639,9 +625,6 @@ CREATE TABLE `users_perms` (
 
 /*Data for the table `users_perms` */
 
-insert  into `users_perms`(`id_user`,`id_perms`,`status`,`date_created`,`date_updated`) values 
-(14,3,1,'2016-05-05 09:36:10','2016-05-05 09:37:53');
-
 /*Table structure for table `users_token` */
 
 DROP TABLE IF EXISTS `users_token`;
@@ -657,14 +640,9 @@ CREATE TABLE `users_token` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `users_token` */
-
-insert  into `users_token`(`id`,`id_company_validation`,`token`,`time_expire`,`validate`,`mail`,`mail_alternative`,`date_created`,`date_updated`) values 
-(15,7,'TWFyY29zIGdydWFzVi0xODAyMDU5NC05ZGVhbmRyYWRlbWFyY29zQGhvdG1haWwuY29tMDUtMDUtMTYgMDk6MzQ6MjE=','2016-05-05 10:34:21',1,'deandrademarcos@hotmail.com','deandrademarcos@hotmail.com','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(16,8,'SE9MQVYtMjAzMDM3MDktMWRlYW5kcmFkZW1hcmNvc0BnbWFpbC5jb20wNS0wNS0xNiAwOTozOTowNw==','2016-05-05 10:39:07',0,'deandrademarcos@gmail.com','deandrademarcos@gmail.com','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(17,9,'aG9sYVYtMjAzMDM3MDktOWRlYW5kcmFkZW1hcmNvc0Bob3RtYWlsLmNvbTA1LTA1LTE2IDA5OjQxOjIy','2016-05-05 10:41:22',0,'deandrademarcos@hotmail.com','deandrademarcos@hotmail.com','0000-00-00 00:00:00','0000-00-00 00:00:00');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
