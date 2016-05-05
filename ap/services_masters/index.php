@@ -23,8 +23,8 @@ $values = $_REQUEST;
 		case "update":
 			executeUpdate($values);	
 		break;		
-		case "services_operator_list_json":
-			executeServicesOperatorListJson($values);	
+		case "services_masters_list_json":
+			executeServicesMastersListJson($values);	
 		break;
 		case "forwardPassword":
 			executeforwardPassword($values);	
@@ -35,13 +35,13 @@ $values = $_REQUEST;
 	}
 	function executeIndex($values = null)
 	{
-	require('services_operator_list_view.php');
+	require('services_masters_list_view.php');
 	}
 	function executeNew($values = null)
 	{       
         $values['status'] = '1';
 		$values['action'] = 'add';
-		require('services_operator_form_view.php');
+		require('services_masters_form_view.php');
 	}
 	function executeSave($values = null)
 	{
@@ -57,10 +57,10 @@ $values = $_REQUEST;
 			$password = substr( md5(microtime()), 1, 8);
 			$loggin = 'O-'.$values['nationality'].$values['document'];
 			$mail = $values['mail'];
-			$ServicesOperator = new Users();
+			$ServicesMasters = new Users();
 			$values['login'] = $loggin;
 			$values['password'] = $password;
-			$values = $ServicesOperator->saveUserOperator($values);
+			$values = $ServicesMasters->saveUserOperator($values);
 			$message = "Usuario: ".$loggin." Clave: ".$password;
 			$Mail = new Mail();
 			$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
@@ -72,46 +72,46 @@ $values = $_REQUEST;
 	function executeEdit($values = null,$msg = null)
 	{
 		
-		$ServicesOperator = new ServicesOperator();
-		$values = $ServicesOperator->getServicesOperatorById($values);
+		$ServicesMasters = new ServicesMasters();
+		$values = $ServicesMasters->getServicesMastersById($values);
 		$values['action'] = 'update';
         $values['msg'] = $msg;
-		require('services_operator_form_view.php');
+		require('services_masters_form_view.php');
 	}
 	function executeUpdate($values = null)
 	{
 		
-		$ServicesOperator = new Users();
-		$ServicesOperator->updateUserOperator($values);		
+		$ServicesMasters = new Users();
+		$ServicesMasters->updateUserOperator($values);		
 		executeEdit($values,message_updated);die;
 	}	
-	function executeServicesOperatorListJson($values)
+	function executeServicesMastersListJson($values)
 	{
-		$ServicesOperator = new ServicesOperator();
-		$services_operator_list_json = $ServicesOperator->getServicesOperatorList($values);
-		$services_operator_list_json_cuenta = $ServicesOperator ->getCountServicesOperatorList($values);
+		$ServicesMasters = new ServicesMasters();
+		$services_masters_list_json = $ServicesMasters->getServicesMastersList($values);
+		$services_masters_list_json_cuenta = $ServicesMasters ->getCountServicesMastersList($values);
 		$array_json = array();
-		$array_json['recordsTotal'] = $services_operator_list_json_cuenta;
-		$array_json['recordsFiltered'] = $services_operator_list_json_cuenta;
-		if(count($services_operator_list_json)>0)
+		$array_json['recordsTotal'] = $services_masters_list_json_cuenta;
+		$array_json['recordsFiltered'] = $services_masters_list_json_cuenta;
+		if(count($services_masters_list_json)>0)
 		{
-			foreach ($services_operator_list_json as $services_operator) 
+			foreach ($services_masters_list_json as $services_masters) 
 			{
 				
-				$idGrua = $services_operator['idgrua'];
-				$idSolicitud = $services_operator['idsolicitud'];
+				$idGrua = $services_masters['idgrua'];
+				$idSolicitud = $services_masters['idsolicitud'];
 				$array_json['data'][] = array(
 					"idGrua" => $idGrua,
-					"TimeInicio" => $services_operator['timeinicio'],
-					"TimeFin" => $services_operator['timefin'],
-					"EstatusCliente" => $services_operator['estatuscliente'],
-					"EstatusGrua" => $services_operator['estatusgrua'],
-					"Motivo" => $services_operator['motivo'],
+					"TimeInicio" => $services_masters['timeinicio'],
+					"TimeFin" => $services_masters['timefin'],
+					"EstatusCliente" => $services_masters['estatuscliente'],
+					"EstatusGrua" => $services_masters['estatusgrua'],
+					"Motivo" => $services_masters['motivo'],
 					"actions" => 
-                                       '<form method="POST" action = "'.full_url.'/ap/services_operator/index.php" >'
+                                       '<form method="POST" action = "'.full_url.'/ap/services_masters/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
-                                       .'<input type="hidden" name="idSolicitud" value="'.$idSolicitud.'">  '
-									   .'<input type="hidden" name="idGrua" value="'.$idGrua.'">  '
+									   .'<input type="hidden" name="idSolicitud" value="'.$idSolicitud.'">  '
+                                       .'<input type="hidden" name="idGrua" value="'.$idGrua.'">  '
                                        .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-mobile fa-2x  fa-pull-left fa-border"></i></button>'
 
 					);	
@@ -127,13 +127,13 @@ $values = $_REQUEST;
 	}
 	function executeforwardPassword($values)
 	{
-		$services_operator = new Users();
-		$usuario = $services_operator->getUserById($values);
+		$services_masters = new Users();
+		$usuario = $services_masters->getUserById($values);
 		$mail = $usuario["mail"];
 		$password = substr( md5(microtime()), 1, 8);
 		unset($values);
 		$values = array("id_user" => $usuario["id_user"],"password" => $password);
-		$services_operator->updateUser($values);
+		$services_masters->updateUser($values);
 		$message = "Clave: ".$password;
 		$Mail = new Mail();
 		$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);

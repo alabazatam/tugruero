@@ -7,19 +7,18 @@
 	 */
 
 	/**
-	 * Description of ServicesOperator
+	 * Description of ServicesMasters
 	 *
 	 * @author marcos
 	 */
-	class ServicesOperator {
+	class ServicesMasters {
 		
 		public function __construct() 
 		{
 			
 		}
-		public function getServicesOperatorList($values)
+		public function getServicesMastersList($values)
 		{	
-			$id_user = $_SESSION['id_user'];
 			$columns = array();
 			$columns[0] = 'idSolicitud';
 			$columns[1] = 'idGrua';
@@ -34,10 +33,22 @@
 			$columns[10] = 'Puntual';
 			$columns[11] = 'Observacion';
 			$column_order = $columns[0];
-			$where = " Grueros.idGrua = $id_user ";
+			$where = "1 = 1 ";
 			$order = 'asc';
 			$limit = $values['length'];
 			$offset = $values['start'];
+			
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users_company
+			->select("id_user")
+			->where("id_company=?",$_SESSION['id_company']);
+			$id_user_company = array();
+			foreach($q as $id_user)
+			{
+				$id_user_company[] = $id_user['id_user'];
+			}
+			$ConnectionORM->close();
+			
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
@@ -57,40 +68,52 @@
 			->select("*")
 			->order("$column_order $order")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
-			->where("$where")
+			->where("Servicios.idGrua ",$id_user_company)
+			//->and('idGrua',$id_user_company)
 			->limit($limit,$offset);
 			return $q; 			
 		}
-		public function getCountServicesOperatorList($values)
+		public function getCountServicesMastersList($values)
 		{	
-			$id_user = $_SESSION['id_user'];
-			$where = " Grueros.idGrua = $id_user ";
+			$where = "1 = 1";
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users_company
+			->select("id_user")
+			->where("id_company=?",$_SESSION['id_company']);
+			$id_user_company = array();
+			foreach($q as $id_user)
+			{
+				$id_user_company[] = $id_user['id_user'];
+			}
+			$ConnectionORM->close();
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
 				//$where.= "upper(login) like upper('%$str%') ";
 			}
+
             $ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
 			->select("count(*) as cuenta")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
-			->where("$where")->fetch();
+			->where("Servicios.idGrua",$id_user_company)
+			->fetch();
 			return $q['cuenta']; 			
 		}
-		public function getServicesOperatorById($values){
-			$id_user = $_SESSION['id_user'];
+		public function getServicesMastersById($values){
 			$ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
 			->select("*")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
 			->join("solicitudes","INNER JOIN Solicitudes on Solicitudes.idSolicitud = Servicios.idSolicitud")
 			->join("polizas","INNER JOIN Polizas on Polizas.idPoliza = Servicios.idPoliza")
-			->where("Servicios.idGrua=?",$id_user)
-			->and("Servicios.idSolicitud=?",$values['idSolicitud'])	
+			->where("Servicios.idGrua=?",$values['idGrua'])
+			->and("Servicios.idSolicitud=?",$values['idSolicitud'])
 			->fetch();
 			return $q; 				
 			
 		}
+		
 		
 	}
 	
