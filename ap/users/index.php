@@ -56,6 +56,10 @@ $values = $_REQUEST;
 		
 		else 
 		{
+			$Users = new Users();
+			$loggin = 'O-'.$values['nationality'].$values['document'];
+			$values['login'] = $loggin;
+			$values = $Users->saveUserOperator($values);
 			$idHoist= array ("id" => $values['id_hoist']);
 			$hoist = new Hoist();
 			$dataHoist =  $hoist->getHoistById($idHoist);
@@ -74,11 +78,9 @@ $values = $_REQUEST;
 								'TotalPresencia' => "0",
 								'TotalVehiculo' => "0",
 								'Rating' => "0");
-			$loggin = 'O-'.$values['nationality'].$values['document'];
+			
 			$mail = $values['mail'];
-			$Users = new Users();
-			$values['login'] = $loggin;
-			$values = $Users->saveUserOperator($values);
+			
 			$UsersHoistCompany = new UsersHoistCompany();
 			$userhoistcompanydata = array('id_user' => $values['id_user'],
 										   'id_company' => $_SESSION["id_company"],
@@ -93,8 +95,8 @@ $values = $_REQUEST;
 								'LastUpdate' => null,
 								'Token' => null);
 			$Aws = new Aws();
-			$Aws->saveGrueros($values);
-			$Aws->saveGruas($values);
+			$Aws->saveGrueros($dateGrueros);
+			$Aws->saveGruas($dateGruas);
 			$values['message'] = "se ha creado satisfactoriamente el usuario.";
 			$values["action"] = "edit";
 			executeEdit($values,message_created);die;

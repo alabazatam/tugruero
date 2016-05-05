@@ -90,6 +90,7 @@ $values = trimValues($_REQUEST);;
 			$rif=$values["Type_rif"]."-".$values["rif"];
 			$correo = $values["correo"];
 			$razonSocial = $values["razonSocial"];
+			insertCompanyValidation($rif,$correo,$razonSocial);
 			$registro = validarRifRazonSocial($rif);
 			if(count($registro)>0)
 			{
