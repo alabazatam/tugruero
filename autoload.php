@@ -76,6 +76,8 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/CompanyFiles.class
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsersCompany.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsersHoistCompany.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ServicesOperator.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ServicesMasters.class.php");
+
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Aws.class.php");
 
 /*validation class*/
