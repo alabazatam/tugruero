@@ -8,7 +8,7 @@
 			if($values['action'] == 'add')
 			{
 				if(empty($values['first_name']) || empty($values['first_last_name']) || empty($values['nationality'])
-						|| empty($values['document']) || empty($values['gender']) || empty($values['status']) || empty($values['mail']))
+						|| empty($values['document']) || empty($values['gender']) || empty($values['mail']))
 					{
 						$errors['campos']="Todos los campos deben ser llenados";
 					}
@@ -18,7 +18,6 @@
 				}
 			}
 		}
-		
 		return $errors;
 	}
 	function validaFormulario2($values)

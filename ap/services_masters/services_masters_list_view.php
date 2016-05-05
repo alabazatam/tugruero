@@ -6,6 +6,8 @@
 			<thead>
 				<tr>
 					<th>Id.Grúa</th>
+					<th>Nombres operador</th>
+					<th>Apellidos operador</th>
 					<th>Inicio</th>
 					<th>Fin</th>
 					<th>Status cliente</th>
@@ -17,6 +19,8 @@
 			<tfoot>
 				<tr>
 					<th>Id.Grúa</th>
+					<th>Nombres operador</th>
+					<th>Apellidos operador</th>
 					<th>Inicio</th>
 					<th>Fin</th>
 					<th>Status cliente</th>
@@ -41,6 +45,8 @@ $(document).ready(function() {
         },
         "columns": [
             { "data": "idGrua" },
+			{ "data": "Nombre" },
+			{ "data": "Apellido" },
             { "data": "TimeInicio" },
             { "data": "TimeFin" },
             { "data": "EstatusCliente" },

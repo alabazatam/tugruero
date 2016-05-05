@@ -1,6 +1,6 @@
 <?php
 
-	function validaFormulario1($values)
+	function validaFormulario($values)
 	{
 		$errors = array();
 		if(count($values)>0)
@@ -9,6 +9,7 @@
 			
 				if(empty($campos))
 					{
+						echo $campos;die;
 						$errors[]="Todos los campos deben ser llenados";
 					}
 		}

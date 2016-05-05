@@ -43,19 +43,7 @@
 			<span class="input-group-addon" id="basic-addon2">(*)</span>
 		</div>
 	  </div>
-		<div class="form-group">
-		  <label class="label label-danger">
-			<input type="radio" name="status" id="status" value="0" <?php if(isset($values['status']) and $values['status'] =='0' ) echo "checked=checked"?>>
-			Desactivar
-		  </label>
-		</div>
-		<div class="form-group">
-		  <label class="label label-success">
-			<input type="radio" name="status" id="status" value="1" <?php if(isset($values['status']) and $values['status'] =='1' ) echo "checked=checked"?>>
-			Activar
-		  </label>
-		</div>	
-	  <div class="form-group">
+			  <div class="form-group">
 		<label for="">Placa</label>
 		<div class="input-group">
 			<input type="text" id="" class="form-control input-sm" name="registration_plate" value="<?php if(isset($values['registration_plate'])) echo $values['registration_plate']?>"
@@ -87,6 +75,19 @@
 			<span class="input-group-addon" id="basic-addon2">(*)</span>
 		</div>
 	  </div>
+		<div class="form-group">
+		  <label class="label label-danger">
+			<input type="radio" name="status" id="status" value="0" <?php if(isset($values['status']) and $values['status'] =='0' ) echo "checked=checked"?>>
+			Desactivar
+		  </label>
+		</div>
+		<div class="form-group">
+		  <label class="label label-success">
+			<input type="radio" name="status" id="status" value="1" <?php if(isset($values['status']) and $values['status'] =='1' ) echo "checked=checked"?>>
+			Activar
+		  </label>
+		</div>	
+
 	  <div class="form-group">
 		<label for="">Fecha creado</label>
 		<input type="text" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">

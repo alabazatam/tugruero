@@ -8,7 +8,23 @@
 		<label for="">Id.Usuario</label>
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_user" value="<?php if(isset($values['id_user'])) echo $values['id_user']?>">
 	  </div>
-		<?php if(isset($values['action']) and $values['action'] =="add" ):?>
+	  <div class="form-group">
+		<label for="">Placa de grúa</label>
+		<div class="input-group">
+			<select id="id_hoist" name="id_hoist" class="form-control input-sm" required>
+			<option value='<?php if(isset($values['id']))echo $values['id_hoist']; else echo '';?>' selected><?php if(isset($values['id_hoist']))echo $values['id']; else echo "Seleccione...";?></option>
+			 <?php foreach($values['hoist'] as $operador) 
+				{
+					if(!Empty($operador['id_user']))
+						echo '<option value="'.$operador["id"].'" selected>'.$operador['registration_plate'].'</option>';
+					else
+						echo '<option value="'.$operador["id"].'">'.$operador['registration_plate'].'</option>';
+				}
+			?>
+		</select>
+		<span class="input-group-addon" id="basic-addon2">(*)</span>
+		</div>
+	  </div>		
 	  <div class="form-group">
 		  <label for="">Primer Nombre</label>
 			<div class="input-group">
@@ -70,13 +86,14 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 			</div>
 	  </div>
 	  <div class="form-group">
+		<label for="">Password</label>
+		<input autocomplete="off" type="password" id="" class="form-control input-sm" name="password" value="">
+	  </div>
+	  <div class="form-group">
 		<label for="">Login</label>
 		<input autocomplete="off" type="text" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>">
 	  </div>
-	  <div class="form-group" style="display:none;">
-		<label for="">Password</label>
-		<input autocomplete="off" type="password" readonly="readonly" id="" class="form-control input-sm" name="password" value="">
-	  </div>
+	  
 		<div class="form-group">
 		  <label class="label label-danger">
 			<input type="radio" name="status" id="status" value="0" <?php if(isset($values['status']) and $values['status'] =='0' ) echo "checked=checked"?>>
@@ -97,29 +114,6 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 		<label for="">Fecha modificado</label>
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
 	  </div>
-		<?php else:?>
-		<div class="form-group">
-		<div class="form-group">
-			<label for="">Login</label>
-			<input autocomplete="off" type="text" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>">
-		</div>
-		  <label class="label label-danger">
-			<input type="radio" name="status" id="status" value="0" <?php if(isset($values['status']) and $values['status'] =='0' ) echo "checked=checked"?>>
-			Desactivar
-		  </label>
-		</div>
-		<div class="form-group">
-		  <label class="label label-success">
-			<input type="radio" name="status" id="status" value="1" <?php if(isset($values['status']) and $values['status'] =='1' ) echo "checked=checked"?>>
-			Activar
-		  </label>
-		</div>	
-	  <div class="form-group">
-		<label for="">Fecha modificado</label>
-		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
-	  </div>
-	  <a class="btn btn-default"  href="<?php echo full_url."/ap/users/index.php?action=forwardPassword&id_user=".$values['id_user']?>"><i class="fa fa-arrow-right  fa-pull-right fa-border"></i> Reenviar contraseña</a>
-		<?php endif;?>
 		<a class="btn btn-default"  href="<?php echo full_url."/ap/users/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
     <?php if(isset($values['msg']) and $values['msg']!=''):?>

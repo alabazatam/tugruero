@@ -39,7 +39,9 @@ $values = $_REQUEST;
 	}
 	function executeNew($values = null)
 	{       
-        $values['status'] = '0';
+		$userhoistcompany = new UsersHoistCompany();
+		$values['hoist'] = $userhoistcompany->getHoistWithout($values);
+        $values['status'] = '1';
 		$values['action'] = 'add';
 		require('users_form_view.php');
 	}
@@ -54,14 +56,47 @@ $values = $_REQUEST;
 		
 		else 
 		{
-			$password = substr( md5(microtime()), 1, 8);
-			$loggin = 'O-'.$values['nationality'].$values['document'];
-			$mail = $values['mail'];
 			$Users = new Users();
+			$loggin = 'O-'.$values['nationality'].$values['document'];
 			$values['login'] = $loggin;
-			$values['password'] = $password;
 			$values = $Users->saveUserOperator($values);
-			$message = "Usuario: ".$loggin." Clave: ".$password;
+			$idHoist= array ("id" => $values['id_hoist']);
+			$hoist = new Hoist();
+			$dataHoist =  $hoist->getHoistById($idHoist);
+			$dateGrueros = array('idGrua' => $values['id_user'],
+								'Nombre' => $values['first_name'].' '.$values['second_name'],
+								'Apellido' => $values['first_last_name'].' '.$values['second_last_name'],
+								'Placa' => $dataHoist['registration_plate'],
+								'Modelo' => $dataHoist['type_hoist'],
+								'Color' => $dataHoist['color'],
+								'Celular' => $values['phone'],
+								'Cedula' => $values['nationality'].'-'.$values['document'],
+								'Clave' => $values['password'],
+								'Condicion' => "Activo",
+								'NumServicios' => "0",
+								'TotalTrato' => "0",
+								'TotalPresencia' => "0",
+								'TotalVehiculo' => "0",
+								'Rating' => "0");
+			
+			$mail = $values['mail'];
+			
+			$UsersHoistCompany = new UsersHoistCompany();
+			$userhoistcompanydata = array('id_user' => $values['id_user'],
+										   'id_company' => $_SESSION["id_company"],
+										   'id_hoist' => $idHoist,
+										   'status' => $values['status']);
+			$UsersHoistCompany->saveUsersHoistCompany($userhoistcompanydata);
+			
+			$dateGruas = array('idGrua' => $values['id_user'],
+								'Disponible' => "NO",
+								'Latitud' => "",
+								'Longitud' => "",
+								'LastUpdate' => null,
+								'Token' => null);
+			$Aws = new Aws();
+			$Aws->saveGrueros($dateGrueros);
+			$Aws->saveGruas($dateGruas);
 			$values['message'] = "se ha creado satisfactoriamente el usuario.";
 			$values["action"] = "edit";
 			executeEdit($values,message_created);die;
@@ -69,16 +104,41 @@ $values = $_REQUEST;
 	}
 	function executeEdit($values = null,$msg = null)
 	{
-		
 		$Users = new Users();
 		$values = $Users->getUserOperatorById($values);
+		$userhoistcompany = new UsersHoistCompany();
+		$values['hoist'] = $userhoistcompany->getHoistByUserWithout($values);
 		$values['action'] = 'update';
         $values['msg'] = $msg;
 		require('users_form_view.php');
 	}
 	function executeUpdate($values = null)
 	{
-		
+	
+		$idHoist= array ("id" => $values['id_hoist']);
+			$hoist = new Hoist();
+			$dataHoist =  $hoist->getHoistById($idHoist);
+			$dateGrueros = array('idGrua' => $values['id_user'],
+								'Placa' => $dataHoist['registration_plate'],
+								'Modelo' => $dataHoist['type_hoist'],
+								'Color' => $dataHoist['color'],
+								'Clave' => $values['password'],
+								'Condicion' => "Activo",
+								'NumServicios' => "0",
+								'TotalTrato' => "0",
+								'TotalPresencia' => "0",
+								'TotalVehiculo' => "0",
+								'Rating' => "0");
+								
+		$dateGruas = array('idGrua' => $values['id_user'],
+								'Disponible' => "NO",
+								'Latitud' => "",
+								'Longitud' => "",
+								'LastUpdate' => null,
+								'Token' => null);
+		//$Aws = new Aws();
+		//$Aws->saveGrueros($dateGrueros);
+		//$Aws->saveGruas($dateGruas);
 		$Users = new Users();
 		$Users->updateUserOperator($values);		
 		executeEdit($values,message_updated);die;

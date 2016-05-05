@@ -20,9 +20,9 @@
 		public function getServicesMastersList($values)
 		{	
 			$columns = array();
-			$columns[0] = 'idSolicitud';
-			$columns[1] = 'idGrua';
-			$columns[2] = 'idPoliza';
+			$columns[0] = 'Grueros.idGrua';
+			$columns[1] = 'Grueros.Nombre';
+			$columns[2] = 'Grueros.Apellido';
 			$columns[3] = 'TimeInicio';
 			$columns[4] = 'TimeFin';
             $columns[5] = 'EstatusCliente';

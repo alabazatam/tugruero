@@ -8,6 +8,13 @@
 			->where("rif=?",$rif);
 			return $q;
  }
+ function insertCompanyValidation($rif,$correo,$razonSocial)
+ {
+	 $values = array('rif' => $rif,'razon_social' => $razonSocial);
+	 $ConnectionORM = new ConnectionORM();
+	 $q = $ConnectionORM->getConnect('tugruero')->company_validation_ve()->insert($values);
+	 return $q;
+ }
  function addToken($datos)
  {
 	$values["date_created"] = date("Y-m-d H:i:s");

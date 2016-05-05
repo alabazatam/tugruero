@@ -90,6 +90,7 @@ $values = trimValues($_REQUEST);;
 			$rif=$values["Type_rif"]."-".$values["rif"];
 			$correo = $values["correo"];
 			$razonSocial = $values["razonSocial"];
+			insertCompanyValidation($rif,$correo,$razonSocial);
 			$registro = validarRifRazonSocial($rif);
 			if(count($registro)>0)
 			{
@@ -182,6 +183,7 @@ $values = trimValues($_REQUEST);;
 						"num_socio" =>$values["num_socio"],
 						"company_name" =>$values["company_name"],
 						"num_cuenta" => $values["NumCuenta"],
+						"status" => 0,
 						"responsible_cedula"=>$values["nationality"]."-".$values["cedula"]);
 						break;
 					}

@@ -134,17 +134,33 @@
 			return $q;
 			
 		}
-		function getUsersWithout($values)
+		function getHoistWithout($values)
 		{
 			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->users()
-			->select("users.id_user,login")
-			->join("users_hoist_company","left join users_hoist_company on users_hoist_company.id_user = users.id_user")
+			$q = $ConnectionORM->getConnect()->hoist()
+			->select("hoist.id,registration_plate")
+			->join("hoist_company","inner join hoist_company on hoist_company.id_hoist = hoist.id")
+			->join("users_hoist_company","left join users_hoist_company on users_hoist_company.id_hoist = hoist.id")
              ->where("users_hoist_company.id_user_hoist_company is null");
                //         ->order("$column_order $order")
 			//->limit($limit,$offset);
                        // echo $q;
 			return $q; 			
 		}
+		function getHoistByUserWithout($values)
+		{
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->hoist()
+			->select("hoist.id,hoist.registration_plate,users_hoist_company.id_user")
+			->join("hoist_company","inner join hoist_company on hoist_company.id_hoist = hoist.id")
+			->join("users_hoist_company","left join users_hoist_company on users_hoist_company.id_hoist = hoist.id")
+             ->where("users_hoist_company.id_user =?",$values['id_user'])
+			 ->or("users_hoist_company.id_user_hoist_company is null");
+               //         ->order("$column_order $order")
+			//->limit($limit,$offset);
+                       // echo $q;
+			return $q; 			
+		}
+		
 	}
 	
