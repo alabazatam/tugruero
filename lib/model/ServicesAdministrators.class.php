@@ -21,17 +21,18 @@
 		{	
 			$columns = array();
 			$columns[0] = 'Grueros.idGrua';
-			$columns[1] = 'Grueros.Nombre';
-			$columns[2] = 'Grueros.Apellido';
-			$columns[3] = 'TimeInicio';
-			$columns[4] = 'TimeFin';
-            $columns[5] = 'EstatusCliente';
-            $columns[6] = 'EstatusGrua';
-			$columns[7] = 'Motivo';
-			$columns[8] = 'TratoCordial';
-			$columns[9] = 'TratoVehiculo';
-			$columns[10] = 'Puntual';
-			$columns[11] = 'Observacion';
+			$columns[1] = 'Grueros.idGrua';
+			$columns[2] = 'Grueros.Nombre';
+			$columns[3] = 'Grueros.Apellido';
+			$columns[4] = 'TimeInicio';
+			$columns[5] = 'TimeFin';
+            $columns[6] = 'EstatusCliente';
+            $columns[7] = 'EstatusGrua';
+			$columns[8] = 'Motivo';
+			$columns[9] = 'TratoCordial';
+			$columns[10] = 'TratoVehiculo';
+			$columns[11] = 'Puntual';
+			$columns[12] = 'Observacion';
 			$column_order = $columns[0];
 			$where = "1 = 1 ";
 			$order = 'asc';
@@ -53,7 +54,14 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where.= " and 1 = 1 ";
+				$where = ""
+                                        . " upper(nombre) like upper('%$str%') "
+										. " or upper(apellido) like upper('%$str%') "
+                                        . " or upper(EstatusGrua) like upper('%$str%')"
+										. " or upper(Motivo) like upper('%$str%')"
+										." or cast(Grueros.idGrua as char(100)) =  '$str' "
+										
+                                        . "or upper(EstatusCliente) like upper('%$str%')";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -70,12 +78,24 @@
 			->order("$column_order $order")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
 			->where("Servicios.idGrua ",$id_user_company)
+			->and("$where")
 			->limit($limit,$offset);
 			return $q; 			
 		}
 		public function getCountServicesAdministratorsList($values)
-		{	
-			$where = "1 = 1";
+		{		
+				$where = " 1 = 1";
+				if(isset($values['search']['value']) and $values['search']['value'] !='')
+				{
+				$where = ""
+                                        . " upper(nombre) like upper('%$str%') "
+										. " or upper(apellido) like upper('%$str%') "
+                                        . " or upper(EstatusGrua) like upper('%$str%')"
+										. " or upper(Motivo) like upper('%$str%')"
+										." or cast(Grueros.idGrua as char(100)) =  '$str' "
+										
+                                        . "or upper(EstatusCliente) like upper('%$str%')";
+				}
 
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users_company
@@ -92,7 +112,8 @@
 			$q = $ConnectionAws->getConnect()->Servicios
 			->select("count(*) as cuenta")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
-			->where("Servicios.idGrua ",$id_user_company)	
+			->where("Servicios.idGrua ",$id_user_company)
+			->and("$where")
 			->fetch();
 			return $q['cuenta']; 			
 		}

@@ -4,10 +4,10 @@
    
     function __construct() 
     {
-        $this->smtp = "host.caracashosting50.com";
+        $this->smtp = "server-0116a.gconex.net";
         $this->port = 465;
         $this->secure = "ssl";
-        $this->username = "mdandrad@frbcomputersgroup.com.ve";
+        $this->username = "contactenos@tugruero.com.ve";
         $this->password = "230386";
         
     }

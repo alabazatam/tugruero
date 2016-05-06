@@ -36,6 +36,8 @@ $values = $_REQUEST;
 	require('bienvenida.php');
 	}
 	function executeAcceso($values = null){
+		
+		
 		$securimage = new Securimage();
 		$captcha = $values['ct_captcha'];
 		if ($securimage->check($captcha) == false) {

@@ -4,7 +4,7 @@
 	<h1 class="text-center"><label class="label label-default">Servicios</label></h1>
 	<form class="form-horizontal" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
-		<div class="form-group" style="display:block;">
+		<div class="form-group" style="display:none;">
 		<label for="">Id.grua</label>
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="idGrua" value="<?php if(isset($values['idgrua'])) echo $values['idgrua']?>">
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="idSolicitud" value="<?php if(isset($values['idsolicitud'])) echo $values['idsolicitud']?>">

@@ -294,5 +294,32 @@
 			return $q;
 			
 		}
+		function comparePasswordByUser($values){
+			$valid = false;
+			$id_user = $values['id_user'];
+			$password = hash("sha256", $values['password']);
+            $ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users
+			->select("count(*) as cuenta")
+			->where("id_user=?",$id_user)
+			->and("password=?",$password)
+			->fetch();
+			$cuenta = $q['cuenta'];
+			if($cuenta > 0)
+			{
+				$valid = true;
+			}
+			return $valid;
+		}		
+		function changePassword($values){
+			$id_user = $values['id_user'];
+			$values['password'] = hash('sha256',$values['new_password']) ;
+			unset($values['new_password'],$values['retype_password'],$values['id_user'],$values['action']);
+			$values["date_updated"] = date("Y-m-d H:i:s");
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users("id_user", $id_user)->update($values);
+			return $q;
+			
+		}
 	}
 	

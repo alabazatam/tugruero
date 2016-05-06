@@ -57,6 +57,16 @@ $values = $_REQUEST;
 		$array_json['recordsFiltered'] = $services_administrators_list_json_cuenta;
 		if(count($services_administrators_list_json)>0)
 		{
+						
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->company
+			->select("*")
+			->where("id=?",$values['id_company'])
+			->fetch();
+			$ConnectionORM -> close();
+			
+			$razon_social = $q['razon_social'];
+			
 			foreach ($services_administrators_list_json as $services_administrators) 
 			{
 				
@@ -64,6 +74,7 @@ $values = $_REQUEST;
 				$idSolicitud = $services_administrators['idsolicitud'];
 				$array_json['data'][] = array(
 					"idGrua" => $idGrua,
+					"razon_social" => $razon_social,
 					"Nombre" => $services_administrators['nombre'],
 					"Apellido" => $services_administrators['apellido'],
 					"TimeInicio" => $services_administrators['timeinicio'],
@@ -84,24 +95,9 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("idGrua"=>null,"Nombre"=>"","Apellido"=>"","TimeInicio"=>"","TimeFin"=>"","EstatusCliente"=>"","EstatusGrua"=>"","Motivo"=>"","actions"=>"");
+			$array_json['data'][0] = array("idGrua"=>null,"razon_social"=>"","Nombre"=>"","Apellido"=>"","TimeInicio"=>"","TimeFin"=>"","EstatusCliente"=>"","EstatusGrua"=>"","Motivo"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;
 		
-	}
-	function executeforwardPassword($values)
-	{
-		$services_administrators = new Users();
-		$usuario = $services_administrators->getUserById($values);
-		$mail = $usuario["mail"];
-		$password = substr( md5(microtime()), 1, 8);
-		unset($values);
-		$values = array("id_user" => $usuario["id_user"],"password" => $password);
-		$services_administrators->updateUser($values);
-		$message = "Clave: ".$password;
-		$Mail = new Mail();
-		$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
-		$msg = "se ha enviado la clave al correo electrónico del usuario.";
-		executeEdit($values,$msg);
 	}

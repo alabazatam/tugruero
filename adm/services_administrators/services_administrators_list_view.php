@@ -6,6 +6,7 @@
 			<thead>
 				<tr>
 					<th>Id.Grúa</th>
+					<th>Empresa/Compañia</th>
 					<th>Nombres operador</th>
 					<th>Apellidos operador</th>
 					<th>Inicio</th>
@@ -19,6 +20,7 @@
 			<tfoot>
 				<tr>
 					<th>Id.Grúa</th>
+					<th>Empresa/Compañia</th>
 					<th>Nombres operador</th>
 					<th>Apellidos operador</th>
 					<th>Inicio</th>
@@ -45,6 +47,7 @@ $(document).ready(function() {
         },
         "columns": [
             { "data": "idGrua" },
+			{ "data": "razon_social" },
 			{ "data": "Nombre" },
 			{ "data": "Apellido" },
             { "data": "TimeInicio" },
@@ -55,7 +58,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 8 ] }
+          { 'bSortable': false, 'aTargets': [ 9 ]}
        ]				
     });
 } );

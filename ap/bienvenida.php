@@ -12,7 +12,7 @@
                             <?php foreach($items_padres as $item):?>
 													
 															                                   
-                                      <?php $items_hijos = $Menu -> getMenu(4,1,$item['id_menu']);?>
+                                      <?php $items_hijos = $Menu -> getMenuImage(4,1,$item['id_menu']);?>
                                       <?php foreach($items_hijos as $item2):?>						
 											<td align="center">
 												<a href="<?php echo full_url.$item2['url2']?>" target="">

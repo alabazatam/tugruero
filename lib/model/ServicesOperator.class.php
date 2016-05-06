@@ -34,14 +34,19 @@
 			$columns[10] = 'Puntual';
 			$columns[11] = 'Observacion';
 			$column_order = $columns[0];
-			$where = " Grueros.idGrua = $id_user ";
+			
 			$order = 'asc';
 			$limit = $values['length'];
 			$offset = $values['start'];
+			$where = "1 = 1 ";
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where.= " and 1 = 1 ";
+				$where = ""
+
+                                        . "  upper(EstatusGrua) like upper('%$str%')"
+										. " or upper(Motivo) like upper('%$str%')"										
+                                        . "or upper(EstatusCliente) like upper('%$str%')";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -57,24 +62,34 @@
 			->select("*")
 			->order("$column_order $order")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
-			->where("$where")
+			->where("Grueros.idGrua=?",$id_user)
+			->and("$where")
 			->limit($limit,$offset);
 			return $q; 			
 		}
 		public function getCountServicesOperatorList($values)
 		{	
 			$id_user = $_SESSION['id_user'];
-			$where = " Grueros.idGrua = $id_user ";
+			$where = " 1 = 1";
+			
+			
+			
+			
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				//$where.= "upper(login) like upper('%$str%') ";
+				$where = ""
+
+                                        . "  upper(EstatusGrua) like upper('%$str%')"
+										. " or upper(Motivo) like upper('%$str%')"										
+                                        . "or upper(EstatusCliente) like upper('%$str%')";
 			}
             $ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
 			->select("count(*) as cuenta")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
-			->where("$where")->fetch();
+			->where("Grueros.idGrua=?",$id_user)
+			->fetch();
 			return $q['cuenta']; 			
 		}
 		public function getServicesOperatorById($values){

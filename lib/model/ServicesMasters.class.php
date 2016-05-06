@@ -52,7 +52,14 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where.= " and 1 = 1 ";
+				$where = ""
+                                        . " upper(nombre) like upper('%$str%') "
+										. " or upper(apellido) like upper('%$str%') "
+                                        . " or upper(EstatusGrua) like upper('%$str%')"
+										. " or upper(Motivo) like upper('%$str%')"
+										." or cast(Grueros.idGrua as char(100)) =  '$str' "
+										
+                                        . "or upper(EstatusCliente) like upper('%$str%')";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -69,13 +76,26 @@
 			->order("$column_order $order")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
 			->where("Servicios.idGrua ",$id_user_company)
-			//->and('idGrua',$id_user_company)
+			->and("$where")
 			->limit($limit,$offset);
 			return $q; 			
 		}
 		public function getCountServicesMastersList($values)
-		{	
+		{
+			
 			$where = "1 = 1";
+			if(isset($values['search']['value']) and $values['search']['value'] !='')
+			{	
+				$str = $values['search']['value'];
+				$where = ""
+                                        . " upper(nombre) like upper('%$str%') "
+										. " or upper(apellido) like upper('%$str%') "
+                                        . " or upper(EstatusGrua) like upper('%$str%')"
+										. " or upper(Motivo) like upper('%$str%')"
+										." or cast(Grueros.idGrua as char(100)) =  '$str' "
+										
+                                        . "or upper(EstatusCliente) like upper('%$str%')";
+			}
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users_company
 			->select("id_user")
@@ -97,6 +117,7 @@
 			->select("count(*) as cuenta")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
 			->where("Servicios.idGrua",$id_user_company)
+			->and("$where")
 			->fetch();
 			return $q['cuenta']; 			
 		}
