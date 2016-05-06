@@ -1,6 +1,6 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
-<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+<div class="container">
 	<h1 class="text-center"><label class="label label-default">Servicios</label></h1>
 	<form class="form-horizontal" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>

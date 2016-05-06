@@ -90,6 +90,7 @@
 			</div>
 		</div>
 	</div>
+	<a class="btn btn-default"  href="<?php echo full_url."/ap/index.php?action=bienvenida"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Cancelar</a>	
 	 <button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
     <?php if(isset($values['msg']) and $values['msg']!=''):?>
         <div class="alert alert-success" role="alert"><?php echo $values['msg'];?></div>
