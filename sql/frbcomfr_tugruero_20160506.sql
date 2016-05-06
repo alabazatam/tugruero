@@ -1,6 +1,6 @@
 /*
-SQLyog Community v12.15 (64 bit)
-MySQL - 5.5.49-0ubuntu0.14.04.1 : Database - frbcomfr_tugruero
+SQLyog Community v12.2.1 (64 bit)
+MySQL - 5.6.17 : Database - frbcomfr_tugruero
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 5.5.49-0ubuntu0.14.04.1 : Database - frbcomfr_tugruero
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`frbcomfr_tugruero` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`frbcomfr_tugruero` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
 
 USE `frbcomfr_tugruero`;
 
@@ -337,7 +337,7 @@ CREATE TABLE `menu` (
   `orders` int(11) DEFAULT NULL,
   `menu_image` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 /*Data for the table `menu` */
 
@@ -366,9 +366,11 @@ insert  into `menu`(`id_menu`,`id_menuref`,`name`,`name2`,`url`,`url2`,`status`,
 (22,17,'Servicios','Consultar','/ap/services_masters/index.php','/ap/services_masters/index.php',1,'cardriver.png','0000-00-00 00:00:00','0000-00-00 00:00:00',4,3,1),
 (23,8,'Servicios','Consultar','/adm/services_administrators/index.php','/adm/services_administrators/index.php',0,'cardriver.png','0000-00-00 00:00:00','0000-00-00 00:00:00',3,3,1),
 (24,0,'Perfil de usuario',NULL,'','',1,NULL,'2016-05-03 21:57:41','2016-05-03 21:57:43',2,4,0),
-(25,24,'Cambio de clave','','/ap/account/index.php?action=change_pass_view','/ap/account/index.php?action=change_pass_view',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',2,1,0),
+(25,24,'Cambio de clave','','/ap/account/index.php?action=change_pass_view','/ap/account/index.php?action=change_pass_view',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',2,2,0),
 (26,0,'Perfil de usuario',NULL,'','',1,NULL,'2016-05-03 21:57:41','2016-05-03 21:57:43',4,4,0),
-(27,26,'Cambio de clave','','/ap/account/index.php?action=change_pass_view','/ap/account/index.php?action=change_pass_view',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',4,1,0);
+(27,26,'Cambio de clave','','/ap/account/index.php?action=change_pass_view','/ap/account/index.php?action=change_pass_view',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',4,2,0),
+(28,26,'Datos personales','','/ap/users_data/index.php?action=edit','/ap/users_data/index.php?action=edit',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',4,1,0),
+(29,24,'Datos personales','','/ap/users_data/index.php?action=edit','/ap/users_data/index.php?action=edit',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',2,1,0);
 
 /*Table structure for table `menu_page` */
 
@@ -581,7 +583,7 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id_user`,`login`,`password`,`status`,`date_created`,`date_updated`,`mail`,`mail_alternative`) values 
-(14,'M-V18020594','18bfddf1020067bbd33fad652bc8f1a59b2427ff8c7ebfd62bbfef6c2dddff49',1,'2016-05-05 09:36:10','2016-05-06 09:35:22','deandrademarcos@hotmail.com','deandrademarcos@hotmail.com'),
+(14,'M-V18020594','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',1,'2016-05-05 09:36:10','2016-05-06 19:10:07','deandrademarcos@hotmail.com','deandrademarcos@hotmail.com'),
 (15,'O-V18020594','18bfddf1020067bbd33fad652bc8f1a59b2427ff8c7ebfd62bbfef6c2dddff49',1,'2016-05-05 22:24:31','2016-05-06 09:37:09','deandrademarcos@hotmail.com',NULL),
 (16,'M-V18020594','5e93b3dad8cbb3fb7bd88054398af2d02f020fc555465e3ecc887d02a2e18e1a',1,'2016-05-06 09:46:46','2016-05-06 09:46:46','deandrademarcos@gmail.com','deandrademarcos@gmail.com'),
 (17,'O-V123456','18bfddf1020067bbd33fad652bc8f1a59b2427ff8c7ebfd62bbfef6c2dddff49',1,'2016-05-06 10:14:09','2016-05-06 10:14:09','hjhj@h.com',NULL);
@@ -625,6 +627,7 @@ CREATE TABLE `users_data` (
   `gender` varchar(1) NOT NULL,
   `phone` varchar(45) NOT NULL,
   `phone1` varchar(45) DEFAULT NULL,
+  `image` varchar(100) NOT NULL,
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -632,11 +635,11 @@ CREATE TABLE `users_data` (
 
 /*Data for the table `users_data` */
 
-insert  into `users_data`(`id`,`id_users`,`first_name`,`second_name`,`first_last_name`,`second_last_name`,`nationality`,`document`,`birthdate`,`gender`,`phone`,`phone1`,`date_created`,`date_updated`) values 
-(12,14,'MARCOS','ARLINDO','DE ANDRADE','CARREA','V','18020594',NULL,'M','04268141850',NULL,'2016-05-05 09:36:10','2016-05-05 09:36:10'),
-(13,15,'Marcos','','DE ANDRADE','','V','18020594',NULL,'M','04268141850',NULL,'2016-05-05 22:24:31','2016-05-05 22:24:31'),
-(14,16,'marcos','arlindo','de andrade','carrera','V','18020594',NULL,'M','04268141850',NULL,'2016-05-06 09:46:46','2016-05-06 09:46:46'),
-(15,17,'jose','','perez','','V','123456',NULL,'M','04268141850',NULL,'2016-05-06 10:14:09','2016-05-06 10:14:09');
+insert  into `users_data`(`id`,`id_users`,`first_name`,`second_name`,`first_last_name`,`second_last_name`,`nationality`,`document`,`birthdate`,`gender`,`phone`,`phone1`,`image`,`date_created`,`date_updated`) values 
+(12,14,'MARCOS','ARLINDO','DE ANDRADE','CARRERA','V','18020594',NULL,'M','04261234567','04241234567','','2016-05-05 09:36:10','2016-05-06 13:09:57'),
+(13,15,'Marcos','','DE ANDRADE','','V','18020594',NULL,'M','04268141850','','O-V18020594.jpg','2016-05-05 22:24:31','2016-05-06 13:37:48'),
+(14,16,'marcos','arlindo','de andrade','carrera','V','18020594',NULL,'M','04268141850',NULL,'','2016-05-06 09:46:46','2016-05-06 09:46:46'),
+(15,17,'jose','','perez','','V','123456',NULL,'M','04268141850',NULL,'','2016-05-06 10:14:09','2016-05-06 10:14:09');
 
 /*Table structure for table `users_hoist_company` */
 
