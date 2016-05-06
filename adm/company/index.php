@@ -115,6 +115,7 @@ $values = $_REQUEST;
                                        .'<input type="hidden" name="id" value="'.$id.'">  '
                                        .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
                                        .'<a href="'.full_url.'/adm/users_company/index.php?id_company='.$id.'" class="btn btn-default btn-sm"><i class="fa fa-users  fa-pull-left fa-border"></i></a>'
+									   .'<a href="'.full_url.'/adm/services_administrators/index.php?id_company='.$id.'" class="btn btn-default btn-sm"><i class="fa fa-book fa-pull-left fa-border"></i></a>'
                                        .'</form>'
 					);	
 			}	

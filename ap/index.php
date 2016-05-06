@@ -28,6 +28,8 @@ $values = $_REQUEST;
 						
 	function executeIndex($values = null){
         session_destroy();
+	unset($_SESSION['id_perms'],$_SESSION['id_user'],$_SESSION['id_company']);
+
 	require('login.php');
 	}
 	function executeBienvenida($values = null){

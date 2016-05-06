@@ -1,8 +1,6 @@
 <?php
         $Menu = new Menu();
         $items_padres = $Menu ->getMenu(3, 1,0);?>
-
-
         <div class=""><!--menu mobile-->
                     <nav class="navbar navbar-default">
                       <div class="container">

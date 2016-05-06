@@ -49,7 +49,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 6 ] }
+          { 'bSortable': false, 'aTargets': [ 8 ] }
        ]				
     });
 } );
