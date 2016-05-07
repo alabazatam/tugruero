@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="www.tugruero.com.ve">
     <meta name="author" content="">
+	<meta name="google-site-verification" content="kXlZJPIsjo2kzjHRJpgR4ncAn-g_bF5ipNOvRSkhsE0" />
     <link href="web/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
     <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
