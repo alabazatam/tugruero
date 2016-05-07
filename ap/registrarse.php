@@ -266,13 +266,14 @@ $values = trimValues($_REQUEST);;
 	}
 	function executeValideForgottenYourPassword($values = null)
 	{
-		$securimage = new Securimage();
+		/*$securimage = new Securimage();
 		$captcha = $values['ct_captcha'];
 		if ($securimage->check($captcha) == false) {
 		  $errors['captcha_error'] = 'Incorrect security code entered<br />';
 				$values['errors']['captcha'] = "Imagen incorrecta";
 				executeForgottenYourPassword($values);die;
-		}
+		}*/
+		
 		$errors = validaForgottenPassword($values);
 		$valido = true;
 		if(count($errors)>0)
@@ -290,23 +291,21 @@ $values = trimValues($_REQUEST);;
 			$InitialFirstLastName = $values["InitialFirstLastName"];
 			$mail = $values["mail"];
 			$user = validateForgottenPassword($document,$nationality,$InitialFirstName,$InitialFirstLastName,$mail);
+			
+			if(empty($valor))
+			{
+				$values = null;
+				$values["errors"]["datosIncorrectos"] = "Sus datos no coinciden";
+				executeForgottenYourPassword($values);die;
+			}
 			foreach($user as $id=> $valor)
 			{
-				if(empty($valor))
-				{
-					$values = null;
-					$values["errors"]["datosIncorrectos"] = "Sus datos no coinciden";
-					executeForgottenYourPassword($values);die;
-				}
-				else
-				{
+				
 					$idUser = $valor["id_user"];
 					
 					$mail = $valor["mail"];
 					forwardPassword($idUser,$mail);
 					echo $idUser;
-				}
-				
 			}
 		}	
 	}
