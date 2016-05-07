@@ -88,7 +88,7 @@
 											<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="phone">Número fijo/Número movil principal</label>
-												<input type="text" name="phone" id="registrarse-razon-social" placeholder="Número fijo/Número movil principal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número fijo o Número movil principal para poder registrarse.')" 
+												<input type="text" maxlength="11" name="phone" id="registrarse-razon-social" placeholder="Número fijo/Número movil principal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número fijo o Número movil principal para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
@@ -97,7 +97,7 @@
 										<div class="col-sm-6"> 	
 											<div class="form-group">
 												<label class="sr-only" for="phone1">Número movil secundario</label>
-												<input type="text" name="phone1" placeholder="Número movil secundario..." class="form-google-plus form-control" id="form-google-plus" >
+												<input type="text" maxlength="11" name="phone1" placeholder="Número movil secundario..." class="form-google-plus form-control" id="form-google-plus" >
 										 </div>
 										</div>
 									</div>
