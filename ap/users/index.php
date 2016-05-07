@@ -40,14 +40,14 @@ $values = $_REQUEST;
 	function executeNew($values = null)
 	{       
 		$userhoistcompany = new UsersHoistCompany();
-		$values['hoist'] = $userhoistcompany->getHoistWithout($values);
+		$values['hoist'] = $userhoistcompany->getHoistByUserWithout($values);
         $values['status'] = '1';
 		$values['action'] = 'add';
 		require('users_form_view.php');
 	}
 	function executeSave($values = null)
 	{
-		$errors = validaFormularioUsers($values);
+		$errors = validaFormularioUser($values);
 		if(count($errors)>0)
 		{
 			$values["errors"] = $errors;
@@ -94,6 +94,14 @@ $values = $_REQUEST;
 								'Longitud' => "",
 								'LastUpdate' => null,
 								'Token' => null);
+			$carpeta = "/var/www/html/tugruero/web/files/operators";
+			$fichero_subido = $carpeta."/";
+			$nombreArchivo = $loggin."-"."cedula.".pathinfo($_FILES['file_1']['name'],PATHINFO_EXTENSION);
+			move_uploaded_file($_FILES['file_1']['tmp_name'], $fichero_subido.$nombreArchivo);
+			
+			$nombreArchivo = $loggin."-"."certificado.".pathinfo($_FILES['file_2']['name'],PATHINFO_EXTENSION);
+			move_uploaded_file($_FILES['file_2']['tmp_name'], $fichero_subido.$nombreArchivo);
+				
 			$Aws = new Aws();
 			$Aws->saveGrueros($dateGrueros);
 			$Aws->saveGruas($dateGruas);
@@ -129,16 +137,22 @@ $values = $_REQUEST;
 								'TotalPresencia' => "0",
 								'TotalVehiculo' => "0",
 								'Rating' => "0");
-								
+		$UsersHoistCompany = new UsersHoistCompany();
+		$userhoistcompanydata = array('id_user' => $values['id_user'],
+										   'id_company' => $_SESSION["id_company"],
+										   'id_hoist' => $idHoist,
+										   'status' => $values['status']);
+		
+		$UsersHoistCompany->updateUsersHoistCompany($userhoistcompanydata);
 		$dateGruas = array('idGrua' => $values['id_user'],
 								'Disponible' => "NO",
 								'Latitud' => "",
 								'Longitud' => "",
 								'LastUpdate' => null,
 								'Token' => null);
-		//$Aws = new Aws();
-		//$Aws->saveGrueros($dateGrueros);
-		//$Aws->saveGruas($dateGruas);
+		$Aws = new Aws();
+		$Aws->updateGrueros($dateGrueros);
+		$Aws->updateGruas($dateGruas);
 		$Users = new Users();
 		$Users->updateUserOperator($values);		
 		executeEdit($values,message_updated);die;

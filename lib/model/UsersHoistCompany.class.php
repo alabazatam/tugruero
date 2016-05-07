@@ -128,9 +128,9 @@
 			unset($values['PHPSESSID']);
 			unset($values['action'],$values['date_created']);
 			$values['date_updated'] = new NotORM_Literal("NOW()");
-			$id = $values['id_user_hoist_company'];
+			$id = $values['id_user'];
 			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->users_hoist_company("id_user_hoist_company", $id)->update($values);
+			$q = $ConnectionORM->getConnect()->users_hoist_company("id_user", $id)->update($values);
 			return $q;
 			
 		}
@@ -138,7 +138,7 @@
 		{
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->hoist()
-			->select("hoist.id,registration_plate")
+			->select("hoist.id as id_hoist,registration_plate")
 			->join("hoist_company","inner join hoist_company on hoist_company.id_hoist = hoist.id")
 			->join("users_hoist_company","left join users_hoist_company on users_hoist_company.id_hoist = hoist.id")
              ->where("users_hoist_company.id_user_hoist_company is null");
@@ -149,12 +149,20 @@
 		}
 		function getHoistByUserWithout($values)
 		{
+			if(isset($values['id_user']))
+			{
+				$id= $values['id_user'];
+			}
+			else
+			{
+				$id=0;
+			}
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->hoist()
 			->select("hoist.id,hoist.registration_plate,users_hoist_company.id_user")
 			->join("hoist_company","inner join hoist_company on hoist_company.id_hoist = hoist.id")
 			->join("users_hoist_company","left join users_hoist_company on users_hoist_company.id_hoist = hoist.id")
-             ->where("users_hoist_company.id_user =?",$values['id_user'])
+             ->where("users_hoist_company.id_user =?",$id)
 			 ->or("users_hoist_company.id_user_hoist_company is null");
                //         ->order("$column_order $order")
 			//->limit($limit,$offset);

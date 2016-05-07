@@ -28,7 +28,7 @@
 											<div class="form-group">
 												<div class="input-group">
 													<label class="sr-only" for="first_name">Primer Nombre</label>
-													<input type="text" name="first_name" value="<?php if(isset($values['first_name'])) echo $values['first_name']?>" id="registrarse-razon-social" placeholder="Primer nombre..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
+													<input type="text" maxlength="100" name="first_name" value="<?php if(isset($values['first_name'])) echo $values['first_name']?>" id="registrarse-razon-social" placeholder="Primer nombre..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
 		oninput="setCustomValidity('')" />
 													 <span class="input-group-addon" id="basic-addon2">(*)</span>
 												</div>
@@ -37,7 +37,7 @@
 										<div class="col-sm-6">	
 										 <div class="form-group">
 											<label class="sr-only" for="second_name">Segundo nombre</label>
-				                        	<input type="text" name="second_name" value="<?php if(isset($values['second_name'])) echo $values['second_name']?>" placeholder="Segundo nombre..." class="form-twitter form-control" id="form-twitter">
+				                        	<input type="text" maxlength="100" name="second_name" value="<?php if(isset($values['second_name'])) echo $values['second_name']?>" placeholder="Segundo nombre..." class="form-twitter form-control" id="form-twitter">
 				                        </div>
 										</div>
 									</div>
@@ -46,7 +46,7 @@
 											<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="first_name">Primer apellido</label>
-												<input type="text" name="first_lastname" value="<?php if(isset($values['first_lastname'])) echo $values['first_lastname']?>" id="registrarse-razon-social" placeholder="Primer Apellido..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Apellido para poder registrarse.')" 
+												<input type="text" maxlength="100" name="first_lastname" value="<?php if(isset($values['first_lastname'])) echo $values['first_lastname']?>" id="registrarse-razon-social" placeholder="Primer Apellido..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Apellido para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
@@ -55,7 +55,7 @@
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label class="sr-only" for="second_lastname">Segundo apellido</label>
-												<input type="text" name="second_lastname" value="<?php if(isset($values['second_lastname'])) echo $values['second_lastname']?>" placeholder="Segundo apellido..." class="form-google-plus form-control" id="form-google-plus" >
+												<input type="text" maxlength="100" name="second_lastname" value="<?php if(isset($values['second_lastname'])) echo $values['second_lastname']?>" placeholder="Segundo apellido..." class="form-google-plus form-control" id="form-google-plus" >
 											</div>
 										</div>
 									</div>
@@ -120,7 +120,7 @@
 											<div class="form-group">
 												<div class="input-group">
 													<label class="sr-only" for="company_name">Nombre de empresa o firma personal</label>
-													<input type="text" value="<?php if(isset($values['company_name'])) echo $values['company_name']?>" name="company_name" id="registrarse-razon-social" placeholder="Nombre de empresa o firma personal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar el Nombre de empresa o firma personal para poder registrarse.')" 
+													<input type="text" maxlength="100" value="<?php if(isset($values['company_name'])) echo $values['company_name']?>" name="company_name" id="registrarse-razon-social" placeholder="Nombre de empresa o firma personal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar el Nombre de empresa o firma personal para poder registrarse.')" 
 		oninput="setCustomValidity('')" />
 													 <span class="input-group-addon" id="basic-addon2">(*)</span>
 												</div>
@@ -226,8 +226,8 @@
 													<div class="input-group">
 														<select  name="tipo_cuenta" class="form-control" required>
 															<option value="" selected>Seleccione si la cuenta es personal o es de la empresa indicada...</option>
-															<option value="Personal">Personal</option>
-															<option value="Empresa">Empresa</option>
+															<option value="Personal" <?php if(isset($values['tipo_cuenta']) && $values['tipo_cuenta'] == "Personal") echo "selected";?>>Personal</option>
+															<option value="Empresa" <?php if(isset($values['tipo_cuenta']) && $values['tipo_cuenta'] == "Personal") echo "selected";?>>Empresa</option>
 														</select>
 													   <span class="input-group-addon">(*)</span>
 													</div>
@@ -240,7 +240,9 @@
 														<select name="id_bank" class="form-google-plus form-control" required>
 															<option value selected>Banco...</option>												
 															 <?php foreach($values['bank'] as $bank):?>
-																<option value="<?php echo $bank["id"]?>"><?php echo $bank["name"]?></option>
+																<option value="<?php echo $bank["id"]?>" 
+																		<?php if(isset($values['id_bank']) && $values['id_bank'] == $bank["id"]) echo "selected";?>>
+																<?php echo $bank["name"]?></option>
 															<?php endforeach;?>
 														  </select> 
 														<span class="input-group-addon" id="basic-addon2">(*)</span>

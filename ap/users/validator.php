@@ -1,8 +1,19 @@
 <?php
 
-	function validaFormularioUsers($values)
+	function validaFormularioUser($values)
 	{
+		
 		$errors = array();
+		$validacion = validarCorreoElectronico($values["mail"]);
+		if(count($validacion) > 0)
+		{
+			$errors['correo'] = "El correo electrónico ingresado ya esta registrado.";
+		}
+		$validacion = validarCedula($values["document"]);
+		if(count($validacion) > 0)
+		{
+			$errors['cedula'] = "La Cédula ingresada ya esta registrada.";
+		}
 		if(count($values)>0)
 		{
 			if($values['action'] == 'add')
