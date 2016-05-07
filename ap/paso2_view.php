@@ -69,7 +69,7 @@
 													<option value="E">E</option>
 												</select>
 											  </span>
-												<input type="text" class="form-control" placeholder="Cédula..." name="cedula" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" 
+												<input type="text" maxlength="8" class="form-control" placeholder="Cédula..." name="cedula" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 											  </span>
 											  <span class="input-group-addon" id="basic-addon2">(*)</span>
@@ -139,7 +139,7 @@
 														<option value="G">G</option>
 													</select>
 												  </span>
-													<input type="text" class="form-control" placeholder="Rif de empresa o firma personal" name="rif" required oninvalid="setCustomValidity('Debe colocar el Rif de empresa o firma personal para poder registrarse.')" 
+													<input type="text" maxlength="11" class="form-control" placeholder="Rif de empresa o firma personal" name="rif" required oninvalid="setCustomValidity('Debe colocar el Rif de empresa o firma personal para poder registrarse.')" 
 		   oninput="setCustomValidity('')" />
 												   <span class="input-group-addon">(*)</span>
 												</div>
