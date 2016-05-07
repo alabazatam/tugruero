@@ -1,7 +1,7 @@
 <?php include("../view_header.php");?>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        <div class="col-sm-12 form-box">
                         	
 							<form role="form" enctype="multipart/form-data" action="registrarse.php" method="post" class="registration-form">
 								<input type="hidden" name="token" value="<?php echo $values['token'];?>">
@@ -23,19 +23,27 @@
 									<hr>
 									<div class="form-bottom">
 									<h3>Datos personales</h3>
-									<div class="form-group">
-											<div class="input-group">
-												<label class="sr-only" for="first_name">Primer Nombre</label>
-												<input type="text" name="first_name" id="registrarse-razon-social" placeholder="Primer nombre..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
-	oninput="setCustomValidity('')" />
-												 <span class="input-group-addon" id="basic-addon2">(*)</span>
-											</div>
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
+												<div class="input-group">
+													<label class="sr-only" for="first_name">Primer Nombre</label>
+													<input type="text" name="first_name" id="registrarse-razon-social" placeholder="Primer nombre..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
+		oninput="setCustomValidity('')" />
+													 <span class="input-group-addon" id="basic-addon2">(*)</span>
+												</div>
 				                        </div>
+										</div>
+										<div class="col-sm-6">	
 										 <div class="form-group">
 											<label class="sr-only" for="second_name">Segundo nombre</label>
 				                        	<input type="text" name="second_name" placeholder="Segundo nombre..." class="form-twitter form-control" id="form-twitter">
 				                        </div>
-				                        <div class="form-group">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="first_name">Primer apellido</label>
 												<input type="text" name="first_lastname" id="registrarse-razon-social" placeholder="Primer Apellido..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Apellido para poder registrarse.')" 
@@ -43,11 +51,17 @@
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 				                        </div>
-										<div class="form-group">
-				                        	<label class="sr-only" for="second_lastname">Segundo apellido</label>
-				                        	<input type="text" name="second_lastname" placeholder="Segundo apellido..." class="form-google-plus form-control" id="form-google-plus" >
-				                        </div>
-										<div class="form-group">
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label class="sr-only" for="second_lastname">Segundo apellido</label>
+												<input type="text" name="second_lastname" placeholder="Segundo apellido..." class="form-google-plus form-control" id="form-google-plus" >
+											</div>
+										</div>
+									</div>
+				                    <div class="row">
+										<div class="col-sm-6">   
+											<div class="form-group">
 											<div class="input-group">
 											  <span class="input-group-btn">
 												<select name="nationality" class="btn btn-secondary">
@@ -61,11 +75,17 @@
 											  <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 										</div>
-										<div class="form-group">
+										</div>
+										<div class="col-sm-6">  
+											<div class="form-group">
 											<label class="radio-inline"><input type="radio" value="M" name="gender" checked>Masculino</label>
 											<label class="radio-inline"><input type="radio" value="F" name="gender">Femenino</label>
 										</div>
-										<div class="form-group">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6"> 	
+											<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="phone">Número fijo/Número movil principal</label>
 												<input type="text" name="phone" id="registrarse-razon-social" placeholder="Número fijo/Número movil principal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número fijo o Número movil principal para poder registrarse.')" 
@@ -73,49 +93,72 @@
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 				                        </div>
-										<div class="form-group">
+										</div>
+										<div class="col-sm-6"> 	
+											<div class="form-group">
 												<label class="sr-only" for="phone1">Número movil secundario</label>
 												<input type="text" name="phone1" placeholder="Número movil secundario..." class="form-google-plus form-control" id="form-google-plus" >
 										 </div>
-										 <div class="form-group">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6">
+											 <div class="form-group">
 				                        	<h6 class="label label-default" for="file_1">Suba su cédula de identidad.</h6>
 				                        	<input type="file" name="file_1" placeholder="Cedula..." class="form-google-plus form-control" required>
 				                        </div>
+										</div>
+										<div class="col-sm-6"> 	
+										</div>
+									</div>
+										
+										
+										
 									<hr>
 									<h3>Datos Empresariales</h3>
-										<div class="form-group">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
 												<div class="input-group">
 													<label class="sr-only" for="company_name">Nombre de empresa o firma personal</label>
 													<input type="text" name="company_name" id="registrarse-razon-social" placeholder="Nombre de empresa o firma personal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar el Nombre de empresa o firma personal para poder registrarse.')" 
 		oninput="setCustomValidity('')" />
 													 <span class="input-group-addon" id="basic-addon2">(*)</span>
 												</div>
+											</div>
 										</div>
-									<div class="form-group">
-										<div class="input-group">
-										  <span class="input-group-btn">
-											<select name="Type_rif" class="btn btn-secondary">
-												<option value="V" selected>V</option>
-												<option value="E">E</option>
-												<option value="J">J</option>
-												<option value="P">P</option>
-												<option value="G">G</option>
-											</select>
-										  </span>
-											<input type="text" class="form-control" placeholder="Rif de empresa o firma personal" name="rif" required oninvalid="setCustomValidity('Debe colocar el Rif de empresa o firma personal para poder registrarse.')" 
-   oninput="setCustomValidity('')" />
-										   <span class="input-group-addon">(*)</span>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<div class="input-group">
+												  <span class="input-group-btn">
+													<select name="Type_rif" class="btn btn-secondary">
+														<option value="V" selected>V</option>
+														<option value="E">E</option>
+														<option value="J">J</option>
+														<option value="P">P</option>
+														<option value="G">G</option>
+													</select>
+												  </span>
+													<input type="text" class="form-control" placeholder="Rif de empresa o firma personal" name="rif" required oninvalid="setCustomValidity('Debe colocar el Rif de empresa o firma personal para poder registrarse.')" 
+		   oninput="setCustomValidity('')" />
+												   <span class="input-group-addon">(*)</span>
+												</div>
+												</div>
 										</div>
-										</div>
-										<div class="form-group">
+									</div>
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
 												<div class="input-group">
 													<label class="sr-only" for="location">Ubicación de empresa o firma personal</label>
 													<input type="text" name="location" id="registrarse-razon-social" placeholder="Ubicación de empresa o firma personal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar la Ubicación de empresa o firma personal para poder registrarse.')" 
 		oninput="setCustomValidity('')" />
 													 <span class="input-group-addon" id="basic-addon2">(*)</span>
 												</div>
+											</div>
 										</div>
-										<div class="form-group">
+										<div class="col-sm-6">
+											<div class="form-group">
 											<div class="input-group">
 												<select name="zone_work" class="form-control">
 													<option value="Distrito Capital" selected>Distrito Capital</option>
@@ -127,61 +170,87 @@
 											   <span class="input-group-addon">(*)</span>
 											</div>
 										</div>
-										<div class="form-group">
-											<label>¿Pertenece al club Grúas Venezuela?</label>
-											<label class="radio-inline"><input type="radio" value="1" name="club_gruas" checked>Si</label>
-											<label class="radio-inline"><input type="radio" value="0" name="club_gruas">No</label>
 										</div>
-										<div class="form-group">
-				                        	<label class="sr-only" for="num_socio">Indique número de socio en el Club de Grúas Venezuela</label>
-											<input type="text" name="num_socio" placeholder="Indique número de socio en el Club de Grúas Venezuela..." class="form-google-plus form-control" id="form-google-plus" >
-				                        </div>
-										<div class="form-group">
-				                        	<h6 class="label label-default" for="file_2">Suba su RIF jurídico o natural.</h6>
-											<div class="input-group">
-												<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" required>
-												<span class="input-group-addon">(*)</span>
+									</div>
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>¿Pertenece al club Grúas Venezuela?</label>
+												<label class="radio-inline"><input type="radio" value="1" name="club_gruas" checked>Si</label>
+												<label class="radio-inline"><input type="radio" value="0" name="club_gruas">No</label>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label class="sr-only" for="num_socio">Indique número de socio en el Club de Grúas Venezuela</label>
+												<input type="text" name="num_socio" placeholder="Indique número de socio en el Club de Grúas Venezuela..." class="form-google-plus form-control" id="form-google-plus" >
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
+												<h6 class="label label-default" for="file_2">Suba su RIF jurídico o natural.</h6>
+												<div class="input-group">
+													<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" required>
+													<span class="input-group-addon">(*)</span>
 											</div>
 				                        </div>
-										<div class="form-group">
-				                        	<h6 class="label label-default" for="file_3">Suba su Licencia de conducir.</h6>
-											<div class="input-group">
-												<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" required>
-												<span class="input-group-addon">(*)</span>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<h6 class="label label-default" for="file_3">Suba su Licencia de conducir.</h6>
+												<div class="input-group">
+													<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" required>
+													<span class="input-group-addon">(*)</span>
+												</div>
 											</div>
-				                        </div>
-										<div class="form-group">
-				                        	<h6 class="label label-default" for="file_4">Suba su carnet de circulación.</h6>
-											<div class="input-group">
-												<input type="file" name="file_4" placeholder="Seleccione..." class="form-google-plus form-control" required>
-												<span class="input-group-addon">(*)</span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
+												<h6 class="label label-default" for="file_4">Suba su carnet de circulación.</h6>
+												<div class="input-group">
+													<input type="file" name="file_4" placeholder="Seleccione..." class="form-google-plus form-control" required>
+													<span class="input-group-addon">(*)</span>
+												</div>
 											</div>
-				                        </div>
+										</div>
+									</div>
+										
 				                        <hr>
 										<h3>Datos bancarios</h3>
-										<div class="form-group">
-											<label>Seleccione si la cuenta es personal o es de la empresa indicada</label>
-											<div class="input-group">
-												<select  name="tipo_cuenta" class="form-control" required>
-													<option value="" selected>seleccione...</option>
-													<option value="Personal">Personal</option>
-													<option value="Empresa">Empresa</option>
-												</select>
-											   <span class="input-group-addon">(*)</span>
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="input-group">
+														<select  name="tipo_cuenta" class="form-control" required>
+															<option value="" selected>Seleccione si la cuenta es personal o es de la empresa indicada...</option>
+															<option value="Personal">Personal</option>
+															<option value="Empresa">Empresa</option>
+														</select>
+													   <span class="input-group-addon">(*)</span>
+													</div>
+												</div>
 											</div>
-				                        </div>
-										<div class="form-group">
-											<div class="input-group">
-												<label class="sr-only" for="id_bank">Banco</label>
-												<select name="id_bank" class="form-google-plus form-control" required>
-													<option value selected>Banco..</option>												
-													 <?php foreach($values['bank'] as $bank):?>
-														<option value="<?php echo $bank["id"]?>"><?php echo $bank["name"]?></option>
-													<?php endforeach;?>
-												  </select> 
-												<span class="input-group-addon" id="basic-addon2">(*)</span>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="input-group">
+														<label class="sr-only" for="id_bank">Banco</label>
+														<select name="id_bank" class="form-google-plus form-control" required>
+															<option value selected>Banco..</option>												
+															 <?php foreach($values['bank'] as $bank):?>
+																<option value="<?php echo $bank["id"]?>"><?php echo $bank["name"]?></option>
+															<?php endforeach;?>
+														  </select> 
+														<span class="input-group-addon" id="basic-addon2">(*)</span>
+													</div>
+												</div>
 											</div>
-				                        </div>
+										</div>
+										
+										
 										<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="NumCuenta">Razón social</label>
