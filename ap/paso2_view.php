@@ -69,8 +69,7 @@
 													<option value="E">E</option>
 												</select>
 											  </span>
-												<input type="text" class="form-control" value="<?php if(isset($values['cedula'])) echo $values['cedula']?>" placeholder="Cédula..." name="cedula" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" 
-	oninput="setCustomValidity('')" />
+												<input type="text" maxlength="8" class="form-control" value="<?php if(isset($values['cedula'])) echo $values['cedula']?>" placeholder="Cédula..." name="cedula" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" oninput="setCustomValidity('')" />
 											  </span>
 											  <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
@@ -88,7 +87,7 @@
 											<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="phone">Número fijo/Número movil principal</label>
-												<input type="text" name="phone" value="<?php if(isset($values['phone'])) echo $values['phone']?>" id="registrarse-razon-social" placeholder="Número fijo/Número movil principal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número fijo o Número movil principal para poder registrarse.')" 
+												<input type="text" name="phone" maxlength="11" value="<?php if(isset($values['phone'])) echo $values['phone']?>" id="registrarse-razon-social" placeholder="Número fijo/Número movil principal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número fijo o Número movil principal para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
@@ -97,7 +96,7 @@
 										<div class="col-sm-6"> 	
 											<div class="form-group">
 												<label class="sr-only" for="phone1">Número movil secundario</label>
-												<input type="text" name="phone1" value="<?php if(isset($values['phone1'])) echo $values['phone1']?>" placeholder="Número movil secundario..." class="form-google-plus form-control" id="form-google-plus" >
+												<input type="text" maxlength="11" name="phone1" value="<?php if(isset($values['phone1'])) echo $values['phone1']?>" placeholder="Número movil secundario..." class="form-google-plus form-control" id="form-google-plus" oninput="setCustomValidity('')" />
 										 </div>
 										</div>
 									</div>
@@ -139,7 +138,7 @@
 														<option value="G">G</option>
 													</select>
 												  </span>
-													<input type="text" class="form-control" placeholder="Rif de empresa o firma personal" value="<?php if(isset($values['rif'])) echo $values['rif']?>" name="rif" required oninvalid="setCustomValidity('Debe colocar el Rif de empresa o firma personal para poder registrarse.')" 
+													<input type="text" maxlength="11" class="form-control" placeholder="Rif de empresa o firma personal" value="<?php if(isset($values['rif'])) echo $values['rif']?>" name="rif" required oninvalid="setCustomValidity('Debe colocar el Rif de empresa o firma personal para poder registrarse.')" 
 		   oninput="setCustomValidity('')" />
 												   <span class="input-group-addon">(*)</span>
 												</div>
@@ -239,7 +238,7 @@
 													<div class="input-group">
 														<label class="sr-only" for="id_bank">Banco</label>
 														<select name="id_bank" class="form-google-plus form-control" required>
-															<option value selected>Banco..</option>												
+															<option value selected>Banco...</option>												
 															 <?php foreach($values['bank'] as $bank):?>
 																<option value="<?php echo $bank["id"]?>"><?php echo $bank["name"]?></option>
 															<?php endforeach;?>
@@ -254,7 +253,7 @@
 										<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="NumCuenta">Razón social</label>
-												<input type="text" name="NumCuenta" value="<?php if(isset($values['NumCuenta'])) echo $values['NumCuenta']?>" id="registrarse-razon-social" placeholder="Número de cuenta..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número De Cuenta para poder registrarse.')" 
+												<input type="text" maxlength="20" name="NumCuenta" value="<?php if(isset($values['NumCuenta'])) echo $values['NumCuenta']?>" id="registrarse-razon-social" placeholder="Número de cuenta..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número De Cuenta para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
