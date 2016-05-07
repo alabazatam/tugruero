@@ -239,7 +239,7 @@
 													<div class="input-group">
 														<label class="sr-only" for="id_bank">Banco</label>
 														<select name="id_bank" class="form-google-plus form-control" required>
-															<option value selected>Banco..</option>												
+															<option value selected>Banco...</option>												
 															 <?php foreach($values['bank'] as $bank):?>
 																<option value="<?php echo $bank["id"]?>"><?php echo $bank["name"]?></option>
 															<?php endforeach;?>
@@ -254,7 +254,7 @@
 										<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="NumCuenta">Razón social</label>
-												<input type="text" name="NumCuenta" id="registrarse-razon-social" placeholder="Número de cuenta..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número De Cuenta para poder registrarse.')" 
+												<input type="text" maxlength="20" name="NumCuenta" id="registrarse-razon-social" placeholder="Número de cuenta..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número De Cuenta para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
