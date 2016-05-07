@@ -152,11 +152,12 @@ $values = trimValues($_REQUEST);;
 	}
 	function executePaso2($values = null)
 	{
+		$values['bank'] = getBankList();
 		require('paso2_view.php');
 	}
 	function executeValidaFormulario2($values = null)
 	{
-		$errors = validaFormulario2($values,$_FILES);
+		$errors = validaFormularioPaso2($values,$_FILES);
 		$valido = true;
 		if(count($errors)>0)
 		{
@@ -179,7 +180,7 @@ $values = trimValues($_REQUEST);;
 					foreach ($DatosEmpresa as $id => $value) 
 					{
 						$idCompanyValidation=$value["id"];
-						$RegistrarEmpresa = array("rif" => $value["rif"],
+						$RegistrarEmpresa = array("rif" => $values["rif"],
 						"razon_social"=>$value["razon_social"],
 						"responsible_name"=>$values["first_name"]." ".$values["first_lastname"],
 						"id_bank" =>$values["id_bank"],
@@ -206,7 +207,7 @@ $values = trimValues($_REQUEST);;
 						"date_updated" => date("Y-m-d H:i:s"));
 					$user = addUser($userData);
 					$idUser = $user["id"];
-					$empresaRegistrada = array('rif' => $value['rif']
+					$empresaRegistrada = array('rif' => $values['rif']
 												,'razon_social' => $value['razon_social']
 												,'status' => 1
 												,'validate' => 0,"id"=>$idCompanyValidation);
@@ -290,6 +291,7 @@ $values = trimValues($_REQUEST);;
 		}
 		else
 		{
+			$values['bank'] = getBankList();
 			$values['errors'] = $errors;
 			executePaso2($values);
 			

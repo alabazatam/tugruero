@@ -16,6 +16,23 @@
 			->where("rif=?",$rif);
 			return $q;
  }
+  function validarCedula($cedula)
+ {
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect('tugruero')->users_data
+			->select("*")
+			->where("document=?",$cedula);
+			return $q;
+ }
+   function validarRifCompany($rif)
+ {
+	   $ConnectionORM = new ConnectionORM();
+		$q = $ConnectionORM->getConnect('tugruero')->company
+		->select("*")
+		->where("rif=?",$rif);
+		
+		return $q;
+ }
  function insertCompanyValidation($rif,$correo,$razonSocial)
  {
 	 $values = array('rif' => $rif,'razon_social' => $razonSocial);

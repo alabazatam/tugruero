@@ -42,18 +42,28 @@
 		
 		return $errors;
 	}
-	function validaFormulario2($values,$archivos)
+	function validaFormularioPaso2($values,$archivos)
 	{
 		$errors = array();
 		if(count($values)>0)
 		{
+			$registro = validarRifCompany($values['Type_rif'].'-'.$values['rif']);
+			if(count($registro)>0)
+			{
+				$errors['rif'] = "Ya existe una empresa con el RIF suministrado.";
+			}
+			$registro = validarCedula($values['cedula']);
+			if(count($registro)>0)
+			{
+				$errors['cedula'] = "Ya existe una persona con la cedula suministrada.";
+			}
 			foreach($values as $campos)
 			if(!isset($campos['second_name']) == null && !isset($campos['second_lastname']) == null)
 			{
 			
 				if(empty($campos))
 					{
-						$errors['campos vacios']="Todos los campos deben ser llenados.";
+						$errors['campos vacios']="Todos los campos con (*) son requeridos.";
 					}
 			}
 		}
