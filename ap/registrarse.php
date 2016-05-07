@@ -90,8 +90,13 @@ $values = trimValues($_REQUEST);;
 			$rif=$values["Type_rif"]."-".$values["rif"];
 			$correo = $values["correo"];
 			$razonSocial = $values["razonSocial"];
-			insertCompanyValidation($rif,$correo,$razonSocial);
 			$registro = validarRifRazonSocial($rif);
+			if(!count($registro)>0)
+			{
+				insertCompanyValidation($rif,$correo,$razonSocial);	
+				$registro = validarRifRazonSocial($rif);
+			}
+			
 			if(count($registro)>0)
 			{
 
@@ -99,6 +104,7 @@ $values = trimValues($_REQUEST);;
 				{
 					if(stristr($valor['razon_social'], $razonSocial) === FALSE)
 					{
+						
 						$values['errors']['razonSocialError']="La Razón Social o Nombre ingresado no es válido, por favor asegúrese de ingresar los datos correctos.";
 						executePaso1($values);
 						break;
@@ -135,8 +141,9 @@ $values = trimValues($_REQUEST);;
 					break;
 				}
 			}
-			else
+			else 
 			{
+				
 				$values['errors']['EmpresaNoExiste'] = "El RIF ingresado no es válido, por favor asegúrese de ingresa el RIF correcto.";
 				executePaso1($values);
 			}
@@ -216,6 +223,35 @@ $values = trimValues($_REQUEST);;
 										"nationality" => $values["nationality"]);
 					addUserData($Datauser);
 					updateCompanyValidation($empresaRegistrada);
+					
+					$dateGrueros = array('idGrua' => $idUser,
+								'Nombre' => $values['first_name'].' '.$values['second_name'],
+								'Apellido' => $values["first_lastname"].' '.$values['second_lastname'],
+								'Placa' => 'AAA000',
+								'Modelo' => 'Gancho',
+								'Color' =>'Blanca',
+								'Celular' => $values['phone'],
+								'Cedula' => $values['nationality'].'-'.$values["cedula"],
+								'Clave' => $password,
+								'Condicion' => "Activo",
+								'NumServicios' => "0",
+								'TotalTrato' => "0",
+								'TotalPresencia' => "0",
+								'TotalVehiculo' => "0",
+								'Rating' => "0");
+					
+					$dateGruas = array('idGrua' => $idUser,
+								'Disponible' => "NO",
+								'Latitud' => "",
+								'Longitud' => "",
+								'LastUpdate' => null,
+								'Token' => null);
+					
+					$Aws = new Aws();
+					$Aws->saveGrueros($dateGrueros);
+					$Aws->saveGruas($dateGruas);
+					$dataGruas = array();
+					
 					$carpeta = "../web/files";
 					$fichero_subido = $carpeta."/";
 					$cantidad = count($_FILES);
@@ -292,7 +328,7 @@ $values = trimValues($_REQUEST);;
 			$mail = $values["mail"];
 			$user = validateForgottenPassword($document,$nationality,$InitialFirstName,$InitialFirstLastName,$mail);
 			
-			if(empty($valor))
+			if(empty($user))
 			{
 				$values = null;
 				$values["errors"]["datosIncorrectos"] = "Sus datos no coinciden";

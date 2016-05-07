@@ -3,6 +3,12 @@
 	function validaFormularioPaso1($values)
 	{
 		$errors = array();
+		$validacion = validarCorreoElectronico($values["correo"]);
+		if(count($validacion) > 0)
+		{
+			$errors['correo'] = "El correo electrónico ingresado ya esta registrado.";
+		}
+		
 		if(count($values)>0)
 		{
 			foreach($values as $campos)

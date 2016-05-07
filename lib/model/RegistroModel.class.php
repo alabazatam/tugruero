@@ -1,5 +1,13 @@
 <?php
-
+ 
+ function validarCorreoElectronico($correo)
+ {
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect('tugruero')->users
+			->select("*")
+			->where("mail=?",$correo);
+			return $q;
+ }	
  function validarRifRazonSocial($rif)
  {
 			$ConnectionORM = new ConnectionORM();
@@ -164,6 +172,7 @@ function validateForgottenPassword($document,$nationality,$InitialFirstName,$Ini
 //		->and('users_data.document=?', $document)
 //		->and('users_data.nationality=?', $nationality)
 //		->and('status=?',1);
+		
 		return $q;
 
 }
