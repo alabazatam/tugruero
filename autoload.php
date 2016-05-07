@@ -47,7 +47,7 @@ define("image_url",full_url."/web/images/");
  * 
  * 
  * */
- define('mail_from',"noreply@frbcomputersgroup.com.ve");
+ define('mail_from',"noreply@tugruero.com.ve");
  define('message_updated',"Registro actualizado satisfactoriamente");
  define('message_created',"Registro creado satisfactoriamente");
 
@@ -77,6 +77,8 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsersCompany.class
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsersHoistCompany.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ServicesOperator.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ServicesMasters.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ServicesAdministrators.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsersData.class.php");
 
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Aws.class.php");
 

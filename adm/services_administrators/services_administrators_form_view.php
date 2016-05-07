@@ -1,13 +1,14 @@
 <?php include('../../view_header_app.php')?>
-<?php include('../menu.php')?> 
-<div class="container">
+<?php include('../menu.php')?>
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 	<h1 class="text-center"><label class="label label-default">Servicios</label></h1>
 	<form class="form-horizontal" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<div class="form-group" style="display:none;">
-		<label for="">Id.Usuario</label>
+		<label for="">Id.grua</label>
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="idGrua" value="<?php if(isset($values['idgrua'])) echo $values['idgrua']?>">
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="idSolicitud" value="<?php if(isset($values['idsolicitud'])) echo $values['idsolicitud']?>">
+		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_company" value="<?php if(isset($values['id_company'])) echo $values['id_company']?>">
 		</div>
 		
 	<div class="form-group">
@@ -56,8 +57,7 @@
 			<?php echo $values['puntual'];?><br>
 		</div>
 	</div>
-		<a class="btn btn-default"  href="<?php echo full_url."/ap/services_operator/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
-		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
+		<a class="btn btn-default"  href="<?php echo full_url."/adm/services_administrators/index.php?id_company=".$values['id_company']?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 
 	</form>
 	

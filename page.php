@@ -83,13 +83,13 @@
 							<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>
 							<p><h3 class="text-center white-font big-font">¡La  solución perfecta para el auxilio vial!</h3></p>
 							<p><h3 class="text-center white-font">Más de 2000 grúas al alcance de un click</h3></p>
-							<br><br>
+							<!--<br><br>-->
 								<p align="center">
                                     
-									<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank" onclick="window.location.href = '<?php echo full_url."/ap/index.php"?>';">
+									<!--<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank" onclick="window.location.href = '<?php echo full_url."/ap/index.php"?>';">
 										<img src="<?php echo full_url?>/web/img/ic_acceso2.png" class="img-responsive">
 										
-									</a>
+									</a>-->
                                     
                                 </p>
 								<p align="center">
@@ -102,6 +102,7 @@
                                     <a class="btn text-center black-font" href="#">
 										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="" class="img-responsive">
                                     </a>
+									<br><small ><b class="white-font">¡Muy pronto disponibles!</b></small>
                                 </p>
 
 						</div>
@@ -255,7 +256,7 @@
 				</div>					
 			</div>
 	</section>
-	<section class="success5 nav-close" id="video">
+	<!--<section class="success5 nav-close" id="video">
 	<div class="row" >
 		<div class="container">
 			<div class="">
@@ -263,7 +264,7 @@
 			</div>
 		</div>
 	</div>
-	</section>
+	</section>-->
 	<section id="testimonials" class="success"> 
 		<h2 class="text-center white-font big_title">Testimonios</h2>
 		<div class="container">

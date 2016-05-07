@@ -126,7 +126,7 @@ $values = trimValues($_REQUEST);;
 						$url = full_url."/ap/registrarse.php?token=".$token;
 						$message = "<a href='$url'>Ingrese aquí</a>";
 						$Mail = new Mail();
-						$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
+						$Mail->send(array($correo), array(mail_from),"Asunto",$message);
 						$values = null;
 						$values['message']['tokenSend'] = "¡Muy bien! Te hemos enviado al email que nos indicaste un link de acceso a nuestra plataforma. Chequea tu Bandeja de Entrada o la bandeja de <u>Spam</u>, dale click y sigue con el Registro.";
 						
@@ -183,6 +183,7 @@ $values = trimValues($_REQUEST);;
 						"num_socio" =>$values["num_socio"],
 						"company_name" =>$values["company_name"],
 						"num_cuenta" => $values["NumCuenta"],
+						"status" => 0,
 						"responsible_cedula"=>$values["nationality"]."-".$values["cedula"]);
 						break;
 					}
@@ -237,7 +238,7 @@ $values = trimValues($_REQUEST);;
 					addUserPerms($UserPerms);
 					$message = "Usuario: ".$userData["login"]." Clave: ".$password;
 					$Mail = new Mail();
-					$Mail->send(array($correo), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
+					$Mail->send(array($correo), array(mail_from),"Asunto",$message);
 					$values = null;
 					$values['message'] = "Su usuario ha sido creado satisfactoriamente, se ha enviado un correo electrónico con los datos.</ br> Recuerde que debe esperar la aprobación del administrador.";
 					$values["action"] = "login";
@@ -316,7 +317,7 @@ $values = trimValues($_REQUEST);;
 		updateUser($values);
 		$message = "Clave: ".$password;
 		$Mail = new Mail();
-		$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
+		$Mail->send(array($mail), array(mail_from),"Asunto",$message);
 		$values = null;
 		$values['message'] = "Se ha enviado la clave a su correo electrónico.";
 		$values["action"] = "login";

@@ -6,6 +6,7 @@
 			<thead>
 				<tr>
 					<th>Id.Grúa</th>
+					<th>Empresa/Compañia</th>
 					<th>Nombres operador</th>
 					<th>Apellidos operador</th>
 					<th>Inicio</th>
@@ -19,6 +20,7 @@
 			<tfoot>
 				<tr>
 					<th>Id.Grúa</th>
+					<th>Empresa/Compañia</th>
 					<th>Nombres operador</th>
 					<th>Apellidos operador</th>
 					<th>Inicio</th>
@@ -39,12 +41,13 @@ $(document).ready(function() {
         "scrollX": true,
         "processing": true,
         "serverSide": true,
-        "ajax": "<?php echo full_url."/ap/services_masters/index.php?action=services_masters_list_json"?>",
+        "ajax": "<?php echo full_url."/adm/services_administrators/index.php?action=services_administrators_list_json&id_company=".$values['id_company']?>",
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
         },
         "columns": [
             { "data": "idGrua" },
+			{ "data": "razon_social" },
 			{ "data": "Nombre" },
 			{ "data": "Apellido" },
             { "data": "TimeInicio" },
@@ -55,7 +58,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 8] }
+          { 'bSortable': false, 'aTargets': [ 9 ]}
        ]				
     });
 } );

@@ -27,6 +27,8 @@ $values = $_REQUEST;
 	}
 						
 	function executeIndex($values = null){
+	
+	unset($_SESSION['id_perms'],$_SESSION['id_user'],$_SESSION['id_company']);
 	require('login.php');
 	}
 	function executeBienvenida($values = null){
@@ -34,6 +36,8 @@ $values = $_REQUEST;
 	require('bienvenida.php');
 	}
 	function executeAcceso($values = null){
+		
+		
 		$securimage = new Securimage();
 		$captcha = $values['ct_captcha'];
 		if ($securimage->check($captcha) == false) {
