@@ -183,12 +183,9 @@ function validateForgottenPassword($document,$nationality,$InitialFirstName,$Ini
 		$q = $ConnectionORM->getConnect('tugruero')->users
 		->select("users.id_user,users.mail")
 		->join("users_data","inner join users_data on users_data.id_users = users.id_user")
-		->where($where);
-//		->and('UPPER(LEFT(users_data.first_name,1))=?',$InitialFirstName)
-//		->and('UPPER(LEFT(users_data.first_last_name,1))=?',$InitialFirstLastName)
-//		->and('users_data.document=?', $document)
-//		->and('users_data.nationality=?', $nationality)
-//		->and('status=?',1);
+		->where($where)
+		->and("UPPER(LEFT(users.login,1)) =?","M");
+		
 		
 		return $q;
 

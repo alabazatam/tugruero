@@ -311,7 +311,6 @@ $values = trimValues($_REQUEST);;
 				$values['errors']['captcha'] = "Imagen incorrecta";
 				executeForgottenYourPassword($values);die;
 		}*/
-		
 		$errors = validaForgottenPassword($values);
 		$valido = true;
 		if(count($errors)>0)
@@ -322,14 +321,12 @@ $values = trimValues($_REQUEST);;
 		}
 		else
 		{
-			
 			$document = $values['document'];
 			$nationality = $values['nationality'];
 			$InitialFirstName = $values["InitialFirstName"];
 			$InitialFirstLastName = $values["InitialFirstLastName"];
 			$mail = $values["mail"];
 			$user = validateForgottenPassword($document,$nationality,$InitialFirstName,$InitialFirstLastName,$mail);
-			
 			if(empty($user))
 			{
 				$values = null;
@@ -338,7 +335,6 @@ $values = trimValues($_REQUEST);;
 			}
 			foreach($user as $id=> $valor)
 			{
-				
 					$idUser = $valor["id_user"];
 					
 					$mail = $valor["mail"];
