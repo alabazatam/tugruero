@@ -59,6 +59,10 @@ $values = $_REQUEST;
 			$Users = new Users();
 			$loggin = 'O-'.$values['nationality'].$values['document'];
 			$values['login'] = $loggin;
+			$DocumentFile = $loggin."-"."cedula.".pathinfo($_FILES['file_1']['name'],PATHINFO_EXTENSION);
+			$CertificadoDocument = $loggin."-"."certificado.".pathinfo($_FILES['file_2']['name'],PATHINFO_EXTENSION);
+			$values['certificado_file'] = $CertificadoDocument;
+			$values['document_file'] = $DocumentFile;
 			$values = $Users->saveUserOperator($values);
 			$idHoist= array ("id" => $values['id_hoist']);
 			$hoist = new Hoist();
@@ -96,11 +100,11 @@ $values = $_REQUEST;
 								'Token' => null);
 			$carpeta = "/var/www/html/tugruero/web/files/operators";
 			$fichero_subido = $carpeta."/";
-			$nombreArchivo = $loggin."-"."cedula.".pathinfo($_FILES['file_1']['name'],PATHINFO_EXTENSION);
-			move_uploaded_file($_FILES['file_1']['tmp_name'], $fichero_subido.$nombreArchivo);
 			
-			$nombreArchivo = $loggin."-"."certificado.".pathinfo($_FILES['file_2']['name'],PATHINFO_EXTENSION);
-			move_uploaded_file($_FILES['file_2']['tmp_name'], $fichero_subido.$nombreArchivo);
+			move_uploaded_file($_FILES['file_1']['tmp_name'], $fichero_subido.$DocumentFile);
+			
+			
+			move_uploaded_file($_FILES['file_2']['tmp_name'], $fichero_subido.$CertificadoDocument);
 				
 			$Aws = new Aws();
 			$Aws->saveGrueros($dateGrueros);

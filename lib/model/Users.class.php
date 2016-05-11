@@ -252,7 +252,9 @@
 							  "nationality"=>$values["nationality"],
 							  "document"=>$values["document"],
 							  "phone"=>$values["phone"],
-							  "id_users" => $values['id_user']);
+							  "id_users" => $values['id_user'],
+							  "certificado_file" => $values['certificado_file'],
+							  "document_file" => $values['document_file']);
 			$userData['date_created'] = date("Y-m-d H:i:s");
 			$userData['date_updated'] = date("Y-m-d H:i:s");
 			
