@@ -98,7 +98,7 @@ $values = $_REQUEST;
 								'Longitud' => "",
 								'LastUpdate' => null,
 								'Token' => null);
-			$carpeta = "/var/www/html/tugruero/web/files/operators";
+			$carpeta = "../../web/files/operators";
 			$fichero_subido = $carpeta."/";
 			
 			move_uploaded_file($_FILES['file_1']['tmp_name'], $fichero_subido.$DocumentFile);

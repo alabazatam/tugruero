@@ -38,7 +38,7 @@
 		<div class="col-sm-6">
 		<label for="">Primer nombre</label>	
 			<div class="input-group">
-				<input type="text" class="form-control input-sm" id="" placeholder="" name="first_name" required maxlength="50" value="<?php if(isset($values['first_name'])) echo $values['first_name']?>">
+				<input type="text" autocomplete="off" class="form-control input-sm" id="" placeholder="" name="first_name" required maxlength="50" value="<?php if(isset($values['first_name'])) echo $values['first_name']?>">
 			<span class="input-group-addon" id="basic-addon2">(*)</span>
 			</div>
 		</div>
@@ -54,14 +54,14 @@
 		<div class="col-sm-6">
 		<label for="">Primer apellido</label>	
 			<div class="input-group">
-				<input type="text" class="form-control input-sm" id="" placeholder="" name="first_last_name" maxlength="50" required  value="<?php if(isset($values['first_last_name'])) echo $values['first_last_name']?>">
+				<input type="text" autocomplete="off" class="form-control input-sm" id="" placeholder="" name="first_last_name" maxlength="50" required  value="<?php if(isset($values['first_last_name'])) echo $values['first_last_name']?>">
 			<span class="input-group-addon" id="basic-addon2">(*)</span>
 			</div>
 		</div>
 		<div class="col-sm-6">
 		<label for="">Segundo apellido</label>	
 			<div class="input-group">
-				<input type="text" class="form-control input-sm" id="" placeholder="" name="second_last_name"  maxlength="50"  value="<?php if(isset($values['second_last_name'])) echo $values['second_last_name']?>">
+				<input type="text" autocomplete="off" class="form-control input-sm" id="" placeholder="" name="second_last_name"  maxlength="50"  value="<?php if(isset($values['second_last_name'])) echo $values['second_last_name']?>">
 			</div>
 		</div>
 	</div>
@@ -69,14 +69,14 @@
 		<div class="col-sm-6">
 		<label for="">Celular principal</label>	
 			<div class="input-group">
-				<input type="text" class="form-control input-sm" id="" placeholder="" name="phone" maxlength="11" required  value="<?php if(isset($values['phone'])) echo $values['phone']?>">
+				<input type="text" autocomplete="off" class="form-control input-sm" id="" placeholder="" name="phone" maxlength="11" required  value="<?php if(isset($values['phone'])) echo $values['phone']?>">
 			<span class="input-group-addon" id="basic-addon2">(*)</span>
 			</div>
 		</div>
 		<div class="col-sm-6">
 		<label for="">Celular alternativo</label>	
 			<div class="input-group">
-				<input type="text" class="form-control input-sm" id="" placeholder="" name="phone1"  maxlength="11" value="<?php if(isset($values['phone1'])) echo $values['phone1']?>">
+				<input type="text" autocomplete="off" class="form-control input-sm" id="" placeholder="" name="phone1"  maxlength="11" value="<?php if(isset($values['phone1'])) echo $values['phone1']?>">
 			
 			</div>
 		</div>

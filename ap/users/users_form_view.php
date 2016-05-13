@@ -38,7 +38,7 @@
 	  <div class="form-group">
 		  <label for="">Primer Nombre</label>
 			<div class="input-group">
-				<input type="text" name="first_name" id="registrarse-razon-social"  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
+				<input type="text" autocomplete="off" name="first_name" id="registrarse-razon-social"  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
 oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) echo $values['first_name']?>"/>
 				 <span class="input-group-addon" id="basic-addon2">(*)</span>
 			</div>
@@ -80,7 +80,7 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 						<option value="E">E</option>
 						</select>
 						</span>
-						<input type="text" class="form-control" name="document" value="<?php if(isset($values['document'])) echo $values['document']?>" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" 
+						<input type="text" autocomplete="off" class="form-control" name="document" value="<?php if(isset($values['document'])) echo $values['document']?>" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" 
 						oninput="setCustomValidity('')" />
 						</span>
 						<span class="input-group-addon" id="basic-addon2">(*)</span>
@@ -99,7 +99,7 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 				<div class="form-group">
 					<label for="">Correo Electrónico</label>
 					<div class="input-group">
-					<input type="text" name="mail" id="first_last_name"  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Correo Electrónico para poder registrarse.')" 
+					<input type="text" autocomplete="off" name="mail" id="first_last_name"  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Correo Electrónico para poder registrarse.')" 
 					oninput="setCustomValidity('')" value="<?php if(isset($values['mail'])) echo $values['mail']?>"/>
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
 					</div>
@@ -109,7 +109,7 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 				<div class="form-group">
 					<label for="">Teléfono</label>
 					<div class="input-group">
-					<input type="text" name="phone" id=""  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Teléfono para poder registrarse.')" 
+						<input type="text" autocomplete="off" maxlength="11" name="phone" id=""  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Teléfono para poder registrarse.')" 
 					oninput="setCustomValidity('')" value="<?php if(isset($values['phone'])) echo $values['phone']?>"/>
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
 					</div>
@@ -128,7 +128,7 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 				 <div class="form-group">
 					 <label for="">Password</label>
 					 <div class="input-group">
-						<input autocomplete="off" type="password" id="" class="form-control input-sm" name="password" value="" 
+						 <input autocomplete="off" maxlength="8" type="password" id="" class="form-control input-sm" name="password" value="" 
 							   required="" oninvalid="setCustomValidity('Debe colocar la Clave para poder continuar.')" 
 							   oninput="setCustomValidity('')"
 						/>

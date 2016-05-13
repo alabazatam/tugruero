@@ -12,10 +12,10 @@ if($development_env == true)
 }
 
 define("main_folder",$project_folder);//Project name and directory name//prueba 2
-define("title","tugruero.com");
+define("title","TU/GRUERO®");
 define("Author","Marcos De Andrade");
-define("Company","tugruero.com");
-define("version","V1.0");
+define("Company","TU/GRUERO®");
+define("version","");
 define("development_by","frbcomputersgroup");
 define("upload_temp_dir",$_SERVER["DOCUMENT_ROOT"]."/".main_folder."/web/uploads/temp");
 define("upload_dir",$_SERVER["DOCUMENT_ROOT"]."/".main_folder."/web/uploads/documentos");

@@ -8,21 +8,21 @@
 	  <div class="form-group">
 			<label for="">Clave actual</label>									
 			<div class="input-group">
-				<input type="password" class="form-control input-sm" id="" placeholder="" name="password" required>
+				<input type="password" maxlength="8" class="form-control input-sm" id="" placeholder="" name="password" required>
 				<span class="input-group-addon" id="basic-addon2">(*)</span>
 			</div>											
 	  </div>
 	  <div class="form-group">
-			<label for="">Clave nueva</label>									
+			<label for="">Clave nueva (Mínimo 6 dígitos)</label>									
 			<div class="input-group">
-				<input type="password" class="form-control input-sm" id="" placeholder="" name="new_password" required>
+				<input type="password" maxlength="8" class="form-control input-sm" id="" placeholder="" name="new_password" required>
 				<span class="input-group-addon" id="basic-addon2">(*)</span>
 			</div>											
 	  </div>
 	  <div class="form-group">
-			<label for="">Repetir clave nueva</label>									
+			<label for="">Repetir clave nueva (Mínimo 6 dígitos)</label>									
 			<div class="input-group">
-				<input type="password" class="form-control input-sm" id="" placeholder="" name="retype_password" required>
+				<input type="password" maxlength="8" class="form-control input-sm" id="" placeholder="" name="retype_password" required>
 				<span class="input-group-addon" id="basic-addon2">(*)</span>
 			</div>											
 	  </div>

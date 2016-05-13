@@ -57,6 +57,8 @@ $values = $_REQUEST;
 				$_SESSION['id_company'] = $q["users_company"]["id_company"];
 				$_SESSION['id_perms'] = $q["users_perms"]["id_perms"];
 				$_SESSION['id_user'] = $q["users"]["id_user"];
+				$_SESSION['login'] = $q["users"]["login"];
+				$_SESSION['name'] = ucwords(strtolower($q["users_data"]["first_name"]))." ".ucwords(strtolower($q["users_data"]["first_last_name"]));
 				require('bienvenida.php');	
 			}
 			else 

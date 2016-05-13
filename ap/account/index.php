@@ -35,6 +35,15 @@ $values = $_REQUEST;
 		
 		
 		$Users = new Users();
+		if(strlen($values['new_password'])<6){
+			$values['error'] = "La clave nueva debe contener 8 dígitos";
+			require('change_pass_view.php');die;
+		}
+		
+		if(strlen($values['retype_password'])<6){
+			$values['error'] = "La clave nueva debe contener 8 dígitos";
+			require('change_pass_view.php');die;
+		}
 		
 		if($values['new_password'] != $values['retype_password'])
 		{

@@ -2,7 +2,7 @@
 <?php include("menu.php");?>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="page-header">
-        <h1>Bienvenido(a) <strong>Usuario </strong><small> a <?php echo title;?> <?php echo version;?></small></h1>
+        <h1>Bienvenido(a) <strong><?php echo $_SESSION['name'];?> </strong><small> a <?php echo title;?> <?php echo version;?></small></h1>
     </div>
 </div>
 <div class="col-sm-8 col-sm-offset-2">
