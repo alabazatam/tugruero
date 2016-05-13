@@ -110,5 +110,19 @@
 			return $q;
 			
 		}
+		public function getMasterByIdCompany($id_company){
+						
+			$ConnectionORM= new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users_data
+			->select("*")
+			->join("users","INNER JOIN users on users.id_user = users_data.id_users")
+			->join("users_company","INNER JOIN users_company on users_company.id_user = users_data.id_users")
+			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users_data.id_users")
+			->where("users_company.id_company=?",$id_company)
+			->and('users_perms.id_perms=?',3)
+			->fetch();
+			
+			return $q;
+			}
 	}
 	

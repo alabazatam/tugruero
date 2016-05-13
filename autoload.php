@@ -47,7 +47,7 @@ define("image_url",full_url."/web/images/");
  * 
  * 
  * */
- define('mail_from',"noreply@tugruero.com.ve");
+ define('mail_from',"tugruero@tugruero.com");
  define('message_updated',"Registro actualizado satisfactoriamente");
  define('message_created',"Registro creado satisfactoriamente");
 
@@ -58,6 +58,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ConnectionAws.class.php"
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/vendors/swiftmailer/lib/swift_required.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ValidateBase.class.php");
 require($_SERVER["DOCUMENT_ROOT"]."/".main_folder.'/lib/vendors/securimage/securimage.php');
+
 //include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Panels.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/SecurityBase.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/clean.php");
@@ -65,6 +66,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/RegistroModel.clas
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Menu.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/CarousselDetails.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/Mail.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/MessagesUtilities.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Users.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Login.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Hoist.class.php");

@@ -72,6 +72,8 @@ $values = $_REQUEST;
 		if($values['status']==1)
 		{
 			$Users->activeUserMasterCompany($values['id']);
+			$Mail = new Mail();
+			$Mail ->mail3($values);
 		}elseif($values['status']==0)
 		{
 			$Users->inactiveUserMasterCompany($values['id']);

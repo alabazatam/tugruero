@@ -131,8 +131,10 @@ $values = trimValues($_REQUEST);;
 						$idCreado = $tokenCreate["id"];
 						$url = full_url."/ap/registrarse.php?token=".$token;
 						$message = "<a href='$url'>Ingrese aquí</a>";
+						$values['url'] = $url;
+						$values['email'] = $correo;
 						$Mail = new Mail();
-						$Mail->send(array($correo), array(mail_from),"Asunto",$message);
+						$Mail ->mail1($values);
 						$values = null;
 						$values['message']['tokenSend'] = "¡Muy bien! Te hemos enviado al email que nos indicaste un link de acceso a nuestra plataforma. Chequea tu Bandeja de Entrada o la bandeja de <u>Spam</u>, dale click y sigue con el Registro.";
 						
@@ -197,6 +199,7 @@ $values = trimValues($_REQUEST);;
 					}
 					$q = addCompany($RegistrarEmpresa);
 					$idCompany = $q["id"];
+					$values['id'] = $q["id"];
 					$password = substr( md5(microtime()), 1, 8);
 					
 					$userData = array("login" => "M-".$values["nationality"].$values["cedula"],
@@ -274,8 +277,11 @@ $values = trimValues($_REQUEST);;
 					$UserPerms = array("id_user"=>$idUser,"id_perms" => 3,"status"=>0);
 					addUserPerms($UserPerms);
 					$message = "Usuario: ".$userData["login"]." Clave: ".$password;
+					$values['password'] = $password;
+					$values['login'] = $userData["login"];
 					$Mail = new Mail();
-					$Mail->send(array($correo), array(mail_from),"Asunto",$message);
+					$Mail ->mail2($values);
+					//$Mail->send(array($correo), array(mail_from),"Asunto",$message);
 					$values = null;
 					$values['message'] = "Su usuario ha sido creado satisfactoriamente, se ha enviado un correo electrónico con los datos.</ br> Recuerde que debe esperar la aprobación del administrador.";
 					$values["action"] = "login";
@@ -304,13 +310,13 @@ $values = trimValues($_REQUEST);;
 	}
 	function executeValideForgottenYourPassword($values = null)
 	{
-		/*$securimage = new Securimage();
+		$securimage = new Securimage();
 		$captcha = $values['ct_captcha'];
 		if ($securimage->check($captcha) == false) {
 		  $errors['captcha_error'] = 'Incorrect security code entered<br />';
 				$values['errors']['captcha'] = "Imagen incorrecta";
 				executeForgottenYourPassword($values);die;
-		}*/
+		}
 		$errors = validaForgottenPassword($values);
 		$valido = true;
 		if(count($errors)>0)
@@ -321,26 +327,31 @@ $values = trimValues($_REQUEST);;
 		}
 		else
 		{
+
 			$document = $values['document'];
 			$nationality = $values['nationality'];
 			$InitialFirstName = $values["InitialFirstName"];
 			$InitialFirstLastName = $values["InitialFirstLastName"];
 			$mail = $values["mail"];
 			$user = validateForgottenPassword($document,$nationality,$InitialFirstName,$InitialFirstLastName,$mail);
-			if(empty($user))
+			if(empty($user) or count($user)==0)
 			{
+				
 				$values = null;
 				$values["errors"]["datosIncorrectos"] = "Sus datos no coinciden";
 				executeForgottenYourPassword($values);die;
 			}
-			foreach($user as $id=> $valor)
-			{
-					$idUser = $valor["id_user"];
-					
-					$mail = $valor["mail"];
-					forwardPassword($idUser,$mail);
-					echo $idUser;
-			}
+			if(count($user)> 0):
+				foreach($user as $id=> $valor)
+				{
+
+						$idUser = $valor["id_user"];
+
+						$mail = $valor["mail"];
+						forwardPassword($idUser,$mail);
+						echo $idUser;
+				}
+			endif;			
 		}	
 	}
 	function forwardPassword($idUser,$mail)
@@ -349,8 +360,11 @@ $values = trimValues($_REQUEST);;
 		$values = array("id_user" => $idUser,"password" => hash('sha256', $password));
 		updateUser($values);
 		$message = "Clave: ".$password;
+		$values['password'] = $password;
+		$values['id_users'] = $values['id_user'];
 		$Mail = new Mail();
-		$Mail->send(array($mail), array(mail_from),"Asunto",$message);
+		$Mail ->mail4($values);
+		//$Mail->send(array($mail), array(mail_from),"Asunto",$message);
 		$values = null;
 		$values['message'] = "Se ha enviado la clave a su correo electrónico.";
 		$values["action"] = "login";

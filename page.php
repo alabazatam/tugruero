@@ -429,7 +429,7 @@
                 <div class="row">
                     <div class="footer-col col-md-4">
                         <h3 class="white-font">Dirección</h3>
-                        <p class="white-font">Av. Principal Los Dos Caminos. Edificio Provincial. Piso 8. Oficina 8 “B”. Municipio Sucre. Caracas. Venezuela. Código Postal: 1071.</p>
+                        <p class="white-font">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Oficina 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
 						<p class="white-font">tugruero@gmail.com</p>
 						<p class="white-font">info@tugruero.com</p>						
 						<p class="white-font">02122357207 / 02122391093</p>

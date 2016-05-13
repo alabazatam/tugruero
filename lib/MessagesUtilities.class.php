@@ -1,7 +1,7 @@
 <?php
 
 
-	class Messages{
+	class MessagesUtilities{
 		
 		public function loginRequired(){
 			
@@ -19,4 +19,5 @@
 			
 		}			
 		
+
 	}

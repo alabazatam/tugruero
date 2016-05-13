@@ -24,7 +24,7 @@
 												<option value="E">E</option>
 											</select>
 										  </span>
-										  <input type="text" class="form-control" placeholder="Cedula..." name="document" required oninvalid="setCustomValidity('Debe colocar su Cédula para poder recuperar contraseña.')" 
+											<input type="text" autocomplete="off" class="form-control" placeholder="Cedula..." name="document" required oninvalid="setCustomValidity('Debe colocar su Cédula para poder recuperar contraseña.')" 
 	oninput="setCustomValidity('')" /></input>
 										  <span class="input-group-addon" id="basic-addon2">(*)</span>
 										</div>
@@ -32,7 +32,7 @@
 				                        <div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="mail">Correo Electrónico</label>
-												<input type="text" name="mail" id="registrarse-razon-social" placeholder="Correo Electrónico..." class="form-last-name form-control" id="form-last-name" required oninvalid="setCustomValidity('Debe colocar su Correo Electrónico para poder recuperar contraseña.')" 
+												<input type="text" autocomplete="off" name="mail" id="registrarse-razon-social" placeholder="Correo Electrónico..." class="form-last-name form-control" id="form-last-name" required oninvalid="setCustomValidity('Debe colocar su Correo Electrónico para poder recuperar contraseña.')" 
 		oninput="setCustomValidity('')" /></input>
 												<span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
@@ -40,7 +40,7 @@
 										<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="InitialFirstName">Inical del primer nombre</label>
-												<input type="text" name="InitialFirstName" id="registrarse-IniciarNombre" placeholder="Inicial del primer nombre..." class="form-last-name form-control" id="form-last-name" maxlength="1" required oninvalid="setCustomValidity('Debe colocar su Inicial del Primer Nombre para poder recuperar contraseña.')" 
+												<input type="text" autocomplete="off" name="InitialFirstName" id="registrarse-IniciarNombre" placeholder="Inicial del primer nombre..." class="form-last-name form-control" id="form-last-name" maxlength="1" required oninvalid="setCustomValidity('Debe colocar su Inicial del Primer Nombre para poder recuperar contraseña.')" 
 		oninput="setCustomValidity('')" /></input>
 												<span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
@@ -48,7 +48,7 @@
 										<div class="form-group">
 											<div class="input-group">
 												<label class="sr-only" for="InitialFirstLastName">Inical del primer apellido</label>
-												<input type="text" name="InitialFirstLastName" id="registrarse-InicialNombre" placeholder="Inicial del primer apellido..." class="form-last-name form-control" id="form-last-name"maxlength="1" required oninvalid="setCustomValidity('Debe colocar su Inicial del Primer Apellido para poder recuperar contraseña.')" 
+												<input type="text" autocomplete="off" name="InitialFirstLastName" id="registrarse-InicialNombre" placeholder="Inicial del primer apellido..." class="form-last-name form-control" id="form-last-name"maxlength="1" required oninvalid="setCustomValidity('Debe colocar su Inicial del Primer Apellido para poder recuperar contraseña.')" 
 		oninput="setCustomValidity('')" /></input>
 												<span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>

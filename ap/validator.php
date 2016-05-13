@@ -8,7 +8,7 @@
 		{
 			$errors['correo'] = "El correo electrónico ingresado ya esta registrado.";
 		}
-		$validacion = validarCedula($values["cedula"]);
+		$validacion = validarCedula(@$values["cedula"]);
 		if(count($validacion) > 0)
 		{
 			$errors['correo'] = "El correo electrónico ingresado ya esta registrado.";

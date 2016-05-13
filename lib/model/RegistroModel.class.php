@@ -185,6 +185,7 @@ function validateForgottenPassword($document,$nationality,$InitialFirstName,$Ini
 		->join("users_data","inner join users_data on users_data.id_users = users.id_user")
 		->where($where)
 		->and("UPPER(LEFT(users.login,1)) =?","M");
+
 		
 		
 		return $q;
