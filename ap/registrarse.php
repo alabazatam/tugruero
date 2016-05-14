@@ -274,7 +274,7 @@ $values = trimValues($_REQUEST);;
 						}
 						$i++;
 					}
-					$UserPerms = array("id_user"=>$idUser,"id_perms" => 3,"status"=>0);
+					$UserPerms = array("id_user"=>$idUser,"id_perms" => 3,"status"=>0);;
 					addUserPerms($UserPerms);
 					$message = "Usuario: ".$userData["login"]." Clave: ".$password;
 					$values['password'] = $password;
