@@ -682,7 +682,7 @@
 
     <script src="web/js/jquery.js"></script>
     <script src="web/js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="web/js/jquery.easing.min.js"></script>
     <script src="web/js/classie.js"></script>
     <!--<script src="web/js/cbpAnimatedHeader.js"></script>-->
     <script src="web/js/jqBootstrapValidation.js"></script>

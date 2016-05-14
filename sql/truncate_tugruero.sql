@@ -3,6 +3,8 @@ TRUNCATE users_company;
 TRUNCATE users_data;
 TRUNCATE users_perms;
 TRUNCATE users_hoist_company;
+TRUNCATE hoist_company;
+TRUNCATE hoist;
 TRUNCATE users_token;
 TRUNCATE users;
 TRUNCATE company_files;
