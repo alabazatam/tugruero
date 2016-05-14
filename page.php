@@ -11,9 +11,9 @@
     <link href="web/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
     <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300|Roboto:400,300,500,700">
+     <!--<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">-->
+     <!--<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">-->
+     <!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300|Roboto:400,300,500,700">-->
     <!-- <link rel="stylesheet" href="http://cssa.cssawards123.netdna-cdn.com/wp-content/themes/cssawds/assets/css/cssawds.min.css"> -->
     <link rel="stylesheet" href="web/css/menu.css">  
 	<link rel="stylesheet" href="web/css/hover.css">  
@@ -257,15 +257,16 @@
 				</div>					
 			</div>
 	</section>
-	<!--<section class="success5 nav-close" id="video">
+	<section class="success5 nav-close" id="video">
 	<div class="row" >
 		<div class="container">
 			<div class="">
-				<iframe class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" height="400" src="https://www.youtube-nocookie.com/embed/Lw_e0vF1IB4" frameborder="0" allowfullscreen></iframe>
+				<!--<iframe class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" height="400" src="https://youtu.be/AMTAQ-AJS4Y" frameborder="0" allowfullscreen></iframe>-->
+				<iframe class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" width="640" height="360" src="https://www.youtube.com/embed/AMTAQ-AJS4Y" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>
-	</section>-->
+	</section>
 	<section id="testimonials" class="success"> 
 		<h2 class="text-center white-font big_title">Testimonios</h2>
 		<div class="container">

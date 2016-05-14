@@ -4,7 +4,7 @@
         
         function getMenu($id_app = null, $id_page,$id_menu_ref = 0)
         {
-			if(isset($_SESSION['id_perms'])) {
+			if(isset($_SESSION['id_perms']) and $id_app == null ) {
 				
 				$id_perms = $_SESSION['id_perms'];
 					switch ($id_perms) {
