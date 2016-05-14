@@ -122,7 +122,7 @@ CREATE TABLE `company` (
 /*Data for the table `company` */
 
 insert  into `company`(`id`,`responsible_name`,`responsible_cedula`,`num_cuenta`,`rif`,`id_bank`,`razon_social`,`status`,`date_created`,`date_updated`,`company_name`,`tipo_cuenta`,`location`,`zone_work`,`club_gruas`,`num_socio`) values 
-(1,'Marcos DE ANDRADE','V-18020594','01340000000000000000','18020594-9',1,'marcos',1,'2016-05-13 20:28:21','2016-05-13 14:00:49','GRUAS MARCOS DE ANDRADE CA','Personal','CARACAS','Distrito Capital','1','');
+(1,'MARCOS DE ANDRADE','V-18020594','01340000000000000000','18020594-9',1,'marcos',1,'2016-05-14 03:14:41','2016-05-13 20:46:47','EMPRESA DE GRUAS','Empresa','CARACAS','Distrito Capital','1','');
 
 /*Table structure for table `company_files` */
 
@@ -142,10 +142,10 @@ CREATE TABLE `company_files` (
 /*Data for the table `company_files` */
 
 insert  into `company_files`(`id`,`name_file`,`validate`,`status`,`id_company`,`date_created`,`date_updated`) values 
-(1,'18020594-9-1.jpg',1,1,1,'2016-05-13 20:28:23','2016-05-13 14:00:49'),
-(2,'18020594-9-2.jpg',1,1,1,'2016-05-13 20:28:23','2016-05-13 14:00:49'),
-(3,'18020594-9-3.jpg',1,1,1,'2016-05-13 20:28:23','2016-05-13 14:00:49'),
-(4,'18020594-9-4.jpg',1,1,1,'2016-05-13 20:28:23','2016-05-13 14:00:49');
+(1,'18020594-9-1.jpg',1,1,1,'2016-05-14 03:14:43','2016-05-13 20:46:47'),
+(2,'18020594-9-2.jpg',1,1,1,'2016-05-14 03:14:43','2016-05-13 20:46:47'),
+(3,'18020594-9-3.jpg',1,1,1,'2016-05-14 03:14:44','2016-05-13 20:46:47'),
+(4,'18020594-9-4.jpg',1,1,1,'2016-05-14 03:14:44','2016-05-13 20:46:47');
 
 /*Table structure for table `company_validation_ve` */
 
@@ -287,13 +287,9 @@ CREATE TABLE `hoist` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `hoist` */
-
-insert  into `hoist`(`id`,`type_hoist`,`engine_serial`,`body_serial`,`registration_plate`,`year_vehicle`,`color`,`make`,`model`,`status`,`date_created`,`date_updated`) values 
-(1,'Gancho','11111111111','0000000000000','ac137sk1','2006','blanco','ford','f350',1,'2016-05-05 22:23:35','2016-05-06 13:56:09'),
-(2,'Plataforma','00000000000','0000000000000','000000','2006','00000000000','ford','ka',1,'2016-05-06 10:13:35','2016-05-06 10:13:35');
 
 /*Table structure for table `hoist_company` */
 
@@ -304,13 +300,9 @@ CREATE TABLE `hoist_company` (
   `id_hoist` int(11) NOT NULL,
   `id_company` int(11) NOT NULL,
   PRIMARY KEY (`id_hoist_company`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `hoist_company` */
-
-insert  into `hoist_company`(`id_hoist_company`,`id_hoist`,`id_company`) values 
-(1,1,4),
-(2,2,4);
 
 /*Table structure for table `menu` */
 
@@ -572,14 +564,12 @@ CREATE TABLE `users` (
   `mail` varchar(45) NOT NULL,
   `mail_alternative` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id_user`,`login`,`password`,`status`,`date_created`,`date_updated`,`mail`,`mail_alternative`) values 
-(1,'M-V18020594','18bfddf1020067bbd33fad652bc8f1a59b2427ff8c7ebfd62bbfef6c2dddff49',1,'2016-05-13 20:28:21','2016-05-13 22:28:29','deandrademarcos@gmail.com','deandrademarcos@gmail.com'),
-(2,'O-V18020595','18bfddf1020067bbd33fad652bc8f1a59b2427ff8c7ebfd62bbfef6c2dddff49',1,'2016-05-13 20:53:12','2016-05-13 20:53:12','deandrademarcos@gmail1.com',NULL),
-(3,'O-V19122015','18bfddf1020067bbd33fad652bc8f1a59b2427ff8c7ebfd62bbfef6c2dddff49',1,'2016-05-13 20:56:34','2016-05-13 20:56:34','DEAN@H.COM',NULL);
+(1,'M-V18020594','3af5ec3b70b4b2d0550c9ea1421ed3f1b6fbe7b76b8e066a140d2d6bf828b2a7',1,'2016-05-14 03:14:41','2016-05-13 20:46:47','deandrademarcos@gmail.com','deandrademarcos@gmail.com');
 
 /*Table structure for table `users_company` */
 
@@ -593,14 +583,12 @@ CREATE TABLE `users_company` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users_company` */
 
 insert  into `users_company`(`id`,`id_user`,`id_company`,`status`,`date_created`,`date_updated`) values 
-(1,1,1,1,'2016-05-13 20:28:21','2016-05-13 14:00:49'),
-(2,2,1,0,'0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(3,3,1,0,'0000-00-00 00:00:00','0000-00-00 00:00:00');
+(1,1,1,1,'2016-05-14 03:14:41','2016-05-13 20:46:47');
 
 /*Table structure for table `users_data` */
 
@@ -625,14 +613,12 @@ CREATE TABLE `users_data` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users_data` */
 
 insert  into `users_data`(`id`,`id_users`,`first_name`,`second_name`,`first_last_name`,`second_last_name`,`nationality`,`document`,`birthdate`,`gender`,`phone`,`phone1`,`image`,`certificado_file`,`document_file`,`date_created`,`date_updated`) values 
-(1,1,'Marcos','ARLINDO','DE ANDRADE','CARRERAsss','V','18020594',NULL,'M','04268141850','04268141850','M-V18020594.jpg','','','2016-05-13 20:28:21','2016-05-13 14:28:25'),
-(2,2,'marcos','arlndo','De andrade','carrera','V','18020595',NULL,'M','04268141850','','O-V18020595.jpg','O-V18020595-certificado.jpg','O-V18020595-cedula.jpg','2016-05-13 20:53:12','2016-05-13 16:14:19'),
-(3,3,'MMMMMM','MMMMMM','MMMMMMM','MMMMMMMMMM','V','19122015',NULL,'M','123456789100000000000',NULL,'','O-V19122015-certificado.jpg','O-V19122015-cedula.jpg','2016-05-13 20:56:34','2016-05-13 20:56:34');
+(1,1,'MARCOS','ARLINDO','DE ANDRADE','CARRERA','V','18020594',NULL,'M','04268141850',NULL,'','','','2016-05-14 03:14:41','2016-05-14 03:14:41');
 
 /*Table structure for table `users_hoist_company` */
 
@@ -647,13 +633,9 @@ CREATE TABLE `users_hoist_company` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id_user_hoist_company`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `users_hoist_company` */
-
-insert  into `users_hoist_company`(`id_user_hoist_company`,`id_user`,`id_company`,`id_hoist`,`status`,`date_created`,`date_updated`) values 
-(1,2,1,1,1,'2016-05-13 14:23:13','2016-05-13 14:23:13'),
-(2,3,1,2,1,'2016-05-13 14:26:35','2016-05-13 14:26:35');
 
 /*Table structure for table `users_perms` */
 
@@ -671,9 +653,7 @@ CREATE TABLE `users_perms` (
 /*Data for the table `users_perms` */
 
 insert  into `users_perms`(`id_user`,`id_perms`,`status`,`date_created`,`date_updated`) values 
-(1,3,1,'2016-05-13 20:28:23','2016-05-13 14:00:49'),
-(2,4,0,NULL,NULL),
-(3,4,0,NULL,NULL);
+(1,3,1,'2016-05-14 03:14:44','2016-05-13 20:46:47');
 
 /*Table structure for table `users_token` */
 
@@ -690,12 +670,13 @@ CREATE TABLE `users_token` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users_token` */
 
 insert  into `users_token`(`id`,`id_company_validation`,`token`,`time_expire`,`validate`,`mail`,`mail_alternative`,`date_created`,`date_updated`) values 
-(1,1,'bWFyY29zVi0xODAyMDU5NC05ZGVhbmRyYWRlbWFyY29zQGdtYWlsLmNvbTEzLTA1LTE2IDA4OjIzOjI3','2016-05-13 21:23:27',1,'deandrademarcos@gmail.com','deandrademarcos@gmail.com','0000-00-00 00:00:00','0000-00-00 00:00:00');
+(1,1,'bWFyY29zVi0xODAyMDU5NC05ZGVhbmRyYWRlbWFyY29zQGdtYWlsLmNvbTE0LTA1LTE2IDAxOjQzOjM4','2016-05-14 02:43:38',0,'deandrademarcos@gmail.com','deandrademarcos@gmail.com','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(2,1,'TWFyY29zVi0xODAyMDU5NC05ZGVhbmRyYWRlbWFyY29zQGdtYWlsLmNvbTE0LTA1LTE2IDAzOjEyOjE1','2016-05-14 04:12:15',1,'deandrademarcos@gmail.com','deandrademarcos@gmail.com','0000-00-00 00:00:00','0000-00-00 00:00:00');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

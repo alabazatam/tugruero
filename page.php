@@ -21,30 +21,7 @@
         <title>TU/GRUERO®</title>
 </head>
 <body id="page-top" class="index" class="">
-     <!--<nav class="navbar navbar-default visible-sm visible-xs">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                
-                <a class="navbar-brand text" href="#page-top"><img class="img-responsive" src="web/img/logo_blanco.png" alt="" width="100"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                        <?php foreach($items as $item):?>
-                            <li class="">
-                                <a href="<?php echo $item['url'];?>"><?php echo $item['name'];?></a>
-                            </li>
-                        <?php endforeach;?>
-                </ul>
-            </div>
-        </div>
-    </nav> -->   
-    <!-- Navigation -->
+
 	<nav class="">
 		
 	  <ul class="list-unstyled main-menu">
@@ -59,11 +36,8 @@
  
 	<div class="navbar navbar-default navbar-fixed-top clear-padding">      
 
-		<!--Include your brand here-->
 		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">
 			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="web/img/logo_blanco.png" alt="" width="220"></a>
-			
-
 		</div>
 		
 		<div class="navbar-header pull-right">
@@ -261,8 +235,8 @@
 	<div class="row" >
 		<div class="container">
 			<div class="">
-				<!--<iframe class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" height="400" src="https://youtu.be/AMTAQ-AJS4Y" frameborder="0" allowfullscreen></iframe>-->
-				<iframe class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" width="640" height="360" src="https://www.youtube.com/embed/AMTAQ-AJS4Y" frameborder="0" allowfullscreen></iframe>
+				
+				<iframe class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" width="640" height="360" src="<?php echo full_url?>/web/videos/TUGRUERO_VIDEOPUBLICITARIO.mp4" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>
@@ -379,8 +353,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    
                     <form name="sentMessage" id="contactForm" novalidate>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -472,12 +445,6 @@
         </div>
     </footer>
 
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <!--<div class="scroll-top page-scroll">
-        <a class="btn btn-default" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-    </div>-->
 
     <!-- Modals -->
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
