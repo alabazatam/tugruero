@@ -32,8 +32,7 @@ $values = $_REQUEST;
 		
 	}
 	function executeChangePass($values){
-		
-		
+
 		$Users = new Users();
 		if(strlen($values['new_password'])<6){
 			$values['error'] = "La clave nueva debe contener 8 dígitos";
@@ -57,7 +56,10 @@ $values = $_REQUEST;
 			if($valid == true)
 			{
 				$Users->changePassword($values);
-				$values['msg'] = message_updated;	
+				$values['msg'] = message_updated;
+				$Grúas = new Aws();
+				$dateGrueros = array("idGrua" => $values['id_user'],"Clave" => $values['new_password']);
+				$Grúas->updateGrueros($dateGrueros);
 
 			}else
 			{
