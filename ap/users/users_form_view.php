@@ -19,6 +19,7 @@
 						if((isset($values['id_hoist']) && $values['id_hoist'] == $operador['id_hoist']) || !Empty($operador['id_user']))
 						{
 							echo '<option value="'.$operador["id"].'">'.$operador['registration_plate'].'</option>';
+							echo '<option value="">Seleccione..</option>';
 						}
 						else
 						{
@@ -26,6 +27,7 @@
 							echo '<option value="">Seleccione..</option>';
 						}
 					}
+					echo '<option value="">Seleccione..</option>';
 					?>
 					</select>
 					<span class="input-group-addon" id="basic-addon2">(*)</span>

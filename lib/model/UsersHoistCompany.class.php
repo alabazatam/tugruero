@@ -163,10 +163,10 @@
 			->join("hoist_company","inner join hoist_company on hoist_company.id_hoist = hoist.id")
 			->join("users_hoist_company","left join users_hoist_company on users_hoist_company.id_hoist = hoist.id")
              ->where("users_hoist_company.id_user =?",$id)
-			 ->or("users_hoist_company.id_user_hoist_company is null");
+			 ->or("users_hoist_company.id_user_hoist_company is null")
+			 ->and("users_hoist_company.id_company =?",$_SESSION["id_company"]);
                //         ->order("$column_order $order")
 			//->limit($limit,$offset);
-                       // echo $q;
 			return $q; 			
 		}
 		

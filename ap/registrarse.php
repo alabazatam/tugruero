@@ -228,7 +228,7 @@ $values = trimValues($_REQUEST);;
 					addUserData($Datauser);
 					updateCompanyValidation($empresaRegistrada);
 					
-					$dateGrueros = array('idGrua' => $idUser,
+					/*$dateGrueros = array('idGrua' => $idUser,
 								'Nombre' => $values['first_name'].' '.$values['second_name'],
 								'Apellido' => $values["first_lastname"].' '.$values['second_lastname'],
 								'Placa' => 'AAA000',
@@ -253,7 +253,7 @@ $values = trimValues($_REQUEST);;
 					
 					$Aws = new Aws();
 					$Aws->saveGrueros($dateGrueros);
-					$Aws->saveGruas($dateGruas);
+					$Aws->saveGruas($dateGruas);*/
 					$dataGruas = array();
 					
 					$carpeta = "../web/files";

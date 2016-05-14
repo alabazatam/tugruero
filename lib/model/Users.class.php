@@ -208,7 +208,7 @@
 			->order("$column_order $order")
 			->where("$where")
 			->and("users_company.id_company =?",$values["company"])
-			->and("users_perms.id_perms =?",4)
+			//->and("users_perms.id_perms =?",4)
 			->limit($limit,$offset);
 			return $q; 			
 		}
@@ -227,7 +227,7 @@
 			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")
 			->where("$where")
 			->and("users_company.id_company =?",$values["company"])
-			->and("users_perms.id_perms =?",4)
+			//->and("users_perms.id_perms =?",4)
 			->fetch();
 			return $q['cuenta']; 			
 		}
@@ -262,10 +262,15 @@
 							   "id_perms" => 4);
 			$userCompany = array("id_company" => $_SESSION["id_company"],
 								 "id_user" => $values['id_user']);
+			
+			$usershoistcompany = array("id_company" => $_SESSION["id_company"],
+										"id_user" => $values['id_user'],
+										 "id_hosit" => $values['id_hoist']);
+			
 			$q = $ConnectionORM->getConnect()->users_data()->insert($userData);
 			$q = $ConnectionORM->getConnect()->users_perms()->insert($userPerms);
 			$q = $ConnectionORM->getConnect()->users_company()->insert($userCompany);
-			
+			$q = $ConnectionORM->getConnect()->users_hoist_company()->insert($usershoistcompany);
 			return $values;	
 			
 		}
