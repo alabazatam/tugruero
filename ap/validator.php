@@ -75,10 +75,10 @@
 		$i = 1;
 		while($i < $cantidad+1)
 		{
-			if (($_FILES['file_'.$i]['size'])>1000000)
+			if (($_FILES['file_'.$i]['size'])>5000000)
 			{
 
-				$errors['Tamano de archivo']= "Los archivos no pueden pesar mas de 10 Megabyte";
+				$errors['Tamano de archivo']= "Los archivos no pueden pesar mas de 50 Megabyte";
 				
 			}
 			if(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "jpg" && pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "png" 

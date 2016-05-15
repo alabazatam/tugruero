@@ -372,14 +372,14 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label class="white-font">Correo Electrónico</label>
-                                <input type="email" class="form-control input-sm" placeholder="Correo electrónico" id="email" required data-validation-required-message="Por favor indique su Dirección de correo.">
+                                <input type="email" class="form-control input-sm" placeholder="Correo electrónico" id="email" required data-validation-required-message="Por favor indique su Correo Electrónico.">
                                 <p class="white-font"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label class="white-font">Número de Contacto</label>
-                                <input type="tel" class="form-control" placeholder="Número de Contacto" id="phone" required data-validation-required-message="Por favor indique su Número de teléfono.">
+                                <input type="tel" class="form-control" placeholder="Número de Contacto" id="phone" required data-validation-required-message="Por favor indique su Número de Contacto.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
