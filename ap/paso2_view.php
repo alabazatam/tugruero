@@ -2,11 +2,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 form-box">
-                        	
 							<form role="form" enctype="multipart/form-data" action="registrarse.php" method="post" class="registration-form">
-								<input type="hidden" name="token" value="<?php echo $values['token'];?>">
+								<input type="text" name="token" value="<?php echo $values['token'];?>">
 			                    <fieldset>
-									<input type="hidden" name="action" id="formulario" value="validaFormulario2">
+									<input type="text" name="action" id="formulario" value="validaFormulario2">
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Paso 2 / 2</h3>
@@ -104,7 +103,7 @@
 										<div class="col-sm-6">
 											 <div class="form-group">
 				                        	<h6 class="label label-default" for="file_1">Suba su cédula de identidad.</h6>
-				                        	<input type="file" name="file_1" placeholder="Cedula..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required>
+				                        	<input type="file" name="file_1" placeholder="Cedula..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required />
 				                        </div>
 										</div>
 										<div class="col-sm-6"> 	
@@ -191,7 +190,7 @@
 											<div class="form-group">
 												<h6 class="label label-default" for="file_2">Suba su RIF jurídico o natural.</h6>
 												<div class="input-group">
-													<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required>
+													<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required />
 													<span class="input-group-addon">(*)</span>
 											</div>
 				                        </div>
@@ -200,7 +199,7 @@
 											<div class="form-group">
 												<h6 class="label label-default" for="file_3">Suba su Licencia de conducir.</h6>
 												<div class="input-group">
-													<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg"  required>
+													<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required />
 													<span class="input-group-addon">(*)</span>
 												</div>
 											</div>
@@ -211,7 +210,7 @@
 											<div class="form-group">
 												<h6 class="label label-default" for="file_4">Suba su carnet de circulación.</h6>
 												<div class="input-group">
-													<input type="file" name="file_4" placeholder="Seleccione..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required>
+													<input type="file" name="file_4" placeholder="Seleccione..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required />
 													<span class="input-group-addon">(*)</span>
 												</div>
 											</div>

@@ -9,7 +9,6 @@ if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
 	
-
 $values = trimValues($_REQUEST);;
 	switch ($action) {
 		case "index":
@@ -167,18 +166,26 @@ $values = trimValues($_REQUEST);;
 		}
 		if($valido)
 		{
+			
 			$data = validarToken($values['token']);	
+			
 			if(count($data)>0)
 			{
-
+				
 				foreach($data as $valor)
 				{
+					
+					
 					$idEmpresa = $valor['id_company_validation'];
 					$idToken = $valor['id'];
 					$correo = $valor['mail'];
 					$correoAlternativo = $valor['mail_alternative'];
+					
 					utilizarToken($values['token']);
+					
+					
 					$DatosEmpresa = GetCompanyValidation($idEmpresa);
+					
 					foreach ($DatosEmpresa as $id => $value) 
 					{
 						$idCompanyValidation=$value["id"];
@@ -197,6 +204,7 @@ $values = trimValues($_REQUEST);;
 						"responsible_cedula"=>$values["nationality"]."-".$values["cedula"]);
 						break;
 					}
+					
 					$q = addCompany($RegistrarEmpresa);
 					$idCompany = $q["id"];
 					$values['id'] = $q["id"];
@@ -210,6 +218,7 @@ $values = trimValues($_REQUEST);;
 						"date_updated" => date("Y-m-d H:i:s"));
 					$user = addUser($userData);
 					$idUser = $user["id"];
+					
 					$empresaRegistrada = array('rif' => $values['rif']
 												,'razon_social' => $value['razon_social']
 												,'status' => 1
@@ -255,7 +264,7 @@ $values = trimValues($_REQUEST);;
 					$Aws->saveGrueros($dateGrueros);
 					$Aws->saveGruas($dateGruas);
 					$dataGruas = array();
-					
+			
 					$carpeta = "../web/files";
 					$fichero_subido = $carpeta."/";
 					$cantidad = count($_FILES);
@@ -290,6 +299,7 @@ $values = trimValues($_REQUEST);;
 			}
 			else
 			{
+				
 				$values = null;
 				$values['errors']['token'] = 'Token invalido';
 				executePaso1($values);

@@ -54,9 +54,8 @@
 			$q = $ConnectionORM->getConnect('tugruero')->users_token
 			->select("*")
 			->where("token=?",$token)
-			->and("validate = 0")
+			->and("validate=?",0)
 			->and("time_expire >=?",date("Y-m-d H:i:s"));
-			
 			return $q;
  }
  function utilizarToken($token)
@@ -69,6 +68,7 @@
  }
 function GetCompanyValidation($idCompanyValidation)
  {
+	
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')
 			->company_validation_ve
