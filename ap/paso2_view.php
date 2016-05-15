@@ -103,7 +103,7 @@
 										<div class="col-sm-6">
 											 <div class="form-group">
 				                        	<h6 class="label label-default" for="file_1">Suba su cédula de identidad.</h6>
-				                        	<input type="file" name="file_1" placeholder="Cedula..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required />
+				                        	<input type="file" name="file_1" placeholder="Cedula..." class="form-google-plus form-control" required />
 				                        </div>
 										</div>
 										<div class="col-sm-6"> 	
@@ -190,7 +190,7 @@
 											<div class="form-group">
 												<h6 class="label label-default" for="file_2">Suba su RIF jurídico o natural.</h6>
 												<div class="input-group">
-													<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required />
+													<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" required />
 													<span class="input-group-addon">(*)</span>
 											</div>
 				                        </div>
@@ -199,7 +199,7 @@
 											<div class="form-group">
 												<h6 class="label label-default" for="file_3">Suba su Licencia de conducir.</h6>
 												<div class="input-group">
-													<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required />
+													<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" required />
 													<span class="input-group-addon">(*)</span>
 												</div>
 											</div>
@@ -210,7 +210,7 @@
 											<div class="form-group">
 												<h6 class="label label-default" for="file_4">Suba su carnet de circulación.</h6>
 												<div class="input-group">
-													<input type="file" name="file_4" placeholder="Seleccione..." class="form-google-plus form-control" accept="image/x-png, image/gif, image/jpeg" required />
+													<input type="file" name="file_4" placeholder="Seleccione..." class="form-google-plus form-control" required />
 													<span class="input-group-addon">(*)</span>
 												</div>
 											</div>
