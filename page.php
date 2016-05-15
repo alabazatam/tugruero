@@ -104,13 +104,16 @@
 									</a>
                             </p>
 								<p align="center">
-									<small ><b class="white-font">¡Descarga la aplicación!</b></small>
+									<br><br>
+									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
+									<br>
                                     <a class="btn text-center black-font" href="#">
-										<img src="<?php echo full_url?>/web/img/google_button.png">
+										<img src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="" class="img-responsive">
                                     </a>
                                     <a class="btn text-center black-font" href="#">
-										<img src="<?php echo full_url?>/web/img/apple_button.png">
+										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="" class="img-responsive">
                                     </a>
+									<br><small ><b class="white-font">¡Muy pronto disponibles!</b></small>
                                 </p>
 						</div>
 			</div>	
