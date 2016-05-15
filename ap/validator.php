@@ -81,8 +81,8 @@
 				$errors['Tamano de archivo']= "Los archivos no pueden pesar mas de 30 Megabytes";
 				
 			}
-			if(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "jpg" && pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "png" 
-					&& pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "jpeg" 	&& pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "pdf" ) 
+			if(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "JPG" && pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "jpg"  && pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "PNG" && pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "png" 
+					&& pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "jpeg" && pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "JPEG"	&& pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "pdf" && pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "PDF" ) 
 			{
 				$errors['tipoArchivo']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
 			}
