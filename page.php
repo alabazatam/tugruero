@@ -189,17 +189,6 @@
     </section>
 	<section class="success3 nav-close" id="about">		
 			<div class="row">
-				<div class="col-md-3 col-lg-3 portfolio-item">
-						<div class="thumbnail">
-						<a class="portfolio-link" role="button" data-toggle="modal" href="#portfolioModal1" aria-expanded="false" aria-controls="portfolioModal1">
-						  <img src="<?php echo full_url;?>/web/img/ic7_big.png" class="icon_media">
-						</a>
-							<div class="caption">
-							
-								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Qué hacemos?</b></small></p>
-							</div>
-						</div>
-				</div>
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 						<a class="" role="button" data-toggle="modal" href="#portfolioModal2" aria-expanded="false" aria-controls="portfolioModal2">
@@ -212,6 +201,18 @@
 							</div>
 						</div>
 				</div>
+				<div class="col-md-3 col-lg-3 portfolio-item">
+						<div class="thumbnail">
+						<a class="portfolio-link" role="button" data-toggle="modal" href="#portfolioModal1" aria-expanded="false" aria-controls="portfolioModal1">
+						  <img src="<?php echo full_url;?>/web/img/ic7_big.png" class="icon_media">
+						</a>
+							<div class="caption">
+							
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Qué hacemos?</b></small></p>
+							</div>
+						</div>
+				</div>
+
 				<div class="col-md-3 col-lg-3">
 						<div class="thumbnail">
 						<a class="" role="button" data-toggle="modal" href="#portfolioModal3" aria-expanded="false" aria-controls="portfolioModal3">
@@ -276,7 +277,7 @@
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
 							<h3 class="white-font extra_bold">Carlos Germani<small class="white-font extra_bold">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
-                            <p class="text-justify white-font extra_bold font-inclinado"><i class="fa fa-quote-left "></i> Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO® es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor <i class="fa fa-quote-right"></i></p>
+                            <p class="text-justify white-font extra_bold font-inclinado"><i class="fa fa-quote-left "></i> Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO<label class="white-font" style="vertical-align: 6px; font-size: 12px;">®</label> es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor <i class="fa fa-quote-right"></i></p>
 						  
 						</div>
 					  </div>
@@ -291,7 +292,7 @@
 						</div>
 						<div class="col-sm-9 col-lg-8 col-md-8">
 							<h3 class="white-font extra_bold">Juan Panto <small class="white-font extra_bold">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
-							<p class="text-justify white-font extra_bold font-inclinado"><i class="fa fa-quote-left "></i> Con TU/GRUERO® me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena <i class="fa fa-quote-right"></i></p>
+							<p class="text-justify white-font extra_bold font-inclinado"><i class="fa fa-quote-left "></i> Con TU/GRUERO<label class="white-font" style="vertical-align: 6px; font-size: 12px;">®</label> me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena <i class="fa fa-quote-right"></i></p>
 						 
 						</div>
 					  </div>
@@ -311,7 +312,7 @@
 	<section class="success5 nav-close" id="use">
 	<div class="row" >
 		<div class="container">
-			<h2 class="text-center white-font big_title">Usa <b class="white-font big_title">TU/GRUERO®</b></h2>
+			<h2 class="text-center white-font big_title">Usa <b class="white-font big_title">TU/GRUERO</b><small class="white-font" style="vertical-align: 14px;">®<small></h2>
 			<br>
  				<div class="col-md-4 col-lg-4">
 						<div class="thumbnail">
@@ -370,15 +371,15 @@
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label class="white-font">Dirección de correo</label>
-                                <input type="email" class="form-control input-sm" placeholder="Dirección de correo" id="email" required data-validation-required-message="Por favor indique su Dirección de correo.">
+                                <label class="white-font">Correo Electrónico</label>
+                                <input type="email" class="form-control input-sm" placeholder="Correo electrónico" id="email" required data-validation-required-message="Por favor indique su Dirección de correo.">
                                 <p class="white-font"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label class="white-font">Número de Teléfono</label>
-                                <input type="tel" class="form-control" placeholder="Número de Teléfono" id="phone" required data-validation-required-message="Por favor indique su Número de teléfono.">
+                                <label class="white-font">Número de Contacto</label>
+                                <input type="tel" class="form-control" placeholder="Número de Contacto" id="phone" required data-validation-required-message="Por favor indique su Número de teléfono.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -412,7 +413,7 @@
                         <p class="white-font">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
 						<p class="white-font">tugruero@gmail.com</p>
 						<p class="white-font">info@tugruero.com</p>						
-						<p class="white-font">02122357207 / 02122391093</p>
+						<p class="white-font">0212-227-5273 / 0212-419-0105</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3 class="white-font">Redes sociales</h3>
@@ -501,7 +502,7 @@
                                                     </div>
                                                     <div class="col-md-8 col-lg-8">
                                                         <p class="text-justify white-font font-grande-p">
-                                                            Nuestra plataforma de comunicación se llama TU/GRUERO®, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados con las grúas más cercanas vía geolocalización, permitiéndoles obtener un servicio rápido, eficiente y seguro, simplemente con tocar un botón
+                                                            Nuestra plataforma de comunicación se llama TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small>, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados con las grúas más cercanas vía geolocalización, permitiéndoles obtener un servicio rápido, eficiente y seguro, simplemente con tocar un botón
                                                         </p>
                                                     </div>							
 						
@@ -529,7 +530,7 @@
                                                     </div>
                                                     <div class="col-md-8 col-lg-8">
                                                         <p class="text-justify white-font font-grande-p">
-                                                            TU/GRUERO® se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado
+                                                            TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small> se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado
                                                         </p>
                                                     </div>							
 						
@@ -556,7 +557,7 @@
                                                     </div>
                                                     <div class="col-md-8 col-lg-8 ">
                                                         <p class="text-justify white-font font-grande-p">
-                                                            Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO® funciona como intermediario directo entre al accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO®.
+                                                            Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small> funciona como intermediario directo entre el accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small>.
 															<br><br>
                                                         
                                                             Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil
@@ -587,7 +588,7 @@
 							
                                                     <div class="col-md-8 col-lg-8">
                                                         <p class="text-justify white-font font-grande-p">
-                                                            Usa  la aplicación para decirnos tu problema, ubicación y destino, y TU/GRUERO® se encargará de buscar al gruero más cercano a ti
+                                                            Usa  la aplicación para decirnos tu problema, ubicación y destino, y TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small> se encargará de buscar al gruero más cercano a ti
                                                         </p>
                                                     </div>							
 						
@@ -642,7 +643,7 @@
                                                     </div>
                                                     <div class="col-md-8 col-lg-8">
                                                         <p class="text-justify white-font font-grande-p">
-                                                            ¡Listo! Así  de fácil es disfrutar de los servicios de TU/GRUERO®
+                                                            ¡Listo! Así  de fácil es disfrutar de los servicios de TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small>
                                                         </p>
                                                     </div>							
 						
