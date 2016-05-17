@@ -47,7 +47,7 @@
 		return $errors;
 	}
 	function validaFormularioPaso2($values,$archivos)
-	{
+	{	
 		$errors = array();
 		if(count($values)>0)
 		{
@@ -81,12 +81,13 @@
 				$errors['Tamano de archivo']= "Los archivos no pueden pesar mas de 10 Megabyte";
 				
 			}
-			if(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "jpg" && pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "png" 
-					&& pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "jpeg" 	&& pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION) != "pdf" ) 
+			$array_extensions = array('jpg','JPG','PNG','png','jpeg','JPEG','pdf','PDF');
+			if(!in_array(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION),$array_extensions)) 
 			{
 				$errors['tipoArchivo']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
 			}
 			$i++;
 		}
+
 		return $errors;
 	}

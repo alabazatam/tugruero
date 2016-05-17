@@ -2,11 +2,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 form-box">
-                        	
 							<form role="form" enctype="multipart/form-data" action="registrarse.php" method="post" class="registration-form">
-								<input type="hidden" name="token" value="<?php echo $values['token'];?>">
+								<input type="text" name="token" value="<?php echo $values['token'];?>" style="display:none;">
 			                    <fieldset>
-									<input type="hidden" name="action" id="formulario" value="validaFormulario2">
+									<input type="text" name="action" id="formulario" value="validaFormulario2" style="display:none;">
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Paso 2 / 2</h3>
@@ -104,7 +103,7 @@
 										<div class="col-sm-6">
 											 <div class="form-group">
 				                        	<h6 class="label label-default" for="file_1">Suba su cédula de identidad.</h6>
-				                        	<input type="file" name="file_1" placeholder="Cedula..." class="form-google-plus form-control" required>
+				                        	<input type="file" name="file_1" placeholder="Cedula..." class="form-google-plus form-control" required />
 				                        </div>
 										</div>
 										<div class="col-sm-6"> 	
@@ -114,7 +113,7 @@
 										
 										
 									<hr>
-									<h3>Datos Empresariales</h3>
+									<h3>Datos empresariales</h3>
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
@@ -160,11 +159,32 @@
 											<div class="form-group">
 											<div class="input-group">
 												<select name="zone_work" class="form-control">
-													<option value="Distrito Capital" selected>Distrito Capital</option>
-													<option value="Miranda">Miranda</option>
-													<option value="Vargas">Vargas</option>
-													<option value="Portuguesa">Portuguesa</option>
-													<option value="Guarico">Guarico</option>
+													<option value="">Seleccione</option>
+													<option value="AMAZONAS">AMAZONAS</option>
+													<option value="ANZOATEGUI">ANZOATEGUI</option>
+													<option value="APURE">APURE</option>
+													<option value="ARAGUA">ARAGUA</option>
+													<option value="BARINAS">BARINAS</option>
+													<option value="BOLIVAR">BOLIVAR</option>
+													<option value="CARABOBO">CARABOBO</option>
+													<option value="COJEDES">COJEDES</option>
+													<option value="DELTA AMACURO">DELTA AMACURO</option>
+													<option value="DEPENDENCIAS FEDERALES">DEPENDENCIAS FEDERALES</option>
+													<option value="DISTRITO CAPITAL">DISTRITO CAPITAL</option>
+													<option value="FALCON">FALCON</option>
+													<option value="GUARICO">GUARICO</option>
+													<option value="LARA">LARA</option>
+													<option value="MERIDA">MERIDA</option>
+													<option value="MIRANDA">MIRANDA</option>
+													<option value="MONAGAS">MONAGAS</option>
+													<option value="NUEVA ESPARTA">NUEVA ESPARTA</option>
+													<option value="PORTUGUESA">PORTUGUESA</option>
+													<option value="SUCRE">SUCRE</option>
+													<option value="TACHIRA">TACHIRA</option>
+													<option value="TRUJILLO">TRUJILLO</option>
+													<option value="VARGAS">VARGAS</option>
+													<option value="YARACUY">YARACUY</option>
+													<option value="ZULIA">ZULIA</option>
 												</select>
 											   <span class="input-group-addon">(*)</span>
 											</div>
@@ -191,7 +211,7 @@
 											<div class="form-group">
 												<h6 class="label label-default" for="file_2">Suba su RIF jurídico o natural.</h6>
 												<div class="input-group">
-													<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" required>
+													<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" required />
 													<span class="input-group-addon">(*)</span>
 											</div>
 				                        </div>
@@ -200,7 +220,7 @@
 											<div class="form-group">
 												<h6 class="label label-default" for="file_3">Suba su Licencia de conducir.</h6>
 												<div class="input-group">
-													<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" required>
+													<input type="file" name="file_3" placeholder="Seleccione..." class="form-google-plus form-control" required />
 													<span class="input-group-addon">(*)</span>
 												</div>
 											</div>
@@ -211,7 +231,7 @@
 											<div class="form-group">
 												<h6 class="label label-default" for="file_4">Suba su carnet de circulación.</h6>
 												<div class="input-group">
-													<input type="file" name="file_4" placeholder="Seleccione..." class="form-google-plus form-control" required>
+													<input type="file" name="file_4" placeholder="Seleccione..." class="form-google-plus form-control" required />
 													<span class="input-group-addon">(*)</span>
 												</div>
 											</div>
@@ -260,7 +280,7 @@
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 				                        </div>
-				                        <button type="submit" class="btn btn-success">Registrarme!</button>
+				                        <button type="submit" class="btn btn-success">¡Registrarme!</button>
 										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger"><i class="fa"></i> Cancelar</button></a>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
 											<?php foreach($values['message'] as $message):?>

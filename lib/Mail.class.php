@@ -66,7 +66,7 @@
 				</body>
 				</html>","text/html");			
 			
-        $message  ->setFrom(mail_from);
+        $message  ->setFrom(array (mail_from => 'TU/GRUERO ®'));
 		$message   ->setTo($values['email']);
         // Send the message
         $result = $mailer->send($message); 
@@ -94,7 +94,7 @@
 				<html>
 				<head></head>
 				<body style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;font-size: 18px;'>
-				<p align='left'><strong>".$name."</strong></p>
+				<p align='left'><strong> Sr.".$name."</strong></p>
 				<p align='justify'>A continuación puede conseguir su usuario y clave con el que
 				va a ingresar a su cuenta en la página web <strong>TU/GRUERO®</strong>, donde podrá finalizar el registro de sus documentos, grúas y
 				operadores/choferes.</p>
@@ -120,12 +120,12 @@
 					
 				</p>
 				<p align='center' style='color: #f1452b !important;font-style: italic !important;'>
-					Revolucionando la industria del auxilio vial en Venezuela
+					Revolucionando la industria del auxilio vial
 				</p>
 				</body>
 				</html>","text/html");			
 			
-        $message  ->setFrom(mail_from);
+        $message  ->setFrom(array (mail_from => 'TU/GRUERO ®'));
 		$message   ->setTo($email);
         // Send the message
         $result = $mailer->send($message); 
@@ -152,9 +152,9 @@
 				<html>
 				<head></head>
 				<body style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;font-size: 18px;'>
-				<p align='left'><strong>".$name."</strong></p>
+				<p align='left'><strong>Sr. ".$name."</strong></p>
 				<p align='justify'><strong>¡Felicidades!</strong> Nuestro equipo de validación de proveedores ha
-				confirmado todos sus documentos y le da la bienvenida a TU/GRUERO®.</p>
+				confirmado todos sus documentos y le da la bienvenida a <strong>TU/GRUERO®</strong></p>
 				
 				<p align='justify'>A partir de este momento ya puede entrar en la aplicación móvil
 				de <strong>TU/GRUERO®</strong> y tomar las solicitudes de servicio que tengan
@@ -180,8 +180,7 @@
 				puedes llamarnos al <strong>0212-227-5273</strong> o escribirnos a: <strong>tugruero@gmail.com</strong>.</p>
 				
 				<p align='left'>¡Gracias y disfrute de ofrecer el mejor</p>
-				<p align='left'>servicio de auxilio vial con <strong>TU/GRUERO®!</strong></p>
-				<p align='left'>Equipo – <strong>TU/GRUERO®</strong></p>
+				<p align='left'>servicio de auxilio vial con <strong>TU/GRUERO®!</strong> Equipo – <strong>TU/GRUERO®</strong></p>
 				<br><br>
 				<p align='center'>
 				<img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/logo_tugruero_mail.png'))."' alt='' />
@@ -193,7 +192,7 @@
 				</body>
 				</html>","text/html");			
 			
-        $message  ->setFrom(mail_from);
+        $message  ->setFrom(array (mail_from => 'TU/GRUERO ®'));
 		$message   ->setTo($email);
         // Send the message
         $result = $mailer->send($message); 
@@ -240,7 +239,7 @@
 				</body>
 				</html>","text/html");			
 			
-        $message  ->setFrom(mail_from);
+        $message  ->setFrom(array (mail_from => 'TU/GRUERO ®'));
 		$message   ->setTo($email);
         // Send the message
         $result = $mailer->send($message); 
