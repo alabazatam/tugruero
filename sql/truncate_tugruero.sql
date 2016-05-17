@@ -10,6 +10,7 @@ TRUNCATE users;
 TRUNCATE company_files;
 TRUNCATE company_validation_ve;
 TRUNCATE company;
+TRUNCATE message;
 
 /*AWS*/
 TRUNCATE GruasPagina;
