@@ -243,12 +243,16 @@
 		<div class="container">
 			<div class="">
 				
-				<iframe class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" width="640" height="360" src="<?php echo full_url?>/web/videos/TUGRUERO_VIDEOPUBLICITARIO.mp4" frameborder="0" allowfullscreen></iframe>
+				<!--<iframe class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12" width="640" height="360" src="<?php echo full_url?>/web/videos/TUGRUERO_VIDEOPUBLICITARIO.mp4" frameborder="0" allowfullscreen></iframe>-->
+				<video class="embed-responsive-item col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 col-sm-12 col-xs-12"  controls>
+				   <source src="<?php echo full_url?>/web/videos/TUGRUERO_VIDEOPUBLICITARIO.mp4" >
+				   Your browser does not support the video tag.
+				</video>
 			</div>
 		</div>
 	</div>
 	</section>
-	<section id="testimonials" class="success"> 
+	<section id="testimonials" class="success nav-close"> 
 		<h2 class="text-center white-font big_title">Testimonios</h2>
 		<div class="container">
 		  <div class="row">
@@ -349,7 +353,7 @@
 	</div>
 	</section>
     <!-- Contact Section -->
-    <section id="contact" class="success">
+    <section id="contact" class="success nav-close">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -404,7 +408,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center">
+    <footer class="text-center nav-close">
         <div class="footer-above">
             <div class="container">
                 <div class="row">
@@ -688,7 +692,7 @@
       		$('body').toggleClass('nav-expanded');
       	});
       	$('.nav-close').on('click',function(e){
-      		e.preventDefault();
+      		//e.preventDefault();
       		$('body').removeClass('nav-expanded');
       	});
  
