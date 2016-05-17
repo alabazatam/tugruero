@@ -292,9 +292,9 @@ $values = trimValues($_REQUEST);;
 					$Mail ->mail2($values);
 					//$Mail->send(array($correo), array(mail_from),"Asunto",$message);
 					$values = null;
-					$values['message'] = "Su usuario ha sido creado satisfactoriamente, se ha enviado un correo electrónico con los datos.</ br> Recuerde que debe esperar la aprobación del administrador.";
+					$values['message'] = "Su usuario ha sido creado satisfactoriamente, se ha enviado un correo electrónico con los datos para entrar en su cuenta.</ br> Recuerde que debe esperar la aprobación del administrador para iniciar sesión.";
 					$values["action"] = "login";
-					 require 'login.php';
+					 require 'paso2_message.php';die;
 				}
 			}
 			else

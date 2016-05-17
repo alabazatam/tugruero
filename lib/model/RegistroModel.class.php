@@ -145,7 +145,7 @@ function GetCompanyValidation($idCompanyValidation)
 	$ConnectionORM = new ConnectionORM();
 	$q = $ConnectionORM->getConnect('tugruero')
 			->bank
-			->select("*");
+			->select("*")->order('name');
 	return $q;
  }
 function connect($login,$password)
