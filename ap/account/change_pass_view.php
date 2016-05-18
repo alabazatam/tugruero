@@ -2,6 +2,7 @@
 <?php include('../menu.php')?>
 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 	<h1 class="text-center"><label class="label label-default">Cambio de clave</label></h1>
+	<div class="col-md-10 col-md-offset-1">
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<input autocomplete="off" readonly="readonly" type="hidden" class="form-control input-sm" id="" placeholder="" name="id_user" value="<?php echo $_SESSION['id_user']?>">
@@ -40,5 +41,6 @@
 											<h6 class="text-danger">(*) Campos obligatorios.</h6>
 							</div>
 	
+	</div>
 </div>
 <?php include('../../view_footer.php')?>
