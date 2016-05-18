@@ -37,5 +37,8 @@
                     </nav>          
         </div><!--fin menu mobile-->
 		<div class="row">
-		<div class="col-sm-2"><a href="<?php echo full_url?>/ap/index.php?action=bienvenida"><i class="btn btn-default fa fa-home fa-2x"> Inicio</i> </a> <br>Usuario: <strong><?php echo $_SESSION['login']; ?></strong></div>
+			<div class="col-sm-2"><a class="btn btn-naranja" href="<?php echo full_url?>/ap/index.php?action=bienvenida"><i class="fa fa-home fa-3x"></i> <label class="big-font">Inicio</label></a> </div>
+			<div class="col-sm-2 col-sm-offset-8">Usuario: <strong><?php echo $_SESSION['login']; ?></strong></div>
+			
+			
 		</div>

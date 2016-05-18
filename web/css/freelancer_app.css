@@ -580,3 +580,11 @@ input[readonly="readonly"] {
 .img-logo {
     padding-top: 10px;
 }
+.fondo_mensaje {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
+    background: url(../img/fondo_mensaje.png) no-repeat top center fixed ;
+    
+    overflow-x: hidden;
+    margin: 0;
+
+}

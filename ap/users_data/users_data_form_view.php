@@ -2,30 +2,31 @@
 <?php include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center"><label class="label label-default">Datos personales</label></h1>
-	<div class="col-md-10 col-md-offset-1">
+
 	<form class="form-horizontal" action="index.php" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<input readonly="" type="hidden" class="form-control input-sm" id="" placeholder="" name="id_users" value="<?php if(isset($_SESSION['id_user'])) echo $_SESSION['id_user']?>">
 		<input readonly="" type="hidden" class="form-control input-sm" id="" placeholder="" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>">
 			<div class="form-group">
-				<div class="col-sm-6">
-				<label for="">Cédula</label>	
-					<div class="input-group">
-						<?php echo $values['nationality']?> - <?php echo $values['document']?>
-					</div>
-				</div>
-				<div class="col-sm-6">
-				<label for="">Foto</label>	
-					<div class="input-group">
-						<?php if(isset($values['image']) and $values['image']!=''):?>
-						<img src="<?php echo full_url?>/web/files/operators/<?php echo $values['image'];?>" height="80">
-						<?php endif;?>
-						<?php if(!isset($values['image']) or $values['image']==''):?>
-						<label class="alert alert-danger">No tiene foto</label>
-						<?php endif;?>
-					</div>
+
+				<div class="col-sm-6 col-sm-offset-6">
+
+					<label for="image">Seleccione una imagen de perfil</label>	
+						<div class="input-group">
+							<?php if(isset($values['image']) and $values['image']!=''):?>
+							<img src="<?php echo full_url?>/web/files/operators/<?php echo $values['image'];?>" height="80">
+							<?php endif;?>
+							<?php if(!isset($values['image']) or $values['image']==''):?>
+							<label class="alert alert-danger">No tiene foto</label>
+							<?php endif;?>
+							<input type="file" class="form-control input-sm" id="image" placeholder="Seleccione una imagen de perfil" name="image" value="" accept="image/x-png, image/gif, image/jpeg">
+
+						</div>
+				
 				</div>	
 			</div>
+		
+		
 			<div class="form-group">
 				<div class="col-sm-12">
 				<label for="">Usuario</label>	
@@ -81,15 +82,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="form-group">
-				<div class="col-sm-12">
-				<label for="">Foto</label>	
-					<div class="input-group">
-						<input type="file" class="form-control input-sm" id="" placeholder="" name="image" value="" accept="image/x-png, image/gif, image/jpeg">
-					<span class="input-group-addon" id="basic-addon2">(*)</span>
-					</div>
-				</div>
-			</div>
+
 			<a class="btn btn-default"  href="<?php echo full_url."/ap/index.php?action=bienvenida"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Cancelar</a>	
 			 <button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
 			<?php if(isset($values['msg']) and $values['msg']!=''):?>
@@ -98,7 +91,6 @@
 			</form>
 		<div class="form-top-right">
 						<h6 class="text-danger">(*) Campos obligatorios.</h6>
-		</div>
 		</div>
 	</div>	
 <?php include('../../view_footer.php')?>

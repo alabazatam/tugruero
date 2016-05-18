@@ -1,6 +1,6 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
-<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+<div class="container">
 	<h1 class="text-center"><label class="label label-default">Cambio de clave</label></h1>
 	<div class="col-md-10 col-md-offset-1">
 	<form class="" action="index.php" method="POST">
