@@ -1,6 +1,19 @@
 <?php
         $Menu = new Menu();
-        $items_padres = $Menu ->getMenu(4, 1,0);?>
+		switch ($_SESSION['id_perms']) {
+						case 3:
+							$id_app = 4;
+
+							break;
+						case 4:
+							$id_app = 2;
+							
+
+							break;
+}
+		
+		
+        $items_padres = $Menu ->getMenu($id_app, 1,0);?>
         <div class=""><!--menu mobile-->
                     <nav class="navbar navbar-default ">
                       <div class="container">
@@ -23,7 +36,7 @@
                                 <li class="dropdown">
                                   <a class="dropdown-toggle small text-capitalize" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $item['name']?> <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                      <?php $items_hijos = $Menu -> getMenu(4,1,$item['id_menu']);?>
+                                      <?php $items_hijos = $Menu -> getMenu($id_app,1,$item['id_menu']);?>
                                       <?php foreach($items_hijos as $item2):?>
                                         <li class=""><a class="small text-capitalize" href="<?php echo full_url.$item2['url']?>" target=""><?php echo $item2['name']?></a></li>
                                       <?php endforeach;?>

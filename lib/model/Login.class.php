@@ -29,6 +29,7 @@
 			foreach($q as $users)
 			{
 				$user["users"] = $users;
+				
 					$q = $ConnectionORM->getConnect()->users_data
 					->where('id_users =?',$users["id_user"]);
 					

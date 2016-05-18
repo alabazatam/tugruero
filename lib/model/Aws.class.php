@@ -31,15 +31,15 @@
 			unset($values['PHPSESSID']);
 			unset($values['action']);
 			$id = $values['idGrua'];
-			if($values['Placa'] =='')
+			if(@$values['Placa'] =='')
 			{
 				unset($values['Placa']);
 			}
-			if($values['Modelo'] =='')
+			if(@$values['Modelo'] =='')
 			{
 				unset($values['Modelo']);
 			}
-			if($values['Color'] =='')
+			if(@$values['Color'] =='')
 			{
 				unset($values['Color']);
 			}
