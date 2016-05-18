@@ -5,12 +5,12 @@
     private $conn   = NULL;          
                 function __construct() 
                 {
-                    $this->dbname = "frbcomfr_tugruero";
-                    $this->host = 'localhost';
+                    $this->dbname = "admin_tugruero";
+                    $this->host = '190.9.33.82';
                     $this->port = "3306";
                     $this->charset = "utf8";
                     $this->dsn = "mysql:dbname=".$this->dbname.";host=".$this->host.";port=".$this->port.";charset=".$this->charset;  
-                    $this->username = 'frbcomfr_root';
+                    $this->username = 'admin_tugruero';
                     $this->password = '230386';
 					return $this->open();
                     
