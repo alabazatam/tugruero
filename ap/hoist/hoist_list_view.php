@@ -6,7 +6,6 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Serial de motor</th>
 					<th>Serial de carrocería</th>
 					<th>Placa</th>
 					<th>Año del vehiculo</th>
@@ -17,7 +16,6 @@
 			<tfoot>
 				<tr>
 					<th>Id</th>
-					<th>Serial de motor</th>
 					<th>Serial de carrocería</th>
 					<th>Placa</th>
 					<th>Año del vehiculo</th>
@@ -41,7 +39,6 @@ $(document).ready(function() {
         },
         "columns": [
             { "data": "id" },
-            { "data": "engine_serial" },
             { "data": "body_serial" },
             { "data": "registration_plate" },
             { "data": "year_vehicle" },
@@ -49,7 +46,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 6 ] }
+          { 'bSortable': false, 'aTargets': [ 5 ] }
        ]				
     });
 } );

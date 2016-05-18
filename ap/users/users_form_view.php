@@ -169,12 +169,6 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 				</div>
 				
 			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<h6 class="label label-default" for="file_2">Suba el certificado de salud.</h6>
-					<input type="file" name="file_2" placeholder="Certificado de salud..." class="form-google-plus form-control" <?php if($values['action'] == "add") echo "required";?>>
-				</div>
-			</div>
 		</div>
 		<?php else:?>
 		<div class="row">
@@ -185,25 +179,12 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 				</div>
 				
 			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<h6 class="label label-default" for="file_2">Suba el certificado de salud.</h6>
-					<input type="file" name="file_2" placeholder="Certificado de salud..." class="form-google-plus form-control" <?php if($values['action'] == "add") echo "required";?>>
-				</div>
-			</div>
 		</div>
 		<?php endif;?>
 		<?php if(isset($values['document_file']) && $values['document_file'] != ""):?>
 		<div class="row">
 			 <div class="alert alert-success" role="alert">
                 <a target="blank" href="<?php echo full_url?>/web/files/operators/<?php echo $values['document_file'];?>"><i class="fa fa-eye fa-pull-left fa-border"></i> <?php echo $values['document_file'];?></a>
-             </div>
-		</div>
-		<?php endif;?>
-		<?php if(isset($values['certificado_file']) && $values['certificado_file'] != ""):?>
-		<div class="row">
-			 <div class="alert alert-success" role="alert">
-                <a target="blank" href="<?php echo full_url?>/web/files/operators/<?php echo $values['certificado_file'];?>"><i class="fa fa-eye fa-pull-left fa-border"></i> <?php echo $values['certificado_file'];?></a>
              </div>
 		</div>
 		<?php endif;?>

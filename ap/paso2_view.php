@@ -211,7 +211,7 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label>¿Pertenece al club Grúas Venezuela?</label>
+												<label>¿Pertenece al Club Grúas Venezuela?</label>
 												<label class="radio-inline"><input type="radio" value="1" name="club_gruas" checked onchange="makeCheckBoxes()">Si</label>
 												<label class="radio-inline"><input type="radio" value="0" name="club_gruas" onchange="makeCheckBoxes()">No</label>
 											</div>

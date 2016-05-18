@@ -4,22 +4,13 @@
 	<h1 class="text-center"><label class="label label-default">Grúas</label></h1>
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
+		<input type="hidden" class="form-control input-sm" id="" placeholder="" name="engine_serial" value="<?php if(isset($values['engine_serial'])) echo $values['engine_serial']?>">
 	<div class="row">
 		<div class="col-md-6"> 
 			 <div class="form-group">
 				<label for="">Id.Grua</label>
 				<input readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id" value="<?php if(isset($values['id'])) echo $values['id']?>">
 			  </div>
-		</div>
-		<div class="col-md-6"> 
-			<div class="form-group">
-				<label for="">Serial de motor</label>	
-				<div class="input-group">
-					<input type="text" class="form-control input-sm" id="" placeholder="" name="engine_serial" required  oninvalid="setCustomValidity('Debe colocar el Serial del motor para poder registrarla.')" 
-					oninput="setCustomValidity('')" value="<?php if(isset($values['engine_serial'])) echo $values['engine_serial']?>">
-					<span class="input-group-addon" id="basic-addon2">(*)</span>
-				</div>
-			</div>
 		</div>
 	</div>
 	<div class="row">

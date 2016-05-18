@@ -78,7 +78,6 @@ $values = $_REQUEST;
 				$id_hoist = $hoist['id'];
 				$array_json['data'][] = array(
 					"id" => $id_hoist,
-					"engine_serial" => $hoist['engine_serial'],
 					"body_serial" => $hoist['body_serial'],
 					"registration_plate" => $hoist['registration_plate'],
 					"year_vehicle" => $hoist['year_vehicle'],
