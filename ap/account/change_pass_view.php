@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center"><label class="label label-default">Cambio de clave</label></h1>
+	<h1 class="text-center big_title">Modificación de Clave</h1>
 	<div class="col-md-10 col-md-offset-1">
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>

@@ -588,3 +588,22 @@ input[readonly="readonly"] {
     margin: 0;
 
 }
+@media (min-width: 768px) { 
+    .font-grande-p {
+        font-size: 30px;
+        line-height: 1.2em;
+    }
+    .big_title {
+            font-size: 58px !important;
+            font-weight: bold;
+    }
+}
+@media (max-width: 768px) { 
+    .font-grande-p {
+        font-size: 16px;
+    }
+    .big_title {
+            font-size: 50px !important;
+            font-weight: bold;
+    }
+}

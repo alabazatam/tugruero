@@ -1,7 +1,8 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center"><label class="label label-default">Grúas</label></h1>
+	<h1 class="text-center big_title">Grúas</h1>
+	<h2 class="text-center">Agregue su grúa en nuestra plataforma</h2>
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
 			<thead>
 				<tr>

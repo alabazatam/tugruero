@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center"><label class="label label-default">Operador</label></h1>
+	<h1 class="text-center big_title">Operador</h1>
 	<form class="" enctype="multipart/form-data" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<div class="form-group" style="display:none;">
