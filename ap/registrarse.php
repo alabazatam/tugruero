@@ -189,7 +189,7 @@ $values = trimValues($_REQUEST);;
 					foreach ($DatosEmpresa as $id => $value) 
 					{
 						$idCompanyValidation=$value["id"];
-						$RegistrarEmpresa = array("rif" => $values["rif"],
+						$RegistrarEmpresa = array("rif" => $values["Type_rif"]."-".$values["rif"],
 						"razon_social"=>$value["razon_social"],
 						"responsible_name"=>$values["first_name"]." ".$values["first_lastname"],
 						"id_bank" =>$values["id_bank"],
@@ -210,7 +210,7 @@ $values = trimValues($_REQUEST);;
 					$values['id'] = $q["id"];
 					$password = substr( md5(microtime()), 1, 8);
 					
-					$userData = array("login" => "M-".$values["nationality"].$values["cedula"],
+					$userData = array("login" =>$values["nationality"]."-".$values["cedula"],
 						"password" => hash('sha256', $password),
 						"mail" => $correo,
 						"mail_alternative" => $correoAlternativo,

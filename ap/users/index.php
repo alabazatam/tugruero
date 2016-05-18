@@ -57,7 +57,7 @@ $values = $_REQUEST;
 		else 
 		{
 			$Users = new Users();
-			$loggin = 'O-'.$values['nationality'].$values['document'];
+			$loggin = $values['nationality'].'-'.$values['document'];
 			$values['login'] = $loggin;
 			$DocumentFile = $loggin."-"."cedula.".pathinfo($_FILES['file_1']['name'],PATHINFO_EXTENSION);
 			$values['document_file'] = $DocumentFile;
