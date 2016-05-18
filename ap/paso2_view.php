@@ -212,14 +212,14 @@
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label>¿Pertenece al club Grúas Venezuela?</label>
-												<label class="radio-inline"><input type="radio" value="1" name="club_gruas" checked>Si</label>
-												<label class="radio-inline"><input type="radio" value="0" name="club_gruas">No</label>
+												<label class="radio-inline"><input type="radio" value="1" name="club_gruas" checked onchange="makeCheckBoxes()">Si</label>
+												<label class="radio-inline"><input type="radio" value="0" name="club_gruas" onchange="makeCheckBoxes()">No</label>
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label class="sr-only" for="num_socio">Indique número de socio en el Club de Grúas Venezuela</label>
-												<input type="text" autocomplete="off" name="num_socio" value="<?php if(isset($values['num_socio'])) echo $values['num_socio']?>" placeholder="Indique número de socio en el Club de Grúas Venezuela..." class="form-google-plus form-control" id="form-google-plus" >
+												<input type="text" autocomplete="off" id="num_socio" name="num_socio" value="<?php if(isset($values['num_socio'])) echo $values['num_socio']?>" placeholder="Indique número de socio en el Club de Grúas Venezuela..." class="form-google-plus form-control" id="form-google-plus" >
 											</div>
 										</div>
 									</div>
@@ -319,3 +319,24 @@
                         </div>
                     </div>
                 </div>
+<script>
+function makeCheckBoxes()
+{
+	var ele = document.getElementsByName('club_gruas');
+	var i = ele.length;
+	for (var j = 0; j < i; j++) {
+			if (ele[j].checked) { //index has to be j.
+				if(j == 1 && ele[j].checked)
+				{
+					var x = $('#num_socio');
+					x.hide();
+				}
+				else
+				{
+					var x = $('#num_socio');
+					x.show();
+				}
+		}
+	}
+}
+</script>
