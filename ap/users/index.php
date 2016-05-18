@@ -113,8 +113,11 @@ $values = $_REQUEST;
 	}
 	function executeEdit($values = null,$msg = null)
 	{
+		$Aws = new Aws();
 		$Users = new Users();
 		$values = $Users->getUserOperatorById($values);
+		$password = $Aws->getGruerosClave($values);
+		$password = $password['clave'];
 		$userhoistcompany = new UsersHoistCompany();
 		$values['hoist'] = $userhoistcompany->getHoistByUserWithout($values);
 		$values['action'] = 'update';
@@ -123,8 +126,9 @@ $values = $_REQUEST;
 	}
 	function executeUpdate($values = null)
 	{
-	
-		$idHoist= array ("id" => $values['id_hoist']);
+			
+
+			$idHoist= array ("id" => @$values['id_hoist']);
 			$hoist = new Hoist();
 			$dataHoist =  $hoist->getHoistById($idHoist);
 			$dateGrueros = array('idGrua' => $values['id_user'],
@@ -154,6 +158,16 @@ $values = $_REQUEST;
 		$Aws = new Aws();
 		$Aws->updateGrueros($dateGrueros);
 		$Aws->updateGruas($dateGruas);
+		
+			if($values['status']==0)
+			{
+				$Aws->desactivarGruero($values['id_user']);
+			}
+			if($values['status']==1)
+			{
+				$Aws->activarGruero($values['id_user']);
+			}		
+		
 		$Users = new Users();
 		$Users->updateUserOperator($values);		
 		executeEdit($values,message_updated);die;

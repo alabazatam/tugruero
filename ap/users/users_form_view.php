@@ -13,21 +13,14 @@
 			<div class="form-group">
 			<label for="">Placa de grúa</label>
 				<div class="input-group">
-					<select id="id_hoist" name="id_hoist" class="form-control input-sm" required>
+					<select id="id_hoist" name="id_hoist" class="form-control input-sm" <?php if($values['action'] == "add") echo "required"?> >
 					<?php foreach($values['hoist'] as $operador) 
 					{
-						if((isset($values['id_hoist']) && $values['id_hoist'] == $operador['id_hoist']) || !Empty($operador['id_user']))
-						{
+
 							echo '<option value="'.$operador["id"].'">'.$operador['registration_plate'].'</option>';
-							echo '<option value="">Seleccione..</option>';
-						}
-						else
-						{
-							echo '<option value="'.$operador["id"].'">'.$operador['registration_plate'].'</option>';
-							echo '<option value="">Seleccione..</option>';
-						}
+
 					}
-					echo '<option value="">Seleccione..</option>';
+					
 					?>
 					</select>
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
@@ -126,11 +119,11 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 				</div>
 			</div>
 			<div class="col-md-6">
-				<?php if($values['action'] == 'add'):?>
+				
 				 <div class="form-group">
 					 <label for="">Password</label>
 					 <div class="input-group">
-						 <input autocomplete="off" maxlength="8" type="password" id="" class="form-control input-sm" name="password" value="" 
+						 <input autocomplete="off" maxlength="8" type="password" id="" class="form-control input-sm" name="password" value="<?php if(isset($password) and $password!='') echo $password; ?>" 
 							   required="" oninvalid="setCustomValidity('Debe colocar la Clave para poder continuar.')" 
 							   oninput="setCustomValidity('')"
 						/>
@@ -138,12 +131,6 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 						
 					 </div>
 				  </div>
-				<?php else:?>
-				<div class="form-group">
-					 <label for="">Password</label>
-						<input autocomplete="off" type="password" id="" class="form-control input-sm" name="password" value="" />
-				</div>
-				<?php endif;?>
 			</div>
 		</div>
 		<div class="row">
