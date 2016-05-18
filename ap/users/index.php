@@ -131,6 +131,10 @@ $values = $_REQUEST;
 			$idHoist= array ("id" => @$values['id_hoist']);
 			$hoist = new Hoist();
 			$dataHoist =  $hoist->getHoistById($idHoist);
+			
+
+			
+			
 			$dateGrueros = array('idGrua' => $values['id_user'],
 								'Placa' => $dataHoist['registration_plate'],
 								'Modelo' => $dataHoist['type_hoist'],
@@ -149,6 +153,16 @@ $values = $_REQUEST;
 										   'status' => $values['status']);
 		
 		$UsersHoistCompany->updateUsersHoistCompany($userhoistcompanydata);
+		
+		
+			$userdata = array(
+				'id_user' => $values['id_user'],
+				'password' => hash('sha256',$values['password'])
+			);
+			
+			
+		$UsersHoistCompany->updateUser($userdata);
+		
 		$dateGruas = array('idGrua' => $values['id_user'],
 								'Disponible' => "NO",
 								'Latitud' => "",

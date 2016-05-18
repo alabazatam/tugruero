@@ -170,6 +170,16 @@
 			//echo $q;die;
 			return $q; 			
 		}
+		function updateUser($values){
+			unset($values['PHPSESSID']);
+			unset($values['action'],$values['date_created']);
+            $values['date_updated'] = new NotORM_Literal("NOW()");
+			$id_user = $values['id_user'];
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users("id_user", $id_user)->update($values);
+			return $q;
+			
+		}
 		
 	}
 	
