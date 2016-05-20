@@ -20,12 +20,12 @@
 		public function getUsersList($values)
 		{	
 			$columns = array();
-			$columns[0] = 'id_user';
+			$columns[0] = 'users.id_user';
 			$columns[1] = 'login';
 			$columns[2] = 'password';
 			$columns[3] = 'status';
-                        $columns[4] = 'date_created';
-                        $columns[5] = 'date_updated';
+            $columns[4] = 'date_created';
+            $columns[5] = 'date_updated';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -47,10 +47,12 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
-			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->select("*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")	
 			->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
+			//echo $q;die;
 			return $q; 			
 		}
 		public function getCountUsersList($values)
@@ -142,7 +144,9 @@
 
                         //actualizo el status de los arcivos a 1 activo
 			$q = $ConnectionORM->getConnect()->company_files->where("id_company", $id_company)->update(array('status'=>$status,'date_updated'=>$date_updated,'validate'=>$status));			
-			
+		
+			$Aws = new Aws();
+			$Aws->activarGruero($id_user);
 		}
 		function inactiveUserMasterCompany($id_company){		
 			$ConnectionORM = new ConnectionORM();
@@ -170,6 +174,8 @@
 			//actualizo el status de la compañia a 1 activo
 			$q = $ConnectionORM->getConnect()->company->where("id", $id_company)->update(array('status'=>$status,'date_updated'=>$date_updated));			
 			
+			$Aws = new Aws();
+			$Aws->desactivarGruero($id_user);
 
 		}		
 		public function getUsersOperatorList($values)

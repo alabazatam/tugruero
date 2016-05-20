@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center"><label class="label label-default">Compañias</label></h1>
+	<h1 class="text-center big_title">Masters</h1>
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 	  <div class="form-group">
@@ -42,11 +42,21 @@
 	  <div class="form-group">
 		<label for="">Archivos</label>
                     <?php if(isset($company_files_list) and count($company_files_list)>0):?>
-                    <?php foreach ($company_files_list as $files):?>
+                    <?php 
+					$array_nombre_archivos = array();
+					$array_nombre_archivos[1] = "Cédula";  
+					$array_nombre_archivos[2] = "RIF jurídico o natural";
+					$array_nombre_archivos[3] = "Licencia de conducir";
+					$array_nombre_archivos[4] = "Carnet de circulación";
+					?>
+					<?php $i=1;foreach ($company_files_list as $files):?>
                         <div class="alert alert-success" role="alert">
-                            <a target="blank" href="<?php echo full_url?>/web/files/<?php echo $files['name_file'];?>"><i class="fa fa-eye fa-pull-left fa-border"></i> <?php echo $files['name_file'];?></a>
+							
+                            <label><?php echo $array_nombre_archivos[$i]?></label>
+							<br>
+							<a target="blank" href="<?php echo full_url?>/web/files/<?php echo $files['name_file'];?>"><i class="fa fa-eye fa-pull-left fa-border"></i> <?php echo $files['name_file'];?></a>
                         </div>
-                    <?php endforeach;?>
+                    <?php $i++;endforeach;?>
                     <?php endif;?>
 	  </div>
 		<div class="form-group">

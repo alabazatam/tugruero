@@ -97,13 +97,14 @@
 				<p align='left'><strong> <br><br>Sr(a). ".$name."</strong></p>
 				<p align='justify'>A continuación puede conseguir su usuario y clave con el que
 				va a ingresar a su cuenta en la página web <strong>TU/GRUERO®</strong>, donde podrá finalizar el registro de sus documentos, grúas y
-				operadores/choferes.</p>
+				operadores/choferes.  La Placa la usará para entrar en la aplicacion movil <strong>TU/GRUERO®</strong> cuando el equipo de validacion de proveedores apruebe su registro.</p>
 				
 				<p align='left'><label style='color: #f1452b !important;'>Usuario:</label> <strong>".$values['login']."</strong></p>
 				<p align='left'><label style='color: #f1452b !important;'>Clave:</label> <strong>".$values['password']."</strong></p>
+					<p align='left'><label style='color: #f1452b !important;'>Placa:</label> <strong>".$values['placa']."</strong></p>
 				
 				<p align='justify'>Recuerde que esta clave puede modificarla dentro de su
-				cuenta en el módulo de Modificación de Clave. Y que ésta es
+				cuenta en el módulo de Modificación de Clave, y que ésta es
 				la misma tanto para el acceso a su cuenta en la Página web
 				como en la Aplicación móvil.</p>
 				
@@ -160,7 +161,7 @@
 				de <strong>TU/GRUERO®</strong> y tomar las solicitudes de servicio que tengan
 				nuestros clientes accidentados.</p>
 				
-				<p align='justify'>Recuerde que el <strong>Usuario</strong> y <strong>Clave</strong> para acceder a la aplicación
+				<p align='justify'>Recuerde que el <strong>Usuario</strong>, <strong>Placa</strong> y <strong>Clave</strong> para acceder a la aplicación
 				móvil <strong>TU/GRUERO®</strong> son los que te enviamos en el correo anterior a
 				éste. Si usted cambió dicha clave en la página web, ésa será la
 				que usará de ahora en adelante hasta que la vuelva a cambiar.</p>

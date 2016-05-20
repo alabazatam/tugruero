@@ -19,7 +19,7 @@
 		}
 		public function getServicesOperatorList($values)
 		{	
-			$id_user = $_SESSION['id_user'];
+			$id_user = $values['id_user'];
 			$columns = array();
 			$columns[0] = 'idSolicitud';
 			$columns[1] = 'idGrua';
@@ -69,7 +69,7 @@
 		}
 		public function getCountServicesOperatorList($values)
 		{	
-			$id_user = $_SESSION['id_user'];
+			$id_user = $values['id_user'];
 			$where = " 1 = 1";
 			
 			
@@ -93,7 +93,7 @@
 			return $q['cuenta']; 			
 		}
 		public function getServicesOperatorById($values){
-			$id_user = $_SESSION['id_user'];
+			$id_user = $values['id_user'];
 			$ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
 			->select("*, Grueros.Nombre as nombre_gruero, Grueros.Apellido as apellido_gruero,Grueros.Cedula as cedula_gruero,Grueros.Celular as celular_gruero")

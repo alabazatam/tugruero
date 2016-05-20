@@ -6,7 +6,7 @@
                 function __construct() 
                 {
                     $this->dbname = "admin_tugruero";
-                    $this->host = '190.9.33.82';
+                    $this->host = 'localhost';
                     $this->port = "3306";
                     $this->charset = "utf8";
                     $this->dsn = "mysql:dbname=".$this->dbname.";host=".$this->host.";port=".$this->port.";charset=".$this->charset;  

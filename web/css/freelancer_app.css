@@ -607,3 +607,8 @@ input[readonly="readonly"] {
             font-weight: bold;
     }
 }
+.btn-default{
+  color: #000 !important;
+  background-color: #5cb85c !important;
+  border-color: #4cae4c !important;
+}

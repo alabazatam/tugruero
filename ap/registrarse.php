@@ -114,7 +114,7 @@ $values = trimValues($_REQUEST);;
 						executePaso1($values);
 					}else if($valor["status"] == 1)
 					{
-						$values['errors']['YaPendiente']="Ya existe un registro, esta en la espera por su aprobación.";
+						$values['errors']['YaPendiente']="Ya existe un registro, está en la espera por su aprobación.";
 						executePaso1($values);
 					}
 					else
@@ -240,7 +240,7 @@ $values = trimValues($_REQUEST);;
 					$dateGrueros = array('idGrua' => $idUser,
 								'Nombre' => $values['first_name'].' '.$values['second_name'],
 								'Apellido' => $values["first_lastname"].' '.$values['second_lastname'],
-								'Placa' => 'placa',
+								'Placa' => $values["placa"],
 								'Modelo' => 'Gancho',
 								'Color' =>'Blanca',
 								'Celular' => $values['phone'],

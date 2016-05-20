@@ -19,6 +19,8 @@
 			<tfoot>
 				<tr>
 					<th>Id.Grúa</th>
+					<th>Usuario</th>
+					<th>Nombres y apellidos</th>
 					<th>Inicio</th>
 					<th>Fin</th>
 					<th>Status cliente</th>
@@ -37,7 +39,7 @@ $(document).ready(function() {
         "scrollX": true,
         "processing": true,
         "serverSide": true,
-        "ajax": "<?php echo full_url."/ap/services_operator/index.php?action=services_operator_list_json"?>",
+        "ajax": "<?php echo full_url."/adm/services_operator/index.php?action=services_operator_list_json&id_user=".$values['id_user'].""?>",
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
         },

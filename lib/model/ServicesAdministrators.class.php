@@ -120,7 +120,7 @@
 		public function getServicesAdministratorsById($values){
 			$ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
-			->select("*")
+			->select("*, Grueros.Nombre as nombre_gruero, Grueros.Apellido as apellido_gruero,Grueros.Cedula as cedula_gruero,Grueros.Celular as celular_gruero")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
 			->join("solicitudes","INNER JOIN Solicitudes on Solicitudes.idSolicitud = Servicios.idSolicitud")
 			->join("polizas","INNER JOIN Polizas on Polizas.idPoliza = Servicios.idPoliza")

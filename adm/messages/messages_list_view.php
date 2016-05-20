@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center"><label class="label label-default">Contáctenos</label></h1>
+	<h1 class="text-center big_title">Contáctenos</h1>	
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
 			<thead>
 				<tr>

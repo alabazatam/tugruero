@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center"><label class="label label-default">Compañias</label></h1>
+	<h1 class="text-center big_title">Masters</h1>
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
 			<thead>
 				<tr>
@@ -9,7 +9,7 @@
 					<th>Responsable</th>
 					<th>Rif</th>
 					<th>Razón social</th>
-					<th>Status</th>
+					<th>Estatus</th>
 					<th>Fecha creado</th>
 					<th>Fecha modificado</th>
 					<th>Acciones</th>
@@ -21,14 +21,14 @@
 					<th>Responsable</th>
 					<th>Rif</th>
 					<th>Razón social</th>
-					<th>Status</th>
+					<th>Estatus</th>
 					<th>Fecha creado</th>
 					<th>Fecha modificado</th>
 					<th>Acciones</th>
 				</tr>
 			</tfoot>
 		</table>
-	<a class="btn btn-default"  href="<?php echo full_url."/adm/company/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar</a>
+	<!--<a class="btn btn-default"  href="<?php echo full_url."/adm/company/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar</a>-->
 </div>
 	<?php include('../../view_footer.php')?>
 <script>

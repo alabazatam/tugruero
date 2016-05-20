@@ -111,7 +111,10 @@ $values = $_REQUEST;
                                        '<form method="POST" action = "'.full_url.'/adm/users/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
                                        .'<input type="hidden" name="id_user" value="'.$id_user.'">  '
+									   
                                        .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
+									   .'<a class="btn btn-default btn-sm" href="'.full_url.'/adm/services_operator/index.php?action=index&idGrua='.$id_user.'&id_user='.$id_user.'"><i class="fa fa-book  fa-pull-left fa-border"></i></a>  '
+									   
 
 					);	
 			}	

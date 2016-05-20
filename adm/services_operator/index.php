@@ -63,7 +63,7 @@ $values = $_REQUEST;
 			$values = $ServicesOperator->saveUserOperator($values);
 			$message = "Usuario: ".$loggin." Clave: ".$password;
 			$Mail = new Mail();
-			$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
+			//$Mail->send(array($mail), array('noreply@frbcomputersgroup.com.ve'),"Asunto",$message);
 			$values['message'] = "se ha enviado la clave a su correo electrónico.";
 			$values["action"] = "edit";
 			executeEdit($values,message_created);die;
@@ -71,7 +71,6 @@ $values = $_REQUEST;
 	}
 	function executeEdit($values = null,$msg = null)
 	{
-		$values['id_user'] = $_SESSION['id_user'];
 		$ServicesOperator = new ServicesOperator();
 		$values = $ServicesOperator->getServicesOperatorById($values);
 		$values['action'] = 'update';
@@ -87,7 +86,6 @@ $values = $_REQUEST;
 	}	
 	function executeServicesOperatorListJson($values)
 	{
-		$values['id_user'] = $_SESSION['id_user'];
 		$ServicesOperator = new ServicesOperator();
 		$services_operator_list_json = $ServicesOperator->getServicesOperatorList($values);
 		$services_operator_list_json_cuenta = $ServicesOperator ->getCountServicesOperatorList($values);
@@ -111,10 +109,11 @@ $values = $_REQUEST;
 					"EstatusGrua" => $services_operator['estatusgrua'],
 					"Motivo" => $services_operator['motivo'],
 					"actions" => 
-                                       '<form method="POST" action = "'.full_url.'/ap/services_operator/index.php" >'
+                                       '<form method="POST" action = "'.full_url.'/adm/services_operator/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
                                        .'<input type="hidden" name="idSolicitud" value="'.$idSolicitud.'">  '
 									   .'<input type="hidden" name="idGrua" value="'.$idGrua.'">  '
+									   .'<input type="hidden" name="id_user" value="'.$idGrua.'">  '
                                        .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-mobile fa-2x  fa-pull-left fa-border"></i></button>'
 
 					);	

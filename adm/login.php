@@ -67,8 +67,10 @@
 			                           
 			                        </div>
 			                    </div>
-			
-			                    <button type="submit" class="btn btn-default"><i class="fa fa-sign-out"></i> Conectar</button>
+			                    <div class="control-group form-group text-center">
+										<button type="submit" class="btn-lg btn-success">Conectar <i class="fa fa-arrow-right"></i></button>
+			                    </div>
+			                    
 							
 			                    <!-- For success/fail messages -->
 			                    
