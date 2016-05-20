@@ -92,6 +92,7 @@ $values = $_REQUEST;
 		$array_json = array();
 		$array_json['recordsTotal'] = $services_operator_list_json_cuenta;
 		$array_json['recordsFiltered'] = $services_operator_list_json_cuenta;
+		$UsersCompany = new UsersCompany();
 		if(count($services_operator_list_json)>0)
 		{
 			foreach ($services_operator_list_json as $services_operator) 

@@ -64,8 +64,8 @@ $values = $_REQUEST;
 	
 	$Message = new Message();
         $Message ->saveMessage($values);
-        $Mail = new Mail();
+        /*$Mail = new Mail();
         $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['message'];
         
-        $Mail ->send(array('deandrademarcos@hotmail.com'), array(mail_from),"Mensaje enviado desde la página www.tugruero.com" , $mensaje);
+        $Mail ->send(array('deandrademarcos@hotmail.com'), array(mail_from),"Mensaje enviado desde la página www.tugruero.com" , $mensaje);*/
 	}			

@@ -12,7 +12,7 @@
 					<th>Estatus</th>
 					<th>Fecha creado</th>
 					<th>Fecha modificado</th>
-					<th>Acciones</th>
+					<th>Detalle</th>
 				</tr>
 			</thead>
 			<tfoot>
@@ -24,7 +24,7 @@
 					<th>Estatus</th>
 					<th>Fecha creado</th>
 					<th>Fecha modificado</th>
-					<th>Acciones</th>
+					<th>Detalle</th>
 				</tr>
 			</tfoot>
 		</table>

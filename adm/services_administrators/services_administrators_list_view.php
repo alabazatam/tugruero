@@ -14,7 +14,7 @@
 					<th>Status cliente</th>
 					<th>Status grúa</th>
 					<th>Motivo</th>
-					<th>Acciones</th>
+					<th>Detalle</th>
 				</tr>
 			</thead>
 			<tfoot>
@@ -28,7 +28,7 @@
 					<th>Status cliente</th>
 					<th>Status grúa</th>
 					<th>Motivo</th>
-					<th>Acciones</th>
+					<th>Detalle</th>
 				</tr>
 			</tfoot>
 		</table>

@@ -13,18 +13,20 @@
 					<th>Status cliente</th>
 					<th>Status grúa</th>
 					<th>Motivo</th>
-					<th>Acciones</th>
+					<th>Detalle</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<th>Id.Grúa</th>
+					<th>Usuario</th>
+					<th>Nombres y apellidos</th>				
 					<th>Inicio</th>
 					<th>Fin</th>
 					<th>Status cliente</th>
 					<th>Status grúa</th>
 					<th>Motivo</th>
-					<th>Acciones</th>
+					<th>Detalle</th>
 				</tr>
 			</tfoot>
 		</table>

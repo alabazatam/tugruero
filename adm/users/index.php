@@ -102,8 +102,8 @@ $values = $_REQUEST;
 				$id_user = $user['id_user'];
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
+					"responsible_cedula" => $user['responsible_cedula'],
 					"login" => $user['login'],
-					"password" => "******",
 					"status" => $message_status,
                                         "date_created" => $user['date_created'],
                                         "date_updated" => $user['date_updated'],
@@ -121,7 +121,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"login"=>"","password"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"responsible_cedula"=>"","login"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

@@ -7,6 +7,7 @@
 				<tr>
 					<th>Id</th>
 					<th>Usuario</th>
+					<th>Master</th>
 					<th>Estatus</th>
                     <th>Fecha creado</th>
                     <th>Fecha modificado</th>
@@ -17,6 +18,7 @@
 				<tr>
 					<th>Id</th>
 					<th>Usuario</th>
+					<th>Master</th>
 					<th>Estatus</th>
                     <th>Fecha creado</th>
                     <th>Fecha modificado</th>
@@ -40,13 +42,14 @@ $(document).ready(function() {
         "columns": [
             { "data": "id_user" },
             { "data": "login" },
+			{ "data": "responsible_cedula" },
             { "data": "status" },
             { "data": "date_created" },
             { "data": "date_updated" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 5 ] }
+          { 'bSortable': false, 'aTargets': [ 6 ] }
        ]				
     });
 } );

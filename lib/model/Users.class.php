@@ -22,10 +22,10 @@
 			$columns = array();
 			$columns[0] = 'users.id_user';
 			$columns[1] = 'login';
-			$columns[2] = 'password';
+			$columns[2] = 'responsible_cedula';
 			$columns[3] = 'status';
-            $columns[4] = 'date_created';
-            $columns[5] = 'date_updated';
+            $columns[4] = 'users.date_created';
+            $columns[5] = 'users.date_updated';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -34,7 +34,8 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "upper(login) like upper('%$str%')";
+				$where = "upper(login) like upper('%$str%')"
+					. " or upper(responsible_cedula) like upper('%$str%') ";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -49,8 +50,11 @@
 			$q = $ConnectionORM->getConnect()->users
 			->select("*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")	
+			->join("company","INNER JOIN company on users_company.id_company = company.id")	
+			->join("users_data","INNER JOIN users_data on users_data.id_users = users.id_user")	
+			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")	
 			->order("$column_order $order")
-			->where("$where")
+			->where("$where and users_perms.id_perms = 4")
 			->limit($limit,$offset);
 			//echo $q;die;
 			return $q; 			
@@ -61,11 +65,16 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "upper(login) like upper('%$str%') ";
+				$where = "upper(login) like upper('%$str%') "
+					. " or upper(responsible_cedula) like upper('%$str%') ";
 			}
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
-			->select("count(*) as cuenta")->where("$where")->fetch();
+			->select("count(*) as cuenta")
+			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")				->join("company","INNER JOIN company on users_company.id_company = company.id")	
+			->join("users_data","INNER JOIN users_data on users_data.id_users = users.id_user")	
+			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")	
+			->where("$where and users_perms.id_perms = 4")->fetch();
 			return $q['cuenta']; 			
 		}
 		public function getUserById($values){
