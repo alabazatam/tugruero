@@ -6,23 +6,19 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Login</th>
-					<th>Password</th>
-					<th>Status</th>
-					<th>Fecha creado</th>
-					<th>Fecha modificado</th>
-					<th>Acciones</th>
+					<th>Usuario</th>
+					<th>Estatus</th>
+					<th>Disponibilidad en vivo</th>
+					<th>Detalle</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<th>Id</th>
-					<th>Login</th>
-					<th>Password</th>
-					<th>Status</th>
-					<th>Fecha creado</th>
-					<th>Fecha modificado</th>
-					<th>Acciones</th>
+					<th>Usuario</th>
+					<th>Estatus</th>
+					<th>Disponibilidad en vivo</th>
+					<th>Detalle</th>
 				</tr>
 			</tfoot>
 		</table>
@@ -42,14 +38,12 @@ $(document).ready(function() {
         "columns": [
             { "data": "id_user" },
             { "data": "login" },
-            { "data": "password" },
             { "data": "status" },
-            { "data": "date_created" },
-            { "data": "date_updated" },
+			{ "data": "disponibilidad"},
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 6 ] }
+          { 'bSortable': false, 'aTargets': [ 4 ] }
        ]				
     });
 } );

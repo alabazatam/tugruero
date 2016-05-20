@@ -226,6 +226,14 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
+												<label class="sr-only" for="placa">Indique la placa de su grúa</label>
+												<input type="text" autocomplete="off" id="num_socio" name="placa" value="<?php if(isset($values['placa'])) echo $values['placa']?>" placeholder="Indique la placa de su grúa..." class="form-google-plus form-control" id="form-google-plus" required>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
 												<h6 class="label label-default" for="file_2">Suba su RIF jurídico o natural.</h6>
 												<div class="input-group">
 													<input type="file" name="file_2" placeholder="Seleccione..." class="form-google-plus form-control" required />
