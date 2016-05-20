@@ -95,7 +95,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_message"=>null,"names"=>"","email"=>"","phone"=>"","message"=>"","status"=>"","date_created"=>"","actions"=>'',"date_updated"=>"");
+			$array_json['data'][0] = array("id_message"=>null,"names"=>"","email"=>"","phone"=>"","message"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>'');
 		}
 
 		echo json_encode($array_json);die;

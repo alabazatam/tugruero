@@ -12,7 +12,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                           </button>
-                          <a class="navbar-brand" href="<?php echo full_url;?>/adm/index.php"> <img src="<?php echo full_url;?>/web/img/logo_blanco.png" class="img-responsive" width="120"></a>
+                          <a class="navbar-brand" href="<?php echo full_url;?>/adm/index.php?action=bienvenida"> <img src="<?php echo full_url;?>/web/img/logo_blanco.png" class="img-responsive" width="120"></a>
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
