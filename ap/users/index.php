@@ -211,10 +211,8 @@ $values = $_REQUEST;
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
 					"login" => $user['login'],
-					"password" => "******",
+					"disponibilidad" => "SI/NO",
 					"status" => $message_status,
-                                        "date_created" => $user['date_created'],
-                                        "date_updated" => $user['date_updated'],
 					"actions" => 
                                        '<form method="POST" action = "'.full_url.'/ap/users/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
@@ -226,7 +224,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"login"=>"","password"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"login"=>"","status"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

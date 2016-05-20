@@ -114,7 +114,7 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="">Login</label>
+					<label for="">Usuario</label>
 					<input autocomplete="off" type="text" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>">
 				</div>
 			</div>
