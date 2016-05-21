@@ -21,11 +21,12 @@
 		{	
 			$columns = array();
 			$columns[0] = 'users.id_user';
-			$columns[1] = 'login';
-			$columns[2] = 'responsible_cedula';
-			$columns[3] = 'users.status';
-            $columns[4] = 'users.date_created';
-            $columns[5] = 'users.date_updated';
+			$columns[1] = 'first_last_name';
+			$columns[2] = 'login';
+			$columns[3] = 'responsible_cedula';
+			$columns[4] = 'users.status';
+            $columns[5] = 'users.date_created';
+            $columns[6] = 'users.date_updated';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
