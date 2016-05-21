@@ -34,7 +34,7 @@
 	  </ul>
 	</nav>
  
-	<div class="navbar navbar-default navbar-fixed-top clear-padding">      
+	<div class="navbar navbar-default navbar-fixed-top clear-padding ">      
 
 		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">
 			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="web/img/logo_blanco.png" alt="" width="220"></a>
