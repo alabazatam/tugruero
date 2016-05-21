@@ -78,7 +78,7 @@
 			<?php echo $values['puntual'];?><br>
 		</div>
 	</div>
-		<a class="btn btn-default"  href="<?php echo full_url."/ap/services_masters/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
+		<a class="btn btn-default"  href="<?php echo full_url."/ap/services_operator/index.php?id_user=".$values['idgrua']?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 		<!--<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>-->
 
 	</form>
