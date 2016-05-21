@@ -57,11 +57,13 @@ $values = $_REQUEST;
 	}
 	function executeEdit($values = null,$msg = null)
 	{
-		
+		$Aws = new Aws();
 		$Users = new Users();
 		$values = $Users->getUserById($values);
+		$values['password'] = $Aws->getGruerosClave($values);
+		$values['password'] = $values['password']['clave'];
 		$values['action'] = 'update';
-                $values['msg'] = $msg;
+        $values['msg'] = $msg;
 		$values['errors'] = array();
 		require('users_form_view.php');
 	}
@@ -74,8 +76,17 @@ $values = $_REQUEST;
 		{	
 			$values['errors'] = $errors;
 			require('users_form_view.php');die;
-		}else{		
-			$Users->updateUser($values);			
+		}else{
+			$Aws = new Aws();
+			$Users->updateUser($values);
+			if($values['status']==0)
+			{
+				$Aws->desactivarGruero($values['id_user']);
+			}
+			if($values['status']==1)
+			{
+				$Aws->activarGruero($values['id_user']);
+			}
 			executeEdit($values,message_updated);die;
 		}
 	}	

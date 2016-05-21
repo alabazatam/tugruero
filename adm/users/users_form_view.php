@@ -17,7 +17,7 @@
 	  </div>
 	  <div class="form-group">
 		<label for="">Password</label>
-		<input autocomplete="off" type="password" id="" class="form-control input-sm" name="password" value="">
+		<input autocomplete="off" type="password" id="" class="form-control input-sm" name="password" value="<?php if(isset($values['password']) and $values['password']!='') echo $values['password']; ?>">
 		<?php if(isset($values['errors']['password']) and $values['errors']['password']!=''):?>
 			<label class="alert alert-danger"><?php echo $values['errors']['password']?></label>
 		<?php endif;?>

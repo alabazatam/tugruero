@@ -345,7 +345,7 @@
 		}
 		function getLogin($values){
 			$ConnectionORM = new ConnectionORM();			
-			$where = "users.login = '".$values['login']."'";
+			$where = "upper(users.login) = '".strtoupper($values['login'])."'";
 			$where.= " and users.password = '".hash("sha256",$values['password'])."'";
 			$where.= " and users.status = 1";
 			$where.= " and users_perms.status = 1";

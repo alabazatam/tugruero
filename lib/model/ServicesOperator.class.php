@@ -21,18 +21,13 @@
 		{	
 			$id_user = $values['id_user'];
 			$columns = array();
-			$columns[0] = 'idSolicitud';
-			$columns[1] = 'idGrua';
-			$columns[2] = 'idPoliza';
-			$columns[3] = 'TimeInicio';
-			$columns[4] = 'TimeFin';
-            $columns[5] = 'EstatusCliente';
-            $columns[6] = 'EstatusGrua';
-			$columns[7] = 'Motivo';
-			$columns[8] = 'TratoCordial';
-			$columns[9] = 'TratoVehiculo';
-			$columns[10] = 'Puntual';
-			$columns[11] = 'Observacion';
+			$columns[0] = 'Gruas.idGrua';
+			$columns[1] = 'Cedula';
+			$columns[2] = 'TimeInicio';
+			$columns[3] = 'TimeFin';
+            $columns[4] = 'EstatusCliente';
+            $columns[5] = 'EstatusGrua';
+			$columns[6] = 'Motivo';
 			$column_order = $columns[0];
 			
 			$order = 'asc';
@@ -62,6 +57,7 @@
 			->select("*")
 			->order("$column_order $order")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
+			->join("gruas","INNER JOIN Gruas on Gruas.idGrua = Servicios.idGrua")	
 			->where("Grueros.idGrua=?",$id_user)
 			->and("$where")
 			->limit($limit,$offset);
@@ -87,7 +83,8 @@
             $ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
 			->select("count(*) as cuenta")
-			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
+			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
+			->join("gruas","INNER JOIN Gruas on Gruas.idGrua = Servicios.idGrua")	
 			->where("Grueros.idGrua=?",$id_user)
 			->fetch();
 			return $q['cuenta']; 			

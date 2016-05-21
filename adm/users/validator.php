@@ -17,7 +17,7 @@
 		);
 		$validator_values['password'] = array(
 			
-			"minlength" => 8,
+			"minlength" => 6,
 			"maxlength" => 12,
 			"type" => "text",
 			"label" => "Password",
