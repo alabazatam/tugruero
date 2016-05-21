@@ -56,6 +56,7 @@ $values = $_REQUEST;
 		
 		else 
 		{
+			$estatus = $values['status'];
 			$Users = new Users();
 			$loggin = $values['nationality'].'-'.$values['document'];
 			$values['login'] = $loggin;
@@ -65,8 +66,7 @@ $values = $_REQUEST;
 			$idHoist= array ("id" => $values['id_hoist']);
 			$hoist = new Hoist();
 			$dataHoist =  $hoist->getHoistById($idHoist);
-			$estatus = "";
-			if($values['status'] = 0)
+			if($estatus == 1)
 			{
 				$estatus = "Activo";
 			}

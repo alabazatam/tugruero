@@ -582,7 +582,7 @@ input[readonly="readonly"] {
 }
 .fondo_mensaje {
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
-    background: url(../img/fondo_mensaje.png) no-repeat top center fixed ;
+    background: url(../img/fondo_mensaje.png) no-repeat top center fixed !important ;
     
     overflow-x: hidden;
     margin: 0;
