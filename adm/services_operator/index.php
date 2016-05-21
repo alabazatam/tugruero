@@ -1,5 +1,6 @@
 <?php include("../../autoload.php");?>	
 <?php //include("validator.php");?>	
+<?php include("../security/security.php");?>
 <?php $action = "";
 
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
@@ -122,7 +123,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("idGrua"=>null,"TimeInicio"=>"","TimeFin"=>"","EstatusCliente"=>"","EstatusGrua"=>"","Motivo"=>"","actions"=>"");
+			$array_json['data'][0] = array("idGrua"=>null,"Cedula"=>"","NombreApellido"=>"","TimeInicio"=>"","TimeFin"=>"","EstatusCliente"=>"","EstatusGrua"=>"","Motivo"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;
