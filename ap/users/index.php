@@ -142,7 +142,7 @@ $values = $_REQUEST;
 			$dataHoist =  $hoist->getHoistById($idHoist);
 			
 			$estatus = "";
-			if($values['status'] = 0)
+			if($values['status'] == 0)
 			{
 				$estatus = "Activo";
 			}
