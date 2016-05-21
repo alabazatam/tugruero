@@ -160,11 +160,9 @@
 			$ConnectionORM = new ConnectionORM();
 			$id_company = $_SESSION["id_company"];
 			$q = $ConnectionORM->getConnect()->hoist()
-			->select("hoist.id,hoist.registration_plate,users_hoist_company.id_user")
+			->select("hoist.id,hoist.registration_plate")
 			->join("hoist_company","inner join hoist_company on hoist_company.id_hoist = hoist.id")
-			->join("users_hoist_company","left join users_hoist_company on users_hoist_company.id_hoist = hoist.id")
-             ->where("(users_hoist_company.id_user = $id OR users_hoist_company.id_user_hoist_company IS NULL) 
-			AND (hoist_company.id_company =$id_company)");
+            ->where("hoist_company.id_company=?",$id_company);
                //         ->order("$column_order $order")
 			//->limit($limit,$offset);
 			//echo $q;die;
