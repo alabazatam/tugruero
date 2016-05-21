@@ -211,6 +211,7 @@ $values = $_REQUEST;
 		$array_json = array();
 		$array_json['recordsTotal'] = $users_list_json_cuenta;
 		$array_json['recordsFiltered'] = $users_list_json_cuenta;
+		$Aws = new Aws();
 		if(count($users_list_json)>0)
 		{
 			foreach ($users_list_json as $user) 
@@ -224,11 +225,12 @@ $values = $_REQUEST;
 				{
 					$message_status = "<label class='label label-success'>Activo</label>";
 				}
+				$disponibilidad = $Aws->getDisponibilidad($user);
 				$id_user = $user['id_user'];
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
 					"login" => $user['login'],
-					"disponibilidad" => "SI/NO",
+					"disponibilidad" => $disponibilidad,
 					"status" => $message_status,
 					"actions" => 
                                        '<form method="POST" action = "'.full_url.'/ap/users/index.php" >'

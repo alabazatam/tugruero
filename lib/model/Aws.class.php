@@ -67,4 +67,16 @@
 			$q = $ConnectionAws->getConnect()->Grueros("idGrua", $id_user)->update(array('Condicion' => 'Activo'));
 			return true;	
 		}
+		public function getDisponibilidad($values){
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Gruas
+			->select("*")
+			->where("idGrua=?",$values['id_user']);
+			
+			foreach($q as $id => $value)
+			{
+				return $value['disponible'];
+				break;
+			}
+		}
 	}
