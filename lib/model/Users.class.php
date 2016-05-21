@@ -49,7 +49,7 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
-			->select("*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->select("*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated, users.status as status")
 			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")	
 			->join("company","INNER JOIN company on users_company.id_company = company.id")	
 			->join("users_data","INNER JOIN users_data on users_data.id_users = users.id_user")	
