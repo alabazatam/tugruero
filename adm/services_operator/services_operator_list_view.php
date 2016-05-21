@@ -18,7 +18,7 @@
 			</thead>
 			<tfoot>
 				<tr>
-					<th>Id.Grúa</th>
+					<th>Id</th>
 					<th>Usuario</th>
 					<th>Nombres y apellidos</th>
 					<th>Inicio</th>
@@ -55,7 +55,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 7 ] }
+          { 'bSortable': false, 'aTargets': [ 8 ] }
        ]				
     });
 } );
