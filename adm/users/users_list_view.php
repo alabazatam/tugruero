@@ -6,6 +6,7 @@
 			<thead>
 				<tr>
 					<th>Id</th>
+					<th>Nombres y apellidos</th>
 					<th>Usuario</th>
 					<th>Master</th>
 					<th>Estatus</th>
@@ -17,6 +18,7 @@
 			<tfoot>
 				<tr>
 					<th>Id</th>
+					<th>Nombres y apellidos</th>
 					<th>Usuario</th>
 					<th>Master</th>
 					<th>Estatus</th>
@@ -41,6 +43,7 @@ $(document).ready(function() {
         },
         "columns": [
             { "data": "id_user" },
+			{ "data": "NombreApellido" },
             { "data": "login" },
 			{ "data": "responsible_cedula" },
             { "data": "status" },
