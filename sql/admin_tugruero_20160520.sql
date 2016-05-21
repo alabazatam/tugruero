@@ -1,6 +1,6 @@
 /*
-SQLyog Community v12.2.1 (64 bit)
-MySQL - 5.6.17 : Database - admin_tugruero
+SQLyog Community v12.15 (64 bit)
+MySQL - 5.5.49-0ubuntu0.14.04.1 : Database - admin_tugruero
 *********************************************************************
 */
 
@@ -366,6 +366,25 @@ insert  into `hoist_company`(`id_hoist_company`,`id_hoist`,`id_company`) values
 (4,4,2),
 (5,5,4);
 
+/*Table structure for table `inserts` */
+
+DROP TABLE IF EXISTS `inserts`;
+
+CREATE TABLE `inserts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(255) NOT NULL,
+  `query` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+/*Data for the table `inserts` */
+
+insert  into `inserts`(`id`,`descripcion`,`query`) values 
+(1,'ECHEVERRIA','BEGIN;\r\nINSERT INTO `admin_tugruero`.`users` \r\n	(\r\n	`login`, \r\n	`password`, \r\n	`status`, \r\n	`date_created`, \r\n	`date_updated`, \r\n	`mail`, \r\n	`mail_alternative`\r\n	)\r\n	VALUES\r\n	(\r\n	\'CECHEVERRIA\', \r\n	\'8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92\', \r\n	\'1\', \r\n	NOW(), \r\n	NOW(), \r\n	\'cecheverria@tugruero.com\', \r\n	\'cecheverria@tugruero.com.ve\'\r\n	);\r\n\r\nSET @last_id_user= LAST_INSERT_ID();\r\n\r\nINSERT INTO `admin_tugruero`.`users_data` \r\n	( \r\n	`id_users`, \r\n	`first_name`, \r\n	`second_name`, \r\n	`first_last_name`, \r\n	`second_last_name`, \r\n	`nationality`, \r\n	`document`, \r\n	`birthdate`, \r\n	`gender`, \r\n	`phone`, \r\n	`phone1`, \r\n	`image`, \r\n	`certificado_file`, \r\n	`document_file`, \r\n	`date_created`, \r\n	`date_updated`\r\n	)\r\n	VALUES\r\n	(\r\n	@last_id_user, \r\n	\'CARLOS\', \r\n	\'\', \r\n	\'ECHEVERRIA\', \r\n	\'\', \r\n	\'V\', \r\n	\'20704089\', \r\n	\'\', \r\n	\'M\', \r\n	\'04148572157\', \r\n	\'\', \r\n	\'\', \r\n	\'\', \r\n	\'\', \r\n	NOW(),\r\n	NOW()\r\n	);\r\n	\r\n\r\n\r\nINSERT INTO `admin_tugruero`.`users_perms` \r\n	(`id_user`, \r\n	`id_perms`, \r\n	`status`, \r\n	`date_created`, \r\n	`date_updated`\r\n	)\r\n	VALUES\r\n	(@last_id_user, \r\n	2, \r\n	1, \r\n	NOW(),\r\n	NOW()\r\n	);\r\nCOMMIT;\r\n\r\n	\r\n'),
+(2,'AECHEVERRIA','BEGIN;\r\nINSERT INTO `admin_tugruero`.`users` \r\n	(\r\n	`login`, \r\n	`password`, \r\n	`status`, \r\n	`date_created`, \r\n	`date_updated`, \r\n	`mail`, \r\n	`mail_alternative`\r\n	)\r\n	VALUES\r\n	(\r\n	\'AECHEVERRIA\', \r\n	\'8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92\', \r\n	\'1\', \r\n	NOW(), \r\n	NOW(), \r\n	\'aecheverria@tugruero.com\', \r\n	\'aecheverria@tugruero.com.ve\'\r\n	);\r\n\r\nSET @last_id_user= LAST_INSERT_ID();\r\n\r\nINSERT INTO `admin_tugruero`.`users_data` \r\n	( \r\n	`id_users`, \r\n	`first_name`, \r\n	`second_name`, \r\n	`first_last_name`, \r\n	`second_last_name`, \r\n	`nationality`, \r\n	`document`, \r\n	`birthdate`, \r\n	`gender`, \r\n	`phone`, \r\n	`phone1`, \r\n	`image`, \r\n	`certificado_file`, \r\n	`document_file`, \r\n	`date_created`, \r\n	`date_updated`\r\n	)\r\n	VALUES\r\n	(\r\n	@last_id_user, \r\n	\'ALEJANDRO\', \r\n	\'\', \r\n	\'ECHEVERRIA\', \r\n	\'\', \r\n	\'V\', \r\n	\'20704089\', \r\n	\'\', \r\n	\'M\', \r\n	\'04148572157\', \r\n	\'\', \r\n	\'\', \r\n	\'\', \r\n	\'\', \r\n	NOW(),\r\n	NOW()\r\n	);\r\n	\r\n\r\n\r\nINSERT INTO `admin_tugruero`.`users_perms` \r\n	(`id_user`, \r\n	`id_perms`, \r\n	`status`, \r\n	`date_created`, \r\n	`date_updated`\r\n	)\r\n	VALUES\r\n	(@last_id_user, \r\n	2, \r\n	1, \r\n	NOW(),\r\n	NOW()\r\n	);\r\nCOMMIT;\r\n\r\n	\r\n'),
+(3,'MDEANDRADE','BEGIN;\r\nINSERT INTO `admin_tugruero`.`users` \r\n	(\r\n	`login`, \r\n	`password`, \r\n	`status`, \r\n	`date_created`, \r\n	`date_updated`, \r\n	`mail`, \r\n	`mail_alternative`\r\n	)\r\n	VALUES\r\n	(\r\n	\'MDEANDRADE\', \r\n	\'18bfddf1020067bbd33fad652bc8f1a59b2427ff8c7ebfd62bbfef6c2dddff49\', \r\n	\'1\', \r\n	NOW(), \r\n	NOW(), \r\n	\'deandrademarcos@gmail.com\', \r\n	\'deandrademarcos@hotmail.com\'\r\n	);\r\n\r\nSET @last_id_user= LAST_INSERT_ID();\r\n\r\nINSERT INTO `admin_tugruero`.`users_data` \r\n	( \r\n	`id_users`, \r\n	`first_name`, \r\n	`second_name`, \r\n	`first_last_name`, \r\n	`second_last_name`, \r\n	`nationality`, \r\n	`document`, \r\n	`birthdate`, \r\n	`gender`, \r\n	`phone`, \r\n	`phone1`, \r\n	`image`, \r\n	`certificado_file`, \r\n	`document_file`, \r\n	`date_created`, \r\n	`date_updated`\r\n	)\r\n	VALUES\r\n	(\r\n	@last_id_user, \r\n	\'MARCOS\', \r\n	\'\', \r\n	\'DE ANDRADE\', \r\n	\'\', \r\n	\'V\', \r\n	\'18020594\', \r\n	\'\', \r\n	\'M\', \r\n	\'04268141850\', \r\n	\'\', \r\n	\'\', \r\n	\'\', \r\n	\'\', \r\n	NOW(),\r\n	NOW()\r\n	);\r\n	\r\n\r\n\r\nINSERT INTO `admin_tugruero`.`users_perms` \r\n	(`id_user`, \r\n	`id_perms`, \r\n	`status`, \r\n	`date_created`, \r\n	`date_updated`\r\n	)\r\n	VALUES\r\n	(@last_id_user, \r\n	2, \r\n	1, \r\n	NOW(),\r\n	NOW()\r\n	);\r\nCOMMIT;\r\n\r\n	\r\n'),
+(4,'CHEINZE','BEGIN;\r\nINSERT INTO `admin_tugruero`.`users` \r\n	(\r\n	`login`, \r\n	`password`, \r\n	`status`, \r\n	`date_created`, \r\n	`date_updated`, \r\n	`mail`, \r\n	`mail_alternative`\r\n	)\r\n	VALUES\r\n	(\r\n	\'CHEINZE\', \r\n	\'8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92\', \r\n	\'1\', \r\n	NOW(), \r\n	NOW(), \r\n	\'cheinze@tugruero.com\', \r\n	\'cheinze@tugruero.com.ve\'\r\n	);\r\n\r\nSET @last_id_user= LAST_INSERT_ID();\r\n\r\nINSERT INTO `admin_tugruero`.`users_data` \r\n	( \r\n	`id_users`, \r\n	`first_name`, \r\n	`second_name`, \r\n	`first_last_name`, \r\n	`second_last_name`, \r\n	`nationality`, \r\n	`document`, \r\n	`birthdate`, \r\n	`gender`, \r\n	`phone`, \r\n	`phone1`, \r\n	`image`, \r\n	`certificado_file`, \r\n	`document_file`, \r\n	`date_created`, \r\n	`date_updated`\r\n	)\r\n	VALUES\r\n	(\r\n	@last_id_user, \r\n	\'CARLOS\', \r\n	\'\', \r\n	\'HEINZE\', \r\n	\'\', \r\n	\'V\', \r\n	\'20704089\', \r\n	\'\', \r\n	\'M\', \r\n	\'04148572157\', \r\n	\'\', \r\n	\'\', \r\n	\'\', \r\n	\'\', \r\n	NOW(),\r\n	NOW()\r\n	);\r\n	\r\n\r\n\r\nINSERT INTO `admin_tugruero`.`users_perms` \r\n	(`id_user`, \r\n	`id_perms`, \r\n	`status`, \r\n	`date_created`, \r\n	`date_updated`\r\n	)\r\n	VALUES\r\n	(@last_id_user, \r\n	2, \r\n	1, \r\n	NOW(),\r\n	NOW()\r\n	);\r\nCOMMIT;\r\n\r\n	\r\n');
+
 /*Table structure for table `menu` */
 
 DROP TABLE IF EXISTS `menu`;
@@ -385,7 +404,7 @@ CREATE TABLE `menu` (
   `orders` int(11) DEFAULT NULL,
   `menu_image` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 /*Data for the table `menu` */
 
@@ -394,7 +413,7 @@ insert  into `menu`(`id_menu`,`id_menuref`,`name`,`name2`,`url`,`url2`,`status`,
 (2,0,'Nuestro trabajo',NULL,'#work',NULL,1,NULL,'2016-03-21 22:32:20','2016-03-21 22:32:24',1,2,0),
 (3,0,'¿Quiénes somos?',NULL,'#about',NULL,1,NULL,'2016-03-21 22:33:00','2016-03-21 22:33:03',1,3,0),
 (4,0,'Video',NULL,'#video',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:40',1,4,0),
-(5,0,'Soporte técnico',NULL,'#prueba',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,2,0),
+(5,0,'Soporte técnico',NULL,'#prueba',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,3,0),
 (6,5,'Contenido de secciones',NULL,'/adm/about/index.php',NULL,0,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1,0),
 (7,5,'Nuestros Objetivos',NULL,'#Menu',NULL,0,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,2,0),
 (8,0,'Manejo de usuarios',NULL,'#prueba',NULL,1,NULL,'2016-03-21 22:33:38','2016-03-21 22:33:38',3,1,0),
@@ -418,7 +437,10 @@ insert  into `menu`(`id_menu`,`id_menuref`,`name`,`name2`,`url`,`url2`,`status`,
 (26,0,'Perfil de usuario',NULL,'','',1,NULL,'2016-05-03 21:57:41','2016-05-03 21:57:43',4,4,0),
 (27,26,'Modificación de clave','','/ap/account/index.php?action=change_pass_view','/ap/account/index.php?action=change_pass_view',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',4,2,0),
 (28,26,'Datos personales','','/ap/users_data/index.php?action=edit','/ap/users_data/index.php?action=edit',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',4,1,0),
-(29,24,'Datos personales','','/ap/users_data/index.php?action=edit','/ap/users_data/index.php?action=edit',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',2,1,0);
+(29,24,'Datos personales','','/ap/users_data/index.php?action=edit','/ap/users_data/index.php?action=edit',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',2,1,0),
+(30,0,'Perfil de usuario',NULL,'','',1,NULL,'2016-05-03 21:57:41','2016-05-03 21:57:43',3,2,0),
+(31,30,'Modificación de clave','','/adm/account/index.php?action=change_pass_view','/adm/account/index.php?action=change_pass_view',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',3,2,0),
+(32,30,'Datos personales','','/adm/users_data/index.php?action=edit','/adm/users_data/index.php?action=edit',1,'','2016-05-03 21:57:41','2016-05-03 21:57:43',3,1,0);
 
 /*Table structure for table `menu_page` */
 
@@ -487,12 +509,14 @@ CREATE TABLE `message` (
   `date_created` datetime DEFAULT NULL,
   `date_updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id_message`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `message` */
 
 insert  into `message`(`id_message`,`names`,`email`,`phone`,`message`,`status`,`date_created`,`date_updated`) values 
-(1,'marcos de andrade','deandrademarcos@gmail.com','04268141850','',1,'2016-05-20 14:25:26','2016-05-20 14:25:26');
+(1,'marcos de andrade','deandrademarcos@gmail.com','04268141850','',1,'2016-05-20 14:25:26','2016-05-20 14:25:26'),
+(2,'aaaaaaaaaaaa','deandrademarcos@gmail.com','04268141850','',1,'2016-05-20 19:09:30','2016-05-20 19:09:30'),
+(3,'Marcos','deandrademarcos@hotmail.com','04268141850','Mensaje de prueba',1,'2016-05-20 19:14:13','2016-05-20 19:14:13');
 
 /*Table structure for table `modals` */
 
@@ -619,7 +643,7 @@ CREATE TABLE `users` (
   `mail` varchar(45) NOT NULL,
   `mail_alternative` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users` */
 
@@ -632,7 +656,7 @@ insert  into `users`(`id_user`,`login`,`password`,`status`,`date_created`,`date_
 (7,'V-20704089','8dff283f7f7f07fd5577e4f4788cbbc30ebb59b8bfbceb7d53c02cfd478c87b9',1,'2016-05-19 23:17:39','2016-05-19 23:29:44','alejem93@gmail.com',NULL),
 (8,'V-20303709','18bfddf1020067bbd33fad652bc8f1a59b2427ff8c7ebfd62bbfef6c2dddff49',1,'2016-05-19 22:41:30','2016-05-19 22:46:04','jeancufm@gmail.com','jeancufm@gmail.com'),
 (9,'V-19122017','fa1ed54a23d0e505a2e3837544e621af99acd6c79ca3725c5db88a15e5999c56',1,'2016-05-20 16:52:22','2016-05-20 10:33:16','deandrademarcos@gmail.com','deandrademarcos@gmail.com'),
-(10,'V-180205963','18bfddf1020067bbd33fad652bc8f1a59b2427ff8c7ebfd62bbfef6c2dddff49',1,'2016-05-20 17:47:24','2016-05-20 17:47:24','d@h.com',NULL);
+(10,'V-180205963','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',1,'2016-05-20 17:47:24','2016-05-20 20:38:50','d@h.com',NULL);
 
 /*Table structure for table `users_company` */
 
@@ -684,7 +708,7 @@ CREATE TABLE `users_data` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users_data` */
 
@@ -697,7 +721,7 @@ insert  into `users_data`(`id`,`id_users`,`first_name`,`second_name`,`first_last
 (6,7,'Alejandro','Javier','Echeverria','Monaco','V','20704089',NULL,'M','04148572157',NULL,'','','V-20704089-cedula.pdf','2016-05-19 23:17:39','2016-05-19 23:17:39'),
 (7,8,'Jean','maiker','de andrade','carrera','V','20303709',NULL,'M','04163030894',NULL,'','','','2016-05-19 22:41:30','2016-05-19 22:41:30'),
 (8,9,'MARCOS','','ARLINDO','','V','19122017',NULL,'M','04268141850',NULL,'','','','2016-05-20 16:52:22','2016-05-20 16:52:22'),
-(9,10,'hola','hola','hola','hola','V','180205963',NULL,'M','04268141850',NULL,'','','V-180205963-cedula.jpg','2016-05-20 17:47:24','2016-05-20 17:47:24');
+(9,10,'Marcos','ARLINDO','DE ANDRADE','CARRERA','V','180205963',NULL,'M','04268141850','','V-180205963.jpg','','V-180205963-cedula.jpg','2016-05-20 17:47:24','2016-05-20 20:52:57');
 
 /*Table structure for table `users_hoist_company` */
 
@@ -747,7 +771,7 @@ insert  into `users_perms`(`id_user`,`id_perms`,`status`,`date_created`,`date_up
 (7,4,0,NULL,NULL),
 (8,3,1,'2016-05-19 22:41:32','2016-05-20 06:42:08'),
 (9,3,1,'2016-05-20 16:52:23','2016-05-20 10:33:16'),
-(10,4,0,NULL,NULL);
+(10,2,1,NULL,NULL);
 
 /*Table structure for table `users_token` */
 
