@@ -65,6 +65,15 @@ $values = $_REQUEST;
 			$idHoist= array ("id" => $values['id_hoist']);
 			$hoist = new Hoist();
 			$dataHoist =  $hoist->getHoistById($idHoist);
+			$estatus = "";
+			if($values['status'] = 0)
+			{
+				$estatus = "Activo";
+			}
+			else
+			{
+				$estatus = "Inactivo";
+			}
 			$dateGrueros = array('idGrua' => $values['id_user'],
 								'Nombre' => $values['first_name'].' '.$values['second_name'],
 								'Apellido' => $values['first_last_name'].' '.$values['second_last_name'],
@@ -74,7 +83,7 @@ $values = $_REQUEST;
 								'Celular' => $values['phone'],
 								'Cedula' => $values['nationality'].'-'.$values['document'],
 								'Clave' => $values['password'],
-								'Condicion' => "Activo",
+								'Condicion' => $estatus,
 								'NumServicios' => "0",
 								'TotalTrato' => "0",
 								'TotalPresencia' => "0",
@@ -132,7 +141,15 @@ $values = $_REQUEST;
 			$hoist = new Hoist();
 			$dataHoist =  $hoist->getHoistById($idHoist);
 			
-
+			$estatus = "";
+			if($values['status'] = 0)
+			{
+				$estatus = "Activo";
+			}
+			else
+			{
+				$estatus = "Inactivo";
+			}
 			
 			
 			$dateGrueros = array('idGrua' => $values['id_user'],
@@ -140,7 +157,7 @@ $values = $_REQUEST;
 								'Modelo' => $dataHoist['type_hoist'],
 								'Color' => $dataHoist['color'],
 								'Clave' => $values['password'],
-								'Condicion' => "Activo",
+								'Condicion' => $estatus,
 								'NumServicios' => "0",
 								'TotalTrato' => "0",
 								'TotalPresencia' => "0",
