@@ -4,25 +4,27 @@
 	<h1 class="text-center big_title">Contáctenos</h1>	
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
+		<input readonly="readonly" type="hidden" class="form-control input-sm" id="" placeholder="" name="id_message" value="<?php if(isset($values['id_message'])) echo $values['id_message']?>">
+
 	  <div class="form-group">
-		<label for="">Id</label>
-		<input readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_message" value="<?php if(isset($values['id_message'])) echo $values['id_message']?>">
+		<label for="">Nombres y apellidos:</label>
+		<!--<input readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="names" value="<?php if(isset($values['names'])) echo $values['names']?>">-->
+		<?php if(isset($values['names'])) echo strtoupper($values['names']);?>
 	  </div>
 	  <div class="form-group">
-		<label for="">Contacto</label>
-		<input readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="names" value="<?php if(isset($values['names'])) echo $values['names']?>">
+		<label for="">Correo electrónico:</label>
+		<!--<input readonly="readonly" type="text" id="" class="form-control input-sm" name="email" value="<?php if(isset($values['email'])) echo $values['email']?>">-->
+		<?php if(isset($values['email'])) echo $values['email']?>
 	  </div>
 	  <div class="form-group">
-		<label for="">Email</label>
-		<input readonly="readonly" type="text" id="" class="form-control input-sm" name="email" value="<?php if(isset($values['email'])) echo $values['email']?>">
+		<label for="">Número de contacto:</label>
+		<!--<input readonly="readonly" type="text" id="" class="form-control input-sm" name="phone" value="<?php if(isset($values['phone'])) echo $values['phone']?>">-->
+		<?php if(isset($values['phone'])) echo $values['phone']?>
 	  </div>
 	  <div class="form-group">
-		<label for="">Teléfono</label>
-		<input readonly="readonly" type="text" id="" class="form-control input-sm" name="phone" value="<?php if(isset($values['phone'])) echo $values['phone']?>">
-	  </div>
-	  <div class="form-group">
-		<label for="">Mensaje</label>
-		<input readonly="readonly" type="text" id="" class="form-control input-sm" name="message" value="<?php if(isset($values['message'])) echo $values['message']?>">
+		<label for="">Mensaje:</label>
+		<!--<input readonly="readonly" type="text" id="" class="form-control input-sm" name="message" value="<?php if(isset($values['message'])) echo $values['message']?>">-->
+		<p class="text-justify"><?php if(isset($values['message'])) echo $values['message']?></p>
 	  </div>
 		<div class="form-group">
 		  <label class="label label-success">
@@ -37,12 +39,14 @@
 		  </label>
 		</div>	
 	  <div class="form-group">
-		<label for="">Fecha envio</label>
-		<input readonly="readonly" type="text" id="" class="form-control input-sm" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">
+		<label for="">Fecha de envio:</label>
+		<!--<input readonly="readonly" type="text" id="" class="form-control input-sm" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">-->
+		<?php if(isset($values['date_created'])) echo $values['date_created']?>
 	  </div>
 	  <div class="form-group">
-		<label for="">Fecha visto</label>
-		<input readonly="readonly" type="text" id="" class="form-control input-sm" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
+		<label for="">Fecha visto:</label>
+		<!--<input readonly="readonly" type="text" id="" class="form-control input-sm" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">-->
+		<?php if(isset($values['date_updated'])) echo $values['date_updated']?>
 	  </div>
 		<a class="btn btn-default"  href="<?php echo full_url."/adm/messages/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i>Regresar</a>
 		<button type="submit" class="btn btn-default"><i class="fa fa-save  fa-pull-left fa-border"></i>Guardar</button>

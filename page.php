@@ -667,9 +667,9 @@
     <script src="web/js/jqBootstrapValidation.js"></script>
     <script src="web/js/contact_me.js"></script>
     <script src="web/js/freelancer.js"></script>
-	<script src="web/ccsa/js/angular.js"></script>
-	<script src="web/ccsa/js/vendors.js"></script>
-	<script src="web/ccsa/js/cssawds.min.js"></script>
+	<!--<script src="web/ccsa/js/angular.js"></script>-->
+	<!--<script src="web/ccsa/js/vendors.js"></script>-->
+	<!--<script src="web/ccsa/js/cssawds.min.js"></script>-->
 	<script>
 	
 	$(document).ready(function() {
@@ -697,7 +697,7 @@
       	});
  
       	// Initialize navgoco with default options
-        $(".main-menu").navgoco({
+        /*$(".main-menu").navgoco({
             caret: '<span class="caret"></span>',
             accordion: false,
             openClass: 'open',
@@ -711,7 +711,7 @@
                 duration: 300,
                 easing: 'swing'
             }
-        });
+        });*/
  
       });
 	</script>

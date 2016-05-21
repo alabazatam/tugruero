@@ -23,7 +23,7 @@
 			$columns[0] = 'users.id_user';
 			$columns[1] = 'login';
 			$columns[2] = 'responsible_cedula';
-			$columns[3] = 'status';
+			$columns[3] = 'users.status';
             $columns[4] = 'users.date_created';
             $columns[5] = 'users.date_updated';
 			$column_order = $columns[0];
@@ -341,6 +341,23 @@
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users("id_user", $id_user)->update($values);
 			return $q;
+			
+		}
+		function getLogin($values){
+			$ConnectionORM = new ConnectionORM();			
+			$where = "users.login = '".$values['login']."'";
+			$where.= " and users.password = '".hash("sha256",$values['password'])."'";
+			$where.= " and users.status = 1";
+			$where.= " and users_perms.status = 1";
+			$where.= " and users_perms.id_perms = 2";
+			$q = $ConnectionORM->getConnect()->users
+			->select("*")
+			->join("users_data","INNER JOIN users_data on users_data.id_users = users.id_user")
+			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")
+			->where("$where")
+			->fetch();
+			return $q; 				
+			
 			
 		}
 	}

@@ -37,13 +37,40 @@ $values = $_REQUEST;
 	}
 	function executeAcceso($values = null){
 		
-		
+		$login = true;
 		$securimage = new Securimage();
 		$captcha = $values['ct_captcha'];
-		if ($securimage->check($captcha) == false) {
-		  $errors['captcha_error'] = 'Incorrect security code entered<br />';
+		if ($securimage->check($captcha) == false) 
+		{
+				$errors['captcha_error'] = 'Incorrect security code entered<br />';
 				$values['error'] = "Imagen incorrecta";
 				require('login.php');die;
+		}else
+		{
+			if($login == false)
+			{
+				require('bienvenida.php');
+			}else
+			{
+				$Users = new Users();
+				$user_data = $Users->getLogin($values);
+				if(count($user_data)==0)
+				{
+					$values['error'] = "Usuario o clave incorrecto";
+					require('login.php');die;
+				}else
+				{
+				$_SESSION['id_perms'] =$user_data["id_perms"];
+				$_SESSION['id_user'] = $user_data["id_user"];
+				$_SESSION['login'] = $user_data["login"];
+				$_SESSION['name'] = ucwords(strtolower($user_data["first_name"]))." ".ucwords(strtolower($user_data["first_last_name"]));
+
+					require('bienvenida.php');die;
+				}
+				
+				
+				
+			}
 		}
 	require('bienvenida.php');
 	}

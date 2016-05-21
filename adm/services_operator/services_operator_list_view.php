@@ -5,7 +5,7 @@
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
 			<thead>
 				<tr>
-					<th>Id.Grúa</th>
+					<th>Id</th>
 					<th>Usuario</th>
 					<th>Nombres y apellidos</th>
 					<th>Inicio</th>
