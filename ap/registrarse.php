@@ -190,7 +190,7 @@ $values = trimValues($_REQUEST);;
 					{
 						$idCompanyValidation=$value["id"];
 						$RegistrarEmpresa = array("rif" => $values["Type_rif"]."-".$values["rif"],
-						"razon_social"=>$value["razon_social"],
+						"razon_social"=>$values["company_name"],
 						"responsible_name"=>$values["first_name"]." ".$values["first_lastname"],
 						"id_bank" =>$values["id_bank"],
 						"tipo_cuenta" =>$values["tipo_cuenta"],

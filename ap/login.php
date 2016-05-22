@@ -18,7 +18,7 @@
 			                        <div class="controls">
 			                            <label>Usuario:</label>
 										
-											<input type="text" autocomplete="off" class="form-control" name="login"  required />
+										<input type="text" autocomplete="off" class="form-control" name="login" placeholder="Ejemplo: V-12345678"  required />
 											
 										
 			                            <p class="help-block"></p>
