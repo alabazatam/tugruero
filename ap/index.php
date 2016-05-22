@@ -46,7 +46,7 @@ $values = $_REQUEST;
 				require('login.php');die;
 		}
 		$Login = new Login();
-		$q = $Login->GetLogin($values["nationality"].'-'.$values["login"],$values["password"]);
+		$q = $Login->GetLogin($values["login"],$values["password"]);
 		if(count($q)> 0)
 		{	
 			$company = new Company();

@@ -13,27 +13,21 @@
                                       </div>					
                                         <form name="" id="" novalidate action="<?php echo full_url;?>/ap/index.php" method="POST">
 			                
-                                         <input type="hidden" name="action" value="acceso"/>
+                                <input type="hidden" name="action" value="acceso"/>
 			                    <div class="control-group form-group">
 			                        <div class="controls">
 			                            <label>Usuario:</label>
-										<div class="input-group">
-											<span class="input-group-btn">
-											<select name="nationality" class="btn btn-secondary" required>
-											<option value="V" selected>V</option>
-											<option value="E">E</option>
-											</select>
-											</span>
-											<input type="text" autocomplete="off" class="form-control" name="login" value="<?php if(isset($values['document'])) echo $values['document']?>" required />
-											</span>
-										</div>
+										
+											<input type="text" autocomplete="off" class="form-control" name="login"  required />
+											
+										
 			                            <p class="help-block"></p>
 			                        </div>
 			                    </div>
 			                    <div class="control-group form-group">
 			                        <div class="controls">
 			                            <label>Clave:</label>
-			                            <input autocomplete="off" name='password' type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password.">
+			                            <input autocomplete="off" name='password' type="password" class="form-control" id="password" required data-validation-required-message="">
 			                        </div>
 			                    </div>
 								<div class="control-group form-group">
