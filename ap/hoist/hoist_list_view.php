@@ -11,7 +11,7 @@
 					<th>Placa</th>
 					<th>Año del vehiculo</th>
 					<th>Marca</th>
-					<th>Acciones</th>
+					<th>Detalle</th>
 				</tr>
 			</thead>
 			<tfoot>
@@ -21,7 +21,7 @@
 					<th>Placa</th>
 					<th>Año del vehiculo</th>
 					<th>Marca</th>
-					<th>Acciones</th>
+					<th>Detalle</th>
 				</tr>
 			</tfoot>
 		</table>

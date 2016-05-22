@@ -155,8 +155,8 @@
                         //actualizo el status de los arcivos a 1 activo
 			$q = $ConnectionORM->getConnect()->company_files->where("id_company", $id_company)->update(array('status'=>$status,'date_updated'=>$date_updated,'validate'=>$status));			
 		
-			$Aws = new Aws();
-			$Aws->activarGruero($id_user);
+			/*$Aws = new Aws();
+			$Aws->activarGruero($id_user);*/
 		}
 		function inactiveUserMasterCompany($id_company){		
 			$ConnectionORM = new ConnectionORM();
