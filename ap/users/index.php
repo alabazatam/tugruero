@@ -115,6 +115,7 @@ $values = $_REQUEST;
 			$Aws = new Aws();
 			$Aws->saveGrueros($dateGrueros);
 			$Aws->saveGruas($dateGruas);
+			$Aws->activarGruero($_SESSION['id_user']);//activo el gruero master
 			$values['message'] = "se ha creado satisfactoriamente el usuario.";
 			$values["action"] = "edit";
 			executeEdit($values,message_created);die;

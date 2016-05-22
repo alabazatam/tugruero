@@ -18,7 +18,7 @@
 			<div class="form-group">
 			<label for="">Serial de carroceria</label>
 			<div class="input-group">
-				<input type="body_serial" id="" class="form-control input-sm" name="body_serial" required  oninvalid="setCustomValidity('Debe colocar el Serial de la carroceria para poder registrarla.')" 
+				<input type="body_serial" id="" class="form-control input-sm" name="body_serial" maxlength="50" required  oninvalid="setCustomValidity('Debe colocar el Serial de la carroceria para poder registrarla.')" 
 				oninput="setCustomValidity('')"  value="<?php if(isset($values['body_serial'])) echo $values['body_serial']?>">
 				<span class="input-group-addon" id="basic-addon2">(*)</span>
 			</div>
@@ -28,7 +28,7 @@
 			<div class="form-group">
 				<label for="">Color</label>
 				<div class="input-group">
-					<input type="body_serial" id="" class="form-control input-sm" name="color" required  oninvalid="setCustomValidity('Debe colocar el color para poder registrarla.')" 
+					<input type="body_serial" id="" class="form-control input-sm" name="color" maxlength="20" required  oninvalid="setCustomValidity('Debe colocar el color para poder registrarla.')" 
 					oninput="setCustomValidity('')"  value="<?php if(isset($values['color'])) echo $values['color']?>">
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
 				</div>
@@ -40,7 +40,7 @@
 			<div class="form-group">
 				<label for="">Tipo de Grúa</label>
 				<div class="input-group">
-					<select type="body_serial" id="type_hoist" class="form-control input-sm" name="type_hoist" required  oninvalid="setCustomValidity('Debe colocar el Serial de la carroceria para poder registrarla.')" 
+					<select type="body_serial" id="type_hoist" class="form-control input-sm"  name="type_hoist" required  oninvalid="setCustomValidity('Debe colocar el Serial de la carroceria para poder registrarla.')" 
 					oninput="setCustomValidity('')">
 						<option value="Plataforma" <?php if(isset($values['body_serial'])) echo "selected"?>>Plataforma</option>
 						<option value="Gancho" <?php if(isset($values['body_serial'])) echo "selected"?>>Gancho</option>
@@ -53,7 +53,7 @@
 			<div class="form-group">
 				<label for="">Placa</label>
 				<div class="input-group">
-					<input type="text" id="" class="form-control input-sm" name="registration_plate" value="<?php if(isset($values['registration_plate'])) echo $values['registration_plate']?>"
+					<input type="text" id="" class="form-control input-sm" name="registration_plate" maxlength="8" value="<?php if(isset($values['registration_plate'])) echo $values['registration_plate']?>"
 					   required  oninvalid="setCustomValidity('Debe colocar la Matricula para poder registrarla.')" oninput="setCustomValidity('')"  >
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
 				</div>
@@ -65,7 +65,7 @@
 			 <div class="form-group">
 				<label for="">Año del Vehiculo</label>
 				<div class="input-group">
-					<input type="text" id="" class="form-control input-sm" name="year_vehicle" value="<?php if(isset($values['year_vehicle'])) echo $values['year_vehicle']?>"
+					<input type="text" id="" class="form-control input-sm" name="year_vehicle" maxlength="4" value="<?php if(isset($values['year_vehicle'])) echo $values['year_vehicle']?>"
 						   required  oninvalid="setCustomValidity('Debe colocar el Año del vehiculo para poder registrarla.')" oninput="setCustomValidity('')"  >
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
 				</div>
@@ -75,7 +75,7 @@
 			<div class="form-group">
 				<label for="">Marca</label>
 				<div class="input-group">
-					<input type="text" id="" class="form-control input-sm" name="make" value="<?php if(isset($values['make'])) echo $values['make']?>"
+					<input type="text" id="" class="form-control input-sm" name="make" maxlength="20" value="<?php if(isset($values['make'])) echo $values['make']?>"
 						   required  oninvalid="setCustomValidity('Debe colocar la Marca para poder registrarla.')" oninput="setCustomValidity('')"  >
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
 				</div>
@@ -87,7 +87,7 @@
 			<div class="form-group">
 				<label for="">Modelo</label>
 				<div class="input-group">
-					<input type="text" id="" class="form-control input-sm" name="model" value="<?php if(isset($values['model'])) echo $values['model']?>"
+					<input type="text" id="" class="form-control input-sm" maxlength="20" name="model" value="<?php if(isset($values['model'])) echo $values['model']?>"
 						   required  oninvalid="setCustomValidity('Debe colocar la Marca para poder registrarla.')" oninput="setCustomValidity('')"  >
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
 				</div>
