@@ -7,11 +7,11 @@
 				<tr>
 					<th>Id</th>
 					<th>Usuario</th>
-					<th>Nombres y apellidos</th>
-					<th>Inicio</th>
-					<th>Fin</th>
-					<th>Status cliente</th>
-					<th>Status grúa</th>
+					<th>Nombres y apellidos operador</th>
+					<th>Inicio del servicio</th>
+					<th>Fin del servicio</th>
+					<th>Estatus cliente</th>
+					<th>Estatus grúa</th>
 					<th>Motivo</th>
 					<th>Detalle</th>
 				</tr>
@@ -20,11 +20,11 @@
 				<tr>
 					<th>Id</th>
 					<th>Usuario</th>
-					<th>Nombres y apellidos</th>
-					<th>Inicio</th>
-					<th>Fin</th>
-					<th>Status cliente</th>
-					<th>Status grúa</th>
+					<th>Nombres y apellidos operador</th>
+					<th>Inicio del servicio</th>
+					<th>Fin del servicio</th>
+					<th>Estatus cliente</th>
+					<th>Estatus grúa</th>
 					<th>Motivo</th>
 					<th>Detalle</th>
 				</tr>

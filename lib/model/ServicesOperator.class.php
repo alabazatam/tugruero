@@ -54,7 +54,7 @@
 			//echo $column_order;die;
             $ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
-			->select("*")
+			->select("*,DATE_FORMAT(Servicios.TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(Servicios.TimeFin, '%d/%m/%Y %H:%i:%s') as TimeFin")
 			->order("$column_order $order")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
 			->join("gruas","INNER JOIN Gruas on Gruas.idGrua = Servicios.idGrua")	
