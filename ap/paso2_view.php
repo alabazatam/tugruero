@@ -80,12 +80,12 @@
 											<div class="form-group">
 											<div class="input-group">
 											  <span class="input-group-btn">
-												<select name="nationality" class="btn btn-secondary">
+												<select name="nationality" id="nationality" class="btn btn-secondary">
 													<option value="V" selected>V</option>
 													<option value="E">E</option>
 												</select>
 											  </span>
-												<input type="text" autocomplete="off" maxlength="8" class="form-control" value="<?php if(isset($values['cedula'])) echo $values['cedula']?>" placeholder="Cédula..." name="cedula" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" oninput="setCustomValidity('')" />
+												<input type="text" autocomplete="off" maxlength="8" class="form-control" value="<?php if(isset($values['cedula'])) echo $values['cedula']?>" placeholder="Cédula..." name="cedula" id="cedula" required  oninvalid="setCustomValidity('Debe colocar su Cédula para poder registrarse.')" oninput="setCustomValidity('')"  onblur="setLogin()"/>
 											  </span>
 											  <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
@@ -224,13 +224,7 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-6">
-											<div class="input-group">
-												<label class="sr-only" for="placa">Indique la placa de su grúa</label>
-												<input type="text" autocomplete="off" maxlength="8" id="num_socio" name="placa" value="<?php if(isset($values['placa'])) echo $values['placa']?>" placeholder="Indique la placa de su grúa..." class="form-google-plus form-control" id="form-google-plus" required>
-												<span class="input-group-addon" id="basic-addon2">(*)</span>
-											</div>
-										</div>
+										
 									</div>
 									<div class="row">
 										<div class="col-sm-6">
@@ -263,7 +257,42 @@
 											</div>
 										</div>
 									</div>
-										
+									
+									<h3>Datos de usuario</h3>
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="form-group">
+													<input type="text" autocomplete="off" readonly="true" id="login" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>" id="registrarse-razon-social" placeholder="Usuario..." class="form-last-name form-control" />
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="input-group">
+														<input type="text" name="password" class="form-control" placeholder="Contraseña" minlength="6" maxlength="12" required oninvalid="setCustomValidity('Debe colocar una contraseña para poder registrarse.')" 
+		oninput="setCustomValidity('')" />
+														<span class="input-group-addon" id="basic-addon2">(*)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="input-group">
+													<label class="sr-only" for="placa">Indique la placa de su grúa</label>
+													<input type="password" autocomplete="off" maxlength="8" id="num_socio" name="placa" value="<?php if(isset($values['placa'])) echo $values['placa']?>" placeholder="Indique la placa de su grúa..." class="form-google-plus form-control" id="form-google-plus" required>
+													<span class="input-group-addon" id="basic-addon2">(*)</span>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<div class="input-group">
+														<input type="text" name="password" class="form-control" placeholder="Repita contraseña" minlength="6" maxlength="12" required oninvalid="setCustomValidity('repetir contraseña.')" 
+		oninput="setCustomValidity('')" />
+														<span class="input-group-addon" id="basic-addon2">(*)</span>
+													</div>
+												</div>
+											</div>
+										</div>
 				                        <hr>
 										<h3>Datos bancarios</h3>
 										<div class="row">
@@ -347,5 +376,10 @@ function makeCheckBoxes()
 				}
 		}
 	}
+}
+function setLogin()
+{
+	var usuario = $('#nationality').val() +'-'+ $('#cedula').val();
+	$('#login').val(usuario);
 }
 </script>

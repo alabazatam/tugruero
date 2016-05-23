@@ -51,6 +51,10 @@
 		$errors = array();
 		if(count($values)>0)
 		{
+			if($values['password'] <> $values['repeat_password'])
+			{
+				$errors['repeat_password'] = "La clave no coincide.";
+			}
 			$registro = validarRifCompany($values['Type_rif'].'-'.$values['rif']);
 			if(count($registro)>0)
 			{

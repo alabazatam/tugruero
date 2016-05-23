@@ -210,8 +210,8 @@ $values = trimValues($_REQUEST);;
 					$values['id'] = $q["id"];
 					$password = substr( md5(microtime()), 1, 8);
 					
-					$userData = array("login" =>$values["nationality"]."-".$values["cedula"],
-						"password" => hash('sha256', $password),
+					$userData = array("login" =>$values['login'],
+						"password" => $values["password"],
 						"mail" => $correo,
 						"mail_alternative" => $correoAlternativo,
 						"date_created"=> date("Y-m-d H:i:s"),
