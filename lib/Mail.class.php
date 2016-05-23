@@ -155,16 +155,23 @@
 				<body style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;font-size: 18px;'>
 				<p align='left'><strong>Sr(a). ".$name."</strong></p>
 				<p align='justify'><strong>¡Felicidades!</strong> Nuestro equipo de validación de proveedores ha
-				confirmado todos sus documentos y le da la bienvenida a <strong>TU/GRUERO®</strong></p>
+				confirmado todos sus documentos y le da la bienvenida a <strong>TU/GRUERO®</strong>.</p>
 				
-				<p align='justify'>A partir de este momento ya puede entrar en la aplicación móvil
-				de <strong>TU/GRUERO®</strong> y tomar las solicitudes de servicio que tengan
-				nuestros clientes accidentados.</p>
+				<p align='justify'>A partir de este momento puede iniciar sesión en la página web de <strong>TU/GRUERO®</strong> donde podrá 
+				registrar su/s grúa/s y choferes/operadores, para luego entrar en la aplicación 
+				de <strong>TU/GRUERO®</strong> y tomar las solicitudes de servicio que tengan nuestros clientes accidentados.</p>
 				
-				<p align='justify'>Recuerde que el <strong>Usuario</strong>, <strong>Placa</strong> y <strong>Clave</strong> para acceder a la aplicación
-				móvil <strong>TU/GRUERO®</strong> son los que te enviamos en el correo anterior a
-				éste. Si usted cambió dicha clave en la página web, ésa será la
-				que usará de ahora en adelante hasta que la vuelva a cambiar.</p>
+				<p align='justify'>Registre primero sus grúas disponibles y posteriormente los operadores/choferes que las conducirán.</p>
+				
+				<p align='justify'>Si usted mismo es quien conduce su grúa, agregue primero la grúa y luego asígnesela en el módulo <strong>Admin. Operadores</strong>.</p>
+				
+				<p align='justify'>EL <strong>Usuario</strong>, <strong>Placa</strong> y <strong>Clave</strong> para acceder a la aplicación móvil <strong>TU/GRUERO®</strong> son 
+				los que indicó en el proceso de registro. 
+				Recuerde escribir ".'"<strong>V-</strong>", "<strong>E-</strong>" o "<strong>J-</strong>"'." seguido de su número de 
+				identificación cuando vaya a indicar su <strong>Usuario</strong>.</p>
+				
+				<p align='justify'>Puede cambiar su clave una vez inicie sesión en el módulo de <strong>Modificación de Clave</strong> dentro de su cuenta.</p>
+				
 				
 				<p align='justify'>Si aún no ha descargado la aplicación en tu teléfono, le invitamos
 				a buscarla en la tienda de aplicacionesde acuerdo al teléfono
