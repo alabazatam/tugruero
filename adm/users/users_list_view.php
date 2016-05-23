@@ -45,7 +45,7 @@ $(document).ready(function() {
             { "data": "id_user" },
 			{ "data": "NombreApellido" },
             { "data": "login" },
-			{ "data": "responsible_cedula" },
+			{ "data": "rif" },
             { "data": "status" },
             { "data": "date_created" },
             { "data": "date_updated" },

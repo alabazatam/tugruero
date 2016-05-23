@@ -7,12 +7,11 @@
 				<tr>
 					<th>Id.Grúa</th>
 					<th>Empresa/Compañia</th>
-					<th>Nombres operador</th>
-					<th>Apellidos operador</th>
-					<th>Inicio</th>
-					<th>Fin</th>
-					<th>Status cliente</th>
-					<th>Status grúa</th>
+					<th>Nombres y apellidos operador</th>
+					<th>Inicio del servicio</th>
+					<th>Fin del servicio</th>
+					<th>Estatus cliente</th>
+					<th>Estatus grúa</th>
 					<th>Motivo</th>
 					<th>Detalle</th>
 				</tr>
@@ -21,12 +20,11 @@
 				<tr>
 					<th>Id.Grúa</th>
 					<th>Empresa/Compañia</th>
-					<th>Nombres operador</th>
-					<th>Apellidos operador</th>
-					<th>Inicio</th>
-					<th>Fin</th>
-					<th>Status cliente</th>
-					<th>Status grúa</th>
+					<th>Nombres y apellidos operador</th>
+					<th>Inicio del servicio</th>
+					<th>Fin del servicio</th>
+					<th>Estatus cliente</th>
+					<th>Estatus grúa</th>
 					<th>Motivo</th>
 					<th>Detalle</th>
 				</tr>
@@ -48,8 +46,7 @@ $(document).ready(function() {
         "columns": [
             { "data": "idGrua" },
 			{ "data": "razon_social" },
-			{ "data": "Nombre" },
-			{ "data": "Apellido" },
+			{ "data": "NombresApellidos" },
             { "data": "TimeInicio" },
             { "data": "TimeFin" },
             { "data": "EstatusCliente" },
@@ -58,7 +55,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 9 ]}
+          { 'bSortable': false, 'aTargets': [ 8 ]}
        ]				
     });
 } );

@@ -23,16 +23,15 @@
 			$columns[0] = 'Grueros.idGrua';
 			$columns[1] = 'Grueros.idGrua';
 			$columns[2] = 'Grueros.Nombre';
-			$columns[3] = 'Grueros.Apellido';
-			$columns[4] = 'TimeInicio';
-			$columns[5] = 'TimeFin';
-            $columns[6] = 'EstatusCliente';
-            $columns[7] = 'EstatusGrua';
-			$columns[8] = 'Motivo';
-			$columns[9] = 'TratoCordial';
-			$columns[10] = 'TratoVehiculo';
-			$columns[11] = 'Puntual';
-			$columns[12] = 'Observacion';
+			$columns[3] = 'TimeInicio';
+			$columns[4] = 'TimeFin';
+            $columns[5] = 'EstatusCliente';
+            $columns[6] = 'EstatusGrua';
+			$columns[7] = 'Motivo';
+			$columns[8] = 'TratoCordial';
+			$columns[9] = 'TratoVehiculo';
+			$columns[10] = 'Puntual';
+			$columns[11] = 'Observacion';
 			$column_order = $columns[0];
 			$where = "1 = 1 ";
 			$order = 'asc';
@@ -74,7 +73,7 @@
 			//echo $column_order;die;
             $ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
-			->select("*")
+			->select("*,DATE_FORMAT(Servicios.TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(Servicios.TimeFin, '%d/%m/%Y %H:%i:%s') as TimeFin")
 			->order("$column_order $order")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
 			->where("Servicios.idGrua ",$id_user_company)

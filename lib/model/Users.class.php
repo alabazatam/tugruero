@@ -23,7 +23,7 @@
 			$columns[0] = 'users.id_user';
 			$columns[1] = 'first_last_name';
 			$columns[2] = 'login';
-			$columns[3] = 'responsible_cedula';
+			$columns[3] = 'rif';
 			$columns[4] = 'users.status';
             $columns[5] = 'users.date_created';
             $columns[6] = 'users.date_updated';
@@ -36,7 +36,7 @@
 			{	
 				$str = $values['search']['value'];
 				$where = "upper(login) like upper('%$str%')"
-					. " or upper(responsible_cedula) like upper('%$str%') ";
+					. " or upper(rif) like upper('%$str%') ";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -67,7 +67,7 @@
 			{	
 				$str = $values['search']['value'];
 				$where = "upper(login) like upper('%$str%') "
-					. " or upper(responsible_cedula) like upper('%$str%') ";
+					. " or upper(rif) like upper('%$str%') ";
 			}
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users

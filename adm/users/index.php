@@ -115,7 +115,7 @@ $values = $_REQUEST;
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
 					"NombreApellido" => $user['first_name']." ".$user['second_name']." ".$user['first_last_name']." ".$user['second_last_name'],
-					"responsible_cedula" => $user['responsible_cedula'],
+					"rif" => $user['rif'],
 					"login" => $user['login'],
 					"status" => $message_status,
                                         "date_created" => $user['date_created'],
@@ -134,7 +134,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"NombreApellido"=>"","responsible_cedula"=>"","login"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"NombreApellido"=>"","rif"=>"","login"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;
