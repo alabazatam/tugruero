@@ -23,11 +23,12 @@
 			$columns = array();
 			$columns[0] = 'Gruas.idGrua';
 			$columns[1] = 'Cedula';
-			$columns[2] = 'TimeInicio';
-			$columns[3] = 'TimeFin';
-            $columns[4] = 'EstatusCliente';
-            $columns[5] = 'EstatusGrua';
-			$columns[6] = 'Motivo';
+			$columns[2] = 'Nombre';
+			$columns[3] = 'TimeInicio';
+			$columns[4] = 'TimeFin';
+            $columns[5] = 'EstatusCliente';
+            $columns[6] = 'EstatusGrua';
+			$columns[7] = 'Motivo';
 			$column_order = $columns[0];
 			
 			$order = 'asc';
