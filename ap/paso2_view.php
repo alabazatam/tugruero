@@ -42,8 +42,8 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
+												<label  for="first_name">Primer Nombre</label>
 												<div class="input-group">
-													<label class="sr-only" for="first_name">Primer Nombre</label>
 													<input autocomplete="off" type="text" maxlength="100" name="first_name" value="<?php if(isset($values['first_name'])) echo $values['first_name']?>" id="registrarse-razon-social" placeholder="Primer nombre..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
 		oninput="setCustomValidity('')" />
 													 <span class="input-group-addon" id="basic-addon2">(*)</span>
@@ -52,7 +52,7 @@
 										</div>
 										<div class="col-sm-6">	
 										 <div class="form-group">
-											<label class="sr-only" for="second_name">Segundo nombre</label>
+											 <label for="second_name">Segundo nombre</label>
 				                        	<input type="text" autocomplete="off" maxlength="100" name="second_name" value="<?php if(isset($values['second_name'])) echo $values['second_name']?>" placeholder="Segundo nombre..." class="form-twitter form-control" id="form-twitter">
 				                        </div>
 										</div>
@@ -60,8 +60,8 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
+											<label  for="first_name">Primer apellido</label>
 											<div class="input-group">
-												<label class="sr-only" for="first_name">Primer apellido</label>
 												<input type="text" autocomplete="off"  maxlength="100" name="first_lastname" value="<?php if(isset($values['first_lastname'])) echo $values['first_lastname']?>" id="registrarse-razon-social" placeholder="Primer Apellido..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Apellido para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
@@ -69,8 +69,8 @@
 				                        </div>
 										</div>
 										<div class="col-sm-6">
+											<label for="second_lastname">Segundo apellido</label>
 											<div class="form-group">
-												<label class="sr-only" for="second_lastname">Segundo apellido</label>
 												<input type="text" autocomplete="off" maxlength="100" name="second_lastname" value="<?php if(isset($values['second_lastname'])) echo $values['second_lastname']?>" placeholder="Segundo apellido..." class="form-google-plus form-control" id="form-google-plus" >
 											</div>
 										</div>
@@ -78,6 +78,7 @@
 				                    <div class="row">
 										<div class="col-sm-6">   
 											<div class="form-group">
+											<label for="">Cédula</label>
 											<div class="input-group">
 											  <span class="input-group-btn">
 												<select name="nationality" id="nationality" class="btn btn-secondary">
@@ -93,16 +94,19 @@
 										</div>
 										<div class="col-sm-6">  
 											<div class="form-group">
+											<label for="">Sexo</label>
+											<div class="form-group">
 											<label class="radio-inline"><input type="radio" value="M" name="gender" checked>Masculino</label>
 											<label class="radio-inline"><input type="radio" value="F" name="gender">Femenino</label>
-										</div>
+											</div>
+											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-6"> 	
 											<div class="form-group">
+												<label for="phone">Número fijo/Número movil principal</label>
 											<div class="input-group">
-												<label class="sr-only" for="phone">Número fijo/Número movil principal</label>
 												<input type="text" autocomplete="off" name="phone" maxlength="11" value="<?php if(isset($values['phone'])) echo $values['phone']?>" id="registrarse-razon-social" placeholder="Número fijo/Número movil principal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número fijo o Número movil principal para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
@@ -110,8 +114,9 @@
 				                        </div>
 										</div>
 										<div class="col-sm-6"> 	
+											<label  for="phone1">Número movil secundario</label>
 											<div class="form-group">
-												<label class="sr-only" for="phone1">Número movil secundario</label>
+												
 												<input type="text" autocomplete="off" maxlength="11" name="phone1" value="<?php if(isset($values['phone1'])) echo $values['phone1']?>" placeholder="Número movil secundario..." class="form-google-plus form-control" id="form-google-plus" oninput="setCustomValidity('')" />
 										 </div>
 										</div>
@@ -134,8 +139,8 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
+												<label  for="company_name">Nombre de empresa o firma personal</label>
 												<div class="input-group">
-													<label class="sr-only" for="company_name">Nombre de empresa o firma personal</label>
 													<input type="text" autocomplete="off" maxlength="100" value="<?php if(isset($values['company_name'])) echo $values['company_name']?>" name="company_name" id="registrarse-razon-social" placeholder="Nombre de empresa o firma personal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar el Nombre de empresa o firma personal para poder registrarse.')" 
 		oninput="setCustomValidity('')" />
 													 <span class="input-group-addon" id="basic-addon2">(*)</span>
@@ -144,6 +149,7 @@
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
+												<label  for="company_name">RIF</label>
 												<div class="input-group">
 												  <span class="input-group-btn">
 													<select name="Type_rif" class="btn btn-secondary">
@@ -164,8 +170,9 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
+												<label for="location">Ubicación de empresa o firma personal</label>
 												<div class="input-group">
-													<label class="sr-only" for="location">Ubicación de empresa o firma personal</label>
+													
 													<input type="text" autocomplete="off" name="location" value="<?php if(isset($values['location'])) echo $values['location']?>" id="registrarse-razon-social" placeholder="Ubicación de empresa o firma personal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar la Ubicación de empresa o firma personal para poder registrarse.')" 
 		oninput="setCustomValidity('')" />
 													 <span class="input-group-addon" id="basic-addon2">(*)</span>
@@ -174,6 +181,7 @@
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
+												<label for="location">Estado</label>
 											<div class="input-group">
 												<select name="zone_work" class="form-control">
 													<option value="">Seleccione</option>
@@ -217,8 +225,9 @@
 											</div>
 										</div>
 										<div class="col-sm-6">
+											<label  for="num_socio">Indique número de socio en el Club de Grúas Venezuela</label>
 											<div class="form-group">
-												<label class="sr-only" for="num_socio">Indique número de socio en el Club de Grúas Venezuela</label>
+												
 												<input type="text" autocomplete="off" id="num_socio" name="num_socio" value="<?php if(isset($values['num_socio'])) echo $values['num_socio']?>" placeholder="Indique número de socio en el Club de Grúas Venezuela..." class="form-google-plus form-control" id="form-google-plus" >
 											</div>
 										</div>
@@ -261,14 +270,16 @@
 									<h3>Datos de usuario</h3>
 										<div class="row">
 											<div class="col-sm-6">
+												<label for="placa">Usuario</label>
 												<div class="form-group">
 													<input type="text" autocomplete="off" readonly="true" id="login" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>" id="registrarse-razon-social" placeholder="Usuario..." class="form-last-name form-control" />
 												</div>
 											</div>
 											<div class="col-sm-6">
 												<div class="form-group">
+													<label for="placa">Contraseña</label>
 													<div class="input-group">
-														<input type="text" name="password" class="form-control" placeholder="Contraseña" minlength="6" maxlength="12" required oninvalid="setCustomValidity('Debe colocar una contraseña para poder registrarse.')" 
+														<input type="password" name="password" class="form-control" placeholder="Contraseña" minlength="6" maxlength="12" required oninvalid="setCustomValidity('Debe colocar una contraseña para poder registrarse.')" 
 		oninput="setCustomValidity('')" />
 														<span class="input-group-addon" id="basic-addon2">(*)</span>
 													</div>
@@ -277,16 +288,18 @@
 										</div>
 										<div class="row">
 											<div class="col-sm-6">
+												<label  for="placa">Indique la placa de su grúa</label>
 												<div class="input-group">
-													<label class="sr-only" for="placa">Indique la placa de su grúa</label>
-													<input type="password" autocomplete="off" maxlength="8" id="num_socio" name="placa" value="<?php if(isset($values['placa'])) echo $values['placa']?>" placeholder="Indique la placa de su grúa..." class="form-google-plus form-control" id="form-google-plus" required>
+													
+													<input type="text" autocomplete="off" maxlength="8" id="num_socio" name="placa" value="<?php if(isset($values['placa'])) echo $values['placa']?>" placeholder="Indique la placa de su grúa..." class="form-google-plus form-control" id="form-google-plus" required>
 													<span class="input-group-addon" id="basic-addon2">(*)</span>
 												</div>
 											</div>
 											<div class="col-sm-6">
 												<div class="form-group">
+													<label  for="placa">Repita contraseña</label>
 													<div class="input-group">
-														<input type="text" name="password" class="form-control" placeholder="Repita contraseña" minlength="6" maxlength="12" required oninvalid="setCustomValidity('repetir contraseña.')" 
+														<input type="password" name="password" class="form-control" placeholder="Repita contraseña" minlength="6" maxlength="12" required oninvalid="setCustomValidity('repetir contraseña.')" 
 		oninput="setCustomValidity('')" />
 														<span class="input-group-addon" id="basic-addon2">(*)</span>
 													</div>
@@ -298,6 +311,7 @@
 										<div class="row">
 											<div class="col-sm-6">
 												<div class="form-group">
+													<label  for="placa">Tipo de cuenta</label>
 													<div class="input-group">
 														<select  name="tipo_cuenta" class="form-control" required>
 															<option value="" selected>Seleccione si la cuenta es personal o es de la empresa indicada...</option>
@@ -310,8 +324,8 @@
 											</div>
 											<div class="col-sm-6">
 												<div class="form-group">
+													<label  for="id_bank">Banco</label>
 													<div class="input-group">
-														<label class="sr-only" for="id_bank">Banco</label>
 														<select name="id_bank" class="form-google-plus form-control" required>
 															<option value selected>Banco...</option>												
 															 <?php foreach($values['bank'] as $bank):?>
@@ -328,8 +342,8 @@
 										
 										
 										<div class="form-group">
+											<label  for="NumCuenta">Número de cuenta</label>
 											<div class="input-group">
-												<label class="sr-only" for="NumCuenta">Razón social</label>
 												<input type="text" autocomplete="off" maxlength="20" name="NumCuenta" value="<?php if(isset($values['NumCuenta'])) echo $values['NumCuenta']?>" id="registrarse-razon-social" placeholder="Número de cuenta..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número De Cuenta para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>

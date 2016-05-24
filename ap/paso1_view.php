@@ -40,6 +40,7 @@
 		                            <div class="form-bottom">
 									<input type="hidden" name="action" id="formulario" value="validaFormulario1">
 									<div class="form-group">
+										<label for="">RIF</label>
 										<div class="input-group">
 										  <span class="input-group-btn">
 											<select name="Type_rif" class="btn btn-secondary">
@@ -56,16 +57,16 @@
 										</div>
 										</div>
 				                        <div class="form-group">
+											<label for="razonSocial">Nombre o Razón social</label>
 											<div class="input-group">
-												<label class="sr-only" for="razonSocial">Nombre o Razón social</label>
 												<input type="text" autocomplete="off" maxlength="100" name="razonSocial" id="registrarse-razon-social" placeholder="Nombre o Raz&oacute;n social..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Razón Social o Nombre para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 				                        </div>
 				                        <div class="form-group">
+											<label for="correo">Correo Electr&oacute;nico</label>
 											<div class="input-group">
-												<label class="sr-only" for="correo">Correo Electr&oacute;nico</label>
 												<input type="text" autocomplete="off" maxlength="100" name="correo" id="form-correo" placeholder="Correo Electr&oacute;nico..."
 													   class="form-about-yourself form-control" id="form-about-yourself" required oninvalid="setCustomValidity('Debe colocar su correo electrónico para poder registrarse.')" 
 	oninput="setCustomValidity('')" /></input>

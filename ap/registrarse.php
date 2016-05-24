@@ -211,7 +211,7 @@ $values = trimValues($_REQUEST);;
 					$password = substr( md5(microtime()), 1, 8);
 					
 					$userData = array("login" =>$values['login'],
-						"password" => $values["password"],
+						"password" => hash('sha256',$values["password"]),
 						"mail" => $correo,
 						"mail_alternative" => $correoAlternativo,
 						"date_created"=> date("Y-m-d H:i:s"),
