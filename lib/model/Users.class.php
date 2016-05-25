@@ -300,7 +300,8 @@
 			->join("users_data","INNER JOIN users_data on users_data.id_users = users.id_user")	
 			->join("users_hoist_company","INNER JOIN users_hoist_company on users_hoist_company.id_user = users.id_user")
 			->join("hoist","INNER JOIN hoist on hoist.id = users_hoist_company.id_hoist")	
-			->where("users.id_user=?",$values['id_user'])->fetch();
+			->where("users.id_user=?",$values['id_user'])
+			->fetch();
 			return $q; 				
 			
 		}

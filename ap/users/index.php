@@ -246,7 +246,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"login"=>"","status"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"login"=>"","registration_plate" => "","status"=>"","disponibilidad"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

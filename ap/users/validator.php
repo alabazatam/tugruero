@@ -5,7 +5,7 @@
 		
 		$errors = array();
 		$validacion = validarCorreoElectronico($values["mail"]);
-		if(count($validacion) > 0)
+		if(count($validacion) > 0 and $values['mail']!='')
 		{
 			$errors['correo'] = "El correo electrónico ingresado ya esta registrado.";
 		}
@@ -19,11 +19,11 @@
 			if($values['action'] == 'add')
 			{
 				if(empty($values['first_name']) || empty($values['first_last_name']) || empty($values['nationality'])
-						|| empty($values['document']) || empty($values['gender']) || empty($values['mail']))
+						|| empty($values['document']) || empty($values['gender']))
 					{
 						$errors['campos']="Todos los campos deben ser llenados";
 					}
-				if(isset($values["mail"]) and !filter_var($values["mail"], FILTER_VALIDATE_EMAIL))
+				if(isset($values["mail"]) and $values["mail"]!='' and !filter_var($values["mail"], FILTER_VALIDATE_EMAIL))
 				{
 					$errors['correo'] = "correo invalido";
 				}

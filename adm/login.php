@@ -59,7 +59,7 @@
 
 											  echo "<div id='captcha_container_1' class='text-center'>\n";
 											  echo Securimage::getCaptchaHtml($options);
-											  echo "\n</div>\n";
+											  echo "\n</div><strong><p class='text-center small'>Respete letras mayúsculas y minúsculas</p>\n";
 										 ?>
 			 							
 							

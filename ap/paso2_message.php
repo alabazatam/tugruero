@@ -39,4 +39,3 @@
 			 </tr>				 
 		 </table>
 	 </div>
-<?php include('../view_footer.php');?>

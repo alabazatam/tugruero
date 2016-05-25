@@ -74,6 +74,9 @@
 			<br>
 			<label for="">Motivo:</label>
 			<?php echo $values['motivo'];?>
+			<br>
+			<label for="">Monto a cobrar (sin IVA):</label>
+			<?php echo $values['monto'];?>
 		</div>	
 		<div class="col-sm-4 col-sm-offset-4">
 			<h4><label class="label label-default">Calificación</label></h4>
@@ -83,7 +86,7 @@
 			<?php echo $values['presencia'];?><br>
 			<label for="">Trato al vehículo:</label>
 			<?php echo $values['tratovehiculo'];?><br>
-			<label for="">¿Recomendaría de <strong>TU/GRUERO®</strong>?:</label>
+			<label for="">¿Recomendaría <strong>TU/GRUERO®</strong>?:</label>
 			<?php echo $values['puntual'];?><br>
 		</div>
 	</div>

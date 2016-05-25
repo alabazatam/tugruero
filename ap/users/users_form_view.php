@@ -17,7 +17,7 @@
 					<?php foreach($values['hoist'] as $operador):?>
 					
 
-							<option value="<?php echo $operador["id"]?>" <?php if($operador["id"] == $values['id_hoist']){ echo "selected='selected'"; $placa = $operador["registration_plate"];}?>><?php echo $operador["registration_plate"]?></option>
+							<option value="<?php echo $operador["id"]?>" <?php if($operador["id"] == @$values['id_hoist']){ echo "selected='selected'"; $placa = $operador["registration_plate"];}?>><?php echo $operador["registration_plate"]?></option>
 
 					
 					
@@ -93,11 +93,10 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 			<div class="col-md-6">
 				<div class="form-group">
 					<label for="">Correo Electrónico</label>
-					<div class="input-group">
-					<input type="text" autocomplete="off" maxlength="100" name="mail" id="first_last_name"  class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Correo Electrónico para poder registrarse.')" 
-					oninput="setCustomValidity('')" value="<?php if(isset($values['mail'])) echo $values['mail']?>"/>
-					<span class="input-group-addon" id="basic-addon2">(*)</span>
-					</div>
+					
+					<input type="text" autocomplete="off" maxlength="100" name="mail" id="first_last_name"  class="form-last-name form-control" id="form-last-name" value="<?php if(isset($values['mail'])) echo $values['mail']?>"/>
+					
+					
 				</div>
 			</div>
 			<div class="col-md-6">
@@ -190,7 +189,7 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 		<div class="row">
 			<div class="col-md-offset-6 col-md-6">
 				<div class="form-group">
-					<h6 class="alert alert-info">Datos  para inicio de sesión en Aplicación Móvil</h6>
+					<h6 class="alert alert-info">Datos para inicio de sesión en Aplicación Móvil del Operador</h6>
 					<strong>Usuario</strong>: <?php if(isset($values['login'])) echo $values['login']?><br>
 					<strong>Clave</strong>: <?php if(isset($password)) echo $password?><br>
 					<strong>Placa</strong>: <?php if(isset($placa)) echo $placa?><br>
