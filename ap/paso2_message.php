@@ -21,7 +21,7 @@
 			 <tr>
 				 <td align="center" width="50%">
 					 <br><br><br><br><br><br>
-					 <p align="center"><?php echo $values['message'];?></p>
+					 <p align="center">¡Felicidades! Hemos registrado su información, ahora espere por la aprobación de nuestro equipo de validación de proveedores para iniciar sesión en la página web de <strong>TU/GRUERO®</strong> y registrar todas sus grúas y choferes/operadores.</p>
 					
 				 </td>
 			 </tr>

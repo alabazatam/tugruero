@@ -42,7 +42,7 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label  for="first_name">Primer Nombre</label>
+												<label  for="first_name">Primer nombre</label>
 												<div class="input-group">
 													<input autocomplete="off" type="text" maxlength="100" name="first_name" value="<?php if(isset($values['first_name'])) echo $values['first_name']?>" id="registrarse-razon-social" placeholder="Primer nombre..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Nombre para poder registrarse.')" 
 		oninput="setCustomValidity('')" />
@@ -62,7 +62,7 @@
 											<div class="form-group">
 											<label  for="first_name">Primer apellido</label>
 											<div class="input-group">
-												<input type="text" autocomplete="off"  maxlength="100" name="first_lastname" value="<?php if(isset($values['first_lastname'])) echo $values['first_lastname']?>" id="registrarse-razon-social" placeholder="Primer Apellido..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Apellido para poder registrarse.')" 
+												<input type="text" autocomplete="off"  maxlength="100" name="first_lastname" value="<?php if(isset($values['first_lastname'])) echo $values['first_lastname']?>" id="registrarse-razon-social" placeholder="Primer apellido..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Primer Apellido para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
@@ -105,19 +105,19 @@
 									<div class="row">
 										<div class="col-sm-6"> 	
 											<div class="form-group">
-												<label for="phone">Número fijo/Número movil principal</label>
+												<label for="phone">Número Fijo/Número móvil principal</label>
 											<div class="input-group">
-												<input type="text" autocomplete="off" name="phone" maxlength="11" value="<?php if(isset($values['phone'])) echo $values['phone']?>" id="registrarse-razon-social" placeholder="Número fijo/Número movil principal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número fijo o Número movil principal para poder registrarse.')" 
+												<input type="text" autocomplete="off" name="phone" maxlength="11" value="<?php if(isset($values['phone'])) echo $values['phone']?>" id="registrarse-razon-social" placeholder="Número Fijo/Número móvil principal..." class="form-last-name form-control" id="form-last-name" required  oninvalid="setCustomValidity('Debe colocar su Número fijo o Número movil principal para poder registrarse.')" 
 	oninput="setCustomValidity('')" />
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 				                        </div>
 										</div>
 										<div class="col-sm-6"> 	
-											<label  for="phone1">Número movil secundario</label>
+											<label  for="phone1">Número móvil secundario</label>
 											<div class="form-group">
 												
-												<input type="text" autocomplete="off" maxlength="11" name="phone1" value="<?php if(isset($values['phone1'])) echo $values['phone1']?>" placeholder="Número movil secundario..." class="form-google-plus form-control" id="form-google-plus" oninput="setCustomValidity('')" />
+												<input type="text" autocomplete="off" maxlength="11" name="phone1" value="<?php if(isset($values['phone1'])) echo $values['phone1']?>" placeholder="Número móvil secundario..." class="form-google-plus form-control" id="form-google-plus" oninput="setCustomValidity('')" />
 										 </div>
 										</div>
 									</div>
@@ -149,7 +149,7 @@
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label  for="company_name">RIF</label>
+												<label  for="company_name">Rif de empresa o firma personal</label>
 												<div class="input-group">
 												  <span class="input-group-btn">
 													<select name="Type_rif" class="btn btn-secondary">
@@ -266,46 +266,6 @@
 											</div>
 										</div>
 									</div>
-									
-									<h3>Datos de usuario</h3>
-										<div class="row">
-											<div class="col-sm-6">
-												<label for="placa">Usuario</label>
-												<div class="form-group">
-													<input type="text" autocomplete="off" readonly="true" id="login" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>" id="registrarse-razon-social" placeholder="Usuario..." class="form-last-name form-control" />
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="form-group">
-													<label for="placa">Contraseña</label>
-													<div class="input-group">
-														<input type="password" name="password" class="form-control" placeholder="Contraseña" minlength="6" maxlength="12" required oninvalid="setCustomValidity('Debe colocar una contraseña para poder registrarse.')" 
-		oninput="setCustomValidity('')" />
-														<span class="input-group-addon" id="basic-addon2">(*)</span>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-6">
-												<label  for="placa">Indique la placa de su grúa</label>
-												<div class="input-group">
-													
-													<input type="text" autocomplete="off" maxlength="8" id="num_socio" name="placa" value="<?php if(isset($values['placa'])) echo $values['placa']?>" placeholder="Indique la placa de su grúa..." class="form-google-plus form-control" id="form-google-plus" required>
-													<span class="input-group-addon" id="basic-addon2">(*)</span>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="form-group">
-													<label  for="placa">Repita contraseña</label>
-													<div class="input-group">
-														<input type="password" name="password" class="form-control" placeholder="Repita contraseña" minlength="6" maxlength="12" required oninvalid="setCustomValidity('repetir contraseña.')" 
-		oninput="setCustomValidity('')" />
-														<span class="input-group-addon" id="basic-addon2">(*)</span>
-													</div>
-												</div>
-											</div>
-										</div>
 				                        <hr>
 										<h3>Datos bancarios</h3>
 										<div class="row">
@@ -349,6 +309,47 @@
 												 <span class="input-group-addon" id="basic-addon2">(*)</span>
 											</div>
 				                        </div>
+									
+									<h3>Datos de inicio de sesión GRUERO MASTER</h3>
+										<div class="row">
+											<div class="col-sm-6">
+												<label for="placa">Usuario</label>
+												<div class="form-group">
+													<input type="text" autocomplete="off" readonly="true" id="login" name="login" value="<?php if(isset($values['login'])) echo $values['login']?>" id="registrarse-razon-social" placeholder="Usuario..." class="form-last-name form-control" />
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<label  for="placa">Indique la placa de su grúa</label>
+												<div class="input-group">
+													
+													<input type="text" autocomplete="off" maxlength="8" id="num_socio" name="placa" value="<?php if(isset($values['placa'])) echo $values['placa']?>" placeholder="Indique la placa de su grúa..." class="form-google-plus form-control" id="form-google-plus" required>
+													<span class="input-group-addon" id="basic-addon2">(*)</span>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="form-group">
+													<label for="placa">Clave</label>
+													<div class="input-group">
+														<input type="password" name="password" class="form-control" placeholder="Clave" minlength="6" maxlength="12" required oninvalid="setCustomValidity('Debe colocar una Clave para poder registrarse.')" 
+		oninput="setCustomValidity('')" />
+														<span class="input-group-addon" id="basic-addon2">(*)</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<label  for="placa">Repita Clave</label>
+													<div class="input-group">
+														<input type="password" name="repeat_password" class="form-control" placeholder="Repita Clave" minlength="6" maxlength="12" required oninvalid="setCustomValidity('repetir Clave.')" 
+		oninput="setCustomValidity('')" />
+														<span class="input-group-addon" id="basic-addon2">(*)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										
 				                        <button type="submit" class="btn btn-success">¡Registrarme!</button>
 										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger"><i class="fa"></i> Cancelar</button></a>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
