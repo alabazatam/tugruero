@@ -223,7 +223,7 @@
 			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")
 			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")
 			->join("users_hoist_company","INNER JOIN users_hoist_company on users_hoist_company.id_user = users.id_user")
-			->join("hoist","LEFT JOIN hoist on hoist.id = users_hoist_company.id_hoist ")
+			->join("hoist","INNER JOIN hoist on hoist.id = users_hoist_company.id_hoist ")
 			->order("$column_order $order")
 			->where("$where")
 			->and("users_company.id_company =?",$values["company"])
