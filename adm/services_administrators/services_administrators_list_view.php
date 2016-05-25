@@ -1,13 +1,14 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center big_title">Servicios - Masters</h1>
+	<h1 class="text-center big_title">Servicios - Master</h1>
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
 			<thead>
 				<tr>
 					<th>Id.Grúa</th>
 					<th>Empresa/Compañia</th>
 					<th>Nombres y apellidos operador</th>
+					<th>Número de servicio</th>
 					<th>Inicio del servicio</th>
 					<th>Fin del servicio</th>
 					<th>Estatus cliente</th>
@@ -21,6 +22,7 @@
 					<th>Id.Grúa</th>
 					<th>Empresa/Compañia</th>
 					<th>Nombres y apellidos operador</th>
+					<th>Número de servicio</th>
 					<th>Inicio del servicio</th>
 					<th>Fin del servicio</th>
 					<th>Estatus cliente</th>
@@ -47,6 +49,7 @@ $(document).ready(function() {
             { "data": "idGrua" },
 			{ "data": "razon_social" },
 			{ "data": "NombresApellidos" },
+			{ "data": "IdSolicitud" },
             { "data": "TimeInicio" },
             { "data": "TimeFin" },
             { "data": "EstatusCliente" },
@@ -55,7 +58,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 8 ]}
+          { 'bSortable': false, 'aTargets': [ 9 ]}
        ]				
     });
 } );

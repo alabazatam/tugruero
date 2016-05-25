@@ -24,11 +24,12 @@
 			$columns[0] = 'Gruas.idGrua';
 			$columns[1] = 'Cedula';
 			$columns[2] = 'Nombre';
-			$columns[3] = 'TimeInicio';
-			$columns[4] = 'TimeFin';
-            $columns[5] = 'EstatusCliente';
-            $columns[6] = 'EstatusGrua';
-			$columns[7] = 'Motivo';
+			$columns[3] = 'IdSolicitud';
+			$columns[4] = 'TimeInicio';
+			$columns[5] = 'TimeFin';
+            $columns[6] = 'EstatusCliente';
+            $columns[7] = 'EstatusGrua';
+			$columns[8] = 'Motivo';
 			$column_order = $columns[0];
 			
 			$order = 'asc';
@@ -41,6 +42,7 @@
 				$where = ""
 
                                         . "  upper(EstatusGrua) like upper('%$str%')"
+										. "  or cast(IdSolicitud as char(100)) =  '$str'"
 										. " or upper(Motivo) like upper('%$str%')"										
                                         . "or upper(EstatusCliente) like upper('%$str%')";
 			}
@@ -78,6 +80,7 @@
 				$where = ""
 
                                         . "  upper(EstatusGrua) like upper('%$str%')"
+										. "  or cast(IdSolicitud as char(100)) =  '$str'"
 										. " or upper(Motivo) like upper('%$str%')"										
                                         . "or upper(EstatusCliente) like upper('%$str%')";
 			}
@@ -94,7 +97,7 @@
 			$id_user = $values['id_user'];
 			$ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
-			->select("*, Grueros.Nombre as nombre_gruero, Grueros.Apellido as apellido_gruero,Grueros.Cedula as cedula_gruero,Grueros.Celular as celular_gruero")
+			->select("*, Grueros.Nombre as nombre_gruero, Grueros.Apellido as apellido_gruero,Grueros.Cedula as cedula_gruero,Grueros.Celular as celular_gruero, Grueros.Placa as placa_gruero, Grueros.Modelo as modelo_gruero, Grueros.Color as color_gruero,DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y %H:%i:%s') as TimeFin")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
 			->join("solicitudes","INNER JOIN Solicitudes on Solicitudes.idSolicitud = Servicios.idSolicitud")
 			->join("polizas","INNER JOIN Polizas on Polizas.idPoliza = Servicios.idPoliza")

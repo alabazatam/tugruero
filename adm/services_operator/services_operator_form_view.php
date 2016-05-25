@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center big_title">Servicios</h1>
+	<h1 class="text-center big_title">Servicios - Operadores</h1>
 	<form class="form-horizontal" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<div class="form-group" style="display:none;">
@@ -19,20 +19,9 @@
 			<?php echo $values['nombre'];?><br>
 			<label for="">Celular contacto:</label>
 			<?php echo $values['cellcontacto'];?><br>
-			<label for="">Status cliente:</label>
+			<label for="">Estatus cliente:</label>
 			<?php echo $values['estatuscliente'];?>
 		</div>
-		<div class="col-sm-4">
-			<h4><label class="label label-default">Datos del operador</label></h4>
-			<label for="">Documento de Identificación:</label>
-			<?php echo $values['cedula_gruero'];?><br>
-			<label for="">Nombres y apellidos:</label>
-			<?php echo $values['nombre_gruero'];?> <?php echo $values['apellido_gruero'];?><br>
-			<label for="">Celular contacto:</label>
-			<?php echo $values['celular_gruero'];?><br>
-			<label for="">Status grúa:</label>
-			<?php echo $values['estatusgrua'];?>
-		</div>	
 		<div class="col-sm-4">
 			<h4><label class="label label-default">Datos del vehículo</label></h4>
 			<label for="">Placa:</label>
@@ -42,10 +31,30 @@
 			<label for="">Modelo:</label>
 			<?php echo $values['modelo'];?><br>
 		</div>
+		<div class="col-sm-4">
+			<h4><label class="label label-default">Datos del gruero</label></h4>
+			<label for="">Documento de Identificación:</label>
+			<?php echo $values['cedula_gruero'];?><br>
+			<label for="">Nombres y apellidos:</label>
+			<?php echo $values['nombre_gruero'];?> <?php echo $values['apellido_gruero'];?><br>
+			<label for="">Celular contacto:</label>
+			<?php echo $values['celular_gruero'];?><br>
+			<label for="">Placa grúa:</label>
+			<?php echo $values['placa_gruero'];?><br>
+			<label for="">Modelo grúa:</label>
+			<?php echo $values['modelo_gruero'];?><br>
+			<label for="">Color grúa:</label>
+			<?php echo $values['color_gruero'];?><br>
+			<label for="">Estatus grúa:</label>
+			<?php echo $values['estatusgrua'];?>
+		</div>	
+
 	</div>
 	<div class="form-group">
 		<div class="col-sm-4">
 			<h4><label class="label label-default">Detalle del servicio</label></h4>
+			<label for="">Número de servicio:</label>
+			<?php echo $values['idsolicitud'];?><br>
 			<label for="">Estado de origen:</label>
 			<?php echo $values['estadoorigen'];?><br>
 			<label for="">Dirección:</label>
@@ -74,7 +83,7 @@
 			<?php echo $values['presencia'];?><br>
 			<label for="">Trato al vehículo:</label>
 			<?php echo $values['tratovehiculo'];?><br>
-			<label for="">Puntual:</label>
+			<label for="">¿Recomendaría de <strong>TU/GRUERO®</strong>?:</label>
 			<?php echo $values['puntual'];?><br>
 		</div>
 	</div>

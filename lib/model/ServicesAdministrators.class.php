@@ -23,15 +23,16 @@
 			$columns[0] = 'Grueros.idGrua';
 			$columns[1] = 'Grueros.idGrua';
 			$columns[2] = 'Grueros.Nombre';
-			$columns[3] = 'TimeInicio';
-			$columns[4] = 'TimeFin';
-            $columns[5] = 'EstatusCliente';
-            $columns[6] = 'EstatusGrua';
-			$columns[7] = 'Motivo';
-			$columns[8] = 'TratoCordial';
-			$columns[9] = 'TratoVehiculo';
-			$columns[10] = 'Puntual';
-			$columns[11] = 'Observacion';
+			$columns[3] = 'IdSolicitud';
+			$columns[4] = 'TimeInicio';
+			$columns[5] = 'TimeFin';
+            $columns[6] = 'EstatusCliente';
+            $columns[7] = 'EstatusGrua';
+			$columns[9] = 'Motivo';
+			$columns[10] = 'TratoCordial';
+			$columns[11] = 'TratoVehiculo';
+			$columns[12] = 'Puntual';
+			$columns[13] = 'Observacion';
 			$column_order = $columns[0];
 			$where = "1 = 1 ";
 			$order = 'asc';
@@ -55,6 +56,7 @@
 				$str = $values['search']['value'];
 				$where = ""
                                         . " upper(nombre) like upper('%$str%') "
+											. "  or cast(IdSolicitud as char(100)) =  '$str'"
 										. " or upper(apellido) like upper('%$str%') "
                                         . " or upper(EstatusGrua) like upper('%$str%')"
 										. " or upper(Motivo) like upper('%$str%')"
@@ -86,8 +88,10 @@
 				$where = " 1 = 1";
 				if(isset($values['search']['value']) and $values['search']['value'] !='')
 				{
+					$str = $values['search']['value'];
 				$where = ""
                                         . " upper(nombre) like upper('%$str%') "
+										. "  or cast(IdSolicitud as char(100)) =  '$str'"
 										. " or upper(apellido) like upper('%$str%') "
                                         . " or upper(EstatusGrua) like upper('%$str%')"
 										. " or upper(Motivo) like upper('%$str%')"
@@ -119,7 +123,7 @@
 		public function getServicesAdministratorsById($values){
 			$ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
-			->select("*, Grueros.Nombre as nombre_gruero, Grueros.Apellido as apellido_gruero,Grueros.Cedula as cedula_gruero,Grueros.Celular as celular_gruero")
+			->select("*, Grueros.Nombre as nombre_gruero, Grueros.Apellido as apellido_gruero,Grueros.Cedula as cedula_gruero,Grueros.Celular as celular_gruero, Grueros.Placa as placa_gruero, Grueros.Modelo as modelo_gruero, Grueros.Color as color_gruero,DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y %H:%i:%s') as TimeFin")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
 			->join("solicitudes","INNER JOIN Solicitudes on Solicitudes.idSolicitud = Servicios.idSolicitud")
 			->join("polizas","INNER JOIN Polizas on Polizas.idPoliza = Servicios.idPoliza")

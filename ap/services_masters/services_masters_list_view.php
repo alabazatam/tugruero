@@ -6,12 +6,12 @@
 			<thead>
 				<tr>
 					<th>Id.Grúa</th>
-					<th>Nombres operador</th>
-					<th>Apellidos operador</th>
-					<th>Inicio</th>
-					<th>Fin</th>
-					<th>Status cliente</th>
-					<th>Status grúa</th>
+					<th>Nombres y apellidos operador</th>
+					<th>Número de servicio</th>
+					<th>Inicio del servicio</th>
+					<th>Fin del servicio</th>
+					<th>Estatus cliente</th>
+					<th>Estatus grúa</th>
 					<th>Motivo</th>
 					<th>Detalle</th>
 				</tr>
@@ -19,12 +19,12 @@
 			<tfoot>
 				<tr>
 					<th>Id.Grúa</th>
-					<th>Nombres operador</th>
-					<th>Apellidos operador</th>
-					<th>Inicio</th>
-					<th>Fin</th>
-					<th>Status cliente</th>
-					<th>Status grúa</th>
+					<th>Nombres y apellidos operador</th>
+					<th>Número de servicio</th>
+					<th>Inicio del servicio</th>
+					<th>Fin del servicio</th>
+					<th>Estatus cliente</th>
+					<th>Estatus grúa</th>
 					<th>Motivo</th>
 					<th>Detalle</th>
 				</tr>
@@ -45,8 +45,8 @@ $(document).ready(function() {
         },
         "columns": [
             { "data": "idGrua" },
-			{ "data": "Nombre" },
-			{ "data": "Apellido" },
+			{ "data": "NombresApellidos" },
+			{ "data": "IdSolicitud" },
             { "data": "TimeInicio" },
             { "data": "TimeFin" },
             { "data": "EstatusCliente" },

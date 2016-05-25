@@ -22,7 +22,7 @@
 			$columns = array();
 			$columns[0] = 'Grueros.idGrua';
 			$columns[1] = 'Grueros.Nombre';
-			$columns[2] = 'Grueros.Apellido';
+			$columns[2] = 'IdSolicitud';
 			$columns[3] = 'TimeInicio';
 			$columns[4] = 'TimeFin';
             $columns[5] = 'EstatusCliente';
@@ -54,6 +54,7 @@
 				$str = $values['search']['value'];
 				$where = ""
                                         . " upper(nombre) like upper('%$str%') "
+										. "  or cast(IdSolicitud as char(100)) =  '$str'"
 										. " or upper(apellido) like upper('%$str%') "
                                         . " or upper(EstatusGrua) like upper('%$str%')"
 										. " or upper(Motivo) like upper('%$str%')"
@@ -89,6 +90,7 @@
 				$str = $values['search']['value'];
 				$where = ""
                                         . " upper(nombre) like upper('%$str%') "
+										. "  or cast(IdSolicitud as char(100)) =  '$str'"
 										. " or upper(apellido) like upper('%$str%') "
                                         . " or upper(EstatusGrua) like upper('%$str%')"
 										. " or upper(Motivo) like upper('%$str%')"
@@ -124,7 +126,7 @@
 		public function getServicesMastersById($values){
 			$ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
-			->select("*, Grueros.Nombre as nombre_gruero, Grueros.Apellido as apellido_gruero,Grueros.Cedula as cedula_gruero,Grueros.Celular as celular_gruero")
+			->select("*, Grueros.Nombre as nombre_gruero, Grueros.Apellido as apellido_gruero,Grueros.Cedula as cedula_gruero,Grueros.Celular as celular_gruero, Grueros.Placa as placa_gruero, Grueros.Modelo as modelo_gruero, Grueros.Color as color_gruero,DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y %H:%i:%s') as TimeFin")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
 			->join("solicitudes","INNER JOIN Solicitudes on Solicitudes.idSolicitud = Servicios.idSolicitud")
 			->join("polizas","INNER JOIN Polizas on Polizas.idPoliza = Servicios.idPoliza")

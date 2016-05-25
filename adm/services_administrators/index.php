@@ -77,6 +77,7 @@ $values = $_REQUEST;
 					"idGrua" => $idGrua,
 					"razon_social" => $razon_social,
 					"NombresApellidos" => $services_administrators['nombre']." ".$services_administrators['apellido'],
+					"IdSolicitud" => $services_administrators['idsolicitud'],
 					"TimeInicio" => $services_administrators['timeinicio'],
 					"TimeFin" => $services_administrators['timefin'],
 					"EstatusCliente" => $services_administrators['estatuscliente'],
@@ -95,7 +96,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("idGrua"=>null,"razon_social"=>"","NombresApellidos"=>"","TimeInicio"=>"","TimeFin"=>"","EstatusCliente"=>"","EstatusGrua"=>"","Motivo"=>"","actions"=>"");
+			$array_json['data'][0] = array("idGrua"=>null,"razon_social"=>"","NombresApellidos"=>"","IdSolicitud"=>"","TimeInicio"=>"","TimeFin"=>"","EstatusCliente"=>"","EstatusGrua"=>"","Motivo"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;
