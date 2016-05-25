@@ -89,28 +89,22 @@
 			
 			$email =  $master['mail'];
 			
-			$message = Swift_Message::newInstance('Usuario y Clave de gruero Master – TU/GRUERO®');
+			$message = Swift_Message::newInstance('Información registrada con éxito – TU/GRUERO®');
 			$message->setBody("
 				<html>
 				<head></head>
 				<body style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;font-size: 18px;'>
 				<p align='left'><strong> <br><br>Sr(a). ".$name."</strong></p>
-				<p align='justify'>A continuación puede conseguir su usuario y clave con el que
-				va a ingresar a su cuenta en la página web <strong>TU/GRUERO®</strong>, donde podrá finalizar el registro de sus documentos, grúas y
-				operadores/choferes.  La Placa la usará para entrar en la aplicacion movil <strong>TU/GRUERO®</strong> cuando el equipo de validacion de proveedores apruebe su registro.</p>
+				<p align='justify'>Hemos registrado con éxito toda su información. Ahora debe esperar a que el equipo de 
+				validación de proveedores apruebe su registro, después ingresar en la página web de <strong>TU/GRUERO®</strong> 
+				y registrar todas su/s grúa/s y choferes/operadores para luego empezar a trabajar con la aplicación móvil <strong>TU/GRUERO®</strong>.</p>
 				
-				<p align='left'><label style='color: #f1452b !important;'>Usuario:</label> <strong>".$values['login']."</strong></p>
-				<p align='left'><label style='color: #f1452b !important;'>Clave:</label> <strong>".$values['password']."</strong></p>
-					<p align='left'><label style='color: #f1452b !important;'>Placa:</label> <strong>".$values['placa']."</strong></p>
-				
-				<p align='justify'>Recuerde que esta clave puede modificarla dentro de su
-				cuenta en el módulo de Modificación de Clave, y que ésta es
-				la misma tanto para el acceso a su cuenta en la Página web
-				como en la Aplicación móvil.</p>
-				
-				<p align='center'>
-				<a href='".full_url."/ap/index.php'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/inicie_sesion.png'))."' alt='' /></a>
-				</p>
+				<p align='justify'>Recuerde que sus datos de inicio de sesión (<strong>Usuario</strong>, <strong>Clave</strong> y <strong>Placa</strong>) 
+				son los que indicó el proceso de registro. </p>
+
+				<p align='justify'>Puede cambiar su clave una vez inicie sesión, en el módulo de <strong>Modificación de Clave</strong> dentro de su cuenta.</p>
+
+
 				
 				<p align='justify'><strong>Gracias.</strong></p>
 				<p align='justify'>Equipo – <strong>TU/GRUERO®</strong></p>
@@ -171,7 +165,9 @@
 				identificación cuando vaya a indicar su <strong>Usuario</strong>.</p>
 				
 				<p align='justify'>Puede cambiar su clave una vez inicie sesión en el módulo de <strong>Modificación de Clave</strong> dentro de su cuenta.</p>
-				
+				<p align='center'>
+				<a href='".full_url."/ap/index.php'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/inicie_sesion.png'))."' alt='' /></a>
+				</p>
 				
 				<p align='justify'>Si aún no ha descargado la aplicación en tu teléfono, le invitamos
 				a buscarla en la tienda de aplicacionesde acuerdo al teléfono
@@ -183,6 +179,8 @@
 					
 				</p>
 				
+				
+
 				
 				<p align='justify'>Por cualquier duda en la descarga, uso y funcionalidad de la aplicación
 				puedes llamarnos al <strong>0212-227-5273</strong> o escribirnos a: <strong>tugruero@gmail.com</strong>.</p>

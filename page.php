@@ -58,13 +58,13 @@
 							<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>
 							<p><h3 class="text-center white-font big-font">¡La  solución perfecta para el auxilio vial!</h3></p>
 							<p><h3 class="text-center white-font">Más de 2000 grúas al alcance de un click</h3></p>
-							<!--<br><br>-->
+							<br><br>
 								<p align="center">
                                     
-									<!--<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank" onclick="window.location.href = '<?php echo full_url."/ap/index.php"?>';">
+									<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank" onclick="window.location.href = '<?php echo full_url."/ap/index.php"?>';">
 										<img src="<?php echo full_url?>/web/img/ic_acceso2.png" class="img-responsive">
 										
-									</a>-->
+									</a>
                                     
                                 </p>
 								<p align="center">
