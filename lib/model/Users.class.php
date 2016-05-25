@@ -361,5 +361,14 @@
 			
 			
 		}
+		public function getUserModifById($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users
+			->select("*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")		
+			->where("users.id_user=?",$values['id_user'])->fetch();
+			return $q; 				
+			
+		}
 	}
 	
