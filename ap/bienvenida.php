@@ -32,4 +32,4 @@
 </div>
 
 
-<?php include("../view_footer.php");?>
+<?php //include("../view_footer.php");?>
