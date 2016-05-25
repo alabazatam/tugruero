@@ -179,9 +179,6 @@
 					
 				</p>
 				
-				
-
-				
 				<p align='justify'>Por cualquier duda en la descarga, uso y funcionalidad de la aplicación
 				puedes llamarnos al <strong>0212-227-5273</strong> o escribirnos a: <strong>tugruero@gmail.com</strong>.</p>
 				
