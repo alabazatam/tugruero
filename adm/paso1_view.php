@@ -49,3 +49,4 @@
                         </div>
                     </div>
                 </div>
+<?php include("../view_footer_clean.php");?>	
