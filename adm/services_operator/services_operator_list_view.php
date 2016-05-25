@@ -34,6 +34,7 @@
 		</table>
 	
 </div>
+
 	<?php include('../../view_footer.php')?>
 <script>
 $(document).ready(function() {

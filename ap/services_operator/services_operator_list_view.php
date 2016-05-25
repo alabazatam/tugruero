@@ -34,6 +34,7 @@
 		</table>
 	<a class="btn btn-default"  href="<?php echo full_url."/ap/users/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 </div>
+
 	
 	<?php include('../../view_footer.php')?>
 <script>

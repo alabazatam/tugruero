@@ -89,4 +89,4 @@
         	<div class="col-md-4 col-lg-4">
         	</div>
 
-<?php include("../view_footer.php");?>		
+<?php //include("../view_footer.php");?>		
