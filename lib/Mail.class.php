@@ -95,12 +95,13 @@
 				<head></head>
 				<body style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;font-size: 18px;'>
 				<p align='left'><strong> <br><br>Sr(a). ".$name."</strong></p>
+				
 				<p align='justify'>Hemos registrado con éxito toda su información. Ahora debe esperar a que el equipo de 
 				validación de proveedores apruebe su registro, después ingresar en la página web de <strong>TU/GRUERO®</strong> 
 				y registrar todas su/s grúa/s y choferes/operadores para luego empezar a trabajar con la aplicación móvil <strong>TU/GRUERO®</strong>.</p>
 				
 				<p align='justify'>Recuerde que sus datos de inicio de sesión (<strong>Usuario</strong>, <strong>Clave</strong> y <strong>Placa</strong>) 
-				son los que indicó el proceso de registro. </p>
+				son los que indicó en el proceso de registro. </p>
 
 				<p align='justify'>Puede cambiar su clave una vez inicie sesión, en el módulo de <strong>Modificación de Clave</strong> dentro de su cuenta.</p>
 
@@ -148,6 +149,8 @@
 				<head></head>
 				<body style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;font-size: 18px;'>
 				<p align='left'><strong>Sr(a). ".$name."</strong></p>
+				<p align='center' style='color: #f1452b !important;'>LEA CON DETENIMIENTO</p>
+
 				<p align='justify'><strong>¡Felicidades!</strong> Nuestro equipo de validación de proveedores ha
 				confirmado todos sus documentos y le da la bienvenida a <strong>TU/GRUERO®</strong>.</p>
 				

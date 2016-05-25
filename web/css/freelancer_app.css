@@ -612,3 +612,6 @@ input[readonly="readonly"] {
   background-color: #5cb85c !important;
   border-color: #4cae4c !important;
 }
+.big-font{
+    font-size: 18px !important;
+}
