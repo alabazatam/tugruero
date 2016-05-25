@@ -40,7 +40,7 @@ $(document).ready(function() {
         "columns": [
             { "data": "id_user" },
             { "data": "login" },
-			{ "data": "placa" },
+			{ "data": "registration_plate" },
             { "data": "status" },
 			{ "data": "disponibilidad"},
             { "data": "actions" }
