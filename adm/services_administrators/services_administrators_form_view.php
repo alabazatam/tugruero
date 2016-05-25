@@ -1,6 +1,6 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
-<div class="">
+<div class="container">
 	<h1 class="text-center big_title">Servicios - Master</h1>
 	<form class="form-horizontal" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
