@@ -27,6 +27,10 @@ $values = $_REQUEST;
 	}
 	function executeChangePassView($values){
 		
+		$values['id_user'] = $_SESSION['id_user'];
+		$user = new Users();
+		$datos = $user->getUserModifById($values);
+		$values['id_perms'] = $datos['id_perms'];
 		$values['action'] = "change_pass";
 		require('change_pass_view.php');
 		
@@ -68,12 +72,7 @@ $values = $_REQUEST;
 			}			
 			
 			
-		}
-		
-		
-		
-
-
+		}		
 		require('change_pass_view.php');die;
 		//executeChangePass($values);die;
 		

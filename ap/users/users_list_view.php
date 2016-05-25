@@ -7,6 +7,7 @@
 				<tr>
 					<th>Id</th>
 					<th>Usuario</th>
+					<th>Placa de grúa</th>
 					<th>Estatus</th>
 					<th>Disponibilidad en vivo</th>
 					<th>Detalle</th>
@@ -16,6 +17,7 @@
 				<tr>
 					<th>Id</th>
 					<th>Usuario</th>
+					<th>Placa de grúa</th>
 					<th>Estatus</th>
 					<th>Disponibilidad en vivo</th>
 					<th>Detalle</th>
@@ -38,12 +40,13 @@ $(document).ready(function() {
         "columns": [
             { "data": "id_user" },
             { "data": "login" },
+			{ "data": "registration_plate" },
             { "data": "status" },
 			{ "data": "disponibilidad"},
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 4 ] }
+          { 'bSortable': false, 'aTargets': [ 5 ] }
        ]				
     });
 } );

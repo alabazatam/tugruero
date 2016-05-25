@@ -228,7 +228,7 @@
 											<label  for="num_socio">Indique número de socio en el Club de Grúas Venezuela</label>
 											<div class="form-group">
 												
-												<input type="text" autocomplete="off" id="num_socio" name="num_socio" value="<?php if(isset($values['num_socio'])) echo $values['num_socio']?>" placeholder="Indique número de socio en el Club de Grúas Venezuela..." class="form-google-plus form-control" id="form-google-plus" >
+												<input type="text" autocomplete="off" id="num_socio" name="num_socio" value="<?php if(isset($values['num_socio'])) echo $values['num_socio']?>" placeholder="Indique número de socio en el Club de Grúas Venezuela..." class="form-google-plus form-control" id="form-google-plus" required>
 											</div>
 										</div>
 									</div>
@@ -382,11 +382,13 @@ function makeCheckBoxes()
 				if(j == 1 && ele[j].checked)
 				{
 					var x = $('#num_socio');
+					x.prop('required',false);
 					x.hide();
 				}
 				else
 				{
 					var x = $('#num_socio');
+					x.prop('required',true);
 					x.show();
 				}
 		}

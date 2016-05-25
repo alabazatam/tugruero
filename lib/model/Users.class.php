@@ -193,10 +193,11 @@
 			$columns = array();
 			$columns[0] = 'id_user';
 			$columns[1] = 'login';
-			$columns[2] = 'password';
-			$columns[3] = 'status';
-                        $columns[4] = 'date_created';
-                        $columns[5] = 'date_updated';
+			$columns[2] = 'registration_plate';
+			$columns[3] = 'password';
+			$columns[4] = 'status';
+                        $columns[5] = 'date_created';
+                        $columns[6] = 'date_updated';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -218,9 +219,11 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
-			->select("users.*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->select("users.*,hoist.registration_plate, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")
 			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")
+			->join("users_hoist_company","INNER JOIN users_hoist_company on users_hoist_company.id_user = users.id_user")
+			->join("hoist","INNER JOIN hoist on hoist.id = users_hoist_company.id_hoist ")
 			->order("$column_order $order")
 			->where("$where")
 			->and("users_company.id_company =?",$values["company"])
@@ -361,6 +364,15 @@
 			->fetch();
 			return $q; 				
 			
+			
+		}
+		public function getUserModifById($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users
+			->select("*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")		
+			->where("users.id_user=?",$values['id_user'])->fetch();
+			return $q; 				
 			
 		}
 	}

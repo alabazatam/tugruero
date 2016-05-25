@@ -42,8 +42,12 @@
 				<div class="input-group">
 					<select type="body_serial" id="type_hoist" class="form-control input-sm"  name="type_hoist" required  oninvalid="setCustomValidity('Debe colocar el Serial de la carroceria para poder registrarla.')" 
 					oninput="setCustomValidity('')">
-						<option value="Plataforma" <?php if(isset($values['body_serial'])) echo "selected"?>>Plataforma</option>
-						<option value="Gancho" <?php if(isset($values['body_serial'])) echo "selected"?>>Gancho</option>
+						<option value="Plataforma criolla" <?php if(isset($values['type_hoist']) && $values['type_hoist']== "Plataforma criolla") echo "selected"?>>Plataforma criolla</option>
+						<option value="Plataforma hidráulica" <?php if(isset($values['type_hoist']) && $values['type_hoist']== "Plataforma hidráulica") echo "selected"?>>Plataforma hidráulica</option>
+						<option value="Gancho normal" <?php if(isset($values['type_hoist']) && $values['type_hoist']== "Gancho normal") echo "selected"?>>Gancho normal</option>
+						<option value="Wheel Lift" <?php if(isset($values['type_hoist']) && $values['type_hoist']== "Wheel Lift") echo "selected"?>>Wheel Lift</option>
+						<option value="Gancho con Wheel Lift" <?php if(isset($values['type_hoist']) && $values['type_hoist']== "Gancho con Wheel Lift") echo "selected"?>>Gancho con Wheel Lift</option>
+						<option value="Gancho para carga pesada" <?php if(isset($values['type_hoist']) && $values['type_hoist']== "Gancho para carga pesada") echo "selected"?>>Gancho para carga pesada</option>
 					</select>
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
 				</div>

@@ -231,6 +231,7 @@ $values = $_REQUEST;
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
 					"login" => $user['login'],
+					"registration_plate" => $user['registration_plate'],
 					"disponibilidad" => $disponibilidad,
 					"status" => $message_status,
 					"actions" => 
