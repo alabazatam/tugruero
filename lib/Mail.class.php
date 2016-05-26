@@ -98,7 +98,7 @@
 				
 				<p align='justify'>Hemos registrado con éxito toda su información. Ahora debe esperar a que el equipo de 
 				validación de proveedores apruebe su registro, después, ingresar en la página web de <strong>TU/GRUERO®</strong> 
-				y registrar todas sus grúas y choferes para luego empezar a trabajar con la aplicación móvil <strong>TU/GRUERO®</strong>.</p>
+				y registrar todas su/s grúa/s y choferes/operadores para luego empezar a trabajar con la aplicación móvil <strong>TU/GRUERO®</strong>.</p>
 				
 				<p align='justify'>
 				Recuerde que sus datos con los que podrá iniciar sesión en su cuenta tanto en la página web como en la aplicación móvil, son los siguientes:	
@@ -107,7 +107,7 @@
 	
 				<p align='left'> - <strong> Usuario: </strong>".$login."</p>
 				<p align='left'> - <strong> Clave: </strong>".$values['password']."</p>	
-				<p align='left'> - <strong> Placa: </strong>".$values['placa']."</p>	
+				<p align='left'> - <strong> Placa: </strong>".$values['placa']." (ésta solo la usará para la aplicación móvil)</p>	
 
 				<p align='justify'>Puede cambiar su clave una vez inicie sesión, en el módulo de <strong>Modificación de Clave</strong> dentro de su cuenta.</p>
 
