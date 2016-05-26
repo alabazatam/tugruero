@@ -4,9 +4,8 @@
 	<h1 class="text-center big_title">Operador</h1>
 	<?php if(count($values['hoist']) == 0):?>
 		<div class="panel panel-danger">
-		  <div class="panel-heading">Agregar operador</div>
-		  <div class="panel-body">Para poder agregar un operador/chofer de grúa debe tener registrado al menos una grúa.</div>
-		  <div class="panel-footer"><a class="btn btn-success" href="<?php echo full_url."/ap/hoist/index.php?action=new"?>">OK</a></div>
+			<div class="panel-body text-center"><h6>Para poder agregar un operador/chofer de grúa debe tener registrado al menos una grúa.</h6></div>
+		  <div class="panel-footer text-center"><a class="btn btn-success" href="<?php echo full_url."/ap/hoist/index.php?action=new"?>">OK</a></div>
 		</div>
 	<?php else:?>	
 	<form class="" enctype="multipart/form-data" action="index.php" method="POST">
