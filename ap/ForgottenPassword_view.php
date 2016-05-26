@@ -82,8 +82,16 @@
 										<a href="<?php echo full_url;?>/ap/index.php"><button type="button" class="btn btn-danger btn-lg">Cancelar <i class="fa fa-remove"></i></button></a>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
 											<?php foreach($values['message'] as $message):?>
-												<div class="alert alert-success" role="alert"><?php echo $message;?></div>
+												
 											<?php endforeach;?>
+												<script>
+													$(document).ready(function(){
+													$('.modal-body').html('<div class="alert alert-success" role="alert"><?php echo $message;?></div>');
+													$('#myModal').modal('show');	
+													});
+
+
+												</script>
 										<?php endif;?>
 										
 										<?php if(isset($values['errors']) and count($values['errors'])>0):?>

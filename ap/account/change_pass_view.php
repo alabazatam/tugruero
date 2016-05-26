@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <div class="container">
-	<h1 class="text-center big_title">Modificación de Clave – <?php if($values['id_perms'] == 3) echo "Usuario Master"; else echo "Usuario Operador";?></h1>
+	<h1 class="text-center big_title">Modificación de Clave – <?php if(@$values['id_perms'] == 3) echo "Usuario Master"; else echo "Usuario Operador";?></h1>
 	<div class="col-md-10 col-md-offset-1">
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
@@ -31,7 +31,14 @@
 		<a class="btn btn-default"  href="<?php echo full_url."/ap/index.php?action=bienvenida"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Cancelar</a>
 		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
     <?php if(isset($values['msg']) and $values['msg']!=''):?>
-        <div class="alert alert-success" role="alert"><?php echo $values['msg'];?></div>
+        <script>
+			$(document).ready(function(){
+			$('.modal-body').html('<div class="alert alert-success" role="alert"><?php echo $values['msg'];?></div>');
+			$('#myModal').modal('show');	
+			});
+
+		
+		</script>
     <?php endif;?>
     <?php if(isset($values['error']) and $values['error']!=''):?>
         <div class="alert alert-danger" role="alert"><?php echo $values['error'];?></div>

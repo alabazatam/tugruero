@@ -105,8 +105,16 @@
 										</div>
 										<?php if(isset($values['message']) and count($values['message'])>0):?>
 											<?php foreach($values['message'] as $message):?>
-												<div class="alert alert-success" role="alert"><?php echo $message;?></div>
+												
 											<?php endforeach;?>
+											<script>
+												$(document).ready(function(){
+												$('.modal-body').html('<div class="alert alert-success" role="alert"><?php echo $message;?></div>');
+												$('#myModal').modal('show');	
+												});
+
+
+											</script>
 										<?php endif;?>
 										
 										<?php if(isset($values['errors']) and count($values['errors'])>0):?>
@@ -120,3 +128,4 @@
                         </div>
                     </div>
                 </div>
+<?php include('../view_footer_clean.php')?>

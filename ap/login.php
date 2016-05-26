@@ -1,4 +1,5 @@
 <?php include("../view_header.php");?>
+
         	<div class="col-md-4 col-lg-4">
         	</div>
         	
@@ -73,8 +74,15 @@
 			                    <!-- For success/fail messages -->
 			                    
 			                    <?php if(isset($values['message']) and $values['message']!=''):?>
-			                    	
-			                    	<div id="" class="alert alert-success"><?php echo $values['message'];?></div>
+											<script>
+												$(document).ready(function(){
+												$('.modal-body').html('<div class="alert alert-success" role="alert"><?php echo $values['message']?></div>');
+												$('#myModal').modal('show');	
+												});
+
+
+											</script>
+
 			                    <?php endif;?>
 								<?php if(isset($values['errors']) and $values['errors']!=''):?>
 			                    	

@@ -16,7 +16,8 @@
     <!-- Custom styles for this template -->
             <!-- CSS -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
- </head>
+ <script src="<?php echo full_url;?>/web/js/jquery.js"></script>
+</head>
 <body>
 <nav class="navbar navbar-default">
   <div class="container">

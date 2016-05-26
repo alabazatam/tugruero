@@ -206,7 +206,14 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 		<a class="btn btn-default"  href="<?php echo full_url."/ap/users/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Guardar</button>
     <?php if(isset($values['msg']) and $values['msg']!=''):?>
-        <div class="alert alert-success" role="alert"><?php echo $values['msg'];?></div>
+        <script>
+			$(document).ready(function(){
+			$('.modal-body').html('<div class="alert alert-success" role="alert"><?php echo $values['msg'];?></div>');
+			$('#myModal').modal('show');	
+			});
+
+		
+		</script>
     <?php endif;?>
 	<?php if(isset($values['errors']) and count($values['errors'])>0):?>
 		<?php foreach($values['errors'] as $errors):?>
