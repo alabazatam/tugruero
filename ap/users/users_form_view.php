@@ -2,6 +2,13 @@
 <?php include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center big_title">Operador</h1>
+	<?php if(count($values['hoist']) == 0):?>
+		<div class="panel panel-danger">
+		  <div class="panel-heading">Agregar operador</div>
+		  <div class="panel-body">Para poder agregar un operador/chofer de grúa debe tener registrado al menos una grúa.</div>
+		  <div class="panel-footer"><a class="btn btn-success" href="<?php echo full_url."/ap/hoist/index.php?action=new"?>">OK</a></div>
+		</div>
+	<?php else:?>	
 	<form class="" enctype="multipart/form-data" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<div class="form-group" style="display:none;">
@@ -208,6 +215,17 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 		<?php endforeach;?>
 	<?php endif;?>
 	</form>
-	
+
+
+
+ <div id="dialog" title="Alert message" style="display: none">
+            <div class="ui-dialog-content ui-widget-content">
+                <p>
+                    <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0"></span>
+                    <label id="lblMessage">
+                    </label>
+                </p>
+ </div>
 </div>
+<?php endif;?>	
 <?php include('../../view_footer.php')?>
