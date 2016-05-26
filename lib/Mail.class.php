@@ -99,9 +99,9 @@
 				<p align='justify'>Hemos registrado con éxito toda su información. Ahora debe esperar a que el equipo de 
 				validación de proveedores apruebe su registro, después ingresar en la página web de <strong>TU/GRUERO®</strong> 
 				y registrar todas su/s grúa/s y choferes/operadores para luego empezar a trabajar con la aplicación móvil <strong>TU/GRUERO®</strong>.</p>
-				
-				<p align='justify'>Recuerde que sus datos de inicio de sesión (<strong>Usuario</strong>, <strong>Clave</strong> y <strong>Placa</strong>) 
-				son los que indicó en el proceso de registro. </p>
+				<p align='left'> - <strong> Usuario: ".$login."</strong></p>
+				<p align='left'> - <strong> Clave: ".$values['password']."</strong></p>	
+				<p align='left'> - <strong> Placa: ".$values['placa']."</strong></p>	
 
 				<p align='justify'>Puede cambiar su clave una vez inicie sesión, en el módulo de <strong>Modificación de Clave</strong> dentro de su cuenta.</p>
 
@@ -155,15 +155,15 @@
 				confirmado todos sus documentos y le da la bienvenida a <strong>TU/GRUERO®</strong>.</p>
 				
 				<p align='justify'>A partir de este momento puede iniciar sesión en la página web de <strong>TU/GRUERO®</strong> donde podrá 
-				registrar su/s grúa/s y choferes/operadores, para luego entrar en la aplicación 
+				registrar su/s grúa/s y su/s choferes/operadores, para luego entrar en la aplicación 
 				de <strong>TU/GRUERO®</strong> y tomar las solicitudes de servicio que tengan nuestros clientes accidentados.</p>
 				
 				<p align='justify'>Registre primero sus grúas disponibles y posteriormente los operadores/choferes que las conducirán.</p>
 				
 				<p align='justify'>Si usted mismo es quien conduce su grúa, agregue primero la grúa y luego asígnesela en el módulo <strong>Admin. Operadores</strong>.</p>
 				
-				<p align='justify'>EL <strong>Usuario</strong>, <strong>Placa</strong> y <strong>Clave</strong> para acceder a la aplicación móvil <strong>TU/GRUERO®</strong> son 
-				los que indicó en el proceso de registro. 
+				<p align='justify'>EL <strong>Usuario</strong>, <strong>Placa</strong> y <strong>Clave</strong> para acceder a la página web y aplicación móvil <strong>TU/GRUERO®</strong> son 
+				los que le enviamos en el correo anterior a éste. 
 				Recuerde escribir ".'"<strong>V-</strong>", "<strong>E-</strong>" o "<strong>J-</strong>"'." seguido de su número de 
 				identificación cuando vaya a indicar su <strong>Usuario</strong>.</p>
 				
@@ -172,8 +172,8 @@
 				<a href='".full_url."/ap/index.php'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/inicie_sesion.png'))."' alt='' /></a>
 				</p>
 				
-				<p align='justify'>Si aún no ha descargado la aplicación en tu teléfono, le invitamos
-				a buscarla en la tienda de aplicacionesde acuerdo al teléfono
+				<p align='justify'>Si aún no ha descargado la aplicación en su teléfono, le invitamos
+				a buscarla en la tienda de aplicaciones de acuerdo al teléfono
 				inteligente que tenga (Play Store o App Store), con el
 				nombre de: <strong>Tu Gruero</strong></p>
 				<p align='center'>

@@ -286,7 +286,7 @@ $values = trimValues($_REQUEST);;
 					$UserPerms = array("id_user"=>$idUser,"id_perms" => 3,"status"=>0);;
 					addUserPerms($UserPerms);
 					$message = "Usuario: ".$userData["login"]." Clave: ".$password;
-					$values['password'] = $password;
+					//$values['password'] = $password;
 					$values['login'] = $userData["login"];
 					$Mail = new Mail();
 					$Mail ->mail2($values);
