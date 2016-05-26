@@ -60,7 +60,8 @@
 			->select("*,DATE_FORMAT(Servicios.TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(Servicios.TimeFin, '%d/%m/%Y %H:%i:%s') as TimeFin")
 			->order("$column_order $order")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")	
-			->join("gruas","INNER JOIN Gruas on Gruas.idGrua = Servicios.idGrua")	
+			->join("gruas","INNER JOIN Gruas on Gruas.idGrua = Servicios.idGrua")
+			->join("solicitudes","INNER JOIN Solicitudes on Solicitudes.idSolicitud = Servicios.idSolicitud")
 			->where("Grueros.idGrua=?",$id_user)
 			->and("$where")
 			->limit($limit,$offset);
@@ -88,7 +89,8 @@
 			$q = $ConnectionAws->getConnect()->Servicios
 			->select("count(*) as cuenta")
 			->join("grueros","INNER JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
-			->join("gruas","INNER JOIN Gruas on Gruas.idGrua = Servicios.idGrua")	
+			->join("gruas","INNER JOIN Gruas on Gruas.idGrua = Servicios.idGrua")
+			->join("solicitudes","INNER JOIN Solicitudes on Solicitudes.idSolicitud = Servicios.idSolicitud")
 			->where("Grueros.idGrua=?",$id_user)
 			->fetch();
 			return $q['cuenta']; 			
@@ -102,7 +104,8 @@
 			->join("solicitudes","INNER JOIN Solicitudes on Solicitudes.idSolicitud = Servicios.idSolicitud")
 			->join("polizas","INNER JOIN Polizas on Polizas.idPoliza = Servicios.idPoliza")
 			->where("Servicios.idGrua=?",$id_user)
-			->and("Servicios.idSolicitud=?",$values['idSolicitud'])	
+			->and("Servicios.idSolicitud=?",$values['idSolicitud'])
+			//print_r($values);echo $q;die;
 			->fetch();
 			return $q; 				
 			
