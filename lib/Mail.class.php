@@ -183,7 +183,7 @@
 				</p>
 				
 				<p align='justify'>Por cualquier duda en la descarga, uso y funcionalidad de la aplicación
-				puedes llamarnos al <strong>0212-227-5273</strong> o escribirnos a: <strong>tugruero@gmail.com</strong>.</p>
+				puede llamarnos al <strong>0212-227-5273</strong> o escribirnos a: <strong>tugruero@gmail.com</strong>.</p>
 				
 				<p align='left'>¡Gracias y disfrute de ofrecer el mejor	servicio de auxilio vial con <strong>TU/GRUERO®!</strong></p>
 				<p align='left'>Equipo – <strong>TU/GRUERO®</strong></p>
