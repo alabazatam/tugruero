@@ -76,7 +76,7 @@
 			<?php echo $values['motivo'];?>
 			<br>
 			<label for="">Monto a cobrar (sin IVA):</label>
-			<?php echo $values['monto'];?>
+			<?php setlocale(LC_NUMERIC,"es_ES.UTF8");echo number_format($values['monto'],2,",",".");?> Bs
 		</div>	
 		<div class="col-sm-4 col-sm-offset-4">
 			<h4><label class="label label-default">Calificación</label></h4>
