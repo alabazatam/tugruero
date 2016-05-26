@@ -98,7 +98,7 @@
 				
 				<p align='justify'>Hemos registrado con éxito toda su información. Ahora debe esperar a que el equipo de 
 				validación de proveedores apruebe su registro, después, ingresar en la página web de <strong>TU/GRUERO®</strong> 
-				y registrar todas su/s grúa/s y choferes/operadores para luego empezar a trabajar con la aplicación móvil <strong>TU/GRUERO®</strong>.</p>
+				y registrar todas sus grúas y choferes/operadores para luego empezar a trabajar con la aplicación móvil <strong>TU/GRUERO®</strong>.</p>
 				
 				<p align='justify'>
 				Recuerde que sus datos con los que podrá iniciar sesión en su cuenta tanto en la página web como en la aplicación móvil, son los siguientes:	
@@ -161,7 +161,7 @@
 				confirmado todos sus documentos y le da la bienvenida a <strong>TU/GRUERO®</strong>.</p>
 				
 				<p align='justify'>A partir de este momento puede iniciar sesión en la página web de <strong>TU/GRUERO®</strong> donde podrá 
-				registrar su/s grúa/s y su/s choferes/operadores, para luego entrar en la aplicación 
+				registrar sus grúas y sus choferes/operadores, para luego entrar en la aplicación 
 				de <strong>TU/GRUERO®</strong> y tomar las solicitudes de servicio que tengan nuestros clientes accidentados.</p>
 				
 				<p align='justify'>Registre primero sus grúas disponibles y posteriormente los operadores/choferes que las conducirán.</p>
