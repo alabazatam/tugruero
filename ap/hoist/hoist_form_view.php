@@ -4,6 +4,7 @@
 	<h1 class="text-center big_title">Grúas</h1>
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
+		<input type="hidden" name="status" id="status" value="1">
 		<input type="hidden" class="form-control input-sm" id="" placeholder="" name="engine_serial" value="<?php if(isset($values['engine_serial'])) echo $values['engine_serial']?>">
 	<div class="row">
 		<div class="col-md-6"> 
@@ -96,20 +97,6 @@
 					<span class="input-group-addon" id="basic-addon2">(*)</span>
 				</div>
 			  </div>
-		</div>
-		<div class="col-md-6">
-			<div class="form-group">
-		  <label class="label label-danger">
-			<input type="radio" name="status" id="status" value="0" <?php if(isset($values['status']) and $values['status'] =='0' ) echo "checked=checked"?>>
-			Desactivar
-		  </label>
-		</div>
-		<div class="form-group">
-		  <label class="label label-success">
-			<input type="radio" name="status" id="status" value="1" <?php if(isset($values['status']) and $values['status'] =='1' ) echo "checked=checked"?>>
-			Activar
-		  </label>
-		</div>	
 		</div>
 	</div>
 	 <div class="row">
