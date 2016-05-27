@@ -77,19 +77,32 @@
 		}
 		$cantidad = count($archivos);
 		$i = 1;
+		$detect = new Mobile_Detect();
 		while($i < $cantidad+1)
 		{
-			if (($_FILES['file_'.$i]['size'])>1000000)
+			if (($_FILES['file_'.$i]['size'])>2000000)
 			{
 
-				$errors['Tamano de archivo']= "Los archivos no pueden pesar mas de 10 Megabyte";
-				
+					$errors['Tamano de archivo']= "Los archivos no pueden pesar mas de 10 Megabytes";
+
+			}			
+			
+				if ($detect->isMobile() or $detect->isTablet() or $detect->isAndroidOS() or $detect->isiOS())
+				{		
+						/*print_r($_FILES)."\n";
+						echo pathinfo($_FILES['file_4']['name'],PATHINFO_EXTENSION);die;*/
+
+				}else
+				{
+
+					$array_extensions = array('jpg','JPG','PNG','png','jpeg','JPEG','pdf','PDF','octet-stream');
+					if(!in_array(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION),$array_extensions)) 
+					{
+						$errors['tipoArchivo']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+					}
 			}
-			$array_extensions = array('jpg','JPG','PNG','png','jpeg','JPEG','pdf','PDF');
-			if(!in_array(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION),$array_extensions)) 
-			{
-				$errors['tipoArchivo']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
-			}
+			
+
 			$i++;
 		}
 
