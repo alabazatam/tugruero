@@ -55,17 +55,7 @@
 													<option value="ZULIA" <?php if(isset($values['zone_work']) and $values['zone_work']=='ZULIA') echo "selected='selected'";?>>ZULIA</option>
 												</select>
 	  </div>
- 	  <div class="form-group">
-		<label for="">Banco</label>
-                <select name="id_bank">
-                    <option value="">Seleccione...</option>
-                    <?php if(isset($bank_list) and count($bank_list)>0):?>
-                    <?php foreach ($bank_list as $bank):?>
-                        <option value="<?php echo $bank['id'];?>" <?php if($bank['id']== $values['id_bank'])echo "selected='selected'" ?>><?php echo $bank['name'];?></option>
-                    <?php endforeach;?>
-                    <?php endif;?>
-                </select>
-	  </div>
+
 	  <div class="form-group">
 		<label for="">Ubicación de empresa o firma personal</label>
 		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="location" value="<?php if(isset($values['location'])) echo $values['location']?>">
@@ -78,7 +68,18 @@
 	  <div class="form-group">
 		<label for="">Número de socio en el Club de Grúas Venezuela</label>
 		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="num_socio" value="<?php if(isset($values['num_socio'])) echo $values['num_socio']?>">
-	  </div>		
+	  </div>	
+ 	  <div class="form-group">
+		<label for="">Banco</label>
+                <select name="id_bank">
+                    <option value="">Seleccione...</option>
+                    <?php if(isset($bank_list) and count($bank_list)>0):?>
+                    <?php foreach ($bank_list as $bank):?>
+                        <option value="<?php echo $bank['id'];?>" <?php if($bank['id']== $values['id_bank'])echo "selected='selected'" ?>><?php echo $bank['name'];?></option>
+                    <?php endforeach;?>
+                    <?php endif;?>
+                </select>
+	  </div>	
 	  <div class="form-group">
 		<label  for="tipo_cuenta">Tipo de cuenta</label>
 			<select  name="tipo_cuenta" class="form-control" required>
