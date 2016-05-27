@@ -68,13 +68,14 @@ $values = $_REQUEST;
 	{
 		
 		$Company = new Company();
+		$data_company = $Company->getCompanyById($values);
+		$status_anterior = $data_company['status'];
 		$Company->updateCompany($values);
 		$Users = new Users();
 		if($values['status']==1)
 		{
 			
-			$data_company = $Company->getCompanyById($values);
-			if($data_company['status']!=1)
+			if($status_anterior!=1)
 			{
 				$Users->activeUserMasterCompany($values['id']);
 				$Mail = new Mail();
