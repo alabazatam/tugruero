@@ -13,12 +13,47 @@
 		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="rif" value="<?php if(isset($values['rif'])) echo $values['rif']?>">
 	  </div>
 	  <div class="form-group">
+		<label for="">Razón social</label>
+		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="razon_social" value="<?php if(isset($values['razon_social'])) echo $values['razon_social']?>">
+	  </div>
+	  <div class="form-group">
 		<label for="">Responsable</label>
 		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="responsible_name" value="<?php if(isset($values['responsible_name'])) echo $values['responsible_name']?>">
 	  </div>
 	  <div class="form-group">
 		<label for="">Cédula</label>
 		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="responsible_cedula" value="<?php if(isset($values['responsible_cedula'])) echo $values['responsible_cedula']?>">
+	  </div>
+	  <div class="form-group">
+		<label for="">Estado</label>
+												<select name="zone_work" class="form-control">
+													<option value="">Seleccione</option>
+													<option value="AMAZONAS" <?php if(isset($values['zone_work']) and $values['zone_work']=='AMAZONAS') echo "selected='selected'";?>>AMAZONAS</option>
+													<option value="ANZOATEGUI" <?php if(isset($values['zone_work']) and $values['zone_work']=='ANZOATEGUI') echo "selected='selected'";?>>ANZOATEGUI</option>
+													<option value="APURE" <?php if(isset($values['zone_work']) and $values['zone_work']=='APURE') echo "selected='selected'";?>>APURE</option>
+													<option value="ARAGUA" <?php if(isset($values['zone_work']) and $values['zone_work']=='ARAGUA') echo "selected='selected'";?>>ARAGUA</option>
+													<option value="BARINAS" <?php if(isset($values['zone_work']) and $values['zone_work']=='BARINAS') echo "selected='selected'";?>>BARINAS</option>
+													<option value="BOLIVAR" <?php if(isset($values['zone_work']) and $values['zone_work']=='BOLIVAR') echo "selected='selected'";?>>BOLIVAR</option>
+													<option value="CARABOBO" <?php if(isset($values['zone_work']) and $values['zone_work']=='CARABOBO') echo "selected='selected'";?>>CARABOBO</option>
+													<option value="COJEDES" <?php if(isset($values['zone_work']) and $values['zone_work']=='COJEDES') echo "selected='selected'";?>>COJEDES</option>
+													<option value="DELTA AMACURO" <?php if(isset($values['zone_work']) and $values['zone_work']=='DELTA AMACURO') echo "selected='selected'";?>>DELTA AMACURO</option>
+													<option value="DEPENDENCIAS FEDERALES" <?php if(isset($values['zone_work']) and $values['zone_work']=='DEPENDENCIAS FEDERALES') echo "selected='selected'";?>>DEPENDENCIAS FEDERALES</option>
+													<option value="DISTRITO CAPITAL" <?php if(isset($values['zone_work']) and $values['zone_work']=='DISTRITO CAPITAL') echo "selected='selected'";?>>DISTRITO CAPITAL</option>
+													<option value="FALCON" <?php if(isset($values['zone_work']) and $values['zone_work']=='FALCON') echo "selected='selected'";?>>FALCON</option>
+													<option value="GUARICO" <?php if(isset($values['zone_work']) and $values['zone_work']=='GUARICO') echo "selected='selected'";?>>GUARICO</option>
+													<option value="LARA" <?php if(isset($values['zone_work']) and $values['zone_work']=='LARA') echo "selected='selected'";?>>LARA</option>
+													<option value="MERIDA" <?php if(isset($values['zone_work']) and $values['zone_work']=='MERIDA') echo "selected='selected'";?>>MERIDA</option>
+													<option value="MIRANDA" <?php if(isset($values['zone_work']) and $values['zone_work']=='MIRANDA') echo "selected='selected'";?>>MIRANDA</option>
+													<option value="MONAGAS" <?php if(isset($values['zone_work']) and $values['zone_work']=='MONAGAS') echo "selected='selected'";?>>MONAGAS</option>
+													<option value="NUEVA ESPARTA" <?php if(isset($values['zone_work']) and $values['zone_work']=='NUEVA ESPARTA') echo "selected='selected'";?>>NUEVA ESPARTA</option>
+													<option value="PORTUGUESA" <?php if(isset($values['zone_work']) and $values['zone_work']=='PORTUGUESA') echo "selected='selected'";?>>PORTUGUESA</option>
+													<option value="SUCRE" <?php if(isset($values['zone_work']) and $values['zone_work']=='SUCRE') echo "selected='selected'";?>>SUCRE</option>
+													<option value="TACHIRA" <?php if(isset($values['zone_work']) and $values['zone_work']=='TACHIRA') echo "selected='selected'";?>>TACHIRA</option>
+													<option value="TRUJILLO" <?php if(isset($values['zone_work']) and $values['zone_work']=='TRUJILLO') echo "selected='selected'";?>>TRUJILLO</option>
+													<option value="VARGAS" <?php if(isset($values['zone_work']) and $values['zone_work']=='VARGAS') echo "selected='selected'";?>>VARGAS</option>
+													<option value="YARACUY" <?php if(isset($values['zone_work']) and $values['zone_work']=='YARACUY') echo "selected='selected'";?>>YARACUY</option>
+													<option value="ZULIA" <?php if(isset($values['zone_work']) and $values['zone_work']=='ZULIA') echo "selected='selected'";?>>ZULIA</option>
+												</select>
 	  </div>
  	  <div class="form-group">
 		<label for="">Banco</label>
@@ -32,13 +67,29 @@
                 </select>
 	  </div>
 	  <div class="form-group">
+		<label for="">Ubicación de empresa o firma personal</label>
+		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="location" value="<?php if(isset($values['location'])) echo $values['location']?>">
+	  </div>
+		<div class="form-group">
+			<label>¿Pertenece al Club Grúas Venezuela?</label>
+			<label class="radio-inline"><input type="radio" <?php if(isset($values['club_gruas']) && $values['club_gruas'] == "1") echo "checked='checked'";?> value="1"  name="club_gruas" checked onchange="">Si</label>
+			<label class="radio-inline"><input type="radio" <?php if(isset($values['club_gruas']) && $values['club_gruas'] == "0") echo "checked='checked'";?> value="0" name="club_gruas" onchange="">No</label>
+		</div>		
+	  <div class="form-group">
+		<label for="">Número de socio en el Club de Grúas Venezuela</label>
+		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="num_socio" value="<?php if(isset($values['num_socio'])) echo $values['num_socio']?>">
+	  </div>		
+	  <div class="form-group">
+		<label  for="tipo_cuenta">Tipo de cuenta</label>
+			<select  name="tipo_cuenta" class="form-control" required>
+				<option value="Personal" <?php if(isset($values['tipo_cuenta']) && $values['tipo_cuenta'] == "Personal") echo "selected";?>>Personal</option>
+				<option value="Empresa" <?php if(isset($values['tipo_cuenta']) && $values['tipo_cuenta'] == "Empresa") echo "selected";?>>Empresa</option>
+			</select>
 		<label for="">Cuenta Nº</label>
 		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="num_cuenta" value="<?php if(isset($values['num_cuenta'])) echo $values['num_cuenta']?>">
 	  </div>
-	  <div class="form-group">
-		<label for="">Razón social</label>
-		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="razon_social" value="<?php if(isset($values['razon_social'])) echo $values['razon_social']?>">
-	  </div>
+		
+
 	  <div class="form-group">
 		<label for="">Archivos</label>
                     <?php if(isset($company_files_list) and count($company_files_list)>0):?>

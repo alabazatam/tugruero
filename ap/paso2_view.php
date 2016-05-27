@@ -276,7 +276,7 @@
 														<select  name="tipo_cuenta" class="form-control" required>
 															<option value="" selected>Seleccione si la cuenta es personal o es de la empresa indicada...</option>
 															<option value="Personal" <?php if(isset($values['tipo_cuenta']) && $values['tipo_cuenta'] == "Personal") echo "selected";?>>Personal</option>
-															<option value="Empresa" <?php if(isset($values['tipo_cuenta']) && $values['tipo_cuenta'] == "Personal") echo "selected";?>>Empresa</option>
+															<option value="Empresa" <?php if(isset($values['tipo_cuenta']) && $values['tipo_cuenta'] == "Empresa") echo "selected";?>>Empresa</option>
 														</select>
 													   <span class="input-group-addon">(*)</span>
 													</div>

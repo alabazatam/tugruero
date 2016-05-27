@@ -72,9 +72,15 @@ $values = $_REQUEST;
 		$Users = new Users();
 		if($values['status']==1)
 		{
-			$Users->activeUserMasterCompany($values['id']);
-			$Mail = new Mail();
-			$Mail ->mail3($values);
+			
+			$data_company = $Company->getCompanyById($values);
+			if($data_company['status']!=1)
+			{
+				$Users->activeUserMasterCompany($values['id']);
+				$Mail = new Mail();
+				$Mail ->mail3($values);	
+			}
+
 		}elseif($values['status']==0)
 		{
 			$Users->inactiveUserMasterCompany($values['id']);
