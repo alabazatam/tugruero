@@ -358,7 +358,7 @@
 			$where.= " and users_perms.status = 1";
 			$where.= " and users_perms.id_perms = 2";
 			$q = $ConnectionORM->getConnect()->users
-			->select("*")
+			->select("*,users_perms.id_perms")
 			->join("users_data","INNER JOIN users_data on users_data.id_users = users.id_user")
 			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")
 			->where("$where")

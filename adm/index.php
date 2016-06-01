@@ -54,18 +54,26 @@ $values = $_REQUEST;
 			{
 				$Users = new Users();
 				$user_data = $Users->getLogin($values);
-				if(count($user_data)==0)
+				if($user_data['id_user'] == false or $user_data['id_user']=='' or !isset($user_data['id_user']))
 				{
 					$values['error'] = "Usuario o clave incorrecto";
 					require('login.php');die;
 				}else
 				{
-				$_SESSION['id_perms'] =$user_data["id_perms"];
-				$_SESSION['id_user'] = $user_data["id_user"];
-				$_SESSION['login'] = $user_data["login"];
-				$_SESSION['name'] = ucwords(strtolower($user_data["first_name"]))." ".ucwords(strtolower($user_data["first_last_name"]));
+					if($user_data["id_perms"]!=2)
+					{
+						$values['error'] = "No posee permisos para ingresar. Comuníquese con el administrador";
+						require('login.php');die;
+					}else
+					{
+						$_SESSION['id_perms'] =$user_data["id_perms"];
+						$_SESSION['id_user'] = $user_data["id_user"];
+						$_SESSION['login'] = $user_data["login"];
+						$_SESSION['name'] = ucwords(strtolower($user_data["first_name"]))." ".ucwords(strtolower($user_data["first_last_name"]));
 
-					require('bienvenida.php');die;
+						require('bienvenida.php');die;
+					}
+
 				}
 				
 				
