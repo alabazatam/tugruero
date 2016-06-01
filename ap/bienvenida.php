@@ -5,7 +5,7 @@
         <h1>Bienvenido(a) <strong><?php echo $_SESSION['name'];?> </strong><small> a <?php echo title;?> <?php echo version;?></small></h1>
     </div>
 </div>
-<div class="col-sm-8 col-sm-offset-2">
+<div class="col-sm-8 col-sm-offset-2 visible-lg visible-md">
 	<div class="alert alert-info"><h6>Da click en una de las opciones en la parte inferior y comienza a registrar toda tu información, también puedes utilizar el menú ubicado en la parte superior derecha de tu monitor</h6></div>
 							<table class="table table-responsive table-condensed table-bordered">
 								<tr>

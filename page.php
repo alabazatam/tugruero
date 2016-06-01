@@ -71,13 +71,13 @@
 									<br><br>
 									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
 									<br>
-                                    <a class="btn text-center black-font" href="#">
+                                    <a class="btn text-center black-font" href="https://play.google.com/store/apps/details?id=com.tugruero.grua&hl=es">
 										<img src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="" class="img-responsive">
                                     </a>
-                                    <a class="btn text-center black-font" href="#">
+                                    <!--<a class="btn text-center black-font" href="#">
 										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="" class="img-responsive">
-                                    </a>
-									<br><small ><b class="white-font">¡Muy pronto disponibles!</b></small>
+                                    </a>-->
+									<!--<br><small ><b class="white-font">¡Muy pronto disponibles!</b></small>-->
                                 </p>
 
 						</div>
@@ -100,23 +100,23 @@
 							<p><h3 class="text-center white-font">Más de 2000 grúas al alcance de un click</h3></p>
 								<p align="center">
                                     
-									<!--<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank" onclick="window.location.href = '<?php echo full_url."/ap/index.php"?>';">
+									<a class="" href="<?php echo full_url;?>/ap/index.php" target="blank" onclick="window.location.href = '<?php echo full_url."/ap/index.php"?>';">
 										<img src="<?php echo full_url?>/web/img/ic_acceso2.png" class="img-responsive">
 										
-									</a>-->
+									</a>
                                     
                                 </p>
 								<p align="center">
 									<br><br>
 									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
 									<br>
-                                    <a class="btn text-center black-font" href="#">
+                                    <a class="btn text-center black-font" href="https://play.google.com/store/apps/details?id=com.tugruero.grua&hl=es">
 										<img src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="" class="img-responsive">
                                     </a>
-                                    <a class="btn text-center black-font" href="#">
+                                    <!--<a class="btn text-center black-font" href="#">
 										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="" class="img-responsive">
-                                    </a>
-									<br><small ><b class="white-font">¡Muy pronto disponibles!</b></small>
+                                    </a>-->
+									<!--<br><small ><b class="white-font">¡Muy pronto disponibles!</b></small>-->
                                 </p>
 						</div>
 			</div>	
