@@ -83,5 +83,6 @@ $values = $_REQUEST;
 	require('bienvenida.php');
 	}
 	function executeLogout($values = null){
+	unset($_SESSION['id_user'],$_SESSION['id_perms']);
 	require('login.php');
 	}
