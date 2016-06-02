@@ -130,5 +130,15 @@
 			return $q; 				
 			
 		}
+		public function getUsersByCompanyId($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users
+			->select("users.*,ud.*")
+			->join("users_company","INNER JOIN users_company uc on uc.id_user = users.id_user")
+			->join("users_data","INNER JOIN users_data ud on ud.id_users = users.id_user")
+			->where("id_company=?",$values['id']);
+			return $q; 				
+			
+		}
 	}
 	

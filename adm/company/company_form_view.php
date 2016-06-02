@@ -1,7 +1,21 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
+
 <div class="container">
-	<h1 class="text-center big_title">Masters</h1>
+		<h1 class="text-center big_title">Masters</h1>
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+	<li role="presentation" class="active"><a href="#detalle" aria-controls="detalle" role="tab" data-toggle="tab">Detalle</a></li>
+    <li role="presentation" class=""><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Operadores</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Grúas</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+	  <div role="tabpanel" class="tab-pane active" id="detalle">
+
 	<form class="" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 	  <div class="form-group">
@@ -145,62 +159,95 @@
 		</script>
     <?php endif;?>
 	</form>
-	
+	  </div>
+	  <div role="tabpanel" class="tab-pane active" id="home">
+		  
+				<h1 class="text-center big_title">Operadores</h1>
+				<?php $UsersCompany = new UsersCompany(); $users_list = $UsersCompany->getUsersByCompanyId($values);?>
+				<?php if(count($users_list)>0):?>
+				<div align='center'>
+				<table class="table-responsive table-bordered table-condensed table-hover">
+					<tr>
+						<th>Nombres y apellidos</th>
+						<th>Usuario</th>
+						<th>Estatus</th>
+						<th>Cédula</th>
+						<th>RCV</th>			
+					</tr>
+					<?php foreach($users_list as $users):?>
+					<tr>
+						<td><?php echo $users['first_name']." ".$users['first_last_name']?></td>	
+						<td><?php echo $users['id_user']?></td>
+						<td><?php echo $users['id_user']?></td>
+						<td><?php echo $users['id_user']?></td>
+						<td><?php echo $users['id_user']?></td>
+						<td>
+							<?php if(isset($users['rcv']) and $users['rcv']!=''):?>
+								<a href="<?php echo full_url?>/web/files/operators/<?php echo $users['document_file']?>" target="_blank"><?php echo $users['document_file']?></a>
+							<?php endif;?>
+							<?php if(!isset($users['document_file']) or $users['document_file']==''):?>
+								<label class="alert-danger">No posee cédula cargada</label>
+							<?php endif;?>
+
+						</td>			
+					</tr>
+					<?php endforeach;?>
+				</table>
+				</div>
+				<?php endif;?>
+	  </div>
+	  <div role="tabpanel" class="tab-pane" id="profile">
+				<h1 class="text-center big_title">Grúas</h1>
+				<?php $Hoist = new Hoist();	$hoist_list = $Hoist ->getHoistByIdCompany($values);?>
+				<?php if(count($hoist_list)>0):?>
+				<div align='center'>
+				<table class="table-responsive table-bordered table-condensed table-hover">
+					<tr>
+						<th>Tipo</th>
+						<th>Placa</th>
+						<th>Color</th>
+						<th>Marca</th>
+						<th>Modelo</th>
+						<th>Año</th>
+						<th>Estatus</th>
+						<th>RCV</th>			
+					</tr>
+					<?php foreach($hoist_list as $hoist):?>
+					<tr>
+						<td>
+							<?php echo $hoist['type_hoist']?></td>	
+						<td>
+							<?php echo $hoist['registration_plate']?></td>
+						<td>
+							<?php echo $hoist['color']?></td>
+						<td>
+							<?php echo $hoist['make']?></td>
+						<td>
+							<?php echo $hoist['model']?></td>
+						<td>
+							<?php echo $hoist['year_vehicle']?></td>
+						<td>
+							<?php echo $hoist['status']?></td>
+						<td>
+							<?php if(isset($hoist['rcv']) and $hoist['rcv']!=''):?>
+								<a href="<?php echo full_url?>/web/files/hoist/<?php echo $hoist['rcv']?>" target="_blank"><?php echo $hoist['rcv']?></a>
+							<?php endif;?>
+							<?php if(!isset($hoist['rcv']) or $hoist['rcv']==''):?>
+								<label class="alert-danger">No posee rcv</label>
+							<?php endif;?>
+
+						</td>			
+					</tr>
+					<?php endforeach;?>
+				</table>
+				</div>
+				<?php endif;?>
+	  </div>
+
+  </div>
 
 </div>
-<div class="container">
-	<h1 class="text-center">Grúas</h1>
-	<?php $Hoist = new Hoist();	$hoist_list = $Hoist ->getHoistByIdCompany($values);?>
-	<?php if(count($hoist_list)>0):?>
-	<div align='center'>
-	<table class="table-responsive table-bordered table-condensed table-hover">
-		<tr>
-			<th>Tipo</th>
-			<th>Placa</th>
-			<th>Color</th>
-			<th>Marca</th>
-			<th>Modelo</th>
-			<th>Año</th>
-			<th>Estatus</th>
-			<th>RCV</th>			
-		</tr>
-		<?php foreach($hoist_list as $hoist):?>
-		<tr>
-			<td>
-				<?php echo $hoist['type_hoist']?>
-			</td>	
-			<td>
-				<?php echo $hoist['registration_plate']?>
-			</td>
-			<td>
-				<?php echo $hoist['color']?>
-			</td>
-			<td>
-				<?php echo $hoist['make']?>
-			</td>
-			<td>
-				<?php echo $hoist['model']?>
-			</td>
-			<td>
-				<?php echo $hoist['year_vehicle']?>
-			</td>
-			<td>
-				<?php echo $hoist['status']?>
-			</td>
-			<td>
-				<?php if(isset($hoist['rcv']) and $hoist['rcv']!=''):?>
-					<a href="<?php echo full_url?>/web/files/hoist/<?php echo $hoist['rcv']?>" target="_blank"><?php echo $hoist['rcv']?></a>
-				<?php endif;?>
-				<?php if(!isset($hoist['rcv']) or $hoist['rcv']==''):?>
-					<label class="alert-danger">No posee rcv</label>
-				<?php endif;?>
-				
-			</td>			
-		</tr>
-		<?php endforeach;?>
-	</table>
-	</div>
-	<?php endif;?>
+
 </div>	
 	
 <?php include('../../view_footer.php')?>
