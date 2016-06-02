@@ -41,8 +41,8 @@
 										<div class="text-center">
 												<a href="<?php echo full_url.$item2['url2']?>" target="" class='text-center'>
 													<img class="" src="<?php echo full_url;?>/web/img/<?php echo $item2['image']?>" width="100">
-													<br><i class="fa fa-plus-circle fa-2x btn btn-success"> <label class=""><?php echo $item2['name2']?> <?php echo $item2['name']?></label></i> 
-												</a>
+													<br><br><i class="fa fa-plus-circle fa-2x btn btn-success"> <label class=""><?php echo $item2['name2']?> <?php echo $item2['name']?></label></i> 
+												</a><br><br>
 										</div>
                                       <?php endforeach;?>
 														
