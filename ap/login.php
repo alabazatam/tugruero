@@ -60,7 +60,7 @@
                                                             <div align="center">
                                                                 <button type="submit" class="btn-lg btn-success">Conectar <i class="fa fa-arrow-right"></i></button>
 
-                                                                <a href="<?php echo full_url;?>/ap/registrarse.php"><button type="button" class="btn-lg btn-naranja"> ¡Registrarse! <i class="fa fa-users"></i></button></a>
+                                                                <!--<a href="<?php echo full_url;?>/ap/registrarse.php"><button type="button" class="btn-lg btn-naranja"> ¡Registrarse! <i class="fa fa-users"></i></button></a>-->
 
                                                             </div>
 							</div>

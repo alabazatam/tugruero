@@ -1,5 +1,14 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
+<?php 
+	if(isset($values['id_user']))
+	{
+		$Aws = new Aws();
+		$datos_aws = $Aws->getGruerosPlaca($values);	
+	}
+
+	
+?>
 <div class="container">
 	<h1 class="text-center big_title">Operador</h1>
 	<?php if(count($values['hoist']) == 0):?>
@@ -198,7 +207,7 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 					<h6 class="alert alert-info">Datos para inicio de sesión en Aplicación Móvil del Operador</h6>
 					<strong>Usuario</strong>: <?php if(isset($values['login'])) echo $values['login']?><br>
 					<strong>Clave</strong>: <?php if(isset($password)) echo $password?><br>
-					<strong>Placa</strong>: <?php if(isset($placa)) echo $placa?><br>
+					<strong>Placa</strong>: <?php if(isset($datos_aws['placa']) and $datos_aws['placa']!='') echo $datos_aws['placa'];?><br>
 				</div>
 				
 			</div>

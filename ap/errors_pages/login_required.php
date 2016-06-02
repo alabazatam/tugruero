@@ -10,7 +10,7 @@
 			
 			</p>
 			<p class="text-center">
-				<a class="btn btn-default" href="<?php echo full_url?>/adm/index.php">Login</a>
+				<a class="btn btn-default" href="<?php echo full_url?>/ap/index.php">Login</a>
 			
 			</p>			
 

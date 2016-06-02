@@ -79,4 +79,12 @@
 				break;
 			}
 		}
+		public function getGruerosPlaca($values){
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Grueros
+			->select("Placa")
+			->where("idGrua=?",$values['id_user'])->fetch();
+			return $q; 				
+			
+		}
 	}
