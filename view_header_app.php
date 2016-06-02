@@ -11,7 +11,6 @@
     <link href="<?php echo full_url;?>/web/css/freelancer_app.css" rel="stylesheet">
 	<link href="<?php echo full_url;?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo full_url;?>/web/css/caroussel.css" rel="stylesheet">
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 	<link href="<?php echo full_url;?>/web/css/datatables.css" rel="stylesheet">
 	<script src="<?php echo full_url;?>/web/js/datatables.js"></script>
  </head>

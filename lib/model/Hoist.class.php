@@ -108,6 +108,15 @@
 			return $q;
 			
 		}
+		public function getHoistByIdCompany($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->hoist
+			->select("*")
+			->join("hoist_company","INNER JOIN hoist_company on hoist_company.id_hoist = hoist.id")
+			->where("hoist_company.id_company=?",$values['id']);
+			return $q; 				
+			
+		}
 
 		
 	}

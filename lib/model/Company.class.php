@@ -40,7 +40,7 @@
                                         . "or upper(company.razon_social) like upper('%$str%')"
                                         . "or upper(company.responsible_name) like upper('%$str%')"
                                         . "or upper(company.rif) like upper('%$str%')"
-                                        . "";
+                                        . "or cast(id as char(100)) =  '$str' ";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -66,7 +66,12 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "upper(razon_social) like upper('%$str%') ";
+				$where = ""
+                                        . "upper(status.name) like upper('%$str%') "
+                                        . "or upper(company.razon_social) like upper('%$str%')"
+                                        . "or upper(company.responsible_name) like upper('%$str%')"
+                                        . "or upper(company.rif) like upper('%$str%')"
+                                        . "or cast(id as char(100)) =  '$str' ";
 			}
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->company
