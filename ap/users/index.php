@@ -127,6 +127,7 @@ $values = $_REQUEST;
 		$Users = new Users();
 		$values = $Users->getUserOperatorById($values);
 		$password = $Aws->getGruerosClave($values);
+		
 		$password = $password['clave'];
 		$userhoistcompany = new UsersHoistCompany();
 		$values['hoist'] = $userhoistcompany->getHoistByUserWithout($values);

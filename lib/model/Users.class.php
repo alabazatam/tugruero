@@ -222,8 +222,8 @@
 			->select("users.*,hoist.registration_plate, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")
 			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")
-			->join("users_hoist_company","INNER JOIN users_hoist_company on users_hoist_company.id_user = users.id_user")
-			->join("hoist","INNER JOIN hoist on hoist.id = users_hoist_company.id_hoist ")
+			->join("users_hoist_company","LEFT JOIN users_hoist_company on users_hoist_company.id_user = users.id_user")
+			->join("hoist","LEFT JOIN hoist on hoist.id = users_hoist_company.id_hoist ")
 			->order("$column_order $order")
 			->where("$where")
 			->and("users_company.id_company =?",$values["company"])
@@ -284,7 +284,7 @@
 			
 			$usershoistcompany = array("id_company" => $_SESSION["id_company"],
 										"id_user" => $values['id_user'],
-										 "id_hosit" => $values['id_hoist']);
+										 "id_hoist" => $values['id_hoist']);
 			
 			$q = $ConnectionORM->getConnect()->users_data()->insert($userData);
 			$q = $ConnectionORM->getConnect()->users_perms()->insert($userPerms);
@@ -296,11 +296,11 @@
 		public function getUserOperatorById($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
-			->select("*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated,hoist.id AS id_hoist")
+			->select("*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated,hoist.id AS id_hoist, users.status as status,users.id_user")
 			->join("users_data","INNER JOIN users_data on users_data.id_users = users.id_user")	
-			->join("users_hoist_company","INNER JOIN users_hoist_company on users_hoist_company.id_user = users.id_user")
-			->join("hoist","INNER JOIN hoist on hoist.id = users_hoist_company.id_hoist")	
-			->where("users.id_user=?",$values['id_user'])
+			->join("users_hoist_company","LEFT JOIN users_hoist_company on users_hoist_company.id_user = users.id_user")
+			->join("hoist","LEFT JOIN hoist on hoist.id = users_hoist_company.id_hoist")	
+			->where("users.id_user=?",$values['id_user'])			
 			->fetch();
 			return $q; 				
 			
