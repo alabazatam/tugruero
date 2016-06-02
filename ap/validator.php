@@ -26,6 +26,7 @@
 			}
 		}
 		
+		
 		return $errors;
 	}
 	function validaForgottenPassword($values)
@@ -65,14 +66,20 @@
 			{
 				$errors['cedula'] = "Ya existe una persona con la cedula suministrada.";
 			}
-			foreach($values as $campos)
-			if(!isset($campos['second_name']) == null && !isset($campos['second_lastname']) == null)
+			if(empty($values['first_name']) || empty($values['first_last_name'])
+			|| empty($values['first_last_name']) || empty($values['nationality'])
+			|| empty($values['nationality']) || empty($values['document'])
+			|| empty($values['file_1']) || empty($values['company_name']) 
+			|| empty($values['type_rif']) || empty($values['rif'])
+			|| empty($values['location']) || empty($values['zone_work'])
+			|| empty($values['file_2']) || empty($values['file_3'])
+			|| empty($values['file_4']) || empty($values['tipo_cuenta'])
+			|| empty($values['id_bank']) || empty($values['placa'])
+			|| empty($values['login']) || empty($values['repeat_password'])
+			|| empty($values['password']) || empty($values['gender'])) 
 			{
-			
-				if(empty($campos))
-					{
+
 						$errors['campos vacios']="Todos los campos con (*) son requeridos.";
-					}
 			}
 		}
 		$cantidad = count($archivos);
@@ -105,6 +112,5 @@
 
 			$i++;
 		}
-
 		return $errors;
 	}
