@@ -42,9 +42,14 @@ $values = $_REQUEST;
 	}
 	function executeSave($values = null)
 	{
-		
 		$Hoist = new Hoist();
 		$values = $Hoist->saveHoist($values);
+		$rcv = $values['id']."-"."rcv.".pathinfo($_FILES['file_1']['name'],PATHINFO_EXTENSION);
+		$carpeta = "../../web/files/hoist";
+		$fichero_subido = $carpeta."/";
+		move_uploaded_file($_FILES['file_1']['tmp_name'], $fichero_subido.$rcv);
+		$values['rcv'] = $rcv;
+		$Hoist->updateHoist($values);
 		executeEdit($values,message_created);die;
 	}
 	function executeEdit($values = null,$msg = null)
@@ -58,7 +63,11 @@ $values = $_REQUEST;
 	}
 	function executeUpdate($values = null)
 	{
-		
+		$rcv = $values['id']."-"."rcv.".pathinfo($_FILES['file_1']['name'],PATHINFO_EXTENSION);
+		$carpeta = "../../web/files/hoist";
+		$fichero_subido = $carpeta."/";
+		move_uploaded_file($_FILES['file_1']['tmp_name'], $fichero_subido.$rcv);
+		$values['rcv'] = $rcv;
 		$Hoist = new Hoist();
 		$Hoist->updateHoist($values);		
 		executeEdit($values,message_updated);die;

@@ -2,7 +2,7 @@
 <?php include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center big_title">Grúas</h1>
-	<form class="" action="index.php" method="POST">
+	<form class="" enctype="multipart/form-data" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<input type="hidden" name="status" id="status" value="1">
 		<input type="hidden" class="form-control input-sm" id="" placeholder="" name="engine_serial" value="<?php if(isset($values['engine_serial'])) echo $values['engine_serial']?>">
@@ -99,6 +99,34 @@
 			  </div>
 		</div>
 	</div>
+	<?php if($values['action'] == "add"):?>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<h6 class="label label-default" for="file_1">Suba su RCV.</h6>
+				<input type="file" name="file_1" placeholder="RCV..." class="form-google-plus form-control" <?php if($values['action'] == "add") echo "required";?>>
+			</div>
+
+		</div>
+	</div>
+	<?php else:?>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<h6 class="label label-default" for="file_1">Suba su RCV.</h6>
+				<input type="file" name="file_1" placeholder="RCV..." class="form-google-plus form-control" <?php if($values['action'] == "add") echo "required";?>>
+			</div>
+
+		</div>
+	</div>
+	<?php endif;?>
+	<?php if(isset($values['rcv']) && $values['rcv'] != ""):?>
+	<div class="row">
+		 <div class="alert alert-success" role="alert">
+			<a target="blank" href="<?php echo full_url?>/web/files/hoist/<?php echo $values['rcv'];?>"><i class="fa fa-eye fa-pull-left fa-border"></i> <?php echo $values['rcv'];?></a>
+		 </div>
+	</div>
+	<?php endif;?>
 	 <div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
