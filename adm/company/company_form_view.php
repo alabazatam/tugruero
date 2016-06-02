@@ -106,7 +106,7 @@
 							
                             <label><?php echo $array_nombre_archivos[$i]?></label>
 							<br>
-							<a target="blank" href="<?php echo full_url?>/web/files/<?php echo $files['name_file'];?>"><i class="fa fa-eye fa-pull-left fa-border"></i> <?php echo $files['name_file'];?></a>
+							<a target="_blank" href="<?php echo full_url?>/web/files/<?php echo $files['name_file'];?>"><i class="fa fa-eye fa-pull-left fa-border"></i> <?php echo $files['name_file'];?></a>
                         </div>
                     <?php $i++;endforeach;?>
                     <?php endif;?>
