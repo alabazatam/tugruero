@@ -58,7 +58,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 7 ] }
+          { 'bSortable': false, 'aTargets': [ 9] }
        ]				
     });
 } );

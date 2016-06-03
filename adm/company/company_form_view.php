@@ -1,6 +1,14 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <?php $Aws = new Aws();?>
+<?php $UsersData = new UsersData();?>
+<?php 
+	$usuario_master = $UsersData->getMasterByIdCompany($values['id']); 
+	$values['id_users'] = $usuario_master['id_user'];
+	$usuario_master_data = $UsersData->getUsersDataById($values);
+	
+?>
+
 <div class="container">
 		<h1 class="text-center big_title">Masters</h1>
 <div>
@@ -15,8 +23,8 @@
   <!-- Tab panes -->
   <div class="tab-content">
 	  <div role="tabpanel" class="tab-pane active" id="detalle">
-
-
+	<form class="" action="index.php" method="POST">
+		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 	  <div class="form-group">
 		<label for="">Id</label>
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id" value="<?php if(isset($values['id'])) echo $values['id']?>">
@@ -36,6 +44,10 @@
 	  <div class="form-group">
 		<label for="">Cédula</label>
 		<input autocomplete="off" type="text" class="form-control input-sm" id="" placeholder="" name="responsible_cedula" value="<?php if(isset($values['responsible_cedula'])) echo $values['responsible_cedula']?>">
+	  </div>
+	  <div class="form-group">
+		<label for="">Teléfono de contacto</label>
+		<input autocomplete="off" type="text" readonly="readonly"  class="form-control input-sm" id="" placeholder="" value="<?php if(isset($usuario_master_data['phone1'])) echo$usuario_master_data['phone1']?>">
 	  </div>
 	  <div class="form-group">
 		<label for="">Estado</label>
@@ -172,6 +184,7 @@
 						<th>Estatus</th>
 						<th>Placa</th>
 						<th>Clave</th>
+						<th>Teléfono de contacto</th>
 						<th>Disponibilidad en vivo</th>
 						<th>Imagen Cédula</th>			
 					</tr>
@@ -182,6 +195,7 @@
 						<td><?php if($users['status']==1) {echo "Activo";} else{ echo "Desactivado";}?></td>
 						<td><?php $placa = $Aws->getGruerosPlaca($users); echo $placa['placa'];?></td>
 						<td><?php $clave = $Aws->getGruerosClave($users); echo $clave['clave'];?></td>
+						<td><?php echo $users['phone1']?></td>
 						<td><?php $disponibilidad = $Aws->getDisponibilidad($users); echo $disponibilidad;?></td>
 						<td>
 							<?php if(isset($users['document_file']) and $users['document_file']!=''):?>

@@ -24,9 +24,11 @@
 			$columns[1] = 'responsible_name';
 			$columns[2] = 'RIF';
 			$columns[3] = 'Razon_social';
-			$columns[4] = 'status';
-			$columns[5] = 'date_created';
-			$columns[6] = 'date_updated';
+			$columns[4] = 'date_created';
+			$columns[5] = 'status';
+			$columns[6] = 'date_created';
+			$columns[7] = 'date_updated';
+			$columns[8] = 'date_created';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';

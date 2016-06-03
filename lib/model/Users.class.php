@@ -24,9 +24,11 @@
 			$columns[1] = 'first_last_name';
 			$columns[2] = 'login';
 			$columns[3] = 'rif';
-			$columns[4] = 'users.status';
-            $columns[5] = 'users.date_created';
-            $columns[6] = 'users.date_updated';
+			$columns[4] = 'users.date_updated';
+			$columns[5] = 'users.status';
+			$columns[6] = 'users.date_updated';
+            $columns[7] = 'users.date_created';
+            $columns[8] = 'users.date_updated';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -72,17 +74,21 @@
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
 			->select("count(*) as cuenta")
-			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")				->join("company","INNER JOIN company on users_company.id_company = company.id")	
+			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")				
+			->join("company","INNER JOIN company on users_company.id_company = company.id")	
 			->join("users_data","INNER JOIN users_data on users_data.id_users = users.id_user")	
 			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")	
-			->where("$where and users_perms.id_perms = 4")->fetch();
+			->where("$where and users_perms.id_perms = 4")
+			->fetch();
 			return $q['cuenta']; 			
 		}
 		public function getUserById($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
-			->select("*, DATE_FORMAT(date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
-			->where("id_user=?",$values['id_user'])->fetch();
+			->select("*, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->join("users_data","LEFT JOIN users_data on users_data.id_users = users.id_user")	
+			->where("users.id_user=?",$values['id_user'])
+			->fetch();
 			return $q; 				
 			
 		}

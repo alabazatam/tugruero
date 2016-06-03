@@ -22,6 +22,20 @@
 			<label class="alert alert-danger"><?php echo $values['errors']['password']?></label>
 		<?php endif;?>
 	  </div>
+	  <div class="form-group">
+		<label for="">Teléfono de contacto</label>
+		<input autocomplete="off" type="text" id="" readonly="readonly" class="form-control input-sm" name="phone1" value="<?php if(isset($values['phone1']) and $values['phone1']!='') echo $values['phone1']; ?>">
+		<?php if(isset($values['errors']['phone1']) and $values['errors']['phone1']!=''):?>
+			<label class="alert alert-danger"><?php echo $values['errors']['phone1']?></label>
+		<?php endif;?>
+	  </div>
+	  <div class="form-group">
+		<label for="">Correo electrónico</label>
+		<input autocomplete="off" type="text" id="" readonly="readonly" class="form-control input-sm" name="mail" value="<?php if(isset($values['mail']) and $values['mail']!='') echo $values['mail']; ?>">
+		<?php if(isset($values['errors']['mail']) and $values['errors']['mail']!=''):?>
+			<label class="alert alert-danger"><?php echo $values['errors']['mail']?></label>
+		<?php endif;?>
+	  </div>
 		<div class="form-group">
 		  <label class="label label-danger">
 			<input type="radio" name="status" id="status" value="0" <?php if(isset($values['status']) and $values['status'] =='0' ) echo "checked=checked"?>>
