@@ -96,6 +96,8 @@ $values = $_REQUEST;
 		$array_json = array();
 		$array_json['recordsTotal'] = $company_list_json_cuenta;
 		$array_json['recordsFiltered'] = $company_list_json_cuenta;
+		$Aws = new Aws();
+		
 		if(count($company_list_json)>0)
 		{
 			foreach ($company_list_json as $company) 
@@ -110,11 +112,15 @@ $values = $_REQUEST;
 					$message_status = "<label class='label label-success'>Activo</label>";
 				}
 				$id = $company['id'];
+				$values['id_company'] = $id;;
+				
+				$disponible = $Aws->getDisponibilidadMaster($values);
 				$array_json['data'][] = array(
 					"id" => $id,
 					"responsible_name" => $company['responsible_name'],
 					"RIF" => $company['rif'],
 					"Razon_social" => $company['razon_social'],
+					"Disponibilidad" => $disponible,
 					"status" => $message_status,
 					"date_created" => $company['date_created'],
 					"date_updated" => $company['date_updated'],
@@ -132,7 +138,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id"=>null,"responsible_name"=>"","RIF"=>"","Razon_social"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
+			$array_json['data'][0] = array("id"=>null,"responsible_name"=>"","RIF"=>"","Razon_social"=>"","Disponibilidad" =>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

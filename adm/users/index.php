@@ -98,6 +98,7 @@ $values = $_REQUEST;
 		$array_json = array();
 		$array_json['recordsTotal'] = $users_list_json_cuenta;
 		$array_json['recordsFiltered'] = $users_list_json_cuenta;
+		$Aws = new Aws();
 		if(count($users_list_json)>0)
 		{
 			foreach ($users_list_json as $user) 
@@ -112,11 +113,13 @@ $values = $_REQUEST;
 					$message_status = "<label class='label label-success'>Activo</label>";
 				}
 				$id_user = $user['id_user'];
+				$disponibilidad = $Aws->getDisponibilidad($user);
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
 					"NombreApellido" => $user['first_name']." ".$user['second_name']." ".$user['first_last_name']." ".$user['second_last_name'],
 					"rif" => $user['rif'],
 					"login" => $user['login'],
+					"disponibilidad" => $disponibilidad,
 					"status" => $message_status,
                                         "date_created" => $user['date_created'],
                                         "date_updated" => $user['date_updated'],
@@ -134,7 +137,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"NombreApellido"=>"","rif"=>"","login"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"NombreApellido"=>"","rif"=>"","login"=>"","disponibilidad" => "","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

@@ -79,6 +79,30 @@
 				break;
 			}
 		}
+		public function getDisponibilidadMaster($values){
+			$id_company = $values['id_company'];
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users
+			->select("*,users.id_user as id_user")
+			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")
+			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")
+			->where("id_company=?",$id_company)
+			->and('id_perms = ?',3)
+			->fetch()
+			;
+			
+			$id_user = $q['id_user'];
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Gruas
+			->select("*")
+			->where("idGrua=?",$id_user);
+			
+			foreach($q as $id => $value)
+			{
+				return $value['disponible'];
+				break;
+			}
+		}
 		public function getGruerosPlaca($values){
 			
 			$ConnectionAws = new ConnectionAws();

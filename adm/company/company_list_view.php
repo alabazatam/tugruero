@@ -9,6 +9,7 @@
 					<th>Responsable</th>
 					<th>Rif</th>
 					<th>Razón social</th>
+					<th>Disponibilidad en vivo</th>
 					<th>Estatus</th>
 					<th>Fecha creado</th>
 					<th>Fecha modificado</th>
@@ -21,6 +22,7 @@
 					<th>Responsable</th>
 					<th>Rif</th>
 					<th>Razón social</th>
+					<th>Disponibilidad en vivo</th>
 					<th>Estatus</th>
 					<th>Fecha creado</th>
 					<th>Fecha modificado</th>
@@ -46,13 +48,14 @@ $(document).ready(function() {
             { "data": "responsible_name" },
             { "data": "RIF" },
 			{ "data": "Razon_social" },
+			{ "data": "Disponibilidad" },
             { "data": "status" },
             { "data": "date_created" },
             { "data": "date_updated" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 7 ] }
+          { 'bSortable': false, 'aTargets': [ 8 ] }
        ]				
     });
 } );

@@ -9,6 +9,7 @@
 					<th>Nombres y apellidos</th>
 					<th>Usuario</th>
 					<th>Master</th>
+					<th>Disponibilidad</th>
 					<th>Estatus</th>
                     <th>Fecha creado</th>
                     <th>Fecha modificado</th>
@@ -21,6 +22,7 @@
 					<th>Nombres y apellidos</th>
 					<th>Usuario</th>
 					<th>Master</th>
+					<th>Disponibilidad</th>
 					<th>Estatus</th>
                     <th>Fecha creado</th>
                     <th>Fecha modificado</th>
@@ -46,13 +48,14 @@ $(document).ready(function() {
 			{ "data": "NombreApellido" },
             { "data": "login" },
 			{ "data": "rif" },
+			{ "data": "disponibilidad" },
             { "data": "status" },
             { "data": "date_created" },
             { "data": "date_updated" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 6 ] }
+          { 'bSortable': false, 'aTargets': [ 7 ] }
        ]				
     });
 } );
