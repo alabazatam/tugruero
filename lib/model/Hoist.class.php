@@ -65,7 +65,9 @@
 			}
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->hoist
-			->select("count(*) as cuenta")->where("$where")->fetch();
+			->select("count(*) as cuenta")
+			->join("hoist_company","INNER JOIN hoist_company on hoist_company.id_hoist = hoist.id")
+			->where("$where and hoist_company.id_company=".$values["company"]."")->fetch();
 			return $q['cuenta']; 			
 		}
 		public function getHoistById($values){
