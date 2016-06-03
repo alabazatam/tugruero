@@ -6,6 +6,7 @@
 			<thead>
 				<tr>
 					<th>Id</th>
+					<th>Nombre y apellido</th>
 					<th>Usuario</th>
 					<th>Placa de grúa</th>
 					<th>Estatus</th>
@@ -16,6 +17,7 @@
 			<tfoot>
 				<tr>
 					<th>Id</th>
+					<th>Nombre y apellido</th>
 					<th>Usuario</th>
 					<th>Placa de grúa</th>
 					<th>Estatus</th>
@@ -39,6 +41,7 @@ $(document).ready(function() {
         },
         "columns": [
             { "data": "id_user" },
+			{ "data": "NombreCompleto" },
             { "data": "login" },
 			{ "data": "registration_plate" },
             { "data": "status" },
@@ -46,7 +49,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 5 ] }
+          { 'bSortable': false, 'aTargets': [ 6 ] }
        ]				
     });
 } );

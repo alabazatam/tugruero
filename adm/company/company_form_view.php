@@ -171,18 +171,21 @@
 						<th>Nombres y apellidos</th>
 						<th>Usuario</th>
 						<th>Estatus</th>
-						<th>Cédula</th>
-						<th>RCV</th>			
+						<th>Placa</th>
+						<th>Clave</th>
+						<th>Disponibilidad en vivo</th>
+						<th>Imagen Cédula</th>			
 					</tr>
 					<?php foreach($users_list as $users):?>
 					<tr>
 						<td><?php echo $users['first_name']." ".$users['first_last_name']?></td>	
-						<td><?php echo $users['id_user']?></td>
+						<td><?php echo $users['login']?></td>
+						<td><?php if($users['status']==1) {echo "Activo";} else{ echo "Desactivado";}?></td>
 						<td><?php echo $users['id_user']?></td>
 						<td><?php echo $users['id_user']?></td>
 						<td><?php echo $users['id_user']?></td>
 						<td>
-							<?php if(isset($users['rcv']) and $users['rcv']!=''):?>
+							<?php if(isset($users['document_file']) and $users['document_file']!=''):?>
 								<a href="<?php echo full_url?>/web/files/operators/<?php echo $users['document_file']?>" target="_blank"><?php echo $users['document_file']?></a>
 							<?php endif;?>
 							<?php if(!isset($users['document_file']) or $users['document_file']==''):?>

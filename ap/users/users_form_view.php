@@ -43,6 +43,28 @@
 			</div>
 		</div>
 	</div>
+	<?php if(isset($values['id_user'])):?>
+	<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+				  <label for="">Cédula de identidad</label>
+					<div class="input-group">
+
+						 <?php echo @$values['nationality']."-".@$values['document'];?>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				  <label for="">Nombres y apellidos</label>
+					<div class="input-group">
+
+						 <?php echo @$values['first_name']." ".@$values['second_name']." ".@$values['first_last_name']." ".@$values['second_last_name'];?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif;?>
 	<div class="row" <?php if($values['action'] <> "add") echo "style='display:none;'"?>>
 		<div class="col-md-6">
 	  <div class="form-group">

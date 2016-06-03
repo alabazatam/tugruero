@@ -232,6 +232,7 @@ $values = $_REQUEST;
 				$id_user = $user['id_user'];
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
+					"NombreCompleto" => $user['first_name']." ".$user['first_last_name'],
 					"login" => $user['login'],
 					"registration_plate" => $user['registration_plate'],
 					"disponibilidad" => $disponibilidad,
@@ -248,7 +249,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"login"=>"","registration_plate" => "","status"=>"","disponibilidad"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"NombreCompleto" =>"","login"=>"","registration_plate" => "","status"=>"","disponibilidad"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

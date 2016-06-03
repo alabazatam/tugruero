@@ -196,8 +196,8 @@
 			$columns[2] = 'registration_plate';
 			$columns[3] = 'password';
 			$columns[4] = 'status';
-                        $columns[5] = 'date_created';
-                        $columns[6] = 'date_updated';
+            $columns[5] = 'date_created';
+            $columns[6] = 'date_updated';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -219,9 +219,10 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users
-			->select("users.*,hoist.registration_plate, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
+			->select("users.*,hoist.registration_plate, DATE_FORMAT(users.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(users.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated,first_name, first_last_name")
 			->join("users_company","INNER JOIN users_company on users_company.id_user = users.id_user")
 			->join("users_perms","INNER JOIN users_perms on users_perms.id_user = users.id_user")
+			->join("users_data","INNER JOIN users_data on users_data.id_users = users.id_user")
 			->join("users_hoist_company","LEFT JOIN users_hoist_company on users_hoist_company.id_user = users.id_user")
 			->join("hoist","LEFT JOIN hoist on hoist.id = users_hoist_company.id_hoist ")
 			->order("$column_order $order")
@@ -229,6 +230,7 @@
 			->and("users_company.id_company =?",$values["company"])
 			//->and("users_perms.id_perms =?",4)
 			->limit($limit,$offset);
+			//echo $q;die;
 			return $q; 			
 		}
 		public function getCountUsersOperatorList($values)
