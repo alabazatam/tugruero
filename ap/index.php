@@ -28,7 +28,7 @@ $values = $_REQUEST;
 						
 	function executeIndex($values = null){
         session_destroy();
-	unset($_SESSION['id_perms'],$_SESSION['id_user'],$_SESSION['id_company']);
+	unset($_SESSION['id_perms'],$_SESSION['id_user'],$_SESSION['id_company'],$_SESSION['name'],$_SESSION['login']);
 
 	require('login.php');
 	}
@@ -76,5 +76,8 @@ $values = $_REQUEST;
 		}
 	}
 	function executeLogout($values = null){
+        session_destroy();
+	unset($_SESSION['id_perms'],$_SESSION['id_user'],$_SESSION['id_company'],$_SESSION['name'],$_SESSION['login']);
+
 	require('login.php');
 	}

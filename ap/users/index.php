@@ -245,12 +245,13 @@ $values = $_REQUEST;
 					$message_status = "<label class='label label-success'>Activo</label>";
 				}
 				$disponibilidad = $Aws->getDisponibilidad($user);
+				$placa = $Aws->getGruerosPlaca($user);
 				$id_user = $user['id_user'];
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
 					"NombreCompleto" => $user['first_name']." ".$user['first_last_name'],
 					"login" => $user['login'],
-					"registration_plate" => $user['registration_plate'],
+					"registration_plate" => $placa['placa'],
 					"disponibilidad" => $disponibilidad,
 					"status" => $message_status,
 					"actions" => 

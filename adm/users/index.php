@@ -114,6 +114,7 @@ $values = $_REQUEST;
 				}
 				$id_user = $user['id_user'];
 				$disponibilidad = $Aws->getDisponibilidad($user);
+				$placa = $Aws->getGruerosPlaca($user);
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
 					"NombreApellido" => $user['first_name']." ".$user['second_name']." ".$user['first_last_name']." ".$user['second_last_name'],
@@ -121,6 +122,7 @@ $values = $_REQUEST;
 					"login" => $user['login'],
 					"disponibilidad" => $disponibilidad,
 					"status" => $message_status,
+					"placa" => $placa['placa'],
                                         "date_created" => $user['date_created'],
                                         "date_updated" => $user['date_updated'],
 					"actions" => 
@@ -137,7 +139,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"NombreApellido"=>"","rif"=>"","login"=>"","disponibilidad" => "","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"NombreApellido"=>"","rif"=>"","login"=>"","disponibilidad" => "","status"=>"","placa"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

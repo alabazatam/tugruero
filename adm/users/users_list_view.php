@@ -11,6 +11,7 @@
 					<th>Master</th>
 					<th>Disponibilidad</th>
 					<th>Estatus</th>
+					<th>Placa</th>
                     <th>Fecha creado</th>
                     <th>Fecha modificado</th>
 					<th>Detalle</th>
@@ -24,6 +25,7 @@
 					<th>Master</th>
 					<th>Disponibilidad</th>
 					<th>Estatus</th>
+					<th>Placa</th>
                     <th>Fecha creado</th>
                     <th>Fecha modificado</th>
 					<th>Detalle</th>
@@ -50,6 +52,7 @@ $(document).ready(function() {
 			{ "data": "rif" },
 			{ "data": "disponibilidad" },
             { "data": "status" },
+			{ "data": "placa" },
             { "data": "date_created" },
             { "data": "date_updated" },
             { "data": "actions" }
