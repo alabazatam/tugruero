@@ -1,3 +1,4 @@
+
 <?php include("../../autoload.php");?>	
 <?php include("validator.php");?>
 <?php include("../security/security.php");?>
@@ -138,8 +139,15 @@ $values = $_REQUEST;
 	}
 	function executeUpdate($values = null)
 	{
-			
-
+		if(isset($_FILES['file_1']) && $_FILES['file_1']['name'] != null)
+		{
+			$loggin = $values['login'];
+			$DocumentFile = $loggin."-"."cedula.".pathinfo($_FILES['file_1']['name'],PATHINFO_EXTENSION);
+			$values['document_file'] = $DocumentFile;
+			$carpeta = "../../web/files/operators";
+			$fichero_subido = $carpeta."/";
+			move_uploaded_file($_FILES['file_1']['tmp_name'], $fichero_subido.$DocumentFile);
+		}	
 			$idHoist= array ("id" => @$values['id_hoist']);
 			$hoist = new Hoist();
 			$dataHoist =  $hoist->getHoistById($idHoist);
@@ -177,9 +185,17 @@ $values = $_REQUEST;
 		
 			$userdata = array(
 				'id_user' => $values['id_user'],
-				'password' => hash('sha256',$values['password'])
-			);
+				'password' => hash('sha256',$values['password']));
+			$ClassUserData = new UsersData();
 			
+		if(isset($DocumentFile))
+		{
+			$usersDatos = array('document_file' => $values['document_file'],
+							'id_users' => $values['id_user']);
+			
+			$ClassUserData->updateUsersData($usersDatos);
+			
+		}
 			
 		$UsersHoistCompany->updateUser($userdata);
 		
