@@ -1,6 +1,6 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
-
+<?php $Aws = new Aws();?>
 <div class="container">
 		<h1 class="text-center big_title">Masters</h1>
 <div>
@@ -16,8 +16,7 @@
   <div class="tab-content">
 	  <div role="tabpanel" class="tab-pane active" id="detalle">
 
-	<form class="" action="index.php" method="POST">
-		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
+
 	  <div class="form-group">
 		<label for="">Id</label>
 		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id" value="<?php if(isset($values['id'])) echo $values['id']?>">
@@ -162,7 +161,7 @@
 	  </div>
 	  <div role="tabpanel" class="tab-pane active" id="home">
 		  
-				<h1 class="text-center big_title">Operadores</h1>
+				<h1 class="text-center">Operadores</h1>
 				<?php $UsersCompany = new UsersCompany(); $users_list = $UsersCompany->getUsersByCompanyId($values);?>
 				<?php if(count($users_list)>0):?>
 				<div align='center'>
@@ -181,9 +180,9 @@
 						<td><?php echo $users['first_name']." ".$users['first_last_name']?></td>	
 						<td><?php echo $users['login']?></td>
 						<td><?php if($users['status']==1) {echo "Activo";} else{ echo "Desactivado";}?></td>
-						<td><?php echo $users['id_user']?></td>
-						<td><?php echo $users['id_user']?></td>
-						<td><?php echo $users['id_user']?></td>
+						<td><?php $placa = $Aws->getGruerosPlaca($users); echo $placa['placa'];?></td>
+						<td><?php $clave = $Aws->getGruerosClave($users); echo $clave['clave'];?></td>
+						<td><?php $disponibilidad = $Aws->getDisponibilidad($users); echo $disponibilidad;?></td>
 						<td>
 							<?php if(isset($users['document_file']) and $users['document_file']!=''):?>
 								<a href="<?php echo full_url?>/web/files/operators/<?php echo $users['document_file']?>" target="_blank"><?php echo $users['document_file']?></a>
@@ -200,7 +199,7 @@
 				<?php endif;?>
 	  </div>
 	  <div role="tabpanel" class="tab-pane" id="profile">
-				<h1 class="text-center big_title">Grúas</h1>
+				<h1 class="text-center">Grúas</h1>
 				<?php $Hoist = new Hoist();	$hoist_list = $Hoist ->getHoistByIdCompany($values);?>
 				<?php if(count($hoist_list)>0):?>
 				<div align='center'>
@@ -230,7 +229,7 @@
 						<td>
 							<?php echo $hoist['year_vehicle']?></td>
 						<td>
-							<?php echo $hoist['status']?></td>
+							<?php if($hoist['status']==1) {echo "Activo";} else{ echo "Desactivado";}?></td>
 						<td>
 							<?php if(isset($hoist['rcv']) and $hoist['rcv']!=''):?>
 								<a href="<?php echo full_url?>/web/files/hoist/<?php echo $hoist['rcv']?>" target="_blank"><?php echo $hoist['rcv']?></a>
