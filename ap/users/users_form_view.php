@@ -228,8 +228,8 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 				<div class="form-group">
 					<h6 class="alert alert-info">Datos para inicio de sesión en Aplicación Móvil del Operador</h6>
 					<strong>Usuario</strong>: <?php if(isset($values['login'])) echo $values['login']?><br>
-					<strong>Clave</strong>: <?php if(isset($password)) echo $password?><br>
 					<strong>Placa</strong>: <?php if(isset($datos_aws['placa']) and $datos_aws['placa']!='') echo $datos_aws['placa'];?><br>
+					<strong>Clave</strong>: <?php if(isset($password)) echo $password?><br>
 				</div>
 				
 			</div>

@@ -2,6 +2,8 @@
 <?php include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center big_title">Grúas</h1>
+	<h2 class="text-center">Agregue su grúa en nuestra plataforma</h2>
+
 	<form class="" enctype="multipart/form-data" action="index.php" method="POST">
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<input type="hidden" name="status" id="status" value="1">
