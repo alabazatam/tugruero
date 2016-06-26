@@ -49,6 +49,10 @@
 	}
 	function validaFormularioPaso2($values,$archivos)
 	{	
+                
+
+                                                   
+                
 		$errors = array();
 		if(count($values)>0)
 		{
@@ -66,21 +70,36 @@
 			{
 				$errors['cedula'] = "Ya existe una persona con la cedula suministrada.";
 			}
-			if(empty($values['first_name']) || empty($values['first_last_name'])
-			|| empty($values['first_last_name']) || empty($values['nationality'])
-			|| empty($values['nationality']) || empty($values['document'])
-			|| empty($values['file_1']) || empty($values['company_name']) 
-			|| empty($values['type_rif']) || empty($values['rif'])
-			|| empty($values['location']) || empty($values['zone_work'])
-			|| empty($values['file_2']) || empty($values['file_3'])
-			|| empty($values['file_4']) || empty($values['tipo_cuenta'])
-			|| empty($values['id_bank']) || empty($values['placa'])
-			|| empty($values['login']) || empty($values['repeat_password'])
-			|| empty($values['password']) || empty($values['gender'])) 
+			if(
+                        empty($values['first_name']) 
+                        || empty($values['first_lastname'])
+                        || empty($values['nationality'])
+                        || empty($values['cedula'])
+			
+                        || empty($values['company_name']) 
+			|| empty($values['Type_rif']) 
+                        || empty($values['rif'])
+			
+                        || empty($values['location']) 
+                        || empty($values['zone_work'])
+                        || !isset($values['file_1']['name']) || $values['file_1']['name'] == ''
+			|| !isset($values['file_2']['name']) || $values['file_2']['name'] == ''
+                        || !isset($values['file_3']['name']) || $values['file_3']['name'] == ''
+			|| !isset($values['file_4']['name']) || $values['file_4']['name'] == ''
+                        || empty($values['tipo_cuenta'])
+			|| empty($values['id_bank']) 
+                        || empty($values['placa'])
+			|| empty($values['login']) 
+                        || empty($values['repeat_password'])
+			|| empty($values['password']) 
+                        || empty($values['gender'])) 
 			{
+                            
+                                                
 
 						$errors['campos vacios']="Todos los campos con (*) son requeridos.";
 			}
+                        //print_r($errors);die;
 		}
 		$cantidad = count($archivos);
 		$i = 1;
@@ -112,5 +131,6 @@
 
 			$i++;
 		}
+                
 		return $errors;
 	}

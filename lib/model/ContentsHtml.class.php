@@ -17,9 +17,9 @@
 			
 		}
 		
-		public function getContentTitle($id_app,$section,$page, $language, $id_app, $name)
+		public function getContentTitle($id_app,$section,$page, $language,  $name)
 		{
-            $ConnectionORM = new ConnectionORM();
+                        $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->contents_html
                         ->select("*")
                         ->where('id_app=?',$id_app)

@@ -157,8 +157,10 @@ $values = trimValues($_REQUEST);;
 		require('paso2_view.php');
 	}
 	function executeValidaFormulario2($values = null)
-	{
+	{       
+                $values = array_merge($values,$_FILES);
 		$errors = validaFormularioPaso2($values,$_FILES);
+                //print_r($_FILES);die;
 		$valido = true;
 		if(count($errors)>0)
 		{

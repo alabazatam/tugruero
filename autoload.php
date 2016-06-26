@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(E_ALL);
 $project_folder = '';
 $development_env = false;
 if($_SERVER['HTTP_HOST'] == '127.0.0.1' or $_SERVER['HTTP_HOST'] == 'localhost' or strpos($_SERVER['HTTP_HOST'], "192.168") !== false)
@@ -70,7 +71,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/MessagesUtilities.class.
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Users.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Login.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Hoist.class.php");
-include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ContentsHtml.class.php");
+//include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ContentsHtml.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Message.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Company.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Bank.class.php");
