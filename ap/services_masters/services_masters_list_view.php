@@ -44,6 +44,7 @@ $(document).ready(function() {
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
         },
+		"order": [[ 3, "desc" ]],
         "columns": [
             { "data": "idGrua" },
 			{ "data": "NombresApellidos" },

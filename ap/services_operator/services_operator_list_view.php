@@ -47,6 +47,7 @@ $(document).ready(function() {
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
         },
+		"order": [[ 4, "desc" ]],
         "columns": [
             { "data": "idGrua" },
 			{ "data": "Cedula" },

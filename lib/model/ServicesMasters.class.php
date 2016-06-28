@@ -22,7 +22,7 @@
 			$columns = array();
 			$columns[0] = 'Grueros.idGrua';
 			$columns[1] = 'Grueros.Nombre';
-			$columns[2] = 'IdSolicitud';
+			$columns[2] = 'Servicios.IdSolicitud';
 			$columns[3] = 'TimeInicio';
 			$columns[4] = 'TimeFin';
             $columns[5] = 'EstatusCliente';
@@ -32,9 +32,9 @@
 			$columns[9] = 'TratoVehiculo';
 			$columns[10] = 'Puntual';
 			$columns[11] = 'Observacion';
-			$column_order = $columns[0];
+			$column_order = $columns[3];
 			$where = "1 = 1 ";
-			$order = 'asc';
+			$order = 'desc';
 			$limit = $values['length'];
 			$offset = $values['start'];
 			
@@ -54,7 +54,7 @@
 				$str = $values['search']['value'];
 				$where = ""
                                         . " upper(nombre) like upper('%$str%') "
-										. "  or cast(IdSolicitud as char(100)) =  '$str'"
+										. " or cast(IdSolicitud as char(100)) =  '$str'"
 										. " or upper(apellido) like upper('%$str%') "
                                         . " or upper(EstatusGrua) like upper('%$str%')"
 										. " or upper(Motivo) like upper('%$str%')"
@@ -66,7 +66,7 @@
 			{
 				$column_order = $columns[$values['order'][0]['column']];
 			}
-			if(isset($values['order'][0]['dir']) and $values['order'][0]['dir']!='0')
+			if(isset($values['order'][0]['dir']) and $values['order'][0]['dir']!='')
 			{
 				$order = $values['order'][0]['dir'];//asc o desc
 			}

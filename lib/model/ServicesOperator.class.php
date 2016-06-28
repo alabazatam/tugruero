@@ -24,15 +24,15 @@
 			$columns[0] = 'Gruas.idGrua';
 			$columns[1] = 'Cedula';
 			$columns[2] = 'Nombre';
-			$columns[3] = 'IdSolicitud';
+			$columns[3] = 'Servicios.IdSolicitud';
 			$columns[4] = 'TimeInicio';
 			$columns[5] = 'TimeFin';
             $columns[6] = 'EstatusCliente';
             $columns[7] = 'EstatusGrua';
 			$columns[8] = 'Motivo';
-			$column_order = $columns[0];
+			$column_order = $columns[4];
 			
-			$order = 'asc';
+			$order = 'desc';
 			$limit = $values['length'];
 			$offset = $values['start'];
 			$where = "1 = 1 ";
@@ -50,7 +50,7 @@
 			{
 				$column_order = $columns[$values['order'][0]['column']];
 			}
-			if(isset($values['order'][0]['dir']) and $values['order'][0]['dir']!='0')
+			if(isset($values['order'][0]['dir']) and $values['order'][0]['dir']!='')
 			{
 				$order = $values['order'][0]['dir'];//asc o desc
 			}
