@@ -47,7 +47,7 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->hoist
-			->select("*")
+			->select("*,DATE_FORMAT(hoist.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(hoist.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->join("hoist_company","INNER JOIN hoist_company on hoist_company.id_hoist = hoist.id")
 			->order("$column_order $order")
 			->where("$where")
@@ -73,7 +73,7 @@
 		public function getHoistById($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->hoist
-			->select("*")
+			->select("*,DATE_FORMAT(hoist.date_created, '%d/%m/%Y %H:%i:%s') as date_created,DATE_FORMAT(hoist.date_updated, '%d/%m/%Y %H:%i:%s') as date_updated")
 			->where("id=?",$values['id'])->fetch();
 			return $q; 				
 			

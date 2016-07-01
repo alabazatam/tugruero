@@ -10,10 +10,11 @@
 		<input type="hidden" class="form-control input-sm" id="" placeholder="" name="engine_serial" value="<?php if(isset($values['engine_serial'])) echo $values['engine_serial']?>">
 	<div class="row">
 		<div class="col-md-6"> 
-			 <div class="form-group">
+			<div class="form-group">
 				<label for="">Id.Grua</label>
-				<input readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id" value="<?php if(isset($values['id'])) echo $values['id']?>">
-			  </div>
+				<input readonly="readonly" type="hidden" class="form-control input-sm" id="" placeholder="" name="id" value="<?php if(isset($values['id'])) echo $values['id']?>">
+			<?php if(isset($values['id'])) echo $values['id']?>
+			</div>
 		</div>
 	</div>
 <?php if($values['action'] != "add"):?>
@@ -214,14 +215,16 @@
 		<div class="col-md-6">
 			<div class="form-group">
 				<label for="">Fecha creado</label>
-				<input type="text" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">
-			  </div>
+				<input type="hidden" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">
+				<?php if(isset($values['date_created'])) echo $values['date_created']?>
+			</div>
 		</div>
 		<div class="col-md-6">
-			 <div class="form-group">
+			<div class="form-group">
 				<label for="">Fecha modificado</label>
-				<input type="text" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
-			  </div>
+				<input type="hidden" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
+				<?php if(isset($values['date_updated'])) echo $values['date_updated']?>
+			</div>
 		</div>
 	</div>
 		<a class="btn btn-default"  href="<?php echo full_url."/ap/hoist/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>

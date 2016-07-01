@@ -21,8 +21,9 @@
 		<input type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<div class="form-group" style="display:none;">
 		<label for="">Id.Usuario</label>
-		<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="id_user" value="<?php if(isset($values['id_user'])) echo $values['id_user']?>">
-	  </div>
+		<input autocomplete="off" readonly="readonly" type="hidden" class="form-control input-sm" id="" placeholder="" name="id_user" value="<?php if(isset($values['id_user'])) echo $values['id_user']?>">
+		<?php if(isset($values['id_user'])) echo $values['id_user']?>
+		</div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group">
@@ -171,16 +172,18 @@ oninput="setCustomValidity('')" value="<?php if(isset($values['first_name'])) ec
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				 <div class="form-group">
+				<div class="form-group">
 					<label autocomplete="off" for="">Fecha creado</label>
-					<input autocomplete="off"  type="text" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">
-				  </div>
+					<input autocomplete="off"  type="hidden" readonly="readonly" class="form-control input-sm" id="" placeholder="" name="date_created" value="<?php if(isset($values['date_created'])) echo $values['date_created']?>">
+					<?php if(isset($values['date_created'])) echo $values['date_created']?>
+				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
 				<label for="">Fecha modificado</label>
-				<input autocomplete="off" readonly="readonly" type="text" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
-			  </div>
+				<input autocomplete="off" readonly="readonly" type="hidden" class="form-control input-sm" id="" placeholder="" name="date_updated" value="<?php if(isset($values['date_updated'])) echo $values['date_updated']?>">
+				<?php if(isset($values['date_updated'])) echo $values['date_updated']?>
+				</div>
 			</div>
 		</div>
 		<?php if($values['action'] == "add"):?>
