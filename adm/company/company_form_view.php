@@ -191,7 +191,7 @@
 					<?php foreach($users_list as $users):?>
 					<tr>
 						<td><?php echo $users['first_name']." ".$users['first_last_name']?></td>	
-						<td><?php echo $users['login']?></td>
+						<td><input type="text" name="login_operador" id="login_operador" onchange="actualizaLogin(<?php echo $users['id_users']?>,this.value);" value="<?php echo $users['login']?>"></td>
 						<td><?php if($users['status']==1) {echo "Activo";} else{ echo "Desactivado";}?></td>
 						<td><?php $placa = $Aws->getGruerosPlaca($users); echo $placa['placa'];?></td>
 						<td><?php $clave = $Aws->getGruerosClave($users); echo $clave['clave'];?></td>
@@ -199,7 +199,7 @@
 						<td><?php $disponibilidad = $Aws->getDisponibilidad($users); echo $disponibilidad;?></td>
 						<td>
 							<?php if(isset($users['document_file']) and $users['document_file']!=''):?>
-								<a href="<?php echo full_url?>/web/files/operators/<?php echo $users['document_file']?>" target="_blank"><?php echo $users['document_file']?></a>
+								<a href="<?php echo full_url?>/web/files/operators/<?php echo $users['document_file']?>" target="_blank">Cédula</a>
 							<?php endif;?>
 							<?php if(!isset($users['document_file']) or $users['document_file']==''):?>
 								<label class="alert-danger">No posee cédula cargada</label>
@@ -267,3 +267,18 @@
 </div>	
 	
 <?php include('../../view_footer.php')?>
+<script>
+
+	function actualizaLogin(id_user, login){
+		
+		$.ajax({
+			type: "POST",
+			url: '<?php echo full_url;?>/adm/company/index.php',
+			data: { action: "update_login",id_user: id_user, login: login},
+			success: function(){
+				alert('Login actualizado satisfactoriamente.');
+			}
+		});
+	}
+
+</script>

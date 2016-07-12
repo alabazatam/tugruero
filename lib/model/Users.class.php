@@ -129,6 +129,17 @@
 			return $q;
 			
 		}
+		function updateUserData($values){
+			unset($values['PHPSESSID']);
+			unset($values['action'],$values['date_created']);
+                        $values['date_updated'] = new NotORM_Literal("NOW()");
+			$id_users = $values['id_users'];
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users_data("id_users", $id_users)->update($values);
+			
+			return $q;
+			
+		}
 		function activeUserMasterCompany($id_company){		
 			$ConnectionORM = new ConnectionORM();
 			$status = 1;

@@ -113,4 +113,14 @@
 			return $q; 				
 			
 		}
+		public function updateLogin($values){
+			
+			unset($values['PHPSESSID']);
+			unset($values['action']);
+			$ConnectionAws= new ConnectionAws();
+			$id = $values['idGrua'];
+			$q = $ConnectionAws->getConnect()->Grueros("idGrua", $id)->update($values);
+			return $values;					
+			
+		}
 	}

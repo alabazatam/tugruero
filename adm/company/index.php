@@ -26,6 +26,9 @@ $values = $_REQUEST;
 		break;		
 		case "company_list_json":
 			executeCompanyListJson($values);	
+		break;
+		case "update_login":
+			executeUpdateLogin($values);	
 		break;	
 		default:
 			executeIndex($values);
@@ -142,5 +145,25 @@ $values = $_REQUEST;
 		}
 
 		echo json_encode($array_json);die;
+		
+	}
+	function executeUpdateLogin($values = null)
+	{
+		
+		$Users = new Users();
+		$Users->updateUser($values);
+		$login = $values['login'];
+		$idGrua = $values['id_user'];
+		$datos_cedula = preg_split("/[-]+/", $values['login']);
+		$values['id_users'] = $values['id_user'];
+		$values['nationality'] = $datos_cedula[0];
+		$values['document'] = $datos_cedula[1];
+		unset($values['login'],$values['id_user']);
+		$Users->updateUserData($values);
+		unset($values['id_users'],$values['nationality'],$values['document']);
+		$values['idGrua'] = $idGrua;
+		$values['Cedula'] = $login;
+		$Aws = new Aws();
+		$Aws -> updateLogin($values);
 		
 	}
