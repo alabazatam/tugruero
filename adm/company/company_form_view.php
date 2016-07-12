@@ -195,7 +195,7 @@
 						<td><?php if($users['status']==1) {echo "Activo";} else{ echo "Desactivado";}?></td>
 						<td><?php $placa = $Aws->getGruerosPlaca($users); echo $placa['placa'];?></td>
 						<td><?php $clave = $Aws->getGruerosClave($users); echo $clave['clave'];?></td>
-						<td><?php echo $users['phone1']?></td>
+						<td><?php echo $users['phone']?></td>
 						<td><?php $disponibilidad = $Aws->getDisponibilidad($users); echo $disponibilidad;?></td>
 						<td>
 							<?php if(isset($users['document_file']) and $users['document_file']!=''):?>
