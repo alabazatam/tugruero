@@ -29,7 +29,10 @@ $values = $_REQUEST;
 		break;
 		case "update_login":
 			executeUpdateLogin($values);	
-		break;	
+		break;
+		case "update_phone":
+			executeUpdatePhone($values);	
+		break;		
 		default:
 			executeIndex($values);
 		break;
@@ -167,3 +170,21 @@ $values = $_REQUEST;
 		$Aws -> updateLogin($values);
 		
 	}
+	
+	function executeUpdatePhone($values = null)
+	{
+		
+		$Users = new Users();
+		$phone = $values['phone'];
+		$idGrua = $values['id_user'];
+		$values['id_users'] = $values['id_user'];
+		unset($values['login'],$values['id_user']);
+		$Users->updateUserData($values);
+		unset($values['id_users'],$values['phone']);
+		$values['idGrua'] = $idGrua;
+		$values['Celular'] = $phone;
+		$Aws = new Aws();
+		$Aws -> updateLogin($values);
+		
+	}	
+	

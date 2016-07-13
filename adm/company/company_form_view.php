@@ -195,7 +195,7 @@
 						<td><?php if($users['status']==1) {echo "Activo";} else{ echo "Desactivado";}?></td>
 						<td><?php $placa = $Aws->getGruerosPlaca($users); echo $placa['placa'];?></td>
 						<td><?php $clave = $Aws->getGruerosClave($users); echo $clave['clave'];?></td>
-						<td><?php echo $users['phone']?></td>
+						<td><input type="text" name="phone_operador" id="phone_operador" onchange="actualizaPhone(<?php echo $users['id_users']?>,this.value);" value="<?php echo $users['phone']?>"></td>
 						<td><?php $disponibilidad = $Aws->getDisponibilidad($users); echo $disponibilidad;?></td>
 						<td>
 							<?php if(isset($users['document_file']) and $users['document_file']!=''):?>
@@ -280,5 +280,15 @@
 			}
 		});
 	}
-
+	function actualizaPhone(id_user, phone){
+		
+		$.ajax({
+			type: "POST",
+			url: '<?php echo full_url;?>/adm/company/index.php',
+			data: { action: "update_phone",id_user: id_user, phone: phone},
+			success: function(){
+				alert('Contacto actualizado satisfactoriamente.');
+			}
+		});
+	}
 </script>
