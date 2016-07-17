@@ -71,7 +71,39 @@ $values = $_REQUEST;
 		move_uploaded_file($_FILES['file_1']['tmp_name'], $fichero_subido.$rcv);
 		$values['rcv'] = $rcv;
 		$Hoist = new Hoist();
-		$Hoist->updateHoist($values);		
+		$Hoist->updateHoist($values);
+		
+		//cuento que usuarios tienen esa grua asignada para saber si debo actualizar en el aws
+		$cuenta_operators_hoists = $Hoist->getCountUserHoistCompanyByIdHoist($values);
+		if($cuenta_operators_hoists['cuenta']>0)//si tengo usuarios con esa grua asignada los actualizo en el aws
+		{
+			//print_r($values);die;
+			$Aws = new Aws();
+			$users_hoist = $Hoist->getUserHoistCompanyByIdHoist($values);
+			
+			foreach($users_hoist as $user_hoist)
+			{
+				$values_hoist_gruero_aws = array(
+				'Placa' => $values['registration_plate'],
+				'Modelo' => $values['type_hoist'],
+				'Color' => $values['color'],
+				'Placa' => $values['registration_plate'],
+				'idGrua' => $user_hoist['id_user']
+				
+				);
+			
+				$Aws->updateGrueros($values_hoist_gruero_aws);
+				
+				
+				//echo $user_hoist['id_user']."<br>";
+			}
+			
+			
+
+		}
+		
+		
+		
 		executeEdit($values,message_updated);die;
 	}	
 	function executeHoistListJson($values)

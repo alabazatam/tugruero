@@ -119,7 +119,21 @@
 			return $q; 				
 			
 		}
-
-		
+		public function getCountUserHoistCompanyByIdHoist($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users_hoist_company
+			->select("count(*) as cuenta")
+			->where("users_hoist_company.id_hoist=?",$values['id'])->fetch();
+			return $q; 				
+			
+		}
+		public function getUserHoistCompanyByIdHoist($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users_hoist_company
+			->select("*")
+			->where("users_hoist_company.id_hoist=?",$values['id']);
+			return $q; 				
+			
+		}		
 	}
 	

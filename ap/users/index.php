@@ -65,7 +65,7 @@ $values = $_REQUEST;
 			$DocumentFile = $loggin."-"."cedula.".pathinfo($_FILES['file_1']['name'],PATHINFO_EXTENSION);
 			$values['document_file'] = $DocumentFile;
 			$values = $Users->saveUserOperator($values);
-			$idHoist= array ("id" => $values['id_hoist']);
+			$idHoist= array("id" => $values['id_hoist']);
 			$hoist = new Hoist();
 			$dataHoist =  $hoist->getHoistById($idHoist);
 			if($estatus == 1)
@@ -97,7 +97,7 @@ $values = $_REQUEST;
 			$UsersHoistCompany = new UsersHoistCompany();
 			$userhoistcompanydata = array('id_user' => $values['id_user'],
 										   'id_company' => $_SESSION["id_company"],
-										   'id_hoist' => $idHoist,
+										   'id_hoist' => $values['id_hoist'],
 										   'status' => $values['status']);
 			$UsersHoistCompany->saveUsersHoistCompany($userhoistcompanydata);
 			
@@ -162,6 +162,17 @@ $values = $_REQUEST;
 				$estatus = "Inactivo";
 			}
 			
+			//verifico si no esta insertado en users_hosit_company lo inserto;
+			$UsersHoistCompany = new UsersHoistCompany();
+			$existe_users_hoist_company = $UsersHoistCompany->getCountUsersHoistsCompanyByUser($values);
+			if($existe_users_hoist_company['cuenta']==0)
+			{
+				//inserto en users_hosit_company
+				$data_users_hoist_company = array('id_user' => $values['id_user'],'id_hoist'=>$values['id_hoist'],'id_company' => $_SESSION['id_company']);
+				$UsersHoistCompany->saveUsersHoistCompany($data_users_hoist_company);
+				
+			}
+			
 			
 			$dateGrueros = array('idGrua' => $values['id_user'],
 								'Placa' => $dataHoist['registration_plate'],
@@ -174,7 +185,7 @@ $values = $_REQUEST;
 								'TotalPresencia' => "0",
 								'TotalVehiculo' => "0",
 								'Rating' => "0");
-		$UsersHoistCompany = new UsersHoistCompany();
+		
 		$userhoistcompanydata = array('id_user' => $values['id_user'],
 										   'id_company' => $_SESSION["id_company"],
 										   'id_hoist' => $idHoist,

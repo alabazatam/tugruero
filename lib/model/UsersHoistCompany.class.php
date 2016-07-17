@@ -178,6 +178,14 @@
 			return $q;
 			
 		}
+		public function getCountUsersHoistsCompanyByUser($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users_hoist_company
+			->select("count(*) as cuenta")
+			->where("users_hoist_company.id_user=?",$values['id_user'])->fetch();
+			return $q; 				
+			
+		}
 		
 	}
 	

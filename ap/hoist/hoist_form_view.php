@@ -17,87 +17,7 @@
 			</div>
 		</div>
 	</div>
-<?php if($values['action'] != "add"):?>
-	<div class="row">
-		<div class="col-md-6"> 
-			<div class="form-group">
-			<label for="">Serial de carroceria</label>
-			<div class="input-group">
-				<input type="hidden" id="" class="form-control input-sm" name="body_serial" maxlength="50" required  oninvalid="setCustomValidity('Debe colocar el Serial de la carroceria para poder registrarla.')" 
-				oninput="setCustomValidity('')"  value="<?php if(isset($values['body_serial'])) echo $values['body_serial']?>">
-				<?php if(isset($values['body_serial'])) echo $values['body_serial']?>
-				
-			</div>
-		  </div>
-		</div>
-		<div class="col-md-6"> 
-			<div class="form-group">
-				<label for="">Color</label>
-				<div class="input-group">
-					<input type="hidden" id="" class="form-control input-sm" name="color" maxlength="20" required  oninvalid="setCustomValidity('Debe colocar el color para poder registrarla.')" 
-					oninput="setCustomValidity('')"  value="<?php if(isset($values['color'])) echo $values['color']?>">
-					<?php if(isset($values['color'])) echo $values['color']?>
-				</div>
-			  </div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<div class="form-group">
-				<label for="">Tipo de Grúa</label>
-				<div class="input-group">
-					<input type="hidden" name="type_hoist" value="<?php if(isset($values['type_hoist'])) echo $values['type_hoist']?>">
-					<?php if(isset($values['type_hoist'])) echo $values['type_hoist']?>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6"> 
-			<div class="form-group">
-				<label for="">Placa</label>
-				<div class="input-group">
-					<input type="hidden" id="" class="form-control input-sm" name="registration_plate" maxlength="8" value="<?php if(isset($values['registration_plate'])) echo $values['registration_plate']?>"
-					   required  oninvalid="setCustomValidity('Debe colocar la Matricula para poder registrarla.')" oninput="setCustomValidity('')"  >
-					<?php if(isset($values['registration_plate'])) echo $values['registration_plate']?>	
-				</div>
-			  </div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			 <div class="form-group">
-				<label for="">Año del Vehiculo</label>
-				<div class="input-group">
-					<input type="hidden" id="" class="form-control input-sm" name="year_vehicle" maxlength="4" value="<?php if(isset($values['year_vehicle'])) echo $values['year_vehicle']?>"
-						   required  oninvalid="setCustomValidity('Debe colocar el Año del vehiculo para poder registrarla.')" oninput="setCustomValidity('')"  >
-					<?php if(isset($values['year_vehicle'])) echo $values['year_vehicle']?>
-				</div>
-			  </div>
-		</div>
-		<div class="col-md-6">
-			<div class="form-group">
-				<label for="">Marca</label>
-				<div class="input-group">
-					<input type="hidden" id="" class="form-control input-sm" name="make" maxlength="20" value="<?php if(isset($values['make'])) echo $values['make']?>"
-						   required  oninvalid="setCustomValidity('Debe colocar la Marca para poder registrarla.')" oninput="setCustomValidity('')"  >
-					<?php if(isset($values['make'])) echo $values['make']?>
-				</div>
-			  </div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<div class="form-group">
-				<label for="">Modelo</label>
-				<div class="input-group">
-					<input type="hidden" id="" class="form-control input-sm" maxlength="20" name="model" value="<?php if(isset($values['model'])) echo $values['model']?>"
-						   required  oninvalid="setCustomValidity('Debe colocar la Marca para poder registrarla.')" oninput="setCustomValidity('')"  >
-					<?php if(isset($values['model'])) echo $values['model']?>
-				</div>
-			  </div>
-		</div>
-	</div>
-<?php endif;?>
-	<?php if($values['action'] == "add"):?>
+	<?php //if($values['action'] == "add"):?>
 	<div class="row">
 		<div class="col-md-6"> 
 			<div class="form-group">
@@ -193,17 +113,6 @@
 
 		</div>
 	</div>
-	<?php else:?>
-	<div class="row">
-		<div class="col-md-6">
-			<div class="form-group">
-				<h6 class="label label-default" for="file_1">Suba su RCV.</h6>
-				<input type="file" name="file_1" placeholder="RCV..." class="form-google-plus form-control" <?php if($values['action'] == "add") echo "required";?>>
-			</div>
-
-		</div>
-	</div>
-	<?php endif;?>
 	<?php if(isset($values['rcv']) && $values['rcv'] != ""):?>
 	<div class="row">
 		 <div class="alert alert-success" role="alert">

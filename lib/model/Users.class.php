@@ -309,7 +309,7 @@
 			$q = $ConnectionORM->getConnect()->users_data()->insert($userData);
 			$q = $ConnectionORM->getConnect()->users_perms()->insert($userPerms);
 			$q = $ConnectionORM->getConnect()->users_company()->insert($userCompany);
-			$q = $ConnectionORM->getConnect()->users_hoist_company()->insert($usershoistcompany);
+			//$q = $ConnectionORM->getConnect()->users_hoist_company()->insert($usershoistcompany);
 			return $values;	
 			
 		}
@@ -396,5 +396,7 @@
 			return $q; 				
 			
 		}
+		
+
 	}
 	
