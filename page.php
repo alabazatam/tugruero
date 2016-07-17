@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="www.tugruero.com.ve">
-    <meta name="author" content="">
+    <meta name="description" content="tugruero grúas gruas grueros">
+    <meta name="author" content="tugruero">
 	<meta name="google-site-verification" content="kXlZJPIsjo2kzjHRJpgR4ncAn-g_bF5ipNOvRSkhsE0" />
+    <link rel="alternate" hreflang="es" href="www.tugruero.com" />
     <link href="web/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
     <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="web/css/menu.css">  
 	<link rel="stylesheet" href="web/css/hover.css">  
 	<link href="web/css/freelancer.css" rel="stylesheet">
-        <title>TU/GRUERO®</title>
+        <title>TUGRUERO®</title>
 </head>
 <body id="page-top" class="index" class="">
 
@@ -37,7 +38,7 @@
 	<div class="navbar navbar-default navbar-fixed-top clear-padding ">      
 
 		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">
-			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="web/img/logo_blanco.png" alt="" width="220"></a>
+			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="web/img/logo_blanco.png" alt="tugruero.com" width="220"></a>
 		</div>
 		
 		<div class="navbar-header pull-right">
@@ -72,7 +73,7 @@
 									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
 									<br>
                                     <a class="btn text-center black-font" href="https://play.google.com/store/apps/details?id=com.tugruero.grua&hl=es">
-										<img src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="" class="img-responsive">
+										<img alt="Descarga la aplicación de tugruero" src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="" class="img-responsive">
                                     </a>
                                     <!--<a class="btn text-center black-font" href="#">
 										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="" class="img-responsive">
@@ -82,7 +83,7 @@
 
 						</div>
 						<div class="col-md-3 col-lg-3">
-							<img src="<?php echo full_url?>/web/img/cel/iphone2.png" class="img-responsive">
+							<img alt="Descarga la aplicación de tugruero" src="<?php echo full_url?>/web/img/cel/iphone2.png" class="img-responsive">
 						</div>
 
 			</div>
