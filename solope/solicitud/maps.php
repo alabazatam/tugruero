@@ -52,13 +52,17 @@
     <div id="floating-panel">
       <!--<input onclick="clearMarkers();" type=button value="Hide Markers">-->
       <!--<input onclick="showMarkers();" type=button value="Show All Markers">-->
-		<input id="searchInput" class="controls" type="text" placeholder="Enter a location">
-      <input onclick="deleteMarkers();" type=button value="Borrar Marcador">
+		<input id="searchInput" class="controls" type="text" placeholder="Coloque el lugar del accidentado">
+      <input onclick="deleteMarkers();" type=button value="Borrar Marcadores">
 	  <input id="latlon" type="text" value="">
+	  <input id="latlonl" type="text" value="">
+	  <input id="location" type="text" value="">
+	  <input id="locationl" type="text" value="">
+	  <input id="country" type="text" value="">
 	  
     </div>
     <div id="map"></div>
-    <p>Click on the map to add markers.</p>
+    <p>Click para agregar marcadores</p>
     <script>
 
 // In the following example, markers appear when the user clicks on the map.
@@ -66,7 +70,9 @@
 // The user can then click an option to hide, show or delete the markers.
 var map;
 var markers = [];
-
+var labels = '';
+var labelIndex = 0;
+var color = '';
 function initMap() {
   var haightAshbury = {lat: 10.490438279359, lng: -66.85555508755};
 
@@ -153,31 +159,69 @@ function initMap() {
 // Adds a marker to the map and push to the array.
 function addMarker(location) {
 	
-
-  if(markers.length == 0)
-  {
+	
+	if(markers.length <= 1)
+	{
+	
+	if(labelIndex==0)
+	{
+		labels = 'Partida';
+		color = 'red';
+	}else
+	{
+		color = 'green';
+		labels = 'Llegada';
+	}
+	labelIndex++;
 	var marker = new google.maps.Marker({
 	  position: location,
 	  icon: {
 		path: google.maps.SymbolPath.CIRCLE,
+		//path: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+		fillColor: 'yellow',
+		fillOpacity: 0.8,
+		scale: 1,
+		strokeColor: color,
+		strokeWeight: 14,
+
 		scale: 10
 	  },
 	  draggable: true,
-	  map: map
+	  map: map,
+	  //label: labels[labelIndex++ % labels.length]
+	  label: labels
 	});
 	marker.addListener('dragend', function(event) {
 		//alert(event.latLng);
-		$('#latlon').val(event.latLng);
+		if(marker.label == 'Partida')
+		{
+			$('#latlon').val(event.latLng);
+			showLocationAddress(event.latLng,0);
+			
+		}else if(marker.label == 'Llegada')
+		{
+			$('#latlonl').val(event.latLng);
+			showLocationAddress(event.latLng,1);
+		}else{
+			alert('Error seleccionando el punto');
+		}
+		
 	});
 
+		if(marker.label == 'Partida')
+		{
+			$('#latlon').val(location);
+			showLocationAddress(location,0);
+			
+		}else if(marker.label == 'Llegada')
+		{
+			$('#latlonl').val(location);
+			showLocationAddress(location,1);
+		}else{
+			alert('Error seleccionando el punto');
+		}
 	  
-	/*var marker = new google.maps.Marker({
-	  position: location,
-	  map: map,
-	  icon: 'http://www.tugruero.com/web/img/profile.png'
-	});	 */ 
-	  
-	$('#latlon').val(location);
+	
 	markers.push(marker);
 	
 	  
@@ -200,6 +244,8 @@ function setMapOnAll(map) {
 function clearMarkers() {
   setMapOnAll(null);
   $('#latlon').val(null);
+  $('#latlonl').val(null);
+  
 }
 
 // Shows any markers currently in the array.
@@ -211,8 +257,36 @@ function showMarkers() {
 function deleteMarkers() {
   clearMarkers();
   markers = [];
+  labelIndex = 0;
 }
 
+function showLocationAddress(location,parameter) {
+
+var latlng = { lat: 10.500639925300456, lng: -66.86270713806152 };
+var geocoder = new google.maps.Geocoder;
+
+ geocoder.geocode({'location': location}, function(results, status) {
+  if (status === google.maps.GeocoderStatus.OK) {
+    //$('#location').empty();
+    //$('#location').val(results[0].formatted_address);
+	alert(results[0].formatted_address);
+	if(parameter == 0)
+	{
+		$('#location').val(results[0].formatted_address);
+	}else if(parameter == 1)
+	{
+		$('#locationl').val(results[0].formatted_address);
+		
+	}else{
+		alert('fallo geolocalizando');
+	}
+	//return results[0].formatted_address;
+  } else {
+   window.alert('Geocoder failed due to: ' + status);
+  }
+ });
+ 
+}
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=true&callback=initMap&libraries=places"></script>
