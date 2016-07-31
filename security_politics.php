@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="www.tugruero.com.ve">
+    <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
     <meta name="author" content="">
     <link href="web/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="web/css/menu.css">  
 	<link rel="stylesheet" href="web/css/hover.css">  
 	<link href="web/css/freelancer.css" rel="stylesheet">
-        <title>TU/GRUERO®</title>
+        <title>TUGRUERO®</title>
 </head>
 <body id="page-top" class="index" class="">
 	<div class="col-sm-12 navbar-default" style="padding-bottom: 10px;" align="center">

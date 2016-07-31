@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
     <meta name="author" content="">
     <link rel="icon" href="<?php echo full_url;?>/web/img/favicon.ico" type="image/x-icon"/>
     <title>TUGRUERO®</title>

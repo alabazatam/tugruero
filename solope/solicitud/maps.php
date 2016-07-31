@@ -68,8 +68,8 @@ h1, h2 ,h3 {
 	<body>
 				<input id="searchInput" class="controls" type="text" placeholder="Coloque el lugar del accidentado">
 
-				<div id="map" class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
-				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+				<div id="map" class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<form class="form-horizontal" action="#" method="POST">
 					<div id="form-group">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

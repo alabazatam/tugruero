@@ -84,6 +84,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ServicesAdministra
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsersData.class.php");
 
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Aws.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Polizas.class.php");
 
 /*validation class*/
 
