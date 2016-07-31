@@ -92,7 +92,7 @@ h1, h2 ,h3 {
 							<h2>Datos solicitud</h2>
 							<label for="EstadoOrigen">Estado origen</label>
 							<select name="EstadoOrigen" id="EstadoOrigen" class="form-control">
-								<option value="">Seleccione</option>
+								<option value=""></option>
 								<option value="Amazonas">Amazonas</option>
 								<option value="Anzoátegui">Anzoátegui</option>
 								<option value="Apure">Apure</option>
@@ -276,6 +276,8 @@ function initMap() {
         //document.getElementById('location').innerHTML = place.formatted_address;
 		
         //document.getElementById('lat').innerHTML = place.geometry.location.lat();
+		var latlon = "(" + place.geometry.location.lat() + ',' + place.geometry.location.lng()+ ")";
+		$('#latlon').val(latlon);
         //document.getElementById('lon').innerHTML = place.geometry.location.lng();
     });
   
@@ -376,7 +378,10 @@ function clearMarkers() {
   $('#latlonl').val(null);
   $('#location').val(null);
   $('#locationl').val(null);
+  //$("#EstadoOrigen").attr('selectedIndex', '-1');
   
+  $("#EstadoOrigen").val([]);
+  //$('#EstadoOrigen option[value="NA"]').attr("selected", "selected");  
 }
 
 // Shows any markers currently in the array.
@@ -472,7 +477,7 @@ var geocoder = new google.maps.Geocoder;
 
 
 </script>	
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=true&callback=initMap&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places"></script>
 
 	</body>
 </html>
