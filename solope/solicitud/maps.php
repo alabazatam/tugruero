@@ -5,13 +5,26 @@
         height: 100%;
         margin: 0;
         padding: 0;
+		padding-left: 10px;
+		padding-top: 10px;
+		
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
+    background: url(<?php echo full_url?>/web/img/fondos/Fondo-Tu-Gruero2.jpg) no-repeat center center fixed ;
+    
+    overflow-x: hidden;
+    margin: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;		
+		
       }
       #map {
-        height: 100%;
+        height: 80%;
       }
 	#floating-panel {
 	  position: absolute;
-	  top: 10px;
+	  top: 50px;
 	  left: 25%;
 	  z-index: 5;
 	  background-color: #fff;
@@ -45,25 +58,108 @@
 #searchInput:focus {
     border-color: #4d90fe;
 }
+label {
+	color: #fff;
+}
+h1, h2 ,h3 {
+	color: #fff;
+}
     </style>
-  </head>
-  <body>
+	<body>
+				<input id="searchInput" class="controls" type="text" placeholder="Coloque el lugar del accidentado">
 
-    <div id="floating-panel">
-      <!--<input onclick="clearMarkers();" type=button value="Hide Markers">-->
-      <!--<input onclick="showMarkers();" type=button value="Show All Markers">-->
-		<input id="searchInput" class="controls" type="text" placeholder="Coloque el lugar del accidentado">
-      <input onclick="deleteMarkers();" type=button value="Borrar Marcadores">
-	  <input id="latlon" type="text" value="">
-	  <input id="latlonl" type="text" value="">
-	  <input id="location" type="text" value="">
-	  <input id="locationl" type="text" value="">
-	  <input id="country" type="text" value="">
+				<div id="map" class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<form class="form-horizontal" action="#" method="POST">
+					<div id="form-group">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<input onclick="deleteMarkers();" type=button value="Borrar Marcadores" class="btn btn-danger">	
+							<input id="country" type="text" value="" class="controls">
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<label for="latlon">Lat/Long Origen</label>
+							<input id="latlon" type="text" value=""  class="form-control input-sm" size="50" readonly="readonly">
+							<label for="location">Direccion de Origen</label>
+							<input id="location" type="text" value=""  class="form-control input-sm" size="50">
+
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<label for="latlonl">Lat/Long destino</label>
+							<input id="latlonl" type="text" value="" class="form-control input-sm" size="50" readonly="readonly">
+							<label for="EstadoOrigen">Estado origen</label>
+							<select name="EstadoOrigen" id="EstadoOrigen" class="form-control">
+								<option value="">Seleccione</option>
+								<option value="Amazonas">Amazonas</option>
+								<option value="Anzoátegui">Anzoátegui</option>
+								<option value="Apure">Apure</option>
+								<option value="Aragua">Aragua</option>
+								<option value="Barinas">Barinas</option>
+								<option value="Bolivar">Bolivar</option>
+								<option value="Carabobo">Carabobo</option>
+								<option value="Cojedes">Cojedes</option>
+								<option value="Delta Amacuro">Delta amacuro</option>
+								<option value="Dependencias Federales">Dependencias federales</option>
+								<option value="Distrito Capital">Distrito Capital</option>
+								<option value="Falcón">Falcón</option>
+								<option value="Guárico">GUARICO</option>
+								<option value="Lara">Lara</option>
+								<option value="Mérida">Mérida</option>
+								<option value="Miranda">Miranda</option>
+								<option value="Monagas">Monagas</option>
+								<option value="Nueva Esparta">Nueva Esparta</option>
+								<option value="Portuguesa">Portuguesa</option>
+								<option value="Sucre">Sucre</option>
+								<option value="Táchira">Táchira</option>
+								<option value="Trujillo">Trujillo</option>
+								<option value="Vargas">Vargas</option>
+								<option value="Yaracuy">Yaracuy</option>
+								<option value="Zulia">Zulia</option>
+							</select>						
+							<label for="locationl">Direccion destino</label>
+							<input id="locationl" type="text" value="" class="form-control input-sm" size="50">
+
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h2>Datos solicitud</h2>
+							<label for="QueOcurre">¿Qué ocurre?</label>
+							<select class="form-control input-sm" name='QueOcurre' id='QueOcurre'>
+								<option value="">Seleccione</option>
+								<option value="Fallo de encendido">Fallo de encendido / No puedo rotar</option>
+								<option value="Neumático espichado">Neumático espichado / Torcido</option>
+								<option value="Volante">Volante / Palanca trabada</option>
+								<option value="Falla de encendido">Falla de encendido / No puedo rotar</option>
+								<option value="Encunetado">Encunetado</option>
+								<option value="Choqué">Choqué</option>
+								<option value="Otra falla">Otra falla</option>
+							</select>
+							<div class="row">
+								<label for="">Neumaticos delanteros</label>
+								<input id="caucho1" type="checkbox" value="1" class=" input-sm">
+								<input id="caucho2" type="checkbox" value="1" class=" input-sm">
+								<label for="">Neumaticos delanteros</label>
+								<input id="caucho3" type="checkbox" value="1" class=" input-sm">
+								<input id="caucho4" type="checkbox" value="1" class="input-sm">
+							</div>
+							<label for="Situacion">Detalles importantes</label>
+							<select class="form-control input-sm" name='Situacion' id='Situacion'>
+								<option value="">Seleccione</option>
+								<option value="Calle plana">Calle plana</option>
+								<option value="Calle inclinada">Calle inclinada</option>
+								<option value="Atascado en barro o arena">Atascado en barro o arena</option>
+								<option value="Estacionamiento techado o sótano">Estacionamiento techado o sótano</option>
+							</select>
+							<h3>Detalles importantes</h3>
+							<label for="CellContacto">Contacto</label>
+							<input type="text" name="CellContacto" id="CellContacto" class="form-control input-sm" placeholder="Contacto">
+							<label for="InfoAdicional">Informacion adicional</label>
+							<textarea name="InfoAdicional" id='InfoAdicional' class="form-control input-sm" placeholder="Informacion adicional"></textarea>
+							<a id="enviaSolicitud" name="" class="btn btn-success btn-lg">Solicitar</a>
+						</div>	
+					</div>		
+				</div>			
+	</body>
 	  
-    </div>
-    <div id="map"></div>
-    <p>Click para agregar marcadores</p>
-    <script>
+<script>
 
 // In the following example, markers appear when the user clicks on the map.
 // The markers are stored in an array.
@@ -79,19 +175,23 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
     center: haightAshbury,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+	disableDefaultUI: true,
+    zoomControl: true,
+    scaleControl: true
+
   });
 
   
   // This event listener will call addMarker() when the map is clicked.
   map.addListener('click', function(event) {
     addMarker(event.latLng);
+	
   });
 
 
 
    var input = document.getElementById('searchInput');
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
@@ -103,7 +203,7 @@ function initMap() {
     });
 
     autocomplete.addListener('place_changed', function() {
-        infowindow.close();
+        //infowindow.close();
         marker.setVisible(false);
         var place = autocomplete.getPlace();
         if (!place.geometry) {
@@ -116,7 +216,7 @@ function initMap() {
             map.fitBounds(place.geometry.viewport);
         } else {
             map.setCenter(place.geometry.location);
-            map.setZoom(17);
+            map.setZoom(14);
         }
         marker.setIcon(({
             url: place.icon,
@@ -166,10 +266,10 @@ function addMarker(location) {
 	if(labelIndex==0)
 	{
 		labels = 'Partida';
-		color = 'red';
+		color = 'green';
 	}else
 	{
-		color = 'green';
+		color = 'blue';
 		labels = 'Llegada';
 	}
 	labelIndex++;
@@ -180,17 +280,21 @@ function addMarker(location) {
 		//path: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
 		fillColor: 'yellow',
 		fillOpacity: 0.8,
-		scale: 1,
+		scale: 5,
 		strokeColor: color,
 		strokeWeight: 14,
-
-		scale: 10
 	  },
 	  draggable: true,
 	  map: map,
 	  //label: labels[labelIndex++ % labels.length]
 	  label: labels
 	});
+	
+		marker.info = new google.maps.InfoWindow({
+		  content: '<b>Accidentado: Marcos De Andrade Póliza </b> <br>hola knots'
+		});	
+		marker.info.open(map, marker);	
+	
 	marker.addListener('dragend', function(event) {
 		//alert(event.latLng);
 		if(marker.label == 'Partida')
@@ -205,6 +309,7 @@ function addMarker(location) {
 		}else{
 			alert('Error seleccionando el punto');
 		}
+		
 		
 	});
 
@@ -245,6 +350,8 @@ function clearMarkers() {
   setMapOnAll(null);
   $('#latlon').val(null);
   $('#latlonl').val(null);
+  $('#location').val(null);
+  $('#locationl').val(null);
   
 }
 
@@ -269,10 +376,12 @@ var geocoder = new google.maps.Geocoder;
   if (status === google.maps.GeocoderStatus.OK) {
     //$('#location').empty();
     //$('#location').val(results[0].formatted_address);
-	alert(results[0].formatted_address);
+	//alert(results[0].formatted_address);
 	if(parameter == 0)
 	{
 		$('#location').val(results[0].formatted_address);
+		//$('#EstadoOrigen').val(results[0].address_components[2]['long_name']);
+		//$('#EstadoOrigen').val(results[0].geometry.location);
 	}else if(parameter == 1)
 	{
 		$('#locationl').val(results[0].formatted_address);
@@ -289,6 +398,58 @@ var geocoder = new google.maps.Geocoder;
 }
 
     </script>
+<script>
+	
+	$(document).ready(function(){
+
+		$('#enviaSolicitud').click(function(){
+			
+			var latlon = $('#latlon').val();
+			latlon = latlon.replace("(", "");
+			latlon = latlon.replace(")", "");
+			latlon = latlon.split(","); 
+			
+			var latlonl = $('#latlonl').val();
+			latlonl = latlonl.replace("(", "");
+			latlonl = latlonl.replace(")", "");
+			latlonl = latlonl.split(","); 
+			
+			var arr = {
+				idPoliza: 5,
+				latOrigen:latlon[0],
+				lngOrigen: latlon[1],
+				latDestino: latlonl[0],
+				lngDestino: latlonl[1],
+				Direccion: $('#location').val(),
+				CellContacto: $('#CellContacto').val(),
+				InfoAdicional: $('#InfoAdicional').val(),
+				EstadoOrigen: $('#EstadoOrigen').val(),
+				QueOcurre: $('#QueOcurre').val(),
+				Neumaticos:'0100',
+				Situacion: $('#Situacion').val()
+			};
+				$.ajax({
+					type: "POST",
+					url: 'http://localhost/clienteapp/solicitudCliente.php',
+					//url: 'http://52.25.178.106/clienteapp/solicitudCliente.php',
+					data: JSON.stringify(arr),
+					contentType: 'application/json; charset=utf-8',
+					async: false,
+					success: function(data){
+						alert('ready');
+					},
+					crossDomain: true,
+					dataType: 'json',
+					//success: function() { alert("Success"); },
+					//error: function() { alert('Failed!'); },
+				});
+		});
+	});
+
+
+</script>	
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=true&callback=initMap&libraries=places"></script>
-  </body>
+
+	</body>
 </html>
+<?php include '../../view_footer_clean.php';?>
