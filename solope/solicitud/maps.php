@@ -9,7 +9,7 @@
 		padding-top: 10px;
 		
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
-    background: url(<?php echo full_url?>/web/img/fondos/Fondo-Tu-Gruero2.jpg) no-repeat center center fixed ;
+    /*background: url(<?php echo full_url?>/web/img/fondos/Fondo-Tu-Gruero2.jpg) no-repeat center center fixed ;*/
     
     overflow-x: hidden;
     margin: 0;
@@ -59,10 +59,10 @@
     border-color: #4d90fe;
 }
 label {
-	color: #fff;
+	/*color: #fff;*/
 }
 h1, h2 ,h3 {
-	color: #fff;
+	/*color: #fff;*/
 }
     </style>
 	<body>
@@ -74,18 +74,22 @@ h1, h2 ,h3 {
 					<div id="form-group">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<input onclick="deleteMarkers();" type=button value="Borrar Marcadores" class="btn btn-danger">	
-							<input id="country" type="text" value="" class="controls">
+							<input id="country" id="country" type="hidden" value="" class="controls">
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<label for="latlon">Lat/Long Origen</label>
 							<input id="latlon" type="text" value=""  class="form-control input-sm" size="50" readonly="readonly">
-							<label for="location">Direccion de Origen</label>
-							<input id="location" type="text" value=""  class="form-control input-sm" size="50">
+
 
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<label for="latlonl">Lat/Long destino</label>
 							<input id="latlonl" type="text" value="" class="form-control input-sm" size="50" readonly="readonly">
+
+
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h2>Datos solicitud</h2>
 							<label for="EstadoOrigen">Estado origen</label>
 							<select name="EstadoOrigen" id="EstadoOrigen" class="form-control">
 								<option value="">Seleccione</option>
@@ -114,13 +118,11 @@ h1, h2 ,h3 {
 								<option value="Vargas">Vargas</option>
 								<option value="Yaracuy">Yaracuy</option>
 								<option value="Zulia">Zulia</option>
-							</select>						
+							</select>
+							<label for="location">Direccion de Origen</label>
+							<input id="location" type="text" value=""  class="form-control input-sm" size="50">
 							<label for="locationl">Direccion destino</label>
 							<input id="locationl" type="text" value="" class="form-control input-sm" size="50">
-
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h2>Datos solicitud</h2>
 							<label for="QueOcurre">¿Qué ocurre?</label>
 							<select class="form-control input-sm" name='QueOcurre' id='QueOcurre'>
 								<option value="">Seleccione</option>
@@ -242,23 +244,45 @@ function initMap() {
       
         //Location details
         for (var i = 0; i < place.address_components.length; i++) {
+			//alert(place.address_components[i].types[0]);
+			
             if(place.address_components[i].types[0] == 'postal_code'){
-                document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
+                //document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
             }
             if(place.address_components[i].types[0] == 'country'){
-                document.getElementById('country').innerHTML = place.address_components[i].long_name;
+				//alert(place.address_components[i].long_name);
+				$('#country').val(place.address_components[i].long_name);
+                //document.getElementById('country').innerHTML = place.address_components[i].long_name;
             }
+            if(place.address_components[i].types[0] == 'administrative_area_level_1'){
+				var estado = place.address_components[i].long_name;
+				$('#country').val(place.address_components[i].long_name);
+				if(estado == 'Capital District')
+				{
+					estado = 'Distrito Capital';
+				}
+				if(estado == 'Federal Dependencies')
+				{
+					estado = 'Dependencias Federales';
+				}
+				//alert(estado);
+				$('#EstadoOrigen option[value="'+estado+'"]').attr("selected", "selected");
+                //document.getElementById('country').innerHTML = place.address_components[i].long_name;
+            }			
+			
+			
         }
-        document.getElementById('location').innerHTML = place.formatted_address;
-        document.getElementById('lat').innerHTML = place.geometry.location.lat();
-        document.getElementById('lon').innerHTML = place.geometry.location.lng();
+		$('#location').val(place.formatted_address);
+        //document.getElementById('location').innerHTML = place.formatted_address;
+		
+        //document.getElementById('lat').innerHTML = place.geometry.location.lat();
+        //document.getElementById('lon').innerHTML = place.geometry.location.lng();
     });
   
 }
 
 // Adds a marker to the map and push to the array.
 function addMarker(location) {
-	
 	
 	if(markers.length <= 1)
 	{
@@ -368,7 +392,6 @@ function deleteMarkers() {
 }
 
 function showLocationAddress(location,parameter) {
-
 var latlng = { lat: 10.500639925300456, lng: -66.86270713806152 };
 var geocoder = new google.maps.Geocoder;
 
@@ -380,6 +403,7 @@ var geocoder = new google.maps.Geocoder;
 	if(parameter == 0)
 	{
 		$('#location').val(results[0].formatted_address);
+		//alert(results[0].address_components[3]['long_name']);
 		//$('#EstadoOrigen').val(results[0].address_components[2]['long_name']);
 		//$('#EstadoOrigen').val(results[0].geometry.location);
 	}else if(parameter == 1)
