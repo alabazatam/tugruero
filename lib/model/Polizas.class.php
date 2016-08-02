@@ -25,8 +25,8 @@
 			$columns[2] = 'Cedula';
 			$columns[3] = 'Nombre';
 			$columns[4] = 'Apellido';
-                        $columns[5] = 'Vencimiento';
-                        $columns[6] = 'Seguro';
+            $columns[5] = 'Vencimiento';
+            $columns[6] = 'Seguro';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -35,8 +35,51 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "upper(Placa) like upper('%$str%')";
+				$where = "upper(Placa) like upper('%$str%')"
+					. "OR upper(Cedula) like upper('%".$str."%')"
+					. "OR upper(Nombre) like upper('%".$str."%')"
+					. "OR upper(NumPoliza) like upper('%".$str."%')"
+					. "OR upper(Apellido) like upper('%".$str."%')"
+					. "OR upper(Seguro) like upper('%".$str."%')";
 			}
+			
+			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
+			{
+				$where.=" AND idPoliza = ".$values['columns'][0]['search']['value']."";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][1]['search']['value']) and $values['columns'][1]['search']['value']!='')
+			{
+				$where.=" AND upper(Seguro) like ('%".$values['columns'][1]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}			
+			if(isset($values['columns'][2]['search']['value']) and $values['columns'][2]['search']['value']!='')
+			{
+				$where.=" AND upper(NumPoliza) like ('%".$values['columns'][2]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}			
+			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
+			{
+				$where.=" AND upper(Placa) like ('%".$values['columns'][3]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
+			{
+				$where.=" AND upper(Cedula) like ('%".$values['columns'][4]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
+			{
+				$where.=" AND CONCAT(upper(Nombre),' ',upper(Apellido) ) like ('%".$values['columns'][5]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
+			{
+				$where.=" AND DATE_FORMAT(Polizas.Vencimiento, '%d/%m/%Y') = '".$values['columns'][6]['search']['value']."'";
+				//echo $values['columns'][0]['search']['value'];die;
+			}				
+			
+			
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
 				$column_order = $columns[$values['order'][0]['column']];
@@ -48,10 +91,11 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->Polizas
-			->select("*")
+			->select("*,DATE_FORMAT(Polizas.Vencimiento, '%d/%m/%Y') as Vencimiento")
 			->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
+			//echo $q;die;
 			return $q; 			
 		}
 		public function getCountPolizasList($values)
@@ -97,7 +141,7 @@
 			unset($values['PHPSESSID']);
 			unset($values['action'],$values['date_created']);
                        
-                        $values['date_updated'] = new NotORM_Literal("NOW()");
+            $values['date_updated'] = new NotORM_Literal("NOW()");
 			$idPoliza = $values['idPoliza'];
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Polizas("idPoliza", $idPoliza)->update($values);

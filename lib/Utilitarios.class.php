@@ -92,5 +92,17 @@
 			
 			return $string;
 		}
+		public function formatFechaInput($date)
+		{
+			if(!empty($date))
+			{
+				$date = preg_split("/[\/]+/", @$date);
+				$date = @$date[2]."-".@$date[1]."-".@$date[0];				
+			}
+                        
+                        str_replace('--', '', $date);
+			return $date;
+
+		}
 		
 	}

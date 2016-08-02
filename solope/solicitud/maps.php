@@ -105,7 +105,7 @@ h1, h2 ,h3 {
 								<option value="Dependencias Federales">Dependencias federales</option>
 								<option value="Distrito Capital">Distrito Capital</option>
 								<option value="Falcón">Falcón</option>
-								<option value="Guárico">GUARICO</option>
+								<option value="Guárico">Guárico</option>
 								<option value="Lara">Lara</option>
 								<option value="Mérida">Mérida</option>
 								<option value="Miranda">Miranda</option>

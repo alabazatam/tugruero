@@ -56,6 +56,7 @@ define("image_url",full_url."/web/images/");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/notorm-master/NotORM.php");//se debe incluir una sola vez en todo el cms
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ConnectionORM.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ConnectionAws.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/Utilitarios.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/vendors/swiftmailer/lib/swift_required.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ValidateBase.class.php");
 require($_SERVER["DOCUMENT_ROOT"]."/".main_folder.'/lib/vendors/securimage/securimage.php');
@@ -85,6 +86,10 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsersData.class.ph
 
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Aws.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Polizas.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Seguros.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Estados.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsuariosInternos.class.php");
+
 
 /*validation class*/
 

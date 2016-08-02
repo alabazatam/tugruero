@@ -1,27 +1,28 @@
+<?php $Seguros = new Seguros(); $list_seguros = $Seguros->getSegurosListSelect()?>
+<?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
 <?php include('../../view_header_app.php')?>
 <?php //include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center big_title">Pólizas</h1>
 	<form class="" enctype="multipart/form-data" action="index.php" method="POST">
 		<input autocomplete="off" type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
-	<div class="row">
-		<div class="col-md-12"> 
-			<div class="form-group">
-				<label for="">IdPoliza</label>
-				<input autocomplete="off" readonly="readonly" type="hidden" class="form-control input-sm" id="" placeholder="" name="idPoliza" value="<?php if(isset($values['idPoliza'])) echo $values['idPoliza']?>">
-			<?php if(isset($values['idPoliza'])) echo $values['idPoliza']?>
-			</div>
-		</div>
-	</div>
+		<input autocomplete="off" type="hidden" name='idPoliza' value='<?php if(isset($values['idPoliza']))echo $values['idPoliza'];?>'>
+
+                        <div class="form-group">
+						<div class="col-sm-4">
+                            <label for="">IdPóliza</label>
+                            <div class="input-group">
+                                    <?php if(isset($values['idPoliza'])) echo $values['idPoliza'];?>
+                                    
+                            </div> 
+                        </div>
+						</div>
 	<?php //if($values['action'] == "add"):?>
 	<div class="row">
 		<div class="col-md-12"> 
                     <div class="form-group">
-
-                    </div>
-                    <div class="form-group">
                         <div class="col-sm-12">
-                                <div class="alert alert-info">Datos del asegurado</div>
+                                <span class="label label-default">Datos del asegurado</span>
                                  
                         </div>
                         <div class="col-sm-4">
@@ -50,13 +51,22 @@
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                                <div class="alert alert-info">Datos del asegurado</div>
+                                <span class="label label-default">Datos de la póliza</span>
                                  
                         </div>
                         <div class="col-sm-4">
                             <label for="">Seguro</label>
                             <div class="input-group">
-                                    <input autocomplete="off" type="text" id="" class="form-control input-sm" name="Seguro" maxlength="50" required oninput=""  value="<?php if(isset($values['Seguro'])) echo $values['Seguro']?>">
+								<select name="Seguro" class="form-control input-sm">
+									<option value="">Seleccione...</option>
+									<?php if(count($list_seguros)>0):?>
+										<?php foreach($list_seguros as $list):?>
+											<option value="<?php echo $list['name'];?>" <?php if(isset($values['Seguro']) and $values['Seguro'] == $list['name'] ) echo "selected = 'selected'";?>><?php echo $list['name'];?></option>
+										<?php endforeach;?>
+									<?php endif;?>
+									
+								</select>
+                                    
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>
@@ -79,8 +89,16 @@
                         <div class="col-sm-12">
                             <label for="">Dirección Estado</label>
                             <div class="input-group">
-                                    <input autocomplete="off" type="text" id="" class="form-control input-sm" name="DireccionEDO" maxlength="50" required oninput=""  value="<?php if(isset($values['DireccionEDO'])) echo $values['DireccionEDO']?>">
-                                    <span class="input-group-addon" id="basic-addon2">(*)</span>
+								<select name="DireccionEDO" class="form-control input-sm" required="required">
+									<option value="">Seleccione...</option>
+									<?php if(count($list_estados)>0):?>
+										<?php foreach($list_estados as $list):?>
+											<option value="<?php echo $list['name'];?>" <?php if(isset($values['DireccionEDO']) and $values['DireccionEDO'] == $list['name'] ) echo "selected = 'selected'";?>><?php echo $list['name'];?></option>
+										<?php endforeach;?>
+									<?php endif;?>
+									
+								</select>                 
+								<span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>
                         
@@ -88,7 +106,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                                <div class="alert alert-info">Datos del vehículo</div>
+                                <span class="label label-default">Datos del vehículo</span>
                                  
                         </div>
                         <div class="col-sm-4">

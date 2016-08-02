@@ -36,6 +36,12 @@
 <script src="<?php echo full_url;?>/web/js/bootstrap.min.js"></script>
 <script src="<?php echo full_url;?>/web/js/jqBootstrapValidation.js"></script>
 <script src="<?php echo full_url;?>/web/js/datatables.js"></script>
+<script type="text/javascript" src="<?php echo full_url;?>/web/bootstrap/js/moment/moment.js"></script>
+<script type="text/javascript" src="<?php echo full_url;?>/web/bootstrap/js/transition.js"></script>
+<script type="text/javascript" src="<?php echo full_url;?>/web/bootstrap/js/collapse.js"></script>
+<script type="text/javascript" src="<?php echo full_url;?>/web/bootstrap/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="<?php echo full_url;?>/web/bootstrap/js/moment/locale/es.js"></script>
+
 <!--<script src="<?php echo full_url;?>/web/js/jquery-validation-1.14.0/dist/additional-methods.js"></script>-->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

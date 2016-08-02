@@ -82,8 +82,8 @@ $values = $_REQUEST;
 					"NumPoliza" => $list['NumPoliza'],
 					"Placa" => $list['Placa'],
 					"Cedula" => $list['Cedula'],
-                                        "NombreApellido" => $list['Placa'],
-                                        "Vencimiento" => $list['Vencimiento'],
+                    "NombreApellido" => $list['Nombre'].' '.$list['Apellido'],
+                    "Vencimiento" => $list['Vencimiento'],
 					"actions" => 
                                        '<form method="POST" action = "'.full_url.'/solope/Polizas/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
@@ -96,7 +96,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id"=>null,"engine_serial"=>"","body_serial"=>"","registration_plate"=>"","year_vehicle"=>"","make"=>"","actions"=>"");
+			$array_json['data'][0] = array("idPoliza"=>null,"Seguro"=>"","NumPoliza"=>"","Placa"=>"","Cedula"=>"","NombreApellido"=>"","Vencimiento"=>"","actions"=>"");
 		}
 		echo json_encode($array_json);die;
 		
