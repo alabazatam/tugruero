@@ -58,6 +58,9 @@
 #searchInput:focus {
     border-color: #4d90fe;
 }
+.gm-style-iw + div {
+  display: none;
+}
 label {
 	/*color: #fff;*/
 }
