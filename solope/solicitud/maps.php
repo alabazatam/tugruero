@@ -69,13 +69,10 @@ h1, h2 ,h3 {
 }
     </style>
 	<body>
-		<button id='ocultarDatos'>Ocultar</button>
-		<button id='ocultarMapa'>OcultarMapa</button>
-
 				<input id="searchInput" class="controls" type="text" placeholder="Coloque el lugar del accidentado">
 
-				<div id="map" class="col-xs-12 col-sm-6 col-md-12 col-lg-12"></div>
-				<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id='datos'>
+				<div id="map" class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<form class="form-horizontal" action="#" method="POST">
 					<div id="form-group">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -481,18 +478,7 @@ var geocoder = new google.maps.Geocoder;
 		});
 	});
 
-$('#datos').collapse({
-  toggle: true
-});	
-$('#maps').collapse({
-  toggle: true
-});	
-$('#ocultarDatos').click(function(){
-	$('#datos').collapse('toggle')
-});
-$('#ocultarMapa').click(function(){
-	$('#map').collapse('toggle')
-});
+
 </script>	
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places"></script>
 
