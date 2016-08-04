@@ -1,50 +1,57 @@
-<?php include("../../autoload.php");?>	
-<?php include('../../view_header_app.php')?>
+<?php //include('../../autoload.php')?>
+<!doctype html>
+<html ng-app="cssawds">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
+    <meta name="author" content="tugruero">
+    <link rel="alternate" hreflang="es" href="www.tugruero.com" />
+    <link href="<?php echo full_url?>/web/css/bootstrap.css" rel="stylesheet">
+    <link rel="icon" href="<?php echo full_url?>/web/img/favicon.ico" type="image/x-icon"/>
+    <link href="<?php echo full_url?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<?php echo full_url?>/web/css/menu2.css">  
+	<link rel="stylesheet" href="<?php echo full_url?>/web/css/hover.css">  
+	<link href="<?php echo full_url?>/web/css/freelancer_app.css" rel="stylesheet">
+        <title>TUGRUERO®</title>
+</head>
     <style>
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
 		padding-left: 10px;
-		padding-top: 10px;
+		padding-top: 30px;
 		
-    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
-    /*background: url(<?php echo full_url?>/web/img/fondos/Fondo-Tu-Gruero2.jpg) no-repeat center center fixed ;*/
+		font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
+		/*background: url(<?php echo full_url?>/web/img/fondos/Fondo-Tu-Gruero2.jpg) no-repeat center center fixed ;*/
     
-    overflow-x: hidden;
-    margin: 0;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;		
+		overflow-x: hidden;
+		margin: 0;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;		
 		
       }
       #map {
-        height: 80%;
+        height: 100%;
       }
 	#floating-panel {
-	  position: absolute;
-	  top: 50px;
-	  left: 25%;
+	  position: fixed;
+		/*padding-top: 20%;*/
+	  left: 22%;
 	  z-index: 5;
-	  background-color: #fff;
-	  padding: 5px;
-	  border: 1px solid #999;
+	  /*background-color: #fff;*/
+	  padding: 0px;
+	  border: 0px solid #999;
 	  text-align: center;
 	  font-family: 'Roboto','sans-serif';
 	  line-height: 30px;
 	  padding-left: 10px;
 	}
-.controls {
-    margin-top: 10px;
-    border: 1px solid transparent;
-    border-radius: 2px 0 0 2px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    height: 32px;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
 #searchInput {
     background-color: #fff;
     font-family: Roboto;
@@ -53,8 +60,9 @@
     margin-left: 12px;
     padding: 0 11px 0 13px;
     text-overflow: ellipsis;
-    width: 50%;
+    width: 20%;
 }
+
 #searchInput:focus {
     border-color: #4d90fe;
 }
@@ -67,103 +75,243 @@ label {
 h1, h2 ,h3 {
 	/*color: #fff;*/
 }
+.controls_search {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.navbar {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    background-color: #404040 !important;
+}
+@media(min-width:768px) {
+.navbar-fixed-top {
+    padding: 0px 0;
+    }
+}
     </style>
-	<body>
-				<input id="searchInput" class="controls" type="text" placeholder="Coloque el lugar del accidentado">
+	<div class="navbar navbar-fixed-top">      
 
-				<div id="map" class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="<?php echo full_url?>/web/img/logo_blanco.png" alt="tugruero.com" width="100"></a>
+
+		
+		<div class="navbar-header pull-right">
+		  <a id="nav-expander" class="nav-expander fixed">
+			<i class="fa fa-bars fa-lg white-font"></i>
+		  </a>
+		</div>
+	</div>
+	<nav class="nav2">
+		
+	  <ul class="list-unstyled main-menu">
+		  
+		  <li class="text-right nav-close"><a href="#" id="nav-close" class="">X</a></li>
+		
+	  </ul>
+		
+		<!--Codigo -->
+		
+				
+
+				
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<form class="form-horizontal" action="#" method="POST">
 					<div id="form-group">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<input onclick="deleteMarkers();" type=button value="Borrar Marcadores" class="btn btn-danger">	
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" hidden>
 							<input id="country" id="country" type="hidden" value="" class="controls">
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">		
+							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+							  <div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne">
+								  <h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+									  Collapsible Group Item #1
+									</a>
+								  </h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+								  <div class="panel-body">
+									ssss
+								  </div>
+								</div>
+							  </div>
+							  <div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingTwo">
+								  <h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+									  Collapsible Group Item #2
+									</a>
+								  </h4>
+								</div>
+								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+								  <div class="panel-body">
+									  aksjhdkasjh
+								  </div>
+								</div>
+							  </div>
+							  <div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingThree">
+								  <h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									  Collapsible Group Item #3
+									</a>
+								  </h4>
+								</div>
+								<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+								  <div class="panel-body">
+										asjdlaksjdlasjk
+								  </div>
+								</div>
+							  </div>
+							</div>						
+						</div>		
+						
+						
+						
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden">
 							<label for="latlon">Lat/Long Origen</label>
 							<input id="latlon" type="text" value=""  class="form-control input-sm" size="50" readonly="readonly">
 
 
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden">
 							<label for="latlonl">Lat/Long destino</label>
 							<input id="latlonl" type="text" value="" class="form-control input-sm" size="50" readonly="readonly">
 
 
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h2>Datos solicitud</h2>
-							<label for="EstadoOrigen">Estado origen</label>
-							<select name="EstadoOrigen" id="EstadoOrigen" class="form-control">
-								<option value=""></option>
-								<option value="Amazonas">Amazonas</option>
-								<option value="Anzoátegui">Anzoátegui</option>
-								<option value="Apure">Apure</option>
-								<option value="Aragua">Aragua</option>
-								<option value="Barinas">Barinas</option>
-								<option value="Bolivar">Bolivar</option>
-								<option value="Carabobo">Carabobo</option>
-								<option value="Cojedes">Cojedes</option>
-								<option value="Delta Amacuro">Delta amacuro</option>
-								<option value="Dependencias Federales">Dependencias federales</option>
-								<option value="Distrito Capital">Distrito Capital</option>
-								<option value="Falcón">Falcón</option>
-								<option value="Guárico">Guárico</option>
-								<option value="Lara">Lara</option>
-								<option value="Mérida">Mérida</option>
-								<option value="Miranda">Miranda</option>
-								<option value="Monagas">Monagas</option>
-								<option value="Nueva Esparta">Nueva Esparta</option>
-								<option value="Portuguesa">Portuguesa</option>
-								<option value="Sucre">Sucre</option>
-								<option value="Táchira">Táchira</option>
-								<option value="Trujillo">Trujillo</option>
-								<option value="Vargas">Vargas</option>
-								<option value="Yaracuy">Yaracuy</option>
-								<option value="Zulia">Zulia</option>
-							</select>
-							<label for="location">Direccion de Origen</label>
-							<input id="location" type="text" value=""  class="form-control input-sm" size="50">
-							<label for="locationl">Direccion destino</label>
-							<input id="locationl" type="text" value="" class="form-control input-sm" size="50">
-							<label for="QueOcurre">¿Qué ocurre?</label>
-							<select class="form-control input-sm" name='QueOcurre' id='QueOcurre'>
-								<option value="">Seleccione</option>
-								<option value="Fallo de encendido">Fallo de encendido / No puedo rotar</option>
-								<option value="Neumático espichado">Neumático espichado / Torcido</option>
-								<option value="Volante">Volante / Palanca trabada</option>
-								<option value="Falla de encendido">Falla de encendido / No puedo rotar</option>
-								<option value="Encunetado">Encunetado</option>
-								<option value="Choqué">Choqué</option>
-								<option value="Otra falla">Otra falla</option>
-							</select>
-							<div class="row">
-								<label for="">Neumaticos delanteros</label>
-								<input id="caucho1" type="checkbox" value="1" class=" input-sm">
-								<input id="caucho2" type="checkbox" value="1" class=" input-sm">
-								<label for="">Neumaticos delanteros</label>
-								<input id="caucho3" type="checkbox" value="1" class=" input-sm">
-								<input id="caucho4" type="checkbox" value="1" class="input-sm">
+						<div class="form-group">
+							
+							<div class="col-sm-12">
+								<h2>Datos solicitud</h2>
+								<label for="EstadoOrigen">Estado origen</label>
+								<select name="EstadoOrigen" id="EstadoOrigen" class="form-control">
+									<option value=""></option>
+									<option value="Amazonas">Amazonas</option>
+									<option value="Anzoátegui">Anzoátegui</option>
+									<option value="Apure">Apure</option>
+									<option value="Aragua">Aragua</option>
+									<option value="Barinas">Barinas</option>
+									<option value="Bolivar">Bolivar</option>
+									<option value="Carabobo">Carabobo</option>
+									<option value="Cojedes">Cojedes</option>
+									<option value="Delta Amacuro">Delta amacuro</option>
+									<option value="Dependencias Federales">Dependencias federales</option>
+									<option value="Distrito Capital">Distrito Capital</option>
+									<option value="Falcón">Falcón</option>
+									<option value="Guárico">Guárico</option>
+									<option value="Lara">Lara</option>
+									<option value="Mérida">Mérida</option>
+									<option value="Miranda">Miranda</option>
+									<option value="Monagas">Monagas</option>
+									<option value="Nueva Esparta">Nueva Esparta</option>
+									<option value="Portuguesa">Portuguesa</option>
+									<option value="Sucre">Sucre</option>
+									<option value="Táchira">Táchira</option>
+									<option value="Trujillo">Trujillo</option>
+									<option value="Vargas">Vargas</option>
+									<option value="Yaracuy">Yaracuy</option>
+									<option value="Zulia">Zulia</option>
+								</select>
 							</div>
-							<label for="Situacion">Detalles importantes</label>
-							<select class="form-control input-sm" name='Situacion' id='Situacion'>
-								<option value="">Seleccione</option>
-								<option value="Calle plana">Calle plana</option>
-								<option value="Calle inclinada">Calle inclinada</option>
-								<option value="Atascado en barro o arena">Atascado en barro o arena</option>
-								<option value="Estacionamiento techado o sótano">Estacionamiento techado o sótano</option>
-							</select>
-							<h3>Detalles importantes</h3>
-							<label for="CellContacto">Contacto</label>
-							<input type="text" name="CellContacto" id="CellContacto" class="form-control input-sm" placeholder="Contacto">
-							<label for="InfoAdicional">Informacion adicional</label>
-							<textarea name="InfoAdicional" id='InfoAdicional' class="form-control input-sm" placeholder="Informacion adicional"></textarea>
+							<div class="col-sm-6">
+								id_poliza = <input id="idPoliza" type="text" value="<?php if(isset($values['idPoliza']) and $values['idPoliza']!='') echo $values['idPoliza']?>"  class="form-control input-sm" size="50">
+								<label for="location">Direccion de Origen</label>
+								<input id="location" type="text" value=""  class="form-control input-sm" size="50">
+							</div>
+							<div class="col-sm-6">
+								<label for="locationl">Direccion destino</label>
+								<input id="locationl" type="text" value="" class="form-control input-sm" size="50">
+							</div>
+							<div class="col-sm-6">
+								<label for="QueOcurre">¿Qué ocurre?</label>
+								<select class="form-control input-sm" name='QueOcurre' id='QueOcurre'>
+									<option value="">Seleccione</option>
+									<option value="Fallo de encendido">Fallo de encendido / No puedo rotar</option>
+									<option value="Neumático espichado">Neumático espichado / Torcido</option>
+									<option value="Volante">Volante / Palanca trabada</option>
+									<option value="Falla de encendido">Falla de encendido / No puedo rotar</option>
+									<option value="Encunetado">Encunetado</option>
+									<option value="Choqué">Choqué</option>
+									<option value="Otra falla">Otra falla</option>
+								</select>
+							</div>
+							<div class="col-sm-6 hidden">
+								<div class="row">
+									<label for="">Neumaticos delanteros</label>
+									<input id="caucho1" type="checkbox" value="1" class=" input-sm">
+									<input id="caucho2" type="checkbox" value="1" class=" input-sm">
+									<label for="">Neumaticos delanteros</label>
+									<input id="caucho3" type="checkbox" value="1" class=" input-sm">
+									<input id="caucho4" type="checkbox" value="1" class="input-sm">
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<label for="Situacion">Detalles importantes</label>
+								<select class="form-control input-sm" name='Situacion' id='Situacion'>
+									<option value="">Seleccione</option>
+									<option value="Calle plana">Calle plana</option>
+									<option value="Calle inclinada">Calle inclinada</option>
+									<option value="Atascado en barro o arena">Atascado en barro o arena</option>
+									<option value="Estacionamiento techado o sótano">Estacionamiento techado o sótano</option>
+								</select>
+							</div>
+							<div class="col-sm-6">
+								<label for="CellContacto">Contacto</label>
+								<input type="text" name="CellContacto" id="CellContacto" class="form-control input-sm" placeholder="Contacto">
+							</div>
+							<div class="col-sm-6">
+								<label for="InfoAdicional">Informacion adicional</label>
+								<textarea name="InfoAdicional" id='InfoAdicional' class="form-control input-sm" placeholder="Informacion adicional"></textarea>
+							</div>
+						</div>
 							<a id="enviaSolicitud" name="" class="btn btn-success btn-lg">Solicitar</a>
 						</div>	
 					</div>		
-				</div>			
-	</body>
-	  
+				</div>				
+		
+		
+		
+		<!--FinCodigo -->
+		
+		
+	</nav>
+	<div id="floating-panel">
+		
+		<input onclick="deleteMarkers();" type=button value="Borrar Marcadores" class="btn btn-danger controls" id="delMarkers">
+	</div>
+	
+	<input id="searchInput" class="controls_search" type="text" placeholder="Coloque el lugar del accidentado">
+	<div id="map" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+</html>
+
+    <script src="../../web/js/jquery.js"></script>
+    <script src="../../web/js/bootstrap.min.js"></script>
+    <script src="../../web/js/freelancer.js"></script>
+    
+	<script>
+		$(document).ready(function(){												
+		$('body').toggleClass('nav-expanded2');
+       //Navigation Menu Slider
+        $('#nav-expander').on('click',function(e){
+      		e.preventDefault();
+      		$('body').toggleClass('nav-expanded2');
+      	});
+      	$('.nav-close').on('click',function(e){
+      		//e.preventDefault();
+      		$('body').removeClass('nav-expanded2');
+      	});
+ 
+      });
+	</script>
 <script>
 
 // In the following example, markers appear when the user clicks on the map.
@@ -196,7 +344,7 @@ function initMap() {
 
 
    var input = document.getElementById('searchInput');
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
+    map.controls[google.maps.ControlPosition.LEFT_TOP].push(input);
 
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
@@ -436,6 +584,8 @@ var geocoder = new google.maps.Geocoder;
 
 		$('#enviaSolicitud').click(function(){
 			
+
+			
 			var latlon = $('#latlon').val();
 			latlon = latlon.replace("(", "");
 			latlon = latlon.replace(")", "");
@@ -446,8 +596,42 @@ var geocoder = new google.maps.Geocoder;
 			latlonl = latlonl.replace(")", "");
 			latlonl = latlonl.split(","); 
 			
+			if($('#EstadoOrigen').val() == '')
+			{
+				alert('Debe seleccionar el estado de origen');
+				return false;
+			}else if($('#idPoliza').val() == '')
+			{
+				alert('Debe seleccionar una poliza');
+				return false;
+			}else if(latlonl=='' || latlon == '')
+			{
+				alert('Seleccione o arrastre nuevamente los puntos de origen y destino');
+				return false;
+			}else if($('#location').val()=='' || $('#location').val() =='')
+			{
+				alert('Los campos de origen y destino no pueden estar vacios');
+				return false;				
+			}else if($('#QueOcurre' ).val() == '')
+			{
+				alert('El campo ¿Que ocurre no debe estar vacio?');
+				return false;
+			}else if($('#Situacion' ).val() == '')
+			{
+				alert('Debe seleccionar los detalles importantes');
+				return false;
+			}else if($('#CellContacto').val() == '')
+			{
+				alert('El campo contacto no debe estar vacio');
+				return false;				
+			}
+
+
+
+
+
 			var arr = {
-				idPoliza: 5,
+				idPoliza: $('#idPoliza').val(),
 				latOrigen:latlon[0],
 				lngOrigen: latlon[1],
 				latDestino: latlonl[0],
@@ -458,7 +642,8 @@ var geocoder = new google.maps.Geocoder;
 				EstadoOrigen: $('#EstadoOrigen').val(),
 				QueOcurre: $('#QueOcurre').val(),
 				Neumaticos:'0100',
-				Situacion: $('#Situacion').val()
+				Situacion: $('#Situacion').val(),
+				Proviene: 'WEB'
 			};
 				$.ajax({
 					type: "POST",
@@ -481,7 +666,3 @@ var geocoder = new google.maps.Geocoder;
 
 </script>	
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places"></script>
-
-	</body>
-</html>
-<?php include '../../view_footer_clean.php';?>

@@ -38,7 +38,7 @@ a.nav-expander.fixed {
     right: 50% !important;
 }
 nav {
-  background-image: url("../img/bg3_menu.png");
+  /*background-image: url("../img/bg3_menu.png");*/
   display: block;
   height: 100%;
   overflow: auto;
@@ -80,31 +80,31 @@ body.nav-expanded {
 #nav-close {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 12px;
   padding-right: 10px;
 }
 .main-menu {
-  padding-top: 12px;
+  padding-top: 0px;
 }
  
 .main-menu li {
   border-bottom: 1px  solid #ffffff;
   margin-left: 18px;
   font-size: 18px;
-  padding: 8px;
+  padding: 0px;
 }
 .main-menu li:hover {
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background-color: #fff;
   border-bottom: 1px  solid #ffffff;
 }
 .main-menu li a {
-  color: #ffffff !important;
+  color: #000!important;
   text-decoration: none;
 }
  
 .main-menu li a:hover {
-  color: #FFFFFF;
+  color: #ccc;
   text-decoration: none;
 }
  

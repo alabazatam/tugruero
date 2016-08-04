@@ -37,7 +37,7 @@ $values = $_REQUEST;
 	{       
         $values['status'] = '1';
 		$values['action'] = 'add';
-		require('form_view.php');
+		require('maps.php');
 	}
 	function executeSave($values = null)
 	{
