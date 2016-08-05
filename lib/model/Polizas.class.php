@@ -115,7 +115,7 @@
 		public function getPolizasById($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Polizas
-			->select("*")
+			->select("*,DATE_FORMAT(Vencimiento, '%d/%m/%Y') as Vencimiento")
 			->where("idPoliza=?",$values['idPoliza'])->fetch();
 			return $q; 				
 			
@@ -128,23 +128,80 @@
 			
 		}		
 		function savePolizas($values){
-			unset($values['PHPSESSID'],$values['action']);
-                        $values['date_created'] = new NotORM_Literal("NOW()");
-                        $values['date_updated'] = new NotORM_Literal("NOW()");
+			$Utilitarios = new Utilitarios();
+            if(isset($values['Vencimiento']) and $values['Vencimiento']!='')
+            {
+				$values['Vencimiento'] = $Utilitarios->formatFechaInput($values['Vencimiento']);
+
+            }else
+            {
+				$values['Vencimiento']=null;
+            }
+			$hora = date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)));
+			$array_poliza = array(
+				'Placa' => $values['Placa'],
+				'Cedula' => $values['Nacionalidad'].'-'.$values['Cedula'],
+				'Nombre' => $values['Nombre'],
+				'Apellido' => $values['Apellido'],
+				'Marca' => $values['Marca'],
+				'Modelo' => $values['Modelo'],
+				'Tipo' => $values['Tipo'],
+				'Color' => $values['Color'],
+				'Año' => $values['Año'],
+				'Serial' => $values['Serial'],
+				'Seguro' => $values['Seguro'],
+				'NumPoliza' => $values['NumPoliza'],
+				'DireccionEDO' => $values['DireccionEDO'],
+				'Domicilio' => $values['Domicilio'],
+				'DireccionFiscal' => $values['DireccionFiscal'],
+				'Vencimiento' => $values['Vencimiento'],
+				'date_created' => $hora,
+				'date_updated' => $hora,
+				'created_by' => 1,
+				'updated_by' => 1
+			);
+			
 			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->Polizas()->insert($values);
+			$q = $ConnectionORM->getConnect()->Polizas()->insert($array_poliza);
 			$values['idPoliza'] = $ConnectionORM->getConnect()->Polizas()->insert_id();
 			return $values;	
 			
 		}
-		function updatePolizas($values){
-			unset($values['PHPSESSID']);
-			unset($values['action'],$values['date_created']);
-                       
-            $values['date_updated'] = new NotORM_Literal("NOW()");
+		function updatePolizas($values){			
+			$Utilitarios = new Utilitarios();
+            if(isset($values['Vencimiento']) and $values['Vencimiento']!='')
+            {
+				$values['Vencimiento'] = $Utilitarios->formatFechaInput($values['Vencimiento']);
+
+            }else
+            {
+				$values['Vencimiento']=null;
+            }			
+ 			$hora = date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)));
+			$array_poliza = array(
+				'Placa' => $values['Placa'],
+				'Cedula' => $values['Nacionalidad'].'-'.$values['Cedula'],
+				'Nombre' => $values['Nombre'],
+				'Apellido' => $values['Apellido'],
+				'Marca' => $values['Marca'],
+				'Modelo' => $values['Modelo'],
+				'Tipo' => $values['Tipo'],
+				'Color' => $values['Color'],
+				'Año' => $values['Año'],
+				'Serial' => $values['Serial'],
+				'Seguro' => $values['Seguro'],
+				'NumPoliza' => $values['NumPoliza'],
+				'DireccionEDO' => $values['DireccionEDO'],
+				'Domicilio' => $values['Domicilio'],
+				'DireccionFiscal' => $values['DireccionFiscal'],
+				'Vencimiento' => $values['Vencimiento'],
+				'date_updated' => $hora,
+				'created_by' => 1,
+				'updated_by' => 1
+			);
 			$idPoliza = $values['idPoliza'];
 			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->Polizas("idPoliza", $idPoliza)->update($values);
+			$q = $ConnectionORM->getConnect()->Polizas("idPoliza", $idPoliza)->update($array_poliza);
 			return $q;
 			
 		}

@@ -114,6 +114,7 @@ $('#column_6').on ('keypress', function(e){
 		table.search( '' ).columns().search( '' ).draw();
 	});
 
+
 } );
 
 </script>
