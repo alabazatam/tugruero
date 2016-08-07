@@ -58,6 +58,13 @@ $(document).ready(function() {
         "ajax": "<?php echo full_url."/solope/solicitud/index.php?action=list_json"?>",
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
+        },"rowCallback": function( row, data, index ) {
+            //alert(data.Placa);
+            if ( data.Placa == "AC814GM" ) {
+                //alert(1);
+             $("td:eq(3)", row).css("background-color","green");
+
+            }
         },
         "columns": [
             { "data": "idSolicitud" },
