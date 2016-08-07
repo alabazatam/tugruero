@@ -89,7 +89,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Polizas.class.php"
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Seguros.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Estados.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/UsuariosInternos.class.php");
-
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ServiciosClientes.class.php");
 
 /*validation class*/
 

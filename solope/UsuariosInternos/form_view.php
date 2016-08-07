@@ -31,7 +31,7 @@
 									<option value='E' <?php if(isset($values['nationality']) and $values['nationality'] == 'E') echo 'selected="selected"'?> >E</option>
 								</select>
 								    <span class="input-group-addon" id="basic-addon2">-</span>
-                                    <input placeholder="Cédula" autocomplete="off" type="text" id="" class="form-control input-sm" name="document" maxlength="8" required oninput=""  value="<?php if(isset($values['document'])) echo $values['document']?>">
+                                    <input placeholder="Cédula" autocomplete="off" type="text" id="" class="form-control input-sm" name="document" maxlength="8" required pattern="[0-9]{7,9}" oninvalid="setCustomValidity('El campo admite solo números(entre 7 y 9 caracteres)')" oninput="setCustomValidity('')"  value="<?php if(isset($values['document'])) echo $values['document']?>">
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>
@@ -106,14 +106,14 @@
                         <div class="col-sm-6">
                             <label for="">Correo electrónico principal</label>
                             <div class="input-group">
-                                    <input placeholder="Correo electrónico principal" autocomplete="off" type="text" id="" class="form-control input-sm" name="mail" maxlength="100" required oninput=""  value="<?php if(isset($values['mail'])) echo $values['mail']?>">
+                                    <input placeholder="Correo electrónico principal" autocomplete="off" type="email" id="" class="form-control input-sm" name="mail" maxlength="100" required oninput=""  value="<?php if(isset($values['mail'])) echo $values['mail']?>">
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>
                         <div class="col-sm-6">
                             <label for="">Correo electrónico alternativo</label>
                             <div class="input-group">
-                                    <input placeholder="Correo electrónico alternativo" autocomplete="off" type="text" id="" class="form-control input-sm" name="mail_alternative" maxlength="100" oninput=""  value="<?php if(isset($values['mail_alternative'])) echo $values['mail_alternative']?>">
+                                    <input placeholder="Correo electrónico alternativo" autocomplete="off" type="email" id="" class="form-control input-sm" name="mail_alternative" maxlength="100" oninput=""  value="<?php if(isset($values['mail_alternative'])) echo $values['mail_alternative']?>">
                                     <span class="input-group-addon" id="basic-addon2"></span>
                             </div> 
                         </div>

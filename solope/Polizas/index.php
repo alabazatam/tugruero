@@ -88,7 +88,9 @@ $values = $_REQUEST;
                                        '<form method="POST" action = "'.full_url.'/solope/Polizas/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
                                        .'<input type="hidden" name="idPoliza" value="'.$idPoliza.'">  '
-                                       .'<button class="btn btn-default btn-sm" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
+                                       .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
+									   . '<a class="btn btn-default btn-sm" title="Ver servicios" href="'.full_url.'/solope/ServiciosClientes/index.php?idPoliza='.$idPoliza.'"><i class="fa fa-mobile   fa-pull-left fa-border"></i></a>'
+									   .'<a class="btn btn-default btn-sm" title="Generar servicio" href="'.full_url.'/solope/solicitud/index.php?action=new&idPoliza='.$idPoliza.'"><i class="fa fa-map-marker   fa-pull-left fa-border"></i></a>'
                                        
 										.'</form>'
 					);	

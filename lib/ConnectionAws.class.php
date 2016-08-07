@@ -16,7 +16,7 @@
                 }            
 		public function getConnect($connect = ''){
 				
-                    $connection = @new PDO($this->dsn,$this->username, $this->password,array(PDO::ATTR_PERSISTENT => true));
+                    $connection = @new PDO($this->dsn,$this->username, $this->password,array(PDO::ATTR_PERSISTENT => true,PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
                     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                     $connection->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
                     $connect = new NotORM($connection);
