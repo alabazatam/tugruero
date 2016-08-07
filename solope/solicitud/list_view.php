@@ -118,9 +118,9 @@ $('#column_7').on ('keypress', function(e){
 	$('#clear').click(function(){
 		table.search( '' ).columns().search( '' ).draw();
 	});
-        setInterval( function () {
-        $('#example').DataTable().fnReloadAjax();
-        }, 5000 );
+setInterval( function () {
+    table.ajax.reload();
+},15000 );
 
 } );
 
