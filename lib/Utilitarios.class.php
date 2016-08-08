@@ -105,4 +105,19 @@
 
 		}
 		
+		function calcula_tiempo_minutos($start_time, $end_time) { 
+			$total_seconds = strtotime($end_time) - strtotime($start_time); 
+			$horas              = floor ( $total_seconds / 3600 );
+			$minutes            = ( ( $total_seconds / 60 ) % 60 );
+			$seconds            = ( $total_seconds % 60 );
+
+			$time['horas']      = str_pad( $horas, 2, "0", STR_PAD_LEFT );
+			$time['minutes']    = str_pad( $minutes, 2, "0", STR_PAD_LEFT );
+			$time['seconds']    = str_pad( $seconds, 2, "0", STR_PAD_LEFT );
+
+			$time               = implode( ':', $time );
+
+			return $minutes;
+		}		
+		
 	}

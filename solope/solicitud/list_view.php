@@ -7,12 +7,14 @@
                     <tr>
                         <th>IdSolicitud/Servicio</th>
                         <th>IdPoliza</th>
+						<th>Origen</th>
                         <th>Cedula</th>
                         <th>Placa</th>
                         <th>Status solicitud</th>
                         <th>Status cliente</th>
                         <th>Status gruero</th>
-                        <th>Inicio</th>				
+						<th>Abierto</th>
+                        <th>Inicio</th>						
                         <th>Detalle</th>
                     </tr>
             </thead>
@@ -20,12 +22,14 @@
                     <tr>
                         <th>IdSolicitud/Servicio</th>
                         <th>IdPoliza</th>
+						<th>Origen</th>
                         <th>Cedula</th>
                         <th>Placa</th>
                         <th>Status solicitud</th>
                         <th>Status cliente</th>
                         <th>Status gruero</th>
-                        <th>Inicio</th>				
+						<th>Inicio/Solicitud</th>	
+                        <th>Inicio/Servicio</th>				
                         <th>Detalle</th>
                     </tr>
             </tfoot>
@@ -35,7 +39,6 @@
 
 	
 $(document).ready(function() {
-	
 	$('#example tfoot th').each( function () {
 		var title = $('#example thead th').eq( $(this).index() ).text();
 		
@@ -55,30 +58,41 @@ $(document).ready(function() {
         "scrollX": true,
         "processing": true,
         "serverSide": true,
+		"cache": false,
         "ajax": "<?php echo full_url."/solope/solicitud/index.php?action=list_json"?>",
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
         },"rowCallback": function( row, data, index ) {
-            //alert(data.Placa);
-            if ( data.Placa == "AC814GM" ) {
-                //alert(1);
-             $("td:eq(3)", row).css("background-color","green");
-
+            //alert(data.Status);
+            /*if ( data.idSolicitud == "10" ) {
+				$(row).css("background-color","red");
+				$("td:eq(3)", row).css("background-color","red");
+			 
+            }*/
+            if ( data.EstatusSolicitud == "Desierto" ) {
+				$("td:eq(5)", row).css("background-color","red");
+			 
+            }
+            if ( data.StatusDesierto == "1" ) {
+				$("td:eq(5)", row).css("background-color","yellow");
+			 
             }
         },
         "columns": [
             { "data": "idSolicitud" },
             { "data": "idPoliza" },
+			{ "data": "Origen" },
             { "data": "Cedula" },
             { "data": "Placa" },
             { "data": "EstatusSolicitud" },
             { "data": "EstatusCliente" },
             { "data": "EstatusGrua" },
+			{ "data": "TimeOpen" },
             { "data": "TimeInicio" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 8 ] }
+          { 'bSortable': false, 'aTargets': [ 9 ] }
        ]				
     });
 
@@ -122,12 +136,17 @@ $('#column_7').on ('keypress', function(e){
         table.column(table.column(7)).search($(this).val()).draw();
     }
 });
+$('#column_8').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(8)).search($(this).val()).draw();
+    }
+});
 	$('#clear').click(function(){
 		table.search( '' ).columns().search( '' ).draw();
 	});
 setInterval( function () {
     table.ajax.reload();
-},15000 );
+},10000 );
 
 } );
 

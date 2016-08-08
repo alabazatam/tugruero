@@ -55,18 +55,18 @@
 		public function getSolicitudesActivasList($values)
 		{	
 			$columns = array();
-			$columns[0] = 'Servicios.idSolicitud';
-			$columns[1] = 'sol.idPoliza';
+			$columns[0] = 'Solicitudes.idSolicitud';
+			$columns[1] = 'Solicitudes.idPoliza';
 			$columns[2] = 'pol.Cedula';
-                        $columns[3] = 'pol.Placa';
+            $columns[3] = 'pol.Placa';
 			$columns[4] = 'Estatus';
-                        $columns[5] = 'EstatusCliente';
-                        $columns[6] = 'EstatusGrua';
+            $columns[5] = 'EstatusCliente';
+            $columns[6] = 'EstatusGrua';
 			$columns[7] = 'TimeInicio';
 			$column_order = $columns[0];
-			$where = " sol.Estatus not in('Completado','Cancelado')"
-                                . " AND EstatusCliente not in('Completado','Cancelado')"
-                                . " AND EstatusGrua not in('Completado')";
+			$where = " Estatus NOT IN('Completado','Cancelado') 
+						AND (EstatusCliente IS NULL OR EstatusCliente = 'Asignado' OR EstatusCliente = 'Activo' OR EstatusCliente = 'Asistido' OR EstatusCliente = 'Completado') 
+						AND (EstatusGrua  IS NULL OR EstatusGrua = 'Asignado' OR EstatusGrua = 'Activo' OR EstatusGrua = 'Asistiendo')  ";
 			$order = 'asc';
 			$limit = $values['length'];
 			$offset = $values['start'];
@@ -74,8 +74,8 @@
 			{	
 				$str = $values['search']['value'];
 				$where.= " OR upper(pol.Cedula) like upper('%$str%')"
-                                        . "OR upper(pol.Placa) like upper('%".$str."%')"
-					. "OR upper(sol.Estatus) like upper('%".$str."%')"
+                    . "OR upper(pol.Placa) like upper('%".$str."%')"
+					. "OR upper(Estatus) like upper('%".$str."%')"
 					. "OR upper(EstatusCliente) like upper('%".$str."%')"
 					. "OR upper(EstatusGrua) like upper('%".$str."%')"
 					. "OR upper(EstatusGrua) like upper('%".$str."%')";
@@ -118,7 +118,12 @@
 			}
 			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
 			{
-				$where.=" AND DATE_FORMAT(TimeInicio, '%d/%m/%Y %h:%m:%s') = '".$values['columns'][6]['search']['value']."'";
+				$where.=" AND DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') = '".$values['columns'][7]['search']['value']."'";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
+			{
+				$where.=" AND DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') = '".$values['columns'][8]['search']['value']."'";
 				//echo $values['columns'][0]['search']['value'];die;
 			}		
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
@@ -131,11 +136,11 @@
 			}
 			//echo $column_order;die;
                         $ConnectionAws = new ConnectionAws();
-			$q = $ConnectionAws->getConnect()->Servicios
-			->select("*,DATE_FORMAT(TimeInicio, '%d/%m/%Y %h:%m:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y') as TimeFin")
-			->join('Solicitud','INNER JOIN Solicitudes sol ON sol.idSolicitud = Servicios.idSolicitud')
-                        ->join('Polizas','INNER JOIN Polizas pol ON pol.idPoliza = Servicios.idPoliza')
-                        ->order("$column_order $order")
+			$q = $ConnectionAws->getConnect()->Solicitudes
+			->select("*,Solicitudes.idSolicitud as idSolicitud,DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y') as TimeFin,DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') as TimeOpen")
+			->join('Servicios','LEFT JOIN Servicios ser ON ser.idSolicitud = Solicitudes.idSolicitud')
+            ->join('Polizas','INNER JOIN Polizas pol ON pol.idPoliza = Solicitudes.idPoliza')
+            ->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
 			//echo $q;die;
@@ -143,19 +148,19 @@
 		}
 		public function getCountSolicitudesActivasList($values)
 		{	
-			$where = " sol.Estatus not in('Completado','Cancelado')"
-                                . " AND EstatusCliente not in('Completado','Cancelado')"
-                                . " AND EstatusGrua not in('Completado')";
+			$where = " Estatus NOT IN('Completado','Cancelado') 
+						AND (EstatusCliente IS NULL OR EstatusCliente = 'Asignado' ) 
+						AND (EstatusGrua  IS NULL OR EstatusGrua = 'Asignado' )  ";
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
 				$where.=" ";
 			}
                         $ConnectionAws = new ConnectionAws();
-			$q = $ConnectionAws->getConnect()->Servicios
+			$q = $ConnectionAws->getConnect()->Solicitudes
 			->select("count(*) as cuenta")
-			->join('Solicitud','INNER JOIN Solicitudes sol ON sol.idSolicitud = Servicios.idSolicitud')
-                        ->join('Polizas','INNER JOIN Polizas pol ON pol.idPoliza = Servicios.idPoliza')
+			->join('Servicios','LEFT JOIN Servicios ser ON ser.idSolicitud = Solicitudes.idSolicitud')
+            ->join('Polizas','INNER JOIN Polizas pol ON pol.idPoliza = Solicitudes.idPoliza')
 			->where("$where")
                         ->fetch();    
 			return $q['cuenta']; 			
