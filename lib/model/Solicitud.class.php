@@ -137,7 +137,7 @@
 			//echo $column_order;die;
                         $ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Solicitudes
-			->select("*,Solicitudes.idSolicitud as idSolicitud,DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y') as TimeFin,DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') as TimeOpen")
+			->select("*,Solicitudes.idSolicitud as idSolicitud,DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y') as TimeFin,DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') as TimeOpen,DATE_FORMAT(LastStatusSolicitud, '%d/%m/%Y %H:%i:%s') as LastStatusSolicitud,DATE_FORMAT(LastStatusGrua, '%d/%m/%Y %H:%i:%s') as LastStatusGrua")
 			->join('Servicios','LEFT JOIN Servicios ser ON ser.idSolicitud = Solicitudes.idSolicitud')
             ->join('Polizas','INNER JOIN Polizas pol ON pol.idPoliza = Solicitudes.idPoliza')
             ->order("$column_order $order")
@@ -156,7 +156,7 @@
 				$str = $values['search']['value'];
 				$where.=" ";
 			}
-                        $ConnectionAws = new ConnectionAws();
+            $ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Solicitudes
 			->select("count(*) as cuenta")
 			->join('Servicios','LEFT JOIN Servicios ser ON ser.idSolicitud = Solicitudes.idSolicitud')
@@ -165,6 +165,26 @@
                         ->fetch();    
 			return $q['cuenta']; 			
 		}
-		
+		function updateStatusDesierto($values){			
+
+ 			$idSolicitud =  $values['idsolicitud'];
+			$array_solicitud = array(
+				'Estatus' => 'Desierto'
+			);
+			
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Solicitudes("idSolicitud", $idSolicitud)->update($array_solicitud);
+			return $q;
+			
+		}
+		public function getGruerosOnline(){
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Gruas
+			->select("*")
+			->join("Grueros","INNER JOIN Grueros on Grueros.idGrua = Gruas.idGrua")	
+			->where("Disponible=?","SI");
+			return $q; 				
+			
+		}		
 	}
 	

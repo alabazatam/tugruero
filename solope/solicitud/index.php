@@ -23,8 +23,14 @@ $values = $_REQUEST;
 			executeEdit($values);	
 		break;
 		case "list_json":
-                    executeListJson($values);	
-		break;		
+            executeListJson($values);	
+		break;
+		case "livemap":
+            executeLivemap($values);	
+		break;
+		case "json_test":
+            executeJsonTest($values);	
+		break;	
 		default:
 			executeIndex($values);
 		break;
@@ -51,13 +57,29 @@ $values = $_REQUEST;
 				
 
 				$end_time = date(gmdate('d/m/Y H:i:s', time() - (4 * 3600)));
-				$start_time = $list['timeopen'];
+				$start_time = $list['laststatussolicitud'];
 				$minutos_transcurridos = $Utilitarios->calcula_tiempo_minutos($start_time, $end_time);
 				$status_desierto = 0;
+				$retardo_activo_activo  = 0;
 				//echo $minutos_transcurridos;die;
-				if($minutos_transcurridos>1 and $list['estatus'] == 'Localizando')
+				if(($minutos_transcurridos >=2 or $list['numgruas'] == 0)  and ($list['estatus'] == 'Localizando' and $list['proviene'] == 'WEB'))
 				{
-					$status_desierto = 1;
+					
+					//actualizar a status desierto
+					$Solicitud->updateStatusDesierto($list);
+					$list['estatus'];
+					//$status_desierto = 1;
+				}
+				//valido que el tiempo de encontrar el gruero al cliente no sea mayor a 20 minutos
+				if($list['estatuscliente']=='Activo' and $list['estatusgrua']=='Activo')
+				{
+					$start_time = $list['laststatusgrua'];
+					$minutos_transcurridos_retardo = $Utilitarios->calcula_tiempo_minutos($start_time, $end_time);
+					if($minutos_transcurridos_retardo >=20)
+					{
+						$retardo_activo_activo = 1;
+					}
+					
 				}
 				//echo $minutos;die;
 				$idSolicitud = $list['idsolicitud'];
@@ -74,6 +96,7 @@ $values = $_REQUEST;
 					"TimeOpen" => $list['timeopen'],
                     "TimeInicio" => $list['timeinicio'],
 					"StatusDesierto" => $status_desierto,
+					"RetardoActivoActivo" => $retardo_activo_activo,
 					
 					"actions" => 
                                        '<form method="POST" action = "'.full_url.'/solope/solicitud/index.php" >'
@@ -86,7 +109,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("idSolicitud"=>null,"idPoliza"=>"","Origen"=>"","Cedula"=>"","Placa"=>"","EstatusSolicitud"=>"","EstatusCliente"=>"","EstatusGrua"=>"","TimeOpen"=>'',"TimeInicio"=>"","StatusDesierto"=>'',"actions"=>"");
+			$array_json['data'][0] = array("idSolicitud"=>null,"idPoliza"=>"","Origen"=>"","Cedula"=>"","Placa"=>"","EstatusSolicitud"=>"","EstatusCliente"=>"","EstatusGrua"=>"","TimeOpen"=>'',"TimeInicio"=>"","RetardoActivoActivo"=>'',"StatusDesierto"=>'',"actions"=>"");
 		}
 		echo json_encode($array_json);die;
 		
@@ -95,4 +118,39 @@ $values = $_REQUEST;
 	{
 		$values['action'] = 'add';
 		require('maps.php');
+	}
+	function executeLivemap($values)
+	{
+		require('livemap.php');
+	}
+	function executeJsonTest($values)
+	{
+		$arr = array ();
+		$Solicitud = new Solicitud();
+		
+		$grueros_online = $Solicitud->getGruerosOnline();
+		if(count($grueros_online)>0)
+		{
+			foreach($grueros_online as $online)
+			{	
+				$iconcolor = 'green';
+				$contentinfo = ''
+					. '<label>Cédula: </label> '.$online['cedula'].'<br>'
+					. '<label>Nombre y apellido: </label> '.$online['nombre'].' '.$online['apellido'].'<br>'
+					. '<label>Contacto: </label> '.$online['celular'].'<br>'
+					. '<label>Modelo: </label> '.$online['modelo'].'<br>'
+					. '<label>Placa: </label> '.$online['placa'].'<br>'
+					. '<label>Color: </label> '.$online['color'].'<br>'
+					
+					;
+				
+				
+				
+				
+				$arr[] = array("title"=>$online['nombre'],"lat"=>$online['latitud'],"lng"=>$online['longitud'],"description"=>"Prueba","contentinfo"=>$contentinfo,"iconcolor" => $iconcolor);
+			}
+			
+		}
+
+		echo json_encode($arr); // {"a":1,"b":2,"c":3,"d":4,"e":5}		
 	}
