@@ -53,44 +53,51 @@ html, body {
       // Australia.
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 7,
+		  mapTypeId: 'roadmap',
+          zoom: 8,
           center: {lat: 8.26626627608, lng: -66.010735441038}
         });
-		var line = new google.maps.Polyline({
-			path: [
-				new google.maps.LatLng(37.4419, -122.1419), 
-				new google.maps.LatLng(37.4519, -122.1519)
-			],
-			strokeColor: "#FF0000",
-			strokeOpacity: 1.0,
-			strokeWeight: 10,
-			map: map
-		});
-		$.getJSON("<?php echo full_url;?>/solope/solicitud/index.php?action=json_test", function(json1) {
-			$.each(json1, function(key, data) {
-				var latLng = new google.maps.LatLng(data.lat, data.lng); 
-				// Creating a marker and putting it on the map
-				var infowindow = new google.maps.InfoWindow({
-						content: data.contentinfo
-				});
 
-				var marker = new google.maps.Marker({
-					position: latLng,
-					icon: {
-					  path: google.maps.SymbolPath.CIRCLE,
-					  //path: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-					  fillColor: 'yellow',
-					  fillOpacity: 0.8,
-					  scale: 1,
-					  strokeColor: 'green',
-					  strokeWeight: 14,
-					},
-					map: map,
-					title: data.title,
-					label: "G"
-				});
-				marker.addListener('click', function() {
+		$.getJSON("<?php echo full_url;?>/solope/solicitud/index.php?action=json_solicitud_livemap&idSolicitud=<?php echo $values['idSolicitud'];?>", function(json1) {
+			$.each(json1, function(key, data) {
+				$.each(data, function(key, data) {
+					var latLng = new google.maps.LatLng(data.lat, data.lng); 
+					// Creating a marker and putting it on the map
+					var infowindow = new google.maps.InfoWindow({
+							content: data.contentinfo
+					});
+
+					var marker = new google.maps.Marker({
+						position: latLng,
+						icon: {
+						  path: google.maps.SymbolPath.CIRCLE,
+						  //path: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+						  fillColor: 'yellow',
+						  fillOpacity: 0.8,
+						  scale: 1,
+						  strokeColor: data.iconcolor,
+						  strokeWeight: 14,
+						},
+						map: map,
+						title: data.title,
+						label: data.label,
+					});
+					if(data.id != 0)
+					{
 					infowindow.open(map, marker);
+						marker.addListener('click', function() {
+							infowindow.open(map, marker);
+						});						
+					}
+					if(data.id == 0)
+					{
+						var center = new google.maps.LatLng(data.latCenter, data.lngCenter);
+						//alert(center);
+						// using global variable:
+						map.panTo(center);
+					}
+
+
 				});
 
 			});

@@ -30,6 +30,12 @@ $values = $_REQUEST;
 		break;
 		case "json_test":
             executeJsonTest($values);	
+		break;
+		case "solicitud_livemap":
+            executeSolicitudLivemap($values);	
+		break;
+		case "json_solicitud_livemap":
+            executeJsonSolicitudLivemap($values);	
 		break;	
 		default:
 			executeIndex($values);
@@ -153,4 +159,64 @@ $values = $_REQUEST;
 		}
 
 		echo json_encode($arr); // {"a":1,"b":2,"c":3,"d":4,"e":5}		
+	}
+	function executeSolicitudLivemap($values)
+	{
+		require('solicitudlivemap.php');
+	}
+	function executeJsonSolicitudLivemap($values)
+	{
+		//$values['idSolicitud'] = 218;
+		$idSolicitud = $values['idSolicitud'];
+		$Solicitud = new Solicitud();
+		$data = $Solicitud->getDatosSolicitud($values);
+		
+		$arr = array (array());
+		$iconcolor = 'green';
+		
+		
+		if(isset($data['idsolicitud']) and $data['idsolicitud']!='')
+		{
+			$latOrigen = $data['latorigen'];
+			$lngOrigen = $data['lngorigen'];
+			$latDestino = $data['latdestino'];
+			$lngDestino = $data['lngdestino'];
+			$latGrua = $data['latgrua'];
+			$lngGrua = $data['lnggrua'];
+			
+				//centrar mapa
+			
+				$arr[0][0] = array("id"=>"0","latCenter"=>"$latOrigen","lngCenter"=>"$lngOrigen");
+			
+				//Cliente
+				
+				$arr[0][1] = array(
+					"id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"C","title"=>'Cliente',"lat"=>$latOrigen,"lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Cliente","iconcolor" => "red");
+				//Destino
+				$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Destino","iconcolor" => "blue");	
+				//Gruero
+				
+				if($data['estatusgrua']!='' or $data['estatusgrua']!=null)
+				{
+					$arr[0][3] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latGrua","lng"=>$lngGrua,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Gruero ","iconcolor" => "green");			
+				}
+				//El gruero llegó al lugar del cliente y se convierten en un solo circulo
+				if(isset($data['estatusgrua']) and ($data['estatusgrua'] == 'Asistiendo' ))
+				{
+					unset($arr[0][1],$arr[0][3]);
+					$arr[0][3] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latGrua","lng"=>$lngGrua,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Gruero ","iconcolor" => "yellow");			
+
+				}
+				//el gruero llegó al destino y el cliente lleno la encuesta
+				
+				if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Completado' ))
+				{
+					unset($arr[0][1],$arr[0][3]);
+					$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Destino","iconcolor" => "blue");	
+
+				}
+
+				echo json_encode($arr); // {"a":1,"b":2,"c":3,"d":4,"e":5}				
+		}
+	
 	}

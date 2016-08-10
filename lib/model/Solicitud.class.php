@@ -185,6 +185,19 @@
 			->where("Disponible=?","SI");
 			return $q; 				
 			
+		}
+		public function getDatosSolicitud($values){
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Solicitudes
+			->select("*,Solicitudes.idSolicitud as idSolicitud,Gruas.Latitud as latGrua,Gruas.Longitud as lngGrua")
+			->join("Servicios","LEFT JOIN Servicios on Servicios.idSolicitud = Solicitudes.idSolicitud")	
+			->join("Grueros","LEFT JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
+			->join("Gruas","LEFT JOIN Gruas on Gruas.idGrua = Grueros.idGrua")	
+			->where("Solicitudes.idSolicitud=?",$values['idSolicitud'])
+			//->and("Gruas.Disponible=?","NO")
+			->fetch();
+			return $q; 				
+			
 		}		
 	}
 	
