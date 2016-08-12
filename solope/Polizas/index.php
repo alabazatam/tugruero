@@ -145,7 +145,7 @@ $values = array_merge($values,$_FILES);
 							   //abrimos condición, solo entrará en la condición a partir de la segunda pasada del bucle.
 							   /* La funcion explode nos ayuda a delimitar los campos, por lo tanto irá 
 							   leyendo hasta que encuentre un ; */
-							   $datos = explode(",",$linea);
+							   $datos = explode(";",$linea);
 
 							   //Almacenamos los datos que vamos leyendo en una variable
 							   $seguro = trim($datos[0]);
@@ -157,11 +157,12 @@ $values = array_merge($values,$_FILES);
 							   $direccion = trim($datos[6]);
 							   $marca = trim($datos[7]);
 							   $modelo = trim($datos[8]);
-							   $anio = trim($datos[9]);
-							   $placa = trim($datos[10]);
-							   $serialcarroceria = trim($datos[11]);
-							   $vencimiento = trim($datos[12]);
-							   $estado = trim($datos[13]);
+							   $color = trim($datos[9]);
+							   $anio = trim($datos[10]);
+							   $placa = trim($datos[11]);
+							   $serialcarroceria = trim($datos[12]);
+							   $vencimiento = trim($datos[13]);
+							   $estado = trim($datos[14]);
 							   if(!isset($seguro) or $seguro == "")
 							   {
 								   $arreglo_errores[$i] = "error en seguro fila[$i]";
@@ -194,8 +195,9 @@ $values = array_merge($values,$_FILES);
 							   }
 							   if(!isset($direccion) or $direccion == "")
 							   {
+								   $direccion = "N/A";
 								   $arreglo_errores[$i] = "error en direccion fila[$i]";
-								   $valid = false;
+								   //$valid = false;
 							   }
 							   if(!isset($marca) or $marca == "")
 							   {
@@ -207,18 +209,26 @@ $values = array_merge($values,$_FILES);
 								   $arreglo_errores[$i] = "error en modelo fila[$i]";
 								   $valid = false;
 							   }
+							   if(!isset($color) or $color == "")
+							   {
+								   $arreglo_errores[$i] = "error en color fila[$i]";
+								   $valid = false;
+							   }
 							   if(!isset($anio) or $anio == "")
 							   {
+								   $anio = 'NA';
 								   $arreglo_errores[$i] = "error en anio fila[$i]";
-								   $valid = false;
+								   //$valid = false;
 							   }
 							   if(!isset($placa) or $placa == "")
 							   {
+								   $placa = "N/A";
 								   $arreglo_errores[$i] = "error en placa fila[$i]";
 								   $valid = false;
 							   }
 							   if(!isset($serialcarroceria) or $serialcarroceria == "")
 							   {
+								   $serialcarroceria = 'N/A';
 								   $arreglo_errores[$i] = "error en serialcarroceria fila[$i]";
 								   $valid = false;
 							   }
@@ -242,6 +252,7 @@ $values = array_merge($values,$_FILES);
 								"direccion" => $direccion,
 								"marca" => $marca,
 								"modelo" => $modelo,
+								"color"=> $color,
 								"anio" => $anio,
 								"placa" => $placa,
 								"serialcarroceria" => $serialcarroceria,
