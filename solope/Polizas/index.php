@@ -243,21 +243,21 @@ $values = array_merge($values,$_FILES);
 								   $valid = false;
 							   }
 							$array[$i] = array(
-								"seguro" => $seguro,
-								"numpoliza" => $numpoliza,
-								"nacionalidad" => $nacionalidad,
-								"cedula" => $cedula,
-								"nombres" => $nombres,
-								"apellidos" => $apellidos,
-								"direccion" => $direccion,
-								"marca" => $marca,
-								"modelo" => $modelo,
-								"color"=> $color,
-								"anio" => $anio,
-								"placa" => $placa,
-								"serialcarroceria" => $serialcarroceria,
-								"vencimiento" => $vencimiento,
-								"estado" => $estado,
+								"Seguro" => $seguro,
+								"NumPoliza" => $numpoliza,
+								//"Nacionalidad" => $nacionalidad,
+								"Cedula" => $nacionalidad."-".$cedula,
+								"Nombre" => $nombres,
+								"Apellido" => $apellidos,
+								"Domicilio" => $direccion,
+								"Marca" => $marca,
+								"Modelo" => $modelo,
+								"Color"=> $color,
+								"Año" => $anio,
+								"Placa" => $placa,
+								//"serialcarroceria" => $serialcarroceria,
+								"Vencimiento" => $vencimiento,
+								"DireccionEdo" => $estado,
 								);  
 								/*if($valid == true)
 								{
@@ -284,6 +284,15 @@ $values = array_merge($values,$_FILES);
 			}
 			if($valid == true)
 			{
+				$Polizas = new Polizas();
+
+				//echo "listo";die;
+				foreach($array as $arr)
+				{
+					//print_r($arr);die;
+					$Polizas->insertPoliza($arr);
+					//echo $array['numpoliza']."<br>";
+				}
 				$values["msg"] = "Datos cargados satisfactoriamente";
 			}else
 			{

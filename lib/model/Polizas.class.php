@@ -258,6 +258,17 @@
 			->where("users_Polizas_company.id_Polizas=?",$values['idPoliza'])->fetch();
 			return $q; 				
 			
-		}		
+		}
+		
+		public function insertPoliza($array){
+			//print_r($array);die;
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Polizas()->insert($array);			
+		}
+		public function updatePoliza($array){
+			//print_r($array);die;
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Polizas()->insert($array);			
+		}
 	}
 	
