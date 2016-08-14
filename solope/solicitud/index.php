@@ -37,6 +37,12 @@ $values = $_REQUEST;
 		case "json_solicitud_livemap":
             executeJsonSolicitudLivemap($values);	
 		break;	
+		case "bitacora_list":
+            executeBitacoraList($values);	
+		break;
+		case "save_bitacora":
+            executeSaveBitacora($values);	
+		break;	
 		default:
 			executeIndex($values);
 		break;
@@ -51,6 +57,7 @@ $values = $_REQUEST;
 	{	
 		$Utilitarios = new Utilitarios();
 		$Solicitud = new Solicitud();
+                $Bitacora = new Bitacora();
 		$list_json = $Solicitud ->getSolicitudesActivasList($values);
 		$list_json_cuenta = $Solicitud ->getCountSolicitudesActivasList($values);
 		$array_json = array();
@@ -61,7 +68,6 @@ $values = $_REQUEST;
 			foreach ($list_json as $list) 
 			{
 				
-
 				$end_time = date(gmdate('d/m/Y H:i:s', time() - (4 * 3600)));
 				$start_time = $list['laststatussolicitud'];
 				$minutos_transcurridos = $Utilitarios->calcula_tiempo_minutos($start_time, $end_time);
@@ -88,8 +94,11 @@ $values = $_REQUEST;
 					
 				}
 				//echo $minutos;die;
+                                
 				$idSolicitud = $list['idsolicitud'];
 				$idPoliza = $list['idpoliza'];
+                                $count_bitacora = $Bitacora->getCountBitacoraByIdSolicitud($idSolicitud);
+
 				$array_json['data'][] = array(
 					"idSolicitud" => $idSolicitud,
 					"idPoliza" => $list['idpoliza'],
@@ -108,7 +117,9 @@ $values = $_REQUEST;
                                        '<form method="POST" action = "'.full_url.'/solope/solicitud/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
                                        .'<input type="hidden" name="idSolicitud" value="'.$idSolicitud.'">  '
+                                       
                                        .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
+                                        .'<a class="badge" title="Agregar/Ver bitácora" onclick="addBitacora('.$idSolicitud.')">'.$count_bitacora.'</a>'
                                         .'</form>'
 					);	
 			}		
@@ -219,4 +230,17 @@ $values = $_REQUEST;
 				echo json_encode($arr); // {"a":1,"b":2,"c":3,"d":4,"e":5}				
 		}
 	
+	}
+	function executeBitacoraList($values)
+	{
+            $Bitacora = new Bitacora();
+            $data_list = $Bitacora->getBitacoraList($values);
+            require('bitacora_list.php');
+	}
+	function executeSaveBitacora($values)
+	{
+            $Bitacora = new Bitacora();
+            $Bitacora->insertBitacora($values);
+            die;
+            //require('bitacora_list.php');
 	}

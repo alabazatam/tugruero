@@ -2,18 +2,19 @@
 <?php //include('../menu.php')?>
 
 	<h1 class="text-center">Solicitudes/Servicios Activos</h1>
-	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
+
+        <table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
             <thead>
                     <tr>
                         <th>IdSolicitud/Servicio</th>
                         <th>IdPoliza</th>
-						<th>Origen</th>
+			<th>Origen</th>
                         <th>Cedula</th>
                         <th>Placa</th>
                         <th>Status solicitud</th>
                         <th>Status cliente</th>
                         <th>Status gruero</th>
-						<th>Abierto</th>
+			<th>Abierto</th>
                         <th>Inicio</th>						
                         <th>Detalle</th>
                     </tr>
@@ -34,7 +35,10 @@
                     </tr>
             </tfoot>
         </table>
-	<?php include('../../view_footer.php')?>
+        <div class="col-sm-12" id="toogles">
+            
+        </div>
+	<?php include('../../view_footer_solicitud.php')?>
 <script>
 
 	
@@ -43,7 +47,7 @@ $(document).ready(function() {
 		var title = $('#example thead th').eq( $(this).index() ).text();
 		
 		if(title != 'Detalle')
-		{
+		{       $('#toogles').append('- <a class="btn btn-success toggle-vis" data-column="'+$(this).index()+'">'+title+'</a>' );
 			$(this).html( '<input size="10" class="input-sm" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
 		}
 		if(title == 'Detalle')
@@ -152,7 +156,16 @@ $('#column_8').on ('keypress', function(e){
 setInterval( function () {
     table.ajax.reload();
 },10000 );
-
+    
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+ 
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+ 
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
 } );
 
    
@@ -165,4 +178,40 @@ function beep() {
 //beep();
 
 
+</script>
+<script>
+    function addBitacora(idSolicitud){
+        //alert(idSolicitud);
+	$.ajax({
+		type: "GET",
+		url: '<?php echo full_url;?>/solope/solicitud/index.php',
+		data: { action: "bitacora_list", idSolicitud: idSolicitud},
+		success: function(html){
+			$('.modal-body').html(html);
+			$('.modal-title').html('Bitácora');
+			$('#myModal').modal('show');
+		}
+	});
+    }
+    function saveBitacora(){
+       var data_form = $("#bitacoraForm").serializeArray();
+       if(data_form[1].value == '')
+       {
+           alert('La observación no puede estar vacía');
+       }else
+       {
+            $.ajax({
+                    type: "POST",
+                    url: '<?php echo full_url;?>/solope/solicitud/index.php?action=save_bitacora',
+                    data: data_form,
+                    success: function(html){
+                        $('.modal-body').html('<div class="alert alert-success" role="alert">Registro creado satisfactoriamente</div>');
+                        $('.modal-title').html('');
+                        $('#myModal').modal('show');
+                    }
+            });           
+       }
+
+            
+    }
 </script>
