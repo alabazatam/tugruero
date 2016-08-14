@@ -153,28 +153,28 @@
                         <div class="col-sm-3">
                             <label for="">Placa</label>
                             <div class="input-group">
-								<input autocomplete="off"  type="text" id="Placa" class="form-control input-sm" name="Placa" maxlength="50" value="<?php if(isset($values['Placa'])) echo $values['Placa']?>">
+								<input autocomplete="off"  type="text" id="Placa" class="form-control input-sm" name="Placa" maxlength="8" value="<?php if(isset($values['Placa'])) echo $values['Placa']?>">
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>
                         <div class="col-sm-3">
                             <label for="">Marca</label>
                             <div class="input-group">
-                                    <input autocomplete="off"  type="text" id="" class="form-control input-sm" name="Marca" maxlength="50" value="<?php if(isset($values['Marca'])) echo $values['Marca']?>">
+                                    <input autocomplete="off"  type="text" id="" class="form-control input-sm" name="Marca" maxlength="20" value="<?php if(isset($values['Marca'])) echo $values['Marca']?>">
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>
                         <div class="col-sm-3">
                             <label for="">Modelo</label>
                             <div class="input-group">
-                                    <input autocomplete="off"  type="text" id="Modelo" class="form-control input-sm" name="Modelo" maxlength="50" value="<?php if(isset($values['Modelo'])) echo $values['Modelo']?>">
+                                    <input autocomplete="off"  type="text" id="Modelo" class="form-control input-sm" name="Modelo" maxlength="20" value="<?php if(isset($values['Modelo'])) echo $values['Modelo']?>">
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>
                         <div class="col-sm-3">
                             <label for="">Año</label>
                             <div class="input-group">
-                                    <input autocomplete="off"  type="text" id="Año" class="form-control input-sm" name="Año" maxlength="50" value="<?php if(isset($values['Año'])) echo $values['Año']?>">
+									<input autocomplete="off"  type="text" id="Año" class="form-control input-sm" pattern="[0-9]{4,4}" oninvalid="setCustomValidity('El campo admite solo números y debe contener 4 digitos')" oninput="setCustomValidity('')"  name="Año" maxlength="4" min="4" value="<?php if(isset($values['Año'])) echo $values['Año']?>">
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>
@@ -183,14 +183,14 @@
                         <div class="col-sm-4">
                             <label for="">Color</label>
                             <div class="input-group">
-                                    <input autocomplete="off" type="text" id="Color" class="form-control input-sm" name="Color" maxlength="50"  value="<?php if(isset($values['Color'])) echo $values['Color']?>">
+                                    <input autocomplete="off" type="text" id="Color" class="form-control input-sm" name="Color" maxlength="15"  value="<?php if(isset($values['Color'])) echo $values['Color']?>">
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>
                         <div class="col-sm-4">
                             <label for="">Tipo</label>
                             <div class="input-group">
-                                    <input autocomplete="off" type="text" id="Tipo" class="form-control input-sm" name="Tipo" maxlength="50"  value="<?php if(isset($values['Tipo'])) echo $values['Tipo']?>">
+                                    <input autocomplete="off" type="text" id="Tipo" class="form-control input-sm" name="Tipo" maxlength="40"  value="<?php if(isset($values['Tipo'])) echo $values['Tipo']?>">
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
                             </div> 
                         </div>

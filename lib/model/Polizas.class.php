@@ -164,6 +164,23 @@
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Polizas()->insert($array_poliza);
 			$values['idPoliza'] = $ConnectionORM->getConnect()->Polizas()->insert_id();
+			$array_poliza['idPoliza'] = $values['idPoliza'];
+			//preparo datos para el AWS
+			unset(
+				$array_poliza['date_created'],
+				$array_poliza['date_updated'],
+				$array_poliza['NumPoliza'],
+				$array_poliza['DireccionFiscal'],
+				$array_poliza['Domicilio'],
+				$array_poliza['Serial'],
+				$array_poliza['created_by'],
+				$array_poliza['updated_by']			
+				);
+			//inserto en aws 
+			$ConnectionAws= new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Polizas()->insert($array_poliza);			
+			
+			
 			return $values;	
 			
 		}
@@ -202,6 +219,26 @@
 			$idPoliza = $values['idPoliza'];
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Polizas("idPoliza", $idPoliza)->update($array_poliza);
+			
+			//preparo datos para el AWS
+			unset(
+				$array_poliza['date_created'],
+				$array_poliza['date_updated'],
+				$array_poliza['NumPoliza'],
+				$array_poliza['DireccionFiscal'],
+				$array_poliza['Domicilio'],
+				$array_poliza['Serial'],
+				$array_poliza['created_by'],
+				$array_poliza['updated_by']			
+				);
+			//actualizo en aws 
+			$ConnectionAws= new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Polizas("idPoliza", $idPoliza)->update($array_poliza);			
+			
+			
+			
+			
+			
 			return $q;
 			
 		}
