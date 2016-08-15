@@ -42,6 +42,9 @@ $values = $_REQUEST;
 		break;
 		case "save_bitacora":
             executeSaveBitacora($values);	
+		break;
+		case "simulador_view":
+            executeSimuladorView($values);	
 		break;	
 		default:
 			executeIndex($values);
@@ -114,13 +117,14 @@ $values = $_REQUEST;
 					"RetardoActivoActivo" => $retardo_activo_activo,
 					
 					"actions" => 
-                                       '<form method="POST" action = "'.full_url.'/solope/solicitud/index.php" >'
-                                       .'<input type="hidden" name="action" value="edit">  '
-                                       .'<input type="hidden" name="idSolicitud" value="'.$idSolicitud.'">  '
+										'<form method="POST" action = "'.full_url.'/solope/solicitud/index.php" >'
+										.'<input type="hidden" name="action" value="edit">  '
+										.'<input type="hidden" name="idSolicitud" value="'.$idSolicitud.'">  '
                                        
-                                       .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
-                                        .'<a class="badge" title="Agregar/Ver bitácora" onclick="addBitacora('.$idSolicitud.')">'.$count_bitacora.'</a>'
-                                        .'</form>'
+										.'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
+                                       .' <a href="'.full_url.'/solope/solicitud/index.php?action=simulador_view&idSolicitud='.$idSolicitud.'" class="btn btn-default btn-sm" title="Simulador de servicio"><i class="fa fa-headphones  fa-pull-left fa-border"></i></a>'
+										.' <a class="badge" title="Agregar/Ver bitácora" onclick="addBitacora('.$idSolicitud.')">'.$count_bitacora.'</a>'
+										.'</form>'
 					);	
 			}		
 		}else{
@@ -243,4 +247,10 @@ $values = $_REQUEST;
             $Bitacora->insertBitacora($values);
             die;
             //require('bitacora_list.php');
+	}
+	function executeSimuladorView($values)
+	{
+			$Solicitud = new Solicitud();
+			$data = $Solicitud->getDatosSolicitud($values);
+            require('simulador_view.php');
 	}

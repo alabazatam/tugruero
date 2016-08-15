@@ -62,7 +62,7 @@ $(document).ready(function() {
         "scrollX": true,
         "processing": true,
         "serverSide": true,
-		"cache": false,
+		//"cache": false,
         "ajax": "<?php echo full_url."/solope/solicitud/index.php?action=list_json"?>",
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
@@ -155,7 +155,7 @@ $('#column_8').on ('keypress', function(e){
 	});
 setInterval( function () {
     table.ajax.reload();
-},10000 );
+},1000000000 );
     
     $('a.toggle-vis').on( 'click', function (e) {
         e.preventDefault();
