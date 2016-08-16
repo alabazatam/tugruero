@@ -189,7 +189,7 @@
 		public function getDatosSolicitud($values){
 			$ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Solicitudes
-			->select("*,Solicitudes.idSolicitud as idSolicitud,Gruas.Latitud as latGrua,Gruas.Longitud as lngGrua")
+			->select("*,Solicitudes.idSolicitud as idSolicitud,Gruas.Latitud as latGrua,Gruas.Longitud as lngGrua,Solicitudes.idPoliza as idPoliza")
 			->join("Servicios","LEFT JOIN Servicios on Servicios.idSolicitud = Solicitudes.idSolicitud")	
 			->join("Grueros","LEFT JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
 			->join("Gruas","LEFT JOIN Gruas on Gruas.idGrua = Grueros.idGrua")	
@@ -198,6 +198,60 @@
 			->fetch();
 			return $q; 				
 			
-		}		
+		}
+		public function updateEstatusSolicitud($values){
+			
+			$idSolicitud = $values['idSolicitud'];
+			$array_solicitud = array(
+				"Estatus" => $values['estatus_cambiar']
+			);
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Solicitudes("idSolicitud", $idSolicitud)->update($array_solicitud);
+			return $q;			
+			
+		}
+		public function updateEstatusServicioCliente($values){
+			
+			$idSolicitud = $values['idSolicitud'];
+			$array_solicitud = array(
+				"EstatusCliente" => $values['estatuscliente_cambiar']
+			);
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Servicios("idSolicitud", $idSolicitud)->update($array_solicitud);
+			return $q;			
+			
+		}
+		public function updateEstatusServicioGrua($values){
+			
+			$idSolicitud = $values['idSolicitud'];
+			$array_solicitud = array(
+				"EstatusGrua" => $values['estatusgrua_cambiar']
+			);
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Servicios("idSolicitud", $idSolicitud)->update($array_solicitud);
+			return $q;			
+			
+		}
+		public function insertServicio($values){
+			$hora = date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)));
+			$idSolicitud = $values['idSolicitud'];
+			$array = array(
+				"idSolicitud" => $idSolicitud,
+				"idPoliza" => $values['idPoliza'],
+				"idGrua" => $values['idGrua'],
+				"TimeInicio" => $hora
+				
+			);
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Servicios()->insert($array);
+
+
+			//actualizo el status de la solicitud a asignado
+			$array_solicitud = array(
+				"Estatus" => "Asignado"
+			);			
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Solicitudes("idSolicitud", $idSolicitud)->update($array_solicitud);
+		}
 	}
 	

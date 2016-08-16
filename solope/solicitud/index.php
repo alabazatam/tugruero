@@ -251,6 +251,37 @@ $values = $_REQUEST;
 	function executeSimuladorView($values)
 	{
 			$Solicitud = new Solicitud();
+			
+			
+			if(isset($values['ind']) and $values['ind']==1)//ind = 1 significa cambio de estatus en todas las tablas
+			{
+				//echo $values['idSolicitud'];die;
+				if(isset($values['estatus']) and isset($values['estatus_cambiar']))
+				{
+					//cambio de estatus en la solicitud
+					$Solicitud->updateEstatusSolicitud($values);
+				}
+				if(isset($values['estatuscliente']) and isset($values['estatuscliente']))
+				{
+					//cambio de estatus en la solicitud
+					$Solicitud->updateEstatusServicioCliente($values);
+				}
+				if(isset($values['estatusgrua']) and isset($values['estatusgrua_cambiar']))
+				{
+					//cambio de estatus en la solicitud
+					$Solicitud->updateEstatusServicioGrua($values);
+				}				
+			}
+			if(isset($values['ind']) and $values['ind']==2)//ind = 2 significa creación de servicio
+			{
+				if(isset($values['idPoliza']) and isset($values['idSolicitud']) and isset($values['idGrua']))
+				{
+					
+					//genero el servicio
+					$Solicitud->insertServicio($values);
+				}			
+			}			
+			
 			$data = $Solicitud->getDatosSolicitud($values);
             require('simulador_view.php');
 	}
