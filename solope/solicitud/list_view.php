@@ -35,6 +35,8 @@
                     </tr>
             </tfoot>
         </table>
+	<a class="btn btn-default"  href="<?php echo full_url."/solope/Polizas/index.php"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Generar Solicitud</a>
+
         <div class="col-sm-12" id="toogles">
             
         </div>
@@ -155,7 +157,7 @@ $('#column_8').on ('keypress', function(e){
 	});
 setInterval( function () {
     table.ajax.reload();
-},1000000000 );
+},10000 );
     
     $('a.toggle-vis').on( 'click', function (e) {
         e.preventDefault();

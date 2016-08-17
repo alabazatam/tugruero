@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-content">
-        <div class="container">;
+        <div class="container">
           <div class="modal-header">
             <h3 class="modal-title" id="myModalLabel"></h3>
           </div>

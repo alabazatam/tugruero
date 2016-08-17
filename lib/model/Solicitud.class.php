@@ -137,7 +137,7 @@
 			//echo $column_order;die;
                         $ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Solicitudes
-			->select("*,Solicitudes.idSolicitud as idSolicitud,DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y') as TimeFin,DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') as TimeOpen,DATE_FORMAT(LastStatusSolicitud, '%d/%m/%Y %H:%i:%s') as LastStatusSolicitud,DATE_FORMAT(LastStatusGrua, '%d/%m/%Y %H:%i:%s') as LastStatusGrua")
+			->select("*,Solicitudes.idSolicitud as idSolicitud,DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y') as TimeFin,DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') as TimeOpen,DATE_FORMAT(LastStatusSolicitud, '%d/%m/%Y %H:%i:%s') as LastStatusSolicitud,DATE_FORMAT(LastStatusSolicitud, '%d-%m-%Y %H:%i:%s') as LastStatusSolicitudn,DATE_FORMAT(LastStatusGrua, '%d/%m/%Y %H:%i:%s') as LastStatusGrua,DATE_FORMAT(LastStatusGrua, '%d-%m-%Y %H:%i:%s') as LastStatusGruan")
 			->join('Servicios','LEFT JOIN Servicios ser ON ser.idSolicitud = Solicitudes.idSolicitud')
             ->join('Polizas','INNER JOIN Polizas pol ON pol.idPoliza = Solicitudes.idPoliza')
             ->order("$column_order $order")
