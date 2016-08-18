@@ -48,6 +48,12 @@ $values = $_REQUEST;
 		break;
 		case "gruero_select":
             executeGrueroSelect($values);	
+		break;
+		case "gruero_select_datatable_index":
+            executeGrueroSelectDatatableIndex($values);	
+		break;	
+		case "gruero_select_datatable":
+            executeGrueroSelectDatatable($values);	
 		break;	
 		default:
 			executeIndex($values);
@@ -296,3 +302,46 @@ $values = $_REQUEST;
 		$data = $Solicitud->getDatosSolicitud($values);
 		require('gruero_select.php');
 	}
+	function executeGrueroSelectDatatableIndex($values)
+	{	
+		
+		require('gruero_select_datatable.php');
+	}
+	function executeGrueroSelectDatatable($values)
+	{
+		$Solicitud = new Solicitud();
+		$list_json = $Solicitud ->getGruerosList($values);
+		$list_json_cuenta = $Solicitud ->getCountGruerosList($values);
+		$array_json = array();
+		$array_json['recordsTotal'] = $list_json_cuenta;
+		$array_json['recordsFiltered'] = $list_json_cuenta;
+		if(count($list_json)>0)
+		{
+			foreach ($list_json as $list) 
+			{
+				//echo $minutos;die;
+                                
+				$idGrua = $list['idgrua'];
+
+				$array_json['data'][] = array(
+					"idGrua" => $idGrua,
+					"Cedula" => $list['cedula'],
+					"Nombre" => $list['nombre'],
+					"Apellido" => $list['apellido'],
+					"Placa" => $list['placa'],
+					"Modelo" => $list['modelo'],
+					"Color" => $list['color'],
+					"Celular" => $list['celular'],
+					"Disponible" => $list['disponible'],				
+					"actions" => '<a class="btn" title="Seleccionar gruero" onclick='."'".'seleccionarGruero('.$idGrua.',"'.$list['nombre'].'","'.$list['apellido'].'","'.$list['cedula'].'","'.$list['placa'].'","'.$list['modelo'].'","'.$list['color'].'","'.$list['celular'].'"'.")'".'><i class="fa fa-check  fa-pull-left fa-border text-success"></i></a>'
+					//"actions" => '<a title="Seleccionar gruero" onclick=seleccionarGruero('.$idGrua.',"dsdsd","sdsdsd","sdsd","sdsdsddddd","ddddddd","ddddd")><i class="fa fa-check  fa-pull-left fa-border text-success"></i></a>'
+
+					);	
+			}		
+		}else{
+			$array_json['recordsTotal'] = 0;
+			$array_json['recordsFiltered'] = 0;
+			$array_json['data'][0] = array("idGrua"=>null,"Cedula"=>"","Nombre"=>"","Apellido"=>"","Placa"=>"","Modelo"=>"","Color"=>"","Celular"=>"","Disponible"=>"","actions"=>"");
+		}
+		echo json_encode($array_json);die;		
+	}	

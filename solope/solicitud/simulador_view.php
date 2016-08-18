@@ -200,6 +200,7 @@ $cambiar_a2_grua = "";
 									<input type="hidden" name="idGrua" id="idGrua" value="">
 										<?php if(isset($data['estatus']) and $data['estatus']=='Localizando'):?>
 									<a class="btn btn-info" onclick="grueroSelect();">Buscar grueros disponibles</a>
+									<a class="btn btn-info" onclick="grueroSelectDatatable();">Búsqueda general de grueros</a>
 											<input type="button" class="btn btn-default" name="crearServicio" id="crearServicio"  value="Aceptar solicitud">
 											
 										<?php endif;?>
@@ -467,7 +468,22 @@ function grueroSelect(){
 			});
 
 }
+function grueroSelectDatatable(){
+			var idSolicitud = $("#idSolicitud").val();
+			$('.modal-body').html('');
+			$.ajax({
+			  type: "POST",
+			  url: '<?php echo full_url?>/solope/solicitud/index.php',
+			  data: { action: "gruero_select_datatable_index", idSolicitud: idSolicitud},
+			  success: function(html){
+							
+							$('.modal-body').html(html);
+							$('#myModal').modal('show');
+			  },
+			  //dataType: dataType
+			});
 
+}
 </script>
 </div>
 
