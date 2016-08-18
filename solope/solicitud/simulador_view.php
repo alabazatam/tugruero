@@ -191,11 +191,17 @@ $cambiar_a2_grua = "";
 									<!--Parcial de gruero-->
 									<div class="col-sm-12 ">
 									<div class="col-sm-12 ">
+										
 									<!--Parcial de gruero-->
+									<div id="parcial_gruero">
+										
+									</div>
 									<?php if((!isset($data['estatusgrua']) or $data['estatusgrua']=='') and $data['estatus']=='Localizando'):?>
-									<input type="text" name="idGrua" id="idGrua" value="2">
+									<input type="hidden" name="idGrua" id="idGrua" value="">
 										<?php if(isset($data['estatus']) and $data['estatus']=='Localizando'):?>
+									<a class="btn btn-info" onclick="grueroSelect();">Buscar grueros disponibles</a>
 											<input type="button" class="btn btn-default" name="crearServicio" id="crearServicio"  value="Aceptar solicitud">
+											
 										<?php endif;?>
 									<?php endif;?>
 									</div>
@@ -280,21 +286,44 @@ $cambiar_a2_grua = "";
 				var idSolicitud = $('#idSolicitud').val();
 				var idPoliza = $('#idPoliza').val();
 				var idGrua = $('#idGrua').val();
-				//alert(idSolicitud + ' poliza' +idPoliza + 'grua ' + idGrua);
-				//return false;
+				if(idGrua == '')
+				{				
+					alert('Debe seleccionar un gruero');
+					return false;
+				}
+				
 				if(confirm("¿Está seguro(a) de crear el servicio para la solicitud #" + idSolicitud + "?"))
 				{
+					var arr = {
+						idSolicitud: idSolicitud,
+						idGrua: idGrua
+
+					};	
+					$.ajax({
+						type: "POST",
+						url: 'http://localhost/grueroapp/tomarSolicitud.php',
+						data: JSON.stringify(arr),
+						contentType: 'application/json; charset=utf-8',
+						async: false,
+						success: function(data){
+							//alert('ready');
+						},
+						crossDomain: true,
+						dataType: 'json',
+						success: function() { 
+						}
+					});
 					$.ajax({
 					  type: "POST",
 					  url: '<?php echo full_url?>/solope/solicitud/index.php',
-					  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "2",idPoliza: idPoliza,idGrua: idGrua},
+					  data: { action: "simulador_view",idSolicitud: idSolicitud},
 					  success: function(html){
-							$("#content_simulador").html(html);
-							$('.modal-body').html('<div class="alert alert-success" role="alert">Servicio creado satisfactoriamente</div>');
-							$('#myModalMessage').modal('show');
+										$("#content_simulador").html(html);
+										$('.modal-body').html('<div class="alert alert-success" role="alert">Servicio aceptado satisfactoriamente</div>');
+										$('#myModalMessage').modal('show');
 					  },
 					  //dataType: dataType
-					});	
+					});
 				}else
 				{
 					return false;
@@ -307,8 +336,6 @@ $cambiar_a2_grua = "";
 
 function cambiarStatusSolicitud(estatus,estatus_cambiar,idSolicitud){
 	
-	//alert(estatus_cambiar);
-		//$("#content_simulador").html('');
 	if(confirm("¿Está seguro(a) de cambiar el estatus de la solicitud #" + idSolicitud +" a " + estatus_cambiar + "?")){
 		$.ajax({
 		  type: "POST",
@@ -318,8 +345,7 @@ function cambiarStatusSolicitud(estatus,estatus_cambiar,idSolicitud){
 							$("#content_simulador").html(html);
 							$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
 							$('#myModalMessage').modal('show');
-		  },
-		  //dataType: dataType
+		  }
 		});					
 	}else{
 		return false;
@@ -329,8 +355,6 @@ function cambiarStatusSolicitud(estatus,estatus_cambiar,idSolicitud){
 }
 function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSolicitud){
 	
-	//alert(estatus_cambiar);
-		//$("#content_simulador").html('');
 		if(confirm("¿Está seguro(a) de cambiar el estatus del cliente en el servicio #" + idSolicitud +" a " + estatuscliente_cambiar + "?")){
 			
 			var TratoCordial = $('input:radio[name=TratoCordial]:checked').val();
@@ -359,8 +383,6 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 					},
 					crossDomain: true,
 					dataType: 'json',
-					//success: function() { alert("Success"); },
-					//error: function() { alert('Failed!'); },
 				});
 			}
 			if(estatuscliente_cambiar == 'Completado')//servicio completado
@@ -377,7 +399,6 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 				$.ajax({
 					type: "POST",
 					url: 'http://localhost/clienteapp/finalizarServicio.php',
-					//url: 'http://52.25.178.106/clienteapp/solicitudCliente.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
 					async: false,
@@ -386,8 +407,6 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 					},
 					crossDomain: true,
 					dataType: 'json',
-					//success: function() { alert("Success"); },
-					//error: function() { alert('Failed!'); },
 				});
 				
 				
@@ -415,8 +434,6 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 }
 function cambiarStatusServicioGrua(estatusgrua,estatusgrua_cambiar,idSolicitud){
 	
-	//alert(estatus_cambiar);
-		//$("#content_simulador").html('');
 		if(confirm("¿Está seguro(a) de cambiar el estatus del Gruero en el servicio #" + idSolicitud +" a " + estatusgrua_cambiar + "?")){
 			$.ajax({
 			  type: "POST",
@@ -433,6 +450,22 @@ function cambiarStatusServicioGrua(estatusgrua,estatusgrua_cambiar,idSolicitud){
 			return false;
 		}
 	
+}
+function grueroSelect(){
+			var idSolicitud = $("#idSolicitud").val();
+			$('.modal-body').html('');
+			$.ajax({
+			  type: "POST",
+			  url: '<?php echo full_url?>/solope/solicitud/index.php',
+			  data: { action: "gruero_select", idSolicitud: idSolicitud},
+			  success: function(html){
+							
+							$('.modal-body').html(html);
+							$('#myModal').modal('show');
+			  },
+			  //dataType: dataType
+			});
+
 }
 
 </script>

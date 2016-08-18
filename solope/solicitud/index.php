@@ -45,6 +45,9 @@ $values = $_REQUEST;
 		break;
 		case "simulador_view":
             executeSimuladorView($values);	
+		break;
+		case "gruero_select":
+            executeGrueroSelect($values);	
 		break;	
 		default:
 			executeIndex($values);
@@ -170,7 +173,7 @@ $values = $_REQUEST;
 				
 				
 				
-				$arr[] = array("title"=>$online['nombre'],"lat"=>$online['latitud'],"lng"=>$online['longitud'],"description"=>"Prueba","contentinfo"=>$contentinfo,"iconcolor" => $iconcolor);
+				$arr[] = array("Disponible"=>$online["disponible"],"Cedula" => $online['cedula'],"Nombre" => $online['nombre'],"Apellido" => $online['apellido'], "Modelo" => $online['modelo'],"Color" => $online['color'],"Placa" => $online['placa'],"idGrua"=>$online['idgrua'],"title"=>$online['nombre']." ".$online['apellido'],"lat"=>$online['latitud'],"lng"=>$online['longitud'],"description"=>"Prueba","contentinfo"=>$contentinfo,"iconcolor" => $iconcolor);
 			}
 			
 		}
@@ -286,4 +289,10 @@ $values = $_REQUEST;
 			
 			$data = $Solicitud->getDatosSolicitud($values);
             require('simulador_view.php');
+	}
+	function executeGrueroSelect($values)
+	{
+		$Solicitud = new Solicitud();
+		$data = $Solicitud->getDatosSolicitud($values);
+		require('gruero_select.php');
 	}

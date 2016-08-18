@@ -181,8 +181,8 @@
 			$ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Gruas
 			->select("*")
-			->join("Grueros","INNER JOIN Grueros on Grueros.idGrua = Gruas.idGrua")	
-			->where("Disponible=?","SI");
+			->join("Grueros","INNER JOIN Grueros on Grueros.idGrua = Gruas.idGrua");
+			//->where("Disponible=?","SI");
 			return $q; 				
 			
 		}
