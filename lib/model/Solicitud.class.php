@@ -290,42 +290,42 @@
 			}
 			if(isset($values['columns'][1]['search']['value']) and $values['columns'][1]['search']['value']!='')
 			{
-				$where.=" AND upper(pol.idPoliza) like ('%".$values['columns'][1]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Cedula) like ('%".$values['columns'][1]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}			
 			if(isset($values['columns'][2]['search']['value']) and $values['columns'][2]['search']['value']!='')
 			{
-				$where.=" AND upper(Cedula) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Nombre) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}			
 			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
 			{
-				$where.=" AND upper(Placa) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Apellido) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
 			{
-				$where.=" AND upper(Estatus) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Placa) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
 			{
-				$where.=" AND upper(EstatusCliente) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Modelo) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
 			{
-				$where.=" AND upper(EstatusGrua) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Color) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
 			{
-				$where.=" AND DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') = '".$values['columns'][7]['search']['value']."'";
+				$where.=" AND upper(Grueros.Celular) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
 			{
-				$where.=" AND DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') = '".$values['columns'][8]['search']['value']."'";
+				$where.=" AND upper(gr.Disponible) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}		
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')

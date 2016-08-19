@@ -54,7 +54,8 @@ $cambiar_a2_grua = "";
 									<?php /* Estatus solicitud*/?>
 									<label for="estatus">Estatus Solicitud</label>
 										<div class="input-group" >
-											<input type="text" value="<?php echo $data['estatus'];?>" name="estatus" id="estatus">
+											<input type="hidden" value="<?php echo $data['estatus'];?>" name="estatus" id="estatus">
+											<label class="label-warning"><?php echo $data['estatus'];?></label>
 										</div>
 									<?php if(isset($data['estatus']) and $data['estatus']=='Desierto'):?>
 										<?php $cambiar_a = "Localizando"?>
@@ -102,7 +103,8 @@ $cambiar_a2_grua = "";
 									<?php if(isset($data['estatuscliente']) and $data['estatuscliente']!=''):?>
 										<label for="estatuscliente">Estatus cliente</label>
 										<div class="input-group" >
-											<input type="text" value="<?php echo $data['estatuscliente'];?>" id="estatuscliente" name="estatuscliente"> 
+											<input type="hidden" value="<?php echo $data['estatuscliente'];?>" id="estatuscliente" name="estatuscliente"> 
+											<label class="label-warning"><?php echo $data['estatuscliente'];?></label>
 										</div>
 										<?php if($data['estatusgrua'] == 'Asistiendo' and $data['estatuscliente'] == 'Activo'):?>
 												<?php $cambiar_a_cliente = "Asistido";?>
@@ -209,7 +211,9 @@ $cambiar_a2_grua = "";
 									<?php if(isset($data['estatusgrua']) and $data['estatusgrua']!=''):?>
 										<label for="estatuscliente">Estatus grua</label>
 										<div class="input-group" >
-										<input type="text" value="<?php echo $data['estatusgrua'];?>" name="estatusgrua"> 
+										<input type="hidden" value="<?php echo $data['estatusgrua'];?>" name="estatusgrua"> 
+										<label class="label-warning"><?php echo $data['estatusgrua'];?></label><br>
+
 										</div>
 										<?php if($data['estatusgrua'] == 'Activo'):?>
 											<?php $cambiar_a_grua = "Asistiendo";?>
@@ -234,7 +238,7 @@ $cambiar_a2_grua = "";
 										<?php if($cambiar_a2_grua !=''):?>
 										<label for="Motivo">Motivo</label>
 										<div class="input-group" >
-											<textarea id="Motivo" class="form-control input-sm"></textarea>
+											<textarea id="Motivo" class="form-control input-sm" style="max-width: 100%" cols="100"></textarea>
 										</div>
 										<?php endif;?>
 									</div>

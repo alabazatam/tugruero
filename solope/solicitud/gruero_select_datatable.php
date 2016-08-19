@@ -47,7 +47,7 @@ $(document).ready(function() {
 		}
 		if(title == 'Detalle')
 		{
-			$(this).html( '<button id="clear">Limpiar</button>' );	
+			$(this).html( '<a id="clear" class="btn">Limpiar</a>' );	
 		}
 
 	} );
