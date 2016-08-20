@@ -54,7 +54,10 @@ $values = $_REQUEST;
 		break;	
 		case "gruero_select_datatable":
             executeGrueroSelectDatatable($values);	
-		break;	
+		break;
+		case "json_cliente":
+            executeJsonCliente($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -344,4 +347,11 @@ $values = $_REQUEST;
 			$array_json['data'][0] = array("idGrua"=>null,"Cedula"=>"","Nombre"=>"","Apellido"=>"","Placa"=>"","Modelo"=>"","Color"=>"","Celular"=>"","Disponible"=>"","actions"=>"");
 		}
 		echo json_encode($array_json);die;		
-	}	
+	}
+
+	function executeJsonCliente($values)
+	{
+		$Polizas = new Polizas();
+		$data = $Polizas->getPolizasById($values);
+		echo json_encode($data);
+	}

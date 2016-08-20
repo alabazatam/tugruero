@@ -23,7 +23,23 @@
           zoom: 14,
           center: {lat: <?php echo $data['latorigen']?>, lng: <?php echo $data['lngorigen']?>}
         });
-		
+		var idPoliza = $('#idPoliza').val();
+				//cliente
+
+		$.getJSON("<?php echo full_url;?>/solope/solicitud/index.php?action=json_cliente&idPoliza=" + idPoliza, function(data) {
+				
+				var content = "";
+				content+="<label> Cédula: </label> " + data.Cedula + "<br>";
+				content+="<label> Nombres y apellidos: </label> " + data.Nombre + " " + data.Apellido + "<br>";
+				content+="<label> Seguro: </label> " + data.Seguro + "<br>";
+				content+="<label> Id.Póliza: </label> " + data.idPoliza + "<br>";
+				content+="<label> Núm.Póliza: </label> " + data.NumPoliza + "<br>";
+				content+="<label> Placa: </label> " + data.Placa + "<br>";
+				content+="<label> Modelo: </label> " + data.Modelo + "<br>";
+				content+="<label> Color: </label> " + data.Color + "<br>";		
+				var infowindow = new google.maps.InfoWindow({
+						content: content
+				});		
 				var marker = new google.maps.Marker({
 					position: {lat: <?php echo $data['latorigen']?>, lng: <?php echo $data['lngorigen']?>},
 					icon: {
@@ -38,7 +54,14 @@
 					map: map,
 					title: "Cliente",
 					label: "A"
-				});	
+				});
+				marker.addListener('click', function() {
+					infowindow.open(map, marker);
+				});
+
+
+
+			});
 
 		
 		

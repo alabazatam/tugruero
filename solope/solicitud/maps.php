@@ -121,7 +121,7 @@ h1, h2 ,h3 {
 				
 
 				
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
 					<form class="form-horizontal" action="#" method="POST">
 					<div id="form-group">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" hidden>
@@ -133,13 +133,14 @@ h1, h2 ,h3 {
 								<div class="panel-heading" role="tab" id="headingOne">
 								  <h4 class="panel-title">
 									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-									  Collapsible Group Item #1
+									  Datos de Cliente y Póliza
 									</a>
 								  </h4>
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 								  <div class="panel-body">
-									ssss
+									  <div id="parcial_cliente"></div>
+									  <div id="parcial_poliza"></div>
 								  </div>
 								</div>
 							  </div>
@@ -147,27 +148,13 @@ h1, h2 ,h3 {
 								<div class="panel-heading" role="tab" id="headingTwo">
 								  <h4 class="panel-title">
 									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									  Collapsible Group Item #2
+									 Condicionado de la Póliza
 									</a>
 								  </h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 								  <div class="panel-body">
 									  aksjhdkasjh
-								  </div>
-								</div>
-							  </div>
-							  <div class="panel panel-default">
-								<div class="panel-heading" role="tab" id="headingThree">
-								  <h4 class="panel-title">
-									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									  Collapsible Group Item #3
-									</a>
-								  </h4>
-								</div>
-								<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-								  <div class="panel-body">
-										asjdlaksjdlasjk
 								  </div>
 								</div>
 							  </div>
@@ -311,6 +298,27 @@ h1, h2 ,h3 {
       	});
  
       });
+		var idPoliza = $('#idPoliza').val();
+		//carga parcial de cliente
+					$.ajax({
+					  type: "GET",
+					  url: '<?php echo full_url?>/solope/Parciales/index.php',
+					  data: { action: "parcial_cliente",idPoliza: idPoliza},
+					  success: function(html){
+							$('#parcial_cliente').html(html);
+					  },
+					  //dataType: dataType
+					});		
+		//carga parcial de Poliza
+					$.ajax({
+					  type: "GET",
+					  url: '<?php echo full_url?>/solope/Parciales/index.php',
+					  data: { action: "parcial_poliza",idPoliza: idPoliza},
+					  success: function(html){
+							$('#parcial_poliza').html(html);
+					  },
+					  //dataType: dataType
+					});			
 	</script>
 <script>
 
@@ -436,7 +444,7 @@ function initMap() {
 
 // Adds a marker to the map and push to the array.
 function addMarker(location) {
-	
+	var idPoliza = $('#idPoliza').val();
 	if(markers.length <= 1)
 	{
 	
@@ -450,6 +458,9 @@ function addMarker(location) {
 		labels = 'Llegada';
 	}
 	labelIndex++;
+
+	
+	
 	var marker = new google.maps.Marker({
 	  position: location,
 	  icon: {
@@ -466,11 +477,38 @@ function addMarker(location) {
 	  //label: labels[labelIndex++ % labels.length]
 	  label: labels
 	});
+	marker.setValues({id: labels});
 	
-		marker.info = new google.maps.InfoWindow({
-		  content: '<b>Accidentado: Marcos De Andrade Póliza </b> <br>hola knots'
-		});	
-		marker.info.open(map, marker);	
+	if(labels == "Partida"){
+		$.getJSON("<?php echo full_url;?>/solope/solicitud/index.php?action=json_cliente&idPoliza=" + idPoliza, function(data) {
+			
+			var content = "";
+			content+="<label> Cédula: </label> " + data.Cedula + "<br>";
+			content+="<label> Nombres y apellidos: </label> " + data.Nombre + " " + data.Apellido + "<br>";
+			content+="<label> Seguro: </label> " + data.Seguro + "<br>";
+			content+="<label> Id.Póliza: </label> " + data.idPoliza + "<br>";
+			content+="<label> Núm.Póliza: </label> " + data.NumPoliza + "<br>";
+			content+="<label> Placa: </label> " + data.Placa + "<br>";
+			content+="<label> Modelo: </label> " + data.Modelo + "<br>";
+			content+="<label> Color: </label> " + data.Color + "<br>";
+			marker.info = new google.maps.InfoWindow({
+			  content: content
+			});	
+			marker.info.open(map, marker);
+			});
+	}
+	
+	if(labels== "Llegada"){
+		var geocoder = new google.maps.Geocoder;
+		geocoder.geocode({'location': location}, function(results, status) {
+			/*marker.info = new google.maps.InfoWindow({
+			  content: results[0].formatted_address
+			});	
+			marker.info.open(map, marker);	*/		
+		});
+
+	}	
+	
 	
 	marker.addListener('dragend', function(event) {
 		//alert(event.latLng);
@@ -483,6 +521,7 @@ function addMarker(location) {
 		{
 			$('#latlonl').val(event.latLng);
 			showLocationAddress(event.latLng,1);
+
 		}else{
 			alert('Error seleccionando el punto');
 		}

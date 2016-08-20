@@ -1,4 +1,3 @@
-<div class="bg-primary"><label>Detalle Póliza</label></div>
 <div class="col-sm-12">
 	<div class="col-sm-2">
 		<label>Seguro: </label> <?php echo $data['Seguro'];?> 

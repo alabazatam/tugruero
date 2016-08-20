@@ -189,7 +189,7 @@
 		public function getDatosSolicitud($values){
 			$ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Solicitudes
-			->select("*,Solicitudes.idSolicitud as idSolicitud,Gruas.Latitud as latGrua,Gruas.Longitud as lngGrua,Solicitudes.idPoliza as idPoliza")
+			->select("*,Solicitudes.idSolicitud as idSolicitud,Gruas.Latitud as latGrua,Gruas.Longitud as lngGrua,Solicitudes.idPoliza as idPoliza,DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') as TimeOpen")
 			->join("Servicios","LEFT JOIN Servicios on Servicios.idSolicitud = Solicitudes.idSolicitud")	
 			->join("Grueros","LEFT JOIN Grueros on Grueros.idGrua = Servicios.idGrua")
 			->join("Gruas","LEFT JOIN Gruas on Gruas.idGrua = Grueros.idGrua")	

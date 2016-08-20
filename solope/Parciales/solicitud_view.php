@@ -1,4 +1,3 @@
-<div class="bg-primary"><label>Detalle Solicitud</label></div>
 <div class="col-sm-12">
 	<div class="col-sm-2">
 		<label>Id.Solicitud: </label> <?php echo $data['idsolicitud'];?> 

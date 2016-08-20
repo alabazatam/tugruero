@@ -20,34 +20,56 @@ $cambiar_a2_grua = "";
 		<input autocomplete="off" type="hidden" id='idSolicitud' name='idSolicitud' value='<?php if(isset($values['idSolicitud']))echo $values['idSolicitud'];?>'>
 		<input autocomplete="off" type="hidden" id='idPoliza' name='idPoliza' value='<?php if(isset($data['idpoliza']))echo $data['idpoliza'];?>'>
 	<?php //if($values['action'] == "add"):?>
-	
-					<div class="">
-						<div id="parcial_cliente" class="col-sm-12">
-								
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					  <div class="panel" >
+						<div class="panel-heading" role="tab" id="headingOne"  style="background-color: #404040 !important;" >
+						  <h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white !important;">
+							  Detalle Cliente
+							</a>
+						  </h4>
 						</div>
-					</div>
-					<div class="">
-						<div id="parcial_poliza" class="col-sm-12">
-								
+						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body" id="parcial_cliente" style="background-color: #ccc !important;">
+							
+							</div>
 						</div>
-						
-					</div>
-					<div class="">
-						<div class="col-sm-12" id="parcial_solicitud">
-										
+					  </div>
+					  <div class="panel">
+						<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;" >
+						  <h4 class="panel-title">
+							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white !important;">
+							  Detalle Póliza
+							</a>
+						  </h4>
 						</div>
-						
-					</div>		
-
-					
+						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body" id="parcial_poliza" style="background-color: #ccc !important;">
+						  </div>
+						</div>
+					  </div>
+					  <div class="panel">
+						<div class="panel-heading" role="tab" id="headingThree" style="background-color: #404040 !important;" >
+						  <h4 class="panel-title">
+							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white !important;">
+							  Detalle Solicitud
+							</a>
+						  </h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						  <div class="panel-body" id="parcial_solicitud" style="background-color: #ccc !important;">
+						  </div>
+						</div>
+					  </div>
+					</div>					
 					<div class="form-group" >
 						<div class="col-sm-12">
 
-							<div class="panel panel-primary">
-								<div class="panel-heading">
-									<h3 class="panel-title">Solicitud</h3>
+							<div class="panel">
+								<div class="panel-heading" style="background-color: #404040 !important;" >
+									<h3 class="panel-title" style="color: white !important;">Solicitud</h3>
 								</div>
-								<div class="panel-body">
+								<div class="panel-body" style="background-color: #ccc !important;">
 									<!--Parcial de cliente-->
 
 									
@@ -78,7 +100,7 @@ $cambiar_a2_grua = "";
 											<input type="button" class="btn btn-default" value="<?php echo $cambiar_a;?>" onclick="cambiarStatusSolicitud('<?php echo $data['estatus']?>','<?php echo $cambiar_a;?>',<?php echo $data['idsolicitud']?>);">
 										<?php endif;?>
 										<?php if($cambiar_a2 != ""):?>
-											<input type="button" class="btn btn-danger" value="<?php echo $cambiar_a2;?>" onclick="cambiarStatusSolicitud('<?php echo $data['estatus']?>','<?php echo $cambiar_a2;?>',<?php echo $data['idsolicitud']?>);">
+											<a class="btn btn-danger" onclick="cambiarStatusSolicitud('<?php echo $data['estatus']?>','<?php echo $cambiar_a2;?>',<?php echo $data['idsolicitud']?>);"><i class="fa fa-close"></i> <?php echo $cambiar_a2;?></a>
 										<?php endif;?>
 									</div>
 										
@@ -93,11 +115,11 @@ $cambiar_a2_grua = "";
 		
 					<div class="form-group">
 						<div class="col-sm-6">
-							<div class="panel panel-primary">
-								<div class="panel-heading">
-									<h3 class="panel-title">Cliente</h3>
+							<div class="panel">
+								<div class="panel-heading" style="background-color: #404040;">
+									<h3 class="panel-title" style="color: white !important;">Cliente</h3>
 								</div>
-								<div class="panel-body">
+								<div class="panel-body" style="background-color: #ccc !important;">
 
 									<div class="col-sm-12 ">
 									<?php if(isset($data['estatuscliente']) and $data['estatuscliente']!=''):?>
@@ -158,11 +180,11 @@ $cambiar_a2_grua = "";
 												<div class="btn-group" role="group" aria-label="">
 													<hr>
 													<?php if($cambiar_a_cliente != ""):?>
-														<input type="button" class="btn btn-default" value="<?php echo $cambiar_a_cliente;?>" onclick="cambiarStatusServicioCliente('<?php echo $data['estatuscliente']?>','<?php echo $cambiar_a_cliente;?>',<?php echo $data['idsolicitud']?>);">
+														<a class="btn btn-default" onclick="cambiarStatusServicioCliente('<?php echo $data['estatuscliente']?>','<?php echo $cambiar_a_cliente;?>',<?php echo $data['idsolicitud']?>);"><i class="fa fa-thumbs-o-up"></i> <?php echo $cambiar_a_cliente;?></a>
 													<?php endif;?>
 													<?php if($cambiar_a2_cliente != ""):?>
 
-														<input type="button" class="btn btn-danger" value="<?php echo $cambiar_a2_cliente;?>" onclick="cambiarStatusServicioCliente('<?php echo $data['estatuscliente']?>','<?php echo $cambiar_a2_cliente;?>',<?php echo $data['idsolicitud']?>);">
+														<a class="btn btn-danger"  onclick="cambiarStatusServicioCliente('<?php echo $data['estatuscliente']?>','<?php echo $cambiar_a2_cliente;?>',<?php echo $data['idsolicitud']?>);"><i class="fa fa-close"></i> <?php echo $cambiar_a2_cliente;?></a>
 													<?php endif;?>
 												</div>
 										<?php endif;?>
@@ -184,11 +206,11 @@ $cambiar_a2_grua = "";
 						
 						
 						<div class="col-sm-6">
-							<div class="panel panel-primary">
-								<div class="panel-heading">
-									<h3 class="panel-title">Gruero</h3>
+							<div class="panel">
+								<div class="panel-heading" style="background-color: #404040 !important;" >
+									<h3 class="panel-title" style="color: white !important;">Gruero</h3>
 								</div>
-								<div class="panel-body">
+								<div class="panel-body" style="background-color: #ccc !important;">
 									
 									<!--Parcial de gruero-->
 									<div class="col-sm-12 ">
@@ -201,9 +223,9 @@ $cambiar_a2_grua = "";
 									<?php if((!isset($data['estatusgrua']) or $data['estatusgrua']=='') and $data['estatus']=='Localizando'):?>
 									<input type="hidden" name="idGrua" id="idGrua" value="">
 										<?php if(isset($data['estatus']) and $data['estatus']=='Localizando'):?>
-									<a class="btn btn-info" onclick="grueroSelect();">Buscar grueros disponibles</a>
-									<a class="btn btn-info" onclick="grueroSelectDatatable();">Búsqueda general de grueros</a>
-											<input type="button" class="btn btn-default" name="crearServicio" id="crearServicio"  value="Aceptar solicitud">
+									<a class="btn text-muted" onclick="grueroSelect();" title="Buscar grueros en mapa"><i class="fa fa-map-marker fa-4x" style="color: grey;"></i> Buscar grueros en mapa</a>
+									<a class="btn text-muted" onclick="grueroSelectDatatable();" title="Buscar grueros en lista"><i class="fa fa-list-alt fa-4x text-danger" style="color: grey;"> </i> Buscar grueros en lista</a>
+									<a type="button" class="btn text-success" name="crearServicio" id="crearServicio" title="Aceptar solicitud"><i class="fa fa-check-circle-o fa-4x text-success"></i> Aceptar Solicitud</a>
 											
 										<?php endif;?>
 									<?php endif;?>
@@ -225,10 +247,10 @@ $cambiar_a2_grua = "";
 										<?php endif;?>										
 											<div class="btn-group" role="group" aria-label="">
 												<?php if($cambiar_a_grua != ""):?>
-													<input type="button" class="btn btn-default" value="<?php echo $cambiar_a_grua;?>" onclick="cambiarStatusServicioGrua('<?php echo $data['estatusgrua']?>','<?php echo $cambiar_a_grua;?>',<?php echo $data['idsolicitud']?>);">
+												<a class="btn btn-default" onclick="cambiarStatusServicioGrua('<?php echo $data['estatusgrua']?>','<?php echo $cambiar_a_grua;?>',<?php echo $data['idsolicitud']?>);"> <i class="fa fa-thumbs-o-up"></i> <?php echo $cambiar_a_grua;?></a>
 												<?php endif;?>
 												<?php if($cambiar_a2_grua != ""):?>
-													<input type="button" class="btn btn-danger" value="<?php echo $cambiar_a2_grua;?>" onclick="cambiarStatusServicioGrua('<?php echo $data['estatusgrua']?>','<?php echo $cambiar_a2_grua;?>',<?php echo $data['idsolicitud']?>);">
+													<a class="btn btn-danger" onclick="cambiarStatusServicioGrua('<?php echo $data['estatusgrua']?>','<?php echo $cambiar_a2_grua;?>',<?php echo $data['idsolicitud']?>);"><i class="fa fa-close"></i> <?php echo $cambiar_a2_grua;?></a>
 												<?php endif;?>
 											</div>
 									<?php endif;?>
