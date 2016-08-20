@@ -58,6 +58,9 @@ $values = $_REQUEST;
 		case "json_cliente":
             executeJsonCliente($values);	
 		break;
+		case "json_baremo":
+            executeJsonBaremo($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -135,7 +138,7 @@ $values = $_REQUEST;
 										.'<input type="hidden" name="action" value="edit">  '
 										.'<input type="hidden" name="idSolicitud" value="'.$idSolicitud.'">  '
                                        
-										.'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
+										.'<a class="btn btn-default btn-sm" title="Ver detalle" href="'.full_url.'/solope/solicitud/index.php?action=edit&idSolicitud='.$idSolicitud.'&idPoliza='.$idPoliza.'"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'                                       
                                        .' <a href="'.full_url.'/solope/solicitud/index.php?action=simulador_view&idSolicitud='.$idSolicitud.'" class="btn btn-default btn-sm" title="Simulador de servicio"><i class="fa fa-headphones  fa-pull-left fa-border"></i></a>'
 										.' <a class="badge" title="Agregar/Ver bitácora" onclick="addBitacora('.$idSolicitud.')">'.$count_bitacora.'</a>'
 										.'</form>'
@@ -153,6 +156,27 @@ $values = $_REQUEST;
 	{
 		$values['action'] = 'add';
 		require('maps.php');
+	}
+	function executeEdit($values)
+	{
+		$Solicitud = new Solicitud();
+		$values['action'] = 'update';
+		$data = $Solicitud->getDatosSolicitud($values);
+		$values['CellContacto'] = $data['cellcontacto'];
+		$values['InfoAdicional'] = $data['infoadicional'];
+		$values['EstadoOrigen'] = $data['estadoorigen'];
+		$values['QueOcurre'] = $data['queocurre'];
+		$values['Situacion'] = $data['situacion'];
+		$values['Direccion'] = $data['direccion'];
+		$values['Neumaticos'] = $data['neumaticos'];
+		$values['Estatus'] = $data['estatus'];
+		$values['TimeOpen'] = $data['timeopen'];
+		$values['TimeInicio'] = $data['timeinicio'];
+		$values['TimeFin'] = $data['timefin'];
+		$values['EstatusCliente'] = $data['estatuscliente'];
+		$values['Motivo'] = $data['motivo'];
+		$values['Monto'] = $data['monto'];
+		require('maps_edit.php');
 	}
 	function executeLivemap($values)
 	{
@@ -233,16 +257,23 @@ $values = $_REQUEST;
 				if(isset($data['estatusgrua']) and ($data['estatusgrua'] == 'Asistiendo' ))
 				{
 					unset($arr[0][1],$arr[0][3]);
-					$arr[0][3] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latGrua","lng"=>$lngGrua,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Gruero ","iconcolor" => "yellow");			
-
+					$arr[0][3] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latOrigen","lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Gruero ","iconcolor" => "yellow");			
+					$arr[0][0] = array("id"=>"0","latCenter"=>"$latGrua","lngCenter"=>"$lngGrua");
 				}
 				//el gruero llegó al destino y el cliente lleno la encuesta
+				if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Asistido' ))
+				{
+					unset($arr[0][1],$arr[0][3]);
+					$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Destino","iconcolor" => "blue");	
+					$arr[0][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino");
+					
+				}				
 				
 				if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Completado' ))
 				{
 					unset($arr[0][1],$arr[0][3]);
 					$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Destino","iconcolor" => "blue");	
-
+					$arr[0][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino");
 				}
 
 				echo json_encode($arr); // {"a":1,"b":2,"c":3,"d":4,"e":5}				
@@ -353,5 +384,26 @@ $values = $_REQUEST;
 	{
 		$Polizas = new Polizas();
 		$data = $Polizas->getPolizasById($values);
+		echo json_encode($data);
+	}
+	function executeJsonBaremo($values)
+	{
+		$Baremo = new Baremo();
+		$latOrigen = $values['latOrigen'];
+		$lngOrigen =  $values['lngOrigen'];
+		$latDestino =  $values['latDestino'];
+		$lngDestimo =  $values['lngDestino'];
+		$EstadoOrigen =  $values['EstadoOrigen'];
+		$QueOcurre = $values['QueOcurre'];
+		$Neumaticos = $values['Neumaticos'];
+		$Situacion = $values['Situacion'];
+		$timeOpen  = date(gmdate('d-m-Y H:i:s', time() - (4 * 3600)));
+		
+		$baremo = $Baremo->GetBaremo($values);
+		
+		$Distancia = $Baremo->GetDistancia($latOrigen, $lngOrigen, $latDestino, $lngDestimo);
+		$Monto = $Baremo->CalcularOferta($EstadoOrigen, $Distancia, $QueOcurre, $Neumaticos, $Situacion, $timeOpen, $baremo);
+		echo $Monto;die;
+		$data = $Baremo->getPolizasById($values);
 		echo json_encode($data);
 	}

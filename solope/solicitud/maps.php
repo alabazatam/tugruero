@@ -117,9 +117,6 @@ h1, h2 ,h3 {
 	  </ul>
 		
 		<!--Codigo -->
-		
-				
-
 				
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
 					<form class="form-horizontal" action="#" method="POST">
@@ -222,16 +219,15 @@ h1, h2 ,h3 {
 								<label for="QueOcurre">¿Qué ocurre?</label>
 								<select class="form-control input-sm" name='QueOcurre' id='QueOcurre'>
 									<option value="">Seleccione</option>
-									<option value="Fallo de encendido">Fallo de encendido / No puedo rotar</option>
-									<option value="Neumático espichado">Neumático espichado / Torcido</option>
-									<option value="Volante">Volante / Palanca trabada</option>
 									<option value="Falla de encendido">Falla de encendido / No puedo rotar</option>
+									<option value="Neumático espichado">Neumático espichado / Torcido</option>
+									<option value="Volante/Palanca trabada">Volante / Palanca trabada</option>
 									<option value="Encunetado">Encunetado</option>
 									<option value="Choqué">Choqué</option>
 									<option value="Otra falla">Otra falla</option>
 								</select>
 							</div>
-							<div class="col-sm-6 hidden">
+							<div class="col-sm-6">
 								<div class="row">
 									<label for="">Neumaticos delanteros</label>
 									<input id="caucho1" type="checkbox" value="1" class=" input-sm">
@@ -247,7 +243,7 @@ h1, h2 ,h3 {
 									<option value="">Seleccione</option>
 									<option value="Calle plana">Calle plana</option>
 									<option value="Calle inclinada">Calle inclinada</option>
-									<option value="Atascado en barro o arena">Atascado en barro o arena</option>
+									<option value="Atascado en barro o arena.">Atascado en barro o arena</option>
 									<option value="Estacionamiento techado o sótano">Estacionamiento techado o sótano</option>
 								</select>
 							</div>
@@ -261,6 +257,7 @@ h1, h2 ,h3 {
 							</div>
 						</div>
 							<a id="enviaSolicitud" name="" class="btn btn-success btn-lg">Solicitar</a>
+							
 						</div>	
 					</div>		
 				</div>				
@@ -591,17 +588,18 @@ var latlng = { lat: 10.500639925300456, lng: -66.86270713806152 };
 var geocoder = new google.maps.Geocoder;
 
  geocoder.geocode({'location': location}, function(results, status) {
-  if (status === google.maps.GeocoderStatus.OK) {
+	
+   if (status === google.maps.GeocoderStatus.OK) {
     //$('#location').empty();
     //$('#location').val(results[0].formatted_address);
 	//alert(results[0].formatted_address);
-	if(parameter == 0)
+	if(parameter == 0)//origen
 	{
 		$('#location').val(results[0].formatted_address);
 		//alert(results[0].address_components[3]['long_name']);
 		//$('#EstadoOrigen').val(results[0].address_components[2]['long_name']);
 		//$('#EstadoOrigen').val(results[0].geometry.location);
-	}else if(parameter == 1)
+	}else if(parameter == 1)//destino
 	{
 		$('#locationl').val(results[0].formatted_address);
 		
@@ -692,7 +690,8 @@ var geocoder = new google.maps.Geocoder;
 					contentType: 'application/json; charset=utf-8',
 					async: false,
 					success: function(data){
-						alert('ready');
+						alert("Solicitud generada satisfactoriamente");
+						$(location).attr('href', '<?php echo full_url;?>/solope/solicitud/index.php');
 					},
 					crossDomain: true,
 					dataType: 'json',
@@ -703,5 +702,53 @@ var geocoder = new google.maps.Geocoder;
 	});
 
 
-</script>	
+</script>
+<script>
+
+	$("#").ready(function(){
+		
+		$("#calculaBaremo").click(function(){
+			var latlon = $('#latlon').val();
+			latlon = latlon.replace("(", "");
+			latlon = latlon.replace(")", "");
+			latlon = latlon.split(","); 
+			
+			var latlonl = $('#latlonl').val();
+			latlonl = latlonl.replace("(", "");
+			latlonl = latlonl.replace(")", "");
+			latlonl = latlonl.split(","); 
+			
+				var arr = {
+					idPoliza: $('#idPoliza').val(),
+					latOrigen:latlon[0],
+					lngOrigen: latlon[1],
+					latDestino: latlonl[0],
+					lngDestino: latlonl[1],
+					Direccion: $('#location').val(),
+					CellContacto: $('#CellContacto').val(),
+					InfoAdicional: $('#InfoAdicional').val(),
+					EstadoOrigen: $('#EstadoOrigen').val(),
+					QueOcurre: $('#QueOcurre').val(),
+					Neumaticos:'0100',
+					Situacion: $('#Situacion').val(),
+				};
+				
+				$.ajax({
+					type: "POST",
+					url: '<?php echo full_url?>/solope/solicitud/index.php?action=json_baremo',
+					//url: 'http://52.25.178.106/clienteapp/solicitudCliente.php',
+					data: arr,
+					//contentType: 'application/json; charset=utf-8',
+					//async: false,
+					success: function(data){
+						alert('ready');
+					}
+				});			
+			
+			
+		});
+		
+	});
+
+</script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places"></script>
