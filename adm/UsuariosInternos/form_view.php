@@ -1,7 +1,6 @@
 <?php include('../../view_header_app.php')?>
-<?php //include('../menu.php')?>
-<div class="container">
-	<h1 class="text-center big_title">Usuarios</h1>
+<?php include('../menu.php')?>
+	<h1 class="text-center">Administradores/Operadores</h1>
 	<form class="" enctype="multipart/form-data" action="index.php" method="POST">
 		<input autocomplete="off" type="hidden" name='action' value='<?php if(isset($values['action']))echo $values['action'];?>'>
 		<input autocomplete="off" type="hidden" name='id_user' value='<?php if(isset($values['id_user']))echo $values['id_user'];?>'>
@@ -165,7 +164,6 @@
         
     <?php endif;?>
 	</form>
-</div>
 <?php include('../../view_footer.php')?>
 <script type="text/javascript">
 	$(document).ready(function(){

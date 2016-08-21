@@ -1,7 +1,7 @@
 <?php include('../../view_header_app.php')?>
-<?php //include('../menu.php')?>
-<div class="container">
-	<h1 class="text-center big_title">Usuarios</h1>
+<?php include('../menu.php')?>
+
+	<h1 class="text-center">Administradores/Operadores</h1>
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
 			<thead>
 				<tr>
@@ -29,7 +29,6 @@
 			</tfoot>
 		</table>
 	<a class="btn btn-default"  href="<?php echo full_url."/adm/UsuariosInternos/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar</a>
-</div>
 	<?php include('../../view_footer.php')?>
 <script>
 

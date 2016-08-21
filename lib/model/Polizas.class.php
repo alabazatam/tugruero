@@ -242,15 +242,7 @@
 			return $q;
 			
 		}
-		public function getPolizasByIdCompany($values){
-			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->Polizas
-			->select("*")
-			->join("Polizas_company","INNER JOIN Polizas_company on Polizas_company.id_Polizas = Polizas.id")
-			->where("Polizas_company.id_company=?",$values['id']);
-			return $q; 				
-			
-		}
+
 		public function getCountUserPolizasCompanyByIdPolizas($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Polizas
@@ -269,6 +261,15 @@
 			//print_r($array);die;
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Polizas()->insert($array);			
+		}
+		public function getPolizasByDocumento($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Polizas
+			->select("*")
+			->where("Polizas.cedula=?",$values['Cedula'])
+                        ->fetch();
+			return $q; 				
+			
 		}
 	}
 	

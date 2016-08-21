@@ -27,7 +27,13 @@ $values = $_REQUEST;
 		break;		
 		case "list_json":
 			executeListJson($values);	
-		break;	
+		break;
+		case "individual":
+			executeIndividual($values);	
+		break;
+		case "individual_json":
+			executeIndividualJson($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -82,4 +88,17 @@ $values = $_REQUEST;
 		}
 		echo json_encode($array_json);die;
 		
+	}
+	function executeIndividual($values = null)
+	{
+
+		require('individual_view.php');
+	}
+	function executeIndividualJson($values = null)
+	{
+
+		$Polizas = new Polizas();
+                $data = $Polizas->getPolizasByDocumento($values);
+                echo json_encode($data);
+                
 	}

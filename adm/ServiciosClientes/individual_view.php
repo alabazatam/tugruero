@@ -1,0 +1,114 @@
+<?php include('../../view_header_app.php')?>
+<?php include('../menu.php')?>
+
+	<h1 class="text-center">Servicios Cliente</h1>
+        <form class="form-inline" method="post" action="" id="form_polizas">
+          <div class="form-group">
+            <label for="letra">Cédula/RIF</label>
+            <select name="nacion" id="letra">
+                <option value="V">V</option>
+                <option value="E">E</option>
+                <option value="J">J</option>
+            </select>
+            <input type="text" class="form-control" autocomplete="off" id="documento" placeholder="1234567">
+
+          </div>
+          <a  class="btn btn-default" id="consultarPoliza"><i class="fa fa-search fa-pull-left fa-border"></i> Consultar</a>
+        </form>
+        <div id="results" class="col-sm-12" hidden>
+            <div id="" class="col-sm-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Datos Póliza</h3>
+                  </div>
+                  <div class="panel-body" id="parcial_cliente">
+
+                  </div>
+                  <div class="panel-body" id="parcial_poliza">
+
+                  </div>
+                  <div class="panel-body" id="botones">
+
+                  </div>
+                </div>
+            </div>                        
+            
+        </div> 
+        <div id="nuevo" class="col-sm-12" hidden>
+            <a class="btn btn-default"  href="<?php echo full_url."/adm/Polizas/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar póliza</a> 
+        </div>
+
+	<?php include('../../view_footer_solicitud.php')?>
+<script>
+
+	$("document").ready(function(){
+		$('#results').hide();
+		$("#consultarPoliza").click(function(){
+                                
+                                
+                                $('#results').hide();
+                                $('#nuevo').hide();
+                                
+                                if($('#documento').val() == '')
+                                {
+                                    alert('Debe indicar el número de identificación');
+                                    return false;
+                                }
+                                
+				var arr = {
+					Cedula: $('#letra').val() + '-' + $('#documento').val() ,
+                                        action: "individual_json"
+				};
+				$.ajax({
+					type: "POST",
+					url: '<?php echo full_url?>/adm/ServiciosClientes/index.php?action=individual_json',
+					data: arr,
+                                        dataType: 'json',
+					success: function(data){
+                                            
+                                            if(data)
+                                            {
+                                                $('#results').show();
+                                                var idPoliza = data.idPoliza;
+                                               //carga parcial de cliente
+                                                $.ajax({
+                                                  type: "GET",
+                                                  url: '<?php echo full_url?>/adm/Parciales/index.php',
+                                                  data: { action: "parcial_cliente",idPoliza: idPoliza},
+                                                  success: function(html){
+                                                                $('#parcial_cliente').html(html);
+                                                  },
+                                                 
+                                                });
+                                                //carga parcial de Poliza
+                                                $.ajax({
+                                                  type: "GET",
+                                                  url: '<?php echo full_url?>/adm/Parciales/index.php',
+                                                  data: { action: "parcial_poliza",idPoliza: idPoliza},
+                                                  success: function(html){
+                                                                $('#parcial_poliza').html(html);
+                                                  }
+                                                });       
+
+                                                var html = '';
+                                                html+='<a  class="btn btn-default" id="" href="<?php echo full_url;?>/adm/solicitud/index.php?action=new&idPoliza='+idPoliza+'"><i class="fa fa-map-marker fa-pull-left fa-border"></i> Generar solicitud</a>';
+                                                html+='<a  class="btn btn-default" id="" href="<?php echo full_url;?>/adm/ServiciosClientes/index.php?idPoliza='+idPoliza+'"><i class="fa fa-mobile fa-pull-left fa-border"></i> Consultar servicios</a>';
+                                                $('#botones').html(html);
+                                            }
+                                            else
+                                            {
+                                                alert('No se encontró póliza registrada con los datos suministrados');
+                                                 $('#nuevo').show();
+                                            }
+                                                
+                                           
+						
+					}
+				});			
+			
+			
+		});
+		
+	});
+
+</script>

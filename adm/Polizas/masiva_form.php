@@ -1,5 +1,5 @@
 <?php include('../../view_header_app.php')?>
-<?php //include('../menu.php')?>
+<?php include('../menu.php')?>
 
 <div class="container">
 	<h1 class="text-center big_title">Carga de Pólizas</h1>
