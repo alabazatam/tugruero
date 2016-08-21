@@ -61,6 +61,9 @@ $values = $_REQUEST;
 		case "json_baremo":
             executeJsonBaremo($values);	
 		break;
+		case "actualiza_monto":
+            executeActualizaMonto($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -406,4 +409,9 @@ $values = $_REQUEST;
 		echo $Monto;die;
 		$data = $Baremo->getPolizasById($values);
 		echo json_encode($data);
+	}
+	function executeActualizaMonto($values)
+	{
+		$Solicitud = new Solicitud();
+		$Solicitud ->updateMonto($values);
 	}

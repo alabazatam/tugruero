@@ -223,8 +223,8 @@ $cambiar_a2_grua = "";
 									<?php if((!isset($data['estatusgrua']) or $data['estatusgrua']=='') and $data['estatus']=='Localizando'):?>
 									<input type="hidden" name="idGrua" id="idGrua" value="">
 										<?php if(isset($data['estatus']) and $data['estatus']=='Localizando'):?>
-									<a class="btn text-muted" onclick="grueroSelect();" title="Buscar grueros en mapa"><i class="fa fa-map-marker fa-4x" style="color: grey;"></i> Buscar grueros en mapa</a>
-									<a class="btn text-muted" onclick="grueroSelectDatatable();" title="Buscar grueros en lista"><i class="fa fa-list-alt fa-4x text-danger" style="color: grey;"> </i> Buscar grueros en lista</a>
+									<a class="btn text-muted" onclick="grueroSelect();" title="Buscar grueros en mapa"><i class="fa fa-map-marker fa-4x" style="color: black;"></i> Buscar grueros en mapa</a>
+									<a class="btn text-muted" onclick="grueroSelectDatatable();" title="Buscar grueros en lista"><i class="fa fa-list-alt fa-4x text-danger" style="color: black;"> </i> Buscar grueros en lista</a>
 									<a type="button" class="btn text-success" name="crearServicio" id="crearServicio" title="Aceptar solicitud"><i class="fa fa-check-circle-o fa-4x text-success"></i> Aceptar Solicitud</a>
 											
 										<?php endif;?>

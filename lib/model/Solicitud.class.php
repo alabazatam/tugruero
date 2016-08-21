@@ -362,5 +362,19 @@
 			->where("$where")->fetch();    
 			return $q['cuenta']; 			
 		}
+		function updateMonto($values){			
+
+ 			$idSolicitud =  $values['idSolicitud'];
+			$array_solicitud = array(
+				'Monto' => $values['MontoNuevo'],
+				'MontoAnterior' => $values['Monto'],
+				'MotivoMonto' => $values['MotivoMonto'],
+			);
+			
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Solicitudes("idSolicitud", $idSolicitud)->update($array_solicitud);
+			return $q;
+			
+		}
 	}
 	

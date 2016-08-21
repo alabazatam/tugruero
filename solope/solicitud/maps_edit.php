@@ -127,75 +127,106 @@ h1, h2 ,h3 {
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">		
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 							  <div class="panel panel-default">
-								<div class="panel-heading" role="tab" id="headingOne">
-								  <h4 class="panel-title">
+								<div class="panel-heading" role="tab" id="headingOne" style="background-color: #404040 !important;">
+								  <h4 class="panel-title" style="color: white !important;">
 									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 									  Datos de Cliente y Póliza
 									</a>
 								  </h4>
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-								  <div class="panel-body">
+								  <div class="panel-body" style="background-color: #ccc !important;">
 									  <div id="parcial_cliente"></div>
 									  <div id="parcial_poliza"></div>
 								  </div>
 								</div>
 							  </div>
 							  <div class="panel panel-default">
-								<div class="panel-heading" role="tab" id="headingTwo">
-								  <h4 class="panel-title">
+								<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;">
+								  <h4 class="panel-title" style="color: white !important;">
 									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 									 Condicionado de la Póliza
 									</a>
 								  </h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-								  <div class="panel-body">
+								  <div class="panel-body" style="background-color: #ccc !important;">
 									  aksjhdkasjh
 								  </div>
 								</div>
 							  </div>
 							</div>						
 						</div>		
-						<input type="text" value="<?php echo $values['idPoliza']?>" name="idPoliza" id ="idPoliza">
-						<input type="text" value="<?php echo $values['idSolicitud']?>" name="idSolicitud" id ="idSolicitud">
-						<div class="form-group">
+						<div class="row"></div>
+						<input type="hidden" value="<?php echo $values['idPoliza']?>" name="idPoliza" id ="idPoliza">
+						<input type="hidden" value="<?php echo $values['idSolicitud']?>" name="idSolicitud" id ="idSolicitud">
+						<div class="panel panel-default">
+						  <div class="panel-heading" style="background-color: #404040 !important;">
+							<h3 class="panel-title"  style="color: white !important;">Detalle de solicitud</h3>
+						  </div>
+						  <div class="panel-body" style="background-color: #ccc !important;">
+									<div class="col-sm-12">
+										<label for="EstadoOrigen">Estado origen: </label>
+										<?php echo $values['EstadoOrigen']?>
+									</div>
+									<div class="col-sm-12">
+										<label for="locationl">Direccion destino: </label>
+										<?php echo $values['Direccion']?>
+									</div>
+									<div class="col-sm-12">
+										<label for="QueOcurre">¿Qué ocurre?: </label>
+										<?php echo $values['QueOcurre'];?>
+									</div>
+									<div class="col-sm-12">
+											<label for="">Neúmaticos delanteros: </label>
+											<?php echo $values['Neumaticos'];?>
+									</div>
+									<div class="col-sm-12">
+										<label for="Situacion">Detalles importantes: </label>
+											<?php echo $values['Situacion'];?>
+
+									</div>
+									<div class="col-sm-12">
+										<label for="CellContacto">Contacto: </label>
+										<?php echo $values['CellContacto'];?>
+									</div>
+									<div class="col-sm-12">
+										<label for="InfoAdicional">Informacion adicional: </label>
+										<?php echo $values['InfoAdicional'];?>
+									</div>
+									<div class="col-sm-12">
+										<label for="InfoAdicional">Monto sin IVA: </label>
+										<?php setlocale(LC_NUMERIC,"es_ES.UTF8");echo number_format($values['Monto'],2,",",".");?> Bs
+									</div>	
+						  </div>
+						</div>
+						<div>
+						<div class="panel panel-default">
+						  <div class="panel-heading" style="background-color: #404040 !important;">
+							<h3 class="panel-title"  style="color: white !important;">Cambio de monto</h3>
+						  </div>
+						  <div class="panel-body" style="background-color: #ccc !important;">
+							  <div class="col-sm-12">
+								<label for="">Monto</label>
+								<input type="number" id="MontoNuevo" value="<?php echo $values['Monto']?>">
+								<input type="number" id="Monto" value="<?php echo $values['Monto']?>" class="hidden"> 
+							  </div>
+							  <div class="col-sm-12">
+							  <label for="MotivoMonto">Motivo</label>
+							  <input class="" id="MotivoMonto" value="" placeholder="Indique el motivo del cambio" size="80">
+							  </div>
+
+								<a class="btn btn-default " onclick="actualizaMonto();"><i class="fa fa-check"></i>Cambiar</a>
+						  </div>
+						</div>
 							
-							<div class="col-sm-12">
-								<h2>Datos solicitud</h2>
-								<label for="EstadoOrigen">Estado origen: </label>
-								<?php echo $values['EstadoOrigen']?>
-							</div>
-							<div class="col-sm-12">
-								<label for="locationl">Direccion destino: </label>
-								<?php echo $values['Direccion']?>
-							</div>
-							<div class="col-sm-12">
-								<label for="QueOcurre">¿Qué ocurre?: </label>
-								<?php echo $values['QueOcurre'];?>
-							</div>
-							<div class="col-sm-12">
-									<label for="">Neúmaticos delanteros: </label>
-									<?php echo $values['Neumaticos'];?>
-							</div>
-							<div class="col-sm-12">
-								<label for="Situacion">Detalles importantes: </label>
-									<?php echo $values['Situacion'];?>
-								
-							</div>
-							<div class="col-sm-12">
-								<label for="CellContacto">Contacto: </label>
-								<?php echo $values['CellContacto'];?>
-							</div>
-							<div class="col-sm-12">
-								<label for="InfoAdicional">Informacion adicional: </label>
-								<?php echo $values['InfoAdicional'];?>
-							</div>
-							<div class="col-sm-12">
-								<label for="InfoAdicional">Monto sin IVA: </label>
-								<?php setlocale(LC_NUMERIC,"es_ES.UTF8");echo number_format($values['Monto'],2,",",".");?> Bs
-							</div>	
-					</div>		
+							
+							
+							
+
+						</div>
+						<a class="btn btn-default"  href="<?php echo full_url."/solope/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
+
 				</div>				
 		
 		
@@ -246,6 +277,49 @@ h1, h2 ,h3 {
 					  },
 					  //dataType: dataType
 					});			
+	</script>
+	<script>
+		
+		function actualizaMonto()
+		{	
+					var idSolicitud = $('#idSolicitud').val();
+					var Monto = parseFloat($('#Monto').val());
+					var MontoNuevo = parseFloat($('#MontoNuevo').val());
+					var MotivoMonto = $('#MotivoMonto').val();
+					if(typeof MontoNuevo==='number' && !Number.isNaN(MontoNuevo)) {
+						
+					}else{
+						alert("El monto debe ser numérico");
+						return false;
+					}
+					
+					
+					if(MotivoMonto == ''){
+						alert("Debe indicar el motivo del cambio");
+						return false;
+					}
+
+					
+					if(confirm("¿Está seguro(a) de cambiar el monto para la solicitud #?" + idSolicitud)){
+						$.ajax({
+						  type: "POST",
+						  url: '<?php echo full_url?>/solope/solicitud/index.php?action=actualiza_monto',
+						  data: { action: "actualiza_monto",idSolicitud: idSolicitud,Monto: Monto, MontoNuevo: MontoNuevo,MotivoMonto:MotivoMonto},
+						  success: function(html){
+							 alert("Monto cambiado satisfactoriamente");
+							 $(location).attr('href', '<?php echo full_url;?>/solope/solicitud/index.php?action=edit&idSolicitud='+idSolicitud+ "&idPoliza=" + idPoliza);
+								//$('#parcial_cliente').html(html);
+						  },
+						  //dataType: dataType
+						});		
+					}else{
+						return false;
+					}
+					
+			
+		}
+
+
 	</script>
 <script>
 
@@ -304,7 +378,7 @@ h1, h2 ,h3 {
       }
 	setInterval( function () {
 		initMap();
-	},1000000 );
+	},30000 );
     </script>
 <script>
 
