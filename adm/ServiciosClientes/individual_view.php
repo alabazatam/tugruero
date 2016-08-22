@@ -2,7 +2,7 @@
 <?php include('../menu.php')?>
 
 	<h1 class="text-center">Servicios Cliente</h1>
-        <form class="form-inline" method="post" action="" id="form_polizas">
+	<form class="form-inline"  action="" id="consultarPoliza">
           <div class="form-group">
             <label for="letra">Cédula/RIF</label>
             <select name="nacion" id="letra">
@@ -13,7 +13,7 @@
             <input type="text" class="form-control" autocomplete="off" id="documento" placeholder="1234567">
 
           </div>
-          <a  class="btn btn-default" id="consultarPoliza"><i class="fa fa-search fa-pull-left fa-border"></i> Consultar</a>
+          <a  class="btn btn-default" id="consultarPoliza" onclick="consultarPoliza();"><i class="fa fa-search fa-pull-left fa-border"></i> Consultar</a>
         </form>
         <div id="results" class="col-sm-12" hidden>
             <div id="" class="col-sm-12">
@@ -42,18 +42,25 @@
 <script>
 
 	$("document").ready(function(){
+		
+		$("#consultarPoliza").on("submit", function(){
+		  //Code: Action (like ajax...)
+		  consultarPoliza();
+		  return false;
+		});
 		$('#results').hide();
-		$("#consultarPoliza").click(function(){
+		
+	});
+
+function consultarPoliza(){                              
+				$('#results').hide();
+				$('#nuevo').hide();
                                 
-                                
-                                $('#results').hide();
-                                $('#nuevo').hide();
-                                
-                                if($('#documento').val() == '')
-                                {
-                                    alert('Debe indicar el número de identificación');
-                                    return false;
-                                }
+                if($('#documento').val() == '')
+                {
+				alert('Debe indicar el número de identificación');
+				return false;
+				}
                                 
 				var arr = {
 					Cedula: $('#letra').val() + '-' + $('#documento').val() ,
@@ -104,11 +111,9 @@
                                            
 						
 					}
-				});			
-			
-			
-		});
-		
-	});
+				});	
 
+
+				
+}
 </script>

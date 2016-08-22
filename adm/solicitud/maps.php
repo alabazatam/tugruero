@@ -258,7 +258,8 @@ h1, h2 ,h3 {
 								<textarea name="InfoAdicional" id='InfoAdicional' class="form-control input-sm" placeholder="Informacion adicional"></textarea>
 							</div>
 						</div>
-							<a id="enviaSolicitud" name="" class="btn btn-success btn-lg">Solicitar</a>
+							<a class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Listar solicitudes</a>
+							<a id="enviaSolicitud" name="" class="btn btn-default"><i class="fa fa-mobile-phone  fa-pull-left fa-border"></i> Solicitar</a>
 							
 						</div>	
 					</div>		
