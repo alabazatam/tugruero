@@ -49,7 +49,7 @@ $(document).ready(function() {
 		var title = $('#example thead th').eq( $(this).index() ).text();
 		
 		if(title != 'Detalle')
-		{       $('#toogles').append('- <a class="btn btn-success toggle-vis" data-column="'+$(this).index()+'">'+title+'</a>' );
+		{       //$('#toogles').append('- <a class="btn btn-success toggle-vis" data-column="'+$(this).index()+'">'+title+'</a>' );
 			$(this).html( '<input size="10" class="input-sm" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
 		}
 		if(title == 'Detalle')

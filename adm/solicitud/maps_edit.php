@@ -145,12 +145,12 @@ h1, h2 ,h3 {
 								<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;">
 								  <h4 class="panel-title" style="color: white !important;">
 									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									 Condicionado de la Póliza
+									 Tips
 									</a>
 								  </h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-								  <div class="panel-body" style="background-color: #ccc !important;">
+									<div class="panel-body" style="background-color: #ccc !important;" id="parcial_tips">
 									  aksjhdkasjh
 								  </div>
 								</div>
@@ -276,7 +276,17 @@ h1, h2 ,h3 {
 							$('#parcial_poliza').html(html);
 					  },
 					  //dataType: dataType
-					});			
+					});
+		//carga parcial de Poliza
+					$.ajax({
+					  type: "GET",
+					  url: '<?php echo full_url?>/adm/Parciales/index.php',
+					  data: { action: "parcial_tips",idPoliza: idPoliza},
+					  success: function(html){
+							$('#parcial_tips').html(html);
+					  },
+					  //dataType: dataType
+					});
 	</script>
 	<script>
 		

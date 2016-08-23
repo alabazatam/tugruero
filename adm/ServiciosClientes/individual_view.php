@@ -18,22 +18,28 @@
         <div id="results" class="col-sm-12" hidden>
             <div id="" class="col-sm-12">
                 <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Datos Póliza</h3>
+                  <div class="panel-heading" style="background-color: #404040 !important;">
+                    <h3 class="panel-title" style="color: white !important;">Datos Póliza</h3>
                   </div>
-                  <div class="panel-body" id="parcial_cliente">
+                  <div class="panel-body" id="parcial_cliente" style="background-color: #ccc !important;"></div>
+                  <div class="panel-body" id="parcial_poliza" style="background-color: #ccc !important;"></div>
 
+                </div>
+            </div>                        
+            <div id="" class="col-sm-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading" style="background-color: #404040 !important;">
+                    <h3 class="panel-title" style="color: white !important;">Tips</h3>
                   </div>
-                  <div class="panel-body" id="parcial_poliza">
-
-                  </div>
-                  <div class="panel-body" id="botones">
+                 <div class="panel-body" id="parcial_tips" style="background-color: #ccc !important;">
 
                   </div>
                 </div>
-            </div>                        
-            
+            </div>                
         </div> 
+        <div class="panel-body" id="botones">
+
+        </div>
         <div id="nuevo" class="col-sm-12" hidden>
             <a class="btn btn-default"  href="<?php echo full_url."/adm/Polizas/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar póliza</a> 
         </div>
@@ -95,8 +101,16 @@ function consultarPoliza(){
                                                   success: function(html){
                                                                 $('#parcial_poliza').html(html);
                                                   }
-                                                });       
-
+                                                });     
+												//carga parcial de tips
+												$.ajax({
+                                                  type: "GET",
+                                                  url: '<?php echo full_url?>/adm/Parciales/index.php',
+                                                  data: { action: "parcial_tips",idPoliza: idPoliza},
+                                                  success: function(html){
+                                                                $('#parcial_tips').html(html);
+                                                  }
+                                                }); 
                                                 var html = '';
                                                 html+='<a  class="btn btn-default" id="" href="<?php echo full_url;?>/adm/solicitud/index.php?action=new&idPoliza='+idPoliza+'"><i class="fa fa-map-marker fa-pull-left fa-border"></i> Generar solicitud</a>';
                                                 html+='<a  class="btn btn-default" id="" href="<?php echo full_url;?>/adm/ServiciosClientes/index.php?idPoliza='+idPoliza+'"><i class="fa fa-mobile fa-pull-left fa-border"></i> Consultar servicios</a>';

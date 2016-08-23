@@ -49,15 +49,28 @@ $cambiar_a2_grua = "";
 						</div>
 					  </div>
 					  <div class="panel">
+						<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;" >
+						  <h4 class="panel-title">
+							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white !important;">
+							  Detalle Póliza
+							</a>
+						  </h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body" id="parcial_poliza" style="background-color: #ccc !important;">
+						  </div>
+						</div>
+					  </div>
+					  <div class="panel">
 						<div class="panel-heading" role="tab" id="headingThree" style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
 							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white !important;">
-							  Detalle Solicitud
+							  Tips
 							</a>
 						  </h4>
 						</div>
 						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-						  <div class="panel-body" id="parcial_solicitud" style="background-color: #ccc !important;">
+						  <div class="panel-body" id="parcial_tips" style="background-color: #ccc !important;">
 						  </div>
 						</div>
 					  </div>
@@ -298,7 +311,17 @@ $cambiar_a2_grua = "";
 							$('#parcial_poliza').html(html);
 					  },
 					  //dataType: dataType
-					});			
+					});
+		//carga parcial de tips
+					$.ajax({
+					  type: "GET",
+					  url: '<?php echo full_url?>/adm/Parciales/index.php',
+					  data: { action: "parcial_tips",idPoliza: idPoliza},
+					  success: function(html){
+							$('#parcial_tips').html(html);
+					  },
+					  //dataType: dataType
+					});	
 		//carga parcial de Solicitud
 					$.ajax({
 					  type: "GET",

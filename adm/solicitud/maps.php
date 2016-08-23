@@ -98,7 +98,26 @@ h1, h2 ,h3 {
     }
 }
     </style>
-
+<style>
+.hover_group:hover {
+  opacity: 1;
+}
+#Auto {
+  position: relative;
+  width: 100%;
+  padding-bottom: 15%;
+  vertical-align: middle;
+  margin: 0;
+  overflow: hidden;
+  background-color: transparent;
+}
+#Auto svg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}	
+</style>
 	<div class="navbar navbar-fixed-top">      
 
 			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="<?php echo full_url?>/web/img/logo_blanco.png" alt="tugruero.com" width="100"></a>
@@ -119,151 +138,182 @@ h1, h2 ,h3 {
 	  </ul>
 		
 		<!--Codigo -->
-				
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-					<form class="form-horizontal" action="#" method="POST">
-					<div id="form-group">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden">
+											<label for="latlon">Lat/Long Origen</label>
+											<input id="latlon" type="text" value=""  class="form-control input-sm" size="50" readonly="readonly">
+
+
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden">
+											<label for="latlonl">Lat/Long destino</label>
+											<input id="latlonl" type="text" value="" class="form-control input-sm" size="50" readonly="readonly">
+
+
+										</div>				
+					
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" hidden>
 							<input id="country" id="country" type="hidden" value="" class="controls">
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">		
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 							  <div class="panel panel-default">
-								<div class="panel-heading" role="tab" id="headingOne">
+								<div class="panel-heading" role="tab" id="headingOne" style="background-color: #404040 !important;">
 								  <h4 class="panel-title">
-									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color: white !important;">
 									  Datos de Cliente y Póliza
 									</a>
 								  </h4>
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-								  <div class="panel-body">
+								  <div class="panel-body" style="background-color: #ccc !important;">
 									  <div id="parcial_cliente"></div>
 									  <div id="parcial_poliza"></div>
 								  </div>
 								</div>
 							  </div>
 							  <div class="panel panel-default">
-								<div class="panel-heading" role="tab" id="headingTwo">
+								<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;">
 								  <h4 class="panel-title">
-									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									 Condicionado de la Póliza
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white !important;">
+									 Tips
 									</a>
 								  </h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-								  <div class="panel-body">
-									  aksjhdkasjh
+								  <div class="panel-body" style="background-color: #ccc !important;">
+									  <div id="parcial_tips"></div>
 								  </div>
 								</div>
 							  </div>
 							</div>						
-						</div>		
+	
 						
+							<div class="panel panel-default">
+							  <div class="panel-heading" style="background-color: #404040 !important;">
+								<h3 class="panel-title"  style="color: white !important;">Datos solicitud</h3>
+							  </div>
+									<div class="panel-body" style="background-color: #ccc !important;">
+											<div class="col-sm-12">
+												<label for="EstadoOrigen">Estado origen</label>
+												<select name="EstadoOrigen" id="EstadoOrigen" class="form-control">
+													<option value=""></option>
+													<option value="Amazonas">Amazonas</option>
+													<option value="Anzoátegui">Anzoátegui</option>
+													<option value="Apure">Apure</option>
+													<option value="Aragua">Aragua</option>
+													<option value="Barinas">Barinas</option>
+													<option value="Bolivar">Bolivar</option>
+													<option value="Carabobo">Carabobo</option>
+													<option value="Cojedes">Cojedes</option>
+													<option value="Delta Amacuro">Delta amacuro</option>
+													<option value="Dependencias Federales">Dependencias federales</option>
+													<option value="Distrito Capital">Distrito Capital</option>
+													<option value="Falcón">Falcón</option>
+													<option value="Guárico">Guárico</option>
+													<option value="Lara">Lara</option>
+													<option value="Mérida">Mérida</option>
+													<option value="Miranda">Miranda</option>
+													<option value="Monagas">Monagas</option>
+													<option value="Nueva Esparta">Nueva Esparta</option>
+													<option value="Portuguesa">Portuguesa</option>
+													<option value="Sucre">Sucre</option>
+													<option value="Táchira">Táchira</option>
+													<option value="Trujillo">Trujillo</option>
+													<option value="Vargas">Vargas</option>
+													<option value="Yaracuy">Yaracuy</option>
+													<option value="Zulia">Zulia</option>
+												</select>
+											</div>
+											<div class="col-sm-6" hidden>
+												id_poliza = <input id="idPoliza" type="text" value="<?php if(isset($values['idPoliza']) and $values['idPoliza']!='') echo $values['idPoliza']?>"  class="form-control input-sm" size="50">
+												<label for="location">Direccion de Origen</label>
+												<input id="location" type="text" value=""  class="form-control input-sm" size="50">
+											</div>
+											<div class="col-sm-12">
+												<label for="locationl">Direccion destino</label>
+												<input id="locationl" type="text" value="" class="form-control input-sm" size="50">
+											</div>
+											<div class="col-sm-12">
+												<label for="QueOcurre">¿Qué ocurre?</label>
+												<select class="form-control input-sm" name='QueOcurre' id='QueOcurre'>
+													<option value="">Seleccione</option>
+													<option value="Falla de encendido">Falla de encendido / No puedo rotar</option>
+													<option value="Neumático espichado">Neumático espichado / Torcido</option>
+													<option value="Volante/Palanca trabada">Volante / Palanca trabada</option>
+													<option value="Encunetado">Encunetado</option>
+													<option value="Choqué">Choqué</option>
+													<option value="Otra falla">Otra falla</option>
+												</select>
+											</div>
+											<div class="col-sm-12">
+												<div class="col-sm-12">
+													<figure id="Auto">
+													  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" preserveAspectRatio="xMinYMin meet">
+														<image width="250" height="250" xlink:href="<?php echo full_url?>/web/img/SVGs/Cauchos.svg"></image>
+														<g class="hover_group" opacity="1">
+														  <a xlink:href="#">
+															<!--<text x="0" y="40" font-size="20">Caucho A</text>-->
+															<rect x="0" y="40" opacity="1" width="40" height="40" id="CauchoA" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,255);"></rect>
+														  </a>
+														</g>
+														<g class="hover_group" opacity="1">
+														  <a>
+															<!--<text x="210" y="40" font-size="20">Caucho b</text>-->
+															<rect x="210" y="40" opacity="1" width="40" height="40" id="CauchoB" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,255);"></rect>
+														  </a>
+
+														</g>
+														<g class="hover_group" opacity="1">
+														  <a>
+															<!--<text x="0" y="170" font-size="20">Caucho c</text>-->
+															<rect x="0" y="170" opacity="1" width="40" height="40" id="CauchoC" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,255);"></rect>
+														  </a>
+
+														</g>
+														<g class="hover_group" opacity="1">
+														  <a>
+															<!--<text x="210" y="170" font-size="20">Caucho d</text>-->
+															  <rect x="210" y="170" opacity="1" width="40" height="40" id="CauchoD" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,255);"></rect>
+
+														  </a>
+
+														</g>
+													  </svg>
+													</figure>
+												<input id="caucho1" type="checkbox" value="1" class=" input-sm hidden">
+												<input id="caucho2" type="checkbox" value="1" class=" input-sm hidden"><br>
+												<input id="caucho3" type="checkbox" value="1" class=" input-sm hidden">
+												<input id="caucho4" type="checkbox" value="1" class="input-sm hidden">
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<label for="Situacion">Detalles importantes</label>
+												<select class="form-control input-sm" name='Situacion' id='Situacion'>
+													<option value="">Seleccione</option>
+													<option value="Calle plana">Calle plana</option>
+													<option value="Calle inclinada">Calle inclinada</option>
+													<option value="Atascado en barro o arena.">Atascado en barro o arena</option>
+													<option value="Estacionamiento techado o sótano">Estacionamiento techado o sótano</option>
+												</select>
+											</div>
+											<div class="col-sm-6">
+												<label for="CellContacto">Contacto</label>
+												<input type="text" name="CellContacto" id="CellContacto" class="form-control input-sm" placeholder="Contacto">
+											</div>
+											<div class="col-sm-6">
+												<label for="InfoAdicional">Informacion adicional</label>
+												<textarea name="InfoAdicional" id='InfoAdicional' class="form-control input-sm" placeholder="Informacion adicional"></textarea>
+											</div>
+											<div class="col-sm-12">
+												<a class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Listar solicitudes</a>
+												<a id="enviaSolicitud" name="" class="btn btn-default"><i class="fa fa-mobile-phone  fa-pull-left fa-border"></i> Solicitar</a>
+											</div>			
+
+									</div>	
+							  </div>
+							</div>						
 						
-						
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden">
-							<label for="latlon">Lat/Long Origen</label>
-							<input id="latlon" type="text" value=""  class="form-control input-sm" size="50" readonly="readonly">
 
-
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden">
-							<label for="latlonl">Lat/Long destino</label>
-							<input id="latlonl" type="text" value="" class="form-control input-sm" size="50" readonly="readonly">
-
-
-						</div>
-						<div class="form-group">
-							
-							<div class="col-sm-12">
-								<h2>Datos solicitud</h2>
-								<label for="EstadoOrigen">Estado origen</label>
-								<select name="EstadoOrigen" id="EstadoOrigen" class="form-control">
-									<option value=""></option>
-									<option value="Amazonas">Amazonas</option>
-									<option value="Anzoátegui">Anzoátegui</option>
-									<option value="Apure">Apure</option>
-									<option value="Aragua">Aragua</option>
-									<option value="Barinas">Barinas</option>
-									<option value="Bolivar">Bolivar</option>
-									<option value="Carabobo">Carabobo</option>
-									<option value="Cojedes">Cojedes</option>
-									<option value="Delta Amacuro">Delta amacuro</option>
-									<option value="Dependencias Federales">Dependencias federales</option>
-									<option value="Distrito Capital">Distrito Capital</option>
-									<option value="Falcón">Falcón</option>
-									<option value="Guárico">Guárico</option>
-									<option value="Lara">Lara</option>
-									<option value="Mérida">Mérida</option>
-									<option value="Miranda">Miranda</option>
-									<option value="Monagas">Monagas</option>
-									<option value="Nueva Esparta">Nueva Esparta</option>
-									<option value="Portuguesa">Portuguesa</option>
-									<option value="Sucre">Sucre</option>
-									<option value="Táchira">Táchira</option>
-									<option value="Trujillo">Trujillo</option>
-									<option value="Vargas">Vargas</option>
-									<option value="Yaracuy">Yaracuy</option>
-									<option value="Zulia">Zulia</option>
-								</select>
-							</div>
-							<div class="col-sm-6">
-								id_poliza = <input id="idPoliza" type="text" value="<?php if(isset($values['idPoliza']) and $values['idPoliza']!='') echo $values['idPoliza']?>"  class="form-control input-sm" size="50">
-								<label for="location">Direccion de Origen</label>
-								<input id="location" type="text" value=""  class="form-control input-sm" size="50">
-							</div>
-							<div class="col-sm-6">
-								<label for="locationl">Direccion destino</label>
-								<input id="locationl" type="text" value="" class="form-control input-sm" size="50">
-							</div>
-							<div class="col-sm-6">
-								<label for="QueOcurre">¿Qué ocurre?</label>
-								<select class="form-control input-sm" name='QueOcurre' id='QueOcurre'>
-									<option value="">Seleccione</option>
-									<option value="Falla de encendido">Falla de encendido / No puedo rotar</option>
-									<option value="Neumático espichado">Neumático espichado / Torcido</option>
-									<option value="Volante/Palanca trabada">Volante / Palanca trabada</option>
-									<option value="Encunetado">Encunetado</option>
-									<option value="Choqué">Choqué</option>
-									<option value="Otra falla">Otra falla</option>
-								</select>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">
-									<label for="">Neumaticos delanteros</label>
-									<input id="caucho1" type="checkbox" value="1" class=" input-sm">
-									<input id="caucho2" type="checkbox" value="1" class=" input-sm">
-									<label for="">Neumaticos delanteros</label>
-									<input id="caucho3" type="checkbox" value="1" class=" input-sm">
-									<input id="caucho4" type="checkbox" value="1" class="input-sm">
-								</div>
-							</div>
-							<div class="col-sm-12">
-								<label for="Situacion">Detalles importantes</label>
-								<select class="form-control input-sm" name='Situacion' id='Situacion'>
-									<option value="">Seleccione</option>
-									<option value="Calle plana">Calle plana</option>
-									<option value="Calle inclinada">Calle inclinada</option>
-									<option value="Atascado en barro o arena.">Atascado en barro o arena</option>
-									<option value="Estacionamiento techado o sótano">Estacionamiento techado o sótano</option>
-								</select>
-							</div>
-							<div class="col-sm-6">
-								<label for="CellContacto">Contacto</label>
-								<input type="text" name="CellContacto" id="CellContacto" class="form-control input-sm" placeholder="Contacto">
-							</div>
-							<div class="col-sm-6">
-								<label for="InfoAdicional">Informacion adicional</label>
-								<textarea name="InfoAdicional" id='InfoAdicional' class="form-control input-sm" placeholder="Informacion adicional"></textarea>
-							</div>
-						</div>
-							<a class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Listar solicitudes</a>
-							<a id="enviaSolicitud" name="" class="btn btn-default"><i class="fa fa-mobile-phone  fa-pull-left fa-border"></i> Solicitar</a>
-							
-						</div>	
-					</div>		
-				</div>				
+									
 		
 		
 		
@@ -318,7 +368,17 @@ h1, h2 ,h3 {
 							$('#parcial_poliza').html(html);
 					  },
 					  //dataType: dataType
-					});			
+					});
+		//carga parcial de tips
+					$.ajax({
+					  type: "GET",
+					  url: '<?php echo full_url?>/adm/Parciales/index.php',
+					  data: { action: "parcial_tips",idPoliza: idPoliza},
+					  success: function(html){
+							$('#parcial_tips').html(html);
+					  },
+					  //dataType: dataType
+					});	
 	</script>
 <script>
 
@@ -752,6 +812,85 @@ var geocoder = new google.maps.Geocoder;
 		});
 		
 	});
+
+</script>
+<script>
+
+$(document).ready(function() {
+		$('#CauchoA').click(function(e)
+		{
+			W = $(this).width();
+			H = $(this).height();
+			X = $(this).position().left;
+			Y = $(this).position().top;
+			
+
+			if ($('#caucho1').is(':checked')) {
+				$(this).css('fill', "rgb(255,255,255)");
+				$( "#caucho1" ).prop( "checked", false );
+			}else{
+				$(this).css('fill', "rgb(0,0,0)");
+				$( "#caucho1" ).prop( "checked", true );			
+			}
+			
+			
+		});
+		$('#CauchoB').click(function(e)
+		{
+			W = $(this).width();
+			H = $(this).height();
+			X = $(this).position().left;
+			Y = $(this).position().top;
+			
+
+			if ($('#caucho2').is(':checked')) {
+				$(this).css('fill', "rgb(255,255,255)");
+				$( "#caucho2" ).prop( "checked", false );
+			}else{
+				$(this).css('fill', "rgb(0,0,0)");
+				$( "#caucho2" ).prop( "checked", true );			
+			}
+			
+			
+		});
+		$('#CauchoC').click(function(e)
+		{
+			W = $(this).width();
+			H = $(this).height();
+			X = $(this).position().left;
+			Y = $(this).position().top;
+			
+
+			if ($('#caucho3').is(':checked')) {
+				$(this).css('fill', "rgb(255,255,255)");
+				$( "#caucho3" ).prop( "checked", false );
+			}else{
+				$(this).css('fill', "rgb(0,0,0)");
+				$( "#caucho3" ).prop( "checked", true );			
+			}
+			
+			
+		});
+		$('#CauchoD').click(function(e)
+		{
+			W = $(this).width();
+			H = $(this).height();
+			X = $(this).position().left;
+			Y = $(this).position().top;
+			
+
+			if ($('#caucho4').is(':checked')) {
+				$(this).css('fill', "rgb(255,255,255)");
+				$( "#caucho4" ).prop( "checked", false );
+			}else{
+				$(this).css('fill', "rgb(0,0,0)");
+				$( "#caucho4" ).prop( "checked", true );			
+			}
+			
+			
+		});
+});
+
 
 </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places"></script>

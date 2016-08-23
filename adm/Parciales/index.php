@@ -25,7 +25,10 @@ $values = array_merge($values,$_FILES);
 		break;
 		case "parcial_solicitud":
 			executeParcialSolicitud($values);	
-		break;	
+		break;
+		case "parcial_tips":
+			executeParcialTips($values);	
+		break;		
 		default:
 			executeIndex($values);
 		break;
@@ -57,4 +60,9 @@ $values = array_merge($values,$_FILES);
 		$Solicitud = new Solicitud();
 		$data = $Solicitud->getDatosSolicitud($values);
 		require('solicitud_view.php');
+	}
+	function executeParcialTips($values = null)
+	{
+
+		require('tips_view.php');
 	}
