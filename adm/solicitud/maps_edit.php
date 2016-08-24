@@ -164,7 +164,7 @@ h1, h2 ,h3 {
 						  <div class="panel-heading" style="background-color: #404040 !important;">
 							<h3 class="panel-title"  style="color: white !important;">Detalle de solicitud</h3>
 						  </div>
-						  <div class="panel-body" style="background-color: #ccc !important;">
+						  <div class="panel-body" style="background-color: #ccc !important;" id="parcial_solicitud">
 									<div class="col-sm-12">
 										<label for="EstadoOrigen">Estado origen: </label>
 										<?php echo $values['EstadoOrigen']?>
@@ -241,7 +241,8 @@ h1, h2 ,h3 {
     <script src="../../web/js/jquery.js"></script>
     <script src="../../web/js/bootstrap.min.js"></script>
     <script src="../../web/js/freelancer.js"></script>
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&libraries=places"></script>
+   
 	<script>
 		$(document).ready(function(){												
 		$('body').toggleClass('nav-expanded2');
@@ -257,6 +258,7 @@ h1, h2 ,h3 {
  
       });
 		var idPoliza = $('#idPoliza').val();
+		var idSolicitud = $('#idSolicitud').val();
 		//carga parcial de cliente
 					$.ajax({
 					  type: "GET",
@@ -287,6 +289,17 @@ h1, h2 ,h3 {
 					  },
 					  //dataType: dataType
 					});
+		//carga parcial solicitud;
+					$.ajax({
+					  type: "GET",
+					  url: '<?php echo full_url?>/adm/Parciales/index.php',
+					  data: { action: "parcial_solicitud",idSolicitud: idSolicitud},
+					  success: function(html){
+							$('#parcial_solicitud').html(html);
+					  },
+					  //dataType: dataType
+					});			
+
 	</script>
 	<script>
 		
@@ -335,7 +348,7 @@ h1, h2 ,h3 {
 
       // This example adds a marker to indicate the position of Bondi Beach in Sydney,
       // Australia.
-      function initMap() {
+      /*function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
 		  mapTypeId: 'roadmap',
           zoom: 14,
@@ -388,7 +401,70 @@ h1, h2 ,h3 {
       }
 	setInterval( function () {
 		initMap();
-	},30000 );
+	},30000 );*/
+    </script>
+	<script>
+
+      // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+      // Australia.
+		var markerStore = {};
+		var INTERVAL = 10000;
+		var myLatlng = new google.maps.LatLng(10.5168373,-66.9279394);
+		var myOptions = {
+			zoom: 13,
+			center: myLatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+		}
+    var map = new google.maps.Map(document.getElementById("map"), myOptions);
+	getMarkers();
+function getMarkers() {
+$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitud_livemap&idSolicitud=<?php echo $values['idSolicitud'];?>", function(json1) {
+			$.each(json1, function(key, data) {
+				$.each(data, function(key, data) {
+					if(markerStore.hasOwnProperty(key)) {
+						markerStore[key].setPosition(new google.maps.LatLng(data.lat, data.lng));
+					}else{
+						var latLng = new google.maps.LatLng(data.lat, data.lng);					// Creating a marker and putting it on the map
+						var infowindow = new google.maps.InfoWindow({
+								content: data.contentinfo
+						});
+
+						var marker = new google.maps.Marker({
+							position: latLng,
+							icon: {
+							  path: google.maps.SymbolPath.CIRCLE,
+							  //path: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+							  fillColor: 'yellow',
+							  fillOpacity: 0.8,
+							  scale: 1,
+							  strokeColor: data.iconcolor,
+							  strokeWeight: 14,
+							},
+							map: map,
+							title: data.title,
+							label: data.label,
+						});
+						if(data.id != 0)
+						{
+						infowindow.open(map, marker);
+							marker.addListener('click', function() {
+								infowindow.open(map, marker);
+							});						
+						}
+						if(data.id == 0)
+						{
+							//centrar mapa dependiendo del  latCenter y lngCenter
+							var center = new google.maps.LatLng(data.latCenter, data.lngCenter);
+							map.setCenter(new google.maps.LatLng(data.latCenter, data.lngCenter));
+
+						}
+						markerStore[key] = marker;
+					}
+				});
+			});
+		});
+		window.setTimeout(getMarkers,INTERVAL);
+}
     </script>
 <script>
 
@@ -438,4 +514,3 @@ h1, h2 ,h3 {
 	});
 
 </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places"></script>

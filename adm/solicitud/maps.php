@@ -144,7 +144,7 @@ h1, h2 ,h3 {
 
 
 										</div>
-										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " hidden>
 											<label for="latlonl">Lat/Long destino</label>
 											<input id="latlonl" type="text" value="" class="form-control input-sm" size="50" readonly="readonly">
 
@@ -225,12 +225,12 @@ h1, h2 ,h3 {
 											</div>
 											<div class="col-sm-6" hidden>
 												id_poliza = <input id="idPoliza" type="text" value="<?php if(isset($values['idPoliza']) and $values['idPoliza']!='') echo $values['idPoliza']?>"  class="form-control input-sm" size="50">
-												<label for="location">Direccion de Origen</label>
+												<label for="location">Dirección de Origen</label>
 												<input id="location" type="text" value=""  class="form-control input-sm" size="50">
 											</div>
 											<div class="col-sm-12">
-												<label for="locationl">Direccion destino</label>
-												<input id="locationl" type="text" value="" class="form-control input-sm" size="50">
+												<label for="locationl">Dirección destino</label>
+												<input id="locationl" type="text" readonly="readonly" value="" class="form-control input-sm" size="50">
 											</div>
 											<div class="col-sm-12">
 												<label for="QueOcurre">¿Qué ocurre?</label>
@@ -250,7 +250,7 @@ h1, h2 ,h3 {
 													  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" preserveAspectRatio="xMinYMin meet">
 														<image width="250" height="250" xlink:href="<?php echo full_url?>/web/img/SVGs/Cauchos.svg"></image>
 														<g class="hover_group" opacity="1">
-														  <a xlink:href="#">
+														  <a>
 															<!--<text x="0" y="40" font-size="20">Caucho A</text>-->
 															<rect x="0" y="40" opacity="1" width="40" height="40" id="CauchoA" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,255);"></rect>
 														  </a>
@@ -348,6 +348,9 @@ h1, h2 ,h3 {
       	});
  
       });
+
+		
+		
 		var idPoliza = $('#idPoliza').val();
 		//carga parcial de cliente
 					$.ajax({
@@ -425,6 +428,7 @@ function initMap() {
 
     autocomplete.addListener('place_changed', function() {
         //infowindow.close();
+		//alert(1);
         marker.setVisible(false);
         var place = autocomplete.getPlace();
         if (!place.geometry) {
@@ -540,6 +544,7 @@ function addMarker(location) {
 	marker.setValues({id: labels});
 	
 	if(labels == "Partida"){
+		$('#latlon').val(location);
 		$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_cliente&idPoliza=" + idPoliza, function(data) {
 			
 			var content = "";
@@ -559,28 +564,44 @@ function addMarker(location) {
 	}
 	
 	if(labels== "Llegada"){
+		$('#latlonl').val(location);
+		getEstadoOnMap(location);
 		var geocoder = new google.maps.Geocoder;
 		geocoder.geocode({'location': location}, function(results, status) {
-			/*marker.info = new google.maps.InfoWindow({
+			marker.info = new google.maps.InfoWindow({
 			  content: results[0].formatted_address
 			});	
-			marker.info.open(map, marker);	*/		
+			marker.info.open(map, marker);		
 		});
+		showLocationAddress(location,1);
 
 	}	
 	
-	
+	var Estado = "hola";	
 	marker.addListener('dragend', function(event) {
 		//alert(event.latLng);
+		
 		if(marker.label == 'Partida')
 		{
+			
 			$('#latlon').val(event.latLng);
 			showLocationAddress(event.latLng,0);
 			
 		}else if(marker.label == 'Llegada')
-		{
+		{	
+			marker.info.close(map.marker);
+			getEstadoOnMap(event.latLng);
+			//alert(Estado);  
 			$('#latlonl').val(event.latLng);
 			showLocationAddress(event.latLng,1);
+			var geocoder = new google.maps.Geocoder;
+			geocoder.geocode({'location': event.latLng}, function(results, status) {
+				marker.info = new google.maps.InfoWindow({
+				  content: results[0].formatted_address
+				});	
+				marker.info.open(map, marker);		
+			});
+
 
 		}else{
 			alert('Error seleccionando el punto');
@@ -589,19 +610,7 @@ function addMarker(location) {
 		
 	});
 
-		if(marker.label == 'Partida')
-		{
-			$('#latlon').val(location);
-			showLocationAddress(location,0);
-			
-		}else if(marker.label == 'Llegada')
-		{
-			$('#latlonl').val(location);
-			showLocationAddress(location,1);
-		}else{
-			alert('Error seleccionando el punto');
-		}
-	  
+
 	
 	markers.push(marker);
 	
@@ -613,7 +622,68 @@ function addMarker(location) {
 
 
 }
+function getEstadoOnMap(location){
+			var geocoder = new google.maps.Geocoder;
+			geocoder.geocode({'latLng': location}, function(results, status) {
+			  if (status == google.maps.GeocoderStatus.OK) {
+			  //console.log(results);
+				if (results[1]) {
+				var indice=0;
+				for (var j=0; j<results.length; j++)
+				{
+					if (results[j].types[0]=='locality')
+						{
+							indice=j;
+							break;
+						}
+					}
+				if(results[j])
+				{
+					for (var i=0; i<results[j].address_components.length; i++)
+						{
+							if (results[j].address_components[i].types[0] == "locality") {
+									//this is the object you are looking for
+									city = results[j].address_components[i];
+								}
+							if (results[j].address_components[i].types[0] == "administrative_area_level_1") {
+									//this is the object you are looking for
+									region = results[j].address_components[i];
+									estado = region.long_name;
+									if(estado == 'Capital District')
+									{
+										estado = 'Distrito Capital';
+									}
+									if(estado == 'Federal Dependencies')
+									{
+										estado = 'Dependencias Federales';
+									}
+									$('#EstadoOrigen option[value="'+estado+'"]').attr("selected", "selected");
+								}
+							if (results[j].address_components[i].types[0] == "country") {
+									//this is the object you are looking for
+									country = results[j].address_components[i];
+								}
+						}	
+				}
 
+					
+					//alert(location);
+
+					//city data
+					//alert(city.long_name + " || " + region.long_name + " || " + country.short_name)
+					
+
+					} else {
+					  alert("No results found");
+					}
+				//}
+			  } else {
+				alert("Geocoder failed due to: " + status);
+			  }
+			});	
+
+			
+}
 // Sets the map on all markers in the array.
 function setMapOnAll(map) {
   for (var i = 0; i < markers.length; i++) {
@@ -630,7 +700,6 @@ function clearMarkers() {
   $('#locationl').val(null);
   //$("#EstadoOrigen").attr('selectedIndex', '-1');
   
-  $("#EstadoOrigen").val([]);
   //$('#EstadoOrigen option[value="NA"]').attr("selected", "selected");  
 }
 
@@ -696,6 +765,44 @@ var geocoder = new google.maps.Geocoder;
 			latlonl = latlonl.replace(")", "");
 			latlonl = latlonl.split(","); 
 			
+			//neumaticos
+			
+			var neumaticos = "";
+			var caucho1 = 0;
+			var caucho2 = 0;
+			var caucho3 = 0;
+			var caucho4 = 0;
+			
+
+			if ($('#caucho1').is(':checked')) //caucho1
+			{
+				//alert(1);
+				caucho1 = 1;
+			}
+			if ($('#caucho2').is(':checked')) //caucho2
+			{
+				//alert(2);
+				caucho2 = 1;
+			}
+			if ($('#caucho3').is(':checked')) //caucho3
+			{
+				//alert(3);
+				caucho3 = 1;
+			}
+			if ($('#caucho4').is(':checked')) //caucho4
+			{
+				//alert(4);
+				caucho4 = 1;
+			}
+			
+			neumaticos = caucho1 + '' + caucho2 + '' + caucho3 + '' + caucho4;
+			//fin neumaticos
+			if($('#latlon').val() == '' || $('#latlonl').val() == '')
+			{
+				alert('Debe indicar las coordenadas');
+				return false;				
+			}
+			
 			if($('#EstadoOrigen').val() == '')
 			{
 				alert('Debe seleccionar el estado de origen');
@@ -708,10 +815,6 @@ var geocoder = new google.maps.Geocoder;
 			{
 				alert('Seleccione o arrastre nuevamente los puntos de origen y destino');
 				return false;
-			}else if($('#location').val()=='' || $('#location').val() =='')
-			{
-				alert('Los campos de origen y destino no pueden estar vacios');
-				return false;				
 			}else if($('#QueOcurre' ).val() == '')
 			{
 				alert('El campo ¿Que ocurre no debe estar vacio?');
@@ -741,7 +844,7 @@ var geocoder = new google.maps.Geocoder;
 				InfoAdicional: $('#InfoAdicional').val(),
 				EstadoOrigen: $('#EstadoOrigen').val(),
 				QueOcurre: $('#QueOcurre').val(),
-				Neumaticos:'0100',
+				Neumaticos:neumaticos,
 				Situacion: $('#Situacion').val(),
 				Proviene: 'WEB'
 			};
@@ -817,6 +920,28 @@ var geocoder = new google.maps.Geocoder;
 <script>
 
 $(document).ready(function() {
+	
+	    $('#Auto').hide();
+		$('#QueOcurre').change(function(){
+			if($(this).val()=='Neumático espichado')
+			{
+				$('#Auto').show();
+			}else{
+				$('#Auto').hide();
+				$( "#caucho1" ).prop( "checked", false );
+				$( "#caucho2" ).prop( "checked", false );
+				$( "#caucho3" ).prop( "checked", false );
+				$( "#caucho4" ).prop( "checked", false );
+				
+				$( "#CauchoA" ).css('fill', "rgb(255,255,255)");
+				$( "#CauchoB" ).css('fill', "rgb(255,255,255)");
+				$( "#CauchoC" ).css('fill', "rgb(255,255,255)");
+				$( "#CauchoD" ).css('fill', "rgb(255,255,255)");
+			}
+			
+		});
+	
+	
 		$('#CauchoA').click(function(e)
 		{
 			W = $(this).width();

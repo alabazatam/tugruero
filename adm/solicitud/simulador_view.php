@@ -49,19 +49,6 @@ $cambiar_a2_grua = "";
 						</div>
 					  </div>
 					  <div class="panel">
-						<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;" >
-						  <h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white !important;">
-							  Detalle Póliza
-							</a>
-						  </h4>
-						</div>
-						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-							<div class="panel-body" id="parcial_poliza" style="background-color: #ccc !important;">
-						  </div>
-						</div>
-					  </div>
-					  <div class="panel">
 						<div class="panel-heading" role="tab" id="headingThree" style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
 							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white !important;">
@@ -83,8 +70,10 @@ $cambiar_a2_grua = "";
 									<h3 class="panel-title" style="color: white !important;">Solicitud</h3>
 								</div>
 								<div class="panel-body" style="background-color: #ccc !important;">
-									<!--Parcial de cliente-->
-
+									<!--Parcial de solicitud-->
+									<div id="parcial_solicitud">
+										
+									</div>
 									
 									<?php /* Estatus solicitud*/?>
 									<label for="estatus">Estatus Solicitud</label>

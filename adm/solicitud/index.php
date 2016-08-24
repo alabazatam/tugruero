@@ -64,6 +64,9 @@ $values = $_REQUEST;
 		case "actualiza_monto":
             executeActualizaMonto($values);	
 		break;
+		case "prueba_map":
+            executePruebaMap($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -100,7 +103,7 @@ $values = $_REQUEST;
 					
 					//actualizar a status desierto
 					$Solicitud->updateStatusDesierto($list);
-					$list['estatus'];
+					$list['estatus'] = "Desierto";
 					//$status_desierto = 1;
 				}
 				//valido que el tiempo de encontrar el gruero al cliente no sea mayor a 20 minutos
@@ -414,4 +417,8 @@ $values = $_REQUEST;
 	{
 		$Solicitud = new Solicitud();
 		$Solicitud ->updateMonto($values);
+	}
+	function executePruebaMap($values)
+	{
+		require('prueba_map.php');
 	}
