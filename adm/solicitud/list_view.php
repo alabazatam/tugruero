@@ -1,6 +1,11 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
-
+<style>
+.modal-dialog-center {
+    margin-top: 50%;
+	padding-left: 60%;
+}	
+</style>
 	<h1 class="text-center">Solicitudes/Servicios Activos</h1>
 
         <table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
@@ -157,7 +162,7 @@ $('#column_8').on ('keypress', function(e){
 	});
 setInterval( function () {
     table.ajax.reload();
-},10000 );
+},30000 );
     
     $('a.toggle-vis').on( 'click', function (e) {
         e.preventDefault();
@@ -202,14 +207,19 @@ function beep() {
            alert('La observación no puede estar vacía');
        }else
        {
+		   $('#myModalCargando').modal({
+			  backdrop: 'static',
+			  keyboard: false,
+			});	
+		   $('#myModalCargando').modal('show');
             $.ajax({
                     type: "POST",
                     url: '<?php echo full_url;?>/adm/solicitud/index.php?action=save_bitacora',
                     data: data_form,
                     success: function(html){
-                        $('.modal-body').html('<div class="alert alert-success" role="alert">Registro creado satisfactoriamente</div>');
-                        $('.modal-title').html('');
-                        $('#myModal').modal('show');
+							$('#myModal').modal('toggle');
+							$('#myModalCargando').modal('toggle');
+							
                     }
             });           
        }

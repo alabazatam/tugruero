@@ -118,6 +118,21 @@ h1, h2 ,h3 {
   left: 0;
 }	
 </style>
+<style>
+.modal-dialog-center {
+    margin-top: 40%;
+	padding-left: 60%;
+}	
+</style>
+	<div class="modal fade modal-lg" id="myModalCargando" tabindex="-2" role="dialog" aria-labelledby="myModalCargandoLabel">
+	  <div class="modal-dialog modal-lg modal-dialog-center" role="document">
+		<div class="modal-content">
+		  <div class="modal-body">
+			  <i class="fa fa-circle-o-notch fa-spin fa-5x"></i> Generando solicitud
+		  </div>
+		</div>
+	  </div>
+	</div>
 	<div class="navbar navbar-fixed-top">      
 
 			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="<?php echo full_url?>/web/img/logo_blanco.png" alt="tugruero.com" width="100"></a>
@@ -230,7 +245,7 @@ h1, h2 ,h3 {
 											</div>
 											<div class="col-sm-12">
 												<label for="locationl">Dirección destino</label>
-												<input id="locationl" type="text" readonly="readonly" value="" class="form-control input-sm" size="50">
+												<input id="locationl" type="text" value="" class="form-control input-sm" size="50">
 											</div>
 											<div class="col-sm-12">
 												<label for="QueOcurre">¿Qué ocurre?</label>
@@ -297,7 +312,7 @@ h1, h2 ,h3 {
 											</div>
 											<div class="col-sm-6">
 												<label for="CellContacto">Contacto</label>
-												<input type="text" name="CellContacto" id="CellContacto" class="form-control input-sm" placeholder="Contacto">
+												<input type="text" name="CellContacto" id="CellContacto" class="form-control input-sm" placeholder="Contacto" maxlength="11">
 											</div>
 											<div class="col-sm-6">
 												<label for="InfoAdicional">Informacion adicional</label>
@@ -382,6 +397,7 @@ h1, h2 ,h3 {
 					  },
 					  //dataType: dataType
 					});	
+
 	</script>
 <script>
 
@@ -577,7 +593,7 @@ function addMarker(location) {
 
 	}	
 	
-	var Estado = "hola";	
+	var Estado = "";	
 	marker.addListener('dragend', function(event) {
 		//alert(event.latLng);
 		
@@ -752,9 +768,10 @@ var geocoder = new google.maps.Geocoder;
 	$(document).ready(function(){
 
 		$('#enviaSolicitud').click(function(){
-			
+	
 
 			
+			//alert(1);
 			var latlon = $('#latlon').val();
 			latlon = latlon.replace("(", "");
 			latlon = latlon.replace(")", "");
@@ -848,6 +865,13 @@ var geocoder = new google.maps.Geocoder;
 				Situacion: $('#Situacion').val(),
 				Proviene: 'WEB'
 			};
+			$('#myModalCargando').modal({
+			  backdrop: 'static',
+			  keyboard: false,
+			});			
+			
+			$('body').toggleClass('nav-expanded2');
+			$('#myModalCargando').modal('show');
 				$.ajax({
 					type: "POST",
 					url: 'http://localhost/clienteapp/solicitudCliente.php',
@@ -856,6 +880,8 @@ var geocoder = new google.maps.Geocoder;
 					contentType: 'application/json; charset=utf-8',
 					async: false,
 					success: function(data){
+							
+						$('#myModalCargando').modal('toggle');
 						alert("Solicitud generada satisfactoriamente");
 						$(location).attr('href', '<?php echo full_url;?>/adm/solicitud/index.php');
 					},

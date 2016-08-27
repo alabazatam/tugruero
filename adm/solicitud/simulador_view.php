@@ -132,11 +132,11 @@ $cambiar_a2_grua = "";
 										</div>
 										<?php if($data['estatusgrua'] == 'Asistiendo' and $data['estatuscliente'] == 'Activo'):?>
 												<?php $cambiar_a_cliente = "Asistido";?>
-												<?php $cambiar_a2_cliente = "Abandonado";?>
+												<?php $cambiar_a2_cliente = "Cancelado";?>
 										<?php endif;?>
 										<?php if($data['estatusgrua'] == 'Asistiendo' and $data['estatuscliente'] == 'Asistido'):?>
 												<?php $cambiar_a_cliente = "Completado";?>
-												<?php $cambiar_a2_cliente = "Abandonado";?>
+												<?php $cambiar_a2_cliente = "Cancelado";?>
 										
 										
 										<label for="TratoCordial">Trato cordial</label>
@@ -195,7 +195,7 @@ $cambiar_a2_grua = "";
 										<?php if($cambiar_a2_cliente!=''):?>
 										<label for="Motivo">Motivo</label>
 										<div class="input-group" >
-											<textarea id="Motivo" class="form-control input-sm" style="max-width: 100%" cols="100"></textarea>
+											<textarea id="MotivoCliente" class="form-control input-sm" style="max-width: 100%" cols="100"></textarea>
 										</div>
 										<?php endif;?>
 									</div>
@@ -262,7 +262,7 @@ $cambiar_a2_grua = "";
 										<?php if($cambiar_a2_grua !=''):?>
 										<label for="Motivo">Motivo</label>
 										<div class="input-group" >
-											<textarea id="Motivo" class="form-control input-sm" style="max-width: 100%" cols="100"></textarea>
+											<textarea id="MotivoGrua" class="form-control input-sm" style="max-width: 100%" cols="100"></textarea>
 										</div>
 										<?php endif;?>
 									</div>
@@ -277,7 +277,6 @@ $cambiar_a2_grua = "";
 <?php include('../../view_footer_solicitud.php')?>
 <script>
 	$(document).ready(function(){
-		
 		/*Carga de parciales*/
 		var idPoliza = $('#idPoliza').val();
 		var idSolicitud = $('#idSolicitud').val();
@@ -375,8 +374,8 @@ $cambiar_a2_grua = "";
 
 function cambiarStatusSolicitud(estatus,estatus_cambiar,idSolicitud){
 	
-	if(confirm("¿Está seguro(a) de cambiar el estatus de la solicitud #" + idSolicitud +" a " + estatus_cambiar + "?")){
-		$.ajax({
+	if(confirm("¿Está seguro(a) de cambiar el estatus de la solicitud #" + idSolicitud +" a " + estatus_cambiar + "?")){		
+	$.ajax({
 		  type: "POST",
 		  url: '<?php echo full_url?>/adm/solicitud/index.php',
 		  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "1",estatus: estatus, estatus_cambiar: estatus_cambiar},
@@ -384,6 +383,7 @@ function cambiarStatusSolicitud(estatus,estatus_cambiar,idSolicitud){
 							$("#content_simulador").html(html);
 							$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
 							$('#myModalMessage').modal('show');
+							//$('#myModalCargando').modal('toggle');
 		  }
 		});					
 	}else{
@@ -404,9 +404,10 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 			
 			if(estatuscliente_cambiar == 'Asistido')//servicio completado
 			{
+
 				var arr = {
 					idSolicitud: idSolicitud,
-					idGrua: 2,
+					idGrua: $('#idGrua').val(),
 					Time: '<?php echo date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)));?>',
 					
 				};	
@@ -418,15 +419,14 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 					contentType: 'application/json; charset=utf-8',
 					async: false,
 					success: function(data){
-						//alert('ready');
+						//$('#myModalCargando').modal('toggle');
 					},
 					crossDomain: true,
 					dataType: 'json',
 				});
 			}
 			if(estatuscliente_cambiar == 'Completado')//servicio completado
-			{
-				
+			{				
 				var arr = {
 					idSolicitud: idSolicitud,
 					TratoCordial: TratoCordial,
@@ -442,7 +442,7 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 					contentType: 'application/json; charset=utf-8',
 					async: false,
 					success: function(data){
-						//alert('ready');
+						//$('#myModalCargando').modal('toggle');	
 					},
 					crossDomain: true,
 					dataType: 'json',
@@ -450,9 +450,34 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 				
 				
 			}//fin completado
+			if(estatuscliente_cambiar == 'Cancelado')//servicio cancelado cliiente
+			{
+				if($('#MotivoCliente').val()=='')
+				{
+					alert('Debe indicar el motivo');
+					return false;
+				}
+				
+				var arr = {
+					idSolicitud: idSolicitud,
+					Motivo: $('#MotivoCliente').val(),
 
-
-
+				};
+				$.ajax({
+					type: "POST",
+					url: 'http://localhost/clienteapp/cancelarServicio.php',
+					data: JSON.stringify(arr),
+					contentType: 'application/json; charset=utf-8',
+					async: false,
+					success: function(data){
+						
+					},
+					crossDomain: true,
+					dataType: 'json',
+				});
+				
+				
+			}//fin completado
 
 			$.ajax({
 			  type: "POST",
@@ -462,6 +487,7 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 							$("#content_simulador").html(html);
 							$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
 							$('#myModalMessage').modal('show');
+							//$('#myModalCargando').modal('toggle');
 			  },
 			  //dataType: dataType
 			});
@@ -474,17 +500,51 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 function cambiarStatusServicioGrua(estatusgrua,estatusgrua_cambiar,idSolicitud){
 	
 		if(confirm("¿Está seguro(a) de cambiar el estatus del Gruero en el servicio #" + idSolicitud +" a " + estatusgrua_cambiar + "?")){
+			
+			
+			if(estatusgrua_cambiar == 'Abandonado')
+			{
+				
+				if($('#MotivoGrua').val()=='')
+				{
+					alert('Debe indicar el motivo');
+					return false;
+				}				
+				var arr = {
+					idSolicitud: idSolicitud,
+					Motivo: $('#MotivoGrua').val(),
+				};
+				$.ajax({
+					type: "POST",
+					url: 'http://localhost/grueroapp/abandonarServicio.php',
+					data: JSON.stringify(arr),
+					contentType: 'application/json; charset=utf-8',
+					async: false,
+					success: function(data){
+						//alert('ready');
+					},
+					crossDomain: true,
+					dataType: 'json',
+				});
+				
+				
+			}
 			$.ajax({
-			  type: "POST",
-			  url: '<?php echo full_url?>/adm/solicitud/index.php',
-			  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "1",estatusgrua: estatusgrua, estatusgrua_cambiar: estatusgrua_cambiar},
-			  success: function(html){
-							$("#content_simulador").html(html);
-							$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
-							$('#myModalMessage').modal('show');
-			  },
-			  //dataType: dataType
-			});
+				  type: "POST",
+				  url: '<?php echo full_url?>/adm/solicitud/index.php',
+				  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "1",estatusgrua: estatusgrua, estatusgrua_cambiar: estatusgrua_cambiar},
+				  success: function(html){
+								$("#content_simulador").html(html);
+								$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+								$('#myModalMessage').modal('show');
+								
+				  },
+				  //dataType: dataType
+			});	
+			
+			
+			
+
 		}else{
 			return false;
 		}

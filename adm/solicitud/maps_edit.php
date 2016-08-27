@@ -97,6 +97,21 @@ h1, h2 ,h3 {
     }
 }
     </style>
+<style>
+.modal-dialog-center {
+    margin-top: 40%;
+	padding-left: 60%;
+}	
+</style>
+	<div class="modal fade modal-lg" id="myModalCargando" tabindex="-2" role="dialog" aria-labelledby="myModalCargandoLabel">
+	  <div class="modal-dialog modal-lg modal-dialog-center" role="document">
+		<div class="modal-content">
+		  <div class="modal-body">
+			  <i class="fa fa-circle-o-notch fa-spin fa-5x"></i> Actualizando solicitud
+		  </div>
+		</div>
+	  </div>
+	</div>
 	<div class="navbar navbar-fixed-top">      
 
 			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="<?php echo full_url?>/web/img/logo_blanco.png" alt="tugruero.com" width="100"></a>
@@ -305,6 +320,10 @@ h1, h2 ,h3 {
 		
 		function actualizaMonto()
 		{	
+			
+
+			
+			
 					var idSolicitud = $('#idSolicitud').val();
 					var Monto = parseFloat($('#Monto').val());
 					var MontoNuevo = parseFloat($('#MontoNuevo').val());
@@ -324,11 +343,23 @@ h1, h2 ,h3 {
 
 					
 					if(confirm("¿Está seguro(a) de cambiar el monto para la solicitud #?" + idSolicitud)){
+					$('#myModalCargando').modal({
+					  backdrop: 'static',
+					  keyboard: false,
+					});			
+
+					$('body').toggleClass('nav-expanded2');
+					$('#myModalCargando').modal({
+					  backdrop: 'static',
+					  keyboard: false,
+					});	
+					$('#myModalCargando').modal('show');
 						$.ajax({
 						  type: "POST",
 						  url: '<?php echo full_url?>/adm/solicitud/index.php?action=actualiza_monto',
 						  data: { action: "actualiza_monto",idSolicitud: idSolicitud,Monto: Monto, MontoNuevo: MontoNuevo,MotivoMonto:MotivoMonto},
 						  success: function(html){
+							 $('#myModalCargando').modal('toggle');
 							 alert("Monto cambiado satisfactoriamente");
 							 $(location).attr('href', '<?php echo full_url;?>/adm/solicitud/index.php?action=edit&idSolicitud='+idSolicitud+ "&idPoliza=" + idPoliza);
 								//$('#parcial_cliente').html(html);

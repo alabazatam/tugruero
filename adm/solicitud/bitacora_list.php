@@ -49,3 +49,12 @@
     </div>
     
 </div>
+			<div class="modal fade modal-lg" id="myModalCargando" tabindex="-2" role="dialog" aria-labelledby="myModalCargandoLabel">
+			  <div class="modal-dialog modal-lg modal-dialog-center" role="document">
+				<div class="modal-content">
+				  <div class="modal-body">
+					  <i class="fa fa-circle-o-notch fa-spin fa-5x"></i> Guardando bitácora
+				  </div>
+				</div>
+			  </div>
+			</div>
