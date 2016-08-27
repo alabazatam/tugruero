@@ -1,103 +1,162 @@
-<?php //include('../../autoload.php')?>
-<!doctype html>
-<html ng-app="cssawds">
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
-    <meta name="author" content="tugruero">
-    <link rel="alternate" hreflang="es" href="www.tugruero.com" />
-    <link href="<?php echo full_url?>/web/css/bootstrap.css" rel="stylesheet">
-    <link rel="icon" href="<?php echo full_url?>/web/img/favicon.ico" type="image/x-icon"/>
-    <link href="<?php echo full_url?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<?php echo full_url?>/web/css/menu2.css">  
-	<link rel="stylesheet" href="<?php echo full_url?>/web/css/hover.css">  
-	<link href="<?php echo full_url?>/web/css/freelancer_app.css" rel="stylesheet">
-        <title>TUGRUERO®</title>
-</head>
+<?php include('../../view_header_app.php')?>
+<?php include('../menu.php')?>
 <style>
 html, body {
         height: 100%;
         margin: 0;
         padding: 0;
-		padding-left: 10px;
-		padding-top: 30px;
+        padding-left: 0px;
+        padding-top: 0px;
 		
-		font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
-		/*background: url(<?php echo full_url?>/web/img/fondos/Fondo-Tu-Gruero2.jpg) no-repeat center center fixed ;*/
-    
-		overflow-x: hidden;
-		margin: 0;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;		
+        font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;    
+        overflow-x: hidden;
+	margin: 0;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;		
 		
 }
 #map {
 	height: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
 }
 </style>
 
 	<div id="map" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
-</html>
 
-    <script src="../../web/js/jquery.js"></script>
-    <script src="../../web/js/bootstrap.min.js"></script>
-    <script src="../../web/js/freelancer.js"></script>
-<script>
+
+	<?php include('../../view_footer_solicitud.php')?>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&libraries=places"></script>
+	<script>
 
       // This example adds a marker to indicate the position of Bondi Beach in Sydney,
       // Australia.
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 7,
-          center: {lat: 8.26626627608, lng: -66.010735441038}
-        });
-		var line = new google.maps.Polyline({
-			path: [
-				new google.maps.LatLng(37.4419, -122.1419), 
-				new google.maps.LatLng(37.4519, -122.1519)
-			],
-			strokeColor: "#FF0000",
-			strokeOpacity: 1.0,
-			strokeWeight: 10,
-			map: map
-		});
-		$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_test", function(json1) {
+		var markerStore = {};
+               
+		var INTERVAL = 10000;
+		var myLatlng = new google.maps.LatLng(10.5168373,-66.9279394);
+		var myOptions = {
+			zoom: 10,
+			center: myLatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+		}
+    var map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+    getMarkers();
+function getMarkers() {
+ var array_existe = [];
+$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitudes_livemap", function(json1) {
 			$.each(json1, function(key, data) {
-				var latLng = new google.maps.LatLng(data.lat, data.lng); 
-				// Creating a marker and putting it on the map
-				var infowindow = new google.maps.InfoWindow({
-						content: data.contentinfo
-				});
+                                $.each(data, function(key, data) {
+                                    //console.log(json1[0]);
+                                     
+                                       $.each(markerStore, function(i, value) {
+                                        
+                                        if((markerStore.hasOwnProperty(i))) {
+                                               
+                                               if(i == data.id)
+                                               {
+                                                  
+                                                   //console.log("son iguales" + i + " " + data.id);
+                                                   array_existe.push(data.id);
+                                                   
+                                               }
+                                                   
 
-				var marker = new google.maps.Marker({
-					position: latLng,
-					icon: {
-					  path: google.maps.SymbolPath.CIRCLE,
-					  //path: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-					  fillColor: 'yellow',
-					  fillOpacity: 0.8,
-					  scale: 1,
-					  strokeColor: 'green',
-					  strokeWeight: 14,
-					},
-					map: map,
-					title: data.title,
-					label: "G"
-				});
-				marker.addListener('click', function() {
-					infowindow.open(map, marker);
-				});
+                                        }
+                                         
+                                     });
+                                     //console.log(array_existe);
+                                    
+                
+                                        
+                                    // Creating a marker and putting it on the map
+                                    var infowindow = new google.maps.InfoWindow({
+                                                    content: data.contentinfo
+                                    });
+                                    
+                                    
+                                    
+                                    if((markerStore.hasOwnProperty(key))) {
+                                        //alert(key + data.id);
+                                    //console.log(markerStore[key]);
+                                    //var array_existe = ["0", "2"];
+                                    console.log(markerStore[key].id);
+                                   /* var existe = markerStore.indexOf(5);
+                                    if(existe == -1)
+                                    {
+                                      console.log("No existe en el json =" + markerStore[key].id);
+                                    }*/
+                                    
+                                    if(markerStore[key].id == data.id)
+                                    {
+                                      console.log("existe");
+                                    }else
+                    {
+                                      console.log("n");
+                                    }
+                                            markerStore[key].setPosition(new google.maps.LatLng(data.lat, data.lng));
+                                            markerStore[key].setIcon({
+                                                      path: google.maps.SymbolPath.CIRCLE,
+                                                      fillColor: 'yellow',
+                                                      fillOpacity: 0.8,
+                                                      scale: 1,
+                                                      strokeColor: data.iconcolor,
+                                                      strokeWeight: 14,
+                                                    });
+                                    }else{
+                                            
+                                            var latLng = new google.maps.LatLng(data.lat, data.lng);
+                                            var marker = new google.maps.Marker({
+                                                    position: latLng,
+                                                    icon: {
+                                                      path: google.maps.SymbolPath.CIRCLE,
+                                                      fillColor: 'yellow',
+                                                      fillOpacity: 0.8,
+                                                      scale: 1,
+                                                      strokeColor: data.iconcolor,
+                                                      strokeWeight: 14,
+                                                    },
+                                                    map: map,
+                                                    title: data.title,
+                                                    label: data.label,
+                                                    id: data.id
+                                            });
+                                            if(data.id != 0)
+                                            {
+                                            
+                                            infowindow.open(map, marker);
+                                                    marker.addListener('click', function() {
+                                                            infowindow.open(map, marker);
+                                                    });						
+                                            }
+                                            if(data.id == 0)
+                                            {       
+                                                    var center = new google.maps.LatLng(data.latCenter, data.lngCenter);
+                                                    //alert(center);
+                                                    // using global variable:
+                                                    map.panTo(center);
+                                            }					
+                                            marker.addListener('click', function() {
+                                                    infowindow.open(map, marker);
+                                            });
+                                            markerStore[data.id] = marker;
+                                    }
 
+				
+
+                                });
 			});
+                        
 		});
-      }
-	setInterval( function () {
-		initMap();
-	},1000000 );
-    </script>	
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places"></script>
+		window.setTimeout(getMarkers,INTERVAL);
+}
+function clearOverlays() {
+  for (var i = 0; i < markerStore.length; i++ ) {
+    markerStore[i].setMap(null);
+  }
+  markerStore.length = 0;
+}
+    </script>

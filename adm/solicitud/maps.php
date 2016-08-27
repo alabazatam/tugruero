@@ -120,11 +120,11 @@ h1, h2 ,h3 {
 </style>
 <style>
 .modal-dialog-center {
-    margin-top: 40%;
-	padding-left: 60%;
+    margin-top: 20%;
+	padding-left: 40%;
 }	
 </style>
-	<div class="modal fade modal-lg" id="myModalCargando" tabindex="-2" role="dialog" aria-labelledby="myModalCargandoLabel">
+	<div class="modal fade modal-lg modal-dialog-center" id="myModalCargando" tabindex="-2" role="dialog" aria-labelledby="myModalCargandoLabel">
 	  <div class="modal-dialog modal-lg modal-dialog-center" role="document">
 		<div class="modal-content">
 		  <div class="modal-body">
@@ -885,6 +885,10 @@ var geocoder = new google.maps.Geocoder;
 						alert("Solicitud generada satisfactoriamente");
 						$(location).attr('href', '<?php echo full_url;?>/adm/solicitud/index.php');
 					},
+                                        error: function (request, status, error) {
+                                                alert("Se presentó el error:" + error);
+                                                $('#myModalCargando').modal('toggle');
+                                        },      
 					crossDomain: true,
 					dataType: 'json',
 					//success: function() { alert("Success"); },

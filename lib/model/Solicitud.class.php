@@ -199,6 +199,34 @@
 			return $q; 				
 			
 		}
+		public function getDatosSolicitudesActivas($values){
+			$where = " Estatus NOT IN('Completado','Cancelado') 
+						AND (EstatusCliente IS NULL OR EstatusCliente = 'Asignado' OR EstatusCliente = 'Activo' OR EstatusCliente = 'Asistido' OR EstatusCliente = 'Completado') 
+						AND (EstatusGrua  IS NULL OR EstatusGrua = 'Asignado' OR EstatusGrua = 'Activo' OR EstatusGrua = 'Asistiendo')  ";
+
+                        $ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Solicitudes
+			->select("*,Solicitudes.Direccion as direccion,Solicitudes.idSolicitud as idSolicitud,"
+                                . "DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,"
+                                . "DATE_FORMAT(TimeFin, '%d/%m/%Y') as TimeFin,"
+                                . "DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') as TimeOpen,"
+                                . "Solicitudes.latOrigen as latOrigen,Solicitudes.lngOrigen as lngOrigen,"
+                                . "Solicitudes.latDestino as latDestino,Solicitudes.lngDestino as lngDestino,"
+                                . "DATE_FORMAT(LastStatusSolicitud, '%d/%m/%Y %H:%i:%s') as LastStatusSolicitud,"
+                                . "DATE_FORMAT(LastStatusSolicitud, '%d-%m-%Y %H:%i:%s') as LastStatusSolicitudn,"
+                                . "DATE_FORMAT(LastStatusGrua, '%d/%m/%Y %H:%i:%s') as LastStatusGrua,"
+                                . "DATE_FORMAT(LastStatusGrua, '%d-%m-%Y %H:%i:%s') as LastStatusGruan,"
+                                . "gr.Latitud as latGrua,gr.Longitud as lngGrua,"
+                                . "pol.Nombre as NombreCliente, pol.Apellido as ApellidoCliente, pol.Placa as PlacaCliente, pol.Cedula as CedulaCliente,"
+                                . "grs.Nombre as NombreGruero, grs.Apellido as ApellidoGruero, grs.Placa as PlacaGruero, grs.Cedula as CedulaGruero")
+			->join('Servicios','LEFT JOIN Servicios ser ON ser.idSolicitud = Solicitudes.idSolicitud')
+                        ->join('Gruas','LEFT JOIN Gruas gr ON gr.idGrua = ser.idGrua')
+                        ->join('Grueros','LEFT JOIN Grueros grs ON grs.idGrua = gr.idGrua')
+                        ->join('Polizas','INNER JOIN Polizas pol ON pol.idPoliza = Solicitudes.idPoliza')
+			->where("$where");
+			return $q; 				
+			
+		}
 		public function updateEstatusSolicitud($values){
 			
 			$idSolicitud = $values['idSolicitud'];

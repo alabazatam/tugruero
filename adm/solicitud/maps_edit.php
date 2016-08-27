@@ -442,7 +442,7 @@ h1, h2 ,h3 {
 		var INTERVAL = 10000;
 		var myLatlng = new google.maps.LatLng(10.5168373,-66.9279394);
 		var myOptions = {
-			zoom: 13,
+			zoom: 10,
 			center: myLatlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 		}

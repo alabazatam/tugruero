@@ -7,7 +7,7 @@
 }	
 </style>
 	<h1 class="text-center">Solicitudes/Servicios Activos</h1>
-
+        <div class="col-sm-4 col-sm-offset-8"><a class="text-center" target="_blank" href="<?php echo full_url?>/adm/solicitud/index.php?action=solicitudes_livemap">Ver solicitudes en Mapa</a></div>
         <table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
             <thead>
                     <tr>
