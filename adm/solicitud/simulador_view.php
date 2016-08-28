@@ -339,7 +339,7 @@ $cambiar_a2_grua = "";
 					};	
 					$.ajax({
 						type: "POST",
-						url: 'http://localhost/grueroapp/tomarSolicitud.php',
+						url: 'http://www.tugruero.com/grueroapp/tomarSolicitud.php',
 						data: JSON.stringify(arr),
 						contentType: 'application/json; charset=utf-8',
 						async: false,
@@ -413,7 +413,7 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 				};	
 				$.ajax({
 					type: "POST",
-					url: 'http://localhost/clienteapp/confirmarAsistencia.php',
+					url: 'http://www.tugruero.com/clienteapp/confirmarAsistencia.php',
 					//url: 'http://52.25.178.106/clienteapp/solicitudCliente.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
@@ -437,7 +437,7 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 				};
 				$.ajax({
 					type: "POST",
-					url: 'http://localhost/clienteapp/finalizarServicio.php',
+					url: 'http://www.tugruero.com/clienteapp/finalizarServicio.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
 					async: false,
@@ -465,7 +465,7 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 				};
 				$.ajax({
 					type: "POST",
-					url: 'http://localhost/clienteapp/cancelarServicio.php',
+					url: 'http://www.tugruero.com/clienteapp/cancelarServicio.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
 					async: false,
@@ -516,7 +516,7 @@ function cambiarStatusServicioGrua(estatusgrua,estatusgrua_cambiar,idSolicitud){
 				};
 				$.ajax({
 					type: "POST",
-					url: 'http://localhost/grueroapp/abandonarServicio.php',
+					url: 'http://www.tugruero.com/grueroapp/abandonarServicio.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
 					async: false,
