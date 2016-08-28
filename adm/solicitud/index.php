@@ -355,13 +355,13 @@ $values = $_REQUEST;
                         
                                     //centrar mapa
 
-                                    $arr[$i][0] = array("id"=>"0","latCenter"=>"$latOrigen","lngCenter"=>"$lngOrigen");
+                                    $arr[$i][0] = array("id"=>"0","latCenter"=>"$latOrigen","lngCenter"=>"$lngOrigen","idSolicitud" => $idSolicitud);
 
                                     //Cliente
 
                                     $arr[$i][1] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"C","title"=>'Cliente',"lat"=>$latOrigen,"lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"$contentinfo_cliente","iconcolor" => "red");
                                     //Destino
-                                    $arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
+                                    $arr[$i][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
                                     //Gruero
 
                                     if($data['estatusgrua']!='' or $data['estatusgrua']!=null)
@@ -373,14 +373,14 @@ $values = $_REQUEST;
                                     {
                                             unset($arr[$i][1],$arr[$i][3]);
                                             $arr[$i][3] = array("id"=>"3","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latOrigen","lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"$contentinfo_gruero","iconcolor" => "yellow");			
-                                            $arr[$i][0] = array("id"=>"0","latCenter"=>"$latGrua","lngCenter"=>"$lngGrua");
+                                            $arr[$i][0] = array("id"=>"0","latCenter"=>"$latGrua","lngCenter"=>"$lngGrua","idSolicitud" => $idSolicitud);
                                     }
                                     //el gruero llegó al destino y el cliente lleno la encuesta
                                     if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Asistido' ))
                                     {
                                             unset($arr[$i][1],$arr[$i][3]);
                                             $arr[$i][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
-                                            $arr[$i][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino");
+                                            $arr[$i][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino","idSolicitud" => $idSolicitud);
 
                                     }				
 
@@ -388,7 +388,7 @@ $values = $_REQUEST;
                                     {
                                             unset($arr[$i][1],$arr[$i][3]);
                                             $arr[$i][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
-                                            $arr[$i][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino");
+                                            $arr[$i][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino","idSolicitud" => $idSolicitud);
 
                                             
                                     }

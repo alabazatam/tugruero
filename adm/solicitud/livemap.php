@@ -34,11 +34,12 @@ html, body {
       // This example adds a marker to indicate the position of Bondi Beach in Sydney,
       // Australia.
 		var markerStore = {};
-               
+        var markersID = [];
+		var array_existe = [];
 		var INTERVAL = 10000;
 		var myLatlng = new google.maps.LatLng(10.5168373,-66.9279394);
 		var myOptions = {
-			zoom: 10,
+			zoom: 7,
 			center: myLatlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 		}
@@ -46,59 +47,65 @@ html, body {
 
     getMarkers();
 function getMarkers() {
- var array_existe = [];
+		$.each(markersID, function(i, value) {
+			//console.log(value);
+			var existe_en_json = array_existe.indexOf("" + value + ""); 
+			if(existe_en_json == -1)
+				{
+					//console.log('No Existe' + value);
+					console.log(existe_en_json);
+					if((markerStore.hasOwnProperty(value))){
+						marker = markerStore[value];
+						marker.setMap(null);
+						//console.log(marker);
+						delete markerStore[value];
+					}
+
+					 
+				}
+		});
+		//console.log(markerStore);
+		//console.log(markersID);
+		array_existe = [];	
+
+
 $.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitudes_livemap", function(json1) {
 			$.each(json1, function(key, data) {
                                 $.each(data, function(key, data) {
-                                    //console.log(json1[0]);
-                                     
-                                       $.each(markerStore, function(i, value) {
+                                                                    
                                         
-                                        if((markerStore.hasOwnProperty(i))) {
-                                               
-                                               if(i == data.id)
-                                               {
-                                                  
-                                                   //console.log("son iguales" + i + " " + data.id);
-                                                   array_existe.push(data.id);
-                                                   
-                                               }
-                                                   
-
-                                        }
-                                         
-                                     });
-                                     //console.log(array_existe);
+									array_existe.push(data.idSolicitud + data.id);
                                     
-                
-                                        
-                                    // Creating a marker and putting it on the map
-                                    var infowindow = new google.maps.InfoWindow({
-                                                    content: data.contentinfo
-                                    });
+                                    if((markerStore.hasOwnProperty(data.idSolicitud + data.id))) {
+										
+										
+									}
                                     
-                                    
-                                    
-                                    if((markerStore.hasOwnProperty(key))) {
-                                        //alert(key + data.id);
-                                    //console.log(markerStore[key]);
-                                    //var array_existe = ["0", "2"];
-                                    console.log(markerStore[key].id);
-                                   /* var existe = markerStore.indexOf(5);
-                                    if(existe == -1)
-                                    {
-                                      console.log("No existe en el json =" + markerStore[key].id);
-                                    }*/
-                                    
-                                    if(markerStore[key].id == data.id)
-                                    {
-                                      console.log("existe");
-                                    }else
-                    {
-                                      console.log("n");
-                                    }
-                                            markerStore[key].setPosition(new google.maps.LatLng(data.lat, data.lng));
-                                            markerStore[key].setIcon({
+                                    if((markerStore.hasOwnProperty(data.idSolicitud + data.id))) {
+											
+												//console.log(array_existe);
+												//console.log(markerStore[data.idSolicitud + data.id].id);
+												//alert(markersID[data.idSolicitud + data.id]);
+												
+												
+												
+												var existe_en_json = array_existe.indexOf(markersID[data.idSolicitud + data.id]); 
+												
+												if(existe_en_json == -1)
+												{
+													//console.log('No Existe');
+												}else
+												{
+													//console.log('Existe');
+												}
+												
+											 
+											
+											
+											
+											
+                                            markerStore[data.idSolicitud + data.id].setPosition(new google.maps.LatLng(data.lat, data.lng));
+                                            markerStore[data.idSolicitud + data.id].setIcon({
                                                       path: google.maps.SymbolPath.CIRCLE,
                                                       fillColor: 'yellow',
                                                       fillOpacity: 0.8,
@@ -122,8 +129,12 @@ $.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitude
                                                     map: map,
                                                     title: data.title,
                                                     label: data.label,
-                                                    id: data.id
+                                                    id: data.idSolicitud + data.id
                                             });
+                                    // Creating a marker and putting it on the map
+											var infowindow = new google.maps.InfoWindow({
+															content: data.contentinfo
+											});
                                             if(data.id != 0)
                                             {
                                             
@@ -142,7 +153,8 @@ $.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitude
                                             marker.addListener('click', function() {
                                                     infowindow.open(map, marker);
                                             });
-                                            markerStore[data.id] = marker;
+                                            markerStore[data.idSolicitud + data.id] = marker;
+											markersID.push(data.idSolicitud + data.id);
                                     }
 
 				
@@ -151,6 +163,11 @@ $.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitude
 			});
                         
 		});
+		
+
+
+														
+
 		window.setTimeout(getMarkers,INTERVAL);
 }
 function clearOverlays() {
