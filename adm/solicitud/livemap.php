@@ -39,13 +39,13 @@ html, body {
 		var INTERVAL = 10000;
 		var myLatlng = new google.maps.LatLng(10.5168373,-66.9279394);
 		var myOptions = {
-			zoom: 7,
+			zoom: 18,
 			center: myLatlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 		}
     var map = new google.maps.Map(document.getElementById("map"), myOptions);
 
-    getMarkers();
+getMarkers();
 function getMarkers() {
 		$.each(markersID, function(i, value) {
 			//console.log(value);
@@ -169,11 +169,5 @@ $.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitude
 														
 
 		window.setTimeout(getMarkers,INTERVAL);
-}
-function clearOverlays() {
-  for (var i = 0; i < markerStore.length; i++ ) {
-    markerStore[i].setMap(null);
-  }
-  markerStore.length = 0;
 }
     </script>

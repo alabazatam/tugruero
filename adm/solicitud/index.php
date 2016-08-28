@@ -104,7 +104,7 @@ $values = $_REQUEST;
 				$status_desierto = 0;
 				$retardo_activo_activo  = 0;
 				//echo $minutos_transcurridos;die;
-				if(($minutos_transcurridos >=2 or $list['numgruas'] == 0)  and ($list['estatus'] == 'Localizando' and $list['proviene'] == 'WEB'))
+				if(($minutos_transcurridos >=2 or $list['numgruas'] == 0)  and ($list['estatus'] == 'Localizando'))
 				{
 					
 					//actualizar a status desierto
@@ -252,7 +252,37 @@ $values = $_REQUEST;
 			$lngDestino = $data['lngdestino'];
 			$latGrua = $data['latgrua'];
 			$lngGrua = $data['lnggrua'];
+                        /*Data cliente*/
+                        $NombreCliente = $data['nombrecliente'];
+                        $ApellidoCliente = $data['apellidocliente'];
+                        $CedulaCliente = $data['cedulacliente'];
+                        $PlacaCliente = $data['placacliente'];
                         
+                        $contentinfo_cliente = "<label>Cliente</label><br>"
+                                . "<label>IdSolicittud:</label> $idSolicitud<br>"
+                                . " <label>Cédula: </label>  $CedulaCliente <br>"
+                                . " <label>Nombres y apellidos: </label>  $NombreCliente $ApellidoCliente";
+                        
+                        /*Data gruero*/
+                        $NombreGruero = $data['nombregruero'];
+                        $ApellidoGruero = $data['apellidogruero'];
+                        $CedulaGruero = $data['cedulagruero'];
+                        $PlacaGruero= $data['placagruero'];
+                        
+                        $contentinfo_gruero = "<label>Gruero</label><br>"
+                                . "<label>IdSolicittud:</label> $idSolicitud<br>"
+                                . " <label>Cédula: </label>  $CedulaGruero <br>"
+                                . " <label>Nombres y apellidos: </label>  $NombreGruero $ApellidoGruero";
+                        
+                        
+                        
+                        /*Data destino*/
+                        $Direccion = $data['direccion'];
+                        $EstadoOrigen = $data['estadoorigen'];
+                        $contentinfo_destino = "<label>Destino</label><br>"
+                                . "<label>IdSolicittud:</label> $idSolicitud<br>"
+                                . " <label>Estado de origen: </label>  $EstadoOrigen <br>"
+                                . " <label>Dirección: </label>  $Direccion <br>";                        
 
                         
                         
@@ -262,28 +292,27 @@ $values = $_REQUEST;
 			
 				//Cliente
 				
-				$arr[0][1] = array(
-					"id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"C","title"=>'Cliente',"lat"=>$latOrigen,"lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Cliente","iconcolor" => "red");
+				$arr[0][1] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"C","title"=>'Cliente',"lat"=>$latOrigen,"lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"$contentinfo_cliente","iconcolor" => "red");
 				//Destino
-				$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Destino","iconcolor" => "blue");	
+				$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
 				//Gruero
 				
 				if($data['estatusgrua']!='' or $data['estatusgrua']!=null)
 				{
-					$arr[0][3] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latGrua","lng"=>$lngGrua,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Gruero ","iconcolor" => "green");			
+					$arr[0][3] = array("id"=>"3","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latGrua","lng"=>$lngGrua,"description"=>"Prueba","contentinfo"=>"$contentinfo_gruero ","iconcolor" => "green");			
 				}
 				//El gruero llegó al lugar del cliente y se convierten en un solo circulo
 				if(isset($data['estatusgrua']) and ($data['estatusgrua'] == 'Asistiendo' ))
 				{
 					unset($arr[0][1],$arr[0][3]);
-					$arr[0][3] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latOrigen","lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Gruero ","iconcolor" => "yellow");			
+					$arr[0][3] = array("id"=>"3","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latOrigen","lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"$contentinfo_gruero","iconcolor" => "yellow");			
 					$arr[0][0] = array("id"=>"0","latCenter"=>"$latGrua","lngCenter"=>"$lngGrua");
 				}
 				//el gruero llegó al destino y el cliente lleno la encuesta
 				if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Asistido' ))
 				{
 					unset($arr[0][1],$arr[0][3]);
-					$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Destino","iconcolor" => "blue");	
+					$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
 					$arr[0][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino");
 					
 				}				
@@ -291,7 +320,7 @@ $values = $_REQUEST;
 				if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Completado' ))
 				{
 					unset($arr[0][1],$arr[0][3]);
-					$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"<label>IdSolicittud:</label> $idSolicitud<br>Destino","iconcolor" => "blue");	
+					$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
 					$arr[0][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino");
 				}
 
