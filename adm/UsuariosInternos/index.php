@@ -75,15 +75,25 @@ $values = $_REQUEST;
 		{
 			foreach ($list_json as $list) 
 			{
+				$status = $list['status'];
+				if($status == 0)
+				{
+					$message_status = "<label class='label label-danger'>Desactivado</label>";
+				}
+				if($status == 1)
+				{
+					$message_status = "<label class='label label-success'>Activo</label>";
+				}
 				$id_user = $list['id_user'];
 				$array_json['data'][] = array(
 					"id_user" => $id_user,
+					"login" => $list['login'],
 					"document" => $list['document'],
 					"nombres" => $list['first_name'],
 					"apellidos" => $list['first_last_name'],
 					"contacto" => $list['phone'],
                     "email" => $list['mail'],
-                    "status" => $list['status'],
+                    "status" => $message_status,
 					"actions" => 
                                        '<form method="POST" action = "'.full_url.'/adm/UsuariosInternos/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
@@ -96,7 +106,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_user"=>null,"document"=>"","nombres"=>"","apellidos"=>"","contacto"=>"","email"=>"","status"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_user"=>null,"login"=>null,"document"=>"","nombres"=>"","apellidos"=>"","contacto"=>"","email"=>"","status"=>"","actions"=>"");
 		}
 		echo json_encode($array_json);die;
 		

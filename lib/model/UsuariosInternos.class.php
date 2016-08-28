@@ -22,11 +22,12 @@
 			$columns = array();
 			$columns[0] = 'users.id_user';
 			$columns[1] = 'document';
-			$columns[2] = 'first_name';
-			$columns[3] = 'first_lastname';
-			$columns[4] = 'phone';
-            $columns[5] = 'mail';
-            $columns[6] = 'users.status';
+			$columns[2] = 'login';
+			$columns[3] = 'first_name';
+			$columns[4] = 'first_lastname';
+			$columns[5] = 'phone';
+            $columns[6] = 'mail';
+            $columns[7] = 'users.status';
 			$column_order = $columns[0];
 			$where = 'up.id_perms in(2,5)';
 			$order = 'asc';
@@ -50,32 +51,37 @@
 			}
 			if(isset($values['columns'][1]['search']['value']) and $values['columns'][1]['search']['value']!='')
 			{
-				$where.=" AND upper(document) like ('%".$values['columns'][1]['search']['value']."%')";
+				$where.=" AND users.login = ".$values['columns'][1]['search']['value']."";
 				//echo $values['columns'][0]['search']['value'];die;
-			}			
+			}
 			if(isset($values['columns'][2]['search']['value']) and $values['columns'][2]['search']['value']!='')
 			{
-				$where.=" AND CONCAT(upper(first_name),' ',upper(second_name ) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(document) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}			
 			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
 			{
-				$where.=" AND CONCAT(upper(first_last_name),' ',upper(second_last_name )) like ('%".$values['columns'][3]['search']['value']."%')";
+				$where.=" AND CONCAT(upper(first_name),' ',upper(second_name ) like ('%".$values['columns'][3]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
-			}	
+			}			
 			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
 			{
-				$where.=" AND upper(phone) like ('%".$values['columns'][4]['search']['value']."%')";
+				$where.=" AND CONCAT(upper(first_last_name),' ',upper(second_last_name )) like ('%".$values['columns'][4]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
 			{
-				$where.=" AND CONCAT(upper(Nombre),' ',upper(Apellido) ) like ('%".$values['columns'][5]['search']['value']."%')";
+				$where.=" AND upper(phone) like ('%".$values['columns'][5]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
 			{
-				$where.=" AND users.status = '".$values['columns'][6]['search']['value']."'";
+				$where.=" AND CONCAT(upper(Nombre),' ',upper(Apellido) ) like ('%".$values['columns'][6]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
+			{
+				$where.=" AND users.status = '".$values['columns'][7]['search']['value']."'";
 				//echo $values['columns'][0]['search']['value'];die;
 			}			
 			
@@ -145,7 +151,7 @@
 			$array_users = array(
 				"login"=> strtoupper($values['login']),
 				"password"=> hash('sha256',$values['password']),
-				"status"=> 1,
+				"status"=> $values['status'],
 				"date_created"=> new NotORM_Literal("NOW()"),
 				"date_updated"=> new NotORM_Literal("NOW()"),
 				"mail"=> $values['mail'],
@@ -178,7 +184,7 @@
 			$array_users_perms = array(
 				"id_user"=> $id_user,
 				"id_perms"=> $values['id_perms'],
-				"status"=> 1,
+				"status"=> $values['status'],
 				"date_created"=> new NotORM_Literal("NOW()"),
 				"date_updated"=> new NotORM_Literal("NOW()"),
  			);			
@@ -210,7 +216,7 @@
 			//actualizo en users
 			$array_users = array(
 				"login"=> strtoupper($values['login']),
-				"status"=> 1,
+				"status"=> $values['status'],
 				"date_updated"=> new NotORM_Literal("NOW()"),
 				"mail"=> $values['mail'],
 				"mail_alternative"=> $values['mail_alternative'],

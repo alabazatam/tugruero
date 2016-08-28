@@ -6,6 +6,7 @@
 			<thead>
 				<tr>
 					<th>IdUsuario</th>
+					<th>Login</th>
                     <th>Cédula</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
@@ -18,6 +19,7 @@
 			<tfoot>
 				<tr>
 					<th>IdUsuario</th>
+					<th>Login</th>
                     <th>Cédula</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
@@ -60,6 +62,7 @@ $(document).ready(function() {
         },
         "columns": [
             { "data": "id_user" },
+			{ "data": "login" },
             { "data": "document" },
             { "data": "nombres" },
             { "data": "apellidos" },
@@ -69,7 +72,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 7 ] }
+          { 'bSortable': false, 'aTargets': [ 8 ] }
        ]				
     });
 
