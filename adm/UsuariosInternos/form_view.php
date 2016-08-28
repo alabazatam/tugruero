@@ -179,7 +179,7 @@
         
     <?php endif;?>
 	</form>
-<?php include('../../view_footer.php')?>
+<?php include('../../view_footer_solicitud.php')?>
 <script type="text/javascript">
 	$(document).ready(function(){
 		

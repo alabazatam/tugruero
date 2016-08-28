@@ -31,7 +31,7 @@
 			</tfoot>
 		</table>
 	<a class="btn btn-default"  href="<?php echo full_url."/adm/UsuariosInternos/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar</a>
-	<?php include('../../view_footer.php')?>
+	<?php include('../../view_footer_solicitud.php')?>
 <script>
 
 	
