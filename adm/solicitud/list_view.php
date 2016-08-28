@@ -7,7 +7,12 @@
 }	
 </style>
 	<h1 class="text-center">Solicitudes/Servicios Activos</h1>
-        <div class="col-sm-4 col-sm-offset-8"><a class="text-center" target="_blank" href="<?php echo full_url?>/adm/solicitud/index.php?action=solicitudes_livemap">Ver solicitudes en Mapa</a></div>
+	<div class="col-sm-4 col-sm-offset-8 well" >
+		<a class="btn btn-default"  href="<?php echo full_url."/adm/Polizas/index.php"?>"><i class="fa fa-file-o fa-pull-left"></i> Generar Solicitud</a>
+		<a class="text-center btn btn-primary" target="_blank" href="<?php echo full_url?>/adm/solicitud/index.php?action=solicitudes_livemap"><i class="fa fa-map-marker fa-pull-left"></i> Ver solicitudes/servicios activos en Mapa</a>
+		
+	
+	</div>
         <table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
             <thead>
                     <tr>
@@ -40,7 +45,11 @@
                     </tr>
             </tfoot>
         </table>
-	<a class="btn btn-default"  href="<?php echo full_url."/adm/Polizas/index.php"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Generar Solicitud</a>
+	<div class="col-sm-4 col-sm-offset-8">
+		
+		
+	</div>
+	
 
         <div class="col-sm-12" id="toogles">
             
@@ -108,7 +117,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 9 ] }
+          { 'bSortable': false, 'aTargets': [ 10 ] }
        ]				
     });
 
@@ -162,7 +171,7 @@ $('#column_8').on ('keypress', function(e){
 	});
 setInterval( function () {
     table.ajax.reload();
-},30000 );
+},15000 );
     
     $('a.toggle-vis').on( 'click', function (e) {
         e.preventDefault();

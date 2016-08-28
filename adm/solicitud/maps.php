@@ -856,7 +856,7 @@ var geocoder = new google.maps.Geocoder;
 				lngOrigen: latlon[1],
 				latDestino: latlonl[0],
 				lngDestino: latlonl[1],
-				Direccion: $('#location').val(),
+				Direccion: $('#locationl').val(),
 				CellContacto: $('#CellContacto').val(),
 				InfoAdicional: $('#InfoAdicional').val(),
 				EstadoOrigen: $('#EstadoOrigen').val(),

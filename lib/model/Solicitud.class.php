@@ -57,12 +57,14 @@
 			$columns = array();
 			$columns[0] = 'Solicitudes.idSolicitud';
 			$columns[1] = 'Solicitudes.idPoliza';
-			$columns[2] = 'pol.Cedula';
-            $columns[3] = 'pol.Placa';
-			$columns[4] = 'Estatus';
-            $columns[5] = 'EstatusCliente';
-            $columns[6] = 'EstatusGrua';
-			$columns[7] = 'TimeInicio';
+			$columns[2] = 'Solicitudes.Proviene';
+			$columns[3] = 'pol.Cedula';
+            $columns[4] = 'pol.Placa';
+			$columns[5] = 'Estatus';
+            $columns[6] = 'EstatusCliente';
+            $columns[7] = 'EstatusGrua';
+			$columns[8] = 'TimeOpen';
+			$columns[9] = 'TimeInicio';
 			$column_order = $columns[0];
 			$where = " Estatus NOT IN('Completado','Cancelado') 
 						AND (EstatusCliente IS NULL OR EstatusCliente = 'Asignado' OR EstatusCliente = 'Activo' OR EstatusCliente = 'Asistido' OR EstatusCliente = 'Completado') 

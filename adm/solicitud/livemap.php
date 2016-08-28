@@ -39,7 +39,7 @@ html, body {
 		var INTERVAL = 10000;
 		var myLatlng = new google.maps.LatLng(10.5168373,-66.9279394);
 		var myOptions = {
-			zoom: 18,
+			zoom: 7,
 			center: myLatlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 		}
