@@ -15,8 +15,10 @@
 						   <div class="input-group" >
 								
 							   <input autocomplete="off" type="file" id="Archivo" class="form-control input-sm" name="Archivo" required="">
-                                    <span class="input-group-addon" id="basic-addon2">(*)</span>
-                            </div> 
+							   <span class="input-group-addon" id="basic-addon2">(*)</span>
+							  
+                            </div>
+							<a href="<?php echo full_url?>/docs/archivo_ejemplo_carga_masiva.csv" target="_blank"> Descargar Archivo base</a>
 						</div>
 					</div>
 		</div>

@@ -253,9 +253,72 @@
 		}
 		
 		public function insertPoliza($array){
+			error_reporting(0);
 			//print_r($array);die;
-			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->Polizas()->insert($array);			
+				$ConnectionORM = new ConnectionORM();
+				$ConnectionAws = new ConnectionAws();
+				$i = 0;
+				
+					/*foreach($array as $arr)
+					{
+								echo "<pre>";print_r($array);
+								$i++;
+					}
+					die;*/
+				
+				try{
+					
+					foreach($array as $arr)
+					{
+
+						$ConnectionORM->transaction = "BEGIN";
+						$ConnectionAws->transaction = "BEGIN";
+						if(isset($arr['Cedula']) and isset($arr['NumPoliza']) and isset($arr['Seguro']))
+						{
+							
+							$q = $ConnectionORM->getConnect()->Polizas
+							->select("*")
+							->where("Polizas.cedula=?",$arr['Cedula'])
+							->and("Polizas.NumPoliza=?",$arr['NumPoliza'])
+							->and("Polizas.Seguro=?",$arr['Seguro'])
+							->fetch();
+						}
+
+							
+						if(!isset($q['idPoliza']) or $q['idPoliza'] =='' or $q['idPoliza'] == null)//si no existe la poliza
+						{
+							//print_r($arr).$i."<br>";
+							//echo "aqui";die;
+							//inserto
+							$insert_orm = $ConnectionORM->getConnect()->Polizas()->insert($arr);
+							@$arr['idPoliza'] = $ConnectionORM->getConnect()->Polizas()->insert_id();//obtengo el idPoliza nuevo
+							//quito campos que no estan en el aws
+							unset($arr['NumPoliza'],$arr['Domicilio'],$arr['Nacionalidad']);
+							$insert_aws = $ConnectionAws->getConnect()->Polizas()->insert($arr);	
+						}
+						if(isset($q['idPoliza']) and $q['idPoliza'] !='' and $q['idPoliza'] != null)//si existe la poliza
+						{
+							//actualizo
+							$arr['idPoliza'] = $q['idPoliza'];//obtengo el idPoliza que se encuentra almacenado
+							$update_orm = $ConnectionORM->getConnect()->Polizas("idPoliza", $q['idPoliza'])->update($arr);
+							//quito campos que no estan en el aws
+							unset($arr['NumPoliza'],$arr['Domicilio'],$arr['Nacionalidad']);
+							$update_aws = $ConnectionAws->getConnect()->Polizas("idPoliza", $q['idPoliza'])->update($arr);
+
+						}
+						$ConnectionORM->transaction = "COMMIT";
+						$ConnectionAws->transaction = "COMMIT";
+						$i++;
+						echo $i."<br>";
+					}
+
+				}catch(Exception $e)
+				{
+						//$ConnectionORM->transaction = "ROLLBACK";
+						//$ConnectionAws->transaction = "ROLLBACK";
+						echo $e->getMessage();die;
+				}
+				//die;		
 		}
 		public function updatePoliza($array){
 			//print_r($array);die;

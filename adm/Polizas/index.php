@@ -119,6 +119,7 @@ $values = array_merge($values,$_FILES);
 	{
 		$values['action'] = 'subir_polizas';
 		$valid = true;
+		$array = array();
 			if(isset($values['Archivo']) and $_FILES['Archivo']['size']>0)
 			{
 						//obtenemos el archivo .csv
@@ -145,7 +146,7 @@ $values = array_merge($values,$_FILES);
 							   //abrimos condición, solo entrará en la condición a partir de la segunda pasada del bucle.
 							   /* La funcion explode nos ayuda a delimitar los campos, por lo tanto irá 
 							   leyendo hasta que encuentre un ; */
-							   $datos = explode(";",$linea);
+							   $datos = explode(",",$linea);
 
 							   //Almacenamos los datos que vamos leyendo en una variable
 							   $seguro = trim($datos[0]);
@@ -155,14 +156,18 @@ $values = array_merge($values,$_FILES);
 							   $nombres = trim($datos[4]);
 							   $apellidos = trim($datos[5]);
 							   $direccion = trim($datos[6]);
-							   $marca = trim($datos[7]);
-							   $modelo = trim($datos[8]);
-							   $color = trim($datos[9]);
-							   $anio = trim($datos[10]);
-							   $placa = trim($datos[11]);
-							   $serialcarroceria = trim($datos[12]);
-							   $vencimiento = trim($datos[13]);
-							   $estado = trim($datos[14]);
+							   $celular = trim($datos[7]);
+							   $email = trim($datos[8]);
+							   $tipo = trim($datos[9]);
+							   $marca = trim($datos[10]);
+							   $modelo = trim($datos[11]);
+							   $color = trim($datos[12]);
+							   $anio = trim($datos[13]);
+							   $placa = trim($datos[14]);
+							   $serialcarroceria = trim($datos[15]);
+							   $desdevigencia= trim($datos[16]);
+							   $vencimiento = trim($datos[17]);
+							   $estado = trim($datos[18]);
 							   if(!isset($seguro) or $seguro == "")
 							   {
 								   $arreglo_errores[$i] = "error en seguro fila[$i]";
@@ -197,6 +202,24 @@ $values = array_merge($values,$_FILES);
 							   {
 								   $direccion = "N/A";
 								   $arreglo_errores[$i] = "error en direccion fila[$i]";
+								   //$valid = false;
+							   }
+							   if(!isset($celular) or $celular == "")
+							   {
+								   $celular = "N/A";
+								   $arreglo_errores[$i] = "error en celular fila[$i]";
+								   //$valid = false;
+							   }
+							   if(!isset($email) or $email == "")
+							   {
+								   $email = "N/A";
+								   $arreglo_errores[$i] = "error en email fila[$i]";
+								   //$valid = false;
+							   }
+							   if(!isset($tipo) or $tipo == "")
+							   {
+								   $tipo = "N/A";
+								   $arreglo_errores[$i] = "error en tipo de vehiculo fila[$i]";
 								   //$valid = false;
 							   }
 							   if(!isset($marca) or $marca == "")
@@ -237,6 +260,11 @@ $values = array_merge($values,$_FILES);
 								   $arreglo_errores[$i] = "error en vencimiento fila[$i]";
 								   $valid = false;
 							   }
+							   if(!isset($desdevigencia) or $desdevigencia == "")
+							   {
+								   $arreglo_errores[$i] = "error en desde vigencia fila[$i]";
+								   //$valid = false;
+							   }
 							   if(!isset($estado) or $estado == "")
 							   {
 								   $arreglo_errores[$i] = "error en estado fila[$i]";
@@ -245,20 +273,25 @@ $values = array_merge($values,$_FILES);
 							$array[$i] = array(
 								"Seguro" => $seguro,
 								"NumPoliza" => $numpoliza,
-								//"Nacionalidad" => $nacionalidad,
+								"Nacionalidad" => $nacionalidad,
 								"Cedula" => $nacionalidad."-".$cedula,
 								"Nombre" => $nombres,
 								"Apellido" => $apellidos,
 								"Domicilio" => $direccion,
+								"Celular" => $celular,
+								"Email" => $email,
+								"Tipo" => $tipo,
 								"Marca" => $marca,
 								"Modelo" => $modelo,
 								"Color"=> $color,
 								"Año" => $anio,
 								"Placa" => $placa,
-								//"serialcarroceria" => $serialcarroceria,
+								"Serial" => $serialcarroceria,
+								"DesdeVigencia" => $desdevigencia,
 								"Vencimiento" => $vencimiento,
+								
 								"DireccionEdo" => $estado,
-								);  
+								); 
 								/*if($valid == true)
 								{
 									echo $seguro." ".$numpoliza." ".$nacionalidad." ".$cedula." "
@@ -285,7 +318,7 @@ $values = array_merge($values,$_FILES);
 			if($valid == true)
 			{
 				$Polizas = new Polizas();
-
+				$Polizas->insertPoliza($array);
 				//echo "listo";die;
 				foreach($array as $arr)
 				{
