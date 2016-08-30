@@ -319,13 +319,6 @@ $values = array_merge($values,$_FILES);
 			{
 				$Polizas = new Polizas();
 				$Polizas->insertPoliza($array);
-				//echo "listo";die;
-				foreach($array as $arr)
-				{
-					//print_r($arr);die;
-					$Polizas->insertPoliza($arr);
-					//echo $array['numpoliza']."<br>";
-				}
 				$values["msg"] = "Datos cargados satisfactoriamente";
 			}else
 			{

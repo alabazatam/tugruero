@@ -254,26 +254,17 @@
 		}
 		
 		public function insertPoliza($array){
-			error_reporting(0);
+			//error_reporting(0);
 			//print_r($array);die;
 				$ConnectionORM = new ConnectionORM();
 				$ConnectionAws = new ConnectionAws();
 				$i = 0;
-				
-					/*foreach($array as $arr)
-					{
-								echo "<pre>";print_r($array);
-								$i++;
-					}
-					die;*/
-				
-				try{
 					
 					foreach($array as $arr)
 					{
 
-						$ConnectionORM->transaction = "BEGIN";
-						$ConnectionAws->transaction = "BEGIN";
+						//$ConnectionORM->transaction = "BEGIN";
+						//$ConnectionAws->transaction = "BEGIN";
 						if(isset($arr['Cedula']) and isset($arr['NumPoliza']) and isset($arr['Seguro']))
 						{
 							
@@ -307,19 +298,14 @@
 							$update_aws = $ConnectionAws->getConnect()->Polizas("idPoliza", $q['idPoliza'])->update($arr);
 
 						}
-						$ConnectionORM->transaction = "COMMIT";
-						$ConnectionAws->transaction = "COMMIT";
+						//$ConnectionORM->transaction = "COMMIT";
+						//$ConnectionAws->transaction = "COMMIT";
 						$i++;
-						echo $i."<br>";
+						//echo $i."<br>";
 					}
-
-				}catch(Exception $e)
-				{
-						//$ConnectionORM->transaction = "ROLLBACK";
-						//$ConnectionAws->transaction = "ROLLBACK";
-						echo $e->getMessage();die;
-				}
-				//die;		
+					//echo "termino";die;
+					return true;
+		
 		}
 		public function updatePoliza($array){
 			//print_r($array);die;
