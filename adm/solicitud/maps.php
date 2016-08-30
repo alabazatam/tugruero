@@ -874,7 +874,7 @@ var geocoder = new google.maps.Geocoder;
 			$('#myModalCargando').modal('show');
 				$.ajax({
 					type: "POST",
-					url: 'http://localhost/clienteapp/solicitudCliente.php',
+					url: 'http://www.tugruero.com/clienteapp/solicitudCliente.php',
 					//url: 'http://52.25.178.106/clienteapp/solicitudCliente.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
