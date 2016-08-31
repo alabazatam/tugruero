@@ -216,18 +216,12 @@ function beep() {
            alert('La observación no puede estar vacía');
        }else
        {
-		   $('#myModalCargando').modal({
-			  backdrop: 'static',
-			  keyboard: false,
-			});	
-		   $('#myModalCargando').modal('show');
+
             $.ajax({
                     type: "POST",
                     url: '<?php echo full_url;?>/adm/solicitud/index.php?action=save_bitacora',
                     data: data_form,
                     success: function(html){
-							$('#myModal').modal('toggle');
-							$('#myModalCargando').modal('toggle');
 							
                     }
             });           

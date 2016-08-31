@@ -413,7 +413,7 @@ function getMarkers() {
 		array_existe = [];	
 
 
-$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitudes_livemap", function(json1) {
+$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitud_livemap&idSolicitud=<?php echo $values['idSolicitud']?>", function(json1) {
 			$.each(json1, function(key, data) {
                                 $.each(data, function(key, data) {
                                                                     

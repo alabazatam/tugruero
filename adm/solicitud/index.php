@@ -243,15 +243,16 @@ $values = $_REQUEST;
 		$arr = array (array());
 		$iconcolor = 'green';
 		
-		
-		if(isset($data['idsolicitud']) and $data['idsolicitud']!='')
-		{
-			$latOrigen = $data['latorigen'];
-			$lngOrigen = $data['lngorigen'];
-			$latDestino = $data['latdestino'];
-			$lngDestino = $data['lngdestino'];
-			$latGrua = $data['latgrua'];
-			$lngGrua = $data['lnggrua'];
+				$i = 0;
+                   if(isset($data['idsolicitud']) and $data['idsolicitud']!='')
+                    {
+                            $idSolicitud = $data['idsolicitud'];
+                            $latOrigen = $data['latorigen'];
+                            $lngOrigen = $data['lngorigen'];
+                            $latDestino = $data['latdestino'];
+                            $lngDestino = $data['lngdestino'];
+                            $latGrua = $data['latgrua'];
+                            $lngGrua = $data['lnggrua'];
                         /*Data cliente*/
                         $NombreCliente = $data['nombrecliente'];
                         $ApellidoCliente = $data['apellidocliente'];
@@ -282,50 +283,52 @@ $values = $_REQUEST;
                         $contentinfo_destino = "<label>Destino</label><br>"
                                 . "<label>IdSolicittud:</label> $idSolicitud<br>"
                                 . " <label>Estado de origen: </label>  $EstadoOrigen <br>"
-                                . " <label>Dirección: </label>  $Direccion <br>";                        
-
+                                . " <label>Dirección: </label>  $Direccion <br>";
                         
                         
-				//centrar mapa
-			
-				$arr[0][0] = array("id"=>"0","latCenter"=>"$latOrigen","lngCenter"=>"$lngOrigen");
-			
-				//Cliente
-				
-				$arr[0][1] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"C","title"=>'Cliente',"lat"=>$latOrigen,"lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"$contentinfo_cliente","iconcolor" => "red");
-				//Destino
-				$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
-				//Gruero
-				
-				if($data['estatusgrua']!='' or $data['estatusgrua']!=null)
-				{
-					$arr[0][3] = array("id"=>"3","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latGrua","lng"=>$lngGrua,"description"=>"Prueba","contentinfo"=>"$contentinfo_gruero ","iconcolor" => "green");			
-				}
-				//El gruero llegó al lugar del cliente y se convierten en un solo circulo
-				if(isset($data['estatusgrua']) and ($data['estatusgrua'] == 'Asistiendo' ))
-				{
-					unset($arr[0][1],$arr[0][3]);
-					$arr[0][3] = array("id"=>"3","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latOrigen","lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"$contentinfo_gruero","iconcolor" => "yellow");			
-					$arr[0][0] = array("id"=>"0","latCenter"=>"$latGrua","lngCenter"=>"$lngGrua");
-				}
-				//el gruero llegó al destino y el cliente lleno la encuesta
-				if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Asistido' ))
-				{
-					unset($arr[0][1],$arr[0][3]);
-					$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
-					$arr[0][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino");
-					
-				}				
-				
-				if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Completado' ))
-				{
-					unset($arr[0][1],$arr[0][3]);
-					$arr[0][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
-					$arr[0][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino");
-				}
+                                    //centrar mapa
 
-				echo json_encode($arr); // {"a":1,"b":2,"c":3,"d":4,"e":5}				
-		}
+                                    $arr[$i][0] = array("id"=>"0","latCenter"=>"$latOrigen","lngCenter"=>"$lngOrigen","idSolicitud" => $idSolicitud);
+
+                                    //Cliente
+
+                                    $arr[$i][1] = array("id"=>"1","idSolicitud"=>$idSolicitud,"label"=>"C","title"=>'Cliente',"lat"=>$latOrigen,"lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"$contentinfo_cliente","iconcolor" => "red");
+                                    //Destino
+                                    $arr[$i][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
+                                    //Gruero
+
+                                    if($data['estatusgrua']!='' or $data['estatusgrua']!=null)
+                                    {
+                                            $arr[$i][3] = array("id"=>"3","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latGrua","lng"=>$lngGrua,"description"=>"Prueba","contentinfo"=>"$contentinfo_gruero","iconcolor" => "green");			
+                                    }
+                                    //El gruero llegó al lugar del cliente y se convierten en un solo circulo
+                                    if(isset($data['estatusgrua']) and ($data['estatusgrua'] == 'Asistiendo' ))
+                                    {
+                                            unset($arr[$i][1],$arr[$i][3]);
+                                            $arr[$i][3] = array("id"=>"3","idSolicitud"=>$idSolicitud,"label"=>"G","title"=>'Gruero',"lat"=>"$latOrigen","lng"=>$lngOrigen,"description"=>"Prueba","contentinfo"=>"$contentinfo_gruero","iconcolor" => "yellow");			
+                                            $arr[$i][0] = array("id"=>"0","latCenter"=>"$latGrua","lngCenter"=>"$lngGrua","idSolicitud" => $idSolicitud);
+                                    }
+                                    //el gruero llegó al destino y el cliente lleno la encuesta
+                                    if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Asistido' ))
+                                    {
+                                            unset($arr[$i][1],$arr[$i][3]);
+                                            $arr[$i][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
+                                            $arr[$i][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino","idSolicitud" => $idSolicitud);
+
+                                    }				
+
+                                    if(isset($data['estatuscliente']) and ($data['estatuscliente'] == 'Completado' ))
+                                    {
+                                            unset($arr[$i][1],$arr[$i][3]);
+                                            $arr[$i][2] = array("id"=>"2","idSolicitud"=>$idSolicitud,"label"=>"D","title"=>'Destino',"lat"=>$latDestino,"lng"=>$lngDestino,"description"=>"Prueba","contentinfo"=>"$contentinfo_destino","iconcolor" => "blue");	
+                                            $arr[$i][0] = array("id"=>"0","latCenter"=>"$latDestino","lngCenter"=>"$lngDestino","idSolicitud" => $idSolicitud);
+
+                                            
+                                    }
+
+                                    			
+                    } 
+					echo json_encode($arr);  
 	
 	}
 	function executeJsonSolicitudesLivemap($values)

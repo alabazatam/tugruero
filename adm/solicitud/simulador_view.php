@@ -339,7 +339,7 @@ $cambiar_a2_grua = "";
 					};	
 					$.ajax({
 						type: "POST",
-						url: 'http://www.tugruero.com/grueroapp/tomarSolicitud.php',
+						url: '<?php echo full_urlapi?>/grueroapp/tomarSolicitud.php',
 						data: JSON.stringify(arr),
 						contentType: 'application/json; charset=utf-8',
 						async: false,
@@ -356,9 +356,9 @@ $cambiar_a2_grua = "";
 					  url: '<?php echo full_url?>/adm/solicitud/index.php',
 					  data: { action: "simulador_view",idSolicitud: idSolicitud},
 					  success: function(html){
-										$("#content_simulador").html(html);
-										$('.modal-body').html('<div class="alert alert-success" role="alert">Servicio aceptado satisfactoriamente</div>');
-										$('#myModalMessage').modal('show');
+							$("#content_simulador").html(html);
+								$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+								$('#myModalMessage').modal('show');
 					  },
 					  //dataType: dataType
 					});
@@ -380,10 +380,10 @@ function cambiarStatusSolicitud(estatus,estatus_cambiar,idSolicitud){
 		  url: '<?php echo full_url?>/adm/solicitud/index.php',
 		  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "1",estatus: estatus, estatus_cambiar: estatus_cambiar},
 		  success: function(html){
+							
 							$("#content_simulador").html(html);
 							$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
 							$('#myModalMessage').modal('show');
-							//$('#myModalCargando').modal('toggle');
 		  }
 		});					
 	}else{
@@ -401,7 +401,7 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 			var TratoVehiculo = $('input:radio[name=TratoVehiculo]:checked').val();
 			var Puntual = $('input:radio[name=Puntual]:checked').val();
 			var Observacion = $("#Observacion").val();
-			
+		
 			if(estatuscliente_cambiar == 'Asistido')//servicio completado
 			{
 
@@ -410,16 +410,17 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 					idGrua: $('#idGrua').val(),
 					Time: '<?php echo date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)));?>',
 					
-				};	
+				};
+
 				$.ajax({
 					type: "POST",
-					url: 'http://www.tugruero.com/clienteapp/confirmarAsistencia.php',
+					url: '<?php echo full_urlapi?>/clienteapp/confirmarAsistencia.php',
 					//url: 'http://52.25.178.106/clienteapp/solicitudCliente.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
 					async: false,
 					success: function(data){
-						//$('#myModalCargando').modal('toggle');
+						//$('#myModalMessage').modal('toggle');
 					},
 					crossDomain: true,
 					dataType: 'json',
@@ -437,12 +438,12 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 				};
 				$.ajax({
 					type: "POST",
-					url: 'http://www.tugruero.com/clienteapp/finalizarServicio.php',
+					url: '<?php echo full_urlapi?>/clienteapp/finalizarServicio.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
 					async: false,
 					success: function(data){
-						//$('#myModalCargando').modal('toggle');	
+						//$('#myModalMessage').modal('toggle');	
 					},
 					crossDomain: true,
 					dataType: 'json',
@@ -463,14 +464,15 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 					Motivo: $('#MotivoCliente').val(),
 
 				};
+
 				$.ajax({
 					type: "POST",
-					url: 'http://www.tugruero.com/clienteapp/cancelarServicio.php',
+					url: '<?php echo full_urlapi?>/clienteapp/cancelarServicio.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
 					async: false,
 					success: function(data){
-						
+						//$('#myModalMessage').modal('toggle');
 					},
 					crossDomain: true,
 					dataType: 'json',
@@ -487,7 +489,6 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 							$("#content_simulador").html(html);
 							$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
 							$('#myModalMessage').modal('show');
-							//$('#myModalCargando').modal('toggle');
 			  },
 			  //dataType: dataType
 			});
@@ -516,7 +517,7 @@ function cambiarStatusServicioGrua(estatusgrua,estatusgrua_cambiar,idSolicitud){
 				};
 				$.ajax({
 					type: "POST",
-					url: 'http://www.tugruero.com/grueroapp/abandonarServicio.php',
+					url: '<?php echo full_urlapi?>/grueroapp/abandonarServicio.php',
 					data: JSON.stringify(arr),
 					contentType: 'application/json; charset=utf-8',
 					async: false,
@@ -552,15 +553,14 @@ function cambiarStatusServicioGrua(estatusgrua,estatusgrua_cambiar,idSolicitud){
 }
 function grueroSelect(){
 			var idSolicitud = $("#idSolicitud").val();
-			$('.modal-body').html('');
+			//$('.modal-body').html('');
 			$.ajax({
 			  type: "POST",
 			  url: '<?php echo full_url?>/adm/solicitud/index.php',
 			  data: { action: "gruero_select", idSolicitud: idSolicitud},
 			  success: function(html){
-							
-							$('.modal-body').html(html);
-							$('#myModal').modal('show');
+					$('.modal-body').html(html);
+					$('#myModal').modal('show');
 			  },
 			  //dataType: dataType
 			});
@@ -568,15 +568,14 @@ function grueroSelect(){
 }
 function grueroSelectDatatable(){
 			var idSolicitud = $("#idSolicitud").val();
-			$('.modal-body').html('');
+			//$('.modal-body').html('');
 			$.ajax({
 			  type: "POST",
 			  url: '<?php echo full_url?>/adm/solicitud/index.php',
 			  data: { action: "gruero_select_datatable_index", idSolicitud: idSolicitud},
 			  success: function(html){
-							
-							$('.modal-body').html(html);
-							$('#myModal').modal('show');
+					$('.modal-body').html(html);
+					$('#myModal').modal('show');					
 			  },
 			  //dataType: dataType
 			});

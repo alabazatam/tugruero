@@ -39,6 +39,7 @@ define("protocol",empty($_SERVER['HTTPS']) ? 'http' : 'https');
 define("port",$_SERVER['SERVER_PORT']);
 define("disp_port",($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port");
 define("domain",$_SERVER['SERVER_NAME'].$project_folder);
+define("full_urlapi",protocol."://".$_SERVER['SERVER_NAME']);
 define("full_url",protocol."://".domain);
 define("image_url",full_url."/web/images/");
 

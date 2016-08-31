@@ -124,15 +124,6 @@ h1, h2 ,h3 {
 	padding-left: 40%;
 }	
 </style>
-	<div class="modal fade modal-lg modal-dialog-center" id="myModalCargando" tabindex="-2" role="dialog" aria-labelledby="myModalCargandoLabel">
-	  <div class="modal-dialog modal-lg modal-dialog-center" role="document">
-		<div class="modal-content">
-		  <div class="modal-body">
-			  <i class="fa fa-circle-o-notch fa-spin fa-5x"></i> Generando solicitud
-		  </div>
-		</div>
-	  </div>
-	</div>
 	<div class="navbar navbar-fixed-top">      
 
 			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="<?php echo full_url?>/web/img/logo_blanco.png" alt="tugruero.com" width="100"></a>
@@ -343,6 +334,21 @@ h1, h2 ,h3 {
 	
 	<input id="searchInput" class="controls_search" type="text" placeholder="Coloque el lugar del accidentado">
 	<div id="map" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+			<div class="modal fade" id="myModalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalMessageLabel">
+			  <div class="modal-dialog" role="document">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h4 class="modal-title" id="myModalMessageLabel"></h4>
+				  </div>
+				  <div class="modal-body">
+				  </div>
+				  <div class="modal-footer">
+					  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					
+				  </div>
+				</div>
+			  </div>
+			</div>
 </html>
 
     <script src="../../web/js/jquery.js"></script>
@@ -865,35 +871,37 @@ var geocoder = new google.maps.Geocoder;
 				Situacion: $('#Situacion').val(),
 				Proviene: 'WEB'
 			};
-			$('#myModalCargando').modal({
-			  backdrop: 'static',
-			  keyboard: false,
-			});			
-			
-			$('body').toggleClass('nav-expanded2');
-			$('#myModalCargando').modal('show');
-				$.ajax({
-					type: "POST",
-					url: 'http://www.tugruero.com/clienteapp/solicitudCliente.php',
-					//url: 'http://52.25.178.106/clienteapp/solicitudCliente.php',
-					data: JSON.stringify(arr),
-					contentType: 'application/json; charset=utf-8',
-					async: false,
-					success: function(data){
+				if(!confirm("¿Está seguro de generar la solicitud?"))
+				{
+					return false;
+				}else
+				{
+					$('body').toggleClass('nav-expanded2');
+					
+					$.ajax({
+						type: "POST",
+						url: '<?php echo full_urlapi?>/clienteapp/solicitudCliente.php',
+						//url: 'http://52.25.178.106/clienteapp/solicitudCliente.php',
+						data: JSON.stringify(arr),
+						contentType: 'application/json; charset=utf-8',
+						async: false,
+						success: function(data){
+
 							
-						$('#myModalCargando').modal('toggle');
-						alert("Solicitud generada satisfactoriamente");
-						$(location).attr('href', '<?php echo full_url;?>/adm/solicitud/index.php');
-					},
-                                        error: function (request, status, error) {
-                                                alert("Se presentó el error:" + error);
-                                                $('#myModalCargando').modal('toggle');
-                                        },      
-					crossDomain: true,
-					dataType: 'json',
-					//success: function() { alert("Success"); },
-					//error: function() { alert('Failed!'); },
-				});
+							alert("Solicitud generada satisfactoriamente");
+							$(location).attr('href', '<?php echo full_url;?>/adm/solicitud/index.php');
+						},
+											error: function (request, status, error) {
+													alert("Se presentó el error:" + error);
+
+											},      
+						crossDomain: true,
+						dataType: 'json',
+						//success: function() { alert("Success"); },
+						//error: function() { alert('Failed!'); },
+					});					
+				}
+				
 		});
 	});
 
@@ -937,7 +945,7 @@ var geocoder = new google.maps.Geocoder;
 					//contentType: 'application/json; charset=utf-8',
 					//async: false,
 					success: function(data){
-						alert('ready');
+						//alert('ready');
 					}
 				});			
 			
