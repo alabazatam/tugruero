@@ -202,7 +202,7 @@ $values = array_merge($values,$_FILES);
 							   {
 								   $direccion = "N/A";
 								   $arreglo_errores[$i] = "error en direccion fila[$i]";
-								   //$valid = false;
+								   $valid = false;
 							   }
 							   if(!isset($celular) or $celular == "")
 							   {
@@ -220,7 +220,7 @@ $values = array_merge($values,$_FILES);
 							   {
 								   $tipo = "N/A";
 								   $arreglo_errores[$i] = "error en tipo de vehiculo fila[$i]";
-								   //$valid = false;
+								   $valid = false;
 							   }
 							   if(!isset($marca) or $marca == "")
 							   {
@@ -288,8 +288,7 @@ $values = array_merge($values,$_FILES);
 								"Placa" => $placa,
 								"Serial" => $serialcarroceria,
 								"DesdeVigencia" => $desdevigencia,
-								"Vencimiento" => $vencimiento,
-								
+								"Vencimiento" => $vencimiento,								
 								"DireccionEdo" => $estado,
 								); 
 								/*if($valid == true)
