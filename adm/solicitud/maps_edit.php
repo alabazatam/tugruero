@@ -386,6 +386,10 @@ h1, h2 ,h3 {
 			zoom: 14,
 			center: myLatlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			zoomControl: true,
+			zoomControlOptions: {
+				position: google.maps.ControlPosition.LEFT_CENTER
+			},
 		}
     var map = new google.maps.Map(document.getElementById("map"), myOptions);
 

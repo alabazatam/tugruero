@@ -69,63 +69,67 @@
 			$where = " Estatus NOT IN('Completado','Cancelado') 
 						AND (EstatusCliente IS NULL OR EstatusCliente = 'Asignado' OR EstatusCliente = 'Activo' OR EstatusCliente = 'Asistido' OR EstatusCliente = 'Completado') 
 						AND (EstatusGrua  IS NULL OR EstatusGrua = 'Asignado' OR EstatusGrua = 'Activo' OR EstatusGrua = 'Asistiendo')  ";
-			$order = 'asc';
+			$order = 'desc';
 			$limit = $values['length'];
 			$offset = $values['start'];
-			if(isset($values['search']['value']) and $values['search']['value'] !='')
+			/*if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where.= " OR upper(pol.Cedula) like upper('%$str%')"
+				$where.= " upper(pol.Cedula) like upper('%$str%')"
                     . "OR upper(pol.Placa) like upper('%".$str."%')"
 					. "OR upper(Estatus) like upper('%".$str."%')"
 					. "OR upper(EstatusCliente) like upper('%".$str."%')"
 					. "OR upper(EstatusGrua) like upper('%".$str."%')"
 					. "OR upper(EstatusGrua) like upper('%".$str."%')";
-			}
-			
+			}*/
 			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
 			{
-				$where.=" AND sol.idSolicitud = ".$values['columns'][0]['search']['value']."";
+				$where.=" AND Solicitudes.idSolicitud = ".$values['columns'][0]['search']['value']."";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][1]['search']['value']) and $values['columns'][1]['search']['value']!='')
 			{
 				$where.=" AND upper(pol.idPoliza) like ('%".$values['columns'][1]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
-			}			
+			}
 			if(isset($values['columns'][2]['search']['value']) and $values['columns'][2]['search']['value']!='')
 			{
-				$where.=" AND upper(Cedula) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Proviene) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}			
 			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
 			{
-				$where.=" AND upper(Placa) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Cedula) like ('%".$values['columns'][3]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
-			}	
+			}			
 			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
 			{
-				$where.=" AND upper(Estatus) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Placa) like ('%".$values['columns'][4]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
 			{
-				$where.=" AND upper(EstatusCliente) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Estatus) like ('%".$values['columns'][5]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
 			{
-				$where.=" AND upper(EstatusGrua) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(EstatusCliente) like ('%".$values['columns'][6]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
-			}
+			}	
 			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
 			{
-				$where.=" AND DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') = '".$values['columns'][7]['search']['value']."'";
+				$where.=" AND upper(EstatusGrua) like ('%".$values['columns'][7]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
 			{
-				$where.=" AND DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') = '".$values['columns'][8]['search']['value']."'";
+				$where.=" AND DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') = '".$values['columns'][8]['search']['value']."'";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][9]['search']['value']) and $values['columns'][9]['search']['value']!='')
+			{
+				$where.=" AND DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') = '".$values['columns'][9]['search']['value']."'";
 				//echo $values['columns'][0]['search']['value'];die;
 			}		
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
@@ -264,11 +268,16 @@
 			
 		}
 		public function updateEstatusServicioGrua($values){
-			
+
+
 			$idSolicitud = $values['idSolicitud'];
 			$array_solicitud = array(
 				"EstatusGrua" => $values['estatusgrua_cambiar']
 			);
+			if($values['estatusgrua_cambiar'] == 'Completado')
+			{
+				$array_solicitud["TimeFin"] =  date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)));
+			}
 			$ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios("idSolicitud", $idSolicitud)->update($array_solicitud);
 			return $q;			

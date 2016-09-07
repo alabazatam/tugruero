@@ -68,7 +68,7 @@
     border-color: #4d90fe;
 }
 .gm-style-iw + div {
-  display: none;
+  display: block;
 }
 label {
 	/*color: #fff;*/
@@ -423,9 +423,16 @@ function initMap() {
     center: haightAshbury,
 	disableDefaultUI: true,
     zoomControl: true,
-    scaleControl: true
+    scaleControl: true,
+    zoomControl: true,
+    zoomControlOptions: {
+        position: google.maps.ControlPosition.LEFT_CENTER
+    },
+
 
   });
+ 
+
 
   
   // This event listener will call addMarker() when the map is clicked.
@@ -536,12 +543,12 @@ function addMarker(location) {
 	
 	if(labelIndex==0)
 	{
-		labels = 'Partida';
+		labels = 'Cliente';
 		color = 'green';
 	}else
 	{
 		color = 'blue';
-		labels = 'Llegada';
+		labels = 'Destino';
 	}
 	labelIndex++;
 
@@ -565,7 +572,7 @@ function addMarker(location) {
 	});
 	marker.setValues({id: labels});
 	
-	if(labels == "Partida"){
+	if(labels == "Cliente"){
 		$('#latlon').val(location);
 		$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_cliente&idPoliza=" + idPoliza, function(data) {
 			
@@ -585,7 +592,7 @@ function addMarker(location) {
 			});
 	}
 	
-	if(labels== "Llegada"){
+	if(labels== "Destino"){
 		$('#latlonl').val(location);
 		getEstadoOnMap(location);
 		var geocoder = new google.maps.Geocoder;
@@ -603,13 +610,13 @@ function addMarker(location) {
 	marker.addListener('dragend', function(event) {
 		//alert(event.latLng);
 		
-		if(marker.label == 'Partida')
+		if(marker.label == 'Cliente')
 		{
 			
 			$('#latlon').val(event.latLng);
 			showLocationAddress(event.latLng,0);
 			
-		}else if(marker.label == 'Llegada')
+		}else if(marker.label == 'Destino')
 		{	
 			marker.info.close(map.marker);
 			getEstadoOnMap(event.latLng);
@@ -848,7 +855,7 @@ var geocoder = new google.maps.Geocoder;
 				return false;
 			}else if($('#CellContacto').val() == '')
 			{
-				alert('El campo contacto no debe estar vacio');
+				alert('Por favor indique el número de contacto de la persona que se encuentra con el vehículo, este dato es obligatorio');
 				return false;				
 			}
 

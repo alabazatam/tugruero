@@ -18,15 +18,15 @@
                     <tr>
                         <th>IdSolicitud/Servicio</th>
                         <th>IdPoliza</th>
-			<th>Origen</th>
+						<th>Origen</th>
                         <th>Cedula</th>
                         <th>Placa</th>
                         <th>Status solicitud</th>
                         <th>Status cliente</th>
                         <th>Status gruero</th>
-			<th>Abierto</th>
+						<th>Abierto</th>
                         <th>Inicio</th>						
-                        <th>Detalle</th>
+                        <th style="min-width: 150px;">Detalle</th>
                     </tr>
             </thead>
             <tfoot>
@@ -39,8 +39,8 @@
                         <th>Status solicitud</th>
                         <th>Status cliente</th>
                         <th>Status gruero</th>
-						<th>Inicio/Solicitud</th>	
-                        <th>Inicio/Servicio</th>				
+						<th>Abierto</th>
+                        <th>Inicio</th>						
                         <th>Detalle</th>
                     </tr>
             </tfoot>
@@ -64,7 +64,7 @@ $(document).ready(function() {
 		
 		if(title != 'Detalle')
 		{       //$('#toogles').append('- <a class="btn btn-success toggle-vis" data-column="'+$(this).index()+'">'+title+'</a>' );
-			$(this).html( '<input size="10" class="input-sm" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+			$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
 		}
 		if(title == 'Detalle')
 		{
@@ -78,6 +78,7 @@ $(document).ready(function() {
         "scrollX": true,
         "processing": true,
         "serverSide": true,
+		 "sDom": 'ltrip',
 		//"cache": false,
         "ajax": "<?php echo full_url."/adm/solicitud/index.php?action=list_json"?>",
 		"language": {
@@ -166,8 +167,14 @@ $('#column_8').on ('keypress', function(e){
         table.column(table.column(8)).search($(this).val()).draw();
     }
 });
+$('#column_9').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(9)).search($(this).val()).draw();
+    }
+});
 	$('#clear').click(function(){
 		table.search( '' ).columns().search( '' ).draw();
+		$('.filtros').val('');
 	});
 setInterval( function () {
     table.ajax.reload();

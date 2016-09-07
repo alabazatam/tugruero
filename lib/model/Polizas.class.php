@@ -313,11 +313,13 @@
 			$q = $ConnectionORM->getConnect()->Polizas()->insert($array);			
 		}
 		public function getPolizasByDocumento($values){
+			
+			$where = " Polizas.cedula = '".$values['Cedula']."' or Polizas.Placa = '".$values['Placa']."'";
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Polizas
 			->select("*")
-			->where("Polizas.cedula=?",$values['Cedula'])
-                        ->fetch();
+			->where($where)
+            ->fetch();
 			return $q; 				
 			
 		}

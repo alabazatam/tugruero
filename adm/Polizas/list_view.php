@@ -28,6 +28,8 @@
 				</tr>
 			</tfoot>
 		</table>
+	<a class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php";?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
+
 	<a class="btn btn-default"  href="<?php echo full_url."/adm/Polizas/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar</a>
 </div>
 	<?php include('../../view_footer_solicitud.php')?>
@@ -41,7 +43,7 @@ $(document).ready(function() {
 		
 		if(title != 'Detalle')
 		{
-			$(this).html( '<input size="10" class="input-sm" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+			$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
 		}
 		if(title == 'Detalle')
 		{
@@ -55,6 +57,7 @@ $(document).ready(function() {
         "scrollX": true,
         "processing": true,
         "serverSide": true,
+		 "sDom": 'ltrip',
         "ajax": "<?php echo full_url."/adm/Polizas/index.php?action=list_json"?>",
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
@@ -112,6 +115,7 @@ $('#column_6').on ('keypress', function(e){
 
 	$('#clear').click(function(){
 		table.search( '' ).columns().search( '' ).draw();
+		$('.filtros').val('');
 	});
 
 

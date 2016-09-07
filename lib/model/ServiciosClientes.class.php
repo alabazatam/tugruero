@@ -34,7 +34,7 @@
 			$order = 'asc';
 			$limit = $values['length'];
 			$offset = $values['start'];
-			if(isset($values['search']['value']) and $values['search']['value'] !='')
+			/*if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
 				$where.= " and ( upper(gr.Nombre) like upper('%$str%')"
@@ -44,7 +44,7 @@
 					. "OR upper(EstatusCliente) like upper('%".$str."%')"
 					. "OR upper(EstatusGrua) like upper('%".$str."%')"
 					. "OR upper(Monto) like upper('%".$str."%'))";
-			}
+			}*/
 			
 			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
 			{
@@ -78,7 +78,7 @@
 			}	
 			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
 			{
-				$where.=" AND CONCAT(upper(gr.Nombre),' ',upper(gr.Apellido ) like ('%".$values['columns'][6]['search']['value']."%')";
+				$where.=" AND CONCAT(upper(gr.Nombre),' ',upper(gr.Apellido )) like ('%".$values['columns'][6]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
@@ -104,12 +104,13 @@
 			{
 				$order = $values['order'][0]['dir'];//asc o desc
 			}
-			//echo $column_order;die;
+			//echo $where;die;
             $ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Servicios
-			->select("*,DATE_FORMAT(TimeInicio, '%d/%m/%Y') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y') as TimeFin")
+			->select("*,DATE_FORMAT(TimeInicio, '%d/%m/%Y %H:%i:%s') as TimeInicio,DATE_FORMAT(TimeFin, '%d/%m/%Y %H:%i:%s') as TimeFin, CONCAT(pol.Nombre, ' ', pol.Apellido) AS cliente")
 			->join('Solicitud','INNER JOIN Solicitudes sol ON sol.idSolicitud = Servicios.idSolicitud')
 			->join('Grueros','INNER JOIN Grueros gr ON Servicios.idGrua = gr.idGrua')
+			->join('Polizas','INNER JOIN Polizas pol ON pol.idPoliza= sol.idPoliza')
 			->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
@@ -119,16 +120,65 @@
 		public function getCountServiciosClientesList($values)
 		{	
 			$where = ' sol.IdPoliza = '.$values['idPoliza'];
-			if(isset($values['search']['value']) and $values['search']['value'] !='')
-			{	
-				$str = $values['search']['value'];
-				$where.=" ";
+			
+			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
+			{
+				$where.=" AND sol.idSolicitud = ".$values['columns'][0]['search']['value']."";
+				//echo $values['columns'][0]['search']['value'];die;
 			}
-            $ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->Servicios
+			if(isset($values['columns'][1]['search']['value']) and $values['columns'][1]['search']['value']!='')
+			{
+				$where.=" AND upper(EstadoOrigen) like ('%".$values['columns'][1]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}			
+			if(isset($values['columns'][2]['search']['value']) and $values['columns'][2]['search']['value']!='')
+			{
+				$where.=" AND upper(Direccion) like ('%".$values['columns'][2]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}			
+			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
+			{
+				$where.=" AND DATE_FORMAT(TimeInicio, '%d/%m/%Y') = '".$values['columns'][3]['search']['value']."'";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
+			{
+				$where.=" AND DATE_FORMAT(TimeFin, '%d/%m/%Y') = '".$values['columns'][4]['search']['value']."'";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
+			{
+				$where.=" AND upper(gr.Cedula) like ('%".$values['columns'][5]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
+			{
+				$where.=" AND CONCAT(upper(gr.Nombre),' ',upper(gr.Apellido )) like ('%".$values['columns'][6]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
+			{
+				$where.=" AND upper(EstatusCliente) like ('%".$values['columns'][7]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
+			{
+				$where.=" AND upper(EstatusGrua) like ('%".$values['columns'][8]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][9]['search']['value']) and $values['columns'][9]['search']['value']!='')
+			{
+				$where.=" AND upper(Monto) like ('%".$values['columns'][9]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}				
+			
+			
+            $ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Servicios
 			->select("count(*) as cuenta")
 			->join('Solicitud','INNER JOIN Solicitudes sol ON sol.idSolicitud = Servicios.idSolicitud')
 			->join('Grueros','INNER JOIN Grueros gr ON Servicios.idGrua = gr.idGrua')
+			->join('Polizas','INNER JOIN Polizas pol ON pol.idPoliza= sol.idPoliza')
 			->where("$where")->fetch();
 			return $q['cuenta']; 			
 		}

@@ -145,14 +145,15 @@ $values = $_REQUEST;
 					"StatusDesierto" => $status_desierto,
 					"RetardoActivoActivo" => $retardo_activo_activo,
 					
-					"actions" => 
-										'<form method="POST" action = "'.full_url.'/adm/solicitud/index.php" >'
-										.'<input type="hidden" name="action" value="edit">  '
+					"actions" =>		'<input type="hidden" name="action" value="edit">  '
 										.'<input type="hidden" name="idSolicitud" value="'.$idSolicitud.'">  '
-                                       
-										.'<a class="btn btn-default btn-sm" title="Ver detalle" href="'.full_url.'/adm/solicitud/index.php?action=edit&idSolicitud='.$idSolicitud.'&idPoliza='.$idPoliza.'"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'                                       
-                                       .' <a href="'.full_url.'/adm/solicitud/index.php?action=simulador_view&idSolicitud='.$idSolicitud.'" class="btn btn-default btn-sm" title="Simulador de servicio"><i class="fa fa-headphones  fa-pull-left fa-border"></i></a>'
+										.'<form method="POST" action = "'.full_url.'/adm/solicitud/index.php" class="form-inline">'
+										. '<div class="form-group">'										
+										.' <a  class="btn btn-default btn-sm" title="Ver detalle" href="'.full_url.'/adm/solicitud/index.php?action=edit&idSolicitud='.$idSolicitud.'&idPoliza='.$idPoliza.'"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'                                       
+                                        .' <a  href="'.full_url.'/adm/solicitud/index.php?action=simulador_view&idSolicitud='.$idSolicitud.'" class="btn btn-default btn-sm" title="Simulador de servicio"><i class="fa fa-headphones  fa-pull-left fa-border"></i></a>'
 										.' <a class="badge" title="Agregar/Ver bitácora" onclick="addBitacora('.$idSolicitud.')">'.$count_bitacora.'</a>'
+
+										. '</div>'									
 										.'</form>'
 					);	
 			}		
@@ -465,7 +466,8 @@ $values = $_REQUEST;
 					$Solicitud->updateEstatusServicioCliente($values);
 				}
 				if(isset($values['estatusgrua']) and isset($values['estatusgrua_cambiar']))
-				{
+				{	
+
 					//cambio de estatus en la solicitud
 					$Solicitud->updateEstatusServicioGrua($values);
 				}				
@@ -474,7 +476,7 @@ $values = $_REQUEST;
 			{
 				if(isset($values['idPoliza']) and isset($values['idSolicitud']) and isset($values['idGrua']))
 				{
-					
+
 					//genero el servicio
 					$Solicitud->insertServicio($values);
 				}			

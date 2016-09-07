@@ -1,18 +1,20 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 
-	<h1 class="text-center">Servicios Cliente</h1>
+	<h1 class="text-center">Servicios Clientes</h1>
 	<form class="form-inline"  action="" id="consultarPoliza">
           <div class="form-group">
             <label for="letra">Cédula/RIF</label>
-            <select name="nacion" id="letra">
+            <select name="nacion" id="letra"  class="form-control">
                 <option value="V">V</option>
                 <option value="E">E</option>
                 <option value="J">J</option>
             </select>
             <input type="text" class="form-control" autocomplete="off" id="documento" placeholder="1234567">
-
+			<label for="placa">Placa</label>
+			<input type="text" class="form-control" autocomplete="off" id="placa" placeholder="AC785FD" maxlength="8">
           </div>
+		  
           <a  class="btn btn-default" id="consultarPoliza" onclick="consultarPoliza();"><i class="fa fa-search fa-pull-left fa-border"></i> Consultar</a>
         </form>
         <div id="results" class="col-sm-12" hidden>
@@ -60,17 +62,17 @@
 
 function consultarPoliza(){                              
 				$('#results').hide();
-				$('#nuevo').hide();
-                                
-                if($('#documento').val() == '')
+				$('#nuevo').hide();          
+                if($('#documento').val() == '' && $('#placa').val() == '')
                 {
-				alert('Debe indicar el número de identificación');
+				alert('Debe indicar el número de identificación del cliente o la placa del vehículo');
 				return false;
 				}
                                 
 				var arr = {
 					Cedula: $('#letra').val() + '-' + $('#documento').val() ,
-                                        action: "individual_json"
+                    action: "individual_json",
+					Placa: $('#placa').val()
 				};
 				$.ajax({
 					type: "POST",
@@ -120,6 +122,7 @@ function consultarPoliza(){
                                             {
                                                 alert('No se encontró póliza registrada con los datos suministrados');
                                                  $('#nuevo').show();
+												 $('#results').hide();
                                             }
                                                 
                                            

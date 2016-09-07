@@ -44,7 +44,7 @@
                         $hora = date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)));
                         $array_bitacora = array(
                             "idSolicitud" => $values["idSolicitud"],
-                            "id_user" => 535,
+                            "id_user" => $_SESSION['id_user'],
                             "observacion" => $values["observacion"],
                             "date_created" => $hora,
                             
