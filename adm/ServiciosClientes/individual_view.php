@@ -31,7 +31,7 @@
             <div id="" class="col-sm-12">
                 <div class="panel panel-default">
                   <div class="panel-heading" style="background-color: #404040 !important;">
-                    <h3 class="panel-title" style="color: white !important;">Tips</h3>
+                    <h3 class="panel-title" style="color: white !important;">Tips de Condicionado</h3>
                   </div>
                  <div class="panel-body" id="parcial_tips" style="background-color: #ccc !important;">
 
@@ -68,7 +68,11 @@ function consultarPoliza(){
 				alert('Debe indicar el número de identificación del cliente o la placa del vehículo');
 				return false;
 				}
-                                
+                var z1 = /^[0-9]*$/;
+				if ($('#documento').val() != '' && !z1.test($('#documento').val())) { 
+						alert('Por favor solo ingrese números. Letras, caracteres especiales y espacios NO son admitidos');
+						return false;
+				}             
 				var arr = {
 					Cedula: $('#letra').val() + '-' + $('#documento').val() ,
                     action: "individual_json",

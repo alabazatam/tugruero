@@ -13,8 +13,11 @@ $cambiar_a_grua = "";
 $cambiar_a2_grua = "";
 
 ?>
-<div class="container" id="content_simulador">
 	<?php include('../../view_header_app.php')?>
+	<?php include('../menu.php')?>
+<div class="container" id="content_simulador">
+
+
 	<h1 class="text-center big_title">Simulador</h1>
 	<form class="" enctype="multipart/form-data" action="index.php" method="POST">
 		<input autocomplete="off" type="hidden" id='idSolicitud' name='idSolicitud' value='<?php if(isset($values['idSolicitud']))echo $values['idSolicitud'];?>'>
