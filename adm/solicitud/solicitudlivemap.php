@@ -55,7 +55,11 @@ html, body {
         var map = new google.maps.Map(document.getElementById('map'), {
 		  mapTypeId: 'roadmap',
           zoom: 8,
-          center: {lat: 8.26626627608, lng: -66.010735441038}
+          center: {lat: 8.26626627608, lng: -66.010735441038},
+			zoomControl: true,
+			zoomControlOptions: {
+				position: google.maps.ControlPosition.LEFT_CENTER
+			},
         });
 
 		$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_solicitud_livemap&idSolicitud=<?php echo $values['idSolicitud'];?>", function(json1) {

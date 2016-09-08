@@ -7,9 +7,10 @@
 }	
 </style>
 	<h1 class="text-center">Solicitudes/Servicios Activos</h1>
-	<div class="col-sm-4 col-sm-offset-8 well" >
+	<div class="col-sm-7 col-sm-offset-5 well" >
 		<a class="btn btn-default"  href="<?php echo full_url."/adm/Polizas/index.php"?>"><i class="fa fa-file-o fa-pull-left"></i> Generar Solicitud</a>
 		<a class="text-center btn btn-primary" target="_blank" href="<?php echo full_url?>/adm/solicitud/index.php?action=solicitudes_livemap"><i class="fa fa-map-marker fa-pull-left"></i> Ver solicitudes/servicios activos en Mapa</a>
+		<a class="text-center btn btn-primary" target="_blank" href="<?php echo full_url?>/adm/solicitud/index.php?action=grueros_mapa"><i class="fa fa-map-marker fa-pull-left"></i> Ver grueros en Mapa</a>
 		
 	
 	</div>
@@ -78,6 +79,7 @@ $(document).ready(function() {
         "scrollX": true,
         "processing": true,
         "serverSide": true,
+		"aaSorting": [ [0,"desc" ]],
 		 "sDom": 'ltrip',
 		//"cache": false,
         "ajax": "<?php echo full_url."/adm/solicitud/index.php?action=list_json"?>",
@@ -223,13 +225,15 @@ function beep() {
            alert('La observación no puede estar vacía');
        }else
        {
-
+		  
+		    $('#save_bitacora').addClass('disabled');
             $.ajax({
                     type: "POST",
                     url: '<?php echo full_url;?>/adm/solicitud/index.php?action=save_bitacora',
                     data: data_form,
                     success: function(html){
-							
+						alert('Observación agregada satisfactoriamente');
+						$('#myModal').modal('toggle');
                     }
             });           
        }

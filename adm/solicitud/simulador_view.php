@@ -138,7 +138,7 @@ $cambiar_a2_grua = "";
 												<?php $cambiar_a_cliente = "Completado";?>
 												<?php $cambiar_a2_cliente = "Cancelado";?>
 										
-										
+										<div for="" class=""><label>Encuesta de calificación</label></div>
 										<label for="TratoCordial">Trato cordial</label>
 										<div class="input-group" >
 											<label class="text-muted">1</label> <input type="radio" id="TratoCordial" value="1" name="TratoCordial">
@@ -166,13 +166,13 @@ $cambiar_a2_grua = "";
 											<label class="text-muted">5</label> <input type="radio" id="TratoVehiculo" value="5" name="TratoVehiculo">
 										</div>
 										
-										<label for="Puntual">Puntual</label>
+										<label for="Puntual">¿Recomendaría a otras personas <strong>TU/GRUERO®?</strong></label>
 										<div class="input-group" >
 											<label class="text-muted">Si</label> <input type="radio" id="Puntual" value="Si" name="Puntual">
 											<label class="text-muted">No</label> <input type="radio" id="Puntual" value="No" name="Puntual">
 										</div>
 										
-										<label for="Observacion">Observación</label>
+										<label for="Observacion">Comentarios</label>
 										<div class="input-group" >
 											<textarea class="form-control" id="Observacion" style="max-width: 100%" cols="100"></textarea>
 										</div>

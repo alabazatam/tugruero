@@ -180,7 +180,7 @@ h1, h2 ,h3 {
 								<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;">
 								  <h4 class="panel-title">
 									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white !important;">
-									 Tips
+									 Tips de condicionado
 									</a>
 								  </h4>
 								</div>
@@ -310,7 +310,7 @@ h1, h2 ,h3 {
 												<textarea name="InfoAdicional" id='InfoAdicional' class="form-control input-sm" placeholder="Informacion adicional"></textarea>
 											</div>
 											<div class="col-sm-12">
-												<a class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Listar solicitudes</a>
+												<a id="listarSolicitudes" class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 												<a id="enviaSolicitud" name="" class="btn btn-default"><i class="fa fa-mobile-phone  fa-pull-left fa-border"></i> Solicitar</a>
 											</div>			
 
@@ -461,7 +461,7 @@ function initMap() {
         marker.setVisible(false);
         var place = autocomplete.getPlace();
         if (!place.geometry) {
-            window.alert("Autocomplete's returned place contains no geometry");
+            window.alert("Por favor escriba la dirección aproximada en la barra y espere a que se muestre el texto de ayuda indicado por google.");
             return;
         }
   
@@ -573,6 +573,7 @@ function addMarker(location) {
 	marker.setValues({id: labels});
 	
 	if(labels == "Cliente"){
+		getEstadoOnMap(location);
 		$('#latlon').val(location);
 		$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_cliente&idPoliza=" + idPoliza, function(data) {
 			
@@ -594,7 +595,7 @@ function addMarker(location) {
 	
 	if(labels== "Destino"){
 		$('#latlonl').val(location);
-		getEstadoOnMap(location);
+		
 		var geocoder = new google.maps.Geocoder;
 		geocoder.geocode({'location': location}, function(results, status) {
 			marker.info = new google.maps.InfoWindow({
@@ -614,12 +615,13 @@ function addMarker(location) {
 		{
 			
 			$('#latlon').val(event.latLng);
+			getEstadoOnMap(event.latLng);
 			showLocationAddress(event.latLng,0);
 			
 		}else if(marker.label == 'Destino')
 		{	
 			marker.info.close(map.marker);
-			getEstadoOnMap(event.latLng);
+			
 			//alert(Estado);  
 			$('#latlonl').val(event.latLng);
 			showLocationAddress(event.latLng,1);
@@ -883,7 +885,10 @@ var geocoder = new google.maps.Geocoder;
 					return false;
 				}else
 				{
-					$('body').toggleClass('nav-expanded2');
+					$('#listarSolicitudes').hide();
+					$('#enviaSolicitud').text('Generando por favor espere...');
+					$('#enviaSolicitud').addClass('disabled');
+					//$('body').toggleClass('nav-expanded2');
 					
 					$.ajax({
 						type: "POST",

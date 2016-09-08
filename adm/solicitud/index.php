@@ -73,6 +73,9 @@ $values = $_REQUEST;
 		case "prueba_map":
             executePruebaMap($values);	
 		break;
+		case "grueros_mapa":
+            executeGruerosMapa($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -570,4 +573,10 @@ $values = $_REQUEST;
 	function executePruebaMap($values)
 	{
 		require('prueba_map.php');
+	}
+	function executeGruerosMapa($values)
+	{
+		$Solicitud = new Solicitud();
+		//$data = $Solicitud->getDatosSolicitud($values);
+		require('grueros_mapa.php');
 	}
