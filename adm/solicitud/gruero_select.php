@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Geocoding service</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
     <style>
       html, body {
         height: 100%;
@@ -14,8 +8,6 @@
         height: 80%;
       }
     </style>
-  </head>
-  <body>
 	  <div id="map"></div>
     <script>
       function initMap() {
@@ -63,8 +55,6 @@
 
 			});
 
-		
-		
 		$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_test", function(json1) {
 			$.each(json1, function(key, data) {
 				var latLng = new google.maps.LatLng(data.lat, data.lng); 
@@ -137,5 +127,3 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places">
     </script>
-  </body>
-</html>

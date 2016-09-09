@@ -1,4 +1,4 @@
-<?php include('../../view_header_app.php')?>
+<?php //include('../../view_header_app.php')?>
 <?php //include('../menu.php')?>
 
 	<h1 class="text-center">Grueros</h1>
@@ -33,7 +33,7 @@
                     </tr>
             </tfoot>
         </table>
-	<?php include('../../view_footer_solicitud.php')?>
+	<?php //include('../../view_footer_solicitud.php')?>
 <script>
 
 	

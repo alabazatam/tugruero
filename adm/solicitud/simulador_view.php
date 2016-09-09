@@ -14,7 +14,42 @@ $cambiar_a2_grua = "";
 
 ?>
 	<?php include('../../view_header_app.php')?>
-	<?php include('../menu.php')?>
+	<?php //include('../menu.php')?>
+<style>
+html, body, #map-canvas  {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#map-canvas {
+  
+  height:480px;
+}
+.myMapModal{
+    z-index: 10;
+}
+</style>
+<div class="modal" id="myMapModal" tabindex="-1" role="dialog" aria-labelledby="myMapModalLabel" aria-hidden="true" >
+    <div class="modal-content">
+        <div class="container">
+          <div class="modal-header">
+            <h3 class="modal-title" id="myMapModalLabel"></h3>
+          </div>
+              <div class="modal-body" >
+                <div class="container">
+                    <div class="row">
+                        <div id="map-canvas" class=""></div>
+                    </div>
+                </div>
+              </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"> Cerrar</i></button>
+          </div>
+        </div>
+    </div>                                      
+</div>
+
 <div class="container" id="content_simulador">
 
 
@@ -228,7 +263,8 @@ $cambiar_a2_grua = "";
 									<?php if((!isset($data['estatusgrua']) or $data['estatusgrua']=='') and $data['estatus']=='Localizando'):?>
 									<input type="hidden" name="idGrua" id="idGrua" value="">
 										<?php if(isset($data['estatus']) and $data['estatus']=='Localizando'):?>
-									<a class="btn text-muted" onclick="grueroSelect();" title="Buscar grueros en mapa"><i class="fa fa-map-marker fa-4x" style="color: black;"></i> Buscar grueros en mapa</a>
+									<!--<a class="btn text-muted" onclick="grueroSelect();" title="Buscar grueros en mapa"><i class="fa fa-map-marker fa-4x" style="color: black;"></i> Buscar grueros en mapa</a>-->
+									<a href="#myMapModal" class="btn" data-toggle="modal"><i class="fa fa-map-marker fa-4x" style="color: black;"></i> Buscar grueros en mapa</a>
 									<a class="btn text-muted" onclick="grueroSelectDatatable();" title="Buscar grueros en lista"><i class="fa fa-list-alt fa-4x text-danger" style="color: black;"> </i> Buscar grueros en lista</a>
 									<a type="button" class="btn text-success" name="crearServicio" id="crearServicio" title="Aceptar solicitud"><i class="fa fa-check-circle-o fa-4x text-success"></i> Aceptar Solicitud</a>
 											
@@ -276,10 +312,13 @@ $cambiar_a2_grua = "";
 
 						
 					</div>
+
 <a class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 <?php include('../../view_footer_solicitud.php')?>
 <script>
 	$(document).ready(function(){
+
+
 		/*Carga de parciales*/
 		var idPoliza = $('#idPoliza').val();
 		var idSolicitud = $('#idSolicitud').val();
@@ -563,7 +602,7 @@ function grueroSelect(){
 			  data: { action: "gruero_select", idSolicitud: idSolicitud},
 			  success: function(html){
 					$('.modal-body').html(html);
-					$('#myModal').modal('show');
+					$('#myMapModal').modal('show');
 			  },
 			  //dataType: dataType
 			});
@@ -577,7 +616,7 @@ function grueroSelectDatatable(){
 			  url: '<?php echo full_url?>/adm/solicitud/index.php',
 			  data: { action: "gruero_select_datatable_index", idSolicitud: idSolicitud},
 			  success: function(html){
-					$('.modal-body').html(html);
+					$('#myModal .modal-body').html(html);
 					$('#myModal').modal('show');					
 			  },
 			  //dataType: dataType
@@ -585,6 +624,148 @@ function grueroSelectDatatable(){
 
 }
 </script>
+    <script>
+
+	  var map;
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map-canvas'), {
+          zoom: 14,
+          center: {lat: <?php echo $data['latorigen']?>, lng: <?php echo $data['lngorigen']?>}
+        });
+		var idPoliza = $('#idPoliza').val();
+				//cliente
+		$('#myMapModal').on('show.bs.modal', function() {
+		   //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
+		   //alert(1);
+			resizeMap(map);
+		});
+
+		$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_cliente&idPoliza=" + idPoliza, function(data) {
+				
+				var content = "";
+				content+="<label> Cédula: </label> " + data.Cedula + "<br>";
+				content+="<label> Nombres y apellidos: </label> " + data.Nombre + " " + data.Apellido + "<br>";
+				content+="<label> Seguro: </label> " + data.Seguro + "<br>";
+				content+="<label> Id.Póliza: </label> " + data.idPoliza + "<br>";
+				content+="<label> Núm.Póliza: </label> " + data.NumPoliza + "<br>";
+				content+="<label> Placa: </label> " + data.Placa + "<br>";
+				content+="<label> Modelo: </label> " + data.Modelo + "<br>";
+				content+="<label> Color: </label> " + data.Color + "<br>";		
+				var infowindow = new google.maps.InfoWindow({
+						content: content
+				});		
+				var marker = new google.maps.Marker({
+					position: {lat: <?php echo $data['latorigen']?>, lng: <?php echo $data['lngorigen']?>},
+					icon: {
+					  path: google.maps.SymbolPath.CIRCLE,
+					  //path: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+					  fillColor: 'yellow',
+					  fillOpacity: 0.8,
+					  scale: 1,
+					  strokeColor: 'green',
+					  strokeWeight: 14,
+					},
+					map: map,
+					title: "Cliente",
+					label: "A"
+				});
+				marker.addListener('click', function() {
+					infowindow.open(map, marker);
+				});
+
+
+
+			});
+
+		$.getJSON("<?php echo full_url;?>/adm/solicitud/index.php?action=json_test", function(json1) {
+			$.each(json1, function(key, data) {
+				var latLng = new google.maps.LatLng(data.lat, data.lng); 
+				// Creating a marker and putting it on the map
+				var infowindow = new google.maps.InfoWindow({
+						content: data.contentinfo
+				});
+				var color = "white";
+				if(data.Disponible == "NO")
+				{
+					color = "red";
+				}
+				var marker = new google.maps.Marker({
+					position: latLng,
+					icon: {
+					  path: google.maps.SymbolPath.CIRCLE,
+					  //path: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+					  fillColor: 'yellow',
+					  fillOpacity: 0.8,
+					  scale: 1,
+					  strokeColor: color,
+					  strokeWeight: 14,
+					  
+					},
+					map: map,
+					title: data.title,
+					label: "G",
+					idGrua: data.idGrua
+				});
+				marker.addListener('click', function() {
+					infowindow.open(map, marker);
+				});
+				
+
+				marker.addListener('dblclick', function() {
+					//alert(this.idGrua);
+					
+					if(data.Disponible == 'SI')
+					{
+						if(confirm("¿Está seguro(a) de asignar a "+ data.Nombre + " " + data.Apellido +" Cédula " + data.Cedula +" con la grúa de placa "+ data.Placa + " modelo " + data.Modelo+" color "+data.Color+"?"))
+						{
+							//alert(this.idGrua);
+							$("#idGrua").val(this.idGrua);
+							$('#parcial_gruero').html(data.contentinfo);
+							//$('#myMapModal').data('modal', null);
+							//$('#myMapModal').modal('toggle');
+							//$('.modal-backdrop').remove();
+
+
+						}
+						else
+						{
+							return false;
+						}
+					}else{
+						alert("El gruero "+ data.Nombre + " " + data.Apellido +" Cédula " + data.Cedula +" con la grúa de placa "+ data.Placa + " modelo " + data.Modelo+" color "+data.Color+" ya se encuentra asignado en otro servicio o no está disponible");
+						return false;
+					}
+					
+
+					
+
+					
+				});				
+			
+
+
+			});
+		});
+      }
+function resizeMap(map) {
+   if(typeof map =="undefined") return;
+   //alert(2);
+   setTimeout( function(){resizingMap(map);} , 400);
+}
+function resizingMap(map) {
+
+   if(typeof map =="undefined") return;
+   var center = map.getCenter();
+   //alert(3);
+   google.maps.event.trigger(map, "resize");
+   map.setCenter(center); 
+}
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places">
+    </script>
+
 </div>
 
 
