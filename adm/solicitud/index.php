@@ -102,6 +102,7 @@ $values = $_REQUEST;
 			{
 				
 				$end_time = date(gmdate('d-m-Y H:i:s', time() - (4 * 3600)));
+                                
 				$start_time = $list['laststatussolicitudn'];
 				$minutos_transcurridos = $Utilitarios->calcula_tiempo_minutos($start_time, $end_time);
 				$status_desierto = 0;
@@ -119,11 +120,14 @@ $values = $_REQUEST;
 				if($list['estatuscliente']=='Activo' and $list['estatusgrua']=='Activo')
 				{
 					$start_time = $list['laststatusgruan'];
+                       
 					//echo $start_time;die;
 					$minutos_transcurridos_retardo = $Utilitarios->calcula_tiempo_minutos($start_time, $end_time);
 					//echo $minutos_transcurridos_retardo;die;
-					if($minutos_transcurridos_retardo >=20)
-					{
+					if($minutos_transcurridos_retardo >=20 and $start_time!='' )
+					{   
+                                            //echo $minutos_transcurridos_retardo;die;
+                                                //echo $list['idsolicitud']."aa";die;
 						$retardo_activo_activo = 1;
 					}
 					

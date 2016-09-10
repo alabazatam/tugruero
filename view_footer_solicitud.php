@@ -14,6 +14,25 @@
         </div>
     </div>                                      
 </div>
+<div class="modal fade" id="myMapModal" tabindex="-1" role="dialog" aria-labelledby="myMapModalLabel" aria-hidden="true" >
+    <div class="modal-content">
+        <div class="container">
+          <div class="modal-header">
+            <h3 class="modal-title" id="myMapModalLabel"></h3>
+          </div>
+              <div class="modal-body" >
+                
+                    
+                        <div id="map-canvas" class=""></div>
+                    
+                
+              </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" id="close_map" data-backdrop="false"><i class="fa fa-close"> Cerrar</i></button>
+          </div>
+        </div>
+    </div>                                      
+</div>
 			<div class="modal fade" id="myModalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalMessageLabel">
 			  <div class="modal-dialog" role="document">
 				<div class="modal-content">

@@ -43,7 +43,7 @@ $(document).ready(function() {
 		
 		if(title != 'Detalle')
 		{   
-			$(this).html( '<input size="10" class="input-sm" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+			$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
 		}
 		if(title == 'Detalle')
 		{
@@ -57,6 +57,8 @@ $(document).ready(function() {
         "scrollX": true,
         "processing": true,
         "serverSide": true,
+		"aaSorting": [ [0,"desc" ]],
+		 "sDom": 'ltrip',
 		//"cache": false,
         "ajax": "<?php echo full_url."/adm/solicitud/index.php?action=gruero_select_datatable"?>",
 		"language": {
@@ -126,6 +128,7 @@ $('#column_8').on ('keypress', function(e){
 });
 	$('#clear').click(function(){
 		table.search( '' ).columns().search( '' ).draw();
+                $('.filtros').val('');
 	});
     
 } );

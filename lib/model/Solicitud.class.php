@@ -322,17 +322,6 @@
 			$order = 'asc';
 			$limit = $values['length'];
 			$offset = $values['start'];
-			if(isset($values['search']['value']) and $values['search']['value'] !='')
-			{	
-				$str = $values['search']['value'];
-				$where.= " OR upper(Grueros.Nombre) like upper('%$str%')"
-                    . "OR upper(Grueros.Apellido) like upper('%".$str."%')"
-					. "OR upper(Grueros.Placa) like upper('%".$str."%')"
-					. "OR upper(Grueros.Modelo) like upper('%".$str."%')"
-					. "OR upper(Grueros.Color) like upper('%".$str."%')"
-					. "OR upper(Grueros.Color) like upper('%".$str."%')"
-					. "OR upper(Gruas.Disponible) like upper('%".$str."%')";
-			}
 			
 			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
 			{
@@ -351,32 +340,32 @@
 			}			
 			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
 			{
-				$where.=" AND upper(Grueros.Apellido) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Apellido) like ('%".$values['columns'][3]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
 			{
-				$where.=" AND upper(Grueros.Placa) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Placa) like ('%".$values['columns'][4]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
 			{
-				$where.=" AND upper(Grueros.Modelo) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Modelo) like ('%".$values['columns'][5]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
 			{
-				$where.=" AND upper(Grueros.Color) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Color) like ('%".$values['columns'][6]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
 			{
-				$where.=" AND upper(Grueros.Celular) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Grueros.Celular) like ('%".$values['columns'][7]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
 			{
-				$where.=" AND upper(gr.Disponible) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(gr.Disponible) like ('%".$values['columns'][8]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}		
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
@@ -387,24 +376,65 @@
 			{
 				$order = $values['order'][0]['dir'];//asc o desc
 			}
-			//echo $column_order;die;
+			//echo $where;die;
             $ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Grueros
 			->select("*")
 			->join('Gruas','LEFT JOIN Gruas gr ON gr.idGrua= Grueros.idGrua')
-            ->order("$column_order $order")
+                        ->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
+                        //echo $q;die;
 			return $q; 				
 			
 		}
 		public function getCountGruerosList($values)
 		{	
 			$where = " 1 = 1";
-			if(isset($values['search']['value']) and $values['search']['value'] !='')
-			{	
-				$str = $values['search']['value'];
-				$where.=" ";
+			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
+			{
+				$where.=" AND Grueros.idGrua = ".$values['columns'][0]['search']['value']."";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][1]['search']['value']) and $values['columns'][1]['search']['value']!='')
+			{
+				$where.=" AND upper(Grueros.Cedula) like ('%".$values['columns'][1]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}			
+			if(isset($values['columns'][2]['search']['value']) and $values['columns'][2]['search']['value']!='')
+			{
+				$where.=" AND upper(Grueros.Nombre) like ('%".$values['columns'][2]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}			
+			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
+			{
+				$where.=" AND upper(Grueros.Apellido) like ('%".$values['columns'][3]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
+			{
+				$where.=" AND upper(Grueros.Placa) like ('%".$values['columns'][4]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
+			{
+				$where.=" AND upper(Grueros.Modelo) like ('%".$values['columns'][5]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
+			{
+				$where.=" AND upper(Grueros.Color) like ('%".$values['columns'][6]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
+			{
+				$where.=" AND upper(Grueros.Celular) like ('%".$values['columns'][7]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
+			{
+				$where.=" AND upper(gr.Disponible) like ('%".$values['columns'][8]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
 			}
             $ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Grueros

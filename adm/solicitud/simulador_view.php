@@ -30,26 +30,6 @@ html, body, #map-canvas  {
     z-index: 10;
 }
 </style>
-<div class="modal" id="myMapModal" tabindex="-1" role="dialog" aria-labelledby="myMapModalLabel" aria-hidden="true" >
-    <div class="modal-content">
-        <div class="container">
-          <div class="modal-header">
-            <h3 class="modal-title" id="myMapModalLabel"></h3>
-          </div>
-              <div class="modal-body" >
-                <div class="container">
-                    <div class="row">
-                        <div id="map-canvas" class=""></div>
-                    </div>
-                </div>
-              </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"> Cerrar</i></button>
-          </div>
-        </div>
-    </div>                                      
-</div>
-
 <div class="container" id="content_simulador">
 
 
@@ -399,7 +379,7 @@ html, body, #map-canvas  {
 					  data: { action: "simulador_view",idSolicitud: idSolicitud},
 					  success: function(html){
 							$("#content_simulador").html(html);
-								$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+								$('myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
 								$('#myModalMessage').modal('show');
 					  },
 					  //dataType: dataType
@@ -424,7 +404,7 @@ function cambiarStatusSolicitud(estatus,estatus_cambiar,idSolicitud){
 		  success: function(html){
 							
 							$("#content_simulador").html(html);
-							$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+							$('#myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
 							$('#myModalMessage').modal('show');
 		  }
 		});					
@@ -529,7 +509,7 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 			  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "1",estatuscliente: estatuscliente, estatuscliente_cambiar: estatuscliente_cambiar},
 			  success: function(html){
 							$("#content_simulador").html(html);
-							$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+							$('#myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
 							$('#myModalMessage').modal('show');
 			  },
 			  //dataType: dataType
@@ -578,7 +558,7 @@ function cambiarStatusServicioGrua(estatusgrua,estatusgrua_cambiar,idSolicitud){
 				  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "1",estatusgrua: estatusgrua, estatusgrua_cambiar: estatusgrua_cambiar},
 				  success: function(html){
 								$("#content_simulador").html(html);
-								$('.modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+								$('#myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
 								$('#myModalMessage').modal('show');
 								
 				  },
@@ -601,7 +581,7 @@ function grueroSelect(){
 			  url: '<?php echo full_url?>/adm/solicitud/index.php',
 			  data: { action: "gruero_select", idSolicitud: idSolicitud},
 			  success: function(html){
-					$('.modal-body').html(html);
+					$('#myMapModal .modal-body').html(html);
 					$('#myMapModal').modal('show');
 			  },
 			  //dataType: dataType
@@ -624,12 +604,16 @@ function grueroSelectDatatable(){
 
 }
 </script>
-    <script>
 
+    <script>
 	  var map;
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map-canvas'), {
-          zoom: 14,
+          zoom: 12,
+            zoomControl: true,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
           center: {lat: <?php echo $data['latorigen']?>, lng: <?php echo $data['lngorigen']?>}
         });
 		var idPoliza = $('#idPoliza').val();
@@ -719,14 +703,18 @@ function grueroSelectDatatable(){
 						if(confirm("¿Está seguro(a) de asignar a "+ data.Nombre + " " + data.Apellido +" Cédula " + data.Cedula +" con la grúa de placa "+ data.Placa + " modelo " + data.Modelo+" color "+data.Color+"?"))
 						{
 							//alert(this.idGrua);
-							$("#idGrua").val(this.idGrua);
+                                                $('#myMapModal').modal('hide');
+                                                $('#myMapModal').on('hidden.bs.modal', function() {
+                                                   $('#close_map').trigger('click');
+                                                }); 
+                                                        $("#idGrua").val(this.idGrua);
 							$('#parcial_gruero').html(data.contentinfo);
 							//$('#myMapModal').data('modal', null);
-							//$('#myMapModal').modal('toggle');
+							//$('#myMapModal').modal('toggle');                                                        
 							//$('.modal-backdrop').remove();
+                                                        //$("#myMapModal").modal('hide').on('hidden.bs.modal', alert(1));
 
-
-						}
+                                                }
 						else
 						{
 							return false;
@@ -762,10 +750,10 @@ function resizingMap(map) {
 }
 
     </script>
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places">
     </script>
-
 </div>
 
 
