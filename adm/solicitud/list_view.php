@@ -180,7 +180,7 @@ $('#column_9').on ('keypress', function(e){
 	});
 setInterval( function () {
     table.ajax.reload();
-},15000 );
+},40000 );
     
     $('a.toggle-vis').on( 'click', function (e) {
         e.preventDefault();

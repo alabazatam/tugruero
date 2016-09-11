@@ -37,7 +37,7 @@ html, body {
         var markersID = [];
 		var array_existe = [];
 		var INTERVAL = 10000;
-		var myLatlng = new google.maps.LatLng(10.5168373,-66.9279394);
+		var myLatlng = new google.maps.LatLng(7.6168373,-64.9279394);
 		var myOptions = {
 			zoom: 7,
 			center: myLatlng,

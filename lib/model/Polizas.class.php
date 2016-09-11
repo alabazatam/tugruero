@@ -115,7 +115,7 @@
 		public function getPolizasById($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Polizas
-			->select("*,DATE_FORMAT(Vencimiento, '%d/%m/%Y') as Vencimiento")
+			->select("*,DATE_FORMAT(Vencimiento, '%d/%m/%Y') as Vencimiento,DATE_FORMAT(DesdeVigencia, '%d/%m/%Y') as DesdeVigencia")
 			->where("idPoliza=?",$values['idPoliza'])->fetch();
 			return $q; 				
 			
@@ -137,6 +137,14 @@
             {
 				$values['Vencimiento']=null;
             }
+            if(isset($values['DesdeVigencia']) and $values['DesdeVigencia']!='')
+            {
+				$values['DesdeVigencia'] = $Utilitarios->formatFechaInput($values['DesdeVigencia']);
+
+            }else
+            {
+				$values['DesdeVigencia']=null;
+            }
 			$hora = date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)));
 			$array_poliza = array(
 				'Placa' => $values['Placa'],
@@ -155,6 +163,7 @@
 				'Domicilio' => $values['Domicilio'],
 				'DireccionFiscal' => $values['DireccionFiscal'],
 				'Vencimiento' => $values['Vencimiento'],
+				'DesdeVigencia' => $values['DesdeVigencia'],
 				'date_created' => $hora,
 				'date_updated' => $hora,
 				'created_by' => 1,
@@ -194,7 +203,17 @@
             }else
             {
 				$values['Vencimiento']=null;
-            }			
+            }
+
+            if(isset($values['DesdeVigencia']) and $values['DesdeVigencia']!='')
+            {
+				$values['DesdeVigencia'] = $Utilitarios->formatFechaInput($values['DesdeVigencia']);
+
+            }else
+            {
+				$values['DesdeVigencia']=null;
+            }	
+			
  			$hora = date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)));
 			$array_poliza = array(
 				'Placa' => $values['Placa'],
@@ -213,6 +232,7 @@
 				'Domicilio' => $values['Domicilio'],
 				'DireccionFiscal' => $values['DireccionFiscal'],
 				'Vencimiento' => $values['Vencimiento'],
+				'DesdeVigencia' => $values['DesdeVigencia'],
 				'date_updated' => $hora,
 				'created_by' => 1,
 				'updated_by' => 1

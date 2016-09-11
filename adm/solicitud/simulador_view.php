@@ -70,7 +70,7 @@ html, body, #map-canvas  {
 						<div class="panel-heading" role="tab" id="headingThree" style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
 							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white !important;">
-							  Tips
+							  Tips de Condicionado
 							</a>
 						  </h4>
 						</div>
@@ -255,7 +255,7 @@ html, body, #map-canvas  {
 										<label for="estatuscliente">Estatus grua</label>
 										<div class="input-group" >
 										<input type="hidden" value="<?php echo $data['estatusgrua'];?>" name="estatusgrua"> 
-										<label class="label-warning"><?php echo $data['estatusgrua'];?></label><br>
+										<label class="label-warning"><?php if($data['estatusgrua'] == 'Asistiendo') echo "Encontré al Cliente"; else echo $data['estatusgrua'];?></label><br>
 
 										</div>
 										<?php if($data['estatusgrua'] == 'Activo'):?>
@@ -268,7 +268,7 @@ html, body, #map-canvas  {
 										<?php endif;?>										
 											<div class="btn-group" role="group" aria-label="">
 												<?php if($cambiar_a_grua != ""):?>
-												<a class="btn btn-default" onclick="cambiarStatusServicioGrua('<?php echo $data['estatusgrua']?>','<?php echo $cambiar_a_grua;?>',<?php echo $data['idsolicitud']?>);"> <i class="fa fa-thumbs-o-up"></i> <?php echo $cambiar_a_grua;?></a>
+												<a class="btn btn-default" onclick="cambiarStatusServicioGrua('<?php echo $data['estatusgrua']?>','<?php echo $cambiar_a_grua;?>',<?php echo $data['idsolicitud']?>);"> <i class="fa fa-thumbs-o-up"></i> <?php if($cambiar_a_grua == 'Asistiendo') echo "Encontré al Cliente"; else echo $cambiar_a_grua;?></a>
 												<?php endif;?>
 												<?php if($cambiar_a2_grua != ""):?>
 													<a class="btn btn-danger" onclick="cambiarStatusServicioGrua('<?php echo $data['estatusgrua']?>','<?php echo $cambiar_a2_grua;?>',<?php echo $data['idsolicitud']?>);"><i class="fa fa-close"></i> <?php echo $cambiar_a2_grua;?></a>
@@ -296,13 +296,15 @@ html, body, #map-canvas  {
 <a class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 <?php include('../../view_footer_solicitud.php')?>
 <script>
+
 	$(document).ready(function(){
-
-
+										
+		
 		/*Carga de parciales*/
 		var idPoliza = $('#idPoliza').val();
 		var idSolicitud = $('#idSolicitud').val();
 		//carga parcial de cliente
+		$('#parcial_cliente').html('<label class="alert alert-info">Cargando información</label>');
 					$.ajax({
 					  type: "GET",
 					  url: '<?php echo full_url?>/adm/Parciales/index.php',
@@ -313,6 +315,7 @@ html, body, #map-canvas  {
 					  //dataType: dataType
 					});		
 		//carga parcial de Poliza
+		$('#parcial_poliza').html('<label class="alert alert-info">Cargando información</label>');
 					$.ajax({
 					  type: "GET",
 					  url: '<?php echo full_url?>/adm/Parciales/index.php',
@@ -323,6 +326,7 @@ html, body, #map-canvas  {
 					  //dataType: dataType
 					});
 		//carga parcial de tips
+		$('#parcial_tips').html('<label class="alert alert-info">Cargando información</label>');
 					$.ajax({
 					  type: "GET",
 					  url: '<?php echo full_url?>/adm/Parciales/index.php',
@@ -333,6 +337,7 @@ html, body, #map-canvas  {
 					  //dataType: dataType
 					});	
 		//carga parcial de Solicitud
+		$('#parcial_solicitud').html('<label class="alert alert-info">Cargando información</label>');
 					$.ajax({
 					  type: "GET",
 					  url: '<?php echo full_url?>/adm/Parciales/index.php',
@@ -378,9 +383,10 @@ html, body, #map-canvas  {
 					  url: '<?php echo full_url?>/adm/solicitud/index.php',
 					  data: { action: "simulador_view",idSolicitud: idSolicitud},
 					  success: function(html){
-							$("#content_simulador").html(html);
-								$('myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
-								$('#myModalMessage').modal('show');
+								$("#content_simulador").html(html);
+								alert('Estatus cambiado satisfactoriamente');
+								//$('myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+								//$('#myModalMessage').modal('show');
 					  },
 					  //dataType: dataType
 					});
@@ -402,10 +408,10 @@ function cambiarStatusSolicitud(estatus,estatus_cambiar,idSolicitud){
 		  url: '<?php echo full_url?>/adm/solicitud/index.php',
 		  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "1",estatus: estatus, estatus_cambiar: estatus_cambiar},
 		  success: function(html){
-							
 							$("#content_simulador").html(html);
-							$('#myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
-							$('#myModalMessage').modal('show');
+							alert('Estatus cambiado satisfactoriamente');
+							//$('#myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+							//$('#myModalMessage').modal('show');
 		  }
 		});					
 	}else{
@@ -509,8 +515,9 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 			  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "1",estatuscliente: estatuscliente, estatuscliente_cambiar: estatuscliente_cambiar},
 			  success: function(html){
 							$("#content_simulador").html(html);
-							$('#myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
-							$('#myModalMessage').modal('show');
+							alert('Estatus cambiado satisfactoriamente');
+							//$('#myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+							//$('#myModalMessage').modal('show');
 			  },
 			  //dataType: dataType
 			});
@@ -521,8 +528,14 @@ function cambiarStatusServicioCliente(estatuscliente,estatuscliente_cambiar,idSo
 	
 }
 function cambiarStatusServicioGrua(estatusgrua,estatusgrua_cambiar,idSolicitud){
-	
-		if(confirm("¿Está seguro(a) de cambiar el estatus del Gruero en el servicio #" + idSolicitud +" a " + estatusgrua_cambiar + "?")){
+		
+		//esta variable ayuda para cambiar el texto del mensaje a mostrar pero no sirve para hacer los condicionales
+		var status_mensaje = estatusgrua_cambiar;
+		if(status_mensaje == 'Asistiendo')
+		{
+			status_mensaje = 'Encontré al Cliente';
+		}
+		if(confirm("¿Está seguro(a) de cambiar el estatus del Gruero en el servicio #" + idSolicitud +" a " + status_mensaje + "?")){
 			
 			
 			if(estatusgrua_cambiar == 'Abandonado')
@@ -558,8 +571,9 @@ function cambiarStatusServicioGrua(estatusgrua,estatusgrua_cambiar,idSolicitud){
 				  data: { action: "simulador_view",idSolicitud: idSolicitud,ind: "1",estatusgrua: estatusgrua, estatusgrua_cambiar: estatusgrua_cambiar},
 				  success: function(html){
 								$("#content_simulador").html(html);
-								$('#myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
-								$('#myModalMessage').modal('show');
+								alert('Estatus cambiado satisfactoriamente');
+								//$('#myModalMessage .modal-body').html('<div class="alert alert-success" role="alert">Estatus cambiado satisfactoriamente</div>');
+								//$('#myModalMessage').modal('show');
 								
 				  },
 				  //dataType: dataType
@@ -604,6 +618,7 @@ function grueroSelectDatatable(){
 
 }
 </script>
+<?php if((!isset($data['estatusgrua']) or $data['estatusgrua']=='') and $data['estatus']=='Localizando'):?>
 
     <script>
 	  var map;
@@ -700,7 +715,7 @@ function grueroSelectDatatable(){
 					
 					if(data.Disponible == 'SI')
 					{
-						if(confirm("¿Está seguro(a) de asignar a "+ data.Nombre + " " + data.Apellido +" Cédula " + data.Cedula +" con la grúa de placa "+ data.Placa + " modelo " + data.Modelo+" color "+data.Color+"?"))
+						if(confirm("¿Está seguro(a) de asignar a "+ data.Nombre + " " + data.Apellido +" de Cédula/RIF " + data.Cedula +" con la grúa placa "+ data.Placa + " modelo " + data.Modelo+" color "+data.Color+" a este servicio?"))
 						{
 							//alert(this.idGrua);
                                                 $('#myMapModal').modal('hide');
@@ -754,6 +769,7 @@ function resizingMap(map) {
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_5ATmWh8kZkKHo6skucFrl9emI3dPMA&signed_in=false&callback=initMap&libraries=places">
     </script>
+<?php endif;?>
 </div>
 
 

@@ -709,7 +709,7 @@ function getEstadoOnMap(location){
 					}
 				//}
 			  } else {
-				alert("Geocoder failed due to: " + status);
+				alert("Falló obteniendo la dirección intente nuevamente: " + status);
 			  }
 			});	
 

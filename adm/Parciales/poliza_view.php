@@ -1,4 +1,13 @@
 <div class="col-sm-12">
+	<?php $status_poliza = "ACTIVA"; $class='text-success';?>
+	<?php if($data['Vencimiento'] < date('d/m/Y')):?>
+		<?php $status_poliza = 'VENCIDA'; $class='text-danger';?>
+	<?php endif;?>
+	<div class="col-sm-4">
+		<label>Estatus de la póliza:</label> <label class=" <?php echo $class;?>"><?php echo $status_poliza;?></label> 
+	</div>
+</div>
+<div class="col-sm-12">
 	<div class="col-sm-4">
 		<label>Seguro: </label> <?php echo $data['Seguro'];?> 
 	</div>
@@ -11,6 +20,7 @@
 </div>
 <div class="col-sm-12">
 	<div class="col-sm-4">
+		<label>Emisión: </label> <?php echo $data['DesdeVigencia'];?><br>
 		<label>Vencimiento: </label> <?php echo $data['Vencimiento'];?> 
 	</div>
 	<div class="col-sm-4">

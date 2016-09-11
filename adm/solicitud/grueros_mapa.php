@@ -11,7 +11,7 @@
         padding: 0;
       }
       #map {
-        height: 80%;
+        height: 100%;
       }
     </style>
   </head>
@@ -20,8 +20,8 @@
     <script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: {lat: 10.6168373, lng: -66.9279394},
+          zoom: 7,
+          center: {lat: 7.6168373, lng: -64.9279394},
 			zoomControl: true,
 			zoomControlOptions: {
 				position: google.maps.ControlPosition.LEFT_CENTER

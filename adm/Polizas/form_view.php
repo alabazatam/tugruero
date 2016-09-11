@@ -105,11 +105,17 @@
                             </div> 
                         </div>
                         <div class="col-sm-4" id="VencimientoContenedor">
+                            <label for="">Emisión</label>
+                            <div class="input-group">
+                                    <input autocomplete="off" type="text" id="DesdeVigencia" class="form-control input-sm datetimepicker1" name="DesdeVigencia" maxlength="50"   value="<?php if(isset($values['DesdeVigencia'])) echo $values['DesdeVigencia']?>">
+                                    <span class="input-group-addon" id="basic-addon2">(*)</span>
+                            </div>
                             <label for="">Vencimiento</label>
                             <div class="input-group">
                                     <input autocomplete="off" type="text" id="Vencimiento" class="form-control input-sm datetimepicker1" name="Vencimiento" maxlength="50"   value="<?php if(isset($values['Vencimiento'])) echo $values['Vencimiento']?>">
                                     <span class="input-group-addon" id="basic-addon2">(*)</span>
-                            </div> 
+                            </div>
+
                         </div>
                      </div>
                     <div class="form-group">
@@ -300,6 +306,7 @@
 				$("#NumPoliza").removeAttr("required");
 				$('#VencimientoContenedor').hide();
 				$("#Vencimiento").removeAttr("required");
+				$("#DesdeVigencia").removeAttr("required");
 				$('#DomicilioContenedor').hide();
 				$("#Domicilio").removeAttr("required");
 				$('#DireccionFiscalContenedor').show();
@@ -312,6 +319,7 @@
 				$("#NumPoliza").removeAttr("required");
 				$('#VencimientoContenedor').hide();
 				$("#Vencimiento").removeAttr("required");
+				$("#DesdeVigencia").removeAttr("required");
 				$('#DomicilioContenedor').hide();
 				$("#Domicilio").removeAttr("required");
 				$('#DireccionFiscalContenedor').hide();	
@@ -323,6 +331,7 @@
 				$("#NumPoliza").attr('required', 'required');
 				$('#VencimientoContenedor').show();
 				$("#Vencimiento").attr('required', 'required');
+				$("#DesdeVigencia").attr('required', 'required');
 				$('#DomicilioContenedor').show();
 				$("#Domicilio").attr('required', 'required');
 				$('#DireccionFiscalContenedor').hide();
@@ -338,6 +347,7 @@
 				$("#NumPoliza").removeAttr("required");
 				$('#VencimientoContenedor').hide();
 				$("#Vencimiento").removeAttr("required");
+				$("#DesdeVigencia").removeAttr("required");
 				$('#DomicilioContenedor').hide();
 				$("#Domicilio").removeAttr("required");
 				$('#DireccionFiscalContenedor').show();
@@ -351,6 +361,7 @@
 				$("#NumPoliza").attr('required', 'required');
 				$('#VencimientoContenedor').show();
 				$("#Vencimiento").attr('required', 'required');
+				$("#DesdeVigencia").attr('required', 'required');
 				$('#DomicilioContenedor').show();
 				$("#Domicilio").attr('required', 'required');
 				$('#DireccionFiscalContenedor').hide();
@@ -364,6 +375,7 @@
 				$("#NumPoliza").removeAttr("required");
 				$('#VencimientoContenedor').hide();
 				$("#Vencimiento").removeAttr("required");
+				$("#DesdeVigencia").removeAttr("required");
 				$('#DomicilioContenedor').hide();
 				$("#Domicilio").removeAttr("required");
 				$('#DireccionFiscalContenedor').hide();	
