@@ -34,7 +34,7 @@
 						<div class="panel-heading" role="tab" id="headingThree" style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
 							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white !important;">
-							  Tips
+							  Tips de Condicionado
 							</a>
 						  </h4>
 						</div>

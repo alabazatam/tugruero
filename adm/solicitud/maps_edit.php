@@ -157,7 +157,7 @@ h1, h2 ,h3 {
 								<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;">
 								  <h4 class="panel-title" style="color: white !important;">
 									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									 Tips
+									 Tips de Condicionado
 									</a>
 								  </h4>
 								</div>
