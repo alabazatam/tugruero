@@ -198,7 +198,9 @@ h1, h2 ,h3 {
 								<h3 class="panel-title"  style="color: white !important;">Datos solicitud</h3>
 							  </div>
 									<div class="panel-body" style="background-color: #ccc !important;">
+										
 											<div class="col-sm-12">
+												<input type="text" readonly="readonly" id="identificador_error" class="form-control">
 												<label for="EstadoOrigen">Estado origen</label>
 												<select name="EstadoOrigen" id="EstadoOrigen" class="form-control">
 													<option value=""></option>
@@ -610,7 +612,7 @@ function addMarker(location) {
 	var Estado = "";	
 	marker.addListener('dragend', function(event) {
 		//alert(event.latLng);
-		
+		$('#identificador_error').val("");
 		if(marker.label == 'Cliente')
 		{
 			
@@ -635,7 +637,8 @@ function addMarker(location) {
 
 
 		}else{
-			alert('Error seleccionando el punto');
+			$('#identificador_error').val("Problemas aaidentificando la dirección, espere un momento y reubique nuevamente el marcador...");
+			//alert('Error seleccionando el punto');
 		}
 		
 		
@@ -654,6 +657,7 @@ function addMarker(location) {
 
 }
 function getEstadoOnMap(location){
+			$('#identificador_error').val("");
 			var geocoder = new google.maps.Geocoder;
 			geocoder.geocode({'latLng': location}, function(results, status) {
 			  if (status == google.maps.GeocoderStatus.OK) {
@@ -680,6 +684,8 @@ function getEstadoOnMap(location){
 									//this is the object you are looking for
 									region = results[j].address_components[i];
 									estado = region.long_name;
+									//alert(estado);
+									$("#EstadoOrigen").find("option").removeAttr("selected");
 									if(estado == 'Capital District')
 									{
 										estado = 'Distrito Capital';
@@ -688,7 +694,8 @@ function getEstadoOnMap(location){
 									{
 										estado = 'Dependencias Federales';
 									}
-									$('#EstadoOrigen option[value="'+estado+'"]').attr("selected", "selected");
+									$('#EstadoOrigen option[value="'+estado+'"]').prop("selected", "selected");
+									$('#identificador_error').val("");
 								}
 							if (results[j].address_components[i].types[0] == "country") {
 									//this is the object you are looking for
@@ -705,11 +712,14 @@ function getEstadoOnMap(location){
 					
 
 					} else {
-					  alert("No results found");
+					  	$('#identificador_error').val("Problemas aaidentificando la dirección, espere un momento y reubique nuevamente el marcador...");
+
 					}
 				//}
 			  } else {
-				alert("Falló obteniendo la dirección intente nuevamente: " + status);
+				//alert("Falló obteniendo la dirección intente nuevamente: " + status);
+						//$('#identificador_error').val("Problemas identificando la dirección, espere un momento y reubique nuevamente el marcador...");
+
 			  }
 			});	
 
@@ -750,6 +760,7 @@ function showLocationAddress(location,parameter) {
 var latlng = { lat: 10.500639925300456, lng: -66.86270713806152 };
 var geocoder = new google.maps.Geocoder;
 
+	$('#identificador_error').val("");
  geocoder.geocode({'location': location}, function(results, status) {
 	
    if (status === google.maps.GeocoderStatus.OK) {
@@ -759,19 +770,26 @@ var geocoder = new google.maps.Geocoder;
 	if(parameter == 0)//origen
 	{
 		$('#location').val(results[0].formatted_address);
+		$('#identificador_error').val("");
 		//alert(results[0].address_components[3]['long_name']);
 		//$('#EstadoOrigen').val(results[0].address_components[2]['long_name']);
 		//$('#EstadoOrigen').val(results[0].geometry.location);
 	}else if(parameter == 1)//destino
 	{
+		
 		$('#locationl').val(results[0].formatted_address);
+		$('#identificador_error').val("");
 		
 	}else{
 		alert('fallo geolocalizando');
 	}
 	//return results[0].formatted_address;
   } else {
-   window.alert('Geocoder failed due to: ' + status);
+	  
+	 $('#identificador_error').val("Problemas identificando la dirección, espere un momento y reubique nuevamente el marcador...");
+
+	 
+   //window.alert('Geocoder failed due to: ' + status);
   }
  });
  
@@ -835,6 +853,11 @@ var geocoder = new google.maps.Geocoder;
 				return false;				
 			}
 			
+			if($('#identificador_error').val() != '')
+			{
+				alert('Revise las ubicaciones seleccionadas');
+				return false;
+			}
 			if($('#EstadoOrigen').val() == '')
 			{
 				alert('Debe seleccionar el estado de origen');
