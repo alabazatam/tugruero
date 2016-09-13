@@ -6,12 +6,12 @@
 					  <div class="panel" >
 						<div class="panel-heading" role="tab" id="headingOne"  style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
-							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white !important;">
-							  Detalle Cliente
+							 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white !important;">						  
+								Detalle Cliente
 							</a>
 						  </h4>
 						</div>
-						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 							<div class="panel-body" id="parcial_cliente" style="background-color: #ccc !important;">
 							
 							</div>
@@ -20,7 +20,8 @@
 					  <div class="panel">
 						<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white !important;">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="color: white !important;">						  
+
 							  Detalle Póliza
 							</a>
 						  </h4>
@@ -33,7 +34,7 @@
 					  <div class="panel">
 						<div class="panel-heading" role="tab" id="headingThree" style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white !important;">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree" style="color: white !important;">						  
 							  Tips de Condicionado
 							</a>
 						  </h4>
@@ -44,7 +45,7 @@
 						</div>
 					  </div>
 					</div>	
-	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
+	<table id="example" class="table table-striped table-bordered table-responsive materialTable" width="100%" cellspacing="0">
 			<thead>
 				<tr>
 					<th>IdServicio</th>
@@ -76,7 +77,6 @@
 		</table>
 		<a class="btn btn-default"  href="<?php echo full_url."/adm/Polizas/index.php";?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 
-	<!--<a class="btn btn-default"  href="<?php echo full_url."/adm/ServiciosClientes/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar</a>-->
 </div>
 	<?php include('../../view_footer_solicitud.php')?>
 <script>

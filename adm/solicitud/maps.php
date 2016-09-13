@@ -164,8 +164,8 @@ h1, h2 ,h3 {
 							  <div class="panel panel-default">
 								<div class="panel-heading" role="tab" id="headingOne" style="background-color: #404040 !important;">
 								  <h4 class="panel-title">
-									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color: white !important;">
-									  Datos de Cliente y Póliza
+									<a class="accordion-toggle" data-toggle="collapse" data-target="#collapseOne" href="#" style="color: white !important;">									  
+										Datos de Cliente y Póliza
 									</a>
 								  </h4>
 								</div>
@@ -179,7 +179,7 @@ h1, h2 ,h3 {
 							  <div class="panel panel-default">
 								<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;">
 								  <h4 class="panel-title">
-									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white !important;">
+									<a class="accordion-toggle" data-toggle="collapse" data-target="#collapseTwo" href="#" style="color: white !important;">
 									 Tips de Condicionado
 									</a>
 								  </h4>

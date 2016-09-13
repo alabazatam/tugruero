@@ -15,7 +15,7 @@
 			<input type="text" class="form-control" autocomplete="off" id="placa" placeholder="AC785FD" maxlength="8">
           </div>
 		  
-          <a  class="btn btn-default" id="consultarPoliza" onclick="consultarPoliza();"><i class="fa fa-search fa-pull-left fa-border"></i> Consultar</a>
+          <button type="submit" class="btn btn-default"><i class="fa fa-search fa-pull-left fa-border"></i> Consultar</button>
         </form>
         <div id="results" class="col-sm-12" hidden>
             <div id="" class="col-sm-12">
