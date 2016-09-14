@@ -1,4 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="<?php echo full_url;?>/web/img/favicon.png">
+    <title>TUGRUERO®</title>
+    <link href="<?php echo full_url;?>/web/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo full_url;?>/web/css/freelancer_app.css" rel="stylesheet">
+	<link href="<?php echo full_url;?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="<?php echo full_url;?>/web/css/caroussel.css" rel="stylesheet">
+	<link href="<?php echo full_url;?>/web/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
+	<link href="<?php echo full_url;?>/web/css/datatables.css" rel="stylesheet">
 
+ </head>
 
 
 <?php
@@ -13,7 +29,7 @@ $cambiar_a_grua = "";
 $cambiar_a2_grua = "";
 
 ?>
-	<?php include('../../view_header_app.php')?>
+	<?php //include('../../view_header_app.php')?>
 	<?php //include('../menu.php')?>
 <style>
 html, body, #map-canvas  {
@@ -31,10 +47,8 @@ html, body, #map-canvas  {
 }
 </style>
 <div class="container" id="content_simulador">
-
-
 	<h1 class="text-center big_title">Simulador</h1>
-	<form class="" enctype="multipart/form-data" action="index.php" method="POST">
+	
 		<input autocomplete="off" type="hidden" id='idSolicitud' name='idSolicitud' value='<?php if(isset($values['idSolicitud']))echo $values['idSolicitud'];?>'>
 		<input autocomplete="off" type="hidden" id='idPoliza' name='idPoliza' value='<?php if(isset($data['idpoliza']))echo $data['idpoliza'];?>'>
 	<?php //if($values['action'] == "add"):?>
@@ -42,7 +56,7 @@ html, body, #map-canvas  {
 					  <div class="panel" >
 						<div class="panel-heading" role="tab" id="headingOne"  style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
-							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white !important;">
+							<a class="accordion-toggle" data-toggle="collapse" data-target="#collapseOne" href="#" style="color: white !important;">									  
 							  Detalle Cliente
 							</a>
 						  </h4>
@@ -56,7 +70,7 @@ html, body, #map-canvas  {
 					  <div class="panel">
 						<div class="panel-heading" role="tab" id="headingTwo" style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white !important;">
+							<a class="accordion-toggle" data-toggle="collapse" data-target="#collapseTwo" href="#" style="color: white !important;">
 							  Detalle Póliza
 							</a>
 						  </h4>
@@ -69,7 +83,7 @@ html, body, #map-canvas  {
 					  <div class="panel">
 						<div class="panel-heading" role="tab" id="headingThree" style="background-color: #404040 !important;" >
 						  <h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white !important;">
+							<a class="accordion-toggle" data-toggle="collapse" data-target="#collapseThree" href="#" style="color: white !important;">
 							  Tips de Condicionado
 							</a>
 						  </h4>
@@ -156,8 +170,8 @@ html, body, #map-canvas  {
 												<?php $cambiar_a_cliente = "Completado";?>
 												<?php $cambiar_a2_cliente = "Cancelado";?>
 										
-										<div for="" class=""><label>Encuesta de calificación</label></div>
-										<label for="TratoCordial">Trato cordial</label>
+										<div for="" class=""><h2>Encuesta de calificación</h2></div>
+										<label for="TratoCordial">Trato cordial del gruero</label>
 										<div class="input-group" >
 											<label class="text-muted">1</label> <input type="radio" id="TratoCordial" value="1" name="TratoCordial">
 											<label class="text-muted">2</label> <input type="radio" id="TratoCordial" value="2" name="TratoCordial">
@@ -166,7 +180,7 @@ html, body, #map-canvas  {
 											<label class="text-muted">5</label> <input type="radio" id="TratoCordial" value="5" name="TratoCordial">
 										</div>
 										
-										<label for="Presencia">Presencia</label>
+										<label for="Presencia">Presencia del gruero</label>
 										<div class="input-group" >
 											<label class="text-muted">1</label> <input type="radio" id="Presencia" value="1" name="Presencia">
 											<label class="text-muted">2</label> <input type="radio" id="Presencia" value="2" name="Presencia">
@@ -175,7 +189,7 @@ html, body, #map-canvas  {
 											<label class="text-muted">5</label> <input type="radio" id="Presencia" value="5" name="Presencia">
 										</div>
 										
-										<label for="TratoVehiculo">Trato vehiculo</label>
+										<label for="TratoVehiculo">Trato al vehículo</label>
 										<div class="input-group" >
 											<label class="text-muted">1</label> <input type="radio" id="TratoVehiculo" value="1" name="TratoVehiculo">
 											<label class="text-muted">2</label> <input type="radio" id="TratoVehiculo" value="2" name="TratoVehiculo">
@@ -292,9 +306,46 @@ html, body, #map-canvas  {
 
 						
 					</div>
-
+</div>
+<div class="modal fade" id="myMapModal" tabindex="-1" role="dialog" aria-labelledby="myMapModalLabel" aria-hidden="true" >
+    <div class="modal-content">
+        <div class="container">
+          <div class="modal-header">
+            <h3 class="modal-title" id="myMapModalLabel"></h3>
+          </div>
+              <div class="modal-body" >
+                
+                    
+                        <div id="map-canvas" class=""></div>
+                    
+                
+              </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" id="close_map" data-backdrop="false"><i class="fa fa-close"> Cerrar</i></button>
+          </div>
+        </div>
+    </div>                                      
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-content">
+        <div class="container">
+          <div class="modal-header">
+            <h3 class="modal-title" id="myModalLabel"></h3>
+          </div>
+              <div class="modal-body" >
+                
+              </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"> Cerrar</i></button>
+          </div>
+        </div>
+    </div>                                      
+</div>
 <a class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
-<?php include('../../view_footer_solicitud.php')?>
+<?php //include('../../view_footer_solicitud.php')?>
+<script src="<?php echo full_url;?>/web/js/jquery.js"></script>
+<script src="<?php echo full_url;?>/web/js/datatables.js"></script>
+<script src="<?php echo full_url;?>/web/js/fnReloadAjax.js"></script>
 <script>
 
 	$(document).ready(function(){

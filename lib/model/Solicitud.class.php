@@ -149,7 +149,6 @@
             ->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);
-			//echo $q;die;
 			return $q; 			
 		}
 		public function getCountSolicitudesActivasList($values)

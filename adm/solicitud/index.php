@@ -107,8 +107,7 @@ $values = $_REQUEST;
 				$minutos_transcurridos = $Utilitarios->calcula_tiempo_minutos($start_time, $end_time);
 				$status_desierto = 0;
 				$retardo_activo_activo  = 0;
-				//echo $minutos_transcurridos;die;
-				if(($minutos_transcurridos >=2 or $list['numgruas'] == 0)  and ($list['estatus'] == 'Localizando'))
+				if(($minutos_transcurridos >=2 /*or $list['numgruas'] == 0*/)  and ($list['estatus'] == 'Localizando'))
 				{
 					
 					//actualizar a status desierto

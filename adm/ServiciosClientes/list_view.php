@@ -1,4 +1,21 @@
-<?php include('../../view_header_app.php')?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="<?php echo full_url;?>/web/img/favicon.png">
+    <title>TUGRUERO®</title>
+    <link href="<?php echo full_url;?>/web/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo full_url;?>/web/css/freelancer_app.css" rel="stylesheet">
+	<link href="<?php echo full_url;?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="<?php echo full_url;?>/web/css/caroussel.css" rel="stylesheet">
+	<link href="<?php echo full_url;?>/web/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
+	<link href="<?php echo full_url;?>/web/css/datatables.css" rel="stylesheet">
+
+ </head>
+<body>
 <?php include('../menu.php')?>
 <div class="container">
 	<h1 class="text-center">Servicios del Cliente</h1>
@@ -78,7 +95,9 @@
 		<a class="btn btn-default"  href="<?php echo full_url."/adm/Polizas/index.php";?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 
 </div>
-	<?php include('../../view_footer_solicitud.php')?>
+<script src="<?php echo full_url;?>/web/js/jquery.js"></script>
+<script src="<?php echo full_url;?>/web/js/datatables.js"></script>
+<script src="<?php echo full_url;?>/web/js/fnReloadAjax.js"></script>
 <script>
 
 	
