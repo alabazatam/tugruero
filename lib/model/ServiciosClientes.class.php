@@ -29,6 +29,7 @@
 			$columns[6] = 'gr.Nombre';
 			$columns[7] = 'EstatusCliente';
 			$columns[8] = 'EstatusGrua';
+			$columns[9] = 'queocurre';
 			$column_order = $columns[0];
 			$where = ' sol.IdPoliza = '.$values['idPoliza'];
 			$order = 'asc';
@@ -93,7 +94,7 @@
 			}
 			if(isset($values['columns'][9]['search']['value']) and $values['columns'][9]['search']['value']!='')
 			{
-				$where.=" AND upper(Monto) like ('%".$values['columns'][9]['search']['value']."%')";
+				$where.=" AND upper(queocurre) like ('%".$values['columns'][9]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}	
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
@@ -168,7 +169,7 @@
 			}
 			if(isset($values['columns'][9]['search']['value']) and $values['columns'][9]['search']['value']!='')
 			{
-				$where.=" AND upper(Monto) like ('%".$values['columns'][9]['search']['value']."%')";
+				$where.=" AND upper(queocurre) like ('%".$values['columns'][9]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}				
 			

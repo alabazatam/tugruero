@@ -83,7 +83,7 @@
 	</div>
 
 	<div class="col-sm-3">
-		<label>Información adicional:</label> <?php echo $data['cellcontacto'];?>
+		<label>Dirección detallada de Origen:</label> <?php echo $data['infoadicional'];?>
 	</div>
 	<div class="col-sm-3">
 		<label>Abierto:</label> <?php echo $data['timeopen'];?>

@@ -91,7 +91,7 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->Polizas
-			->select("*,DATE_FORMAT(Polizas.Vencimiento, '%d/%m/%Y') as Vencimiento")
+			->select("*,DATE_FORMAT(Polizas.Vencimiento, '%d/%m/%Y') as Vencimiento, DATEDIFF(NOW(),Polizas.Vencimiento) AS dias_vencimiento")
 			->order("$column_order $order")
 			->where("$where")
 			->limit($limit,$offset);

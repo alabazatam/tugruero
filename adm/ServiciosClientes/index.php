@@ -72,6 +72,7 @@ $values = $_REQUEST;
                     "Nombre" => $list['nombre']." ".$list['apellido'],
 					"EstatusCliente" => $list['estatuscliente'],
 					"EstatusGrua" => $list['estatusgrua'],
+					"queocurre" => $list['queocurre'],
 					"actions" => 
                                        '<form method="POST" action = "'.full_url.'/adm/ServiciosClientes/index.php" >'
                                        .'<input type="hidden" name="action" value="view">  '
@@ -84,7 +85,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("idServicio"=>"","EstadoOrigen"=>"","Direccion"=>"","TimeInicio"=>"","TimeFin"=>"","Cedula"=>"","Nombre"=>"","EstatusCliente"=>"","EstatusGrua"=>"","actions"=>"");
+			$array_json['data'][0] = array("idServicio"=>"","EstadoOrigen"=>"","Direccion"=>"","TimeInicio"=>"","TimeFin"=>"","Cedula"=>"","Nombre"=>"","EstatusCliente"=>"","EstatusGrua"=>"","queocurre"=>"queocurre","actions"=>"");
 		}
 		echo json_encode($array_json);die;
 		

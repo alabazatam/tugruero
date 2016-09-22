@@ -73,7 +73,8 @@
 					<th>Cédula gruero</th>
 					<th>Gruero</th>
 					<th>Status cliente</th>
-					<th>Status gruero</th>		
+					<th>Status gruero</th>
+					<th>Falla</th>		
 					<th>Detalle</th>
 				</tr>
 			</thead>
@@ -87,7 +88,8 @@
 					<th>Cédula gruero</th>
 					<th>Gruero</th>
 					<th>Status cliente</th>
-					<th>Status gruero</th>		
+					<th>Status gruero</th>
+					<th>Falla</th>		
 					<th>Detalle</th>
 				</tr>
 			</tfoot>
@@ -167,10 +169,11 @@ $(document).ready(function() {
             { "data": "Nombre" },
 			{ "data": "EstatusCliente" },
 			{ "data": "EstatusGrua" },
+			{ "data": "queocurre" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 9 ] }
+          { 'bSortable': false, 'aTargets': [ 10 ] }
        ]				
     });
 

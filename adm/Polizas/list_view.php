@@ -71,7 +71,17 @@ $(document).ready(function() {
             { "data": "NombreApellido" },
             { "data": "Vencimiento" },
             { "data": "actions" }
-        ],
+        ],"rowCallback": function( row, data, index ) {
+            //alert(data.Status);
+            /*if ( data.idSolicitud == "10" ) {
+				$(row).css("background-color","red");
+				$("td:eq(3)", row).css("background-color","red");
+			 
+            }*/
+            if ( data.EstatusPoliza == "Vencido" ) {
+				$(row).css("background-color","red");
+            }
+        },
       "aoColumnDefs": [
           { 'bSortable': false, 'aTargets': [ 7 ] }
        ]				

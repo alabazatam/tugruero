@@ -237,6 +237,10 @@ h1, h2 ,h3 {
 												<input id="location" type="text" value=""  class="form-control input-sm" size="50">
 											</div>
 											<div class="col-sm-12">
+												<label for="InfoAdicional">Dirección detallada de Origen</label>
+												<input name="InfoAdicional" id='InfoAdicional' class="form-control input-sm" placeholder="Informacion adicional">
+											</div>
+											<div class="col-sm-12">
 												<label for="locationl">Dirección destino</label>
 												<input id="locationl" type="text" value="" class="form-control input-sm" size="50">
 											</div>
@@ -307,10 +311,7 @@ h1, h2 ,h3 {
 												<label for="CellContacto">Contacto</label>
 												<input type="text" name="CellContacto" id="CellContacto" class="form-control input-sm" placeholder="Contacto" maxlength="11">
 											</div>
-											<div class="col-sm-6">
-												<label for="InfoAdicional">Informacion adicional</label>
-												<textarea name="InfoAdicional" id='InfoAdicional' class="form-control input-sm" placeholder="Informacion adicional"></textarea>
-											</div>
+
 											<div class="col-sm-12">
 												<a id="listarSolicitudes" class="btn btn-default"  href="<?php echo full_url."/adm/solicitud/index.php"?>"><i class="fa fa-arrow-left  fa-pull-left fa-border"></i> Regresar</a>
 												<a id="enviaSolicitud" name="" class="btn btn-default"><i class="fa fa-mobile-phone  fa-pull-left fa-border"></i> Solicitar</a>
@@ -331,7 +332,9 @@ h1, h2 ,h3 {
 	</nav>
 	<div id="floating-panel">
 		
-		<input onclick="deleteMarkers();" type=button value="Borrar Marcadores" class="btn btn-danger controls" id="delMarkers">
+		<a onclick="deleteMarkers(0);" class="btn btn-danger controls" id="delMarkers0"><i class="fa fa-eraser"></i> Borrar origen</a>
+		<a onclick="deleteMarkers(1);" class="btn btn-danger controls" id="delMarkers1"><i class="fa fa-eraser"></i> Borrar destino</a>
+
 	</div>
 	
 	<input id="searchInput" class="controls_search" type="text" placeholder="Coloque el lugar del accidentado">
@@ -572,6 +575,7 @@ function addMarker(location) {
 	  //label: labels[labelIndex++ % labels.length]
 	  label: labels
 	});
+	
 	marker.setValues({id: labels});
 	
 	if(labels == "Cliente"){
@@ -593,6 +597,7 @@ function addMarker(location) {
 			});	
 			marker.info.open(map, marker);
 			});
+			showLocationAddress(location,0);
 	}
 	
 	if(labels== "Destino"){
@@ -606,6 +611,7 @@ function addMarker(location) {
 			marker.info.open(map, marker);		
 		});
 		showLocationAddress(location,1);
+		
 
 	}	
 	
@@ -644,10 +650,26 @@ function addMarker(location) {
 		
 	});
 
-
-	
-	markers.push(marker);
-	
+	if(marker.label == 'Cliente')
+	{
+		if(markers.length >0)
+		{
+			if(markers[0].hasOwnProperty('id'))
+			{
+				//alert('existe esta posicion');//debo mover lo del 0 para el 1;
+				markers[1] = markers[0];
+			}
+			
+		}
+		markers[0] = marker;
+	}
+	if(marker.label == 'Destino')
+	{
+		
+		markers[1] = marker;
+	}	
+	//markers.push(marker);
+	//console.log(markers);
 	  
   }	
 	
@@ -733,16 +755,80 @@ function setMapOnAll(map) {
 }
 
 // Removes the markers from the map, but keeps them in the array.
-function clearMarkers() {
-  setMapOnAll(null);
-  $('#latlon').val(null);
-  $('#latlonl').val(null);
-  $('#location').val(null);
-  $('#locationl').val(null);
-  //$("#EstadoOrigen").attr('selectedIndex', '-1');
-  
-  //$('#EstadoOrigen option[value="NA"]').attr("selected", "selected");  
+function clearMarkers(index) {
+var removeByAttr = function(arr, attr, value){
+    var i = arr.length;
+    while(i--){
+       if( arr[i] 
+           && arr[i].hasOwnProperty(attr) 
+           && (arguments.length > 2 && arr[i][attr] === value ) ){ 
+
+           arr.splice(i,1);
+
+       }
+    }
+    return arr;
+} 
+if(markers.length == 0)
+{
+	 setMapOnAll(null);
+	 markers = [];
+	 labelIndex = 0;
 }
+if(markers.length>0)
+{
+	if(index == 0)
+	{
+	
+	  if(markers.length == 2)
+	  {
+		   //alert(1);
+		   marker = markers[0]; 
+		   labelIndex = 0;
+	  }else
+	  {
+		  //alert(2);
+		  marker = markers[0];
+		  labelIndex = 0;
+	  } 
+	  marker.setMap(null);
+		removeByAttr(markers, 'id', 'Cliente');
+	   //markers.splice(index, 1);
+	   $('#latlon').val(null);
+	   $('#location').val(null);
+	   $('#InfoAdicional').val(null);
+	   $("#EstadoOrigen").find("option").removeAttr("selected");
+
+	}
+	if(index == 1)
+	{
+	  if(markers.length == 2)
+	  {
+		   //alert(3);
+		   marker = markers[1]; 
+		   labelIndex = 1;
+	  }else
+	  {
+		  //alert(4);
+		  marker = markers[0];
+		  labelIndex = 0;
+	  }
+
+	  marker.setMap(null);
+	  
+	  removeByAttr(markers, 'id', 'Destino');
+	  //markers.splice(index, 1);
+	  $('#latlonl').val(null);
+
+	  $('#locationl').val(null);	  
+	}
+
+	  //console.log(markers.length);
+	  //console.log(labelIndex);
+	 // console.log(markers);
+}  
+}
+
 
 // Shows any markers currently in the array.
 function showMarkers() {
@@ -750,10 +836,10 @@ function showMarkers() {
 }
 
 // Deletes all markers in the array by removing references to them.
-function deleteMarkers() {
-  clearMarkers();
-  markers = [];
-  labelIndex = 0;
+function deleteMarkers(index) {
+  clearMarkers(index);
+  //markers = [];
+  //labelIndex = 0;
 }
 
 function showLocationAddress(location,parameter) {
@@ -770,6 +856,7 @@ var geocoder = new google.maps.Geocoder;
 	if(parameter == 0)//origen
 	{
 		$('#location').val(results[0].formatted_address);
+		$('#InfoAdicional').val(results[0].formatted_address);
 		$('#identificador_error').val("");
 		//alert(results[0].address_components[3]['long_name']);
 		//$('#EstadoOrigen').val(results[0].address_components[2]['long_name']);
@@ -792,7 +879,6 @@ var geocoder = new google.maps.Geocoder;
    //window.alert('Geocoder failed due to: ' + status);
   }
  });
- 
 }
 
     </script>

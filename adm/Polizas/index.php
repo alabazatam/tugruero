@@ -82,6 +82,11 @@ $values = array_merge($values,$_FILES);
 		{
 			foreach ($list_json as $list) 
 			{
+				$EstatusPoliza = null;
+				if($list['dias_vencimiento'] > 0)
+				{
+					$EstatusPoliza = 'Vencido';
+				}
 				$idPoliza = $list['idPoliza'];
 				$array_json['data'][] = array(
 					"idPoliza" => $idPoliza,
@@ -89,6 +94,7 @@ $values = array_merge($values,$_FILES);
 					"NumPoliza" => $list['NumPoliza'],
 					"Placa" => $list['Placa'],
 					"Cedula" => $list['Cedula'],
+					"EstatusPoliza" => $EstatusPoliza,
                     "NombreApellido" => $list['Nombre'].' '.$list['Apellido'],
                     "Vencimiento" => $list['Vencimiento'],
 					"actions" => 
@@ -105,7 +111,7 @@ $values = array_merge($values,$_FILES);
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("idPoliza"=>null,"Seguro"=>"","NumPoliza"=>"","Placa"=>"","Cedula"=>"","NombreApellido"=>"","Vencimiento"=>"","actions"=>"");
+			$array_json['data'][0] = array("idPoliza"=>null,"Seguro"=>"","NumPoliza"=>"","Placa"=>"","Cedula"=>"","EstatusPoliza" => null,"NombreApellido"=>"","Vencimiento"=>"","actions"=>"");
 		}
 		echo json_encode($array_json);die;
 		
