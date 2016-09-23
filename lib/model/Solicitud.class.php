@@ -67,8 +67,8 @@
 			$columns[9] = 'TimeInicio';
 			$column_order = $columns[0];
 			$where = " Estatus NOT IN('Completado','Cancelado') 
-						AND (EstatusCliente IS NULL OR EstatusCliente = 'Asignado' OR EstatusCliente = 'Activo' OR EstatusCliente = 'Asistido' OR EstatusCliente = 'Completado') 
-						AND (EstatusGrua  IS NULL OR EstatusGrua = 'Asignado' OR EstatusGrua = 'Activo' OR EstatusGrua = 'Asistiendo')  ";
+						AND (EstatusCliente IS NULL OR EstatusCliente = 'Asignado' OR EstatusCliente = 'Activo' OR EstatusCliente = 'Asistido' OR EstatusCliente = 'Completado' OR EstatusCliente = 'Abandonado') 
+						AND (EstatusGrua  IS NULL OR EstatusGrua = 'Asignado' OR EstatusGrua = 'Activo' OR EstatusGrua = 'Asistiendo' OR EstatusGrua = 'Abandonado')  ";
 			$order = 'desc';
 			$limit = $values['length'];
 			$offset = $values['start'];
@@ -185,7 +185,7 @@
 		public function getGruerosOnline(){
 			$ConnectionAws = new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Gruas
-			->select("*")
+			->select("*,DATE_FORMAT(LastUpdate, '%d/%m/%Y %H:%i:%s') as lastupdate")
 			->join("Grueros","INNER JOIN Grueros on Grueros.idGrua = Gruas.idGrua");
 			//->where("Disponible=?","SI");
 			return $q; 				

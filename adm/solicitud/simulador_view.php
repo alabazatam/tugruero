@@ -121,13 +121,17 @@ html, body, #map-canvas  {
 										<?php $cambiar_a = ""?>
 										<?php $cambiar_a2 = "Cancelado"?>
 									<?php endif;?>
-									<?php if(isset($data['estatus']) and $data['estatus']=='Cancelado'):?>
+									<?php if(isset($data['estatus']) and $data['estatus']=='Cancelado' and $data['estatusgrua']!='Abandonado'):?>
 										<?php $cambiar_a = "Localizando"?>
 										<?php $cambiar_a2 = ""?>
 									<?php endif;?>
 									<?php if(isset($data['estatus']) and $data['estatus']=='Asignado'):?>
 										<?php $cambiar_a = ""?>
 										<?php $cambiar_a2 = ""?>
+									<?php endif;?>
+									<?php if(isset($data['estatusgrua']) and $data['estatusgrua']=='Abandonado' and $data['estatus']!='Cancelado'):?>
+										<?php $cambiar_a = ""?>
+										<?php $cambiar_a2 = "Cancelado"?>
 									<?php endif;?>
 									<div class="btn-group" role="group" aria-label="">
 										<?php if($cambiar_a != ""):?>
@@ -713,11 +717,11 @@ function grueroSelectDatatable(){
 					  fillOpacity: 0.8,
 					  scale: 1,
 					  strokeColor: 'green',
-					  strokeWeight: 14,
+					  strokeWeight: 20,
 					},
 					map: map,
 					title: "Cliente",
-					label: "A"
+					label: "C"
 				});
 				marker.addListener('click', function() {
 					infowindow.open(map, marker);
@@ -734,7 +738,7 @@ function grueroSelectDatatable(){
 				var infowindow = new google.maps.InfoWindow({
 						content: data.contentinfo
 				});
-				var color = "white";
+				var color = "blue";
 				if(data.Disponible == "NO")
 				{
 					color = "red";
@@ -748,7 +752,7 @@ function grueroSelectDatatable(){
 					  fillOpacity: 0.8,
 					  scale: 1,
 					  strokeColor: color,
-					  strokeWeight: 14,
+					  strokeWeight: 20,
 					  
 					},
 					map: map,

@@ -105,6 +105,11 @@ $(document).ready(function() {
 				beep();
 			 
             }
+            if ( data.EstatusGrua == "Abandonado" ) {
+				$(row).css("background-color","orange");
+				beep();
+			 
+            }
         },
         "columns": [
             { "data": "idSolicitud" },
@@ -180,7 +185,7 @@ $('#column_9').on ('keypress', function(e){
 	});
 setInterval( function () {
     table.ajax.reload();
-},40000 );
+},25000 );
     
     $('a.toggle-vis').on( 'click', function (e) {
         e.preventDefault();

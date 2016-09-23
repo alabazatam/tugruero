@@ -36,7 +36,7 @@
 				var infowindow = new google.maps.InfoWindow({
 						content: data.contentinfo
 				});
-				var color = "white";
+				var color = "blue";
 				if(data.Disponible == "NO")
 				{
 					color = "red";
@@ -50,7 +50,7 @@
 					  fillOpacity: 0.8,
 					  scale: 1,
 					  strokeColor: color,
-					  strokeWeight: 14,
+					  strokeWeight: 20,
 					  
 					},
 					map: map,

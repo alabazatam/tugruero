@@ -150,6 +150,7 @@ $values = $_REQUEST;
                     "TimeInicio" => $list['timeinicio'],
 					"StatusDesierto" => $status_desierto,
 					"RetardoActivoActivo" => $retardo_activo_activo,
+					"EstatusGrua" => $list['estatusgrua'],
 					
 					"actions" =>		'<input type="hidden" name="action" value="edit">  '
 										.'<input type="hidden" name="idSolicitud" value="'.$idSolicitud.'">  '
@@ -166,7 +167,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("idSolicitud"=>null,"idPoliza"=>"","Origen"=>"","Cedula"=>"","Placa"=>"","EstatusSolicitud"=>"","EstatusCliente"=>"","EstatusGrua"=>"","TimeOpen"=>'',"TimeInicio"=>"","RetardoActivoActivo"=>'',"StatusDesierto"=>'',"actions"=>"");
+			$array_json['data'][0] = array("idSolicitud"=>null,"idPoliza"=>"","Origen"=>"","Cedula"=>"","Placa"=>"","EstatusSolicitud"=>"","EstatusCliente"=>"","EstatusGrua"=>"","TimeOpen"=>'',"TimeInicio"=>"","RetardoActivoActivo"=>'',"EstatusGrua" => "","StatusDesierto"=>'',"actions"=>"");
 		}
 		echo json_encode($array_json);die;
 		
@@ -219,6 +220,7 @@ $values = $_REQUEST;
 					. '<label>Modelo: </label> '.$online['modelo'].'<br>'
 					. '<label>Placa: </label> '.$online['placa'].'<br>'
 					. '<label>Color: </label> '.$online['color'].'<br>'
+					. '<label>Última actualización: </label> '.$online['lastupdate'].'<br>'
 					
 					;
 				
