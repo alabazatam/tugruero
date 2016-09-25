@@ -14,7 +14,9 @@
                         <th>Modelo</th>
                         <th>Color</th>
                         <th>Celular</th>
-						<th>Disponible</th>	
+						<th>Disponible</th>
+						<th>Estado</th>
+						<th>Ciudad</th>
                         <th>Detalle</th>
                     </tr>
             </thead>
@@ -28,7 +30,9 @@
                         <th>Modelo</th>
                         <th>Color</th>
                         <th>Celular</th>
-						<th>Disponible</th>	
+						<th>Disponible</th>
+						<th>Estado</th>
+						<th>Ciudad</th>
                         <th>Detalle</th>
                     </tr>
             </tfoot>
@@ -74,10 +78,12 @@ $(document).ready(function() {
             { "data": "Color" },
             { "data": "Celular" },
 			{ "data": "Disponible" },
+			{ "data": "zone_work" },
+			{ "data": "location" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 9 ] }
+          { 'bSortable': false, 'aTargets': [ 11 ] }
        ]				
     });
 
@@ -124,6 +130,16 @@ $('#column_7').on ('keypress', function(e){
 $('#column_8').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(8)).search($(this).val()).draw();
+    }
+});
+$('#column_9').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(9)).search($(this).val()).draw();
+    }
+});
+$('#column_10').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(10)).search($(this).val()).draw();
     }
 });
 	$('#clear').click(function(){

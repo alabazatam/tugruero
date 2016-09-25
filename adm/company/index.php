@@ -77,7 +77,26 @@ $values = $_REQUEST;
 		$data_company = $Company->getCompanyById($values);
 		$status_anterior = $data_company['status'];
 		$Company->updateCompany($values);
+
 		$Users = new Users();
+		$UsersData = new UsersData();
+		
+		/******************************************************************/
+		//actualizo el zonework y location de todos los grueros en esa compañia
+		$UsersCompany = new UsersCompany();
+		$usuarios_company = $UsersCompany->getUsersByCompanyId($values);
+		$array_users_data = array();
+		foreach($usuarios_company as $user):
+			
+			$array_users_data = array(
+				"id_user" => $user['id_user'],
+				"location" => $values['location'],
+				"zone_work" => $values['zone_work'],
+			);
+			$update = $UsersData->updateUsersDataCompany($array_users_data);
+		endforeach;
+		/*************************************************************************/
+	
 		if($values['status']==1)
 		{
 			

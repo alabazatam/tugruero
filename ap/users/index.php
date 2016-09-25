@@ -76,6 +76,11 @@ $values = $_REQUEST;
 			{
 				$estatus = "Inactivo";
 			}
+			$Company = new Company();
+			$values['id'] = $_SESSION["id_company"];
+			$data_company = $Company->getCompanyById($values);			
+			$location =  $data_company['location'];
+			$zone_work =  $data_company['zone_work'];
 			$dateGrueros = array('idGrua' => $values['id_user'],
 								'Nombre' => $values['first_name'].' '.$values['second_name'],
 								'Apellido' => $values['first_last_name'].' '.$values['second_last_name'],
@@ -90,7 +95,10 @@ $values = $_REQUEST;
 								'TotalTrato' => "0",
 								'TotalPresencia' => "0",
 								'TotalVehiculo' => "0",
-								'Rating' => "0");
+								'Rating' => "0",
+								'location' => @$location ,
+								'zone_work' => @$zone_work ,  	
+								);
 			
 			$mail = $values['mail'];
 			
@@ -173,7 +181,11 @@ $values = $_REQUEST;
 				
 			}
 			
-			
+			$Company = new Company();
+			$values['id'] = $_SESSION["id_company"];
+			$data_company = $Company->getCompanyById($values);			
+			$location =  $data_company['location'];
+			$zone_work =  $data_company['zone_work'];			
 			$dateGrueros = array('idGrua' => $values['id_user'],
 								'Placa' => $dataHoist['registration_plate'],
 								'Modelo' => $dataHoist['type_hoist'],
@@ -184,7 +196,10 @@ $values = $_REQUEST;
 								'TotalTrato' => "0",
 								'TotalPresencia' => "0",
 								'TotalVehiculo' => "0",
-								'Rating' => "0");
+								'Rating' => "0",
+								'location' => @$location,
+								'zone_work' => @$zone_work
+								);
 		
 		$userhoistcompanydata = array('id_user' => $values['id_user'],
 										   'id_company' => $_SESSION["id_company"],

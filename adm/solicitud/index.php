@@ -529,7 +529,9 @@ $values = $_REQUEST;
 					"Modelo" => $list['modelo'],
 					"Color" => $list['color'],
 					"Celular" => $list['celular'],
-					"Disponible" => $list['disponible'],				
+					"Disponible" => $list['disponible'],
+					"location" => $list['location'],	
+					"zone_work" => $list['zone_work'],	
 					"actions" => '<a class="btn" title="Seleccionar gruero" onclick='."'".'seleccionarGruero('.$idGrua.',"'.$list['nombre'].'","'.$list['apellido'].'","'.$list['cedula'].'","'.$list['placa'].'","'.$list['modelo'].'","'.$list['color'].'","'.$list['celular'].'"'.")'".'><i class="fa fa-check  fa-pull-left fa-border text-success"></i></a>'
 					//"actions" => '<a title="Seleccionar gruero" onclick=seleccionarGruero('.$idGrua.',"dsdsd","sdsdsd","sdsd","sdsdsddddd","ddddddd","ddddd")><i class="fa fa-check  fa-pull-left fa-border text-success"></i></a>'
 
@@ -538,7 +540,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("idGrua"=>null,"Cedula"=>"","Nombre"=>"","Apellido"=>"","Placa"=>"","Modelo"=>"","Color"=>"","Celular"=>"","Disponible"=>"","actions"=>"");
+			$array_json['data'][0] = array("idGrua"=>null,"Cedula"=>"","Nombre"=>"","Apellido"=>"","Placa"=>"","Modelo"=>"","Color"=>"","Celular"=>"","Disponible"=>"","location"=>"","zone_work"=>"","actions"=>"");
 		}
 		echo json_encode($array_json);die;		
 	}

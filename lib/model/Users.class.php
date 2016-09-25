@@ -271,6 +271,7 @@
 			return $q['cuenta']; 			
 		}
 		function saveUserOperator($values){
+			
 			unset($values['PHPSESSID']);
 			$user = array("login" => $values["login"],
 						  "password" => hash('sha256', $values['password']),
@@ -279,6 +280,12 @@
 			$user["date_created"] = date("Y-m-d H:i:s");
 			$user["date_updated"] = date("Y-m-d H:i:s");
 			unset($values['action']);
+			
+			$Company = new Company();
+			$values['id'] = $_SESSION["id_company"];
+			$data_company = $Company->getCompanyById($values);			
+			$location =  $data_company['location'];
+			$zone_work =  $data_company['zone_work'];
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users()->insert($user);
 			$values['id_user'] = $ConnectionORM->getConnect()->users()->insert_id();
@@ -293,7 +300,10 @@
 							  "phone"=>$values["phone"],
 							  "id_users" => $values['id_user'],
 							  //"certificado_file" => $values['certificado_file'],
-							  "document_file" => $values['document_file']);
+							  "document_file" => $values['document_file'],
+								"location" =>  @$location,
+								"zone_work" =>  @$zone_work,
+								);
 			$userData['date_created'] = date("Y-m-d H:i:s");
 			$userData['date_updated'] = date("Y-m-d H:i:s");
 			

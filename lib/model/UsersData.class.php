@@ -104,6 +104,15 @@
 			unset($values['PHPSESSID']);
 			unset($values['action'],$values['date_created'],$values['login']);
             $values['date_updated'] = new NotORM_Literal("NOW()");
+			
+			$Company = new Company();
+			$values['id'] = $_SESSION["id_company"];
+			$data_company = $Company->getCompanyById($values);
+			unset($values['id']);
+			$location =  $data_company['location'];
+			$zone_work =  $data_company['zone_work'];
+			$values['location'] = @$location;
+			$values['zone_work'] = @$zone_work;
 			$id_users_data = $values['id_users'];
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->users_data("id_users", $id_users_data)->update($values);
@@ -123,6 +132,16 @@
 			->fetch();
 			
 			return $q;
+			}
+			public function updateUsersDataCompany($values)
+			{
+			$id_users_data = $values['id_user'];
+			unset($values['id_user']);
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users_data("id_users", $id_users_data)->update($values);
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Grueros("idGrua", $id_users_data)->update($values);
+			//echo $values['zone_work'];die;
 			}
 	}
 	
