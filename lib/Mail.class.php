@@ -270,9 +270,6 @@
 			$message->setBody("
                             <html>
                             <body>
-                            <head>
-                            <title>TU/GRUERO®</title>
-                            </head>
                             <p align='center'>
 				<a href='www.tugruero.com' target='_blank'><img width='600'  src='http://www.tugruero.com/web/img/mail/flyer1.png' alt='tugruero.com' /></a>
 					
