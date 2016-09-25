@@ -268,13 +268,20 @@
 			
 			$message = Swift_Message::newInstance('TU/GRUERO®');
 			$message->setBody("
+                            <html>
+                            <body>
+                            <head>
+                            <title>TU/GRUERO®</title>
+                            </head>
                             <p align='center'>
-				<a href='www.tugruero.com' target='_blank'><img width='600' src='http://www.tugruero.com/web/img/mail/flyer1.png' alt='tugruero.com' /></a>
+				<a href='www.tugruero.com' target='_blank'><img width='600'  src='http://www.tugruero.com/web/img/mail/flyer1.png' alt='tugruero.com' /></a>
 					
                             </p>
                             <p align='justify'>Si no puede observar la imagen dele click <strong><a href='http://www.tugruero.com/tugruero.php' target='_blank'>Aquí</a></strong</p>                            
                             <p align='justify'><strong>2016. TU/GRUERO®.</strong> <strong style='color: #4C4C4C;'>Todos los Derechos Reservados.</strong></p>                            
-                    ","text/html");			
+                            </body>
+                            </html>
+","text/html");			
 			
         $message  ->setFrom(array (mail_from => 'TU/GRUERO®'));
 		$message   ->setTo($email);
