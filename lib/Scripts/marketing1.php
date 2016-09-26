@@ -23,7 +23,7 @@ function mailMarketing1($values){
 
 		/*print_r($array_correos);
 		die;*/
-		
+		try{
         $smtp = "server-0116a.gconex.net";
         $port = 465;
         $secure = "ssl";
@@ -56,7 +56,22 @@ function mailMarketing1($values){
 		$message->setTo('info@tugruero.com');
 		$message->setBcc($email);
         // Send the message
-        $result = $mailer->send($message);
+
+			
+		$result = $mailer->send($message);	
+		}catch(Exception $e){
+			$error = array(
+				'error' => $e->getMessage(),
+				'fecha' => date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)))
+			);
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->errores_mail()->insert($error);
+			die;
+		}
+		
+		
+
+		
 		
 		foreach($array_correos as $correo){
 			$update = array(
