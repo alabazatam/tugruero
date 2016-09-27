@@ -20,16 +20,14 @@
 	<link href="web/css/freelancer.css" rel="stylesheet">
         <title>TUGRUERO®</title>
 </head>
-<body id="page-top" class="index" class="">
-	<section id="contact" class="success5">
+<body id="" class="index" class="">
+	<section id="" class="success5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <a href="http://www.tugruero.com"><img class="img-responsive" src="<?php echo full_url?>/web/img/mail/flyer1.png"></a>
-                    <p align='justify'><strong>2016. TU/GRUERO®.</strong> <strong style='color: #4C4C4C;'>Todos los Derechos Reservados.</strong></p>                            
+                <div class="col-lg-12 col-md-12 text-center">
+                    <p align="center"><a href="http://www.tugruero.com"><img class="img-responsive" width="60%" src="<?php echo full_url?>/web/img/mail/flyer1.png"></a></p>
+                    <p align='center'><strong>2016. TU/GRUERO®.</strong> <strong style='color: #4C4C4C;'>Todos los Derechos Reservados.</strong></p>                            
 
                 </div>
-            </div>
         </div>
 	</section>
 		

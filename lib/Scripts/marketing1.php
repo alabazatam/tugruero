@@ -13,7 +13,7 @@ function mailMarketing1($values){
 			$q = $ConnectionORM->getConnect()->mail_marketing1
 			->select("*")
 			->where("status=?",0)
-			->limit(10);
+			->limit(15);
 		$array_correos = array();
 		foreach ($q as $emails){
 			
@@ -29,7 +29,7 @@ function mailMarketing1($values){
         $secure = "ssl";
         $username = "contactenos@tugruero.com.ve";
         $password = "230386";
-		$mail_from = 'tugruero@tugruero.com'; 
+		$mail_from = 'mercadeo@tugruero.com'; 
 	
         $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
           ->setUsername($username)
