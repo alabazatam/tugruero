@@ -418,7 +418,7 @@
                         <p class="white-font">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
 						<p class="white-font">tugruero@gmail.com</p>
 						<p class="white-font">info@tugruero.com</p>						
-						<p class="white-font">0212-227-5273 / 0212-419-0105</p>
+						<p class="white-font">0212-237-0491 / 0212-237-9762</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3 class="white-font">Redes sociales</h3>
@@ -451,7 +451,10 @@
 						<a class="white-font" href="<?php echo full_url?>/security_politics.php" target="_blank"><small class="white-font">Políticas de privacidad</small></a>
 						<small class="white-font"> - </small>
 						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font">Políticas de uso</small></a>	
-					</div>
+						<small class="white-font"> - </small>
+						<a  href="<?php echo full_url?>/terms.php" target="_blank"><small class="white-font">Términos y condiciones</small></a>	
+
+                                        </div>
                 </div>
             </div>
         </div>
