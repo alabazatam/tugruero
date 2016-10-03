@@ -445,7 +445,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="white-font">Copyright &copy; Soluciones Tugruero, C.A. 2016. J-40680605-6</p>
+                        <p class="white-font">Copyright &copy; Soluciones Tu Gruero, C.A. 2016. J-40680605-6</p>
                     </div>
 					<div class="col-lg-12">
 						<a class="white-font" href="<?php echo full_url?>/security_politics.php" target="_blank"><small class="white-font">Políticas de privacidad</small></a>
