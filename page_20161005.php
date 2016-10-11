@@ -47,71 +47,18 @@
 		  </a>
 		</div>
 	</div>
+
+	
 	<section id="header" class="success nav-close">
-        <div class="container">
-			<div class="row" class="">
-
-						<div class="col-sm-12 col-md-12">
-
-							<div align="center"><img src="<?php echo full_url?>/web/img/nuevo/logo_circulo.png" class="img-responsive text-center"></div>
-							<br>
-							<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>
-							<br>
-							<p><h1 class="text-center big-title white-font">¡El mejor servicio de grúas en todo el país!</h1></p>
-							<p>
-							<h1 class="text-center  big-title white-font"><strong style="font-size: 24px;" class="white-font">TU/GRUERO®</strong> llegó para mejorar por completo la industria del auxilio vial, para <strong style="font-size: 24px;" class="white-font">¡SIEMPRE!</strong> </h1>
-							</p>
-							<br>
-						
-							<div class="visible-lg visible-md visible-sm success_new">
-								<h1 class="text-center big-title white-font"><strong  class="white-font big-title" style="font-size: 44px;">Llámanos al 0212-237-0491 - 0212-237-9762</strong> </h1>
-							</div>
-							<div class="visible-xs">
-								<h1 class="text-center big-title white-font"><strong class="white-font big-font">Llámanos al 0212-237-0491 - 0212-237-9762</strong> </h1>
-							</div>
-						</div>
-
-			</div>
-		</div>
-
-	</section>
-	<section id="beneficios" class="success5 nav-close">
-        <div class="container">
-			
-						<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2">
-							<div class="visible-lg visible-md visible-sm">
-								<h2 class="text-center big-title white-font"><strong style="font-size: 44px;" class="white-font">Beneficios de TU/GRUERO®</strong></h2>
-							</div>
-							<div class="visible-xs">
-								<h2 class="text-center big-title white-font"><strong class="white-font big-font">Beneficios de TU/GRUERO®</strong></h2>
-							</div>
-							<div>
-							<ul style="list-style-type: none;" class="text-center">
-								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Servicios de grúas y taxis en toda Venezuela. 24/7 y los 365 días del año.</li></p>
-								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Rescate en menos de 30 minutos.</li></p>
-								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Más de 2000 grueros a nivel nacional.</li></p>
-								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Búsqueda por GPS al gruero más cercano.</li></p>
-								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Nuestros grueros son los más calificados del país.</li></p>
-								
-							</ul>	
-							
-						
-						</div>
-
-			
-		</div>
-
-	</section>	
-	<section id="header2" class="success nav-close">
         <div class="container visible-lg visible-md">
 			<div class="row" class="visible-lg visible-md">
 						<div class="col-md-3 col-lg-3 ">
 							<img src="<?php echo full_url?>/web/img/cel/iphone1.png" class="img-responsive">
 						</div>
 						<div class="col-md-6 col-lg-6">
-							<!--<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>-->
-							<p><h1 class="text-center white-font">¡La  solución perfecta para el auxilio vial!</h1></p>
-							<p><h1 class="text-center white-font">Más de 2000 grúas al alcance de un click</h1></p>
+							<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>
+							<p><h3 class="text-center white-font big-font">¡La  solución perfecta para el auxilio vial!</h3></p>
+							<p><h3 class="text-center white-font">Más de 2000 grúas al alcance de un click</h3></p>
 							<br><br>
 								<p align="center">
                                     
@@ -175,66 +122,6 @@
 						</div>
 			</div>	
 		</div>
-	</section>
-	<section class="success5 nav-close" id="video">
-		<div class="container">
-			<div class="embed-responsive embed-responsive-16by9" >
-				<!--<iframe  src="https://www.youtube.com/watch?v=IZVAZ4XIOwc"></iframe>-->
-				<iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/IZVAZ4XIOwc" frameborder="0" allowfullscreen></iframe>
-			</div>
-
-		</div>
-	</section>
-	<section class="success3 nav-close" id="about">		
-			<div class="row">
-				<div class="col-md-3 col-lg-3">
-						<div class="thumbnail">
-						<a class="" role="button" data-toggle="modal" href="#portfolioModal2" aria-expanded="false" aria-controls="portfolioModal2">
-							<img src="<?php echo full_url;?>/web/img/ic8_big.png" class="icon_media">
-						</a>
-							<div class="caption">
-							
-								<p class="text-center white-font"><small><b class="white-font extra_bold">Sobre nosotros</b></small></p>
-
-							</div>
-						</div>
-				</div>
-				<div class="col-md-3 col-lg-3 portfolio-item">
-						<div class="thumbnail">
-						<a class="portfolio-link" role="button" data-toggle="modal" href="#portfolioModal1" aria-expanded="false" aria-controls="portfolioModal1">
-						  <img src="<?php echo full_url;?>/web/img/ic7_big.png" class="icon_media">
-						</a>
-							<div class="caption">
-							
-								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Qué hacemos?</b></small></p>
-							</div>
-						</div>
-				</div>
-
-				<div class="col-md-3 col-lg-3">
-						<div class="thumbnail">
-						<a class="" role="button" data-toggle="modal" href="#portfolioModal3" aria-expanded="false" aria-controls="portfolioModal3">
-							<img src="<?php echo full_url;?>/web/img/where_big.png" class="icon_media">
-						</a>
-							<div class="caption">
-							
-								<p class="text-center white-font"><small><b class="white-font extra_bold">¿A dónde vamos?</b></small></p>
-							</div>
-
-						</div>
-				</div>				
-				<div class="col-md-3 col-lg-3">
-						<div class="thumbnail">
-							<a class="" role="button" data-toggle="modal" href="#portfolioModal4" aria-expanded="false" aria-controls="portfolioModal4">
-								<img src="<?php echo full_url;?>/web/img/ic10_big.png" class="icon_media">
-							</a>
-							<div class="caption">
-								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Cómo funcionamos?</b></small></p>
-							  
-							</div>
-						</div>
-				</div>					
-			</div>
 	</section>
     <section class="success5 nav-close" id="work">
         <div class="container-fluid">
@@ -301,6 +188,66 @@
 			</div>
         </div>
     </section>
+	<section class="success3 nav-close" id="about">		
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+						<a class="" role="button" data-toggle="modal" href="#portfolioModal2" aria-expanded="false" aria-controls="portfolioModal2">
+							<img src="<?php echo full_url;?>/web/img/ic8_big.png" class="icon_media">
+						</a>
+							<div class="caption">
+							
+								<p class="text-center white-font"><small><b class="white-font extra_bold">Sobre nosotros</b></small></p>
+
+							</div>
+						</div>
+				</div>
+				<div class="col-md-3 col-lg-3 portfolio-item">
+						<div class="thumbnail">
+						<a class="portfolio-link" role="button" data-toggle="modal" href="#portfolioModal1" aria-expanded="false" aria-controls="portfolioModal1">
+						  <img src="<?php echo full_url;?>/web/img/ic7_big.png" class="icon_media">
+						</a>
+							<div class="caption">
+							
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Qué hacemos?</b></small></p>
+							</div>
+						</div>
+				</div>
+
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+						<a class="" role="button" data-toggle="modal" href="#portfolioModal3" aria-expanded="false" aria-controls="portfolioModal3">
+							<img src="<?php echo full_url;?>/web/img/where_big.png" class="icon_media">
+						</a>
+							<div class="caption">
+							
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿A dónde vamos?</b></small></p>
+							</div>
+
+						</div>
+				</div>				
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal4" aria-expanded="false" aria-controls="portfolioModal4">
+								<img src="<?php echo full_url;?>/web/img/ic10_big.png" class="icon_media">
+							</a>
+							<div class="caption">
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Cómo funcionamos?</b></small></p>
+							  
+							</div>
+						</div>
+				</div>					
+			</div>
+	</section>
+	<section class="success5 nav-close" id="video">
+		<div class="container">
+			<div class="embed-responsive embed-responsive-16by9" >
+				<!--<iframe  src="https://www.youtube.com/watch?v=IZVAZ4XIOwc"></iframe>-->
+				<iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/IZVAZ4XIOwc" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+		</div>
+	</section>
 	<section id="testimonials" class="success nav-close"> 
 		<h2 class="text-center white-font big_title">Testimonios</h2>
 		<div class="container">
@@ -772,8 +719,6 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-80903818-1', 'auto');
   ga('send', 'pageview');
-
 </script>

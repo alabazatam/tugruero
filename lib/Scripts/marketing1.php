@@ -13,7 +13,7 @@ function mailMarketing1($values){
 			$q = $ConnectionORM->getConnect()->mail_marketing1
 			->select("*")
 			->where("status=?",0)
-			->limit(15);
+			->limit(50);
 		$array_correos = array();
 		foreach ($q as $emails){
 			
@@ -62,7 +62,8 @@ function mailMarketing1($values){
 		}catch(Exception $e){
 			$error = array(
 				'error' => $e->getMessage(),
-				'fecha' => date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)))
+				'fecha' => date(gmdate('Y-m-d H:i:s', time() - (4 * 3600))),
+				'id_marketing' => 1,
 			);
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->errores_mail()->insert($error);

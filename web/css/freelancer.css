@@ -611,6 +611,12 @@ input[readonly="readonly"] {
   background-color: #404040;
   border-color: #e7e7e7;
 }
+section.success_new{
+   background-image: url("../img/nuevo/bg_gris_claro.png") !important;
+}
+section.success_new2{
+   background-image: url("../img/nuevo/bg_gris_claro2.png");
+}
 section.success{
    background-image: url("../img/bg3_transparente.png");
 }
