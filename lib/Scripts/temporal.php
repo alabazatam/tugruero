@@ -55,14 +55,14 @@ $id_marketing = 1;
             <table width="700">
                <tr>
                    <td style="" align="center">
-                       <a href="http://www.tugruero.com" style="text-decoration: none; color:#262426;" target="_blank"><img alt="www.tugruero.com" src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/header1.png')).'"></a>
+                       <a href="http://www.tugruero.com/tugruero.php" target="_blank"><img alt="www.tugruero.com" src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/header1.png')).'"></a>
                    </td>
                </tr>
                <tr>
                    <td>&nbsp;</td>
                </tr>
                <tr>
-                   <td style="color:#f46830; font-size: 30px;" align="center"><a style="text-decoration: none;color:#f46830;" href="http://www.tugruero.com" target="_blank">Somos <strong>TU/GRUERO®</strong></a></td>
+                   <td style="color:#f46830; font-size: 30px;" align="center"><a href="http://www.tugruero.com/tugruero.php" target="_blank">Somos <strong>TU/GRUERO®</strong></a></td>
                </tr>
                <tr>
                    <td style="font-size: 28px;" align="center">¡El mejor servicio de grúas en todo el país!</td>
@@ -80,7 +80,7 @@ $id_marketing = 1;
                    <td align="center">
                        <table width="90%">
                            <tr>
-                               <td align="center" style="border-width:3px;border-style:dashed;border-color: #F19700;font-weight: 900; font-size: 40px;"><a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank">BENEFICIOS DE <img alt="www.tugruero.com" src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/logo_plus.png')).'"></a></td>
+                               <td align="center" style="border-width:3px;border-style:dashed;border-color: #F19700;font-weight: 900; font-size: 40px;"><a href="http://www.tugruero.com" target="_blank">BENEFICIOS DE <img alt="www.tugruero.com" src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/logo_plus.png')).'"></a></td>
                            </tr>
                        </table>
                    </td>
@@ -88,34 +88,32 @@ $id_marketing = 1;
                <tr>
                    <td>
                        <ul style="font-weight: 900;">
-                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank">Servicios de grúas y taxis en toda Venezuela. 24/7 y los 365 días del año.</a></li>
-                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank">Rescate en menos de 30 minutos.</a></li>
-                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank">Más de 2000 grueros a nivel nacional.</a></li>
-                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank">Búsqueda por GPS al gruero más cercano.</a></li>
-                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank">Nuestros grueros son los más calificados del país.</a></li>
+                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" target="_blank">Servicios de grúas y taxis en toda Venezuela. 24/7 y los 365 días del año.</a></li>
+                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" target="_blank">Rescate en menos de 30 minutos.</a></li>
+                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" target="_blank">Más de 2000 grueros a nivel nacional.</a></li>
+                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" target="_blank">Búsqueda por GPS al gruero más cercano.</a></li>
+                           <li style="padding-bottom: 10px;"><a href="http://www.tugruero.com" target="_blank">Nuestros grueros son los más calificados del país.</a></li>
                        </ul>
                    </td>
                </tr>
                <tr>
                    <td align="center">
-                       <a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_grua.png')).'" alt="www.tugruero.com"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                       <a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_call.png')).'" alt="www.tugruero.com"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                       <a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_gps.png')).'" alt="www.tugruero.com"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                       <a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_check.png')).'" alt="www.tugruero.com"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="http://www.tugruero.com" target="_blank"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_grua.png')).'" alt="www.tugruero.com"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="http://www.tugruero.com" target="_blank"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_call.png')).'" alt="www.tugruero.com"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="http://www.tugruero.com" target="_blank"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_gps.png')).'" alt="www.tugruero.com"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="http://www.tugruero.com" target="_blank"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_check.png')).'" alt="www.tugruero.com"></a>&nbsp;&nbsp;&nbsp;&nbsp;
                    </td>
                </tr>
                <tr>
-                   <td align="center" style="background-color: #E7E9EB; font-size: 20px"><a href="http://www.tugruero.com" style="text-decoration: none;color:#262426;" target="_blank">Visita nuestra página web <label style="text-decoration: none; color:#f46830;font-weight: 800; font-size: 25px; ">www.tugruero.com</label></a></td>
+                   <td align="center" style="background-color: #E7E9EB; font-size: 20px"><a href="http://www.tugruero.com" target="_blank">Visita nuestra página web <label style="text-decoration: none; color:#f46830;font-weight: 800; font-size: 25px; ">www.tugruero.com</label></a></td>
                </tr>
                <tr>
                    <td align="center" style="color:#666467;font-size: 14px;">Llámanos al <strong>0212-237-0491 / 0212-237-9762</strong> </td>
                </tr>
                <tr>
                    <td align="center" style="font-size: 12px;">Av. Francisco de Miranda Edif. Provincial, piso 8, ofic 8-B Los dos Caminos. Caracas, Venezuela</td>
-               </tr>
-           </table>   
-           <p align="center"><strong style="font-size: 14px;">2016. TU/GRUERO®.</strong> <strong style="color: #4C4C4C;font-size: 14px;">Todos los Derechos Reservados.</strong></p>                            
-
+               </tr>               
+           </table>           
         </div>
 
     </body>
