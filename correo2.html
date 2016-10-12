@@ -1,47 +1,4 @@
-<?php
-include("../notorm-master/NotORM.php");
-include("../ConnectionORM.class.php");
-include("../vendors/swiftmailer/lib/swift_required.php");
-
-mailMarketing1(null);
-
-
-
-function mailMarketing1($values){
-$id_marketing = 2;
-			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->mail_marketing1
-			->select("*")
-			->where("status=?",0)
-			->and('id_marketing=?',$id_marketing)
-			->limit(50)
-			->order("id desc");
-		$array_correos = array();
-		foreach ($q as $emails){
-			
-			$array_correos[] = $emails['correo'];
-			
-		}
-
-		//print_r($array_correos);die;
-		try{
-        //$smtp = "server-0116a.gconex.net";
-		$smtp = "mail.tugruero.com";
-        $port = 465;
-        $secure = "ssl";
-        $username = "mercadeo@tugruero.com";
-        $password = "tugruero123";
-		$mail_from = 'mercadeo@tugruero.com'; 
-	
-        $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
-          ->setUsername($username)
-          ->setPassword($password);
-        // Create the Mailer using your created Transport
-        $mailer = Swift_Mailer::newInstance($transport);
-       //$email = array('deandrademarcos@gmail.com','deandrademarcos@hotmail.com');
-		$email = $array_correos;
-			$message = Swift_Message::newInstance('TU/GRUERO® Plus. ¡Tu plan de grúas ilimitado!');
-			$message->setBody('<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     
     <head>
@@ -54,7 +11,7 @@ $id_marketing = 2;
             <table width="700">
                <tr>
                    <td style="" align="center">
-                       <a href="http://www.tugruero.com/tugruero.php" target="_blank"><img alt="www.tugruero.com" src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/header2.png')).'"></a>
+                       <a href="http://www.tugruero.com/tugruero.php" target="_blank"><img src="http://www.tugruero.com/web/img/mail/header2.png"></a>
                    </td>
                </tr>
                <tr>
@@ -87,9 +44,9 @@ $id_marketing = 2;
                                     </ul>   
                                </td>
                                <td align="center">
-                                   <img alt="www.tugruero.com" src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_rapidez.png')).'"><br>
-                                   <img alt="www.tugruero.com" src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_comodidad.png')).'"><br>
-                                   <img alt="www.tugruero.com" src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/mail/icono_seguridad.png')).'"><br>
+                                   <img src="http://www.tugruero.com/web/img/mail/icono_rapidez.png"><br>
+                                   <img src="http://www.tugruero.com/web/img/mail/icono_comodidad.png"><br>
+                                   <img src="http://www.tugruero.com/web/img/mail/icono_seguridad.png"><br>
                                </td>
                            </tr>
                            
@@ -146,44 +103,3 @@ $id_marketing = 2;
 
     </body>
 </html>
-
-',"text/html");			
-			
-        $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
-		$message->setTo($email);
-		//$message->setBcc('info@tugruero.com');
-        // Send the message
-
-			
-		$result = $mailer->send($message);	
-		}catch(Exception $e){
-			$error = array(
-				'error' => $e->getMessage(),
-				'fecha' => date(gmdate('Y-m-d H:i:s', time() - (4 * 3600))),
-				'id_marketing' => 1
-			);
-			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->errores_mail()->insert($error);
-			die;
-		}
-		
-		
-
-		
-		
-		foreach($q as $correo){
-			$update = array(
-				'status' => 1,
-				'fec_envio' => date(gmdate('Y-m-d H:i:s', time() - (4 * 3600)))
-				);
-			$id = $correo['id'];
-			$ConnectionORM = new ConnectionORM();
-			$q = $ConnectionORM->getConnect()->mail_marketing1("id" , $id)->update($update);
-		}
-		return $result;
-		
-
-		
-		
-		
-		}
