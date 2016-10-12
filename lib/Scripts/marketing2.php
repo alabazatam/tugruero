@@ -21,7 +21,7 @@ $id_marketing = 2;
 			
 			$array_correos[] = $emails['correo'];
 			
-		}
+		
 
 		//print_r($array_correos);die;
 		try{
@@ -39,7 +39,7 @@ $id_marketing = 2;
         // Create the Mailer using your created Transport
         $mailer = Swift_Mailer::newInstance($transport);
        //$email = array('deandrademarcos@gmail.com','deandrademarcos@hotmail.com');
-		$email = $array_correos;
+		$email = $emails['correo'];
 			$message = Swift_Message::newInstance('TU/GRUERO® Plus. ¡Tu plan de grúas ilimitado!');
 			$message->setBody('<!DOCTYPE html>
 <html>
@@ -160,14 +160,14 @@ $id_marketing = 2;
 			$error = array(
 				'error' => $e->getMessage(),
 				'fecha' => date(gmdate('Y-m-d H:i:s', time() - (4 * 3600))),
-				'id_marketing' => 1
+				'id_marketing' => $id_marketing
 			);
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->errores_mail()->insert($error);
 			die;
 		}
 		
-		
+		}
 
 		
 		
