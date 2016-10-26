@@ -94,7 +94,6 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/ServiciosClientes.
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Solicitud.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Bitacora.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Baremo.class.php");
-
 /*validation class*/
 
 //include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/vendor/GUMP/gump.class.php");

@@ -208,6 +208,20 @@
                             </div> 
                         </div>
                     </div>
+			<div class="col-sm-8 col-sm-offset-4">
+				<div class="col-sm-4">
+                        <label class="label label-danger">
+                            <input type="radio"  name="EstatusPoliza" id="EstatusPoliza" value="Inactivo" <?php if(isset($values['EstatusPoliza']) and $values['EstatusPoliza'] =='Inactivo' ) echo "checked=checked"?>>
+                            Inactivo
+                        </label>
+                </div>
+                <div class="col-sm-4">
+                    <label class="label label-success">
+                        <input type="radio" name="EstatusPoliza" id="EstatusPoliza" value="Activo" <?php if(isset($values['EstatusPoliza']) and $values['EstatusPoliza'] =='Activo' ) echo "checked=checked"?>>
+                        Activo
+                    </label>
+                </div>
+			</div>
                     <div class="form-group">
                           <div class="col-sm-6">
                                   <label class="text-danger">Campos requeridos (*)</label>

@@ -28,12 +28,6 @@ $values = array_merge($values,$_FILES);
 		break;		
 		case "list_json":
 			executeListJson($values);	
-		break;
-		case "poliza_masiva":
-			executePolizaMasiva($values);	
-		break;
-		case "subir_polizas":
-			executeSubirPolizas($values);	
 		break;		
 		default:
 			executeIndex($values);
@@ -47,36 +41,35 @@ $values = array_merge($values,$_FILES);
 	{       
         $values['status'] = '1';
 		$values['action'] = 'add';
-		$values['EstatusPoliza'] = 'Activo';
 		require('form_view.php');
 	}
 	function executeSave($values = null)
 	{
-		$Polizas = new Polizas();
-		$values = $Polizas->savePolizas($values);
+		$Seguros = new Seguros();
+		$values = $Seguros->saveSeguros($values);
 		executeEdit($values,message_created);die;
 	}
 	function executeEdit($values = null,$msg = null)
 	{
 		
-		$Polizas = new Polizas();
-		$values = $Polizas->getPolizasById($values);
+		$Seguros = new Seguros();
+		$values = $Seguros->getSegurosById($values);
 		$values['action'] = 'update';
-                $values['msg'] = $msg;
+		$values['msg'] = $msg;
 		
 		require('form_view.php');
 	}
 	function executeUpdate($values = null)
 	{
-		$Polizas = new Polizas();
-		$Polizas->updatePolizas($values);
+		$Seguros = new Seguros();
+		$Seguros->updateSeguros($values);
 		executeEdit($values,message_updated);die;
 	}	
 	function executeListJson($values)
 	{
-		$Polizas = new Polizas();
-		$list_json = $Polizas ->getPolizasList($values);
-		$list_json_cuenta = $Polizas ->getCountPolizasList($values);
+		$Seguros = new Seguros();
+		$list_json = $Seguros ->getSegurosList($values);
+		$list_json_cuenta = $Seguros ->getCountSegurosList($values);
 		$array_json = array();
 		$array_json['recordsTotal'] = $list_json_cuenta;
 		$array_json['recordsFiltered'] = $list_json_cuenta;
@@ -84,46 +77,46 @@ $values = array_merge($values,$_FILES);
 		{
 			foreach ($list_json as $list) 
 			{
-				$EstatusPoliza = null;
-				if($list['dias_vencimiento'] > 0)
+				$id_seguro = $list['id_seguro'];
+				$status = $list['status'];
+				if($status == 'Desactivado')
 				{
-					$EstatusPoliza = 'Vencido';
+					$message_status = "<label class='label label-danger'>Desactivado</label>";
 				}
-				$idPoliza = $list['idPoliza'];
+				if($status == 'Activo')
+				{
+					$message_status = "<label class='label label-success'>Activo</label>";
+				}
 				$array_json['data'][] = array(
-					"idPoliza" => $idPoliza,
-					"Seguro" => $list['Seguro'],
-					"NumPoliza" => $list['NumPoliza'],
-					"Placa" => $list['Placa'],
-					"Cedula" => $list['Cedula'],
-					"EstatusPoliza" => $EstatusPoliza,
-                    "NombreApellido" => $list['Nombre'].' '.$list['Apellido'],
-                    "Vencimiento" => $list['Vencimiento'],
+					"id_seguro" => $id_seguro,
+					"name" => $list['name'],
+					"status" => $message_status,
 					"actions" => 
-                                       '<form method="POST" action = "'.full_url.'/adm/Polizas/index.php" >'
+                                       '<form method="POST" action = "'.full_url.'/adm/seguros/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
-                                       .'<input type="hidden" name="idPoliza" value="'.$idPoliza.'">  '
-                                       .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'
-									   . '<a class="btn btn-default btn-sm" title="Ver servicios" href="'.full_url.'/adm/ServiciosClientes/index.php?idPoliza='.$idPoliza.'"><i class="fa fa-mobile   fa-pull-left fa-border"></i></a>'
-									   .'<a class="btn btn-default btn-sm" title="Generar servicio" href="'.full_url.'/adm/solicitud/index.php?action=new&idPoliza='.$idPoliza.'"><i class="fa fa-map-marker   fa-pull-left fa-border"></i></a>'
-                                       
+                                       .'<input type="hidden" name="id_seguro" value="'.$id_seguro.'">  '
+                                       .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
 										.'</form>'
 					);	
 			}		
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("idPoliza"=>null,"Seguro"=>"","NumPoliza"=>"","Placa"=>"","Cedula"=>"","EstatusPoliza" => null,"NombreApellido"=>"","Vencimiento"=>"","actions"=>"");
+			$array_json['data'][0] = array(
+				"id_seguro"=>null,
+				"name"=>"",
+				"status"=>"",
+				"actions"=>"");
 		}
 		echo json_encode($array_json);die;
 		
 	}
-	function executePolizaMasiva($values = null,$errors = null)
+	function executeSeguroMasiva($values = null,$errors = null)
 	{
 		$values['action'] = 'subir_polizas';
 		require('masiva_form.php');
 	}
-	function executeSubirPolizas($values = null)
+	function executeSubirSeguros($values = null)
 	{
 		$values['action'] = 'subir_polizas';
 		$valid = true;
@@ -280,7 +273,7 @@ $values = array_merge($values,$_FILES);
 							   }
 							$array[$i] = array(
 								"Seguro" => $seguro,
-								"NumPoliza" => $numpoliza,
+								"NumSeguro" => $numpoliza,
 								"Nacionalidad" => $nacionalidad,
 								"Cedula" => $nacionalidad."-".$cedula,
 								"Nombre" => $nombres,
@@ -324,13 +317,13 @@ $values = array_merge($values,$_FILES);
 			}
 			if($valid == true)
 			{
-				$Polizas = new Polizas();
-				$Polizas->insertPoliza($array);
+				$Seguros = new Seguros();
+				$Seguros->insertSeguro($array);
 				$values["msg"] = "Datos cargados satisfactoriamente";
 			}else
 			{
 				//print_r($array_errores);die;
 			}		
-			executePolizaMasiva($values,$arreglo_errores);
+			executeSeguroMasiva($values,$arreglo_errores);
 		
 	}

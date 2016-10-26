@@ -120,6 +120,14 @@
 			return $q; 				
 			
 		}
+		public function getPolizasBySeguroName($Seguro){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Polizas
+			->select("*")
+			->where("Seguro=?",$Seguro);
+			return $q; 				
+			
+		}
 		function deletePolizas($id){
 			unset($values['action']);
 			$ConnectionORM = new ConnectionORM();
@@ -167,7 +175,8 @@
 				'date_created' => $hora,
 				'date_updated' => $hora,
 				'created_by' => 1,
-				'updated_by' => 1
+				'updated_by' => 1,
+				'EstatusPoliza' => $values['EstatusPoliza'],
 			);
 			
 			$ConnectionORM = new ConnectionORM();
@@ -235,7 +244,8 @@
 				'DesdeVigencia' => $values['DesdeVigencia'],
 				'date_updated' => $hora,
 				'created_by' => 1,
-				'updated_by' => 1
+				'updated_by' => 1,
+				'EstatusPoliza' => $values['EstatusPoliza'],
 			);
 			$idPoliza = $values['idPoliza'];
 			$ConnectionORM = new ConnectionORM();
