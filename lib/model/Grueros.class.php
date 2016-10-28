@@ -28,6 +28,7 @@
 			$columns[5] = 'Disponible';
 			$columns[6] = 'location';
 			$columns[7] = 'zone_work';
+			$columns[8] = 'condicion';
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -74,7 +75,11 @@
 				$where.=" AND upper(zone_work)  like ('%".$values['columns'][7]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}				
-				
+			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
+			{
+				$where.=" AND upper(Condicion)  like ('%".$values['columns'][8]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}				
 			
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -137,7 +142,12 @@
 			{
 				$where.=" AND upper(zone_work)  like ('%".$values['columns'][7]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
-			}		
+			}
+			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
+			{
+				$where.=" AND upper(Condicion)  like ('%".$values['columns'][8]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
             $ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Grueros
 			->select("count(*) as cuenta")
@@ -181,7 +191,39 @@
 			return $q;
 			
 		}
+		function cambiaStatus($values){
+			$idGrua = $values['idGrua'];
+			
+			if($values['statusCambiar'] == 0)
+			{
+				$Condicion = 'Inactivo';
+			}else
+			{
+				$Condicion = 'Activo';
+			}
+			
+			$array_grueros = array(
+				'Condicion' => $Condicion,
 
+			);
+			$ConnectionAws= new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Grueros("idGrua", $idGrua)->update($array_grueros);
+			
+			$array_users = array(
+				
+				'status' => $values['statusCambiar']
+			);
+			
+			$ConnectionORM= new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->users("id_user", $idGrua)->update($array_users);			
+			
+			
+			
+			
+			
+			return $q;
+			
+		}
 		
 	}
 			

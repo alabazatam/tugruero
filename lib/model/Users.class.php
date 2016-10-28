@@ -37,7 +37,8 @@
 			if(isset($values['search']['value']) and $values['search']['value'] !='')
 			{	
 				$str = $values['search']['value'];
-				$where = "upper(login) like upper('%$str%')"
+				$where = "upper(login) like upper('%$str%') "
+					. " or concat(upper(first_name),'',upper(first_last_name)) like upper('%$str%') "
 					. " or upper(rif) like upper('%$str%') ";
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
@@ -69,6 +70,7 @@
 			{	
 				$str = $values['search']['value'];
 				$where = "upper(login) like upper('%$str%') "
+					. " or concat(upper(first_name),'',upper(first_last_name)) like upper('%$str%') "
 					. " or upper(rif) like upper('%$str%') ";
 			}
             $ConnectionORM = new ConnectionORM();

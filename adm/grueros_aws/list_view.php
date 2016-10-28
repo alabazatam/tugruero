@@ -13,6 +13,7 @@
 					<th>Disponible</th>
 					<th>Estado</th>
 					<th>Zona</th>
+					<th>Condición</th>
 					<th>DeviceId</th>
 					<th>Detalle</th>
 				</tr>
@@ -27,6 +28,7 @@
 					<th><input id="disponible" name="disponible" type="text"></th>
 					<th><input id="location" name="location" type="text"></th>
 					<th><input id="zone_work" name="zone_work" type="text"></th>
+					<th><input id="condicion" name="condicion" type="text"></th>
 					<th>DeviceId</th>
 					<th>Detalle</th>
 					
@@ -72,13 +74,15 @@
 			{ "data": "Disponible" },
 			{ "data": "Location" },
 			{ "data": "ZoneWork" },
+			{ "data": "Condicion" },
 			{ "data": "DeviceId" },
+			
             { "data": "actions" }
 
 			
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 8,9 ] }
+          { 'bSortable': false, 'aTargets': [ 9,10 ] }
        ]				
     });
 
@@ -127,6 +131,11 @@ $('#column_8').on ('keypress', function(e){
         table.column(table.column(8)).search($(this).val()).draw();
     }
 });
+$('#column_9').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(8)).search($(this).val()).draw();
+    }
+});
 
 	$('#clear').click(function(){
 		table.search( '' ).columns().search( '' ).draw();
@@ -145,6 +154,7 @@ function resetSessionAws(idGrua)
 		  data: {idGrua:idGrua,action: 'reset'},
 		  success: function(){
 				table.search( '' ).columns().search( '' ).draw();
+				$('.filtros').val('');
 				alert('Sesión reseteada para el usuario #' + idGrua);
 				
 		  },
@@ -157,6 +167,26 @@ function resetSessionAws(idGrua)
 	
 
 }
-
+function cambiaStatus(idGrua, statusCambiar)
+{
+	
+	if(confirm('¿Está seguro(a) de cambiar la condición del gruero #'+idGrua + '?'))
+	{
+		$.ajax({
+		  type: "POST",
+		  url: '<?php echo full_url?>/adm/grueros_aws/index.php',
+		  data: {idGrua:idGrua,action: 'cambia_status',statusCambiar:statusCambiar},
+		  success: function(){
+				table.search( '' ).columns().search( '' ).draw();
+				$('.filtros').val('');
+				alert('Condición cambiada satisfactoriamente para el gruero #' + idGrua);
+				
+		  },
+		});		
+	}else
+	{
+		return false;
+	}
+}
 
 </script>
