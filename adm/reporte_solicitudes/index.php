@@ -16,7 +16,10 @@ $values = array_merge($values,$_FILES);
 		break;
 		case "list_json":
 			executeListJson($values);	
-		break;		
+		break;
+		case "pdf":
+			executePdf($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -85,3 +88,7 @@ $values = array_merge($values,$_FILES);
 		echo json_encode($array_json);die;
 		
 	}
+	function executePdf($values = null)
+	{
+		print_r($values);die;
+	}  

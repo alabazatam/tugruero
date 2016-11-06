@@ -59,7 +59,12 @@
 				</tr>
 			</tfoot>
 		</table> 
-        <button value="PDF" id="pdf">PDF</button>         
+        <form id="" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
+            <div id="campos"></div> 
+            
+            <input type="text" name="action" value="pdf"> 
+            <input type="submit" value="PDF"> 
+        </form>         
 </div>
 	<?php include('../../view_footer_solicitud.php')?>
 <script>
@@ -71,7 +76,8 @@
 		
 		if(title != 'Detalle')
 		{
-			$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+			$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );
+                        $('#campos').append( '<input size="10" class="input-sm filtros" id="field_'+$(this).index()+'" type="text" placeholder="'+title+'" name="field_'+$(this).index()+'"/> ' );	
 		}
 		if(title == 'Detalle')
 		{
@@ -131,64 +137,87 @@
 $('#column_0').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(0)).search($(this).val()).draw();
+        $('#field_0').val($(this).val());
     }
 });
 $('#column_1').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(1)).search($(this).val()).draw();
+        $('#field_1').val($(this).val());
     }
 });
 $('#column_2').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(2)).search($(this).val()).draw();
+        $('#field_2').val($(this).val());
     }
 });
 $('#column_3').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(3)).search($(this).val()).draw();
+        $('#field_3').val($(this).val());
     }
 });
 $('#column_4').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(4)).search($(this).val()).draw();
+        $('#field_4').val($(this).val());
     }
 });
 $('#column_5').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(5)).search($(this).val()).draw();
+        $('#field_5').val($(this).val());
     }
 });
 $('#column_6').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(6)).search($(this).val()).draw();
+        $('#field_6').val($(this).val());
     }
 });
 $('#column_7').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(7)).search($(this).val()).draw();
+        $('#field_7').val($(this).val());
     }
 });
 $('#column_8').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(8)).search($(this).val()).draw();
+        $('#field_8').val($(this).val());
     }
 });
 $('#column_9').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(9)).search($(this).val()).draw();
+        $('#field_9').val($(this).val());
     }
 });
 $('#column_10').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(10)).search($(this).val()).draw();
+        $('#field_10').val($(this).val());
     }
 });
 $('#column_11').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(11)).search($(this).val()).draw();
+        $('#field_11').val($(this).val());
     }
 });
-
+$('#column_12').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(12)).search($(this).val()).draw();
+        $('#field_12').val($(this).val());
+    }
+});
+$('#column_13').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(13)).search($(this).val()).draw();
+        $('#field_13').val($(this).val());
+    }
+});
 	$('#clear').click(function(){
 		table.search( '' ).columns().search( '' ).draw();
 		$('.filtros').val('');
