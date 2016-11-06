@@ -478,5 +478,241 @@
 			return $q;
 			
 		}
+		function updateMontoFinal($values){			
+
+ 			$idSolicitud =  $values['idSolicitud'];
+			$array_solicitud = array(
+                                'Utilidad' => $values['utilidad'],
+				'MontoFinal' => $values['MontoFinal'],
+			);
+			
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Solicitudes("idSolicitud", $idSolicitud)->update($array_solicitud);
+			return $q;
+			
+		}
+		function updateMontoTaxi($values){			
+
+ 			$idSolicitud =  $values['idSolicitud'];
+			$array_solicitud = array(
+				'MontoTaxi' => $values['MontoTaxi'],
+			);
+			
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Solicitudes("idSolicitud", $idSolicitud)->update($array_solicitud);
+			return $q;
+			
+		}
+		public function getSolicitudesServiciosList($values)
+		{	
+			$columns = array();
+			$columns[0] = 'Solicitudes.idSolicitud';
+			$columns[1] = 'Polizas.idPoliza';
+			$columns[2] = 'Polizas.Cedula';
+			$columns[3] = 'Polizas.Nombre';
+			$columns[4] = 'Polizas.Placa';
+			$columns[5] = 'Polizas.Modelo';
+			$columns[6] = 'Seguro';
+			$columns[7] = 'EstadoOrigen';
+			$columns[8] = 'Direccion';
+                        $columns[9] = 'MontoTaxi';
+                        $columns[10] = 'MontoFinal';
+                        $columns[11] = 'TimeOpen';
+			$column_order = $columns[0];
+			$where = '1 = 1';
+			$order = 'asc';
+			$limit = $values['length'];
+			$offset = $values['start'];
+			
+			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
+			{
+				$where.=" AND Solicitudes.idSolicitud = ".$values['columns'][0]['search']['value']."";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+ 			if(isset($values['columns'][1]['search']['value']) and $values['columns'][1]['search']['value']!='')
+			{
+				$where.=" AND Solicitudes.idPoliza = ".$values['columns'][1]['search']['value']."";
+				//echo $values['columns'][0]['search']['value'];die;
+			}			
+			if(isset($values['columns'][2]['search']['value']) and $values['columns'][2]['search']['value']!='')
+			{
+				$where.=" AND upper(Polizas.Cedula) like ('%".$values['columns'][2]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}					
+			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
+			{
+				$where.=" AND upper(CONCAT(Polizas.Nombre, ' ', Polizas.Apellido )) like ('%".$values['columns'][3]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['columns'][4]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
+			{
+				$where.=" AND upper(Polizas.Modelo)  like ('%".$values['columns'][5]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
+			{
+				$where.=" AND upper(Seguro)  like ('%".$values['columns'][6]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}								
+			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
+			{
+				$where.=" AND upper(EstadoOrigen)  like ('%".$values['columns'][7]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}				
+			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
+			{
+				$where.=" AND upper(Direccion)  like ('%".$values['columns'][8]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][9]['search']['value']) and $values['columns'][9]['search']['value']!='')
+			{
+				$where.=" AND upper(MontoTaxi)  like ('%".$values['columns'][9]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][10]['search']['value']) and $values['columns'][10]['search']['value']!='')
+			{
+				$where.=" AND upper(MontoFinal)  like ('%".$values['columns'][10]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][11]['search']['value']) and $values['columns'][11]['search']['value']!='')
+			{
+				$where.=" AND TimeOpen ='".$values['columns'][11]['search']['value']."'";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+                        $Utilitarios = new Utilitarios();
+    			if($values['desde']!='')
+			{					
+                            $values['desde'] = $Utilitarios->formatFechaInput($values['desde']);
+			}
+			if($values['hasta']!='')
+			{
+                            $values['hasta'] = $Utilitarios->formatFechaInput($values['hasta']);	
+			}
+			//echo $values['desde'].$values['hasta'];die;
+			
+			if($values['desde']!='')
+			{
+				$where.=" AND Solicitudes.TimeOpen >= '".$values['desde']." 00:00:00' ";
+			}
+			if($values['hasta']!='')
+			{
+				$where.=" AND Solicitudes.TimeOpen <= '".$values['hasta']." 24:59:59'";
+			}
+ 
+                        
+			if(isset($values['order'][0]['dir']) and $values['order'][0]['dir']!='0')
+			{
+				$order = $values['order'][0]['dir'];//asc o desc
+			}
+			//echo $column_order;die;
+                        $ConnectionAws= new ConnectionAws();
+			$q = $ConnectionAws->getConnect('tugruero')->Solicitudes
+			->select("*,CONCAT(Polizas.Nombre, ' ', Polizas.Apellido ) as cliente, Polizas.Modelo as Modelo, Polizas.Cedula as Cedula, Polizas.Placa as Placa,DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') as TimeOpen")
+			->join("Servicios","INNER JOIN Servicios on Servicios.idSolicitud = Solicitudes.idSolicitud")
+			->join("Polizas","INNER JOIN Polizas on Polizas.idPoliza = Solicitudes.idPoliza")
+			->join("Grueros","INNER JOIN Grueros on Grueros.idGrua= Servicios.idGrua")
+                        ->where("$where")
+                        ->order("$column_order $order")			
+			->limit($limit,$offset);
+			//echo $q;die;
+			return $q; 			
+		}
+		public function getCountSolicitudesServiciosList($values)
+		{	
+			$where = '1 = 1';
+			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
+			{
+				$where.=" AND Solicitudes.idSolicitud = ".$values['columns'][0]['search']['value']."";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+ 			if(isset($values['columns'][1]['search']['value']) and $values['columns'][1]['search']['value']!='')
+			{
+				$where.=" AND Solicitudes.idPoliza = ".$values['columns'][1]['search']['value']."";
+				//echo $values['columns'][0]['search']['value'];die;
+			}			
+			if(isset($values['columns'][2]['search']['value']) and $values['columns'][2]['search']['value']!='')
+			{
+				$where.=" AND upper(Polizas.Cedula) like ('%".$values['columns'][2]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}					
+			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
+			{
+				$where.=" AND upper(CONCAT(Polizas.Nombre, ' ', Polizas.Apellido )) like ('%".$values['columns'][3]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['columns'][4]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
+			{
+				$where.=" AND upper(Polizas.Modelo)  like ('%".$values['columns'][5]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}	
+			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
+			{
+				$where.=" AND upper(Seguro)  like ('%".$values['columns'][6]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}								
+			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
+			{
+				$where.=" AND upper(EstadoOrigen)  like ('%".$values['columns'][7]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}				
+			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
+			{
+				$where.=" AND upper(Direccion)  like ('%".$values['columns'][8]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][9]['search']['value']) and $values['columns'][9]['search']['value']!='')
+			{
+				$where.=" AND upper(MontoTaxi)  like ('%".$values['columns'][9]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][10]['search']['value']) and $values['columns'][10]['search']['value']!='')
+			{
+				$where.=" AND upper(MontoFinal)  like ('%".$values['columns'][10]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+                        $Utilitarios = new Utilitarios();
+    			if($values['desde']!='')
+			{					
+                            $values['desde'] = $Utilitarios->formatFechaInput($values['desde']);
+			}
+			if($values['hasta']!='')
+			{
+                            $values['hasta'] = $Utilitarios->formatFechaInput($values['hasta']);	
+			}
+			//echo $values['desde'].$values['hasta'];die;
+			
+			if($values['desde']!='')
+			{
+				$where.=" AND Solicitudes.TimeOpen >= '".$values['desde']." 00:00:00' ";
+			}
+			if($values['hasta']!='')
+			{
+				$where.=" AND Solicitudes.TimeOpen <= '".$values['hasta']." 24:59:59'";
+			}
+			if(isset($values['columns'][11]['search']['value']) and $values['columns'][11]['search']['value']!='')
+			{
+				$where.=" AND TimeOpen ='".$values['columns'][11]['search']['value']."'";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+            $ConnectionAws= new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Solicitudes
+			->select("count(*) as cuenta")
+			->join("Servicios","INNER JOIN Servicios on Servicios.idSolicitud = Solicitudes.idSolicitud")
+			->join("Polizas","INNER JOIN Polizas on Polizas.idPoliza = Solicitudes.idPoliza")
+			->join("Grueros","INNER JOIN Grueros on Grueros.idGrua= Servicios.idGrua")
+			->where("$where")
+                        ->fetch();
+			return $q['cuenta']; 			
+		}
 	}
 	
