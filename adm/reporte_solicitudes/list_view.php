@@ -59,13 +59,31 @@
 				</tr>
 			</tfoot>
 		</table> 
-        <form id="" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
-            <div id="campos"></div> 
-            
-            <input type="text" name="action" value="pdf"> 
-            <input type="submit" value="PDF"> 
-        </form>         
+      
 </div>
+
+        <form id="" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
+            <div id="campos">
+				
+			</div> 
+            
+			<div class="form-group">
+				<div class="col-sm-6">
+					<input type="hidden" name="action" value="pdf">
+					<select name="formato" class="form-control input-sm">
+						<option value="1">Genérico</option>
+						<option value="2">Universal de Seguros</option>
+					</select>
+					<input type="submit" value="Imprimir PDF" class="btn btn-sm btn-success"> 	
+
+					
+				</div>
+				
+			</div>
+
+        </form>   
+
+
 	<?php include('../../view_footer_solicitud.php')?>
 <script>
 
@@ -77,7 +95,7 @@
 		if(title != 'Detalle')
 		{
 			$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );
-                        $('#campos').append( '<input size="10" class="input-sm filtros" id="field_'+$(this).index()+'" type="text" placeholder="'+title+'" name="field_'+$(this).index()+'"/> ' );	
+            $('#campos').append( '<input size="10" class="input-sm filtros" id="field_'+$(this).index()+'" type="hidden" placeholder="'+title+'" name="field_'+$(this).index()+'"/> ' );	
 		}
 		if(title == 'Detalle')
 		{

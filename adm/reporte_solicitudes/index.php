@@ -90,5 +90,9 @@ $values = array_merge($values,$_FILES);
 	}
 	function executePdf($values = null)
 	{
+		
+		
+		$PDFSolicitud = new PDFSolicitud();
+		$PDFSolicitud ->formatoGenerico($values);
 		print_r($values);die;
 	}  
