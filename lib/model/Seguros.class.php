@@ -25,6 +25,15 @@
 			return $q; 				
 			
 		}
+		public function getSegurosListSelect2(){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Seguros
+			->select("*")
+			->order('name');
+			
+			return $q; 				
+			
+		}
 		public function getSegurosList($values)
 		{	
 			$columns = array();

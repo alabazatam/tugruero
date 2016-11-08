@@ -3,17 +3,44 @@
 <div class="container">
 	<h1 class="text-center big_title">Reporte de servicios</h1>
  	<div class="col-sm-12 col-md-12 alert alert-info">
-		<div class="col-sm-4 col-md-4">
-			<label>Fecha desde: </label>
-                        <input id="desde" name="desde" type="text" class="filtros">
-		</div>
-		<div class="col-sm-4 col-md-4">
-			<label>Fecha hasta: </label>
-			<input id="hasta" name="hasta" type="text" class="filtros">
-		</div>
-		<div class="col-sm-4 col-md-4">
-			<a id="buscar" class="btn btn-success"><i class="fa fa-filter"></i> Filtrar por fechas</a>
-		</div>			
+
+        <form id="" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
+            <div id="campos">
+				
+			</div> 
+			<div class="col-sm-4 col-md-4">
+				<label>Fecha desde: </label>
+							<input id="desde" name="desde" type="text" class="filtros">
+			</div>
+			<div class="col-sm-4 col-md-4">
+				<label>Fecha hasta: </label>
+				<input id="hasta" name="hasta" type="text" class="filtros">
+			</div>
+			<div class="col-sm-4 col-md-4">
+				<a id="buscar" class="btn btn-success"><i class="fa fa-filter"></i> Filtrar por fechas</a>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-6">
+					<input type="hidden" name="action" value="pdf">
+					<select name="formato" class="form-control input-sm">
+						<option value="1">Genérico</option>
+						<?php foreach($seguros_list as $list):?>
+						<option value="<?php echo $list['name']?>"><?php echo $list['name']?></option>
+						<?php endforeach;?>
+					</select>
+					<input type="submit" value="Imprimir PDF" class="btn btn-sm btn-success"> 	
+
+					
+				</div>
+				
+			</div>
+
+        </form> 
+		
+		
+		
+		
+			
 
             
 
@@ -61,27 +88,7 @@
 		</table> 
       
 </div>
-
-        <form id="" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
-            <div id="campos">
-				
-			</div> 
-            
-			<div class="form-group">
-				<div class="col-sm-6">
-					<input type="hidden" name="action" value="pdf">
-					<select name="formato" class="form-control input-sm">
-						<option value="1">Genérico</option>
-						<option value="2">Universal de Seguros</option>
-					</select>
-					<input type="submit" value="Imprimir PDF" class="btn btn-sm btn-success"> 	
-
-					
-				</div>
-				
-			</div>
-
-        </form>   
+  
 
 
 	<?php include('../../view_footer_solicitud.php')?>
@@ -95,7 +102,7 @@
 		if(title != 'Detalle')
 		{
 			$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );
-            $('#campos').append( '<input size="10" class="input-sm filtros" id="field_'+$(this).index()+'" type="hidden" placeholder="'+title+'" name="field_'+$(this).index()+'"/> ' );	
+            $('#campos').append( '<input size="10" class="input-sm filtros" id="field_'+$(this).index()+'" type="text"  name="field_'+$(this).index()+'"/> ' );	
 		}
 		if(title == 'Detalle')
 		{
@@ -244,13 +251,7 @@ $('#column_13').on ('keypress', function(e){
 $('#buscar').click(function(){
 	 table.draw();
 });
-$('#pdf').click(function(){
-        var array = [];
-        table.column(0,  { search:'applied' } ).data().each(function(value, index) {
-            array.push(value);
-        });
-        console.log(array);
-        });
+
 function changeUtilidad(idSolicitud, monto, utilidad)
 {
 	

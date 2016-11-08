@@ -680,7 +680,7 @@
 				$where.=" AND upper(MontoFinal)  like ('%".$values['columns'][10]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
-                        $Utilitarios = new Utilitarios();
+            $Utilitarios = new Utilitarios();
     			if($values['desde']!='')
 			{					
                             $values['desde'] = $Utilitarios->formatFechaInput($values['desde']);
@@ -713,6 +713,112 @@
 			->where("$where")
                         ->fetch();
 			return $q['cuenta']; 			
+		}
+		public function getSolicitudesServiciosListPDF($values)
+		{	
+			
+			//print_r($values);die;
+			$where = '1 = 1';
+			
+			if(isset($values['field_0']) and $values['field_0']!='')
+			{
+				$where.=" AND Solicitudes.idSolicitud = '".$values['field_0']."'";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_1']) and $values['field_1']!='')
+			{
+				$where.=" AND Solicitudes.idPoliza = '".$values['field_1']."'";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_2']) and $values['field_2']!='')
+			{
+				$where.=" AND upper(Polizas.Cedula) like ('%".$values['field_2']."%')";
+			}
+			if(isset($values['field_3']) and $values['field_3']!='')
+			{
+				$where.=" AND upper(CONCAT(Polizas.Nombre, ' ', Polizas.Apellido )) like ('%".$values['field_3']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_4']) and $values['field_4']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_4']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_5']) and $values['field_5']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_5']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_6']) and $values['field_6']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_6']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_7']) and $values['field_7']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_7']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_8']) and $values['field_8']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_8']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_9']) and $values['field_9']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_9']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_10']) and $values['field_10']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_10']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_11']) and $values['field_11']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_11']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_12']) and $values['field_12']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_12']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['field_13']) and $values['field_13']!='')
+			{
+				$where.=" AND upper(Polizas.Placa) like ('%".$values['field_13']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+            $Utilitarios = new Utilitarios();
+    			if($values['desde']!='')
+			{					
+                            $values['desde'] = $Utilitarios->formatFechaInput($values['desde']);
+			}
+			if($values['hasta']!='')
+			{
+                            $values['hasta'] = $Utilitarios->formatFechaInput($values['hasta']);	
+			}
+			//echo $values['desde'].$values['hasta'];die;
+			
+			if($values['desde']!='')
+			{
+				$where.=" AND Solicitudes.TimeOpen >= '".$values['desde']." 00:00:00' ";
+			}
+			if($values['hasta']!='')
+			{
+				$where.=" AND Solicitudes.TimeOpen <= '".$values['hasta']." 24:59:59'";
+			}
+ 			
+            $ConnectionAws= new ConnectionAws();
+			$q = $ConnectionAws->getConnect('tugruero')->Solicitudes
+			->select("*,CONCAT(Polizas.Nombre, ' ', Polizas.Apellido ) as cliente, Polizas.Modelo as Modelo, Polizas.Cedula as Cedula, Polizas.Placa as Placa,DATE_FORMAT(TimeOpen, '%d/%m/%Y %H:%i:%s') as TimeOpen")
+			->join("Servicios","INNER JOIN Servicios on Servicios.idSolicitud = Solicitudes.idSolicitud")
+			->join("Polizas","INNER JOIN Polizas on Polizas.idPoliza = Solicitudes.idPoliza")
+			->join("Grueros","INNER JOIN Grueros on Grueros.idGrua= Servicios.idGrua")
+            ->where("$where")
+            ->order("TimeOpen");
+			//echo $q;die;
+			return $q; 			
 		}
 	}
 	

@@ -25,7 +25,9 @@ $values = array_merge($values,$_FILES);
 		break;
 	}
 	function executeIndex($values = null)
-	{
+	{	
+		$Seguros = new Seguros();
+		$seguros_list = $Seguros->getSegurosListSelect2();
 		require('list_view.php');
 	}
 	function executeListJson($values)
@@ -93,6 +95,16 @@ $values = array_merge($values,$_FILES);
 		
 		
 		$PDFSolicitud = new PDFSolicitud();
-		$PDFSolicitud ->formatoGenerico($values);
-		print_r($values);die;
+		switch($values['formato'])
+		{
+			case 1:
+				$PDFSolicitud ->formatoGenerico($values);
+			break;
+			default:
+				$PDFSolicitud ->formatoGenerico($values);
+			break;
+		}
+		die;
+		
+		//print_r($values);die;
 	}  

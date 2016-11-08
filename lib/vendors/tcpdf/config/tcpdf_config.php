@@ -51,7 +51,7 @@
  * URL path to tcpdf installation folder (http://localhost/tcpdf/).
  * By default it is automatically set but you can also set it as a fixed string to improve performances.
  */
-define ('K_PATH_URL', full_url."/web/img/");
+//define ('K_PATH_URL', '');
 
 /**
  * Path for PDF fonts.
@@ -63,18 +63,18 @@ define ('K_PATH_URL', full_url."/web/img/");
  * Default images directory.
  * By default it is automatically set but you can also set it as a fixed string to improve performances.
  */
-define ('K_PATH_IMAGES', doc_root."/web/img/");
+//define ('K_PATH_IMAGES', '');
 
 /**
  * Deafult image logo used be the default Header() method.
  * Please set here your own logo or an empty string to disable it.
  */
-define ('PDF_HEADER_LOGO', '');
+define ('PDF_HEADER_LOGO', 'logo_tugruero.png');
 
 /**
  * Header logo image width in user units.
  */
-define ('PDF_HEADER_LOGO_WIDTH', 40);
+//define ('PDF_HEADER_LOGO_WIDTH', 200);
 
 /**
  * Cache directory for temporary files (full path).
@@ -84,12 +84,12 @@ define ('PDF_HEADER_LOGO_WIDTH', 40);
 /**
  * Generic name for a blank image.
  */
-define ('K_BLANK_IMAGE', 'Coseinca.png');
+define ('K_BLANK_IMAGE', 'logo_tugruero.png');
 
 /**
  * Page format.
  */
-define ('PDF_PAGE_FORMAT', 'Letter');
+define ('PDF_PAGE_FORMAT', 'A4');
 
 /**
  * Page orientation (P=portrait, L=landscape).
@@ -99,22 +99,22 @@ define ('PDF_PAGE_ORIENTATION', 'P');
 /**
  * Document creator.
  */
-define ('PDF_CREATOR', 'Marcos De Andrade');
+define ('PDF_CREATOR', 'TCPDF');
 
 /**
  * Document author.
  */
-define ('PDF_AUTHOR', 'Marcos De Andrade');
+define ('PDF_AUTHOR', 'TCPDF');
 
 /**
  * Header title.
  */
-define ('PDF_HEADER_TITLE', ' ');
+define ('PDF_HEADER_TITLE', 'TCPDF Example');
 
 /**
  * Header description string.
  */
-define ('PDF_HEADER_STRING', " ");
+define ('PDF_HEADER_STRING', "by Nicola Asuni - Tecnick.com\nwww.tcpdf.org");
 
 /**
  * Document unit of measure [pt=point, mm=millimeter, cm=centimeter, in=inch].
