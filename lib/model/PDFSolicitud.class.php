@@ -72,7 +72,7 @@ class MYPDF extends TCPDF {
 			if($values['formato'] == 1)
 			{
 				$reporte = 'reporte_servicios_generico_'.$desde.'_'.$hasta.'.pdf';
-				$ciente = 'N/A';
+				$cliente = 'N/A';
 			}else
 			{
 				
@@ -81,8 +81,8 @@ class MYPDF extends TCPDF {
 			}
 			$Solicitud = new Solicitud();
 			$servicios_data = $Solicitud->getSolicitudesServiciosListPDF($values);
-			
-		
+			$cuenta_servicios_taxis = $Solicitud->getSolicitudesServiciosTaxiListPDF($values);
+			$cuenta_servicios_gruas = count($servicios_data);
 			
 			// create new PDF document
 			$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -146,11 +146,11 @@ class MYPDF extends TCPDF {
 				. '</tr>'
 				. '<tr>'
 				. '<td align="center"><b>NÚMERO DE SERVICIOS DE GRÚA</b></td>'
-				. '<td align="center"><b></b></td>'
+				. '<td align="center"><b>'.$cuenta_servicios_gruas.'</b></td>'
 				. '</tr>'
 				. '<tr>'
 				. '<td align="center"><b>NÚMERO DE SERVICIOS DE TAXI</b></td>'
-				. '<td align="center"><b></b></td>'
+				. '<td align="center"><b>'.$cuenta_servicios_taxis.'</b></td>'
 				. '</tr>'
 				. '</table>';
 			$pdf->writeHTML($html);

@@ -4,36 +4,37 @@
 	<h1 class="text-center big_title">Reporte de servicios</h1>
  	<div class="col-sm-12 col-md-12 alert alert-info">
 
-        <form id="" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
+        <form id="" class="" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
+		<input type="hidden" name="action" value="pdf">
             <div id="campos">
 				
-			</div> 
-			<div class="col-sm-4 col-md-4">
-				<label>Fecha desde: </label>
-							<input id="desde" name="desde" type="text" class="filtros">
-			</div>
-			<div class="col-sm-4 col-md-4">
-				<label>Fecha hasta: </label>
-				<input id="hasta" name="hasta" type="text" class="filtros">
-			</div>
-			<div class="col-sm-4 col-md-4">
-				<a id="buscar" class="btn btn-success"><i class="fa fa-filter"></i> Filtrar por fechas</a>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-6">
-					<input type="hidden" name="action" value="pdf">
-					<select name="formato" class="form-control input-sm">
-						<option value="1">Genérico</option>
-						<?php foreach($seguros_list as $list):?>
-						<option value="<?php echo $list['name']?>"><?php echo $list['name']?></option>
-						<?php endforeach;?>
-					</select>
-					<input type="submit" value="Imprimir PDF" class="btn btn-sm btn-success"> 	
-
-					
+				<div class="col-sm-4 col-md-4">
+					<label>Fecha desde: </label>
+					<input id="desde" name="desde" type="text" class="filtros">
 				</div>
-				
+				<div class="col-sm-4 col-md-4">
+					<label>Fecha hasta: </label>
+					<input id="hasta" name="hasta" type="text" class="filtros">
+				</div>
+				<div class="col-sm-4 col-md-4">
+					<a id="buscar" class="btn btn-success"><i class="fa fa-filter"></i> Filtrar por fechas</a>
+				</div>
 			</div>
+			<div class="form-group">
+				<div class="col-sm-12 col-md-12">
+					<label>Seguro a emitir: </label>
+						<select name="formato" class="form-control input-sm">
+							<option value="1">Genérico</option>
+							<?php foreach($seguros_list as $list):?>
+							<option value="<?php echo $list['name']?>"><?php echo $list['name']?></option>
+							<?php endforeach;?>
+						</select>
+						<button type="submit" class="btn btn-sm btn-success">Imprimir PDF</button>
+				</div>
+			</div>
+
 
         </form> 
 		
@@ -49,8 +50,8 @@
 			<thead>
 				<tr>
 					<th>Id.Solicitud</th>
-                                        <th>Id.Póliza</th>
-                                        <th>Cédula</th>
+					<th>Id.Póliza</th>
+                    <th>Cédula</th>
 					<th>Cliente</th>
 					<th>Placa</th>
 					<th>Modelo</th>
@@ -58,30 +59,30 @@
 					<th>Origen</th>
 					<th>Destino</th>
 					<th>Taxi</th>
-                                        <th>Servicio baremo</th>
-                                        <th>Utilidad</th>
-                                        <th>Servicio de Grúa</th>
-                                        <th>Fecha</th>
+                    <th>Servicio baremo</th>
+                    <th>Utilidad</th>
+                    <th>Servicio de Grúa</th>
+                    <th>Fecha</th>
 					<th>Detalle</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<th><input id="idSolicitud" name="idSolicitud" type="text"></th>
-                                        <th><input id="idPoliza" name="idPoliza" type="text"></th>
-                                        <th><input id="Cedula" name="Cedula" type="text"></th>			
+                    <th><input id="idPoliza" name="idPoliza" type="text"></th>
+                    <th><input id="Cedula" name="Cedula" type="text"></th>			
 					<th><input id="Cliente" name="Cliente" type="text"></th>
 					<th><input id="Placa" name="Placa" type="text"></th>
 					<th><input id="Modelo" name="Modelo" type="text"></th>
 					<th><input id="Seguro" name="Seguro" type="text"></th>
 					<th><input id="EstadoOrigen" name="EstadoOrigen" type="text"></th>
 					<th><input id="Direccion" name="Direccion" type="text"></th>
-                                        <th><input id="MontoTaxi" name="MontoTaxi" type="text"></th>
-                                        <th><input id="Monto" name="Monto" type="text"></th>
-                                        <th><input id="Utilidad" name="Utilidad" type="text"></th>
-                                        <th><input id="MontoFinal" name="MontoFinal" type="text"></th>
-                                        <th><input id="TimeOpen" name="TimeOpen" type="text"></th>
-                                        <th>Detalle</th>
+                    <th>Taxi</th>
+                    <th>Servicio baremo</th>
+                    <th>Utilidad</th>
+                    <th>Servicio de Grúa</th>
+                    <th><input id="TimeOpen" name="TimeOpen" type="text"></th>
+                    <th>Detalle</th>
 					
 				</tr>
 			</tfoot>
@@ -99,12 +100,12 @@
 	$('#example tfoot th').each( function () {
 		var title = $('#example thead th').eq( $(this).index() ).text();
 		
-		if(title != 'Detalle')
+		if($(this).index()!=14 && $(this).index()!=9 && $(this).index()!=10 && $(this).index()!=11 && $(this).index()!=12)
 		{
 			$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );
-            $('#campos').append( '<input size="10" class="input-sm filtros" id="field_'+$(this).index()+'" type="text"  name="field_'+$(this).index()+'"/> ' );	
+            $('#campos').append( '<input size="10" class="input-sm filtros" id="field_'+$(this).index()+'" type="hidden"  name="field_'+$(this).index()+'"/> ' );	
 		}
-		if(title == 'Detalle')
+		if($(this).index()==14)
 		{
 			$(this).html( '<button id="clear">Limpiar</button>' );	
 		}
@@ -155,7 +156,7 @@
 			
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 14 ] }
+          { 'bSortable': false, 'aTargets': [ 9,10,11,12,14 ] }
        ]
     });
 
