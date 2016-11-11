@@ -1,27 +1,51 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
-<div class="container">
+<div class="">
 	<h1 class="text-center big_title">Reporte de servicios</h1>
  	<div class="col-sm-12 col-md-12 alert alert-info">
 
-        <form id="" class="" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
+        <form id="" class="form-inline" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
 		<input type="hidden" name="action" value="pdf">
             <div id="campos">
 				
 			</div>
 			<div class="form-group">
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-3 col-md-3">
 					<label>Fecha desde: </label>
 					<input id="desde" name="desde" type="text" class="filtros">
 				</div>
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-3 col-md-3">
 					<label>Fecha hasta: </label>
 					<input id="hasta" name="hasta" type="text" class="filtros">
 				</div>
-				<div class="col-sm-4 col-md-4">
-					<a id="buscar" class="btn btn-success"><i class="fa fa-filter"></i> Filtrar por fechas</a>
+				<div class="col-sm-3 col-md-3">
+					<label>Estatus Grúa: </label>
+					
+					<select name="EstatusGrua" id="EstatusGrua" class="form-control input-sm filtros">
+						<option value="">Seleccione...</option>
+						<option value="Completado">Completado</option>
+						<option value="Cancelado">Cancelado</option>
+						<option value="Asistiendo">Asistiendo</option>
+						<option value="Activo">Activo</option>
+					</select>
+				</div>
+				<div class="col-sm-3 col-md-3">
+					<label>Estatus Cliente: </label>
+					
+					<select name="EstatusCliente" id="EstatusCliente" class="form-control input-sm filtros">
+						<option value="">Seleccione...</option>
+						<option value="Completado">Completado</option>
+						<option value="Cancelado">Cancelado</option>
+						<option value="Asistido">Asistido</option>
+						<option value="Activo">Activo</option>
+					</select>
+				</div>
+				<div class="col-sm-2 col-md-2 col-sm-offset-10 col-md-offset-10">
+					<a id="buscar" class="btn btn-success"><i class="fa fa-filter"></i> Aplicar filtros</a>
+					<button type="button" id="clear2" class="btn btn-success">Limpiar</button>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<div class="col-sm-12 col-md-12">
 					<label>Seguro a emitir: </label>
@@ -34,8 +58,6 @@
 						<button type="submit" class="btn btn-sm btn-success">Imprimir PDF</button>
 				</div>
 			</div>
-
-
         </form> 
 		
 		
@@ -123,6 +145,8 @@
                     "data": function(d) {
                     d.desde = $('#desde').val();
                     d.hasta =  $('#hasta').val();
+                    d.EstatusGrua = $('#EstatusGrua').val();
+                    d.EstatusCliente = $('#EstatusCliente').val();
                     }
 		},
 	
@@ -248,7 +272,10 @@ $('#column_13').on ('keypress', function(e){
 		table.search( '' ).columns().search( '' ).draw();
 		$('.filtros').val('');
 	});
-
+	$('#clear2').click(function(){
+		table.search( '' ).columns().search( '' ).draw();
+		$('.filtros').val('');
+	});
 $('#buscar').click(function(){
 	 table.draw();
 });

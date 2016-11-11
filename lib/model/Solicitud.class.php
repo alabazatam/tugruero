@@ -505,6 +505,7 @@
 		}
 		public function getSolicitudesServiciosList($values)
 		{	
+			
 			$columns = array();
 			$columns[0] = 'Solicitudes.idSolicitud';
 			$columns[1] = 'Polizas.idPoliza';
@@ -592,7 +593,7 @@
 				//echo $values['columns'][0]['search']['value'];die;
 			}
             $Utilitarios = new Utilitarios();
-    			if($values['desde']!='')
+			if($values['desde']!='')
 			{					
                             $values['desde'] = $Utilitarios->formatFechaInput($values['desde']);
 			}
@@ -610,8 +611,14 @@
 			{
 				$where.=" AND Solicitudes.TimeOpen <= '".$values['hasta']." 24:59:59'";
 			}
- 
-                        
+			if(isset($values['EstatusGrua']) and $values['EstatusGrua']!='')
+			{
+				$where.=" AND upper(EstatusGrua) like ('%".$values['EstatusGrua']."%')";
+			} 
+			if(isset($values['EstatusCliente']) and $values['EstatusCliente']!='')
+			{
+				$where.=" AND upper(EstatusCliente) like ('%".$values['EstatusCliente']."%')";
+			}                         
 			if(isset($values['order'][0]['dir']) and $values['order'][0]['dir']!='0')
 			{
 				$order = $values['order'][0]['dir'];//asc o desc
@@ -715,11 +722,20 @@
 			{
 				$where.=" AND Solicitudes.TimeOpen <= '".$values['hasta']." 24:59:59'";
 			}
+			
 			if(isset($values['columns'][11]['search']['value']) and $values['columns'][11]['search']['value']!='')
 			{
 				$where.=" AND TimeOpen ='".$values['columns'][11]['search']['value']."'";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
+			if(isset($values['EstatusGrua']) and $values['EstatusGrua']!='')
+			{
+				$where.=" AND upper(EstatusGrua) like ('%".$values['EstatusGrua']."%')";
+			} 
+			if(isset($values['EstatusCliente']) and $values['EstatusCliente']!='')
+			{
+				$where.=" AND upper(EstatusCliente) like ('%".$values['EstatusCliente']."%')";
+			} 
             $ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Solicitudes
 			->select("count(*) as cuenta")
@@ -824,7 +840,14 @@
 			{
 				$where.=" AND Solicitudes.TimeOpen <= '".$values['hasta']." 24:59:59'";
 			}
-
+			if(isset($values['EstatusGrua']) and $values['EstatusGrua']!='')
+			{
+				$where.=" AND upper(EstatusGrua) like ('%".$values['EstatusGrua']."%')";
+			} 
+			if(isset($values['EstatusCliente']) and $values['EstatusCliente']!='')
+			{
+				$where.=" AND upper(EstatusCliente) like ('%".$values['EstatusCliente']."%')";
+			}  
 
 			
             $ConnectionAws= new ConnectionAws();
