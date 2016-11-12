@@ -4,24 +4,24 @@
 	<h1 class="text-center big_title">Reporte de servicios</h1>
  	<div class="col-sm-12 col-md-12 alert alert-info">
 
-        <form id="" class="form-inline" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
+        <form id="" class="" target="_blank" action="<?php echo full_url."/adm/reporte_solicitudes/index.php"?>" method="post"> 
 		<input type="hidden" name="action" value="pdf">
             <div id="campos">
 				
 			</div>
 			<div class="form-group">
-				<div class="col-sm-3 col-md-3">
+				<div class="col-sm-6 col-md-6">
 					<label>Fecha desde: </label>
-					<input id="desde" name="desde" type="text" class="filtros">
+					<input id="desde" name="desde" type="text" class="filtros form-control input-sm">
 				</div>
-				<div class="col-sm-3 col-md-3">
+				<div class="col-sm-6 col-md-6">
 					<label>Fecha hasta: </label>
-					<input id="hasta" name="hasta" type="text" class="filtros">
+                                        <input id="hasta" name="hasta" type="text" class="filtros form-control input-sm">
 				</div>
-				<div class="col-sm-3 col-md-3">
+				<div class="col-sm-6 col-md-6">
 					<label>Estatus Grúa: </label>
 					
-					<select name="EstatusGrua" id="EstatusGrua" class="form-control input-sm filtros">
+					<select name="EstatusGrua" id="EstatusGrua" class="form-control input-sm filtros" >
 						<option value="">Seleccione...</option>
 						<option value="Completado">Completado</option>
 						<option value="Cancelado">Cancelado</option>
@@ -29,7 +29,7 @@
 						<option value="Activo">Activo</option>
 					</select>
 				</div>
-				<div class="col-sm-3 col-md-3">
+				<div class="col-sm-6 col-md-6">
 					<label>Estatus Cliente: </label>
 					
 					<select name="EstatusCliente" id="EstatusCliente" class="form-control input-sm filtros">
@@ -40,7 +40,7 @@
 						<option value="Activo">Activo</option>
 					</select>
 				</div>
-				<div class="col-sm-2 col-md-2 col-sm-offset-10 col-md-offset-10">
+				<div class="col-sm-12 col-md-12">
 					<a id="buscar" class="btn btn-success"><i class="fa fa-filter"></i> Aplicar filtros</a>
 					<button type="button" id="clear2" class="btn btn-success">Limpiar</button>
 				</div>
