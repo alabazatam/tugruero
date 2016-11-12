@@ -36,3 +36,28 @@
                       </div><!-- /.container-fluid -->
                     </nav>          
         </div><!--fin menu mobile-->
+        <div class="col-sm-4 col-sm-offset-8">
+            <div class="alert alert-dismissible text-right" role="alert" style="background-color: #ccc;">
+                        <label>Grueros online</label>
+                        <button class="btn btn-success" type="button" onclick="showOnline('SI')">
+                          Si <span class="badge">4</span>
+                        </button>
+                        <button class="btn btn-danger" type="button" onclick="showOnline('NO')">
+                          No <span class="badge">4</span>
+                        </button>
+                        <button type="button" class="btn close" data-dismiss="alert" aria-label="Close"><i class="fa fa-close"></i></button>
+
+            </div>          
+        </div>
+        <script>
+        
+        function showOnline(status)
+        {
+
+	$('#myModal .modal-title').html('hola');
+	$('#myModal .modal-body ').html('Onlines');
+	$('#myModal').modal('show');
+	}	
+        
+        
+        </script>
