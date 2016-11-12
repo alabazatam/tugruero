@@ -301,7 +301,7 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array('tugruero@gmail.com','tugruero.op@gmail.com','contactenos@tugruero.com','info@tugruero.com','mercadeo@tugruero.com');
+            $email = array('tugruero@gmail.com','suscripcion@tugruero.com','info@tugruero.com','acostantini@tugruero.com');
             $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['message'];
 
             $message = Swift_Message::newInstance('Solicitud de información');
@@ -344,7 +344,7 @@
 
                     $result = $mailer->send($message);	
                     }catch(Exception $e){
-                            echo $e->getMessage().$e->getTraceAsString();
+                            //echo $e->getMessage().$e->getTraceAsString();
                             die;
                     }
 
