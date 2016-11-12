@@ -286,5 +286,73 @@
         $result = $mailer->send($message); 
 			return $result;
 		}
+    function sendMessageContactenos($values){
+
+            try{
+            //$smtp = "server-0116a.gconex.net";
+            $smtp = "mail.tugruero.com";
+            $port = 465;
+            $secure = "ssl";
+            $username = "mercadeo@tugruero.com";
+            $password = "tugruero123";
+            $mail_from = 'mercadeo@tugruero.com'; 
+
+            $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
+              ->setUsername($username)
+              ->setPassword($password);
+            $mailer = Swift_Mailer::newInstance($transport);
+            $email = array('tugruero@gmail.com','tugruero.op@gmail.com','contactenos@tugruero.com','info@tugruero.com','mercadeo@tugruero.com');
+            $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['message'];
+
+            $message = Swift_Message::newInstance('Solicitud de información');
+            $message->setBody('<!DOCTYPE html>
+    <html>
+
+        <head>
+            <title>TU/GRUERO®</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 12px;color:#262426;">
+            <div align="center">
+            <table width="700">
+                <tr>
+                    <td style="background-color:#CCC !important;"><b>Nombre y apellido:</b></td><td>'.$values['names'].'</td> 
+                </tr>
+                <tr>
+                    <td style="background-color:#CCC !important;"><b>Correo electrónico:</b></td><td>'.$values['email'].'</td> 
+                </tr>
+                <tr>
+                    <td style="background-color:#CCC !important;"><b>Número de contacto:</b></td><td>'.$values['phone'].'</td> 
+                </tr>
+                <tr>
+                    <td style="background-color:#CCC !important;"><b>Mensaje:</b></td><td><p align="justify">'.$values['message'].'</p></td> 
+                        
+                </tr>
+            </table>   
+            </div>
+
+        </body>
+    </html>
+    ',"text/html");			
+
+            $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
+                    $message->setTo($email);
+                    //$message->setBcc('info@tugruero.com');
+            // Send the message
+
+
+                    $result = $mailer->send($message);	
+                    }catch(Exception $e){
+                            echo $e->getMessage().$e->getTraceAsString();
+                            die;
+                    }
+
+
+
+
+
+
+    }
 }
 
