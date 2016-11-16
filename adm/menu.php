@@ -105,6 +105,11 @@
 				data: { action: "grueros_online"},
 				dataType: "json",
 				timeout: 10000,
+				error: function(jqXHR, textStatus, errorThrown) {
+					if(textStatus==="timeout") {
+					   $('#myModal2 .modal-body').html('Error leyendo los datos. Intente de nuevo mas tarde.');
+					} 
+				},
 				success: function(json){
 						$('#SI').html(json.SI);
 						$('#NO').html(json.NO);
@@ -114,11 +119,17 @@
 		function gruerosEstados(zone_work, Disponible)
 		{
 			$('#myModal2 .modal-body').html('...');
+			$('#myModal2 .modal-title').html('Estatus Grueros: ' + Disponible + " en " + zone_work);
 			$.ajax({
 				type: "GET",
 				url: '<?php echo full_url;?>/adm/ajax/index.php',
 				data: { action: "grueros_estados", zone_work: zone_work, Disponible: Disponible},
 				timeout: 10000,
+				error: function(jqXHR, textStatus, errorThrown) {
+					if(textStatus==="timeout") {
+					   $('#myModal2 .modal-body').html('Error leyendo los datos. Intente de nuevo mas tarde.');
+					} 
+				},
 				success: function(html){
 							$('#myModal2 .modal-body').html(html);
 				}
