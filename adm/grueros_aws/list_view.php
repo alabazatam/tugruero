@@ -72,8 +72,8 @@
 			{ "data": "Placa" },
 			{ "data": "Celular" },
 			{ "data": "Disponible" },
-			{ "data": "Location" },
 			{ "data": "ZoneWork" },
+			{ "data": "Location" },
 			{ "data": "Condicion" },
 			{ "data": "DeviceId" },
 			

@@ -67,12 +67,12 @@
 			}	
 			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
 			{
-				$where.=" AND upper(location)  like ('%".$values['columns'][6]['search']['value']."%')";
+				$where.=" AND upper(zone_work)  like ('%".$values['columns'][6]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}				
 			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
 			{
-				$where.=" AND upper(zone_work)  like ('%".$values['columns'][7]['search']['value']."%')";
+				$where.=" AND upper(location)  like ('%".$values['columns'][7]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}				
 			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
@@ -135,12 +135,12 @@
 			}	
 			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
 			{
-				$where.=" AND upper(location)  like ('%".$values['columns'][6]['search']['value']."%')";
+				$where.=" AND upper(zone_work)  like ('%".$values['columns'][6]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}				
 			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
 			{
-				$where.=" AND upper(zone_work)  like ('%".$values['columns'][7]['search']['value']."%')";
+				$where.=" AND upper(location)  like ('%".$values['columns'][7]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
@@ -224,7 +224,29 @@
 			return $q;
 			
 		}
-		
+		public function getGruerosOnline(){
+			$ConnectionAws= new ConnectionAws();
+			$q = $ConnectionAws->getConnect()->Gruas
+			->select("(select count(*) from Gruas where Disponible = 'SI') as SI, (select count(*) from Gruas where Disponible = 'NO') as NO")
+			->limit(1)
+			->fetch();
+			return $q; 				
+			
+		}
+		public function getGruerosOnlineDetalle($values){
+			$Disponible = $values['status'];
+			$ConnectionAws= new ConnectionAws();
+			$query = "
+			SELECT COUNT(Grueros.idGrua)  AS  cuenta,  CASE zone_work WHEN '0' THEN 'Sin definir' ELSE zone_work END AS zone_work
+			FROM Gruas
+			INNER JOIN Grueros ON Grueros.idGrua = Gruas.idGrua
+			WHERE Disponible = '$Disponible'
+			GROUP BY zone_work
+			";
+			$q = $ConnectionAws->ejecutarPreparado($query);
+			return $q; 				
+			
+		}		
 	}
 			
 

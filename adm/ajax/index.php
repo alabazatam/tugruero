@@ -18,6 +18,12 @@ $values = $_REQUEST;
 		case "change_monto_taxi":
                         executeChangeMontoTaxi($values);	
 		break;
+		case "grueros_online":
+			executeGruerosOnline($values);	
+		break;
+		case "grueros_online_detalle":
+			executeGruerosOnlineDetalle($values);	
+		break;	
 		default:
 			executeIndex($values);
 		break;
@@ -46,6 +52,27 @@ $values = $_REQUEST;
                 $id_solicitud = $values['idSolicitud'];
                 $MontoTaxi = $values['MontoTaxi'];
                 $Solicitud->updateMontoTaxi($values);
+                           
+
+	}
+	function executeGruerosOnline($values = null)
+	{
+		$Grueros = new Grueros();
+		$grueros_online = $Grueros->getGruerosOnline();
+		
+		
+		$array= array("SI"=>$grueros_online['si'], "NO" => $grueros_online['no']);
+		
+		echo json_encode($array);
+                           
+
+	}
+	function executeGruerosOnlineDetalle($values = null)
+	{
+		$Grueros = new Grueros();
+		$grueros_online = $Grueros->getGruerosOnlineDetalle($values);
+		
+		require('grueros_online_detalle.php');
                            
 
 	}

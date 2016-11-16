@@ -37,27 +37,80 @@
                     </nav>          
         </div><!--fin menu mobile-->
         <div class="col-sm-4 col-sm-offset-8">
-            <div class="alert alert-dismissible text-right" role="alert" style="background-color: #ccc;">
-                        <label>Grueros online</label>
-                        <button class="btn btn-success" type="button" onclick="showOnline('SI')">
-                          Si <span class="badge">4</span>
-                        </button>
-                        <button class="btn btn-danger" type="button" onclick="showOnline('NO')">
-                          No <span class="badge">4</span>
-                        </button>
-                        <button type="button" class="btn close" data-dismiss="alert" aria-label="Close"><i class="fa fa-close"></i></button>
+            <div class="alert alert-dismissible text-right" role="alert">
+						<label class=""><small>Grueros online</small></label>
+                        <a class="btn btn-success" type="button" onclick="showOnline('SI')">
+							<small> Si </small> <span class="badge"><small id="SI"> 0 </small></span>
+                        </a>
+                        <a class="btn btn-danger" type="button" onclick="showOnline('NO')">
+							<small> No </small> <span class="badge"><small id="NO"> 0 </small></span>
+                        </a>
+                        <!--<a class="close" data-dismiss="alert" aria-label="Close"><i class="fa fa-close"></i></a>-->
 
             </div>          
         </div>
-        <script>
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal2">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+			
+		
+		getGruerosOnline();
+		
+		setInterval( function () {
+			getGruerosOnline()
+		},60000 );
+		
         function showOnline(status)
         {
-
-	$('#myModal .modal-title').html('hola');
-	$('#myModal .modal-body ').html('Onlines');
-	$('#myModal').modal('show');
-	}	
+			$('#myModal2 .modal-title').html('Estatus Grueros: ' + status);
+			$('#myModal2').modal('show');
+			$('#myModal2 .modal-body').html('Cargando...');
+			$.ajax({
+				type: "GET",
+				url: '<?php echo full_url;?>/adm/ajax/index.php',
+				data: { action: "grueros_online_detalle", status: status},
+				timeout: 20000,
+				error: function(jqXHR, textStatus, errorThrown) {
+					if(textStatus==="timeout") {
+					   $('#myModal2 .modal-body').html('Error leyendo los datos. Intente de nuevo mas tarde.');
+					} 
+				},
+				success: function(html){
+					$('#myModal2 .modal-body').html(html);
+					
+					
+				}
+			});
+		}
+		
+		function getGruerosOnline()
+		{
+			$.ajax({
+				type: "GET",
+				url: '<?php echo full_url;?>/adm/ajax/index.php',
+				data: { action: "grueros_online"},
+				dataType: "json",
+				timeout: 10000,
+				success: function(json){
+						$('#SI').html(json.SI);
+						$('#NO').html(json.NO);
+				}
+			});
+		}
         
         
-        </script>
+</script>
