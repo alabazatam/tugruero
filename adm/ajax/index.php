@@ -23,6 +23,9 @@ $values = $_REQUEST;
 		break;
 		case "grueros_online_detalle":
 			executeGruerosOnlineDetalle($values);	
+		break;
+		case "grueros_estados":
+			executeGruerosEstados($values);	
 		break;	
 		default:
 			executeIndex($values);
@@ -73,6 +76,15 @@ $values = $_REQUEST;
 		$grueros_online = $Grueros->getGruerosOnlineDetalle($values);
 		
 		require('grueros_online_detalle.php');
+                           
+
+	}
+	function executeGruerosEstados($values = null)
+	{
+		$Grueros = new Grueros();
+		$grueros_online = $Grueros->getGruerosOnlineDetalleEstados($values);
+		
+		require('grueros_estados.php');
                            
 
 	}

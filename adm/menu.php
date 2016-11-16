@@ -111,6 +111,18 @@
 				}
 			});
 		}
-        
+		function gruerosEstados(zone_work, Disponible)
+		{
+			$('#myModal2 .modal-body').html('...');
+			$.ajax({
+				type: "GET",
+				url: '<?php echo full_url;?>/adm/ajax/index.php',
+				data: { action: "grueros_estados", zone_work: zone_work, Disponible: Disponible},
+				timeout: 10000,
+				success: function(html){
+							$('#myModal2 .modal-body').html(html);
+				}
+			});
+		}        
         
 </script>

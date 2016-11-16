@@ -246,7 +246,22 @@
 			$q = $ConnectionAws->ejecutarPreparado($query);
 			return $q; 				
 			
-		}		
+		}
+		public function getGruerosOnlineDetalleEstados($values){
+			$Disponible = $values['Disponible'];
+			$zone_work = $values['zone_work'];
+			$ConnectionAws= new ConnectionAws();
+			$query = "
+			SELECT *
+			FROM Gruas
+			INNER JOIN Grueros ON Grueros.idGrua = Gruas.idGrua
+			WHERE Disponible = '$Disponible'
+			AND zone_work = '$zone_work'
+			";
+			$q = $ConnectionAws->ejecutarPreparado($query);
+			return $q; 				
+			
+		}			
 	}
 			
 
