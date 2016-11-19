@@ -252,7 +252,7 @@
 			$zone_work = $values['zone_work'];
 			$ConnectionAws= new ConnectionAws();
 			$query = "
-			SELECT *
+			SELECT *, Grueros.Nombre, Grueros.Apellido
 			FROM Gruas
 			INNER JOIN Grueros ON Grueros.idGrua = Gruas.idGrua
 			WHERE Disponible = '$Disponible'

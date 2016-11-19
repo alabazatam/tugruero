@@ -135,5 +135,9 @@
 				}
 			});
 		}        
-        
+            function regresarGruerosOnline(zone_work, Disponible){
+            
+                
+                showOnline(Disponible);
+            }
 </script>
