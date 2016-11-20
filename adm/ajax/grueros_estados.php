@@ -13,12 +13,12 @@
 			<?php if(count($grueros_online)>0):?>
 			<?php foreach($grueros_online as $data):?>
 			<tr>
-				<td><?php echo $data['idgrua']?></td>
-                                <td><?php echo $data['cedula']?></td>
-				<td><?php echo $data['nombre']?> <?php echo $data['apellido']?></td>
-				<td><?php echo $data['celular']?></td>
-				<td><?php echo $data['placa']?></td>
-                                <td><?php echo $data['modelo']?></td>
+				<td><?php echo @$data['idgrua']?></td>
+                                <td><?php echo @$data['cedula']?></td>
+				<td><?php echo @$data['nombre']?> <?php echo @$data['apellido']?></td>
+				<td><?php echo @$data['celular']?></td>
+				<td><?php echo @$data['placa']?></td>
+                                <td><?php echo @$data['modelo']?></td>
 
                         </tr>
 			<?php endforeach;?>

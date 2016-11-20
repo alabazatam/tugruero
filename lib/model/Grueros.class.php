@@ -237,12 +237,14 @@
 			$Disponible = $values['status'];
 			$ConnectionAws= new ConnectionAws();
 			$query = "
-			SELECT COUNT(Grueros.idGrua)  AS  cuenta,  CASE zone_work WHEN '0' THEN 'Sin definir' ELSE zone_work END AS zone_work
-			FROM Gruas
-			INNER JOIN Grueros ON Grueros.idGrua = Gruas.idGrua
-			WHERE Disponible = '$Disponible'
-			GROUP BY zone_work
+                        SELECT SUM(cuenta) as cuenta, zone_work FROM (
+                        SELECT COUNT(Grueros.idGrua) AS cuenta, 
+                        CASE zone_work WHEN '0' THEN 'SIN_DEFINIR' WHEN '' THEN 'SIN_DEFINIR' ELSE zone_work END AS zone_work FROM Gruas 
+                        INNER JOIN Grueros ON Grueros.idGrua = Gruas.idGrua 
+                        WHERE Disponible = '$Disponible' GROUP BY zone_work ) AS s1
+                        GROUP BY zone_work
 			";
+                        //echo $query;die;
 			$q = $ConnectionAws->ejecutarPreparado($query);
 			return $q; 				
 			
@@ -251,6 +253,20 @@
 			$Disponible = $values['Disponible'];
 			$zone_work = $values['zone_work'];
 			$ConnectionAws= new ConnectionAws();
+                        
+                        
+                        if($values['zone_work']=="SIN_DEFINIR")
+                        {
+			$query = "
+			SELECT *, Grueros.Nombre, Grueros.Apellido
+			FROM Gruas
+			INNER JOIN Grueros ON Grueros.idGrua = Gruas.idGrua
+			WHERE Disponible = '$Disponible'
+			AND (zone_work IS NULL OR zone_work = '0' OR zone_work = '') 
+			";  
+                        }
+                        else
+                        {
 			$query = "
 			SELECT *, Grueros.Nombre, Grueros.Apellido
 			FROM Gruas
@@ -258,6 +274,8 @@
 			WHERE Disponible = '$Disponible'
 			AND zone_work = '$zone_work'
 			";
+                        }
+
 			$q = $ConnectionAws->ejecutarPreparado($query);
 			return $q; 				
 			

@@ -104,7 +104,7 @@
 				url: '<?php echo full_url;?>/adm/ajax/index.php',
 				data: { action: "grueros_online"},
 				dataType: "json",
-				timeout: 10000,
+				timeout: 30000,
 				error: function(jqXHR, textStatus, errorThrown) {
 					if(textStatus==="timeout") {
 					   $('#myModal2 .modal-body').html('Error leyendo los datos. Intente de nuevo mas tarde.');
@@ -124,7 +124,7 @@
 				type: "GET",
 				url: '<?php echo full_url;?>/adm/ajax/index.php',
 				data: { action: "grueros_estados", zone_work: zone_work, Disponible: Disponible},
-				timeout: 10000,
+				timeout: 30000,
 				error: function(jqXHR, textStatus, errorThrown) {
 					if(textStatus==="timeout") {
 					   $('#myModal2 .modal-body').html('Error leyendo los datos. Intente de nuevo mas tarde.');
