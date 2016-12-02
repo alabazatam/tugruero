@@ -9,8 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
-
+    <title>TUGRUERO®</title>
     <!-- Bootstrap Core CSS -->
     <link href="web/css/bootstrap.css" rel="stylesheet">
 
@@ -19,8 +18,6 @@
 
     <!-- Custom Fonts -->
     <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="web/css/animate.min.css" />
 </head>
 
@@ -82,7 +79,7 @@
                 <div class="col-lg-12 text-center">
                     <h2>Portfolio</h2>
                         <span id="animationSandbox" style="display: block;"><h1 class="site__title mega">Animate.css</h1></span>
-                        <span id="animationSandbox2" style="display: block;">Just-add-water CSS animations</span>
+                        <span id="animationSandbox2" style="display: block;">J<h1 class="site__title mega">Animate.css</h1></span>
                 </div>
             </div>
         </div>
