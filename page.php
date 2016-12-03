@@ -20,7 +20,24 @@
     <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="web/css/animate.min.css" />
 </head>
+<style>
+	
+#animationSandbox {
+  -moz-animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -moz-animation-delay: 0s;
+  -webkit-animation-delay: 0s;
 
+}
+#animationSandbox2 {
+  -moz-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  -moz-animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  /*-moz-animation-iteration-count: infinite;*/
+}
+		
+</style>
 <body id="page-top" class="index">
 
     <!-- Navigation -->
@@ -61,7 +78,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
+						<input type="text" id="animate1" value="0">
+						<input type="text" id="animate2" value="0">
+                    <img class="img-responsive" src="web/img/profile.png" alt="" id="imagen">
                     <div class="intro-text">
                         <span class="name">Start Bootstrap</span>
                         <hr class="star-light">
@@ -79,7 +98,7 @@
                 <div class="col-lg-12 text-center">
                     <h2>Portfolio</h2>
                         <span id="animationSandbox" style="display: block;"><h1 class="site__title mega">Animate.css</h1></span>
-                        <span id="animationSandbox2" style="display: block;">J<h1 class="site__title mega">Animate.css</h1></span>
+                        <span id="animationSandbox2" style="display: block;"><h1 class="site__title mega">Animate.css</h1></span>
                 </div>
             </div>
         </div>
@@ -272,7 +291,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
+                            <img src="web/img/portfolio/cake.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -309,7 +328,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
+                            <img src="web/img/portfolio/circus.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -346,7 +365,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
+                            <img src="web/img/portfolio/game.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -383,7 +402,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
+                            <img src="web/img/portfolio/safe.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -420,7 +439,7 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
+                            <img src="web/img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -459,6 +478,7 @@
 
     <!-- Theme JavaScript -->
     <script src="web/js/freelancer.js"></script>
+	<script src="web/js/jquery.bootstrap-autohidingnavbar.js"></script>
 </body>
 
 </html>
@@ -476,19 +496,39 @@
       $(this).removeClass();
     });
   };
-  
-$(document).ready(function(){
-    testAnim2('slideInLeft');
-    testAnim('slideInUp');
-
-    $('.js--animations').change(function(){
-      var anim = $(this).val();
-      testAnim(anim);
-      testAnim2('slideInLeft');
+  function testAnim3(x) {
+    $('#imagen').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $(this).removeClass();
     });
-  });
+  }; 
+testAnim3('rollIn');
+$(window).on('scroll',function(){ 
 
+    if( $('#portfolio').inView() && $('#animate1').val() == 0 && $('#animate2').val() ==0) {
+		testAnim2('slideInLeft');
+		testAnim('slideInUp');
+		
+		$('#animate1').val(1);
+		$('#animate2').val(1);
+    };
+
+});
+$.fn.inView = function(){
+    if(!this.length) return false;
+    var rect = this.get(0).getBoundingClientRect();
+
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+
+};
 </script>
+    <script>
+      $("nav.navbar-fixed-top").autoHidingNavbar();
+    </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
