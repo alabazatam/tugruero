@@ -6,9 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
+    <meta name="author" content="tugruero">
+    <meta name="google-site-verification" content="kXlZJPIsjo2kzjHRJpgR4ncAn-g_bF5ipNOvRSkhsE0" />
+    <link rel="alternate" hreflang="es" href="www.tugruero.com" />
+    <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
     <title>TUGRUERO®</title>
     <!-- Bootstrap Core CSS -->
     <link href="web/css/bootstrap.css" rel="stylesheet">
@@ -48,23 +50,26 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top"><img class="img-responsive" style="background-color: #393536;" src="web/img/fresh/logo_menu.png" alt=""></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
+                    <li class="hidden font-nav">
                         <a href="#page-top"></a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
+                    <li class="page-scroll font-nav">
+                        <a href="#page-top">INICIO</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
+                    <li class="page-scroll font-nav">
+                        <a href="#portfolio">TU/GRUERO PLUS</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                    <li class="page-scroll font-nav">
+                        <a href="#about">NOSOTROS</a>
+                    </li>
+                    <li class="page-scroll font-nav">
+                        <a href="#contact">CONTACTANOS</a>
                     </li>
                 </ul>
             </div>
@@ -78,13 +83,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-						<input type="text" id="animate1" value="0">
-						<input type="text" id="animate2" value="0">
-                    <img class="img-responsive" src="web/img/profile.png" alt="" id="imagen">
+                    <input type="hidden" id="animate1" value="0">
+                    <input type="hidden" id="animate2" value="0">
+                    <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="imagen">
                     <div class="intro-text">
-                        <span class="name">Start Bootstrap</span>
-                        <hr class="star-light">
-                        <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+                        <span class="">¡La nueva mejor forma de solicitar una grúa!</span>
                     </div>
                 </div>
             </div>

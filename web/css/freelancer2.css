@@ -69,8 +69,15 @@ hr.star-primary:after {
 }
 header {
   text-align: center;
-  background: #18BC9C;
-  color: white;
+  /*background: #18BC9C;*/
+  background: url(../img/fresh/header.png) ;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  color: #393536;
+  font-weight: 700;
 }
 header .container {
   padding-top: 100px;
@@ -104,11 +111,15 @@ header .intro-text .skills {
   }
 }
 .navbar-custom {
-  background: #2C3E50;
+  background: #393536;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   border: none;
+  opacity: 0.2;
+}
+.font-nav{
+    
 }
 .navbar-custom a:focus {
   outline: none;
