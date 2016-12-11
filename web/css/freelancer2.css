@@ -8,10 +8,10 @@ body {
   overflow-x: hidden;
 }
 p {
-  font-size: 20px;
+  font-size: 16px;
 }
 p.small {
-  font-size: 16px;
+  font-size: 14px;
 }
 a,
 a:hover,
@@ -76,8 +76,7 @@ header {
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
-  color: #393536;
-  font-weight: 700;
+  z-index: 1;
 }
 header .container {
   padding-top: 100px;
@@ -90,9 +89,8 @@ header img {
 header .intro-text .name {
   display: block;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
   font-weight: 700;
-  font-size: 2em;
+  font-size: 16px;
 }
 header .intro-text .skills {
   font-size: 1.25em;
@@ -104,7 +102,7 @@ header .intro-text .skills {
     padding-bottom: 100px;
   }
   header .intro-text .name {
-    font-size: 4.75em;
+    font-size: 20px;
   }
   header .intro-text .skills {
     font-size: 1.75em;
@@ -114,9 +112,9 @@ header .intro-text .skills {
   background: #393536;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 0;
   border: none;
-  opacity: 0.2;
+  opacity: 1;
 }
 .font-nav{
     
@@ -137,10 +135,11 @@ header .intro-text .skills {
   letter-spacing: 1px;
 }
 .navbar-custom .navbar-nav li a {
+   font-size: 10px !important;
   color: white;
 }
 .navbar-custom .navbar-nav li a:hover {
-  color: #18BC9C;
+  color: white;
   outline: none;
 }
 .navbar-custom .navbar-nav li a:focus,
@@ -149,13 +148,13 @@ header .intro-text .skills {
 }
 .navbar-custom .navbar-nav li.active a {
   color: white;
-  background: #18BC9C;
+  background: transparent;
 }
 .navbar-custom .navbar-nav li.active a:hover,
 .navbar-custom .navbar-nav li.active a:focus,
 .navbar-custom .navbar-nav li.active a:active {
   color: white;
-  background: #18BC9C;
+  background: transparent;
 }
 .navbar-custom .navbar-toggle {
   color: white;
@@ -171,7 +170,7 @@ header .intro-text .skills {
 }
 @media (min-width: 768px) {
   .navbar-custom {
-    padding: 25px 0;
+    padding: 0px 0;
     -webkit-transition: padding 0.3s;
     -moz-transition: padding 0.3s;
     transition: padding 0.3s;
@@ -513,4 +512,86 @@ fieldset[disabled] .btn-success.active {
 .portfolio-modal .modal-backdrop {
   opacity: 0;
   display: none;
+}
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 8px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+.franja_transparente{
+  background: url(../img/fresh/franja_transparente.png);
+  z-index: 2;
+  background-repeat: repeat;
+}
+.franja_naranja{
+    background-color: #f46830 !important;
+}
+.thumbnail {
+  display: block;
+  padding: 0px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: transparent;
+  border: 0px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
+}
+.thumbnail .caption {
+  padding: 0px;
+  color: #333;
+}
+.font-header {
+   color: #393536;
+   font-weight: 500;
+    font-size: 14px;
+}
+.font-principal {
+   color: #393536;
+   font-weight: 500;
+    font-size: 16px;
+}
+.font-principal-strong {
+   color: #393536;
+   font-weight: 900;
+
+}
+.pasos{
+    background: #26282b !important;
+}
+#pasos{
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+    color: #fff !important;
+    
+}
+.white-font{
+    color: #fff;
+}
+.titulo_paso{
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 900;
+}
+.titulo_paso_numero{
+  text-transform: uppercase;
+  font-size: 70px;
+  font-weight: 900;
+  vertical-align: middle;
+}
+#bancos{
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+    color: #fff !important;
+    
+}
+.titulo_bancos{
+  font-size: 26px;
+  font-weight: 900;
+  color: #f46830;
 }

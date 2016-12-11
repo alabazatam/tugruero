@@ -50,7 +50,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top"><img class="img-responsive" style="background-color: #393536;" src="web/img/fresh/logo_menu.png" alt=""></a>
+                <a class="navbar-brand" href="#page-top"><img class="img-responsive" src="web/img/fresh/logo_menu.png" alt=""></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,25 +80,169 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
+        
+        
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-sm-12">
                     <input type="hidden" id="animate1" value="0">
                     <input type="hidden" id="animate2" value="0">
+                    <br><br><br><br>
                     <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="imagen">
                     <div class="intro-text">
-                        <span class="">¡La nueva mejor forma de solicitar una grúa!</span>
+                        <p class="name">¡La nueva mejor forma de solicitar una grúa!<br><br> </p>
                     </div>
                 </div>
+                <div class="col-sm-12 franja_transparente">
+                    <div class="">
+                         <div class="col-sm-3">
+                             <div class="thumbnail ">
+                             <img src="web/img/fresh/c1.png" alt="...">
+                                 <div class="caption">
+                                     <p class="font-principal">Servicio activo <strong class="font-principal-strong">24/7</strong> todos los días del año</p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-3">
+                             <div class="thumbnail">
+                             <img src="web/img/fresh/c2.png" alt="...">
+                                 <div class="caption">
+                                     <p class="font-principal">Rescate en menos de <strong class="font-principal-strong">30 minutos</strong></p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-3">
+                             <div class="thumbnail">
+                             <img src="web/img/fresh/c3.png" alt="...">
+                                 <div class="caption">
+                                     <p class="font-principal">Más de <strong class="font-principal-strong">2000 grueros</strong> en toda Venezuela</p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-3">
+                             <div class="thumbnail">
+                             <img src="web/img/fresh/c4.png" alt="...">
+                                 <div class="caption">
+                                     <p class="font-principal">Búsqueda de grueros por <strong class="font-principal-strong">GPS</strong></p>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+       
+                </div>  
+                <div class="col-sm-12 franja_naranja" >
+                    <p><strong>REVOLUCIONANDO LA INDUSTRIA DEL AUXILIO VIAL EN VENEZUELA</strong></p>  
+                </div>
+                <div class="col-sm-12" >
+                    <br>
+                    <img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">
+                </div>  
             </div>
-        </div>
-    </header>
 
-    <!-- Portfolio Grid Section -->
+            
+        
+      
+
+    </header>
+    <!-- About Section -->
+    <section class="pasos" id="pasos">
+            <div class="col-sm-12 text-center">
+                <p class="titulo_paso">¡PIDE TU GRúA EN <b class="titulo_paso_numero">3</b> SENCILLOS PASOS!</p>
+            </div>
+            
+            <div class="row">
+                         <div class="col-sm-4">
+                             <div class="thumbnail">
+                             <img src="web/img/fresh/p1.png" alt="Llama a nuestro Call Center">
+                                 <div class="caption">
+                                     <br><br>
+                                     <p class="text-center white-font">Llama a nuestro Call Center <strong>0212-237-9227</strong> y dinos tu requerimiento</p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-4">
+                             <div class="thumbnail">
+                             <img src="web/img/fresh/p2.png" alt="...">
+                                 <div class="caption">
+                                     <br><br>
+                                     <p class="text-center white-font">Paga con <strong>tarjeta de crédito</strong> o <strong>transferencia bancaria</strong></p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-4">
+                             <div class="thumbnail">
+                             <img src="web/img/fresh/p3.png" alt="...">
+                                 <div class="caption">
+                                     <br><br>
+                                     <p class="text-center white-font"><strong>¡LISTO!</strong> La grúa llegará en menos de <strong>30 minutos</strong> </p>
+                                 </div>
+                             </div>
+                         </div>
+            </div>
+        
+    </section>
+    
+     <section id="bancos">
+            <div class="col-sm-12 text-center">
+                <p class="titulo_bancos">Bancos disponibles</p>
+            </div>      
+            <div class="row">
+                 <div class="col-sm-1">
+                     
+                 </div>  
+                 <div class="col-sm-2">
+                     <img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive" width="70">
+                 </div> 
+                 <div class="col-sm-2">
+                    <img src="web/img/fresh/bancaribe.png" alt="Paga con BANESCO" class="img-responsive" width="100">
+
+                 </div> 
+                 <div class="col-sm-2">
+                    <img src="web/img/fresh/banconacional.png" alt="Paga con BANESCO" class="img-responsive" width="100">
+
+                 </div> 
+                 <div class="col-sm-2">
+                    <img src="web/img/fresh/bancoactivo.png" alt="Paga con BANESCO" class="img-responsive" width="100">
+
+                 </div> 
+                 <div class="col-sm-2">
+                    <img src="web/img/fresh/bancovenezuela.png" alt="Paga con BANESCO" class="img-responsive" width="150">
+
+                 </div> 
+                 <div class="col-sm-1">
+                     
+                 </div>                 
+            </div>  
+            <div class="row">
+                 <div class="col-sm-1">
+                     
+                 </div>  
+                 <div class="col-sm-2">
+                     
+                 </div> 
+                 <div class="col-sm-2">
+                     
+                 </div> 
+                 <div class="col-sm-2">
+                     
+                 </div> 
+                 <div class="col-sm-2">
+                     
+                 </div> 
+                 <div class="col-sm-2">
+                     
+                 </div> 
+                 <div class="col-sm-1">
+                     
+                 </div>                 
+            </div>        
+    </section>   
+    
+    
+    
     <section id="portfolio">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center franja_transparente">
                     <h2>Portfolio</h2>
                         <span id="animationSandbox" style="display: block;"><h1 class="site__title mega">Animate.css</h1></span>
                         <span id="animationSandbox2" style="display: block;"><h1 class="site__title mega">Animate.css</h1></span>
@@ -107,30 +251,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>About</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Contact Section -->
     <section id="contact">
@@ -499,11 +620,11 @@
       $(this).removeClass();
     });
   };
-  function testAnim3(x) {
+  /*function testAnim3(x) {
     $('#imagen').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
       $(this).removeClass();
     });
-  }; 
+  }; */
 testAnim3('rollIn');
 $(window).on('scroll',function(){ 
 
