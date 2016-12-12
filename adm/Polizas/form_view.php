@@ -35,7 +35,7 @@
 								<select name="Nacionalidad" class="form-control input-sm" id="Nacionalidad">
 									<option value="V" <?php if(isset($letra) and $letra!='' and $letra =='V') echo 'selected="selected"'?>>V</option>
 									<option value="E" <?php if(isset($letra) and $letra!='' and $letra =='E') echo 'selected="selected"'?>>E</option>
-									<option value="J" <?php if(isset($letra) and $letra!='' and $letra =='J') echo 'selected="selected"'?>>V</option>
+									<option value="J" <?php if(isset($letra) and $letra!='' and $letra =='J') echo 'selected="selected"'?>>J</option>
 
 								</select>
 								

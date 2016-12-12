@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="web/css/animate.min.css" />
 </head>
 <style>
-	
+
 #animationSandbox {
   -moz-animation-duration: 2s;
   -webkit-animation-duration: 2s;
@@ -36,7 +36,6 @@
   -webkit-animation-duration: 1s;
   -moz-animation-delay: 0s;
   -webkit-animation-delay: 0s;
-  /*-moz-animation-iteration-count: infinite;*/
 }
 		
 </style>
@@ -84,8 +83,8 @@
         
             <div class="row">
                 <div class="col-sm-12">
-                    <input type="hidden" id="animate1" value="0">
-                    <input type="hidden" id="animate2" value="0">
+                    <input type="text" id="animate1" value="0">
+                    <input type="text" id="animate2" value="0">
                     <br><br><br><br>
                     <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="imagen">
                     <div class="intro-text">
@@ -237,6 +236,20 @@
             </div>        
     </section>   
     
+	<section id="gruero_plus">
+        <div class="container">
+            <div class="row">
+                    <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/entrada_tugruero1.png" alt="TU/GRUERO PLUS" class="img-responsive"></span>
+					<span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/entrada_tugruero2.png" alt="TU/GRUERO PLUS" class="img-responsive"></span>
+
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h2>Portfolio</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>    
     
     
     <section id="portfolio">
@@ -244,8 +257,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center franja_transparente">
                     <h2>Portfolio</h2>
-                        <span id="animationSandbox" style="display: block;"><h1 class="site__title mega">Animate.css</h1></span>
-                        <span id="animationSandbox2" style="display: block;"><h1 class="site__title mega">Animate.css</h1></span>
+                        <h1 class="site__title mega">Animate.css</h1>
+                        <h1 class="site__title mega">Animate.css</h1>
                 </div>
             </div>
         </div>
@@ -620,17 +633,17 @@
       $(this).removeClass();
     });
   };
-  /*function testAnim3(x) {
+  function testAnim3(x) {
     $('#imagen').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
       $(this).removeClass();
     });
-  }; */
+  }; 
 testAnim3('rollIn');
 $(window).on('scroll',function(){ 
 
-    if( $('#portfolio').inView() && $('#animate1').val() == 0 && $('#animate2').val() ==0) {
-		testAnim2('slideInLeft');
-		testAnim('slideInUp');
+    if( $('#gruero_plus').inView() && $('#animate1').val() == 0 && $('#animate2').val() ==0) {
+		testAnim2('slideInRight');
+		testAnim('slideInLeft');
 		
 		$('#animate1').val(1);
 		$('#animate2').val(1);
