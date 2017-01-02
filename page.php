@@ -340,7 +340,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 				<br><br>
             </div>
             <div class="row">
-                <p class="titulo_testimonios text-center">Testimonios de grueros</p>
+                <p class="titulo_testimonios text-center">Testimonios de Grueros</p>
             </div> 
         
             <div class="row">
