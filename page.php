@@ -238,20 +238,114 @@
     
 	<section id="gruero_plus">
         <div class="container">
-            <div class="row">
+            
+				<div class="col-sm-6">
                     <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/entrada_tugruero1.png" alt="TU/GRUERO PLUS" class="img-responsive"></span>
 					<span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/entrada_tugruero2.png" alt="TU/GRUERO PLUS" class="img-responsive"></span>
+					
+				</div>
+				<div class="col-sm-6">
+					
+						<p align="center" class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestro <strong>Plan de grúas anual</strong></p>
+						<p align="center" class="titulo_gruero_plus">para que manejes tranquilo en <strong>todo el país</strong></p>
+						<p align="center" class="titulo_gruero_plus">y disfruta de grúas <strong>ilimitadas</strong></p>
+						<p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
+						<p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja">MÁS INFORMACIÓN</button></p>
+				</div>
+            
 
-                </div>
-                <div class="col-sm-6 text-center">
-                    <h2>Portfolio</h2>
-
-                </div>
-            </div>
-        </div>
+		</div>
     </section>    
+	<section id="quienes_somos">
+            <div class="row">
+                         <div class="col-sm-3">
+                             <div class="thumbnail">
+								 <div id="nosotros" class="center-block " onclick="TextCaja(1);"></div>
+                                 <div class="caption">
+                                     <br><br>
+                                     <p class="text-center white-font"><strong>NOSOTROS</strong></p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-3">
+                             <div class="thumbnail">
+								 <div id="quehacemos" class="center-block" onclick="TextCaja(2);"></div>
+                                 <div class="caption">
+                                     <br><br>
+                                     <p class="text-center white-font"><strong>¿QUÉ HACEMOS?</strong></p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-3">
+                             <div class="thumbnail">
+								 <div id="adondevamos" class="center-block" onclick="TextCaja(3);"></div>
+                                 <div class="caption">
+                                     <br><br>
+                                     <p class="text-center white-font"><strong>¿A DÓNDE VAMOS?</strong></p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-3">
+                             <div class="thumbnail">
+								 <div id="comofuncionamos" class="center-block" onclick="TextCaja(4);"></div>
+                                 <div class="caption">
+                                     <br><br>
+                                     <p class="text-center white-font"><strong>¿CÓMO FUNCIONAMOS?</strong></p>
+                                 </div>
+                             </div>
+                         </div>
+            </div>
+			<div class="row">
+				<div class="container">
+					<div class="well background_caja">
+						<p class="font_caja_quienes_somos" align="justify" id="caja">Somos una empresa venezolana dedicada al auxilio vial. Trabajamos las 24
+horas del día y los 365 días del año. Buscamos a los grueros más cercanos por
+GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
+						
+						
+					</div>
+				</div>
+			</div>
     
-    
+    </section>    
+
+    <section id="clientes">
+            <div class="row">
+                <p class="titulo_clientes text-center">Nuestros clientes</p>
+            </div> 
+			<div class="row" class="">
+                         <div class="col-sm-4">
+                             <div class="thumbnail padding_clientes ">
+                             <img src="web/img/fresh/universal.png" alt="Universal de Seguros" >
+                             </div>
+                         </div>
+                         <div class="col-sm-4">
+                             <div class="thumbnail padding_clientes">
+								<img src="web/img/fresh/lavitalicia.png" alt="Seguros la Vitalicia" width="50%">
+                             </div>
+                         </div>
+                         <div class="col-sm-4">
+                             <div class="thumbnail padding_clientes">
+								 <img src="web/img/fresh/asistir.png" alt="Asistir cooperativa" width="50%">
+                             </div>
+                         </div>
+            </div>
+			<div class="row">
+				<p align="center" class="propaganda_clientes">¡Y MÁS DE 1000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS</p>
+			</div>
+    </section>
+
+    <section id="testimonios">
+            <div class="row">
+				<br><br>
+            </div>
+            <div class="row">
+                <p class="titulo_testimonios text-center">Testimonios de grueros</p>
+            </div> 
+        
+            <div class="row">
+            </div>
+    </section>
     <section id="portfolio">
         <div class="container">
             <div class="row">
@@ -620,8 +714,36 @@
 
 </html>
 <script>
-    
-
+	
+  $(document).ready(function(){
+	  TextCaja(1);
+  });
+  function TextCaja(caja)
+  {
+	  var text = '';
+		$("#nosotros").css("background-image", "url(web/img/fresh/nosotros.png)");
+		$("#quehacemos").css("background-image", "url(web/img/fresh/quehacemos.png)");
+		$("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos.png)");
+		$("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos.png)");
+		if(caja == 1)//nosotros
+		{
+			text = "Somos una empresa venezolana dedicada al auxilio vial. Trabajamos las 24 horas del día y los 365 días del año. Buscamos a los grueros más cercanos por GPS y garantizamos un tiempo de respuesta menor a 30 minutos";
+			$("#nosotros").css("background-image", "url(web/img/fresh/nosotros2.png)");
+		
+		}else if(caja == 2){//que hacemos
+			text = "Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad ";
+			$("#quehacemos").css("background-image", "url(web/img/fresh/quehacemos2.png)");			  
+		}else if(caja == 3){//a donde vamos
+			text = "TU/GRUERO® se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado";
+			$("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos2.png)");	
+		}else if(caja == 4){//como funcionamos
+			text = "Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO® funciona como intermediario directo entre el accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO®.Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil ";
+			$("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos2.png)");	
+		}
+	   
+		$('#caja').html(text);
+	  
+  }
     
   function testAnim(x) {
     $('#animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){

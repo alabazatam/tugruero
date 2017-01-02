@@ -596,14 +596,141 @@ fieldset[disabled] .btn-success.active {
   font-weight: 900;
   color: #f46830;
 }
-
+.titulo_gruero_plus{
+  font-size: 26px;
+  /*font-weight: 900;*/
+}
 #gruero_plus {
   text-align: center;
   /*background: #18BC9C;*/
   background: url(../img/fresh/fondogrua.png) ;
   background-position: center center;
   background-repeat: no-repeat;
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  background-color: #464646;
+}
+#quienes_somos {
+  text-align: center;
+  /*background: #18BC9C;*/
+  background: url(../img/fresh/fondo_quienes.png) ;
+  background-position: center center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
+}
+#nosotros {
+   background-image: url(../img/fresh/nosotros.png) ;
+   height: 239px;
+   width: 239px;
+   cursor: pointer;
+}
+
+#nosotros:hover {
+   background-image: url(../img/fresh/nosotros2.png) ;
+}
+#quehacemos {
+   background-image: url(../img/fresh/quehacemos.png) ;
+   height: 239px;
+   width: 239px;
+   cursor: pointer;
+
+}
+
+#quehacemos:hover {
+   background-image: url(../img/fresh/quehacemos2.png) ;
+   cursor: pointer;
+
+}
+#adondevamos {
+   background-image: url(../img/fresh/adondevamos.png) ;
+   height: 239px;
+   width: 239px;
+   cursor: pointer;
+
+
+}
+
+#adondevamos:hover {
+   background-image: url(../img/fresh/adondevamos2.png) ;
+
+}
+#comofuncionamos {
+   background-image: url(../img/fresh/comofuncionamos.png) ;
+   height: 239px;
+   width: 239px;
+   cursor: pointer;
+
+}
+
+#comofuncionamos:hover {
+   background-image: url(../img/fresh/comofuncionamos2.png) ;
+
+}
+.font_caja_quienes_somos {
+  font-size: 26px !important;
+  color: #fff;
+  /*font-weight: 900;*/
+}
+.background_caja{
+     background-color: #464646 !important;
+     /*opacity: 0.8;*/
+    
+}
+.btn-naranja {
+    background-color: #CC5A27 !important;
+    color: #fff;
+}
+#clientes{
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+  color: #fff !important;
+  text-align: center;
+  /*background: #18BC9C;*/
+  background: url(../img/fresh/fondo_clientes.png) ;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;    
+}
+.titulo_clientes{
+  font-size: 32px;
+  font-weight: 900;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #26282b;
+}
+.propaganda_clientes{
+    font-size: 26px;
+    color: #333333 !important;
+    font-weight: 900; 
+}
+.padding_clientes{
+    padding-top: 100px !important;;
+    padding-bottom: 50px !important;;
+}
+#testimonios{
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+  color: #fff !important;
+  text-align: center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #26282B;    
+}
+.titulo_testimonios{
+  font-size: 32px;
+  font-weight: 900;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #26282B;
+  background-color: #ccc;
 }
