@@ -622,8 +622,8 @@ fieldset[disabled] .btn-success.active {
 }
 #nosotros {
    background-image: url(../img/fresh/nosotros.png) ;
-   height: 239px;
-   width: 239px;
+   height: 180px;
+   width: 180px;
    cursor: pointer;
 }
 
@@ -632,8 +632,8 @@ fieldset[disabled] .btn-success.active {
 }
 #quehacemos {
    background-image: url(../img/fresh/quehacemos.png) ;
-   height: 239px;
-   width: 239px;
+   height: 180px;
+   width: 180px;
    cursor: pointer;
 
 }
@@ -645,8 +645,8 @@ fieldset[disabled] .btn-success.active {
 }
 #adondevamos {
    background-image: url(../img/fresh/adondevamos.png) ;
-   height: 239px;
-   width: 239px;
+   height: 180px;
+   width: 180px;
    cursor: pointer;
 
 
@@ -658,8 +658,8 @@ fieldset[disabled] .btn-success.active {
 }
 #comofuncionamos {
    background-image: url(../img/fresh/comofuncionamos.png) ;
-   height: 239px;
-   width: 239px;
+   height: 180px;
+   width: 180px;
    cursor: pointer;
 
 }
@@ -733,4 +733,27 @@ fieldset[disabled] .btn-success.active {
   padding-bottom: 15px;
   color: #26282B;
   background-color: #ccc;
+}
+#contactenos{
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+  color: #fff !important;
+  text-align: center;
+  /*background: #18BC9C;*/
+  background: url(../img/fresh/fondo_contactenos.png) ;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;    
+}
+.titulo_contactenos{
+  font-size: 32px;
+  font-weight: 900;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: left;
+
 }
