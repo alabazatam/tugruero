@@ -351,15 +351,40 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
     <section id="contactenos" class="">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-12">
                     <p class="titulo_contactenos">Contáctanos</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-12">
                     
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
+                    <form name="sentMessage" id="contactForm" class="form-horizontal">
+						<div class="form-group">
+						  <label for="name" class="col-sm-2 control-label ">Nombre y Apellido</label>
+						  <div class="col-sm-10">
+							<input type="text" class="form-control input_contact" id="name" placeholder="" required data-validation-required-message="Por favor indique sus Nombres y apellidos.">
+						  </div>
+						</div>
+						<div class="form-group">
+						  <label for="email" class="col-sm-2 control-label">Correo Electrónico</label>
+						  <div class="col-sm-10"> 
+							<input type="email" class="form-control input_contact" id="email" placeholder="" required data-validation-required-message="Por favor indique su Correo Electrónico.">
+						  </div>
+						</div>
+						<div class="form-group" >
+						  <label for="phone" class="col-sm-2 control-label">Número de Contacto</label>
+						  <div class="col-sm-10">
+							<input type="tel" class="form-control input_contact" id="phone" placeholder="" required data-validation-required-message="Por favor indique su Número de Contacto.">
+						  </div>
+						</div>
+						<div class="form-group">
+						  <label for="message" class="col-sm-2 control-label text-left">Mensaje</label>
+						  <div class="col-sm-10">
+							  <textarea class="form-control input_contact" id="message" placeholder="" required data-validation-required-message="Por favor indique su Mensaje." rows="10"></textarea>
+						  </div>
+						</div>                        
+						
+						<!--<div class="row control-group">
                             <div class="form-group col-xs-12 controls">
                                 <label class="white-font">Nombres y Apellidos</label>
                                 <input type="text" class="form-control" placeholder="Nombres y Apellidos" id="name" required data-validation-required-message="Por favor indique sus Nombres y apellidos.">
@@ -387,7 +412,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                        <br>
+                        <br>-->
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -405,31 +430,12 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
         <div class="footer-above">
             <div class="container">
                 <div class="row">
-                    <div class="footer-col col-md-4">
-                        <h3 class="white-font">Dirección</h3>
+                    <div class="footer-col col-md-12">
+						<div class="center-block"><img src="web/img/titulo3.png" class="img-responsive" width="" alt="grua"></div>
                         <p class="white-font">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
-						<p class="white-font">tugruero@gmail.com</p>
-						<p class="white-font">info@tugruero.com</p>						
-						<p class="white-font">0212-237-0491 / 0212-237-9762</p>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3 class="white-font">Redes sociales</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a class="btn-social btn-outline" href="https://wwww.facebook.com/tugruero" target="_blank"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/tugruero" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/tugruero/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <div align="center"><p><img src="web/img/titulo3.png" class="img-responsive" width="200"></p></div>
-                    </div>                    
+						<p class="white-font">tugruero@gmail.com / info@tugruero.com</p>						
+						<p class="white-font">0500-GRUERO-0 (0500-478376-0) </p>
+                    </div>                
                 </div>
             </div>
         </div>

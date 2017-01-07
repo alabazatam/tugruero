@@ -757,3 +757,8 @@ fieldset[disabled] .btn-success.active {
   text-align: left;
 
 }
+.input_contact {
+    background: transparent;
+    color: #FFF;
+    font-weight: 900;
+}
