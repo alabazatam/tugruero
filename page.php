@@ -62,13 +62,13 @@
                         <a href="#page-top">INICIO</a>
                     </li>
                     <li class="page-scroll font-nav">
-                        <a href="#portfolio">TU/GRUERO PLUS</a>
+                        <a href="#gruero_plus">TU/GRUERO PLUS</a>
                     </li>
                     <li class="page-scroll font-nav">
-                        <a href="#about">NOSOTROS</a>
+                        <a href="#quienes_somos">NOSOTROS</a>
                     </li>
                     <li class="page-scroll font-nav">
-                        <a href="#contact">CONTACTANOS</a>
+                        <a href="#contactenos">CONTÁCTANOS</a>
                     </li>
                 </ul>
             </div>
@@ -81,10 +81,10 @@
     <header>
         
         
-            <div class="row">
+            <div class="row ">
                 <div class="col-sm-12">
-                    <input type="text" id="animate1" value="0">
-                    <input type="text" id="animate2" value="0">
+                    <input type="hidden" id="animate1" value="0">
+                    <input type="hidden" id="animate2" value="0">
                     <br><br><br><br>
                     <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="imagen">
                     <div class="intro-text">
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="col-sm-12 franja_transparente">
-                    <div class="">
+                    <div class="margin_header">
                          <div class="col-sm-3">
                              <div class="thumbnail ">
                              <img src="web/img/fresh/c1.png" alt="...">
@@ -148,7 +148,7 @@
                 <p class="titulo_paso">¡PIDE TU GRúA EN <b class="titulo_paso_numero">3</b> SENCILLOS PASOS!</p>
             </div>
             
-            <div class="row">
+            <div class="row margin_pasos">
                          <div class="col-sm-4">
                              <div class="thumbnail">
                              <img src="web/img/fresh/p1.png" alt="Llama a nuestro Call Center">
@@ -184,7 +184,7 @@
             <div class="col-sm-12 text-center">
                 <p class="titulo_bancos">Bancos disponibles</p>
             </div>      
-            <div class="row">
+            <div class="row margin_bancos">
                  <div class="col-sm-1">
                      
                  </div>  
@@ -236,31 +236,31 @@
             </div>        
     </section>   
     
-	<section id="gruero_plus">
-        <div class="container">
+    <section id="gruero_plus">
+        <div class="row margin_bancos">
             
-				<div class="col-sm-6">
-                    <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/entrada_tugruero1.png" alt="TU/GRUERO PLUS" class="img-responsive"></span>
-					<span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/entrada_tugruero2.png" alt="TU/GRUERO PLUS" class="img-responsive"></span>
-					
-				</div>
-				<div class="col-sm-6">
-					
-						<p align="center" class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestro <strong>Plan de grúas anual</strong></p>
-						<p align="center" class="titulo_gruero_plus">para que manejes tranquilo en <strong>todo el país</strong></p>
-						<p align="center" class="titulo_gruero_plus">y disfruta de grúas <strong>ilimitadas</strong></p>
-						<p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
-						<p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja">MÁS INFORMACIÓN</button></p>
-				</div>
+            <div class="col-sm-5">
+                        <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/entrada_tugruero1.png" alt="TU/GRUERO PLUS" class=""></span>
+                        <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/entrada_tugruero2.png" alt="TU/GRUERO PLUS" class=""></span>
+
+            </div>
+            <div class="col-sm-7">
+
+                    <p align="center" class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestro <strong>Plan de grúas anual</strong>
+                    para que manejes tranquilo en <strong>todo el país</strong>
+                    <br>y disfruta de grúas <strong>ilimitadas</strong></p>
+                    <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
+                    <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja">MÁS INFORMACIÓN</button></p>
+            </div>
             
 
-		</div>
+	</div>
     </section>    
 	<section id="quienes_somos">
-            <div class="row">
+            <div class="row margin_quienessomos">
                          <div class="col-sm-3">
                              <div class="thumbnail">
-								 <div id="nosotros" class="center-block " onclick="TextCaja(1);"></div>
+				<div id="nosotros" class="center-block " onclick="TextCaja(1);"></div>
                                  <div class="caption">
                                      <br><br>
                                      <p class="text-center white-font"><strong>NOSOTROS</strong></p>
@@ -269,7 +269,7 @@
                          </div>
                          <div class="col-sm-3">
                              <div class="thumbnail">
-								 <div id="quehacemos" class="center-block" onclick="TextCaja(2);"></div>
+				<div id="quehacemos" class="center-block" onclick="TextCaja(2);"></div>
                                  <div class="caption">
                                      <br><br>
                                      <p class="text-center white-font"><strong>¿QUÉ HACEMOS?</strong></p>
@@ -278,7 +278,7 @@
                          </div>
                          <div class="col-sm-3">
                              <div class="thumbnail">
-								 <div id="adondevamos" class="center-block" onclick="TextCaja(3);"></div>
+				<div id="adondevamos" class="center-block" onclick="TextCaja(3);"></div>
                                  <div class="caption">
                                      <br><br>
                                      <p class="text-center white-font"><strong>¿A DÓNDE VAMOS?</strong></p>
@@ -287,7 +287,7 @@
                          </div>
                          <div class="col-sm-3">
                              <div class="thumbnail">
-								 <div id="comofuncionamos" class="center-block" onclick="TextCaja(4);"></div>
+				<div id="comofuncionamos" class="center-block" onclick="TextCaja(4);"></div>
                                  <div class="caption">
                                      <br><br>
                                      <p class="text-center white-font"><strong>¿CÓMO FUNCIONAMOS?</strong></p>
@@ -295,8 +295,8 @@
                              </div>
                          </div>
             </div>
-			<div class="row">
-				<div class="container">
+			<div class="row margin_testimonios">
+				<div class="">
 					<div class="well background_caja">
 						<p class="font_caja_quienes_somos" align="justify" id="caja">Somos una empresa venezolana dedicada al auxilio vial. Trabajamos las 24
 horas del día y los 365 días del año. Buscamos a los grueros más cercanos por
@@ -313,7 +313,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
             <div class="row">
                 <p class="titulo_clientes text-center">Nuestros clientes</p>
             </div> 
-			<div class="row" class="">
+			<div class="row margin_clientes">
                          <div class="col-sm-4">
                              <div class="thumbnail padding_clientes ">
                              <img src="web/img/fresh/universal.png" alt="Universal de Seguros" >
@@ -330,7 +330,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                              </div>
                          </div>
             </div>
-			<div class="row">
+			<div class="row margin_clientes">
 				<p align="center" class="propaganda_clientes">¡Y MÁS DE 1000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS!</p>
 			</div>
     </section>
@@ -343,43 +343,85 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                 <p class="titulo_testimonios text-center">Testimonios de Grueros</p>
             </div> 
         
-            <div class="row">
-				
+            <div class="row margin_testimonios" >
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
+                <div class="thumbnail">
+                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <div class="fondo_testimonios">
+                        <p class="nombres_testimonios text-left">Fran Marchan</p>
+                        <p class="subtitulo_testimonios text-justify">Gruero del Estado Bolívar inscrito en el Club Grúas Venezuela:</p>
+                        <p class="texto_testimonios text-justify">Con TU/GRUERO® toda ha marchado muy bien. Siempre le recomiendo a todos mis compañeros se afilien con esta empresa.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
+                <div class="thumbnail">
+                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <div class="fondo_testimonios">
+                        <p class="nombres_testimonios text-left">David Urbina</p>
+                        <p class="subtitulo_testimonios text-justify">Gruero del Estado Carabobo inscrito en el Club Grúas Venezuela:</p>
+                        <p class="texto_testimonios text-justify">Prefiero trabajar con ustedes, las otras compañías no están pendientes de pagar. En cambio ustedes sí lo están y pagan al día.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
+                <div class="thumbnail">
+                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <div class="fondo_testimonios">
+                        <p class="nombres_testimonios text-left">Carlos Otero</p>
+                        <p class="subtitulo_testimonios text-justify">Directivo del Club Gruas en el Estado Anzoategui:</p>
+                        <p class="texto_testimonios text-justify">No trabajamos con otras compañías de asistencia, pero en comparación con otro servicios ustedes son más atentos y responsables.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
+                <div class="thumbnail">
+                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <div class="fondo_testimonios">
+                        <p class="nombres_testimonios text-left">Ivan Fernandez</p>
+                        <p class="subtitulo_testimonios text-justify">Gruero del Estado Miranda inscrito en el Club Grúas Venezuela:</p>
+                        <p class="texto_testimonios text-justify">A mi parecer, por los momentos es lo mejor que hay.</p>
+
+                    </div>
+                </div>
+            </div>
             </div>
     </section>
     <!-- Contact Section -->
     <section id="contactenos" class="">
-        <div class="container">
-            <div class="row">
+        <div class="">
+            <div class="row margin_contactenos">
                 <div class="col-lg-12">
                     <p class="titulo_contactenos">Contáctanos</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row margin_contactenos">
+                <div class="col-sm-12">
                     
                     <form name="sentMessage" id="contactForm" class="form-horizontal">
 						<div class="form-group">
-						  <label for="name" class="col-sm-2 control-label ">Nombre y Apellido</label>
-						  <div class="col-sm-10">
+						  <label for="name" class="col-sm-3 text-left">Nombre y Apellido</label>
+						  <div class="col-sm-9">
 							<input type="text" class="form-control input_contact" id="name" placeholder="" required data-validation-required-message="Por favor indique sus Nombres y apellidos.">
 						  </div>
 						</div>
 						<div class="form-group">
-						  <label for="email" class="col-sm-2 control-label">Correo Electrónico</label>
-						  <div class="col-sm-10"> 
+						  <label for="email" class="col-sm-3 text-left">Correo Electrónico</label>
+						  <div class="col-sm-9"> 
 							<input type="email" class="form-control input_contact" id="email" placeholder="" required data-validation-required-message="Por favor indique su Correo Electrónico.">
 						  </div>
 						</div>
 						<div class="form-group" >
-						  <label for="phone" class="col-sm-2 control-label">Número de Contacto</label>
-						  <div class="col-sm-10">
+						  <label for="phone" class="col-sm-3 text-left">Número de Contacto</label>
+						  <div class="col-sm-9">
 							<input type="tel" class="form-control input_contact" id="phone" placeholder="" required data-validation-required-message="Por favor indique su Número de Contacto.">
 						  </div>
 						</div>
 						<div class="form-group">
-						  <label for="message" class="col-sm-2 control-label text-left">Mensaje</label>
-						  <div class="col-sm-10">
+						  <label for="message" class="col-sm-3 text-left">Mensaje</label>
+						  <div class="col-sm-9">
 							  <textarea class="form-control input_contact" id="message" placeholder="" required data-validation-required-message="Por favor indique su Mensaje." rows="10"></textarea>
 						  </div>
 						</div>                        
@@ -415,7 +457,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                         <br>-->
                         <div id="success"></div>
                         <div class="row">
-                            <div class="form-group col-xs-12">
+                            <div class="form-group">
                                 <button type="submit" id="btnSubmit" class="btn btn-default btn-lg">Enviar</button>
                             </div>
                         </div>

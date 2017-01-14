@@ -597,7 +597,7 @@ fieldset[disabled] .btn-success.active {
   color: #f46830;
 }
 .titulo_gruero_plus{
-  font-size: 26px;
+  font-size: 22px;
   /*font-weight: 900;*/
 }
 #gruero_plus {
@@ -622,8 +622,8 @@ fieldset[disabled] .btn-success.active {
 }
 #nosotros {
    background-image: url(../img/fresh/nosotros.png) ;
-   height: 180px;
-   width: 180px;
+   height: 150px;
+   width: 150px;
    cursor: pointer;
 }
 
@@ -632,8 +632,8 @@ fieldset[disabled] .btn-success.active {
 }
 #quehacemos {
    background-image: url(../img/fresh/quehacemos.png) ;
-   height: 180px;
-   width: 180px;
+   height: 150px;
+   width: 150px;
    cursor: pointer;
 
 }
@@ -645,8 +645,8 @@ fieldset[disabled] .btn-success.active {
 }
 #adondevamos {
    background-image: url(../img/fresh/adondevamos.png) ;
-   height: 180px;
-   width: 180px;
+   height: 150px;
+   width: 150px;
    cursor: pointer;
 
 
@@ -658,8 +658,8 @@ fieldset[disabled] .btn-success.active {
 }
 #comofuncionamos {
    background-image: url(../img/fresh/comofuncionamos.png) ;
-   height: 180px;
-   width: 180px;
+   height: 150px;
+   width: 150px;
    cursor: pointer;
 
 }
@@ -729,10 +729,49 @@ fieldset[disabled] .btn-success.active {
   font-size: 32px;
   font-weight: 900;
   margin: 0;
+  
   padding-top: 15px;
   padding-bottom: 15px;
   color: #26282B;
   background-color: #ccc;
+  margin-bottom: 5%;
+}
+.fondo_testimonios{
+    border: 0px solid #555;
+    background: #D8D8DA;
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
+    border-radius: 8px 8px 8px 8px;
+    max-width: 70%;
+    margin-left: 15%;
+    height: 300px;
+}
+.nombres_testimonios{
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 15px;
+  color: #42454A;
+}
+.subtitulo_testimonios{
+  font-size: 14px;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #4A4D51;
+}
+.texto_testimonios{
+    
+  font-size: 16px;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #4A4D51;
+  padding-top: 15px;
+  padding-bottom: 8px;
+}
+.margin_testimonios{
+   padding-left: 15%;
+   padding-right: 15%;
 }
 #contactenos{
   margin: 0;
@@ -761,4 +800,28 @@ fieldset[disabled] .btn-success.active {
     background: transparent;
     color: #FFF;
     font-weight: 900;
+}
+.margin_header{
+   padding-left: 10%;
+   padding-right: 10%;
+}
+.margin_pasos{
+   padding-left: 10%;
+   padding-right: 10%;
+}
+.margin_quienessomos{
+   padding-left: 10%;
+   padding-right: 10%;
+}
+.margin_bancos{
+   padding-left: 10%;
+   padding-right: 10%;
+}
+.margin_clientes{
+   padding-left: 10%;
+   padding-right: 10%;
+}
+.margin_contactenos{
+   padding-left: 10%;
+   padding-right: 10%;
 }
