@@ -154,7 +154,7 @@
                              <img src="web/img/fresh/p1.png" alt="Llama a nuestro Call Center">
                                  <div class="caption">
                                      <br><br>
-                                     <p class="text-center white-font">Llama a nuestro Call Center <strong>0212-237-9227</strong> y dinos tu requerimiento</p>
+                                     <p class="text-center white-font">Llama a nuestro Call Center <strong>0500-GRUERO-0 (0500-478376-0) </strong> y dinos tu requerimiento</p>
                                  </div>
                              </div>
                          </div>
@@ -185,69 +185,89 @@
                 <p class="titulo_bancos">Bancos disponibles</p>
             </div>      
             <div class="row margin_bancos">
-                 <div class="col-sm-1">
+                 <div class="col-xs-1">
                      
                  </div>  
-                 <div class="col-sm-2">
-                     <img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive" width="70">
+                 <div class="col-xs-2">
+                     <img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive" width="">
                  </div> 
-                 <div class="col-sm-2">
-                    <img src="web/img/fresh/bancaribe.png" alt="Paga con BANESCO" class="img-responsive" width="100">
+                 <div class="col-xs-2">
+                    <img src="web/img/fresh/bancaribe.png" alt="Paga con BANESCO" class="img-responsive" width="">
 
                  </div> 
-                 <div class="col-sm-2">
-                    <img src="web/img/fresh/banconacional.png" alt="Paga con BANESCO" class="img-responsive" width="100">
+                 <div class="col-xs-2">
+                    <img src="web/img/fresh/banconacional.png" alt="Paga con BANESCO" class="img-responsive" width="">
 
                  </div> 
-                 <div class="col-sm-2">
-                    <img src="web/img/fresh/bancoactivo.png" alt="Paga con BANESCO" class="img-responsive" width="100">
+                 <div class="col-xs-2">
+                    <img src="web/img/fresh/bancoactivo.png" alt="Paga con BANESCO" class="img-responsive" width="">
 
                  </div> 
-                 <div class="col-sm-2">
-                    <img src="web/img/fresh/bancovenezuela.png" alt="Paga con BANESCO" class="img-responsive" width="150">
+                 <div class="col-xs-2">
+                    <img src="web/img/fresh/bancovenezuela.png" alt="Paga con BANESCO" class="img-responsive" width="">
 
                  </div> 
-                 <div class="col-sm-1">
+                 <div class="col-xs-1">
                      
                  </div>                 
             </div>  
-            <div class="row">
-                 <div class="col-sm-1">
+            <div class="row margin_bancos separador_bancos">
+                 <div class="col-xs-1">
                      
                  </div>  
-                 <div class="col-sm-2">
-                     
+                 <div class="col-xs-2">
+                     <img src="web/img/fresh/provincial.png" alt="Paga con BANESCO" class="img-responsive" width="">
                  </div> 
-                 <div class="col-sm-2">
-                     
+                 <div class="col-xs-2">
+                     <img src="web/img/fresh/bancoexterior.png" alt="Paga con BANESCO" class="img-responsive" width="">
+
                  </div> 
-                 <div class="col-sm-2">
-                     
+                 <div class="col-xs-2">
+                     <img src="web/img/fresh/mercantil.png" alt="Paga con BANESCO" class="img-responsive" width="">
+
                  </div> 
-                 <div class="col-sm-2">
-                     
+                 <div class="col-xs-2">
+                     <img src="web/img/fresh/venezolanodecredito.png" alt="Paga con BANESCO" class="img-responsive" width="">
+
                  </div> 
-                 <div class="col-sm-2">
-                     
+                 <div class="col-xs-2">
+                     <img src="web/img/fresh/bod.png" alt="Paga con BANESCO" class="img-responsive" width="">
                  </div> 
-                 <div class="col-sm-1">
+                 <div class="col-xs-1">
                      
                  </div>                 
-            </div>        
+            </div>
+            <div class="row margin_bancos letras_bancos text-center" align="center">
+                <div class="col-sm-12 text-center">
+                    También aceptamos
+                </div>
+                <div class="col-sm-1 col-sm-offset-5"  >
+                    <img src="web/img/fresh/visa.png" alt="Visa" class="" width="">
+                </div>
+                <div class="col-sm-1">
+                    <img src="web/img/fresh/mastercard.png" alt="Mastercard" class="" width="">
+                </div>
+                <div class="col-sm-12 text-center">
+                    a través de
+                </div>
+                <div class="col-sm-12 text-center"  >
+                    <img src="web/img/fresh/mercadopago.png" alt="Mercado Pago" class="" width="">
+                </div>
+            </div>
     </section>   
     
     <section id="gruero_plus">
-        <div class="row margin_bancos">
+        <div class="row margin_gruero_plus">
             
-            <div class="col-sm-5">
+            <div class="col-sm-5 text-right">
                         <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/entrada_tugruero1.png" alt="TU/GRUERO PLUS" class=""></span>
                         <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/entrada_tugruero2.png" alt="TU/GRUERO PLUS" class=""></span>
 
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-7 texto_gruero_plus text-left">
 
                     <p align="center" class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestro <strong>Plan de grúas anual</strong>
-                    para que manejes tranquilo en <strong>todo el país</strong>
+                    <br>para que manejes tranquilo en <strong>todo el país</strong>
                     <br>y disfruta de grúas <strong>ilimitadas</strong></p>
                     <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
                     <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja">MÁS INFORMACIÓN</button></p>
@@ -295,7 +315,7 @@
                              </div>
                          </div>
             </div>
-			<div class="row margin_testimonios">
+			<div class="row margin_quienessomos">
 				<div class="">
 					<div class="well background_caja">
 						<p class="font_caja_quienes_somos" align="justify" id="caja">Somos una empresa venezolana dedicada al auxilio vial. Trabajamos las 24
@@ -470,30 +490,39 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
    <!-- Footer -->
     <footer class="text-center nav-close">
         <div class="footer-above">
-            <div class="container">
+            <div class="">
                 <div class="row">
-                    <div class="footer-col col-md-12">
-						<div class="center-block"><img src="web/img/titulo3.png" class="img-responsive" width="" alt="grua"></div>
-                        <p class="white-font">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
-						<p class="white-font">tugruero@gmail.com / info@tugruero.com</p>						
-						<p class="white-font">0500-GRUERO-0 (0500-478376-0) </p>
+                    <div class="footer-col col-sm-12">
+						<div class="text-center logo_footer">
+                                                    <img src="web/img/fresh/titulo3.png" alt="grua">
+                                                </div>
+                        <p class="white-font text_footer">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
+						<p class="white-font text_footer">tugruero@gmail.com / info@tugruero.com</p>						
+						<p class="white-font text_footer">0500-GRUERO-0 (0500-478376-0) </p>
                     </div>                
                 </div>
             </div>
         </div>
         <div class="footer-below">
-            <div class="container">
+            <div class="">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <p class="white-font">Copyright &copy; Soluciones Tu Gruero, C.A. 2016. J-40680605-6</p>
+                    <div class="col-sm-12">
+                        <p class="white-font text_footer">Copyright &copy; Soluciones Tu Gruero, C.A. 2016. J-40680605-6</p>
                     </div>
-					<div class="col-lg-12">
-						<a class="white-font" href="<?php echo full_url?>/security_politics.php" target="_blank"><small class="white-font">Políticas de privacidad</small></a>
-						<small class="white-font"> - </small>
-						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font">Políticas de uso</small></a>	
-						<small class="white-font"> - </small>
-						<a  href="<?php echo full_url?>/terms.php" target="_blank"><small class="white-font">Términos y condiciones</small></a>	
-
+					<div class="col-xs-3">
+						<a  href="<?php echo full_url?>/terms.php" target="_blank"><small class="white-font text_footer_strong">Términos y condiciones</small></a>	
+                                        </div>
+					<div class="col-xs-2">
+						<a class="white-font" href="<?php echo full_url?>/security_politics.php" target="_blank"><small class="white-font text_footer_strong">Políticas de privacidad</small></a>
+                                        </div>
+					<div class="col-xs-2">
+						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Políticas de uso</small></a>		
+                                        </div>
+					<div class="col-xs-2">
+						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Zonas Peligrosas</small></a>		
+                                        </div>
+					<div class="col-xs-3">
+						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Calsificación de vehículos por</small></a>		
                                         </div>
                 </div>
             </div>
