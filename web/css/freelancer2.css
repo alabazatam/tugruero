@@ -70,7 +70,7 @@ hr.star-primary:after {
 header {
   text-align: center;
   /*background: #18BC9C;*/
-  background: url(../img/fresh/header.png) ;
+  background: url(../img/fresh/header.jpg) ;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -607,7 +607,7 @@ fieldset[disabled] .btn-success.active {
  /*text-align: center;*/
   /*background: #18BC9C;*/
   padding-top: 80px;
-  background: url(../img/fresh/fondogrua.png) ;
+  background: url(../img/fresh/fondogrua.jpg) ;
   background-position: center bottom;
   background-repeat: no-repeat;
   /*background-attachment: fixed;*/
@@ -804,6 +804,12 @@ fieldset[disabled] .btn-success.active {
     .titulo_gruero_plus{
       font-size: 18px;
     }
+.subtitulo_testimonios{
+  font-size: 14px;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #4A4D51;
+}
 .propaganda_clientes{
     font-size: 18px;
     color: #333333 !important;
@@ -872,7 +878,7 @@ fieldset[disabled] .btn-success.active {
   color: #fff !important;
   text-align: center;
   /*background: #18BC9C;*/
-  background: url(../img/fresh/fondo_clientes.png) ;
+  background: url(../img/fresh/fondo_clientes.jpg) ;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -912,7 +918,7 @@ fieldset[disabled] .btn-success.active {
   color: #fff !important;
   text-align: center;
   /*background: #18BC9C;*/
-  background: url(../img/fresh/fondo_contactenos.png) ;
+  background: url(../img/fresh/fondo_contactenos.jpg) ;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;

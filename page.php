@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html ng-app="cssawds">
 <head>
 
     <meta charset="utf-8">
@@ -8,617 +7,766 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
     <meta name="author" content="tugruero">
-    <meta name="google-site-verification" content="kXlZJPIsjo2kzjHRJpgR4ncAn-g_bF5ipNOvRSkhsE0" />
+	<meta name="google-site-verification" content="kXlZJPIsjo2kzjHRJpgR4ncAn-g_bF5ipNOvRSkhsE0" />
     <link rel="alternate" hreflang="es" href="www.tugruero.com" />
-    <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
-    <title>TUGRUERO®</title>
-    <!-- Bootstrap Core CSS -->
     <link href="web/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Theme CSS -->
-    <link href="web/css/freelancer2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
+    <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
     <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="web/css/animate.min.css" />
+     <!--<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">-->
+     <!--<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">-->
+     <!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300|Roboto:400,300,500,700">-->
+    <!-- <link rel="stylesheet" href="http://cssa.cssawards123.netdna-cdn.com/wp-content/themes/cssawds/assets/css/cssawds.min.css"> -->
+    <link rel="stylesheet" href="web/css/menu.css">  
+	<link rel="stylesheet" href="web/css/hover.css">  
+	<link href="web/css/freelancer.css" rel="stylesheet">
+        <title>TUGRUERO®</title>
 </head>
-<style>
+<body id="page-top" class="index" class="">
 
-#animationSandbox {
-  -moz-animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  -moz-animation-delay: 0s;
-  -webkit-animation-delay: 0s;
-
-}
-#animationSandbox2 {
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  -moz-animation-delay: 0s;
-  -webkit-animation-delay: 0s;
-}
-#imagen {
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  -moz-animation-delay: 0s;
-  -webkit-animation-delay: 0s;
-}
+	<nav class="">
 		
-</style>
-<body id="page-top" class="index">
+	  <ul class="list-unstyled main-menu">
+								<li class="text-right nav-close"><a href="#" id="nav-close">X</a></li>
+							<?php foreach($items as $item):?>
+								<li class="page-scroll ">
+									<a href="<?php echo $item['url'];?>" class="hvr-underline-from-center"><?php echo $item['name'];?></a>
+								</li>
+							<?php endforeach;?>
+	  </ul>
+	</nav>
+ 
+	<div class="navbar navbar-default navbar-fixed-top clear-padding ">      
 
-    <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menú <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="#page-top"><img class="img-responsive" src="web/img/fresh/logo_menu.png" alt=""></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden font-nav">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll font-nav">
-                        <a href="#page-top">INICIO</a>
-                    </li>
-                    <li class="page-scroll font-nav">
-                        <a href="#gruero_plus">TU/GRUERO PLUS</a>
-                    </li>
-                    <li class="page-scroll font-nav">
-                        <a href="#quienes_somos">NOSOTROS</a>
-                    </li>
-                    <li class="page-scroll font-nav">
-                        <a href="#contactenos">CONTÁCTANOS</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!-- Header -->
-    <header>
-        
-        
-            <div class="row ">
-                <div class="col-sm-12">
-                    <input type="hidden" id="animate1" value="0">
-                    <input type="hidden" id="animate2" value="0">
-                    <input type="hidden" id="animate3" value="0">
-                    <br><br><br><br>
-                    <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="">
-                    <div class="intro-text">
-                        <p class="name">¡La nueva mejor forma de solicitar una grúa!<br><br> </p>
-                    </div>
-                </div>
-                <div class="col-sm-12 franja_transparente">
-                    <div class="margin_header">
-                         <div class="col-sm-3">
-                             <div class="thumbnail ">
-                             <img src="web/img/fresh/c1.png" alt="...">
-                                 <div class="caption">
-                                     <p class="font-principal">Servicio activo <strong class="font-principal-strong">24/7</strong> todos los días del año</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-sm-3">
-                             <div class="thumbnail">
-                             <img src="web/img/fresh/c2.png" alt="...">
-                                 <div class="caption">
-                                     <p class="font-principal">Rescate en menos de <strong class="font-principal-strong">30 minutos</strong></p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-sm-3">
-                             <div class="thumbnail">
-                             <img src="web/img/fresh/c3.png" alt="...">
-                                 <div class="caption">
-                                     <p class="font-principal">Más de <strong class="font-principal-strong">2000 grueros</strong> en toda Venezuela</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-sm-3">
-                             <div class="thumbnail">
-                             <img src="web/img/fresh/c4.png" alt="...">
-                                 <div class="caption">
-                                     <p class="font-principal">Búsqueda de grueros por <strong class="font-principal-strong">GPS</strong></p>
-                                 </div>
-                             </div>
-                         </div>
-                    </div>
-       
-                </div>  
-                <div class="col-sm-12 franja_naranja" >
-                    <p><strong>REVOLUCIONANDO LA INDUSTRIA DEL AUXILIO VIAL EN VENEZUELA</strong></p>  
-                </div>
-                <div class="col-sm-12" >
-                    <br>
-                    <p class="telefono_sombra">0500-GRUERO-0 (0500-478376-0) </p>
-                    <!--<img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">-->
-                </div>  
-            </div>
-
-            
-        
-      
-
-    </header>
-    <!-- About Section -->
-    <section class="pasos" id="pasos">
-            <div class="col-sm-12 text-center">
-                <p class="titulo_paso">¡PIDE TU GRúA EN <b class="titulo_paso_numero">3</b> SENCILLOS PASOS!</p>
-            </div>
-            
-            <div class="row margin_pasos">
-                         <div class="col-sm-4">
-                             <div class="thumbnail">
-                             <img src="web/img/fresh/p1.png" alt="Llama a nuestro Call Center">
-                                 <div class="caption">
-                                     <br><br>
-                                     <p class="text-center white-font">Llama a nuestro Call Center <strong>0500-GRUERO-0 (0500-478376-0) </strong> y dinos tu requerimiento</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-sm-4">
-                             <div class="thumbnail">
-                             <img src="web/img/fresh/p2.png" alt="...">
-                                 <div class="caption">
-                                     <br><br>
-                                     <p class="text-center white-font">Paga con <strong>tarjeta de crédito</strong> o <strong>transferencia bancaria</strong></p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-sm-4">
-                             <div class="thumbnail">
-                             <img src="web/img/fresh/p3.png" alt="...">
-                                 <div class="caption">
-                                     <br><br>
-                                     <p class="text-center white-font"><strong>¡LISTO!</strong> La grúa llegará en menos de <strong>30 minutos</strong> </p>
-                                 </div>
-                             </div>
-                         </div>
-            </div>
-        
-    </section>
-    
-     <section id="bancos">
-            <div class="col-sm-12 text-center">
-                <p class="titulo_bancos">Bancos disponibles</p>
-            </div>      
-            <div class="row margin_bancos">
-                 <div class="col-xs-1">
-                     
-                 </div>  
-                 <div class="col-xs-2">
-                     <img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive" width="">
-                 </div> 
-                 <div class="col-xs-2">
-                    <img src="web/img/fresh/bancaribe.png" alt="Paga con BANCARIBE" class="img-responsive" width="">
-
-                 </div> 
-                 <div class="col-xs-2">
-                    <img src="web/img/fresh/banconacional.png" alt="Paga con Banco Nacional de Crédito" class="img-responsive" width="">
-
-                 </div> 
-                 <div class="col-xs-2">
-                    <img src="web/img/fresh/bancoactivo.png" alt="Paga con Banco Activo" class="img-responsive" width="">
-
-                 </div> 
-                 <div class="col-xs-2">
-                    <img src="web/img/fresh/bancovenezuela.png" alt="Paga con Banco Venezuela" class="img-responsive" width="">
-
-                 </div> 
-                 <div class="col-xs-1">
-                     
-                 </div>                 
-            </div>  
-            <div class="row margin_bancos separador_bancos">
-                 <div class="col-xs-1">
-                     
-                 </div>  
-                 <div class="col-xs-2">
-                     <img src="web/img/fresh/provincial.png" alt="Paga con Banco Provincial" class="img-responsive" width="">
-                 </div> 
-                 <div class="col-xs-2">
-                     <img src="web/img/fresh/bancoexterior.png" alt="Paga con Banco Exterior" class="img-responsive" width="">
-
-                 </div> 
-                 <div class="col-xs-2">
-                     <img src="web/img/fresh/mercantil.png" alt="Paga con Banco Mercantil" class="img-responsive" width="">
-
-                 </div> 
-                 <div class="col-xs-2">
-                     <img src="web/img/fresh/venezolanodecredito.png" alt="Paga con Venezolano de Crédito" class="img-responsive" width="">
-
-                 </div> 
-                 <div class="col-xs-2">
-                     <img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive" width="">
-                 </div> 
-                 <div class="col-xs-1">
-                     
-                 </div>                 
-            </div>
-            <div class="row margin_bancos letras_bancos text-center" align="center">
-                <div class="col-sm-12 text-center">
-                    También aceptamos
-                </div>
-                <div class="col-sm-1 col-sm-offset-5"  >
-                    <img src="web/img/fresh/visa.png" alt="Visa" class="" width="">
-                </div>
-                <div class="col-sm-1">
-                    <img src="web/img/fresh/mastercard.png" alt="Mastercard" class="" width="">
-                </div>
-                <div class="col-sm-12 text-center">
-                    a través de
-                </div>
-                <div class="col-sm-12 text-center"  >
-                    <img src="web/img/fresh/mercadopago.png" alt="Mercado Pago" class="" width="">
-                </div>
-            </div>
-    </section>   
-    
-    <section id="gruero_plus" onload="alert(1);">
-        <div class="row margin_gruero_plus">
-            
-            <div class="col-sm-5 text-right">
-                        <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/entrada_tugruero1.png" alt="TU/GRUERO PLUS" class=""></span>
-                        <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/entrada_tugruero2.png" alt="TU/GRUERO PLUS" class=""></span>
-
-            </div>
-            <div class="col-sm-7 texto_gruero_plus text-left">
-                    <div id="imagen">
-                        <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestro <strong>Plan de grúas anual</strong>
-                        <br>para que manejes tranquilo en <strong>todo el país</strong>
-                        <br>y disfruta de grúas <strong>ilimitadas</strong></p>
-                        <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
-                        <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja">MÁS INFORMACIÓN</button></p>
-                    </div>
-            </div>
-            
-
+		<div class="col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-5 page-scroll">
+			<a class="nav-close visible-md visible-lg" href="#header"><img class="img-logo" src="web/img/logo_blanco.png" alt="tugruero.com" width="220"></a>
+		</div>
+		
+		<div class="navbar-header pull-right">
+		  <a id="nav-expander" class="nav-expander fixed">
+			<i class="fa fa-bars fa-lg white-font"></i>
+		  </a>
+		</div>
 	</div>
-    </section>    
-	<section id="quienes_somos">
-            <div class="row margin_quienessomos">
-                         <div class="col-sm-3">
-                             <div class="thumbnail">
-				<div id="nosotros" class="center-block " onclick="TextCaja(1);"></div>
-                                 <div class="caption">
-                                     <br><br>
-                                     <p class="text-center white-font"><strong>NOSOTROS</strong></p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-sm-3">
-                             <div class="thumbnail">
-				<div id="quehacemos" class="center-block" onclick="TextCaja(2);"></div>
-                                 <div class="caption">
-                                     <br><br>
-                                     <p class="text-center white-font"><strong>¿QUÉ HACEMOS?</strong></p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-sm-3">
-                             <div class="thumbnail">
-				<div id="adondevamos" class="center-block" onclick="TextCaja(3);"></div>
-                                 <div class="caption">
-                                     <br><br>
-                                     <p class="text-center white-font"><strong>¿A DÓNDE VAMOS?</strong></p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="col-sm-3">
-                             <div class="thumbnail">
-				<div id="comofuncionamos" class="center-block" onclick="TextCaja(4);"></div>
-                                 <div class="caption">
-                                     <br><br>
-                                     <p class="text-center white-font"><strong>¿CÓMO FUNCIONAMOS?</strong></p>
-                                 </div>
-                             </div>
-                         </div>
-            </div>
-			<div class="row margin_quienessomos">
-				<div class="">
-					<div class="well background_caja">
-						<p class="font_caja_quienes_somos" align="justify" id="caja">Somos una empresa venezolana dedicada al auxilio vial. Trabajamos las 24
-horas del día y los 365 días del año. Buscamos a los grueros más cercanos por
-GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
+	<section id="header" class="success nav-close">
+        <div class="container">
+			<div class="row" class="">
+
+						<div class="col-sm-12 col-md-12">
+
+							<div align="center"><img src="<?php echo full_url?>/web/img/nuevo/logo_circulo.png" class="img-responsive text-center"></div>
+							<br>
+							<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>
+							<br>
+							<p><h1 class="text-center big-title white-font">¡El mejor servicio de grúas en todo el país!</h1></p>
+							<p>
+							<h1 class="text-center  big-title white-font"><strong style="font-size: 24px;" class="white-font">TU/GRUERO®</strong> llegó para mejorar por completo la industria del auxilio vial, para <strong style="font-size: 24px;" class="white-font">¡SIEMPRE!</strong> </h1>
+							</p>
+							<br>
 						
+							<div class="visible-lg visible-md visible-sm success_new">
+								<h1 class="text-center big-title white-font"><strong  class="white-font big-title" style="font-size: 44px;">Llámanos al 0212-237-0491 - 0212-237-9762</strong> </h1>
+							</div>
+							<div class="visible-xs">
+								<h1 class="text-center big-title white-font"><strong class="white-font big-font">Llámanos al 0212-237-0491 - 0212-237-9762</strong> </h1>
+							</div>
+						</div>
+
+			</div>
+		</div>
+
+	</section>
+	<section id="beneficios" class="success5 nav-close">
+        <div class="container">
+			
+						<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2">
+							<div class="visible-lg visible-md visible-sm">
+								<h2 class="text-center big-title white-font"><strong style="font-size: 44px;" class="white-font">Beneficios de TU/GRUERO®</strong></h2>
+							</div>
+							<div class="visible-xs">
+								<h2 class="text-center big-title white-font"><strong class="white-font big-font">Beneficios de TU/GRUERO®</strong></h2>
+							</div>
+							<div>
+							<ul style="list-style-type: none;" class="text-center">
+								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Servicios de grúas y taxis en toda Venezuela. 24/7 y los 365 días del año.</li></p>
+								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Rescate en menos de 30 minutos.</li></p>
+								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Más de 2000 grueros a nivel nacional.</li></p>
+								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Búsqueda por GPS al gruero más cercano.</li></p>
+								<li><p align="justify" class="white-font"><i class="fa fa-check fa-2x white-font "></i> Nuestros grueros son los más calificados del país.</li></p>
+								
+							</ul>	
+							
 						
-					</div>
+						</div>
+
+			
+		</div>
+
+	</section>	
+	<section id="header2" class="success nav-close">
+        <div class="container visible-lg visible-md">
+			<div class="row" class="visible-lg visible-md">
+						<div class="col-md-3 col-lg-3 ">
+							<img src="<?php echo full_url?>/web/img/cel/iphone1.png" class="img-responsive">
+						</div>
+						<div class="col-md-6 col-lg-6">
+							<!--<div align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive text-center"></div>-->
+							<p><h1 class="text-center white-font">¡La  solución perfecta para el auxilio vial!</h1></p>
+							<p><h1 class="text-center white-font">Más de 2000 grúas al alcance de un click</h1></p>
+							<br><br>
+								<p align="center">
+                                    
+									<a class="" href="<?php echo full_url;?>/ap/index.php" target="" onclick="window.location.href = '<?php echo full_url."/ap/index.php"?>';">
+										<img src="<?php echo full_url?>/web/img/ic_acceso2.png" class="img-responsive">
+										
+									</a>
+                                    
+                                </p>
+								<p align="center">
+									<br><br>
+									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
+									<br>
+                                    <a class="btn text-center black-font" href="https://play.google.com/store/apps/details?id=com.tugruero.grua&hl=es">
+										<img alt="Descarga la aplicación de tugruero" src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="" class="img-responsive">
+                                    </a>
+                                    <!--<a class="btn text-center black-font" href="#">
+										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="" class="img-responsive">
+                                    </a>-->
+									<!--<br><small ><b class="white-font">¡Muy pronto disponibles!</b></small>-->
+                                </p>
+
+						</div>
+						<div class="col-md-3 col-lg-3">
+							<img alt="Descarga la aplicación de tugruero" src="<?php echo full_url?>/web/img/cel/iphone2.png" class="img-responsive">
+						</div>
+
+			</div>
+		</div>
+		 <div class="container visible-xs visible-sm">
+			<div class="row">
+						<div class="col-xs-12 col-sm-12">
+
+							<p align="center"><img src="<?php echo full_url?>/web/img/titulo2.png" class="img-responsive" width="200"></p>
+
+
+						</div>
+						<div class="col-xs-12 col-sm-12">
+							<p><h3 class="text-center white-font big-font">¡La  solución perfecta para el auxilio vial!</h3></p>
+							<p><h3 class="text-center white-font">Más de 2000 grúas al alcance de un click</h3></p>
+								<p align="center">
+                                    
+									<a class="" href="<?php echo full_url;?>/ap/index.php" target="" onclick="window.location.href = '<?php echo full_url."/ap/index.php"?>';">
+										<img src="<?php echo full_url?>/web/img/ic_acceso2.png" class="img-responsive">
+										
+									</a>
+                                    
+                                </p>
+								<p align="center">
+									<br><br>
+									<small ><b class="white-font text-center">¡Descarga la aplicación!</b></small>
+									<br>
+                                    <a class="btn text-center black-font" href="https://play.google.com/store/apps/details?id=com.tugruero.grua&hl=es">
+										<img src="<?php echo full_url?>/web/img/en_generic_rgb_wo_60.png" width="" class="img-responsive">
+                                    </a>
+                                    <!--<a class="btn text-center black-font" href="#">
+										<img src="<?php echo full_url?>/web/img/en-app-store.png" width="" class="img-responsive">
+                                    </a>-->
+									<!--<br><small ><b class="white-font">¡Muy pronto disponibles!</b></small>-->
+                                </p>
+						</div>
+			</div>	
+		</div>
+	</section>
+	<section class="success5 nav-close" id="video">
+		<div class="container">
+			<div class="embed-responsive embed-responsive-16by9" >
+				<!--<iframe  src="https://www.youtube.com/watch?v=IZVAZ4XIOwc"></iframe>-->
+				<iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/IZVAZ4XIOwc" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+		</div>
+	</section>
+	<section class="success3 nav-close" id="about">		
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+						<a class="" role="button" data-toggle="modal" href="#portfolioModal2" aria-expanded="false" aria-controls="portfolioModal2">
+							<img src="<?php echo full_url;?>/web/img/ic8_big.png" class="icon_media">
+						</a>
+							<div class="caption">
+							
+								<p class="text-center white-font"><small><b class="white-font extra_bold">Sobre nosotros</b></small></p>
+
+							</div>
+						</div>
+				</div>
+				<div class="col-md-3 col-lg-3 portfolio-item">
+						<div class="thumbnail">
+						<a class="portfolio-link" role="button" data-toggle="modal" href="#portfolioModal1" aria-expanded="false" aria-controls="portfolioModal1">
+						  <img src="<?php echo full_url;?>/web/img/ic7_big.png" class="icon_media">
+						</a>
+							<div class="caption">
+							
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Qué hacemos?</b></small></p>
+							</div>
+						</div>
+				</div>
+
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+						<a class="" role="button" data-toggle="modal" href="#portfolioModal3" aria-expanded="false" aria-controls="portfolioModal3">
+							<img src="<?php echo full_url;?>/web/img/where_big.png" class="icon_media">
+						</a>
+							<div class="caption">
+							
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿A dónde vamos?</b></small></p>
+							</div>
+
+						</div>
+				</div>				
+				<div class="col-md-3 col-lg-3">
+						<div class="thumbnail">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal4" aria-expanded="false" aria-controls="portfolioModal4">
+								<img src="<?php echo full_url;?>/web/img/ic10_big.png" class="icon_media">
+							</a>
+							<div class="caption">
+								<p class="text-center white-font"><small><b class="white-font extra_bold">¿Cómo funcionamos?</b></small></p>
+							  
+							</div>
+						</div>
+				</div>					
+			</div>
+	</section>
+    <section class="success5 nav-close" id="work">
+        <div class="container-fluid">
+			<div class="col-lg-offset-0 col-md-offset-0">
+				<div class="row">
+                    <div class="col-lg-6 col-md-6">
+						<div class="thumbnail">
+							<img src="<?php echo full_url;?>/web/img/ic2_big.png" class="">
+							
+							<div class="caption">
+                                <p class="text-center white-font"><h2 class="text-center white-font">GPS</h2></p>
+								<p class="text-center text-info"><small><b class="white-font">Ubicamos a los grueros más cercanos a tu ubicación</b></small></p>
+	
+							</div>
+						</div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+						<div class="thumbnail">
+							<img src="<?php echo full_url;?>/web/img/ic3_big.png" class="">
+
+							<div class="caption">
+								<p class="text-center"><h2 class="text-center white-font">Calidad</h2></p>
+								<p class="text-center text-info"><small><b class="white-font">Nuestros grueros son los más calificados del mercado</b></small></p>
+							  
+							</div>
+						</div>
+                    </div>
+                </div>
+				<div class="row">
+                                    <div class="col-lg-6 col-md-6">
+						<div class="thumbnail">
+							<img src="<?php echo full_url;?>/web/img/ic4_big.png" class="">
+
+							<div class="caption">
+								<p class="text-center"><h2 class="text-center white-font">Rapidez</h2></p>
+								<p class="text-center text-info"><small><b class="white-font">Grúas en menos de 30 minutos</b></small></p>
+							  
+							</div>
+						</div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+										<div class="thumbnail">
+											<img src="<?php echo full_url;?>/web/img/sencillez_big.png" class="">
+
+											<div class="caption">
+												<p class="text-center"><h2 class="text-center white-font">Sencillez</h2></p>
+												<p class="text-center text-info"><small><b class="white-font">Un botón y ¡Listo! La grúa viene en camino</b></small></p>
+											 
+											</div>
+										</div>
+                                    </div>
+				</div>
+				<div class="row">
+						<div class="thumbnail">
+							<img src="<?php echo full_url;?>/web/img/grua_linea_negra.png" class="">
+
+							<div class="caption">
+							<p class="text-center"><h2 class="text-center white-font">Grueros</h2></p>
+							<p class="text-center text-info"><small><b class="white-font">Contamos con más de 2000 grueros en todo el territorio nacional</b></small></p>
+							  
+							</div>
+						</div>
 				</div>
 			</div>
-    
-    </section>    
-
-    <section id="clientes">
-            <div class="row">
-                <p class="titulo_clientes text-center">Nuestros clientes</p>
-            </div> 
-			<div class="row margin_clientes">
-                         <div class="col-sm-4">
-                             <div class="thumbnail padding_clientes ">
-                             <img src="web/img/fresh/universal.png" alt="Universal de Seguros" >
-                             </div>
-                         </div>
-                         <div class="col-sm-4">
-                             <div class="thumbnail padding_clientes">
-								<img src="web/img/fresh/lavitalicia.png" alt="Seguros la Vitalicia" width="50%">
-                             </div>
-                         </div>
-                         <div class="col-sm-4">
-                             <div class="thumbnail padding_clientes">
-								 <img src="web/img/fresh/asistir.png" alt="Asistir cooperativa" width="50%">
-                             </div>
-                         </div>
-            </div>
-			<div class="row margin_clientes">
-				<p align="center" class="propaganda_clientes">¡Y MÁS DE 1000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS!</p>
+        </div>
+    </section>
+	<section id="testimonials" class="success nav-close"> 
+		<h2 class="text-center white-font big_title">Testimonios</h2>
+		<div class="container">
+		  <div class="row">
+			<div class=' col-md-10 col-md-offset-1 text-center'>
+				<!--<h2 class="white-font">Nuestros clientes</h2>-->
 			</div>
-    </section>
+		  </div>
+		  <div class='row'>
+			<div class='col-md-10 col-md-offset-1 '>
+              <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+				<!-- Bottom Carousel Indicators -->
+				<ol class="carousel-indicators">
+				  <li data-target="#quote-carousel" data-slide-to="0" class="active "></li>
+				  <li data-target="#quote-carousel" data-slide-to="1"></li>
+				</ol>
+				<!-- Carousel Slides / Quotes -->
+				<div class="carousel-inner">
 
-    <section id="testimonios">
-            <div class="row">
-				<br><br>
-            </div>
-            <div class="row">
-                <p class="titulo_testimonios text-center">Testimonios de Grueros</p>
-            </div> 
-        
-            <div class="row margin_testimonios" >
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
-                <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
-                    <div class="fondo_testimonios">
-                        <p class="nombres_testimonios text-left">Fran Marchan</p>
-                        <p class="subtitulo_testimonios text-justify">Gruero del Estado Bolívar inscrito en el Club Grúas Venezuela:</p>
-                        <p class="texto_testimonios text-justify">Con TU/GRUERO® toda ha marchado muy bien. Siempre le recomiendo a todos mis compañeros se afilien con esta empresa.</p>
+				  <!-- Quote 1 -->
+				  <div class="item active">
+					<blockquote>
+					  <div class="row">
+						<div class="col-sm-3 text-center">
+						  <img class="img-circle" src="<?php echo full_url?>/web/img/carlos_germani.png" style="width: 150px;height:150px;">
+						  <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+						</div>
+						<div class="col-sm-9 col-lg-8 col-md-8">
+							<h3 class="white-font extra_bold">Carlos Germani<small class="white-font extra_bold">Presidente a nivel nacional del Club Grúas Venezuela.  Barquisimeto, Venezuela</small></h3>
+                            <p class="text-justify white-font extra_bold font-inclinado"><i class="fa fa-quote-left "></i> Como presidente del Club Grúas Venezuela doy fe de que TU/GRUERO<label class="white-font" style="vertical-align: 6px; font-size: 12px;">®</label> es la mejor solución para nosotros los grueros en nuestro trabajo, los pagos son mucho más rápidos y elevados. Además el trabajar con tecnología nos simplifica mucho nuestra labor <i class="fa fa-quote-right"></i></p>
+						  
+						</div>
+					  </div>
+					</blockquote>
+				  </div>
+				  <!-- Quote 2 -->
+				  <div class="item">
+					<blockquote>
+					  <div class="row">
+						<div class="col-sm-3 text-center">
+						  <img class="img-circle" src="<?php echo full_url?>/web/img/juan_panto.png" style="width: 150px;height:150px;">
+						</div>
+						<div class="col-sm-9 col-lg-8 col-md-8">
+							<h3 class="white-font extra_bold">Juan Panto <small class="white-font extra_bold">Presidente a nivel regional del Club Grúas Venezuela en la Gran Caracas</small></h3>
+							<p class="text-justify white-font extra_bold font-inclinado"><i class="fa fa-quote-left "></i> Con TU/GRUERO<label class="white-font" style="vertical-align: 6px; font-size: 12px;">®</label> me siento mucho más seguro a la hora de trabajar, sé que los servicios que tomo por la aplicación son servicios de clientes serios, les  recomiendo a todos mis colegas que se afilien a esta plataforma, es muy buena <i class="fa fa-quote-right"></i></p>
+						 
+						</div>
+					  </div>
+					</blockquote>
+				  </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
-                <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
-                    <div class="fondo_testimonios">
-                        <p class="nombres_testimonios text-left">David Urbina</p>
-                        <p class="subtitulo_testimonios text-justify">Gruero del Estado Carabobo inscrito en el Club Grúas Venezuela:</p>
-                        <p class="texto_testimonios text-justify">Prefiero trabajar con ustedes, las otras compañías no están pendientes de pagar. En cambio ustedes sí lo están y pagan al día.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
-                <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
-                    <div class="fondo_testimonios">
-                        <p class="nombres_testimonios text-left">Carlos Otero</p>
-                        <p class="subtitulo_testimonios text-justify">Directivo del Club Gruas en el Estado Anzoategui:</p>
-                        <p class="texto_testimonios text-justify">No trabajamos con otras compañías de asistencia, pero en comparación con otro servicios ustedes son más atentos y responsables.</p>
+				</div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
-                <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
-                    <div class="fondo_testimonios">
-                        <p class="nombres_testimonios text-left">Ivan Fernandez</p>
-                        <p class="subtitulo_testimonios text-justify">Gruero del Estado Miranda inscrito en el Club Grúas Venezuela:</p>
-                        <p class="texto_testimonios text-justify">A mi parecer, por los momentos es lo mejor que hay.</p>
-
-                    </div>
-                </div>
-            </div>
-            </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contactenos" class="">
-        <div class="">
-            <div class="row margin_contactenos">
-                <div class="col-sm-12 text-right">
-                    <div class="col-sm-8 col-sm-offset-4">
-                        <label class="letras_bancos siguenos">Síguenos</label>
-                        <a href="https://twitter.com/tugruero" target="_blank" class=""><img src="web/img/fresh/twitter.png" alt="Twitter"></a>
-                        <a href="https://wwww.facebook.com/tugruero" target="_blank" class=""><img src="web/img/fresh/facebook.png" alt="Facebook"></a>
-                        <a href="https://www.instagram.com/tugruero/" target="_blank" class=""><img src="web/img/fresh/instagram.png" alt="Instagram"></a>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <p class="titulo_contactenos">Contáctanos</p>
-                </div>
-            </div>
-            <div class="row margin_contactenos">
-                <div class="col-sm-9">
+				<!-- Carousel Buttons Next/Prev -->
+				<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left visible-lg visible-md"></i></a>
+				<a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right visible-lg visible-md"></i></a>
+			  </div>                          
+			</div>
+		  </div>
+		</div>
+	</section>
+	<section class="success5 nav-close" id="use">
+	<div class="row" >
+		<div class="container">
+			<h2 class="text-center white-font big_title">Usa <b class="white-font big_title">TU/GRUERO</b><small class="white-font" style="vertical-align: 14px;">®<small></h2>
+			<br>
+ 				<div class="col-md-4 col-lg-4">
+						<div class="thumbnail">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal5" aria-expanded="false" aria-controls="portfolioModal5">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone5.png" class="img-responsive" width="200">
+							</a>
+							<div class="caption">
+								<p class="text-center"><h3 class="white-font text-center">Solicita una grúa</h3></p>
+							</div>
+						</div>
+				</div>
+ 				<div class="col-md-4 col-lg-4">
+						<div class="thumbnail">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal6" aria-expanded="false" aria-controls="portfolioModal6">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone3.png" class="img-responsive" width="200">
+							</a>
+							<div class="caption">
+								<p class="text-center white-font"><h3 class="white-font text-center">El gruero más cercano llega a auxiliarte</h3></p>
+							</div>
+						</div>
+				</div>
+ 				<div class="col-md-4 col-lg-4">
+						<div class="thumbnail">
+							<a class="" role="button" data-toggle="modal" href="#portfolioModal7" aria-expanded="false" aria-controls="portfolioModal7">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone6.png" class="img-responsive" width="200">
+							</a>
+							<div class="caption">
+								 <p class="text-center white-font"><h3 class="white-font text-center">Califica nuestro servicio y ¡Vuelve a la vía!</h3></p>
+							</div>
+						</div>
+				</div>
                     
-                    <form name="sentMessage" id="contactForm" class="form-horizontal">
-						<div class="form-group">
-						  <label for="name" class="col-sm-4 text-left">Nombre y Apellido</label>
-						  <div class="col-sm-8">
-							<input type="text" class="form-control input_contact" id="name" placeholder="" required data-validation-required-message="Por favor indique sus Nombres y apellidos.">
-						  </div>
-						</div>
-						<div class="form-group">
-						  <label for="email" class="col-sm-4 text-left">Correo Electrónico</label>
-						  <div class="col-sm-8"> 
-							<input type="email" class="form-control input_contact" id="email" placeholder="" required data-validation-required-message="Por favor indique su Correo Electrónico.">
-						  </div>
-						</div>
-						<div class="form-group" >
-						  <label for="phone" class="col-sm-4 text-left">Número de Contacto</label>
-						  <div class="col-sm-8">
-							<input type="tel" class="form-control input_contact" id="phone" placeholder="" required data-validation-required-message="Por favor indique su Número de Contacto.">
-						  </div>
-						</div>
-						<div class="form-group">
-						  <label for="message" class="col-sm-4 text-left">Mensaje</label>
-						  <div class="col-sm-8">
-							  <textarea class="form-control input_contact" id="message" placeholder="" required data-validation-required-message="Por favor indique su Mensaje." rows="10"></textarea>
-						  </div>
-						</div>                        
+		</div>
+	</div>
+	</section>
+    <!-- Contact Section -->
+    <section id="contact" class="success nav-close">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="white-font big_title">Contáctanos</h2>
+					<br>
+                    <!--<hr class="star-contacts">-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label class="white-font">Nombres y Apellidos</label>
+                                <input type="text" class="form-control" placeholder="Nombres y Apellidos" id="name" required data-validation-required-message="Por favor indique sus Nombres y apellidos.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label class="white-font">Correo Electrónico</label>
+                                <input type="email" class="form-control input-sm" placeholder="Correo electrónico" id="email" required data-validation-required-message="Por favor indique su Correo Electrónico.">
+                                <p class="white-font"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label class="white-font">Número de Contacto</label>
+                                <input type="tel" class="form-control" placeholder="Número de Contacto" id="phone" required data-validation-required-message="Por favor indique su Número de Contacto.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label class="white-font">Mensaje</label>
+                                <input type="text"  class="form-control" placeholder="Mensaje" id="message" required data-validation-required-message="Por favor indique su Mensaje.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
                         <div id="success"></div>
                         <div class="row">
-                            <div class="form-group">
+                            <div class="form-group col-xs-12">
                                 <button type="submit" id="btnSubmit" class="btn btn-default btn-lg">Enviar</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-sm-3">
-                        <img src="web/img/fresh/taxi.png" alt="Servicio de taxi">
-                </div>
             </div>
         </div>
     </section>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer class="text-center nav-close">
         <div class="footer-above">
-            <div class="">
+            <div class="container">
                 <div class="row">
-                    <div class="footer-col col-sm-12">
-						<div class="text-center logo_footer">
-                                                    <img src="web/img/fresh/titulo3.png" alt="grua">
-                                                </div>
-                        <p class="white-font text_footer">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
-						<p class="white-font text_footer">tugruero@gmail.com / info@tugruero.com</p>						
-						<p class="white-font text_footer">0500-GRUERO-0 (0500-478376-0) </p>
-                    </div>                
+                    <div class="footer-col col-md-4">
+                        <h3 class="white-font">Dirección</h3>
+                        <p class="white-font">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
+						<p class="white-font">tugruero@gmail.com</p>
+						<p class="white-font">info@tugruero.com</p>						
+						<p class="white-font">0212-237-0491 / 0212-237-9762</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3 class="white-font">Redes sociales</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a class="btn-social btn-outline" href="https://wwww.facebook.com/tugruero" target="_blank"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/tugruero" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/tugruero/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <div align="center"><p><img src="web/img/titulo3.png" class="img-responsive" width="200"></p></div>
+                    </div>                    
                 </div>
             </div>
         </div>
         <div class="footer-below">
-            <div class="">
+            <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <p class="white-font text_footer">Copyright &copy; Soluciones Tu Gruero, C.A. 2016. J-40680605-6</p>
+                    <div class="col-lg-12">
+                        <p class="white-font">Copyright &copy; Soluciones Tu Gruero, C.A. 2016. J-40680605-6</p>
                     </div>
-					<div class="col-xs-3">
-						<a  href="<?php echo full_url?>/terms.php" target="_blank"><small class="white-font text_footer_strong">Términos y condiciones</small></a>	
-                                        </div>
-					<div class="col-xs-2">
-						<a class="white-font" href="<?php echo full_url?>/security_politics.php" target="_blank"><small class="white-font text_footer_strong">Políticas de privacidad</small></a>
-                                        </div>
-					<div class="col-xs-2">
-						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Políticas de uso</small></a>		
-                                        </div>
-					<div class="col-xs-2">
-						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Zonas Peligrosas</small></a>		
-                                        </div>
-					<div class="col-xs-3">
-						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Clasificación de vehículos por peso</small></a>		
+					<div class="col-lg-12">
+						<a class="white-font" href="<?php echo full_url?>/security_politics.php" target="_blank"><small class="white-font">Políticas de privacidad</small></a>
+						<small class="white-font"> - </small>
+						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font">Políticas de uso</small></a>	
+						<small class="white-font"> - </small>
+						<a  href="<?php echo full_url?>/terms.php" target="_blank"><small class="white-font">Términos y condiciones</small></a>	
+
                                         </div>
                 </div>
             </div>
         </div>
     </footer>
 
+
+    <!-- Modals -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+			<div class="modal-header">
+				<h2 class="white-font">¿Qué hacemos?</h2>
+			</div>
+            
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="modal-body">
+								<div class="col-md-4 col-lg-4">
+									<div align="center">
+										<img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
+									</div>
+								</div>
+								<div class="col-md-8 col-lg-8">
+									<p class="text-justify white-font font-grande-p">
+										Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad
+									</p>
+								</div>							
+							
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+			<div class="modal-header">
+				<h2 class="white-font">Sobre nosotros</h2>
+			</div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-body">
  
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div align="center">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8 col-lg-8">
+                                                        <p class="text-justify white-font font-grande-p">
+                                                            Nuestra plataforma de comunicación se llama TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small>, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados con las grúas más cercanas vía geolocalización, permitiéndoles obtener un servicio rápido, eficiente y seguro, simplemente con tocar un botón
+                                                        </p>
+                                                    </div>							
+						
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+			<div class="modal-header">
+				<h2 class="white-font">¿A dónde vamos?</h2>
+			</div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-body">
+                            <h2 class="black-font"></h2>						
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div align="center">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8 col-lg-8">
+                                                        <p class="text-justify white-font font-grande-p">
+                                                            TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small> se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado
+                                                        </p>
+                                                    </div>							
+						
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+			<div class="modal-header">
+				<h2 class="white-font">¿Cómo funcionamos?</h2>
+			</div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-body">
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div align="center">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8 col-lg-8 ">
+                                                        <p class="text-justify white-font font-grande-p">
+                                                            Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small> funciona como intermediario directo entre el accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small>.
+															<br><br>
+                                                        
+                                                            Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil
+                                                        </p>
+                                                    </div>							
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+			<div class="modal-header">
+				<h2 class="white-font">Solicita una grúa</h2>
+			</div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-body">
+						
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div align="center">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
+                                                        </div>
+                                                    </div>
+							
+                                                    <div class="col-md-8 col-lg-8">
+                                                        <p class="text-justify white-font font-grande-p">
+                                                            Usa  la aplicación para decirnos tu problema, ubicación y destino, y TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small> se encargará de buscar al gruero más cercano a ti
+                                                        </p>
+                                                    </div>							
+						
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+			<div class="modal-header">
+				<h2 class="white-font">El gruero más cercano llega a auxiliarte</h2>
+			</div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-body">
 
-    <!-- jQuery -->
-    <script src="web/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="web/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="<?php echo full_url?>/web/js/jqBootstrapValidation.js"></script>
-    <script src="<?php echo full_url?>/web/js/contact_me.js"></script>
-
-    <!-- Theme JavaScript -->
-    <script src="web/js/freelancer.js"></script>
-	<script src="web/js/jquery.bootstrap-autohidingnavbar.js"></script>
-        <script src="web/js/jquery.inview.js"></script>
-
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div align="center">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone3.png" class="img-responsive" width="200">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8 col-lg-8 ">
+                                                        <p class="text-justify white-font font-grande-p">
+                                                            Uno de nuestros 2000+  grueros llegará en cuestión de minutos para auxiliarte
+                                                        </p>
+                                                    </div>							
+						</div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+			<div class="modal-header">
+				<h2 class="white-font">Califica nuestro servicio y ¡Vuelve a la vía!</h2>
+			</div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-body">
+                                                    <div class="col-md-4 col-lg-4">
+                                                        <div align="center">
+                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone6.png" class="img-responsive" width="200">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8 col-lg-8">
+                                                        <p class="text-justify white-font font-grande-p">
+                                                            ¡Listo! Así  de fácil es disfrutar de los servicios de TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small>
+                                                        </p>
+                                                    </div>							
+						
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
 </body>
-
 </html>
-<script>
 
-  $(document).ready(function(){
-	  TextCaja(1);
-          $('#animationSandbox').hide();
-          $('#animationSandbox2').hide();
-          $('#imagen').hide();
-
-        $("#gruero_plus").bind("inview", function(isVisible) {
-          // Event is triggered once the element becomes visible in the browser's viewport, and once when it becomes invisible
-          if (isVisible) {
-            console.log("element #foobar became visible in the browser's viewport");
-                $('#animationSandbox').show();
-                $('#animationSandbox2').show();
-                $('#imagen').show();               
-                
-                if($('#animate1').val()==0){
-                    testAnim2('slideInRight');
-                    testAnim('slideInLeft');
-                    testAnim3('slideInUp');
-                    $('#animate1').val(1);
-                    $('#animate2').val(1);
-                    $('#animate3').val(1);  
-                }
-
-
-          } else {
-            console.log("element #foobar became invisible in the browser's viewport");
-          }
-        });
+    <script src="web/js/jquery.js"></script>
+    <script src="web/js/bootstrap.min.js"></script>
+    <script src="web/js/jquery.easing.min.js"></script>
+    <script src="web/js/classie.js"></script>
+    <!--<script src="web/js/cbpAnimatedHeader.js"></script>-->
+    <script src="web/js/jqBootstrapValidation.js"></script>
+    <script src="web/js/contact_me.js"></script>
+    <script src="web/js/freelancer.js"></script>
+	<!--<script src="web/ccsa/js/angular.js"></script>-->
+	<!--<script src="web/ccsa/js/vendors.js"></script>-->
+	<!--<script src="web/ccsa/js/cssawds.min.js"></script>-->
+	<script>
+	
+	$(document).ready(function() {
+  //Set the carousel options
+  $('#quote-carousel').carousel({
+    pause: true,
+    interval: 18000,
   });
-  function TextCaja(caja)
-  {
-	  var text = '';
-		$("#nosotros").css("background-image", "url(web/img/fresh/nosotros.png)");
-		$("#quehacemos").css("background-image", "url(web/img/fresh/quehacemos.png)");
-		$("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos.png)");
-		$("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos.png)");
-		if(caja == 1)//nosotros
-		{
-			text = "Somos una empresa venezolana dedicada al auxilio vial. Trabajamos las 24 horas del día y los 365 días del año. Buscamos a los grueros más cercanos por GPS y garantizamos un tiempo de respuesta menor a 30 minutos";
-			$("#nosotros").css("background-image", "url(web/img/fresh/nosotros2.png)");
-		
-		}else if(caja == 2){//que hacemos
-			text = "Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad ";
-			$("#quehacemos").css("background-image", "url(web/img/fresh/quehacemos2.png)");			  
-		}else if(caja == 3){//a donde vamos
-			text = "TU/GRUERO® se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado";
-			$("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos2.png)");	
-		}else if(caja == 4){//como funcionamos
-			text = "Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO® funciona como intermediario directo entre el accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO®.Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil ";
-			$("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos2.png)");	
-		}
-	   
-		$('#caja').html(text);
-	  
-  }
+});
+	
+	</script>
+
     
-  function testAnim(x) {
-    $('#animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-      $(this).removeClass();
-    });
-  };
-  function testAnim2(x) {
-    $('#animationSandbox2').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-      $(this).removeClass();
-    });
-  };
-  function testAnim3(x) {
-    $('#imagen').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-      $(this).removeClass();
-    });
-  }; 
-</script>
-    <script>
-      $("nav.navbar-fixed-top").autoHidingNavbar();
-    </script>
+	<script>
+		$(document).ready(function(){												
+ 
+       //Navigation Menu Slider
+        $('#nav-expander').on('click',function(e){
+      		e.preventDefault();
+      		$('body').toggleClass('nav-expanded');
+      	});
+      	$('.nav-close').on('click',function(e){
+      		//e.preventDefault();
+      		$('body').removeClass('nav-expanded');
+      	});
+ 
+      	// Initialize navgoco with default options
+        /*$(".main-menu").navgoco({
+            caret: '<span class="caret"></span>',
+            accordion: false,
+            openClass: 'open',
+            save: true,
+            cookie: {
+                name: 'navgoco',
+                expires: false,
+                path: '/'
+            },
+            slide: {
+                duration: 300,
+                easing: 'swing'
+            }
+        });*/
+ 
+      });
+	</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
