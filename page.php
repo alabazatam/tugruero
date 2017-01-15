@@ -25,15 +25,21 @@
 <style>
 
 #animationSandbox {
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
   -moz-animation-delay: 0s;
   -webkit-animation-delay: 0s;
 
 }
 #animationSandbox2 {
-  -moz-animation-duration: 1s;
-  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -moz-animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
+#imagen {
+  -moz-animation-duration: 2s;
+  -webkit-animation-duration: 2s;
   -moz-animation-delay: 0s;
   -webkit-animation-delay: 0s;
 }
@@ -47,7 +53,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle navigation</span> Menú <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#page-top"><img class="img-responsive" src="web/img/fresh/logo_menu.png" alt=""></a>
             </div>
@@ -85,8 +91,9 @@
                 <div class="col-sm-12">
                     <input type="hidden" id="animate1" value="0">
                     <input type="hidden" id="animate2" value="0">
+                    <input type="hidden" id="animate3" value="0">
                     <br><br><br><br>
-                    <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="imagen">
+                    <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="">
                     <div class="intro-text">
                         <p class="name">¡La nueva mejor forma de solicitar una grúa!<br><br> </p>
                     </div>
@@ -133,7 +140,8 @@
                 </div>
                 <div class="col-sm-12" >
                     <br>
-                    <img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">
+                    <p class="telefono_sombra">0500-GRUERO-0 (0500-478376-0) </p>
+                    <!--<img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">-->
                 </div>  
             </div>
 
@@ -192,19 +200,19 @@
                      <img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive" width="">
                  </div> 
                  <div class="col-xs-2">
-                    <img src="web/img/fresh/bancaribe.png" alt="Paga con BANESCO" class="img-responsive" width="">
+                    <img src="web/img/fresh/bancaribe.png" alt="Paga con BANCARIBE" class="img-responsive" width="">
 
                  </div> 
                  <div class="col-xs-2">
-                    <img src="web/img/fresh/banconacional.png" alt="Paga con BANESCO" class="img-responsive" width="">
+                    <img src="web/img/fresh/banconacional.png" alt="Paga con Banco Nacional de Crédito" class="img-responsive" width="">
 
                  </div> 
                  <div class="col-xs-2">
-                    <img src="web/img/fresh/bancoactivo.png" alt="Paga con BANESCO" class="img-responsive" width="">
+                    <img src="web/img/fresh/bancoactivo.png" alt="Paga con Banco Activo" class="img-responsive" width="">
 
                  </div> 
                  <div class="col-xs-2">
-                    <img src="web/img/fresh/bancovenezuela.png" alt="Paga con BANESCO" class="img-responsive" width="">
+                    <img src="web/img/fresh/bancovenezuela.png" alt="Paga con Banco Venezuela" class="img-responsive" width="">
 
                  </div> 
                  <div class="col-xs-1">
@@ -216,22 +224,22 @@
                      
                  </div>  
                  <div class="col-xs-2">
-                     <img src="web/img/fresh/provincial.png" alt="Paga con BANESCO" class="img-responsive" width="">
+                     <img src="web/img/fresh/provincial.png" alt="Paga con Banco Provincial" class="img-responsive" width="">
                  </div> 
                  <div class="col-xs-2">
-                     <img src="web/img/fresh/bancoexterior.png" alt="Paga con BANESCO" class="img-responsive" width="">
+                     <img src="web/img/fresh/bancoexterior.png" alt="Paga con Banco Exterior" class="img-responsive" width="">
 
                  </div> 
                  <div class="col-xs-2">
-                     <img src="web/img/fresh/mercantil.png" alt="Paga con BANESCO" class="img-responsive" width="">
+                     <img src="web/img/fresh/mercantil.png" alt="Paga con Banco Mercantil" class="img-responsive" width="">
 
                  </div> 
                  <div class="col-xs-2">
-                     <img src="web/img/fresh/venezolanodecredito.png" alt="Paga con BANESCO" class="img-responsive" width="">
+                     <img src="web/img/fresh/venezolanodecredito.png" alt="Paga con Venezolano de Crédito" class="img-responsive" width="">
 
                  </div> 
                  <div class="col-xs-2">
-                     <img src="web/img/fresh/bod.png" alt="Paga con BANESCO" class="img-responsive" width="">
+                     <img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive" width="">
                  </div> 
                  <div class="col-xs-1">
                      
@@ -256,7 +264,7 @@
             </div>
     </section>   
     
-    <section id="gruero_plus">
+    <section id="gruero_plus" onload="alert(1);">
         <div class="row margin_gruero_plus">
             
             <div class="col-sm-5 text-right">
@@ -265,12 +273,13 @@
 
             </div>
             <div class="col-sm-7 texto_gruero_plus text-left">
-
-                    <p align="center" class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestro <strong>Plan de grúas anual</strong>
-                    <br>para que manejes tranquilo en <strong>todo el país</strong>
-                    <br>y disfruta de grúas <strong>ilimitadas</strong></p>
-                    <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
-                    <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja">MÁS INFORMACIÓN</button></p>
+                    <div id="imagen">
+                        <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestro <strong>Plan de grúas anual</strong>
+                        <br>para que manejes tranquilo en <strong>todo el país</strong>
+                        <br>y disfruta de grúas <strong>ilimitadas</strong></p>
+                        <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
+                        <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja">MÁS INFORMACIÓN</button></p>
+                    </div>
             </div>
             
 
@@ -413,68 +422,46 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
     <section id="contactenos" class="">
         <div class="">
             <div class="row margin_contactenos">
-                <div class="col-lg-12">
+                <div class="col-sm-12 text-right">
+                    <div class="col-sm-8 col-sm-offset-4">
+                        <label class="letras_bancos siguenos">Síguenos</label>
+                        <a href="https://twitter.com/tugruero" target="_blank" class=""><img src="web/img/fresh/twitter.png" alt="Twitter"></a>
+                        <a href="https://wwww.facebook.com/tugruero" target="_blank" class=""><img src="web/img/fresh/facebook.png" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/tugruero/" target="_blank" class=""><img src="web/img/fresh/instagram.png" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="col-sm-12">
                     <p class="titulo_contactenos">Contáctanos</p>
                 </div>
             </div>
             <div class="row margin_contactenos">
-                <div class="col-sm-12">
+                <div class="col-sm-9">
                     
                     <form name="sentMessage" id="contactForm" class="form-horizontal">
 						<div class="form-group">
-						  <label for="name" class="col-sm-3 text-left">Nombre y Apellido</label>
-						  <div class="col-sm-9">
+						  <label for="name" class="col-sm-4 text-left">Nombre y Apellido</label>
+						  <div class="col-sm-8">
 							<input type="text" class="form-control input_contact" id="name" placeholder="" required data-validation-required-message="Por favor indique sus Nombres y apellidos.">
 						  </div>
 						</div>
 						<div class="form-group">
-						  <label for="email" class="col-sm-3 text-left">Correo Electrónico</label>
-						  <div class="col-sm-9"> 
+						  <label for="email" class="col-sm-4 text-left">Correo Electrónico</label>
+						  <div class="col-sm-8"> 
 							<input type="email" class="form-control input_contact" id="email" placeholder="" required data-validation-required-message="Por favor indique su Correo Electrónico.">
 						  </div>
 						</div>
 						<div class="form-group" >
-						  <label for="phone" class="col-sm-3 text-left">Número de Contacto</label>
-						  <div class="col-sm-9">
+						  <label for="phone" class="col-sm-4 text-left">Número de Contacto</label>
+						  <div class="col-sm-8">
 							<input type="tel" class="form-control input_contact" id="phone" placeholder="" required data-validation-required-message="Por favor indique su Número de Contacto.">
 						  </div>
 						</div>
 						<div class="form-group">
-						  <label for="message" class="col-sm-3 text-left">Mensaje</label>
-						  <div class="col-sm-9">
+						  <label for="message" class="col-sm-4 text-left">Mensaje</label>
+						  <div class="col-sm-8">
 							  <textarea class="form-control input_contact" id="message" placeholder="" required data-validation-required-message="Por favor indique su Mensaje." rows="10"></textarea>
 						  </div>
 						</div>                        
-						
-						<!--<div class="row control-group">
-                            <div class="form-group col-xs-12 controls">
-                                <label class="white-font">Nombres y Apellidos</label>
-                                <input type="text" class="form-control" placeholder="Nombres y Apellidos" id="name" required data-validation-required-message="Por favor indique sus Nombres y apellidos.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12  controls">
-                                <label class="white-font">Correo Electrónico</label>
-                                <input type="email" class="form-control input-sm" placeholder="Correo electrónico" id="email" required data-validation-required-message="Por favor indique su Correo Electrónico.">
-                                <p class="white-font"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 controls">
-                                <label class="white-font">Número de Contacto</label>
-                                <input type="tel" class="form-control" placeholder="Número de Contacto" id="phone" required data-validation-required-message="Por favor indique su Número de Contacto.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12  controls">
-                                <label class="white-font">Mensaje</label>
-                                <input type="text"  class="form-control" placeholder="Mensaje" id="message" required data-validation-required-message="Por favor indique su Mensaje.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <br>-->
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group">
@@ -482,6 +469,9 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="col-sm-3">
+                        <img src="web/img/fresh/taxi.png" alt="Servicio de taxi">
                 </div>
             </div>
         </div>
@@ -522,7 +512,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Zonas Peligrosas</small></a>		
                                         </div>
 					<div class="col-xs-3">
-						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Calsificación de vehículos por</small></a>		
+						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Clasificación de vehículos por peso</small></a>		
                                         </div>
                 </div>
             </div>
@@ -547,13 +537,41 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
     <!-- Theme JavaScript -->
     <script src="web/js/freelancer.js"></script>
 	<script src="web/js/jquery.bootstrap-autohidingnavbar.js"></script>
+        <script src="web/js/jquery.inview.js"></script>
+
 </body>
 
 </html>
 <script>
-	
+
   $(document).ready(function(){
 	  TextCaja(1);
+          $('#animationSandbox').hide();
+          $('#animationSandbox2').hide();
+          $('#imagen').hide();
+
+        $("#gruero_plus").bind("inview", function(isVisible) {
+          // Event is triggered once the element becomes visible in the browser's viewport, and once when it becomes invisible
+          if (isVisible) {
+            console.log("element #foobar became visible in the browser's viewport");
+                $('#animationSandbox').show();
+                $('#animationSandbox2').show();
+                $('#imagen').show();               
+                
+                if($('#animate1').val()==0){
+                    testAnim2('slideInRight');
+                    testAnim('slideInLeft');
+                    testAnim3('slideInUp');
+                    $('#animate1').val(1);
+                    $('#animate2').val(1);
+                    $('#animate3').val(1);  
+                }
+
+
+          } else {
+            console.log("element #foobar became invisible in the browser's viewport");
+          }
+        });
   });
   function TextCaja(caja)
   {
@@ -597,30 +615,6 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
       $(this).removeClass();
     });
   }; 
-testAnim3('rollIn');
-$(window).on('scroll',function(){ 
-
-    if( $('#gruero_plus').inView() && $('#animate1').val() == 0 && $('#animate2').val() ==0) {
-		testAnim2('slideInRight');
-		testAnim('slideInLeft');
-		
-		$('#animate1').val(1);
-		$('#animate2').val(1);
-    };
-
-});
-$.fn.inView = function(){
-    if(!this.length) return false;
-    var rect = this.get(0).getBoundingClientRect();
-
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-
-};
 </script>
     <script>
       $("nav.navbar-fixed-top").autoHidingNavbar();
