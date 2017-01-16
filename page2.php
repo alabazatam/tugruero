@@ -340,7 +340,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 
     <section id="clientes">
             <div class="row">
-                <p class="titulo_clientes text-center">Nuestros clientes</p>
+                <p class="titulo_clientes text-center">Clientes y Aliados</p>
             </div> 
 			<div class="row margin_clientes">
                          <div class="col-sm-4">
