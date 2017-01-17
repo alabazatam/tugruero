@@ -386,7 +386,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
                 <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <img src="web/img/fresh/testimonio_circle2.png" alt="Testimonios">
                     <div class="fondo_testimonios">
                         <p class="nombres_testimonios text-left">David Urbina</p>
                         <p class="subtitulo_testimonios text-justify">Gruero del Estado Carabobo inscrito en el Club Grúas Venezuela:</p>
@@ -396,7 +396,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
                 <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <img src="web/img/fresh/testimonio_circle3.png" alt="Testimonios">
                     <div class="fondo_testimonios">
                         <p class="nombres_testimonios text-left">Carlos Otero</p>
                         <p class="subtitulo_testimonios text-justify">Directivo del Club Gruas en el Estado Anzoategui:</p>
@@ -407,7 +407,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
                 <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <img src="web/img/fresh/testimonio_circle4.png" alt="Testimonios">
                     <div class="fondo_testimonios">
                         <p class="nombres_testimonios text-left">Ivan Fernandez</p>
                         <p class="subtitulo_testimonios text-justify">Gruero del Estado Miranda inscrito en el Club Grúas Venezuela:</p>
