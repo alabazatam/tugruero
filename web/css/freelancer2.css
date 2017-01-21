@@ -895,8 +895,8 @@ fieldset[disabled] .btn-success.active {
 }
 
 .padding_clientes{
-    padding-top: 100px !important;;
-    padding-bottom: 50px !important;;
+    padding-top: 50px !important;;
+   /*padding-bottom: 50px !important;;*/
 }
 #testimonios{
   margin: 0;

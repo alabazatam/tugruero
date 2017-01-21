@@ -278,7 +278,7 @@
                         <br>para que manejes tranquilo en <strong>todo el país</strong>
                         <br>y disfruta de grúas <strong>ilimitadas</strong></p>
                         <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
-                        <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja">MÁS INFORMACIÓN</button></p>
+                        <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">MÁS INFORMACIÓN</button></p>
                     </div>
             </div>
             
@@ -343,23 +343,82 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                 <p class="titulo_clientes text-center">Clientes y Aliados</p>
             </div> 
 			<div class="row margin_clientes">
-                         <div class="col-sm-4">
+                         <div class="col-sm-2">
                              <div class="thumbnail padding_clientes ">
-                             <img src="web/img/fresh/universal.png" alt="Universal de Seguros" >
+								 <img src="web/img/fresh/clientes_aliados/universal.png" alt="Asistir cooperativa">
                              </div>
                          </div>
-                         <div class="col-sm-4">
+                         <div class="col-sm-2">
                              <div class="thumbnail padding_clientes">
-								<img src="web/img/fresh/lavitalicia.png" alt="Seguros la Vitalicia" width="50%">
+								<img src="web/img/fresh/lavitalicia.png" alt="Seguros la Vitalicia">
                              </div>
                          </div>
-                         <div class="col-sm-4">
+                         <div class="col-sm-2">
                              <div class="thumbnail padding_clientes">
-								 <img src="web/img/fresh/asistir.png" alt="Asistir cooperativa" width="50%">
+								 <img src="web/img/fresh/asistir.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail padding_clientes">
+								 <img src="web/img/fresh/clientes_aliados/airs.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail padding_clientes">
+								 <img src="web/img/fresh/clientes_aliados/club_gruas.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail padding_clientes">
+								 <img src="web/img/fresh/clientes_aliados/coprevial.png" alt="Asistir cooperativa">
                              </div>
                          </div>
             </div>
 			<div class="row margin_clientes">
+                         <div class="col-sm-2">
+                             <div class="thumbnail  ">
+								 <img src="web/img/fresh/clientes_aliados/easytaxi.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+								 <img src="web/img/fresh/clientes_aliados/lavitalicia.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+								 <img src="web/img/fresh/clientes_aliados/mercantil.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+								 <img src="web/img/fresh/clientes_aliados/more.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+								 <img src="web/img/fresh/clientes_aliados/plataforma_satelital.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail">
+								 <img src="web/img/fresh/clientes_aliados/probilinca.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+            </div>
+			<div class="row margin_clientes">
+                         <div class="col-sm-6">
+                             <div class="thumbnail  ">
+								 <img src="web/img/fresh/clientes_aliados/tecontacto.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-6">
+                             <div class="thumbnail ">
+								 <img src="web/img/fresh/clientes_aliados/resvialcar.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+            </div>
+			<div class="row">
 				<p align="center" class="propaganda_clientes">¡Y MÁS DE 1000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS!</p>
 			</div>
     </section>
@@ -520,7 +579,29 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
         </div>
     </footer>
 
- 
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary btn-lg" >
+	  Launch demo modal
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		  </div>
+		  <div class="modal-body">
+			...
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
 
     <!-- jQuery -->
     <script src="web/js/jquery.js"></script>
