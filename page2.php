@@ -590,20 +590,38 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                             <img src="web/img/fresh/gruero_plus_p.png" alt="TU/GRUERO PLUS" class=""></br>
 			</div>
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-xs-12">
                         <div class="modal-body">
  
-                                                    <div class="col-md-4 col-lg-4">
-                                                        <div align="center">
-                                                            <img src="<?php echo full_url;?>/web/img/cel/iphone1.png" class="img-responsive" width="200">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8 col-lg-8">
-                                                        <p class="text-justify white-font font-grande-p">
-                                                            Nuestra plataforma de comunicación se llama TU/GRUERO<small class="white-font" style="vertical-align: 8px; font-size: 18px;">®</small>, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados con las grúas más cercanas vía geolocalización, permitiéndoles obtener un servicio rápido, eficiente y seguro, simplemente con tocar un botón
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <p class="text-justify">
+                                                            Servicios de grúas ilimitados por todo un año.
                                                         </p>
-                                                    </div>							
-						
+                                                        <p class="text-justify">
+                                                            Auxilio vial en menos de 30 minutos.
+                                                        </p>
+                                                        <p class="text-justify">
+                                                            Más de 2000 grueros en toda Venezuela.
+                                                        </p>
+                                                        <p class="text-justify">
+                                                            Búsqueda de grueros vía GPS (Geolocalización).
+                                                        </p>
+                                                        <p class="text-justify">
+                                                            Disponible en tu ciudad de residencia.
+                                                        </p>
+                                                        <p class="text-justify">
+                                                            Pagado en una sola cuota fija y válido por 365 días.
+                                                        </p>
+                                                        <p class="text-justify">
+                                                            Disponible para carros tipo sedán, camionetas de uso personal hasta 3000Kg y motos de todo tipo.
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                        <div class="well background_caja font_caja_quienes_somos">Hola</div>         
+                                                    </div>
+                                                    <div class="col-sm-12 franja_naranja" >
+                                                        <p><strong>REVOLUCIONANDO LA INDUSTRIA DEL AUXILIO VIAL EN VENEZUELA</strong></p>  
+                                                    </div>						
                         </div>
                     </div>
                 </div>

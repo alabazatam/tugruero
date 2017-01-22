@@ -239,7 +239,7 @@ section.success {
   text-align: center;
   top: 50%;
   margin-top: -12px;
-  color: white;
+  /*color: white;*/
 }
 #portfolio .portfolio-item .portfolio-link .caption .caption-content i {
   margin-top: -12px;
@@ -252,8 +252,12 @@ section.success {
   z-index: 2;
 }
 .modal-header {
-  padding: 0px;
   border-bottom: 0px solid #e5e5e5;
+  margin-top: -80px;
+}
+.modal-body {
+  position: relative;
+  padding: 0px;
 }
 @media (min-width: 767px) {
   #portfolio .portfolio-item {
@@ -481,6 +485,10 @@ fieldset[disabled] .btn-success.active {
   min-height: 100%;
   padding: 100px 0;
   text-align: center;
+  color: #6D6E71;
+}
+.portfolio-modal .modal-content p{
+    font-size: 14px !important;
 }
 .portfolio-modal .modal-content h2 {
   margin: 0;
@@ -494,8 +502,8 @@ fieldset[disabled] .btn-success.active {
 }
 .portfolio-modal .close-modal {
   position: absolute;
-  width: 75px;
-  height: 75px;
+  width: 25px;
+  height: 25px;
   background-color: transparent;
   top: 25px;
   right: 25px;
@@ -505,7 +513,7 @@ fieldset[disabled] .btn-success.active {
   opacity: 0.3;
 }
 .portfolio-modal .close-modal .lr {
-  height: 75px;
+  height: 25px;
   width: 1px;
   margin-left: 35px;
   background-color: #2C3E50;
@@ -517,7 +525,7 @@ fieldset[disabled] .btn-success.active {
   z-index: 1051;
 }
 .portfolio-modal .close-modal .lr .rl {
-  height: 75px;
+  height: 25px;
   width: 1px;
   background-color: #2C3E50;
   transform: rotate(90deg);
