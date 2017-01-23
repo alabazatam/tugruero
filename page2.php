@@ -398,7 +398,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                          </div>
                 </div>        
                 <div class="row fondo_row_clientes_bajo">
-                         <div class="col-sm-2 col-sm-offset-2">
+                         <div class="col-sm-2 col-sm-offset-1">
                              <div class="thumbnail ">
 				  <img src="web/img/fresh/clientes_aliados/lavitalicia.png" alt="Asistir cooperativa">
                              </div>
@@ -416,6 +416,11 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
                                 <img src="web/img/fresh/clientes_aliados/resvialcar.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+                                <img src="web/img/fresh/clientes_aliados/ubikeitor.png" alt="Ubikeitor">
                              </div>
                          </div>
             </div>
@@ -570,10 +575,10 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Políticas de uso</small></a>		
                                         </div>
 					<div class="col-xs-2">
-						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Zonas Peligrosas</small></a>		
+						<a  href="<?php echo full_url?>/redzones.php" target="_blank"><small class="white-font text_footer_strong">Zonas Peligrosas</small></a>		
                                         </div>
 					<div class="col-xs-3">
-						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Clasificación de vehículos por peso</small></a>		
+						<a  href="<?php echo full_url?>/weights.php" target="_blank"><small class="white-font text_footer_strong">Clasificación de vehículos por peso</small></a>		
                                         </div>
                 </div>
             </div>
