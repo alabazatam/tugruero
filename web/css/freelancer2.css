@@ -649,6 +649,12 @@ fieldset[disabled] .btn-success.active {
 .letra_popup{
     font-size: 16px !important;
 }
+.estrella{
+      text-align: center;
+}
+.ul_estrella {
+    list-style-image: url(../img/fresh/estrella.png) ;
+}
 .popup_letras_p_header{
     font-size: 14px;
     color: #3A3A3C;

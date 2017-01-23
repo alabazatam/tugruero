@@ -598,41 +598,24 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 													</div>
  
                                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <p class="text-left">
-															<label class="text-left letra_popup">
-                                                            Servicios de grúas ilimitados por todo un año.
-															</label>
-														</p>
-                                                        <p class="text-justify">
-															<label class="text-left letra_popup">
-                                                            Auxilio vial en menos de 30 minutos.
-															</label>
-                                                        </p>
-                                                        <p class="text-justify">
-															<label class="text-left letra_popup">
-                                                            Más de 2000 grueros en toda Venezuela.
-															</label>
-                                                        </p>
-                                                        <p class="text-justify">
-															<label class="text-left letra_popup">
-                                                            Búsqueda de grueros vía GPS (Geolocalización).
-															</label>
-                                                        </p>
-                                                        <p class="text-justify">
-															<label class="text-left letra_popup">
-                                                            Disponible en tu ciudad de residencia.
-															</label>
-                                                        </p>
-                                                        <p class="text-justify">
-															<label class="text-left letra_popup">															
-                                                            Pagado en una sola cuota fija y válido por 365 días.
-															</label>
-                                                        </p>
-                                                        <p class="text-justify">
-															<label class="text-left letra_popup">
-                                                            Disponible para carros tipo sedán, camionetas de uso personal hasta 3000Kg y motos de todo tipo.
-															</label>
-                                                        </p>
+														<ul class="ul_estrella text-left">
+															
+                                                            <li class="letra_popup">Servicios de grúas ilimitados por todo un año.</li>
+
+                                                            <li class="letra_popup">Auxilio vial en menos de 30 minutos.</li>
+
+                                                            <li class="letra_popup">Más de 2000 grueros en toda Venezuela.</li>
+
+                                                            <li class="letra_popup">Búsqueda de grueros vía GPS (Geolocalización).</li>
+
+                                                            <li class="letra_popup">Disponible en tu ciudad de residencia.</li>
+					
+												
+															<li class="letra_popup">Pagado en una sola cuota fija y válido por 365 días.</li>
+
+                                                            <li class="letra_popup">Disponible para carros tipo sedán, camionetas de uso personal hasta 3000Kg y motos de todo tipo.</li>
+														</ul>	
+                                                       
                                                     </div>
 												<div class="row">
                                                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
