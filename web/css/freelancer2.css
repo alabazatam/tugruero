@@ -466,15 +466,15 @@ fieldset[disabled] .btn-success.active {
 .portfolio-modal .modal-content{
   margin: 0;
   padding: 0;
+  padding-left: 50px !important;
   padding-bottom: 20px;
   text-align: center;
-  /*background: #18BC9C;*/
   background: url(../img/fresh/popup_plus.png) ;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;    
+  background-size: contain;
+  background-color: #E9E9E9;    
 }
 .portfolio-modal .modal-content {
   border-radius: 0;
@@ -640,6 +640,41 @@ fieldset[disabled] .btn-success.active {
   background-color: #E9E9E9;
   min-height: 450px;
 }
+.background_caja_popup{
+    background-color: #464646 !important;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    border-radius: 15px 15px 15px 15px;
+    max-width: 600px;
+}
+.letra_popup{
+    font-size: 16px !important;
+}
+.popup_letras_p_header{
+    font-size: 14px;
+    color: #3A3A3C;
+}
+.popup_letras_p{
+    font-size: 16px;
+    color: white;
+}
+.popup_letras_g{
+    font-size: 24px;
+    color: white;
+}
+.franja_naranja_popup_oscura{
+    background-color: #CC6233 !important;
+    color: #CC6233;
+    font-size: 22px !important;
+}
+.franja_naranja_popup_clara{
+    background-color: #f46830 !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #F47D3D;
+    font-size: 50px !important;
+}
 #quienes_somos {
   text-align: center;
   /*background: #18BC9C;*/
@@ -702,6 +737,7 @@ fieldset[disabled] .btn-success.active {
   font-size: 22px !important;
   color: #fff;
   /*font-weight: 900;*/
+
 }
 .titulo_gruero_plus{
   font-size: 22px;

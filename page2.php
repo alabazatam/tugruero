@@ -592,36 +592,64 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="modal-body">
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+															<label class="popup_letras_p_header">Para que manejes tranquilo en todo el país</label>
+
+													</div>
  
                                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <p class="text-justify">
+                                                        <p class="text-left">
+															<label class="text-left letra_popup">
                                                             Servicios de grúas ilimitados por todo un año.
-                                                        </p>
+															</label>
+														</p>
                                                         <p class="text-justify">
+															<label class="text-left letra_popup">
                                                             Auxilio vial en menos de 30 minutos.
+															</label>
                                                         </p>
                                                         <p class="text-justify">
+															<label class="text-left letra_popup">
                                                             Más de 2000 grueros en toda Venezuela.
+															</label>
                                                         </p>
                                                         <p class="text-justify">
+															<label class="text-left letra_popup">
                                                             Búsqueda de grueros vía GPS (Geolocalización).
+															</label>
                                                         </p>
                                                         <p class="text-justify">
+															<label class="text-left letra_popup">
                                                             Disponible en tu ciudad de residencia.
+															</label>
                                                         </p>
                                                         <p class="text-justify">
+															<label class="text-left letra_popup">															
                                                             Pagado en una sola cuota fija y válido por 365 días.
+															</label>
                                                         </p>
                                                         <p class="text-justify">
+															<label class="text-left letra_popup">
                                                             Disponible para carros tipo sedán, camionetas de uso personal hasta 3000Kg y motos de todo tipo.
+															</label>
                                                         </p>
                                                     </div>
-                                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                                        <div class="well background_caja font_caja_quienes_somos">Hola</div>         
+												<div class="row">
+                                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                                        <div class="well background_caja_popup font_caja_quienes_somos">
+															<label class="popup_letras_p">Para más información de TU/GRUERO Plus y contratación llama a nuestro</label>
+															<label class="popup_letras_g">Call Center</label>
+															<label class="popup_letras_g">0500 GRUERO-0 (0500-478376-0)</label>
+															<label class="popup_letras_p text-center">Línea directa</label>
+															
+														</div>
                                                     </div>
-                                                    <div class="col-sm-12 franja_naranja" >
-                                                        <p><strong>REVOLUCIONANDO LA INDUSTRIA DEL AUXILIO VIAL EN VENEZUELA</strong></p>  
-                                                    </div>						
+
+												</div>
+                                                <div class="col-xs-12 franja_naranja_popup_clara" >
+                                                    <div class="franja_naranja_popup_oscura"><label class="white-font">¡24/7 los 365 días del año!</label></div>  
+                                                </div>
+				
                         </div>
                     </div>
                 </div>
