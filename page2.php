@@ -278,7 +278,7 @@
                         <br>para que manejes tranquilo en <strong>todo el país</strong>
                         <br>y disfruta de grúas <strong>ilimitadas</strong></p>
                         <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
-                        <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja">MÁS INFORMACIÓN</button></p>
+                        <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">MÁS INFORMACIÓN</button></p>
                     </div>
             </div>
             
@@ -342,24 +342,89 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
             <div class="row">
                 <p class="titulo_clientes text-center">Clientes y Aliados</p>
             </div> 
-			<div class="row margin_clientes">
-                         <div class="col-sm-4">
-                             <div class="thumbnail padding_clientes ">
-                             <img src="web/img/fresh/universal.png" alt="Universal de Seguros" >
+			<div class="row margin_clientes fondo_row_clientes_alto">
+                         <div class="col-sm-2 col-sm-offset-1">
+                             <div class="thumbnail padding_clientes">
+                                 <img src="web/img/fresh/clientes_aliados/probilinca.png" alt="Asistir cooperativa">
                              </div>
                          </div>
-                         <div class="col-sm-4">
+                         <div class="col-sm-2">
                              <div class="thumbnail padding_clientes">
-								<img src="web/img/fresh/lavitalicia.png" alt="Seguros la Vitalicia" width="50%">
+                                 <img src="web/img/fresh/lavitalicia.png" alt="Seguros la Vitalicia">
                              </div>
                          </div>
-                         <div class="col-sm-4">
+                         <div class="col-sm-2">
                              <div class="thumbnail padding_clientes">
-								 <img src="web/img/fresh/asistir.png" alt="Asistir cooperativa" width="50%">
+				  <img src="web/img/fresh/asistir.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail padding_clientes">
+                                 <img src="web/img/fresh/clientes_aliados/plataforma_satelital.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail padding_clientes">
+                                 <img src="web/img/fresh/clientes_aliados/easytaxi.png" alt="Asistir cooperativa">
                              </div>
                          </div>
             </div>
-			<div class="row margin_clientes">
+            <div class="row fondo_row_clientes_medio">
+                         <div class="col-sm-2 col-sm-offset-1">
+                             <div class="thumbnail  ">
+				  <img src="web/img/fresh/clientes_aliados/airs.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+				  <img src="web/img/fresh/clientes_aliados/universal.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+                                 <img src="web/img/fresh/clientes_aliados/club_gruas.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+                                 <img src="web/img/fresh/clientes_aliados/coprevial.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+
+                         <div class="col-sm-2">
+                             <div class="thumbnail  ">
+				  <img src="web/img/fresh/clientes_aliados/tecontacto.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                </div>        
+                <div class="row fondo_row_clientes_bajo">
+                         <div class="col-sm-2 col-sm-offset-1">
+                             <div class="thumbnail ">
+				  <img src="web/img/fresh/clientes_aliados/lavitalicia.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+				  <img src="web/img/fresh/clientes_aliados/mercantil.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+				  <img src="web/img/fresh/clientes_aliados/more.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+                                <img src="web/img/fresh/clientes_aliados/resvialcar.png" alt="Asistir cooperativa">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+                                <img src="web/img/fresh/clientes_aliados/ubikeitor.png" alt="Ubikeitor">
+                             </div>
+                         </div>
+            </div>
+			<div class="row">
 				<p align="center" class="propaganda_clientes">¡Y MÁS DE 1000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS!</p>
 			</div>
     </section>
@@ -386,7 +451,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
                 <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <img src="web/img/fresh/testimonio_circle2.png" alt="Testimonios">
                     <div class="fondo_testimonios">
                         <p class="nombres_testimonios text-left">David Urbina</p>
                         <p class="subtitulo_testimonios text-justify">Gruero del Estado Carabobo inscrito en el Club Grúas Venezuela:</p>
@@ -396,7 +461,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
                 <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <img src="web/img/fresh/testimonio_circle3.png" alt="Testimonios">
                     <div class="fondo_testimonios">
                         <p class="nombres_testimonios text-left">Carlos Otero</p>
                         <p class="subtitulo_testimonios text-justify">Directivo del Club Gruas en el Estado Anzoategui:</p>
@@ -407,7 +472,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
                 <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <img src="web/img/fresh/testimonio_circle4.png" alt="Testimonios">
                     <div class="fondo_testimonios">
                         <p class="nombres_testimonios text-left">Ivan Fernandez</p>
                         <p class="subtitulo_testimonios text-justify">Gruero del Estado Miranda inscrito en el Club Grúas Venezuela:</p>
@@ -510,17 +575,74 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Políticas de uso</small></a>		
                                         </div>
 					<div class="col-xs-2">
-						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Zonas Peligrosas</small></a>		
+						<a  href="<?php echo full_url?>/redzones.php" target="_blank"><small class="white-font text_footer_strong">Zonas Peligrosas</small></a>		
                                         </div>
 					<div class="col-xs-3">
-						<a  href="<?php echo full_url?>/use_politics.php" target="_blank"><small class="white-font text_footer_strong">Clasificación de vehículos por peso</small></a>		
+						<a  href="<?php echo full_url?>/weights.php" target="_blank"><small class="white-font text_footer_strong">Clasificación de vehículos por peso</small></a>		
                                         </div>
                 </div>
             </div>
         </div>
     </footer>
 
+	<!-- Modal -->
+    <div class="portfolio-modal modal fade " id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+			<div class="modal-header">
+                            <img src="web/img/fresh/gruero_plus_p.png" alt="TU/GRUERO PLUS" class=""></br>
+			</div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="modal-body">
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+															<label class="popup_letras_p_header">Para que manejes tranquilo en todo el país</label>
+
+													</div>
  
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+														<ul class="ul_estrella text-left">
+															
+                                                            <li class="letra_popup">Servicios de grúas ilimitados por todo un año.</li>
+
+                                                            <li class="letra_popup">Auxilio vial en menos de 30 minutos.</li>
+
+                                                            <li class="letra_popup">Más de 2000 grueros en toda Venezuela.</li>
+
+                                                            <li class="letra_popup">Búsqueda de grueros vía GPS (Geolocalización).</li>
+
+                                                            <li class="letra_popup">Disponible en tu ciudad de residencia.</li>
+					
+												
+															<li class="letra_popup">Pagado en una sola cuota fija y válido por 365 días.</li>
+
+                                                            <li class="letra_popup">Disponible para carros tipo sedán, camionetas de uso personal hasta 3000Kg y motos de todo tipo.</li>
+														</ul>	
+                                                       
+                                                    </div>
+												<div class="row">
+                                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                                        <div class="well background_caja_popup font_caja_quienes_somos">
+															<label class="popup_letras_p">Para más información de TU/GRUERO Plus y contratación llama a nuestro</label>
+															<label class="popup_letras_g">Call Center</label>
+															<label class="popup_letras_g">0500 GRUERO-0 (0500-478376-0)</label>
+															<label class="popup_letras_p text-center">Línea directa</label>
+															
+														</div>
+                                                    </div>
+
+												</div>
+                                                <div class="col-xs-12 franja_naranja_popup_clara" >
+                                                    <div class="franja_naranja_popup_oscura"><label class="white-font">¡24/7 los 365 días del año!</label></div>  
+                                                </div>
+				
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="web/js/jquery.js"></script>

@@ -236,14 +236,25 @@
 		public function getGruerosOnlineDetalle($values){
 			$Disponible = $values['status'];
 			$ConnectionAws= new ConnectionAws();
-			$query = "
+			/*$query = "
                         SELECT SUM(cuenta) as cuenta, zone_work FROM (
                         SELECT COUNT(Grueros.idGrua) AS cuenta, 
                         CASE zone_work WHEN '0' THEN 'SIN_DEFINIR' WHEN '' THEN 'SIN_DEFINIR' ELSE zone_work END AS zone_work FROM Gruas 
                         INNER JOIN Grueros ON Grueros.idGrua = Gruas.idGrua 
                         WHERE Disponible = '$Disponible' GROUP BY zone_work ) AS s1
                         GROUP BY zone_work
-			";
+			";*/
+			$query = "
+			SELECT SUM(cuenta) AS cuenta, zone_work FROM (
+                        SELECT COUNT(Grueros.idGrua) AS cuenta, 
+                        CASE WHEN Estado IS NOT NULL THEN  Estado ELSE 'SIN_DEFINIR' END AS zone_work 
+                        FROM Gruas 
+                        INNER JOIN Grueros ON Grueros.idGrua = Gruas.idGrua 
+                        WHERE Disponible = '$Disponible' GROUP BY Estado ) AS s1
+                        GROUP BY zone_work
+			";			
+
+			
                         //echo $query;die;
 			$q = $ConnectionAws->ejecutarPreparado($query);
 			return $q; 				
@@ -272,7 +283,7 @@
 			FROM Gruas
 			INNER JOIN Grueros ON Grueros.idGrua = Gruas.idGrua
 			WHERE Disponible = '$Disponible'
-			AND zone_work = '$zone_work'
+			AND Estado = '$zone_work'
 			";
                         }
 
