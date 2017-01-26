@@ -21,14 +21,14 @@ $values = $_REQUEST;
 						
 	function executeIndex($values = null){
         /*Menu*/
-        $Menu = new Menu();
-        $items = $Menu ->getMenu(1, 1);
+        /*$Menu = new Menu();
+        $items = $Menu ->getMenu(1, 1);*/
         
         
         /*Caroussels*/
-        $CarousselDetails = new CarousselDetails();
+        /*$CarousselDetails = new CarousselDetails();
         $caroussel1_name = $CarousselDetails ->getCarousselName(1);
-        $caroussel1_details = $CarousselDetails ->getCarousselDetails(1);
+        $caroussel1_details = $CarousselDetails ->getCarousselDetails(1);*/
 		
 		/*Contents*/
 		

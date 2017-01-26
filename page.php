@@ -64,10 +64,10 @@
 							<br>
 						
 							<div class="visible-lg visible-md visible-sm success_new">
-								<h1 class="text-center big-title white-font"><strong  class="white-font big-title" style="font-size: 44px;">Llámanos al 0212-237-0491 - 0212-237-9762</strong> </h1>
+								<h1 class="text-center big-title white-font"><strong  class="white-font big-title" style="font-size: 44px;">Llámanos al 0500-GRUERO-0 (0500-478376-0)</strong> </h1>
 							</div>
 							<div class="visible-xs">
-								<h1 class="text-center big-title white-font"><strong class="white-font big-font">Llámanos al 0212-237-0491 - 0212-237-9762</strong> </h1>
+								<h1 class="text-center big-title white-font"><strong class="white-font big-font">Llámanos al 0500-GRUERO-0 (0500-478376-0)</strong> </h1>
 							</div>
 						</div>
 
@@ -466,7 +466,7 @@
                         <p class="white-font">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
 						<p class="white-font">tugruero@gmail.com</p>
 						<p class="white-font">info@tugruero.com</p>						
-						<p class="white-font">0212-237-0491 / 0212-237-9762</p>
+						<p class="white-font">0500-GRUERO-0 (0500-478376-0)</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3 class="white-font">Redes sociales</h3>
