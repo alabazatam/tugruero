@@ -342,10 +342,10 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
             <div class="row">
                 <p class="titulo_clientes text-center">Clientes y Aliados</p>
             </div> 
-			<div class="row margin_clientes fondo_row_clientes_alto">
+			<div class="row margin_clientes">
                          <div class="col-sm-2 col-sm-offset-1">
                              <div class="thumbnail padding_clientes">
-                                 <img src="web/img/fresh/clientes_aliados/probilinca.png" alt="Asistir cooperativa">
+                                 <img src="web/img/fresh/clientes_aliados/probilinca.png" alt="Probilinca">
                              </div>
                          </div>
                          <div class="col-sm-2">
@@ -360,7 +360,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail padding_clientes">
-                                 <img src="web/img/fresh/clientes_aliados/plataforma_satelital.png" alt="Asistir cooperativa">
+                                 <img src="web/img/fresh/clientes_aliados/plataforma_satelital.png" alt="Plataforma satelital">
                              </div>
                          </div>
                          <div class="col-sm-2">
@@ -369,48 +369,48 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                              </div>
                          </div>
             </div>
-            <div class="row fondo_row_clientes_medio">
+            <div class="row ">
                          <div class="col-sm-2 col-sm-offset-1">
                              <div class="thumbnail  ">
-				  <img src="web/img/fresh/clientes_aliados/airs.png" alt="Asistir cooperativa">
+				  <img src="web/img/fresh/clientes_aliados/airs.png" alt="Airs">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes_aliados/universal.png" alt="Asistir cooperativa">
+				  <img src="web/img/fresh/clientes_aliados/universal.png" alt="Universal seguros">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-                                 <img src="web/img/fresh/clientes_aliados/club_gruas.png" alt="Asistir cooperativa">
+                                 <img src="web/img/fresh/clientes_aliados/club_gruas.png" alt="Club grúas venezuela">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-                                 <img src="web/img/fresh/clientes_aliados/coprevial.png" alt="Asistir cooperativa">
+                                 <img src="web/img/fresh/clientes_aliados/coprevial.png" alt="Coprevial">
                              </div>
                          </div>
 
                          <div class="col-sm-2">
                              <div class="thumbnail  ">
-				  <img src="web/img/fresh/clientes_aliados/tecontacto.png" alt="Asistir cooperativa">
+				  <img src="web/img/fresh/clientes_aliados/tecontacto.png" alt="Te contacto">
                              </div>
                          </div>
                 </div>        
-                <div class="row fondo_row_clientes_bajo">
+                <div class="row">
                          <div class="col-sm-2 col-sm-offset-1">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes_aliados/lavitalicia.png" alt="Asistir cooperativa">
+				  <img src="web/img/fresh/clientes_aliados/lavitalicia.png" alt="Seguros la viatalicia">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes_aliados/mercantil.png" alt="Asistir cooperativa">
+				  <img src="web/img/fresh/clientes_aliados/mercantil.png" alt="Banco mercantil">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes_aliados/more.png" alt="Asistir cooperativa">
+				  <img src="web/img/fresh/clientes_aliados/more.png" alt="More consulting">
                              </div>
                          </div>
                          <div class="col-sm-2">
