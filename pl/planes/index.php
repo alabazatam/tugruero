@@ -1,5 +1,5 @@
 <?php include("../../autoload.php");?>	
-<?php //include("validator.php");?>
+<?php include("validator.php");?>
 <?php include("../security/security.php");?>
 
 <?php $action = "";
@@ -13,12 +13,21 @@ $values = array_merge($values,$_FILES);
 	switch ($action) {
 		case "index":
 			executeIndex($values);	
-		break;	
+		break;
+		case "add":
+			executeAdd($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
 	}
-	function executeIndex($values = null)
-	{
+	function executeIndex($values = null,$errors = array())
+	{       
+                $values['action'] = 'add';
 		require('form_view.php');
+	}
+	function executeAdd($values = null,$errors = array())
+	{
+                $errors = validate($values);
+                executeIndex($values,$errors);die;
 	}

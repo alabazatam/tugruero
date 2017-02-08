@@ -97,6 +97,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Bitacora.class.php
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Grueros.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Baremo.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/PDFSolicitud.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/SolicitudPlan.class.php");
 
 /*validation class*/
 
