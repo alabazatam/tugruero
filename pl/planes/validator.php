@@ -46,6 +46,46 @@
 			"label" => "RIF",
 			"required" => true
 		);
+		$validator_values['Correo'] = array(
+			
+			"minlength" => 1,
+			"maxlength" => 100,
+			"type" => "email",
+			"label" => "Correo electrónico",
+			"required" => true
+		);
+		$validator_values['Correo2'] = array(
+			
+			"minlength" => 1,
+			"maxlength" => 100,
+			"type" => "email",
+			"label" => "Confirme su correo electrónico",
+			"required" => true
+		);
+		$validator_values['Telefono'] = array(
+			
+			"minlength" => 10,
+			"maxlength" => 10,
+			"type" => "number",
+			"label" => "Teléfono de habitación",
+			"required" => true
+		);
+		$validator_values['Celular'] = array(
+			
+			"minlength" => 10,
+			"maxlength" => 10,
+			"type" => "number",
+			"label" => "Celular",
+			"required" => true
+		);
+		$validator_values['RCV'] = array(
+			
+			"minlength" => 2,
+			"maxlength" => 2,
+			"type" => "text",
+			"label" => "¿Opción de RCV?",
+			"required" => true
+		);
 		$ValidateBase = new ValidateBase();
 		$errors = $ValidateBase->validate_base($validator_values, $values);
 		return $errors;

@@ -18,7 +18,7 @@ class ValidateBase
 			if($required == true or $values[$name] !='')
 			{
 				//chequeo requerido
-				$error = $this->required_validate($required, $values[$name],$key['label']);
+				$error = $this->required_validate($required, @$values[$name],$key['label']);
 				if($error != '')
 				{
 					$errors[$name] = $error;
@@ -27,7 +27,7 @@ class ValidateBase
 				//chequeo min_lenght
 				if(isset($key['minlength']))
 				{
-					$error = $this->minlength_validate($minlength, $values[$name],$key['label']);
+					$error = $this->minlength_validate($minlength, @$values[$name],$key['label']);
 					if($error != '')
 					{
 						$errors[$name] = $error;
@@ -37,7 +37,7 @@ class ValidateBase
 				//chequeo max_lenght
 				if(isset($key['maxlength']))
 				{
-					$error = $this->maxlength_validate($maxlength, $values[$name],$key['label']);
+					$error = $this->maxlength_validate($maxlength, @$values[$name],$key['label']);
 					if($error != '')
 					{
 						$errors[$name] = $error;

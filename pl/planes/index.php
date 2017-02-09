@@ -23,11 +23,18 @@ $values = array_merge($values,$_FILES);
 	}
 	function executeIndex($values = null,$errors = array())
 	{       
-                $values['action'] = 'add';
+        $values['action'] = 'add';
+		//print_r($values);die;
 		require('form_view.php');
 	}
 	function executeAdd($values = null,$errors = array())
 	{
                 $errors = validate($values);
-                executeIndex($values,$errors);die;
+				
+				if(count($errors)>0){
+					executeIndex($values,$errors);die;
+				}else{
+					echo "siguiente";die;
+				}
+                
 	}
