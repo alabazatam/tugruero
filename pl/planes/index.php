@@ -17,6 +17,9 @@ $values = array_merge($values,$_FILES);
 		case "add":
 			executeAdd($values);	
 		break;
+		case "precio_plan":
+			executePrecioPlan($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -36,5 +39,34 @@ $values = array_merge($values,$_FILES);
 				}else{
 					echo "siguiente";die;
 				}
+                
+	}
+	function executePrecioPlan($values = null,$errors = array())
+	{
+
+            $array= array('precio' => '0');
+            $Planes = new Planes();
+            $Puestos = $values['Puestos'];
+            $idPlan = $values['id_plan'];
+            $precio_plan = 0;
+            setlocale(LC_NUMERIC,"es_ES.UTF8");         
+            if($idPlan!=''){
+                $precio_plan = ($Planes->getPrecioPlan($idPlan) * 1.10);
+               
+                
+                if(isset($values['RCV']) and $values['RCV']=='SI' ){
+                    $precio_rcv = $Planes->getPrecioRCV($Puestos);
+                    $precio_plan = ($precio_plan * 1.10) + $precio_rcv;
+                     
+                }
+            }
+
+            $precio_plan_formateado = number_format($precio_plan,2,",",".");
+            $array= array('precio' => $precio_plan_formateado, 'precio_sin_formato' => $precio_plan);  
+            
+            
+            echo json_encode($array);
+            
+            
                 
 	}

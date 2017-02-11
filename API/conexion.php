@@ -3,7 +3,7 @@ $conexion = array(
     'username' =>'root',
     'password' => 'tugrua',
     'database' => 'TuGruero',
-    'host' => 'localhost'
+    'host' => '52.25.178.106'
 );
 
 $link = new mysqli($conexion['host'], $conexion['username'], $conexion['password'], $conexion['database']);

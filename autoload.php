@@ -98,6 +98,8 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Grueros.class.php"
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Baremo.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/PDFSolicitud.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/SolicitudPlan.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Marcas.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Planes.class.php");
 
 /*validation class*/
 

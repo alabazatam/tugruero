@@ -6,13 +6,13 @@
                 function __construct() 
                 {
                     $this->dbname = "admin_tugruero";
-                    $this->host = 'localhost';
+                    $this->host = '52.25.178.106';
                     $this->port = "3306";
                     $this->charset = "utf8";
                     $this->dsn = "mysql:dbname=".$this->dbname.";host=".$this->host.";port=".$this->port.";charset=".$this->charset;  
-                    $this->username = 'admin_tugruero';
-                    $this->password = '230386';
-					return $this->open();
+                    $this->username = 'root';
+                    $this->password = 'tugrua';
+                return $this->open();
                     
                 }            
 		public function getConnect($connect = ''){
