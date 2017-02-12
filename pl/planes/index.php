@@ -3,7 +3,7 @@
 <?php include("../security/security.php");?>
 
 <?php $action = "";
-
+setlocale(LC_NUMERIC,"es_ES.UTF8");
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
@@ -32,8 +32,7 @@ $values = array_merge($values,$_FILES);
 	}
 	function executeAdd($values = null,$errors = array())
 	{
-                $errors = validate($values);
-				
+                $errors = validate($values,$_FILES);
 				if(count($errors)>0){
 					executeIndex($values,$errors);die;
 				}else{
@@ -49,14 +48,15 @@ $values = array_merge($values,$_FILES);
             $Puestos = $values['Puestos'];
             $idPlan = $values['id_plan'];
             $precio_plan = 0;
-            setlocale(LC_NUMERIC,"es_ES.UTF8");         
+         
             if($idPlan!=''){
                 $precio_plan = ($Planes->getPrecioPlan($idPlan) * 1.10);
                
                 
                 if(isset($values['RCV']) and $values['RCV']=='SI' ){
+                    $precio_plan = ($Planes->getPrecioPlan($idPlan) * 1.10);
                     $precio_rcv = $Planes->getPrecioRCV($Puestos);
-                    $precio_plan = ($precio_plan * 1.10) + $precio_rcv;
+                    $precio_plan = $precio_plan + $precio_rcv;
                      
                 }
             }

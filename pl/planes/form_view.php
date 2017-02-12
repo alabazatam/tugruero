@@ -7,7 +7,7 @@
     <input type="text" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
 
     <div class="form-group col-sm-12 text-right PlanPrecio">
-      <p><b>Total a pagar:</b> 0 Bs.</p>
+      <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
   </div>
   <div class="form-group col-sm-12">
 	  <label for="idPlan" class="">Plan </label> <label class="text-danger"> * </label>
@@ -18,6 +18,10 @@
             <option value="1" <?php if(isset($values['idPlan']) and $values['idPlan']==1) echo "selected='selected'";?>>TU GRUERO PLUS</option>
         </select>
     </div>
+        <?php if(isset($errors['idPlan']) and $errors['idPlan']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['idPlan'];?></div>
+
+        <?php endif;?> 
   </div>    
 
   <div class="form-group col-sm-3">
@@ -99,58 +103,60 @@
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-12">
-    <label for="inputEmail3" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
+    <div class="row"> 
+        <div class="form-group col-sm-12">
+          <label for="inputEmail3" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
+          <div class="">
+          <label class="radio-inline">
+            <input type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
+          </label>
+          </div>
+              <?php if(isset($errors['RCV']) and $errors['RCV']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['RCV'];?></div>
+
+              <?php endif;?>
+        </div>
+   </div>
+  <div class="form-group col-sm-12 RCV_SI LicenciaDiv">
+    <label for="Licencia" class="control-label">Licencia</label> <label class="text-danger"> * </label>
     <div class="">
-    <label class="radio-inline">
-      <input type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
-    </label>
-    <label class="radio-inline">
-      <input type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
-    </label>
+        <input type="file" name="Licencia" class="form-control "  id="Licencia" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
-        <?php if(isset($errors['RCV']) and $errors['RCV']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['RCV'];?></div>
+        <?php if(isset($errors['Licencia']) and $errors['Licencia']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['Licencia'];?></div>
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-12 RCV_SI">
-    <label for="inputEmail3" class="control-label">Licencia</label> <label class="text-danger"> * </label>
+  <div class="form-group col-sm-12 CarnetCirculacionDiv">
+    <label for="CarnetCirculacion" class="control-label">Carnet de circulación</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="file" name="Licencia" class="form-control "  id="Nombres"  placeholder="Ejemplo: Juan José">
+        <input type="file" name="CarnetCirculacion" class="form-control " id="CarnetCirculacion" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
-        <?php if(isset($errors['id_plan']) and $errors['id_plan']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['id_plan'];?></div>
+        <?php if(isset($errors['CarnetCirculacion']) and $errors['CarnetCirculacion']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CarnetCirculacion'];?></div>
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-12 RCV_SI">
-    <label for="inputEmail3" class="control-label">Carnet de circulación</label> <label class="text-danger"> * </label>
-    <div class="">
-        <input type="file" name="CarnetCirculacion" class="form-control " id="Nombres" placeholder="Ejemplo: Juan José">
-    </div>
-        <?php if(isset($errors['id_plan']) and $errors['id_plan']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['id_plan'];?></div>
-
-        <?php endif;?>
-  </div>
-  <div class="form-group col-sm-12 RCV_SI RCV_NO">
+  <div class="form-group col-sm-12 CertificadoMedicoDiv">
     <label for="inputEmail3" class="control-label">Certificado médico</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="file" name="CertificadoMedico" class="form-control " id="Nombres" placeholder="Ejemplo: Juan José">
+        <input type="file" name="CertificadoMedico" class="form-control " id="CertificadoMedico" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
-        <?php if(isset($errors['id_plan']) and $errors['id_plan']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['id_plan'];?></div>
+        <?php if(isset($errors['CertificadoMedico']) and $errors['CertificadoMedico']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CertificadoMedico'];?></div>
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-12 RCV_SI RCV_NO">
+  <div class="form-group col-sm-12 CertificadoOrigenDiv">
     <label for="certificadoOrigen" class="control-label">Certificado de origen del vehículo (Título de propiedad)</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="file" name="CertificadoOrigen" class="form-control" id="Nombres" placeholder="Ejemplo: Juan José">
+        <input type="file" name="CertificadoOrigen" class="form-control" id="CertificadoOrigen" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
-    <?php if(isset($errors['id_plan']) and $errors['id_plan']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['id_plan'];?></div>
+    <?php if(isset($errors['CertificadoOrigen']) and $errors['CertificadoOrigen']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CertificadoOrigen'];?></div>
 
         <?php endif;?>
   </div>
@@ -211,7 +217,7 @@
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Placa</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Placa" class="form-control" id="Placa" autocomplete="off" maxlength="7" value="<?php if(isset($values['Placa']) and $values['Placa']!='') echo $values['Placa'];?>" placeholder="Ejemplo: Azul">
+        <input type="text" name="Placa" class="form-control" id="Placa" autocomplete="off" maxlength="7" value="<?php if(isset($values['Placa']) and $values['Placa']!='') echo $values['Placa'];?>" placeholder="Ejemplo: AAABBB">
     </div>
         <?php if(isset($errors['Placa']) and $errors['Placa']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Placa'];?></div>
@@ -244,37 +250,37 @@
         <?php endif;?>
   </div>
   <div class="form-group col-sm-12 DEPOSITO">
-    <label for="inputEmail3" class="control-label">Comprobante #1 </label> <label class="text-danger"> * </label>
+    <label for="DEP1" class="control-label">Comprobante #1 </label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="file" name="DEP1" class="form-control " id="Nombres"  placeholder="Ejemplo: Juan José">
+        <input type="file" name="DEP1" class="form-control" id="DEP1" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
-        <?php if(isset($errors['id_plan']) and $errors['id_plan']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['id_plan'];?></div>
+        <?php if(isset($errors['DEP1']) and $errors['DEP1']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['DEP1'];?></div>
 
         <?php endif;?>
   </div>
   <div class="form-group col-sm-12 DEPOSITO">
-    <label for="inputEmail3" class="control-label">Comprobante #2</label>
+    <label for="DEP2" class="control-label">Comprobante #2</label>
     <div class="">
-        <input type="file" name="DEP2" class="form-control " id="Nombres" placeholder="Ejemplo: Juan José">
+        <input type="file" name="DEP2" class="form-control " id="DEP2" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
-        <?php if(isset($errors['id_plan']) and $errors['id_plan']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['id_plan'];?></div>
+        <?php if(isset($errors['DEP2']) and $errors['DEP2']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['DEP2'];?></div>
 
         <?php endif;?>
   </div>
   <div class="form-group col-sm-12 DEPOSITO">
-    <label for="inputEmail3" class="control-label">Comprobante #3</label>
+    <label for="DEP3" class="control-label">Comprobante #3</label>
     <div class="">
-        <input type="file" name="DEP3" class="form-control " id="Nombres" placeholder="Ejemplo: Juan José">
+        <input type="file" name="DEP3" class="form-control " id="DEP3" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
-        <?php if(isset($errors['id_plan']) and $errors['id_plan']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['id_plan'];?></div>
+        <?php if(isset($errors['DEP3']) and $errors['DEP3']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['DEP3'];?></div>
 
         <?php endif;?>
   </div>
   <div class="form-group col-sm-12 text-right PlanPrecio">
-      <p><b>Total a pagar:</b> 0 Bs.</p>
+      <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
   </div>    
   <div class="form-group col-sm-12">
     <div class="col-sm-offset-10 col-sm-2">
@@ -288,17 +294,28 @@
 
 $(document).ready(function(){
 <?php if(isset($values['RCV']) and $values['RCV']=='SI'):?>
-        $('.RCV_SI').show();
-        $('.Puestos').show();
+            console.log('eligio si');
+            $('.Puestos').show();
+            $('.LicenciaDiv').show();
+            $('.CarnetCirculacionDiv').show();
+            $('.CertificadoMedicoDiv').show();
+            $('.CertificadoOrigenDiv').show();
 <?php endif;?>
 <?php if(isset($values['RCV']) and $values['RCV']=='NO'):?>
-        $('.RCV_NO').hide();
-        $('.Puestos').hide();
+            console.log('eligio no');
+            $('.Puestos').hide();
+            $('.LicenciaDiv').show();
+            $('.CarnetCirculacionDiv').show();
+            $('.CertificadoMedicoDiv').hide();
+            $('.CertificadoOrigenDiv').hide();
 <?php endif;?>
 <?php if((!isset($values['RCV'])) or @$values['RCV']==''):?>
-        $('.RCV_NO').hide();
-        $('.RCV_SI').hide();
-        $('.Puestos').hide();
+            console.log('No eligio nada');
+            $('.Puestos').hide();
+            $('.LicenciaDiv').hide();
+            $('.CarnetCirculacionDiv').hide();
+            $('.CertificadoMedicoDiv').hide();
+            $('.CertificadoOrigenDiv').hide();
 <?php endif;?>
 
 <?php if(isset($values['MET']) and $values['MET']=='DEP'):?>
@@ -318,12 +335,19 @@ $(document).ready(function(){
     $('.RCV').change(function(e){
         calculaPrecio();
         if($('.RCV:checked').val() == 'SI'){
-            $('.RCV_SI').show();
+            console.log('seleccione si');
             $('.Puestos').show();
+            $('.LicenciaDiv').show();
+            $('.CarnetCirculacionDiv').show();
+            $('.CertificadoMedicoDiv').show();
+            $('.CertificadoOrigenDiv').show();
         }else{
-           
-            $('.RCV_NO').hide();    
+            console.log('seleccione no');
             $('.Puestos').hide();
+            $('.LicenciaDiv').show();
+            $('.CarnetCirculacionDiv').show();
+            $('.CertificadoMedicoDiv').hide();
+            $('.CertificadoOrigenDiv').hide();
         }
         
 
