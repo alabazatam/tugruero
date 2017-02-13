@@ -160,7 +160,12 @@
                 }
                 
                 
-          /******************Validación de archivos*************************/      
+          /******************Validación de archivos*************************/ 
+                echo $files['Licencia']['size'];die;
+		if(!in_array(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION),$array_extensions)) 
+		{
+                    $errors['tipoArchivo']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+		}                
                 print_r($files);die;
                 if(!isset($values['Licencia'])){
                     echo "no hay licencia";

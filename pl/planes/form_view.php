@@ -2,7 +2,7 @@
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <h1>Título</h1>
 
-<form class="" method="POST">
+<form class="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="text" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
 
