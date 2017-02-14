@@ -20,6 +20,9 @@ $values = array_merge($values,$_FILES);
 		case "precio_plan":
 			executePrecioPlan($values);	
 		break;
+		case "mercadopago":
+			executeMercadoPago($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -36,10 +39,23 @@ $values = array_merge($values,$_FILES);
 				if(count($errors)>0){
 					executeIndex($values,$errors);die;
 				}else{
-					echo "siguiente";die;
+					if($values['MET'] == 'TDC')
+					{
+						echo "mercadopago";
+					}else
+					{
+						echo "procedo a crear la solicitud";
+					}
+					die;
 				}
                 
 	}
+	function executeMercadoPago($values = null,$errors = array())
+	{
+      
+		require('mercadopago_form.php');
+                
+	}	
 	function executePrecioPlan($values = null,$errors = array())
 	{
 

@@ -4,6 +4,9 @@
  
  
 	function validate($values,$files = null){
+
+		
+		
 		$errors = array();
 		$validator_values = array();
 		$validator_values['idPlan'] = array(
@@ -161,20 +164,114 @@
                 
                 
           /******************Validación de archivos*************************/ 
-                echo $files['Licencia']['size'];die;
-		if(!in_array(pathinfo($_FILES['file_'.$i]['name'],PATHINFO_EXTENSION),$array_extensions)) 
+        //echo $files['Licencia']['size'];die;
+		$array_extensions = array('jpg','JPG','PNG','png','jpeg','JPEG','pdf','PDF','octet-stream');
+		if($_FILES['Licencia']['size']>0)
 		{
-                    $errors['tipoArchivo']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+			if(!in_array(pathinfo($_FILES['Licencia']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+			{
+				$errors['Licencia']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+			}
+			if($_FILES['Licencia']['size']>max_input_size)
+			{
+				$errors['Licencia']= message_max_size;
+			}
+		}else
+		{
+			$errors['Licencia']= "Debe seleccionar un archivo para licencia";
+		}		
+               
+		if($_FILES['CarnetCirculacion']['size']>0)
+		{
+			if(!in_array(pathinfo($_FILES['CarnetCirculacion']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+			{
+				$errors['CarnetCirculacion']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+			}
+			if($_FILES['CarnetCirculacion']['size']>max_input_size)
+			{
+				$errors['CarnetCirculacion']= message_max_size;
+			}
+		}else
+		{
+			$errors['CarnetCirculacion']= "Debe seleccionar un archivo para el carnet de circulación";
+		}
+		
+		
+		if(isset($values['RCV']) and  $values['RCV']=='SI')
+		{
+			if($_FILES['CertificadoMedico']['size']>0)
+			{
+				if(!in_array(pathinfo($_FILES['CertificadoMedico']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+				{
+					$errors['CertificadoMedico']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+				}
+				if($_FILES['CertificadoMedico']['size']>max_input_size)
+				{
+					$errors['CertificadoMedico']= message_max_size;
+				}
+			}else
+			{
+				$errors['CertificadoMedico']= "Debe seleccionar un archivo para el certificado médico";
+			}
+			
+			if($_FILES['CertificadoOrigen']['size']>0)
+			{
+				if(!in_array(pathinfo($_FILES['CertificadoOrigen']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+				{
+					$errors['CertificadoOrigen']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+				}
+				if($_FILES['CertificadoOrigen']['size']>max_input_size)
+				{
+					$errors['CertificadoOrigen']= message_max_size;
+				}
+			}else
+			{
+				$errors['CertificadoOrigen']= "Debe seleccionar un archivo para el certificado de origen";
+			}
+		}
+                
+                
+/***************************Validación de archivos de pago************************/                
+		if(isset($values['MET']) and  $values['MET']=='DEP')
+		{
+			if($_FILES['DEP1']['size']>0)
+			{
+				if(!in_array(pathinfo($_FILES['DEP1']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+				{
+					$errors['DEP1']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+				}
+				if($_FILES['DEP1']['size']>max_input_size)
+				{
+					$errors['DEP1']= message_max_size;
+				}
+			}else
+			{
+				$errors['DEP1']= "Debe seleccionar el archivo de transferencia o deposito bancario";
+			}
+			
+			if($_FILES['DEP2']['size']>0)
+			{
+				if(!in_array(pathinfo($_FILES['DEP2']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+				{
+					$errors['DEP2']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+				}
+				if($_FILES['DEP2']['size']>max_input_size)
+				{
+					$errors['DEP2']= message_max_size;
+				}
+			}
+			if($_FILES['DEP3']['size']>0)
+			{
+				if(!in_array(pathinfo($_FILES['DEP3']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+				{
+					$errors['DEP3']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+				}
+				if($_FILES['DEP3']['size']>max_input_size)
+				{
+					$errors['DEP3']= message_max_size;
+				}
+			}
 		}                
-                print_r($files);die;
-                if(!isset($values['Licencia'])){
-                    echo "no hay licencia";
-                }
-                    
-                
-                
-                
-                
                 
                 
                 
