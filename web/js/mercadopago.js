@@ -80,14 +80,14 @@ $(document).ready(function(){
 
                         
                         
-                        
+                            alert(response.cause[0].code);
                             if (status != 200 && status != 201) {
                                 console.log("verify filled data");
-                                console.log(status + response);
+                                //console.log(response);
                         
                             }else{
 
-
+                                console.log("verify filled data");
                                 var form = document.querySelector('#pay');
 
                                 var card = document.createElement('input');
@@ -102,6 +102,9 @@ $(document).ready(function(){
                                 
                                 
                             }
+                        };
+                        function getMessageErrorCode(code){
+                            
                         };
      
 

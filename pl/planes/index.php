@@ -41,7 +41,8 @@ $values = array_merge($values,$_FILES);
 				}else{
 					if($values['MET'] == 'TDC')
 					{
-						echo "mercadopago";
+                                                
+						executeMercadoPago($values,$errors);
 					}else
 					{
 						echo "procedo a crear la solicitud";
