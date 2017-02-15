@@ -1,9 +1,19 @@
 Mercadopago.setPublishableKey("TEST-6d4e759f-3000-4816-bb77-45ce06df576e");
-Mercadopago.getIdentificationTypes();
+
+
+$(document).ready(function(){
+  Mercadopago.getIdentificationTypes();
+
+                        addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'keyup', guessingPaymentMethod);
+                        addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'change', guessingPaymentMethod);
+
+                        doSubmit = false;
+                        addEvent(document.querySelector('#pay'),'submit',doPay);
+});
 
 
                         function addEvent(el, eventName, handler){
-                            //console.log(el);
+                            console.log(el);
                             if (el.addEventListener) {
                                    el.addEventListener(eventName, handler);
                             } else {
@@ -46,7 +56,7 @@ Mercadopago.getIdentificationTypes();
                                 if (document.querySelector("input[name=paymentMethodId]") == null) {
                                     var paymentMethod = document.createElement('input');
                                     paymentMethod.setAttribute('name', "paymentMethodId");
-                                    paymentMethod.setAttribute('type', "hidden");
+                                    paymentMethod.setAttribute('type', "text");
                                     paymentMethod.setAttribute('value', response[0].id);
 
                                     form.appendChild(paymentMethod);
@@ -56,11 +66,6 @@ Mercadopago.getIdentificationTypes();
                             }
                         };
 
-                        addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'keyup', guessingPaymentMethod);
-                        addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'change', guessingPaymentMethod);
-
-                        doSubmit = false;
-                        addEvent(document.querySelector('#pay'),'submit',doPay);
                         function doPay(event){
                             event.preventDefault();
                             if(!doSubmit){
@@ -79,18 +84,7 @@ Mercadopago.getIdentificationTypes();
                             if (status != 200 && status != 201) {
                                 console.log("verify filled data");
                                 console.log(status + response);
-                        var parametros = {
-                                "popup": "pop-generic",
-                                "imagen": "Alto",
-                                "mensaje": "<p><h3>Error con los datos indicados</h3></p></p>Verifique e intente nuevamente (error:"+status+")<p>",
-                                "displaybarra": ['none'],
-                                "displaysBotones": ['none', 'none', 'inline', 'none'],
-                                "text": ['', '', 'Cerrar', ''],
-                                //"onClick": ["", "", "", "mostrarTaxi()"]
-                                "onClick": ["", "", "closePops()", ""]
-
-                        };
-                        genericPop(parametros);
+                        
                             }else{
 
 
@@ -98,11 +92,10 @@ Mercadopago.getIdentificationTypes();
 
                                 var card = document.createElement('input');
                                 card.setAttribute('name',"token");
-                                card.setAttribute('type',"hidden");
+                                card.setAttribute('type',"text");
                                 card.setAttribute('value',response.id);
                                 form.appendChild(card);
                                 doSubmit=true;
-                                enviarSolicitud();
                                 //form.submit();
                                 
 
