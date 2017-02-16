@@ -3,18 +3,18 @@
     array_errores_token["205"] = "Ingresa el número de tu tarjeta.";
     array_errores_token["208"] = "Elige un mes.";
     array_errores_token["209"] = "Elige un año.";
-    array_errores_token["212"] = "Ingresa tu documento.";
-    array_errores_token["213"] = "Ingresa tu documento.";
-    array_errores_token["214"] = "Ingresa tu documento.";
+    array_errores_token["212"] = "Ingresa tu documento de identidad.";
+    array_errores_token["213"] = "Ingresa tu documento de identidad.";
+    array_errores_token["214"] = "Ingresa tu documento de identidad.";
     array_errores_token["220"] = "Ingresa tu banco emisor.";
     array_errores_token["221"] = "Ingresa el nombre y apellido.";
     array_errores_token["224"] = "Ingresa el código de seguridad.";
-    array_errores_token["E301"] = "Hay algo mal en ese número. Vuelve a ingresarlo.";
+    array_errores_token["E301"] = "Número de tarjeta inválido. Vuelve a ingresarlo.";
     array_errores_token["E302"] = "Revisa el código de seguridad.";
     array_errores_token["316"] = "Ingresa un nombre válido.";
-    array_errores_token["322"] = "Revisa tu documento.";
-    array_errores_token["323"] = "Revisa tu documento.";
-    array_errores_token["324"] = "Revisa tu documento.";
+    array_errores_token["322"] = "Revisa tu documento de identidad.";
+    array_errores_token["323"] = "Revisa tu documento de identidad.";
+    array_errores_token["324"] = "Revisa tu documento de identidad.";
     array_errores_token["325"] = "Revisa la fecha.";
     array_errores_token["326"] = "Revisa la fecha.";
     array_errores_token["default"] = "Revisa los datos.";
@@ -138,17 +138,24 @@ $(document).ready(function(){
                         };
                         function sdkResponseHandler(status, response) {
  
-
+                            if (typeof response.cause !== 'undefined') {
+                              //alert(response.cause[0].code);
+                              var error = array_errores_token[response.cause[0].code];
+                              alert(error);
+                            }
+                            
+                            /*if(response.cause[0].code){
+                                
+                            }*/
                         
-                        
-                            alert(response.cause[0].code);
+                            //alert(response.cause[0].code);
                             if (status != 200 && status != 201) {
                                 console.log("verify filled data");
                                 //console.log(response);
 
                             }else{
 
-                                console.log("verify filled data");
+                                
                                 var form = document.querySelector('#pay');
 
                                 var card = document.createElement('input');
