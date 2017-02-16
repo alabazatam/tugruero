@@ -1,3 +1,64 @@
+/**************************Errores en token************************/
+    var array_errores_token = [];
+    array_errores_token["205"] = "Ingresa el número de tu tarjeta.";
+    array_errores_token["208"] = "Elige un mes.";
+    array_errores_token["209"] = "Elige un año.";
+    array_errores_token["212"] = "Ingresa tu documento.";
+    array_errores_token["213"] = "Ingresa tu documento.";
+    array_errores_token["214"] = "Ingresa tu documento.";
+    array_errores_token["220"] = "Ingresa tu banco emisor.";
+    array_errores_token["221"] = "Ingresa el nombre y apellido.";
+    array_errores_token["224"] = "Ingresa el código de seguridad.";
+    array_errores_token["E301"] = "Hay algo mal en ese número. Vuelve a ingresarlo.";
+    array_errores_token["E302"] = "Revisa el código de seguridad.";
+    array_errores_token["316"] = "Ingresa un nombre válido.";
+    array_errores_token["322"] = "Revisa tu documento.";
+    array_errores_token["323"] = "Revisa tu documento.";
+    array_errores_token["324"] = "Revisa tu documento.";
+    array_errores_token["325"] = "Revisa la fecha.";
+    array_errores_token["326"] = "Revisa la fecha.";
+    array_errores_token["default"] = "Revisa los datos.";
+/******************Errores en el proceso **********************************/
+    var array_errores_proceso = [];
+    array_errores_proceso["106"] = "No puedes realizar pagos a usuarios de otros países.";
+    array_errores_proceso["109"] = "Elige otra tarjeta u otro medio de pago";
+    array_errores_proceso["126"] = "No pudimos procesar tu pago.";
+    array_errores_proceso["129"] = "No procesa pagos del monto seleccionado. Elige otra tarjeta u otro medio de pago.";
+    array_errores_proceso["145"] = "No pudimos procesar tu pago.";
+    array_errores_proceso["150"] = "No puedes realizar pagos.";
+    array_errores_proceso["151"] = "No puedes realizar pagos.";
+    array_errores_proceso["160"] = "No puedes realizar pagos.";
+    array_errores_proceso["204"] = "El tipo de pago no está disponible en este momento. Elige otra tarjeta u otro medio de pago.";
+    array_errores_proceso["801"] = "Realizaste un pago similar hace instantes. Intenta nuevamente en unos minutos.";
+    array_errores_proceso["default"] = "No pudimos procesar tu pago.";
+
+/*******************Resultados del pago ***********************/
+    var array_resultados = [];
+    array_resultados["approved"] = [];
+    array_resultados["in_process"] = [];
+    array_resultados["rejected"] = [];
+
+    array_resultados["approved"]["accredited"] = "¡Listo, se acreditó tu pago!. En tu resumen verás el cargo.";
+    array_resultados["in_process"]["pending_contingency"] = "Estamos procesando el pago. En menos de una hora te enviaremos por e-mail el resultado.";
+    array_resultados["in_process"]["pending_review_manual"] = "Estamos procesando el pago. En menos de 2 días hábiles te diremos por e-mail si se acreditó o si necesitamos más información.";
+    array_resultados["rejected"]["cc_rejected_bad_filled_card_number"] = "Revisa el número de tarjeta.";
+    array_resultados["rejected"]["cc_rejected_bad_filled_date"] = "Revisa la fecha de vencimiento.";
+    array_resultados["rejected"]["cc_rejected_bad_filled_other"] = "Revisa los datos..";
+    array_resultados["rejected"]["cc_rejected_bad_filled_security_code"] = "Revisa el código de seguridad.";
+    array_resultados["rejected"]["cc_rejected_blacklist"] = "No pudimos procesar tu pago.";
+    array_resultados["rejected"]["cc_rejected_call_for_authorize"] = "Debes autorizar ante el pago a MercadoPago";
+    array_resultados["rejected"]["cc_rejected_card_disabled"] = "Llama a banco emisor para que active tu tarjeta. El teléfono está al dorso de tu tarjeta.";
+    array_resultados["rejected"]["cc_rejected_card_error"] = "No pudimos procesar tu pago.";
+    array_resultados["rejected"]["cc_rejected_duplicated_payment"] = "Ya hiciste un pago por ese valor. Si necesitas volver a pagar usa otra tarjeta u otro medio de pago.";
+    array_resultados["rejected"]["cc_rejected_high_risk"] = "Tu pago fue rechazado. Elige otro de los medios de pago, te recomendamos con medios en efectivo.";
+    array_resultados["rejected"]["cc_rejected_insufficient_amount"] = "Tu medio de pago no tiene fondos suficientes.";
+    array_resultados["rejected"]["cc_rejected_invalid_installments"] = "payment_method_id no procesa pagos en installments cuotas.";
+    array_resultados["rejected"]["cc_rejected_max_attempts"] = "Llegaste al límite de intentos permitidos. Elige otra tarjeta u otro medio de pago.";
+    array_resultados["rejected"]["cc_rejected_other_reason"] = "No proceso el pago";
+
+
+
+
 Mercadopago.setPublishableKey("TEST-6d4e759f-3000-4816-bb77-45ce06df576e");
 
 
@@ -13,14 +74,14 @@ $(document).ready(function(){
 
 
                         function addEvent(el, eventName, handler){
-                            console.log(el);
-                            if (el.addEventListener) {
-                                   el.addEventListener(eventName, handler);
-                            } else {
-                                el.attachEvent('on' + eventName, function(){
-                                  handler.call(el);
-                                });
-                            }
+ console.log(el);
+ if (el.addEventListener) {
+        el.addEventListener(eventName, handler);
+ } else {
+     el.attachEvent('on' + eventName, function(){
+       handler.call(el);
+     });
+ }
                         };
 
                         function getBin() {
@@ -76,7 +137,7 @@ $(document).ready(function(){
                             }
                         };
                         function sdkResponseHandler(status, response) {
-                            
+ 
 
                         
                         
@@ -84,7 +145,7 @@ $(document).ready(function(){
                             if (status != 200 && status != 201) {
                                 console.log("verify filled data");
                                 //console.log(response);
-                        
+
                             }else{
 
                                 console.log("verify filled data");
@@ -97,14 +158,15 @@ $(document).ready(function(){
                                 form.appendChild(card);
                                 doSubmit=true;
                                 //form.submit();
-                                
 
-                                
-                                
+
+
+
                             }
                         };
-                        function getMessageErrorCode(code){
-                            
+                        function getMessageErrorCodeToken(code){
+     
+
                         };
      
 
