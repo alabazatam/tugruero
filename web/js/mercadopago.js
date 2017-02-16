@@ -118,6 +118,7 @@ $(document).ready(function(){
                                     var paymentMethod = document.createElement('input');
                                     paymentMethod.setAttribute('name', "paymentMethodId");
                                     paymentMethod.setAttribute('type', "text");
+                                    paymentMethod.setAttribute('id', "paymentMethodId");
                                     paymentMethod.setAttribute('value', response[0].id);
 
                                     form.appendChild(paymentMethod);
@@ -161,10 +162,37 @@ $(document).ready(function(){
                                 var card = document.createElement('input');
                                 card.setAttribute('name',"token");
                                 card.setAttribute('type',"text");
+                                card.setAttribute('id',"token");
                                 card.setAttribute('value',response.id);
                                 form.appendChild(card);
-                                doSubmit=true;
+                                //doSubmit=true;
                                 //form.submit();
+                                var datos = $( "#pay" ).serialize();
+                                var token = $('#token').val();
+                                var precio = $('#precio').val();
+                                var descripcion = $('#descripcion').val();
+                                var email = $('#email').val();
+                                var paymentMethodId = $('#paymentMethodId').val();
+                                $.ajax({
+                                   url: "http://52.25.178.106/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
+                                   data: response ,
+                                   dataType: "json",
+                                   success: function(data){
+                                       
+                                       var status = data.response["status"];
+                                       var transaction_id = data.response.id;
+                                       var date_created = data.response["date_created"];
+                                       console.log(data);
+                                       console.log(status);
+                                       console.log(transaction_id);
+                                       console.log(date_created);
+                                   },
+                                   
+                                   xhrFields: {
+                                      //withCredentials: true
+                                      
+                                   }
+                                });
 
 
 
