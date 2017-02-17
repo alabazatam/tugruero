@@ -25,7 +25,7 @@
   </div>    
 
   <div class="form-group col-sm-3">
-    <label for="Apellidos" class="control-label">Cédula</label> <label class="text-danger"> * </label>
+    <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label>
     <div class="">
         <input type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
     </div>
@@ -35,7 +35,7 @@
         <?php endif;?>
   </div>
   <div class="form-group col-sm-3">
-    <label for="Apellidos" class=" control-label">RIF</label> <label class="text-danger"> * </label>
+    <label for="Rif" class=" control-label">RIF</label> <label class="text-danger"> * </label>
     <div class="">
         <input type="text" name="Rif" class="form-control" maxlength="11" autocomplete="off" value="<?php if(isset($values['Rif']) and $values['Rif']!='') echo $values['Rif'];?>" id="Rif" placeholder="Ejemplo: V-123456781">
     </div>
@@ -105,7 +105,7 @@
   </div>
     <div class="row"> 
         <div class="form-group col-sm-12">
-          <label for="inputEmail3" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
+          <label for="RCV" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
           <div class="">
           <label class="radio-inline">
             <input type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si

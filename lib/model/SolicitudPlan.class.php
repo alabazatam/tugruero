@@ -119,14 +119,45 @@
 		function saveSolicitudPlan($values){
 
 			$array_solicitud_plan = array(
-				'name' => $values['name'],
-				'status' => $values['status']
+                                'idPlan' => $values['idPlan'],
+				'Nombres' => $values['Nombres'],
+				'Apellidos' => $values['Apellidos'],
+                                'Correo' => $values['Correo'],
+                                'Cedula' => $values['Cedula'],
+				'Rif' => $values['Rif'],
+                                'Estado' => 'DISTRITO CAPITAL',
+                                'Telefono' => $values['Telefono'],
+				'Celular' => $values['Celular'],
+                                'RCV' => $values['RCV'],
+                                'FechaSolicitud' => date('Y-m-d h:i:s'),
+				'TipoPago' => $values['MET'],
+                                'NumeroTransaccion' => '0',
+                                'Marca' => $values['Marca'],
+                                'Modelo' => $values['Modelo'],
+                                'Cedula' => $values['Anio'],
+                                'Cedula' => $values['Color'],
+                                'Placa' => $values['Placa'],
+                                'Puestos' => $values['Puestos'],
+                                'Licencia' => @$values['Licencia'],
+                                'CertificadoOrigen' => @$values['CertificadoOrigen'],
+                                'CarnetCirculacion' => @$values['CarnetCirculacion'],
+                                'CertificadoMedico' => @$values['CertificadoMedico'],
+                                'DocTransferencia' =>  @$values['DocTransferencia'],
+                                'Estatus' => 'ENV'
 			);
-			
+                        //print_r($array_solicitud_plan);die;
+	
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan()->insert($array_solicitud_plan);
 			$values['idSolicitudPlan'] = $ConnectionORM->getConnect()->SolicitudPlan()->insert_id();
-			$array_solicitud_plan['idSolicitudPlan'] = $values['idSolicitudPlan'];
+			
+                        //almaceno los plens contratados en la solicitud
+                        $array_solicitud_plan_seleccion['idSolicitudPlan'] = $values['idSolicitudPlan'];
+                        $array_solicitud_plan_seleccion['idPlan'] = $values['idPlan'];
+                        $array_solicitud_plan_seleccion['PrecioSinIva'] = 0;
+                        $array_solicitud_plan_seleccion['PrecioConIva'] = 0;
+                        $array_solicitud_plan_seleccion['FechaSolicitud'] = date('Y-m-d h:i:s');
+			$q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);
 			
 			return $values;	
 			

@@ -45,7 +45,8 @@ $values = array_merge($values,$_FILES);
 						executeMercadoPago($values,$errors);
 					}else
 					{
-						echo "procedo a crear la solicitud";
+                                                $SolicitudPlan = new SolicitudPlan();
+						$SolicitudPlan->saveSolicitudPlan($values);
 					}
 					die;
 				}
