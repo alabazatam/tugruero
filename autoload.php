@@ -54,7 +54,7 @@ define("image_url",full_url."/web/images/");
  define('message_created',"Registro creado satisfactoriamente");
  define('max_input_size',1000000);
  define('message_max_size',"El archivo debe pesar máximo 1MB");
-
+ define('IVA',1.10);
 //Class definition
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/notorm-master/NotORM.php");//se debe incluir una sola vez en todo el cms
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ConnectionORM.class.php");
@@ -102,6 +102,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/PDFSolicitud.class
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/SolicitudPlan.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Marcas.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Planes.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/SolicitudPagoDetalle.class.php");
 
 /*validation class*/
 

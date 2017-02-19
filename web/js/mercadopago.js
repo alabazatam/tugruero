@@ -170,11 +170,11 @@ $(document).ready(function(){
                                 var datos = $( "#pay" ).serialize();
                                 var token = $('#token').val();
                                 var precio = $('#precio').val();
-                                var descripcion = $('#descripcion').val();
+                                var description = $('#description').val();
                                 var email = $('#email').val();
                                 var paymentMethodId = $('#paymentMethodId').val();
                                 $.ajax({
-                                   url: "http://52.25.178.106/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
+                                   url: "http://52.25.178.106/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&description=" + description,
                                    data: response ,
                                    dataType: "json",
                                    success: function(data){
@@ -186,11 +186,18 @@ $(document).ready(function(){
                                        console.log(status);
                                        console.log(transaction_id);
                                        console.log(date_created);
-                                   },
-                                   
-                                   xhrFields: {
-                                      //withCredentials: true
-                                      
+                                       
+                                            $.ajax({
+                                                    url: "http://localhost/tugruero/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&description=" + $('#description').val(),
+                                                    data: data ,
+                                                    dataType: "json",
+                                                    success: function(data){
+
+                                                         alert('pagooooo');
+                                                    }
+                                            });
+                                       
+                                       
                                    }
                                 });
 

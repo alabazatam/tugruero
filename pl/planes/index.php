@@ -23,6 +23,9 @@ $values = array_merge($values,$_FILES);
 		case "mercadopago":
 			executeMercadoPago($values);	
 		break;
+		case "pago":
+			executePago($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -39,14 +42,15 @@ $values = array_merge($values,$_FILES);
 				if(count($errors)>0){
 					executeIndex($values,$errors);die;
 				}else{
+                                        $SolicitudPlan = new SolicitudPlan();
 					if($values['MET'] == 'TDC')
 					{
-                                                
+                                                $values = $SolicitudPlan->saveSolicitudPlan($values);
 						executeMercadoPago($values,$errors);
 					}else
 					{
-                                                $SolicitudPlan = new SolicitudPlan();
-						$SolicitudPlan->saveSolicitudPlan($values);
+                                                
+						$values = $SolicitudPlan->saveSolicitudPlan($values);
 					}
 					die;
 				}
@@ -88,3 +92,8 @@ $values = array_merge($values,$_FILES);
             
                 
 	}
+        function executePago($values){
+          
+            $SolicitudPagoDetalle = new SolicitudPagoDetalle();
+            $SolicitudPagoDetalle->savePagoDetalle($values);
+        }

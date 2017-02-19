@@ -59,7 +59,16 @@
 			return $q['idPlan']; 			
 		}
 
-
+		public function getIvaPlan($idPlan)
+		{	
+			
+            $ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Planes
+			->select("*")
+			->where("Estado = 'A'")
+            ->and('idPlan=?',$idPlan)->fetch();
+			return $q['IVA']; 			
+		}
 		
 
 

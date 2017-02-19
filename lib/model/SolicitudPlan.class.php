@@ -143,8 +143,8 @@
                                 'CertificadoMedico' => @$values['CertificadoMedico']['name'],
                                 'DocTransferencia' =>  @$values['DocTransferencia']['name'],
                                 'Estatus' => 'ENV',
-								'TotalSinIva' => '0',
-								'TotalConIva' => '0'
+                                'TotalSinIva' => '0',
+				'TotalConIva' => '0'
 			);
 			 
                
@@ -155,19 +155,30 @@
             //almaceno los plens contratados en la solicitud
 			
 			$array_planes = array($values['idPlan']);
-			
+			$Planes = new Planes();
 			if(isset($values['RCV']) and $values['RCV']=='SI' and isset($values['Puestos'])){
-				$Planes = new Planes();
+				
 				$id_plan_rcv = $Planes->getIdPlanRCV($values['Puestos']);
-				$array_planes[] = $id_plan_rcv;
+                                if($id_plan_rcv > 0){
+                                    $array_planes[] = $id_plan_rcv;
+                                }
+				
 
 			}
-			
+			$TotalSinIva = 0;
+                        $TotalConIva = 0;
 			//print_r($array_planes);
 				foreach($array_planes as $plan){
+                                                $IVA = $Planes->getIvaPlan($plan);
 						$PrecioSinIva = $Planes->getPrecioPlan($plan);
 						$PrecioConIva = $Planes->getPrecioPlan($plan);
-					    $array_solicitud_plan_seleccion = array();
+                                                
+                                                if($IVA=='S'){
+                                                    $PrecioConIva = $Planes->getPrecioPlan($plan) * IVA;
+                                                }
+                                                $TotalSinIva = $TotalSinIva + $PrecioSinIva;
+                                                $TotalConIva = $TotalConIva + $PrecioConIva;
+                                                $array_solicitud_plan_seleccion = array();
 						$array_solicitud_plan_seleccion['idSolicitudPlan'] = $values['idSolicitudPlan'];
 						$array_solicitud_plan_seleccion['idPlan'] = $plan;
 						$array_solicitud_plan_seleccion['PrecioSinIva'] = $PrecioSinIva;
@@ -176,12 +187,12 @@
 						$q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);
 						
 				}			
-
-			
+                        //actualizo la solicicitud para colocarle el total del precio con y sin IVA
+			$this->updatePrecios($TotalConIva,$TotalSinIva,$values['idSolicitudPlan']);
 			}catch(Exception $e){
 				echo $e->getMessage();die;
 			}
-
+                        
 
 			return $values;	
 			
@@ -222,7 +233,16 @@
 			
 		}
 
-		
+		function updatePrecios($TotalConIva,$TotalSinIva,$idSolicitudPlan ){			
+			$array = array(
+				'TotalConIva' => $TotalConIva,
+				'TotalSinIva' => $TotalSinIva
+			);
+					
+			$ConnectionORM = new ConnectionORM();
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	
+                }				
 	}
 			
 
