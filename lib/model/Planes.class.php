@@ -29,25 +29,35 @@
 		public function getPrecioPlan($idPlan)
 		{	
 			
-                        $ConnectionORM = new ConnectionORM();
+            $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Planes
 			->select("*")
 			->where("Estado = 'A'")
-                        ->and('idPlan=?',$idPlan)->fetch();
+            ->and('idPlan=?',$idPlan)->fetch();
 			return $q['Precio']; 			
-		}	
+		}
 		public function getPrecioRCV($Puestos)
 		{	
 			
-                        $ConnectionORM = new ConnectionORM();
+            $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Planes
 			->select("*")
 			->where("Estado = 'A'")
-                        ->and('Tipo=?','RCV')      
-                        ->and('Puestos=?',$Puestos)->fetch();
+            ->and('Tipo=?','RCV')      
+            ->and('Puestos=?',$Puestos)->fetch();
 			return $q['Precio']; 			
 		}
-
+		public function getIdPlanRCV($Puestos)
+		{	
+			
+            $ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Planes
+			->select("*")
+			->where("Estado = 'A'")
+            ->and('Tipo=?','RCV')      
+            ->and('Puestos=?',$Puestos)->fetch();
+			return $q['idPlan']; 			
+		}
 
 
 		

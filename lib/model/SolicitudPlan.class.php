@@ -119,46 +119,70 @@
 		function saveSolicitudPlan($values){
 
 			$array_solicitud_plan = array(
-                                'idPlan' => $values['idPlan'],
-				'Nombres' => $values['Nombres'],
-				'Apellidos' => $values['Apellidos'],
-                                'Correo' => $values['Correo'],
-                                'Cedula' => $values['Cedula'],
-				'Rif' => $values['Rif'],
-                                'Estado' => 'DISTRITO CAPITAL',
-                                'Telefono' => $values['Telefono'],
-				'Celular' => $values['Celular'],
-                                'RCV' => $values['RCV'],
-                                'FechaSolicitud' => date('Y-m-d h:i:s'),
-				'TipoPago' => $values['MET'],
+                /*'idPlan' => @$values['idPlan'],*/
+				'Nombres' => @$values['Nombres'],
+				'Apellidos' => @$values['Apellidos'],
+                'Correo' => @$values['Correo'],
+                'Cedula' => @strtoupper($values['Cedula']),
+				'Rif' => @strtoupper($values['Rif']),
+                'Estado' => 'aaa',
+                'Telefono' => @$values['Telefono'],
+				'Celular' => @$values['Celular'],
+                'FechaSolicitud' => date('Y-m-d h:i:s'),
+				'TipoPago' => @$values['MET'],
                                 'NumeroTransaccion' => '0',
-                                'Marca' => $values['Marca'],
-                                'Modelo' => $values['Modelo'],
-                                'Cedula' => $values['Anio'],
-                                'Cedula' => $values['Color'],
-                                'Placa' => $values['Placa'],
-                                'Puestos' => $values['Puestos'],
-                                'Licencia' => @$values['Licencia'],
-                                'CertificadoOrigen' => @$values['CertificadoOrigen'],
-                                'CarnetCirculacion' => @$values['CarnetCirculacion'],
-                                'CertificadoMedico' => @$values['CertificadoMedico'],
-                                'DocTransferencia' =>  @$values['DocTransferencia'],
-                                'Estatus' => 'ENV'
+                                'Marca' => @$values['Marca'],
+                                'Modelo' => @$values['Modelo'],
+                                'Anio' => @$values['Anio'],
+                                'Color' => @$values['Color'],
+                                'Placa' => @$values['Placa'],
+                                'Puestos' => @$values['Puestos'],
+                                'Licencia' => @$values['Licencia']['name'],
+                                'CertificadoOrigen' => @$values['CertificadoOrigen']['name'],
+                                'CarnetCirculacion' => @$values['CarnetCirculacion']['name'],
+                                'CertificadoMedico' => @$values['CertificadoMedico']['name'],
+                                'DocTransferencia' =>  @$values['DocTransferencia']['name'],
+                                'Estatus' => 'ENV',
+								'TotalSinIva' => '0',
+								'TotalConIva' => '0'
 			);
-                        //print_r($array_solicitud_plan);die;
-	
+			 
+               
+			try{
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan()->insert($array_solicitud_plan);
 			$values['idSolicitudPlan'] = $ConnectionORM->getConnect()->SolicitudPlan()->insert_id();
+            //almaceno los plens contratados en la solicitud
 			
-                        //almaceno los plens contratados en la solicitud
-                        $array_solicitud_plan_seleccion['idSolicitudPlan'] = $values['idSolicitudPlan'];
-                        $array_solicitud_plan_seleccion['idPlan'] = $values['idPlan'];
-                        $array_solicitud_plan_seleccion['PrecioSinIva'] = 0;
-                        $array_solicitud_plan_seleccion['PrecioConIva'] = 0;
-                        $array_solicitud_plan_seleccion['FechaSolicitud'] = date('Y-m-d h:i:s');
-			$q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);
+			$array_planes = array($values['idPlan']);
 			
+			if(isset($values['RCV']) and $values['RCV']=='SI' and isset($values['Puestos'])){
+				$Planes = new Planes();
+				$id_plan_rcv = $Planes->getIdPlanRCV($values['Puestos']);
+				$array_planes[] = $id_plan_rcv;
+
+			}
+			
+			//print_r($array_planes);
+				foreach($array_planes as $plan){
+						$PrecioSinIva = $Planes->getPrecioPlan($plan);
+						$PrecioConIva = $Planes->getPrecioPlan($plan);
+					    $array_solicitud_plan_seleccion = array();
+						$array_solicitud_plan_seleccion['idSolicitudPlan'] = $values['idSolicitudPlan'];
+						$array_solicitud_plan_seleccion['idPlan'] = $plan;
+						$array_solicitud_plan_seleccion['PrecioSinIva'] = $PrecioSinIva;
+						$array_solicitud_plan_seleccion['PrecioConIva'] = $PrecioConIva;
+						$array_solicitud_plan_seleccion['FechaSolicitud'] = date('Y-m-d h:i:s');
+						$q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);
+						
+				}			
+
+			
+			}catch(Exception $e){
+				echo $e->getMessage();die;
+			}
+
+
 			return $values;	
 			
 		}
