@@ -121,6 +121,16 @@
 		);
 		$ValidateBase = new ValidateBase();
 		$errors = $ValidateBase->validate_base($validator_values, $values);
+		
+				$securimage = new Securimage();
+				$captcha = $values['ct_captcha'];
+				if ($securimage->check($captcha) == false) {
+				  
+						$errors['captcha_error'] = "Imagen incorrecta";
+				}
+				
+				
+				
                 if (!preg_match("/^[A-Z a-z]{3,80}$/", $values['Nombres'], $matches))      
                 {
                     $errors['Nombres'] = "El campo debe contener solamente letras";
@@ -161,6 +171,9 @@
                 if(!isset($values['MET']) or $values['MET']==''){
                     $errors['MET'] = 'Debe indicar el método de pago';
                 }
+				if( (isset($values['Correo']) and isset($values['Correo2']) ) and $values['Correo'] != $values['Correo2']  ){
+						$errors['Correo2'] = 'Los correos electrónicos deben coincidir';
+				}
                 
                 
           /******************Validación de archivos*************************/ 

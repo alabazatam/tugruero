@@ -281,7 +281,37 @@
   </div>
   <div class="form-group col-sm-12 text-right PlanPrecio">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
-  </div>    
+  </div>
+	<div class="col-sm-5">
+		
+	</div>
+	<div class="form-group col-sm-3">		
+		<?php
+
+			$options = array();
+			$options['input_name'] = 'ct_captcha'; // change name of input element for form post
+			$options['disable_flash_fallback'] = false; // allow flash fallback
+			$options['show_audio_button'] = false;
+			if (!empty($_SESSION['ctform']['captcha_error'])) {
+
+			$options['error_html'] = $_SESSION['ctform']['captcha_error'];
+			}
+
+			echo "<div id='captcha_container_1' class='text-center'>\n";
+			echo Securimage::getCaptchaHtml($options);
+			echo "\n</div><strong><p class='text-center small'>Respete letras mayúsculas y minúsculas</p></strong>\n";
+		?>
+        <?php if(isset($errors['captcha_error']) and $errors['captcha_error']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['captcha_error'];?></div>
+
+        <?php endif;?>
+
+
+
+	</div>
+	<div class="col-sm-4">
+		
+	</div>
   <div class="form-group col-sm-12">
     <div class="col-sm-offset-10 col-sm-2">
       <button type="submit" class="btn btn-default">Sign in</button>
