@@ -26,7 +26,7 @@
             $array = array();
             $array['idSolicitudPlan'] = $values['idSolicitudPlan'];
             $array['id'] = $values['response']['id'];
-            $array['description'] = $values['response']['description'];
+            $array['description'] = $values['descripcion'];
             $array['status'] = $values['response']['status'];
             $array['status_detail'] = $values['response']['status_detail'];
             $array['currency_id'] = $values['response']['currency_id'];

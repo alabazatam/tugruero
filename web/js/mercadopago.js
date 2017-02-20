@@ -142,8 +142,11 @@ $(document).ready(function(){
                             if (typeof response.cause !== 'undefined') {
                               //alert(response.cause[0].code);
                               var error = array_errores_token[response.cause[0].code];
-                              alert(error);
+                              //alert(error);
+                              $('#show_error').html("<div class='alert alert-danger'>" + error + "</div>");
                             }
+                          
+                            
                             
                             /*if(response.cause[0].code){
                                 
@@ -152,7 +155,7 @@ $(document).ready(function(){
                             //alert(response.cause[0].code);
                             if (status != 200 && status != 201) {
                                 console.log("verify filled data");
-                                //console.log(response);
+                                //alert(status);
 
                             }else{
 
@@ -170,32 +173,35 @@ $(document).ready(function(){
                                 var datos = $( "#pay" ).serialize();
                                 var token = $('#token').val();
                                 var precio = $('#precio').val();
-                                var description = $('#description').val();
+                                var descripcion = $('#descripcion').val();
                                 var email = $('#email').val();
                                 var paymentMethodId = $('#paymentMethodId').val();
                                 $.ajax({
-                                   url: "http://52.25.178.106/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&description=" + description,
+                                   url: "http://52.25.178.106/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
                                    data: response ,
                                    dataType: "json",
                                    success: function(data){
-                                       
-                                       var status = data.response["status"];
-                                       var transaction_id = data.response.id;
-                                       var date_created = data.response["date_created"];
-                                       console.log(data);
-                                       console.log(status);
-                                       console.log(transaction_id);
-                                       console.log(date_created);
-                                       
+                                   //console.log(data.error);
+                                    if (typeof data.error == 'undefined') { 
+                                        var status = data.response["status"];
+                                        //alert('no es undefined');
                                             $.ajax({
-                                                    url: "http://localhost/tugruero/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&description=" + $('#description').val(),
+                                                    url: "http://localhost/tugruero/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val(),
                                                     data: data ,
                                                     dataType: "json",
                                                     success: function(data){
 
-                                                         alert('pagooooo');
+                                                        if(data[0] == 'OK'){
+                                                            $('#show_error').html("");
+                                                            $('#show_commit').html("<div class='alert alert-success'>Pago realizado</div>");
+                                                        }
                                                     }
-                                            });
+                                            });     
+                                    }else{
+                                        //alert("Revise la información suministrada");
+                                        $('#show_error').html("<div class='alert alert-danger'>Revise la información suministrada</div>");
+                                    } 
+
                                        
                                        
                                    }

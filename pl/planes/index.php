@@ -96,4 +96,7 @@ $values = array_merge($values,$_FILES);
           
             $SolicitudPagoDetalle = new SolicitudPagoDetalle();
             $SolicitudPagoDetalle->savePagoDetalle($values);
+            $array = array('OK');
+            
+            echo json_encode($array);die;
         }
