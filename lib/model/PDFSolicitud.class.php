@@ -51,7 +51,7 @@ class MYPDF extends TCPDF {
 		function formatoGenerico($values)
 		{
 			setlocale(LC_NUMERIC,"es_ES.UTF8");
-            ob_start();
+                        ob_start();
 			
 			//print_r($values);die;
 			

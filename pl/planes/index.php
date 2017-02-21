@@ -26,6 +26,9 @@ $values = array_merge($values,$_FILES);
 		case "pago":
 			executePago($values);	
 		break;
+		case "cuadro_tugruero":
+			executeCuadroTugruero($values);	
+		break;            
 		default:
 			executeIndex($values);
 		break;
@@ -99,4 +102,9 @@ $values = array_merge($values,$_FILES);
             $array = array('OK');
             
             echo json_encode($array);die;
+        }
+        function executeCuadroTugruero($values){
+          
+            $PDFPagos = new PDFPagos();
+            $pdf = $PDFPagos->cuadroTUGRUERO($values);
         }
