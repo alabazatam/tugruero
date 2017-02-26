@@ -45,6 +45,7 @@ $values = array_merge($values,$_FILES);
 				if(count($errors)>0){
 					executeIndex($values,$errors);die;
 				}else{
+                                        $values['PagoRealizado'] = 'N';
                                         $SolicitudPlan = new SolicitudPlan();
 					if($values['MET'] == 'TDC')
 					{
@@ -52,7 +53,11 @@ $values = array_merge($values,$_FILES);
 						executeMercadoPago($values,$errors);
 					}else
 					{
-                                                
+                                                if(($_FILES['DEP1']['size']>0) or ($_FILES['DEP2']['size']>0) or ($_FILES['DEP3']['size']>0)){
+                                                $values['PagoRealizado'] = 'S';
+   
+                                                }
+                                                    
 						$values = $SolicitudPlan->saveSolicitudPlan($values);
 					}
 					die;
@@ -97,6 +102,8 @@ $values = array_merge($values,$_FILES);
 	}
         function executePago($values){
           
+            $SolicitudPlan  = new SolicitudPlan();
+            $SolicitudPlan -> updatePagoRealizado($values['idSolicitudPlan'],'S');
             $SolicitudPagoDetalle = new SolicitudPagoDetalle();
             $SolicitudPagoDetalle->savePagoDetalle($values);
             $array = array('OK');

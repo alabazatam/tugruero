@@ -37,7 +37,7 @@
 		public function getSolicitudPlanList($values)
 		{	
 			$columns = array();
-			$columns[0] = 'idSolicitudPlan';
+			$columns[0] = 'SolicitudPlan.idSolicitudPlan';
 			$columns[1] = 'SolicitudPlan.name';
 			$columns[2] = 'status.name';
 			$column_order = $columns[0];
@@ -74,9 +74,9 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->SolicitudPlan
-			->select("*, status.name as status, SolicitudPlan.name as name")
+			->select("*,SolicitudPlan.idSolicitudPlan")
 			->where("$where")
-			->join("status","INNER JOIN status on status.id_status = SolicitudPlan.status")
+			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->order("$column_order $order")			
 			->limit($limit,$offset);
 			//echo $q;die;
@@ -104,7 +104,7 @@
 			$q = $ConnectionORM->getConnect()->SolicitudPlan
 			->select("count(*) as cuenta")
 			->where("$where")
-			->join("status","INNER JOIN status on status.id_status = SolicitudPlan.status")
+			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->fetch();
 			return $q['cuenta']; 			
 		}
@@ -117,9 +117,9 @@
 			
 		}		
 		function saveSolicitudPlan($values){
-
+                        
+                        
 			$array_solicitud_plan = array(
-                /*'idPlan' => @$values['idPlan'],*/
 				'Nombres' => @$values['Nombres'],
 				'Apellidos' => @$values['Apellidos'],
                 'Correo' => @$values['Correo'],
@@ -144,7 +144,8 @@
                                 'DocTransferencia' =>  @$values['DocTransferencia']['name'],
                                 'Estatus' => 'ENV',
                                 'TotalSinIva' => '0',
-				'TotalConIva' => '0'
+				'TotalConIva' => '0',
+                                'PagoRealizado' => @$values['PagoRealizado'],
 			);
 			 
                
@@ -242,7 +243,16 @@
 			$ConnectionORM = new ConnectionORM();
 			$ConnectionAws = new ConnectionAws();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	
-                }				
+                }
+		function updatePagoRealizado($idSolicitudPlan,$PagoRealizado){			
+			$array = array(
+				'PagoRealizado' => $PagoRealizado,
+			);
+					
+			$ConnectionORM = new ConnectionORM();
+			$ConnectionAws = new ConnectionAws();
+			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	
+                }
 	}
 			
 
