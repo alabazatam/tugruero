@@ -74,8 +74,38 @@
 			//echo $column_order;die;
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->SolicitudPlan
-			->select("*,SolicitudPlan.idSolicitudPlan")
-			->where("$where")
+			->select("*,SolicitudPlan.idSolicitudPlan,
+				(
+					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				) AS NombrePlanRcv,
+
+				(
+					SELECT  PrecioConIva  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				) AS PrecioPlanRcv,
+				(
+					SELECT Nombre  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				) AS NombrePlanTuGruero,
+				(
+					SELECT PrecioConIva  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				) AS PrecioPlanTuGruero
+				")
+			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->order("$column_order $order")			
 			->limit($limit,$offset);
@@ -103,7 +133,7 @@
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan
 			->select("count(*) as cuenta")
-			->where("$where")
+			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->fetch();
 			return $q['cuenta']; 			
