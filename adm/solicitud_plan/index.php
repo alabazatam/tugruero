@@ -3,7 +3,7 @@
 <?php include("../security/security.php");?>
 
 <?php $action = "";
-
+setlocale(LC_NUMERIC,"es_ES.UTF8");
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
@@ -96,10 +96,13 @@ $values = array_merge($values,$_FILES);
 					"idSolicitudPlan" => $idSolicitudPlan,
 					"Nombres" => $list['Nombres'],
 					"Apellidos" => $list['Apellidos'],
-                    "Cedula" => $list['Cedula'],
-                    "Plan" => $list['NombrePlanTuGruero']." / ".$list['NombrePlanRcv'],
+                                        "Cedula" => $list['Cedula'],
+                                        "Plan" => $list['concatenado_plan'],
 					"Rif" => $list['Rif'],
-					"actions" => 
+                                        "PrecioTotal" => number_format($list['PrecioTotal'],2,",","."),
+					"Estatus" => $list['Estatus'],
+                                        "FechaSolicitud" => $list['FechaSolicitud'],
+                                        "actions" => 
                                        '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
                                        .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
@@ -115,7 +118,11 @@ $values = array_merge($values,$_FILES);
 				"Nombres"=>"",
 				"Apellidos"=>"",
                                 "Cedula"=>"",
+                                "Plan"=>"",
                                 "Rif"=>"",
+                                "PrecioTotal" =>"",
+                                "Estatus" => "",
+                                "FechaSolicitud" => "",
 				"actions"=>"");
 		}
 		echo json_encode($array_json);die;

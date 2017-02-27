@@ -38,8 +38,48 @@
 		{	
 			$columns = array();
 			$columns[0] = 'SolicitudPlan.idSolicitudPlan';
-			$columns[1] = 'SolicitudPlan.name';
-			$columns[2] = 'status.name';
+			$columns[1] = 'SolicitudPlan.Nombres';
+			$columns[2] = 'SolicitudPlan.Apellidos';
+                        $columns[3] = 'SolicitudPlan.Cedula';
+                        $columns[4] = 'SolicitudPlan.Rif';
+                        $columns[5] = "CONCAT
+				((
+					SELECT Nombre  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				),' / ',
+				(	
+					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				))";
+                        $columns[6] = "((
+					SELECT  PrecioConIva  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				) +
+				(
+					SELECT PrecioConIva  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				))";
+                        $columns[7] = "(CASE 
+					WHEN Estatus = 'ENV' 
+					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
+					WHEN Estatus = 'ACT'
+					THEN 'PLAN PAGADO Y ACTIVO'
+					WHEN Estatus = 'REC'
+					THEN 'RECHAZADO'
+					END)";
+                        $columns[8] = "(DATE_FORMAT(FechaSolicitud, '%d/%m/%Y'))";
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -48,21 +88,83 @@
 			
 			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
 			{
-				$where.=" AND idSolicitudPlan = ".$values['columns'][0]['search']['value']."";
+				$where.=" AND SolicitudPlan.idSolicitudPlan = ".$values['columns'][0]['search']['value']."";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][1]['search']['value']) and $values['columns'][1]['search']['value']!='')
 			{
-				$where.=" AND upper(SolicitudPlan.name) like ('%".$values['columns'][1]['search']['value']."%')";
+				$where.=" AND upper(Nombres) like ('%".$values['columns'][1]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}			
 			if(isset($values['columns'][2]['search']['value']) and $values['columns'][2]['search']['value']!='')
 			{
-				$where.=" AND upper(status.name) like ('%".$values['columns'][2]['search']['value']."%')";
+				$where.=" AND upper(Apellidos) like ('%".$values['columns'][2]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}					
-			
-			
+			if(isset($values['columns'][3]['search']['value']) and $values['columns'][3]['search']['value']!='')
+			{
+				$where.=" AND upper(Cedula) like ('%".$values['columns'][3]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}			
+			if(isset($values['columns'][4]['search']['value']) and $values['columns'][4]['search']['value']!='')
+			{
+				$where.=" AND upper(Rif) like ('%".$values['columns'][4]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][5]['search']['value']) and $values['columns'][5]['search']['value']!='')
+			{
+				$where.=" AND upper(CONCAT
+				((
+					SELECT Nombre  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				),' / ',
+				(	
+					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				))) like ('%".$values['columns'][5]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
+			{
+				$where.=" AND ((
+					SELECT  PrecioConIva  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				) +
+				(
+					SELECT PrecioConIva  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				)) >= '".$values['columns'][6]['search']['value']."' ";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
+			{
+				$where.=" AND upper(CASE 
+					WHEN Estatus = 'ENV' 
+					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
+					WHEN Estatus = 'ACT'
+					THEN 'PLAN PAGADO Y ACTIVO'
+					WHEN Estatus = 'REC'
+					THEN 'RECHAZADO'
+					END) like ('%".$values['columns'][7]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
+                	if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
+			{
+				$where.=" AND upper(Cedula) like ('%".$values['columns'][8]['search']['value']."%')";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
 				$column_order = $columns[$values['order'][0]['column']];
@@ -72,38 +174,47 @@
 				$order = $values['order'][0]['dir'];//asc o desc
 			}
 			//echo $column_order;die;
-            $ConnectionORM = new ConnectionORM();
+                        $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->SolicitudPlan
-			->select("*,SolicitudPlan.idSolicitudPlan,
-				(
-					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
-					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'RCV'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				) AS NombrePlanRcv,
-
-				(
-					SELECT  PrecioConIva  
-					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'RCV'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				) AS PrecioPlanRcv,
-				(
+			->select("*,SolicitudPlan.idSolicitudPlan,DATE_FORMAT(FechaSolicitud, '%d/%m/%Y') as FechaSolicitud,
+				CASE 
+					WHEN Estatus = 'ENV' 
+					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
+					WHEN Estatus = 'ACT'
+					THEN 'PLAN PAGADO Y ACTIVO'
+					WHEN Estatus = 'REC'
+					THEN 'RECHAZADO'
+					END AS Estatus,
+				CONCAT
+				((
 					SELECT Nombre  
 					FROM SolicitudPlanSeleccion sps 
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'tugruero.com'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				) AS NombrePlanTuGruero,
+				),' / ',
+				(	
+					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				)) AS concatenado_plan,
+
+				((
+					SELECT  PrecioConIva  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				) +
 				(
 					SELECT PrecioConIva  
 					FROM SolicitudPlanSeleccion sps 
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'tugruero.com'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				) AS PrecioPlanTuGruero
+				)) AS PrecioTotal
 				")
 			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")

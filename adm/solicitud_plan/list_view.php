@@ -10,17 +10,25 @@
                                     <th>Apellidos</th>	
                                     <th>Cédula</th>	
                                     <th>Rif</th>
-									<th>Plan</th>	
+                                    <th>Plan</th>
+                                    <th>Precio total</th>
+                                    <th>Estatus</th>
+                                    <th>Fecha Solicitud</th>
                                     <th>Detalle</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
-					<th><input id="idSolicitudPlan" name="id_seguro" type="text"></th>
-                    <th><input id="name" name="name" type="text"></th>
-                    <th><input id="status" name="status" type="text"></th>
-					<th><input id="plan	" name="status" type="text"></th>		
-					<th>Detalle</th>
+					<th><input id="idSolicitudPlan" name="idSolicitudPlan" type="text"></th>
+                                        <th><input id="Nombres" name="Nombres" type="text"></th>
+                                        <th><input id="Apellidos" name="Apellidos" type="text"></th>
+                                        <th><input id="Cedula" name="Cedula" type="text"></th>
+                                        <th><input id="Rif" name="Rif" type="text"></th>	
+                                        <th><input id="Plan" name="Plan" type="text"></th>		
+                                        <th><input id="PrecioTotal" name="PrecioTotal" type="text"></th>		
+					<th><input id="Estatus" name="Estatus" type="text"></th>		
+					<th><input id="FechaSolicitud" name="FechaSolicitud" type="text"></th>		
+                                        <th>Detalle</th>
 				</tr>
 			</tfoot>
 		</table>
@@ -62,11 +70,14 @@ $(document).ready(function() {
             { "data": "Apellidos" },
             { "data": "Cedula" },
             { "data": "Rif" },
-			{ "data": "Plan" },
+            { "data": "Plan" },
+            { "data": "PrecioTotal" },
+            { "data": "Estatus" },
+            { "data": "FechaSolicitud" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 3 ] }
+          { 'bSortable': false, 'aTargets': [ 9 ] }
        ]				
     });
 
@@ -85,7 +96,36 @@ $('#column_2').on ('keypress', function(e){
         table.column(table.column(2)).search($(this).val()).draw();
     }
 });
-
+$('#column_3').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(3)).search($(this).val()).draw();
+    }
+});
+$('#column_4').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(4)).search($(this).val()).draw();
+    }
+});
+$('#column_5').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(5)).search($(this).val()).draw();
+    }
+});
+$('#column_6').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(6)).search($(this).val()).draw();
+    }
+});
+$('#column_7').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(7)).search($(this).val()).draw();
+    }
+});
+$('#column_8').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(8)).search($(this).val()).draw();
+    }
+});
 	$('#clear').click(function(){
 		table.search( '' ).columns().search( '' ).draw();
 		$('.filtros').val('');
