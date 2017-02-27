@@ -9,7 +9,8 @@
                                     <th>Nombres</th>
                                     <th>Apellidos</th>	
                                     <th>Cédula</th>	
-                                    <th>Rif</th>	
+                                    <th>Rif</th>
+									<th>Plan</th>	
                                     <th>Detalle</th>
 				</tr>
 			</thead>
@@ -17,7 +18,8 @@
 				<tr>
 					<th><input id="idSolicitudPlan" name="id_seguro" type="text"></th>
                     <th><input id="name" name="name" type="text"></th>
-                    <th><input id="status" name="status" type="text"></th>			
+                    <th><input id="status" name="status" type="text"></th>
+					<th><input id="plan	" name="status" type="text"></th>		
 					<th>Detalle</th>
 				</tr>
 			</tfoot>
@@ -60,6 +62,7 @@ $(document).ready(function() {
             { "data": "Apellidos" },
             { "data": "Cedula" },
             { "data": "Rif" },
+			{ "data": "Plan" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [

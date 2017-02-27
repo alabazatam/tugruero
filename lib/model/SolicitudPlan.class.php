@@ -141,8 +141,24 @@
 		public function getSolicitudPlanById($values){
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan
-			->select("*")
-			->where("idSolicitudPlan=?",$values['idSolicitudPlan'])->fetch();
+			->select("*, 
+			(
+				SELECT pl.idPlan
+				FROM SolicitudPlanSeleccion sps 
+				INNER JOIN Planes pl ON pl.idPlan = sps.idPlan
+				WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 	
+				AND Tipo = 'tugruero.com'
+			) AS idPlan,
+			(
+				SELECT pl.idPlan
+				FROM SolicitudPlanSeleccion sps 
+				INNER JOIN Planes pl ON pl.idPlan = sps.idPlan
+				WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 	
+				AND Tipo = 'RCV'
+			) AS idPlanRcv")
+			->where("SolicitudPlan.idSolicitudPlan=?",$values['idSolicitudPlan'])
+			//echo $q;die;
+			->fetch();
 			return $q; 				
 			
 		}		

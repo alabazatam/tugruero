@@ -53,7 +53,9 @@ $values = array_merge($values,$_FILES);
 	{
 		
 		$SolicitudPlan = new SolicitudPlan();
+		//print_r($values);die;
 		$values = $SolicitudPlan->getSolicitudPlanById($values);
+		
 		$values['action'] = 'update';
 		$values['msg'] = $msg;
 		
@@ -87,14 +89,18 @@ $values = array_merge($values,$_FILES);
 				{
 					$message_status = "<label class='label label-success'>Activo</label>";
 				}
+				
+				
+				
 				$array_json['data'][] = array(
 					"idSolicitudPlan" => $idSolicitudPlan,
 					"Nombres" => $list['Nombres'],
 					"Apellidos" => $list['Apellidos'],
-                                        "Cedula" => $list['Cedula'],
-                                        "Rif" => $list['Rif'],
+                    "Cedula" => $list['Cedula'],
+                    "Plan" => $list['NombrePlanTuGruero']." / ".$list['NombrePlanRcv'],
+					"Rif" => $list['Rif'],
 					"actions" => 
-                                       '<form method="POST" action = "'.full_url.'/adm/seguros/index.php" >'
+                                       '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
                                        .'<input type="hidden" name="action" value="edit">  '
                                        .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
                                        .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
