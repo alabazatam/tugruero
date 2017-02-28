@@ -123,6 +123,26 @@
               <?php endif;?>
         </div>
    </div>
+  <div class="form-group col-sm-12 RCV_SI CedulaDiv">
+    <label for="CedulaDoc" class="control-label">Cédula</label> <label class="text-danger"> * </label>
+    <div class="">
+        <input type="file" name="CedulaDoc" class="form-control "  id="CedulaDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+    </div>
+        <?php if(isset($errors['CedulaDoc']) and $errors['CedulaDoc']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CedulaDoc'];?></div>
+
+        <?php endif;?>
+  </div>
+  <div class="form-group col-sm-12 RCV_SI RifDiv">
+    <label for="RifDoc" class="control-label">Rif</label> <label class="text-danger"> * </label>
+    <div class="">
+        <input type="file" name="RifDoc" class="form-control "  id="RifDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+    </div>
+        <?php if(isset($errors['RifDoc']) and $errors['RifDoc']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['RifDoc'];?></div>
+
+        <?php endif;?>
+  </div>
   <div class="form-group col-sm-12 RCV_SI LicenciaDiv">
     <label for="Licencia" class="control-label">Licencia</label> <label class="text-danger"> * </label>
     <div class="">
@@ -334,6 +354,8 @@ $(document).ready(function(){
 <?php if(isset($values['RCV']) and $values['RCV']=='SI'):?>
             console.log('eligio si');
             $('.Puestos').show();
+            $('.CedulaDiv').show();
+            $('.RifDiv').show();
             $('.LicenciaDiv').show();
             $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').show();
@@ -342,6 +364,8 @@ $(document).ready(function(){
 <?php if(isset($values['RCV']) and $values['RCV']=='NO'):?>
             console.log('eligio no');
             $('.Puestos').hide();
+            $('.CedulaDiv').show();
+            $('.RifDiv').show();
             $('.LicenciaDiv').show();
             $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
@@ -351,6 +375,8 @@ $(document).ready(function(){
             console.log('No eligio nada');
             $('.Puestos').hide();
             $('.LicenciaDiv').hide();
+            $('.CedulaDiv').hide();
+            $('.RifDiv').hide();
             $('.CarnetCirculacionDiv').hide();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
@@ -375,13 +401,17 @@ $(document).ready(function(){
         if($('.RCV:checked').val() == 'SI'){
             console.log('seleccione si');
             $('.Puestos').show();
-            $('.LicenciaDiv').show();
+            $('.CedulaDiv').show();
+            $('.RifDiv').show();
+            $('.LicenciaDiv').show();            
             $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').show();
             $('.CertificadoOrigenDiv').show();
         }else{
             console.log('seleccione no');
             $('.Puestos').hide();
+            $('.CedulaDiv').show();
+            $('.RifDiv').show();
             $('.LicenciaDiv').show();
             $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();

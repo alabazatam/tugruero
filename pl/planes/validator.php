@@ -191,7 +191,37 @@
           /******************Validación de archivos*************************/ 
         //echo $files['Licencia']['size'];die;
 		$array_extensions = array('jpg','JPG','PNG','png','jpeg','JPEG','pdf','PDF','octet-stream');
-		if($_FILES['Licencia']['size']>0)
+		
+                
+		if($_FILES['CedulaDoc']['size']>0)
+		{
+			if(!in_array(pathinfo($_FILES['CedulaDoc']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+			{
+				$errors['CedulaDoc']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+			}
+			if($_FILES['CedulaDoc']['size']>max_input_size)
+			{
+				$errors['CedulaDoc']= message_max_size;
+			}
+		}else
+		{
+			$errors['Licencia']= "Debe seleccionar un archivo para la Cédula";
+		}
+		if($_FILES['RifDoc']['size']>0)
+		{
+			if(!in_array(pathinfo($_FILES['RifDoc']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+			{
+				$errors['RifDoc']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+			}
+			if($_FILES['RifDoc']['size']>max_input_size)
+			{
+				$errors['RifDoc']= message_max_size;
+			}
+		}else
+		{
+			$errors['Licencia']= "Debe seleccionar un archivo para el Rif";
+		}
+                if($_FILES['Licencia']['size']>0)
 		{
 			if(!in_array(pathinfo($_FILES['Licencia']['name'],PATHINFO_EXTENSION),$array_extensions)) 
 			{
@@ -203,7 +233,7 @@
 			}
 		}else
 		{
-			$errors['Licencia']= "Debe seleccionar un archivo para licencia";
+			$errors['Licencia']= "Debe seleccionar un archivo para la licencia";
 		}		
                
 		if($_FILES['CarnetCirculacion']['size']>0)

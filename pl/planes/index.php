@@ -129,6 +129,22 @@ $values = array_merge($values,$_FILES);
 	$carpeta = "../../web/files/Solicitudes";
 	$fichero_subido = $carpeta."/";
            // print_r($_FILES);die;
+            if(isset($files['CedulaDoc']) and $files['CedulaDoc']['size']>0){
+                $nombreArchivo = "Cedula_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CedulaDoc']['name'],PATHINFO_EXTENSION);
+                if (move_uploaded_file($files['CedulaDoc']['tmp_name'], $fichero_subido.$nombreArchivo)){
+                    //inserto en bd;
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Cedula", $nombreArchivo);
+                }
+
+            }
+            if(isset($files['RifDoc']) and $files['RifDoc']['size']>0){
+                $nombreArchivo = "Rif_".$values['idSolicitudPlan'].".".pathinfo($_FILES['RifDoc']['name'],PATHINFO_EXTENSION);
+                if (move_uploaded_file($files['RifDoc']['tmp_name'], $fichero_subido.$nombreArchivo)){
+                    //inserto en bd;
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Rif", $nombreArchivo);
+                }
+
+            }
             if(isset($files['Licencia']) and $files['Licencia']['size']>0){
                 $nombreArchivo = "Licencia_".$values['idSolicitudPlan'].".".pathinfo($_FILES['Licencia']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['Licencia']['tmp_name'], $fichero_subido.$nombreArchivo)){
