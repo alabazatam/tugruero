@@ -171,9 +171,21 @@
                 if(!isset($values['MET']) or $values['MET']==''){
                     $errors['MET'] = 'Debe indicar el método de pago';
                 }
-				if( (isset($values['Correo']) and isset($values['Correo2']) ) and $values['Correo'] != $values['Correo2']  ){
-						$errors['Correo2'] = 'Los correos electrónicos deben coincidir';
-				}
+		if( (isset($values['Correo']) and isset($values['Correo2']) ) and $values['Correo'] != $values['Correo2']  ){
+                    $errors['Correo2'] = 'Los correos electrónicos deben coincidir';
+		}
+                /**************valido que esa placa no se encuentre en una solicitud que este en proceso para evitar duplicados******************************************/
+                
+                if(isset($values['Placa']) and $values['Placa']!=''){
+                    $SolicitudPlan = new SolicitudPlan();
+                    $solicitud_placa_enproceso = $SolicitudPlan->getSolicitudPorPlaca($values);
+                    if($solicitud_placa_enproceso>0 ){
+                        $errors['global'] = 'Ya se encuentra una solicitud en proceso para la placa indicada';
+                    }
+                    
+                }
+                
+                
                 
                 
           /******************Validación de archivos*************************/ 

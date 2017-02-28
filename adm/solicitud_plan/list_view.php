@@ -1,6 +1,6 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
-<div class="container">
+<div class="">
 	<h1 class="text-center big_title">Solicitudes de planes</h1>
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
 			<thead>
@@ -64,6 +64,7 @@ $(document).ready(function() {
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
         },
+        "order": [[ 8, "desc" ]],
         "columns": [
             { "data": "idSolicitudPlan" },
             { "data": "Nombres" },

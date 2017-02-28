@@ -104,6 +104,8 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Marcas.class.php")
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/Planes.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/SolicitudPagoDetalle.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/PDFPagos.class.php");
+include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/SolicitudDocumentos.class.php");
+
 /*validation class*/
 
 //include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/vendor/GUMP/gump.class.php");

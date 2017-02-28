@@ -7,7 +7,6 @@ setlocale(LC_NUMERIC,"es_ES.UTF8");
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
-
 $values = $_REQUEST;
 $values = array_merge($values,$_FILES);
 	switch ($action) {
@@ -41,6 +40,7 @@ $values = array_merge($values,$_FILES);
 	}
 	function executeAdd($values = null,$errors = array())
 	{
+                //subirDocumentos($values, $_FILES);
                 $errors = validate($values,$_FILES);
 				if(count($errors)>0){
 					executeIndex($values,$errors);die;
@@ -50,7 +50,10 @@ $values = array_merge($values,$_FILES);
 					if($values['MET'] == 'TDC')
 					{
                                                 $values = $SolicitudPlan->saveSolicitudPlan($values);
-						executeMercadoPago($values,$errors);
+						print_r($values);die;
+                                                //subir documentos
+                                                //subirDocumentos($values, $_FILES);
+                                                executeMercadoPago($values,$errors);
 					}else
 					{
                                                 if(($_FILES['DEP1']['size']>0) or ($_FILES['DEP2']['size']>0) or ($_FILES['DEP3']['size']>0)){
@@ -59,7 +62,12 @@ $values = array_merge($values,$_FILES);
                                                 }
                                                     
 						$values = $SolicitudPlan->saveSolicitudPlan($values);
-					}
+                                                //print_r($values);die;
+                                                //subir documentos
+                                                subirDocumentos($values, $_FILES);
+
+                                                
+                                        }
 					die;
 				}
                 
@@ -114,4 +122,61 @@ $values = array_merge($values,$_FILES);
           
             $PDFPagos = new PDFPagos();
             $pdf = $PDFPagos->cuadroTUGRUERO($values);
+        }
+        function subirDocumentos($values,$files){
+        $SolicitudDocumentos = new SolicitudDocumentos; 
+        $idSolicitudPlan = $values['idSolicitudPlan'];
+	$carpeta = "../../web/files/Solicitudes";
+	$fichero_subido = $carpeta."/";
+           // print_r($_FILES);die;
+            if(isset($files['Licencia']) and $files['Licencia']['size']>0){
+                $nombreArchivo = "Licencia_".$values['idSolicitudPlan'].".".pathinfo($_FILES['Licencia']['name'],PATHINFO_EXTENSION);
+                if (move_uploaded_file($files['Licencia']['tmp_name'], $fichero_subido.$nombreArchivo)){
+                    //inserto en bd;
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Licencia", $nombreArchivo);
+                }
+
+            }
+            if(isset($files['CarnetCirculacion']) and $files['CarnetCirculacion']['size']>0){
+                $nombreArchivo = "CarnetCirculacion_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CarnetCirculacion']['name'],PATHINFO_EXTENSION);
+                if (move_uploaded_file($files['CarnetCirculacion']['tmp_name'], $fichero_subido.$nombreArchivo)){
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "CarnetCirculacion", $nombreArchivo);
+                }
+
+            }
+            if(isset($files['CertificadoMedico']) and $files['CertificadoMedico']['size']>0){
+                $nombreArchivo = "CertificadoMedico_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CertificadoMedico']['name'],PATHINFO_EXTENSION);
+                if (move_uploaded_file($files['CertificadoMedico']['tmp_name'], $fichero_subido.$nombreArchivo)){
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "CertificadoMedico", $nombreArchivo);
+                }
+
+            }
+            if(isset($files['CertificadoOrigen']) and $files['CertificadoOrigen']['size']>0){
+                $nombreArchivo = "CertificadoOrigen_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CertificadoOrigen']['name'],PATHINFO_EXTENSION);
+                if (move_uploaded_file($files['CertificadoOrigen']['tmp_name'], $fichero_subido.$nombreArchivo)){
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "CertificadoOrigen", $nombreArchivo);
+                }
+
+            }
+            if(isset($files['DEP1']) and $files['DEP1']['size']>0){
+                $nombreArchivo = "DEP1_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP1']['name'],PATHINFO_EXTENSION);
+                if (move_uploaded_file($files['DEP1']['tmp_name'], $fichero_subido.$nombreArchivo)){
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+                }
+
+            }
+            if(isset($files['DEP2']) and $files['DEP2']['size']>0){
+                $nombreArchivo = "DEP2_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP2']['name'],PATHINFO_EXTENSION);
+                if (move_uploaded_file($files['DEP2']['tmp_name'], $fichero_subido.$nombreArchivo)){
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+                }
+
+            }
+            if(isset($files['DEP3']) and $files['DEP3']['size']>0){
+                $nombreArchivo = "DEP3_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP3']['name'],PATHINFO_EXTENSION);
+                if (move_uploaded_file($files['DEP3']['tmp_name'], $fichero_subido.$nombreArchivo)){
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+                }
+
+            }
         }

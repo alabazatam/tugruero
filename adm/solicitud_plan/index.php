@@ -1,5 +1,5 @@
 <?php include("../../autoload.php");?>	
-<?php //include("validator.php");?>
+<?php include("validator.php");?>
 <?php include("../security/security.php");?>
 
 <?php $action = "";
@@ -33,7 +33,7 @@ $values = array_merge($values,$_FILES);
 			executeIndex($values);
 		break;
 	}
-	function executeIndex($values = null)
+	function executeIndex($values = null,$errors = null)
 	{
 		require('list_view.php');
 	}
@@ -49,7 +49,7 @@ $values = array_merge($values,$_FILES);
 		$values = $SolicitudPlan->saveSolicitudPlan($values);
 		executeEdit($values,message_created);die;
 	}
-	function executeEdit($values = null,$msg = null)
+	function executeEdit($values = null,$msg = null, $errors = null)
 	{
 		
 		$SolicitudPlan = new SolicitudPlan();
@@ -64,8 +64,16 @@ $values = array_merge($values,$_FILES);
 	function executeUpdate($values = null)
 	{
 		$SolicitudPlan = new SolicitudPlan();
-		$SolicitudPlan->updateSolicitudPlan($values);
-		executeEdit($values,message_updated);die;
+                
+                $errors = validate($values);
+                if(count($errors)>0){
+                   executeEdit($values,null,$errors); 
+                }else{
+                    $SolicitudPlan->updateSolicitudPlan($values);
+                    executeEdit($values,message_updated);die;   
+                }
+                
+
 	}	
 	function executeListJson($values)
 	{

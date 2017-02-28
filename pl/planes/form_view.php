@@ -1,7 +1,10 @@
 <?php include('../../view_header_app.php')?>
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <h1>Título</h1>
+        <?php if(isset($errors['global']) and $errors['global']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['global'];?></div>
 
+        <?php endif;?> 
 <form class="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="text" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
@@ -279,6 +282,7 @@
 
         <?php endif;?>
   </div>
+    
   <div class="form-group col-sm-12 text-right PlanPrecio">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
   </div>
@@ -312,6 +316,10 @@
 	<div class="col-sm-4">
 		
 	</div>
+        <?php if(isset($errors['global']) and $errors['global']!=''):?>
+        <div id="" class="alert alert-danger col-sm-12"><?php echo $errors['global'];?></div>
+
+        <?php endif;?> 
   <div class="form-group col-sm-12">
     <div class="col-sm-offset-10 col-sm-2">
       <button type="submit" class="btn btn-default">Sign in</button>

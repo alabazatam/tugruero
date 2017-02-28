@@ -1,11 +1,13 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
+<div class="form-group col-sm-12">
 <h1>Título</h1>
 
 <form class="" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="action" value="<?php echo $values['action']?>">
+    <input type="text" name="action" value="<?php echo $values['action']?>">
     <input type="text" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
+    <input type="text" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']))echo $values['idSolicitudPlan']?>">
 
     <div class="form-group col-sm-12 text-right PlanPrecio">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
@@ -229,10 +231,10 @@
     <label for="inputEmail3" class="control-label">Método de pago</label> <label class="text-danger"> * </label>
     <div class="">
     <label class="radio-inline">
-      <input type="radio" name="MET" class="MET" value="TDC" <?php if(isset($values['TipoPago']) and $values['TipoPago']=='TDC') echo "checked='checked'";?>>Tarjeta de crédito
+      <input type="radio" name="MET" class="MET" value="TDC" <?php if(isset($values['MET']) and $values['MET']=='TDC') echo "checked='checked'";?>>Tarjeta de crédito
     </label>
     <label class="radio-inline">
-      <input type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['TipoPago']) and $values['TipoPago']=='DEP') echo "checked='checked'";?>> Depósito o transferencia
+      <input type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['MET']) and $values['MET']=='DEP') echo "checked='checked'";?>> Depósito o transferencia
     </label>
     </div>
         <?php if(isset($errors['MET']) and $errors['MET']!=''):?>
@@ -266,19 +268,21 @@
         <input type="file" name="DEP3" class="form-control " id="DEP3" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
         <?php if(isset($errors['DEP3']) and $errors['DEP3']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['DEP3'];?></div>
+        <div class="alert alert-danger"><?php echo $errors['DEP3'];?></div>
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-12 text-right PlanPrecio">
-      <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
-  </div>
-  <div class="form-group col-sm-12">
-    <div class="col-sm-offset-10 col-sm-2">
-      <button type="submit" class="btn btn-default">Sign in</button>
-    </div>
-  </div>
+
+  
+    
+         
+    
+<div class="form-group col-sm-12">
+    <a class="btn btn-success">Regresar</a> 
+    <button class="btn btn-success" type="submit">Aceptar</button>    
+</div>
 </form>
+
 
 <?php include('../../view_footer_solicitud.php')?>
 <script>

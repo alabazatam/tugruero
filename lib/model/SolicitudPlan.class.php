@@ -35,7 +35,8 @@
 			
 		}
 		public function getSolicitudPlanList($values)
-		{	
+		{
+                $Utilitarios = new Utilitarios();
 			$columns = array();
 			$columns[0] = 'SolicitudPlan.idSolicitudPlan';
 			$columns[1] = 'SolicitudPlan.Nombres';
@@ -162,17 +163,26 @@
 			}
                 	if(isset($values['columns'][8]['search']['value']) and $values['columns'][8]['search']['value']!='')
 			{
-				$where.=" AND upper(Cedula) like ('%".$values['columns'][8]['search']['value']."%')";
+                                $FechaSolicitud = $values['columns'][8]['search']['value'];
+                                
+                                $FechaSolicitud = $Utilitarios->formatFechaInput($FechaSolicitud);
+                                
+				$where.=" AND FechaSolicitud >=  '".$FechaSolicitud."'";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
-				$column_order = $columns[$values['order'][0]['column']];
-			}
+                                $column_order = $columns[$values['order'][0]['column']];
+			}else{
+                                $column_order = " FechaSolicitud ";
+                        }
 			if(isset($values['order'][0]['dir']) and $values['order'][0]['dir']!='0')
 			{
 				$order = $values['order'][0]['dir'];//asc o desc
-			}
+			}else{
+                           
+                            $order = " desc ";
+                        }
 			//echo $column_order;die;
                         $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->SolicitudPlan
@@ -260,13 +270,23 @@
 				WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 	
 				AND Tipo = 'tugruero.com'
 			) AS idPlan,
-			(
-				SELECT pl.idPlan
-				FROM SolicitudPlanSeleccion sps 
-				INNER JOIN Planes pl ON pl.idPlan = sps.idPlan
-				WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 	
-				AND Tipo = 'RCV'
-			) AS idPlanRcv")
+
+                        CASE WHEN ( 
+                                SELECT pl.idPlan
+                                FROM SolicitudPlanSeleccion sps 
+                                INNER JOIN Planes pl ON pl.idPlan = sps.idPlan 
+                                WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
+                                AND Tipo = 'RCV' 
+                        ) IS NULL THEN 'NO' ELSE 'SI' END AS RCV,
+                        ( 
+                                SELECT pl.Puestos
+                                FROM SolicitudPlanSeleccion sps 
+                                INNER JOIN Planes pl ON pl.idPlan = sps.idPlan 
+                                WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
+                                AND Tipo = 'RCV' 
+                        ) AS Puestos,
+                        TipoPago AS MET
+                        ")
 			->where("SolicitudPlan.idSolicitudPlan=?",$values['idSolicitudPlan'])
 			//echo $q;die;
 			->fetch();
@@ -285,7 +305,7 @@
                 'Estado' => 'aaa',
                 'Telefono' => @$values['Telefono'],
 				'Celular' => @$values['Celular'],
-                'FechaSolicitud' => date('Y-m-d h:i:s'),
+                                'FechaSolicitud' => date('Y-m-d h:i:s'),
 				'TipoPago' => @$values['MET'],
                                 'NumeroTransaccion' => '0',
                                 'Marca' => @$values['Marca'],
@@ -294,11 +314,6 @@
                                 'Color' => @$values['Color'],
                                 'Placa' => @$values['Placa'],
                                 'Puestos' => @$values['Puestos'],
-                                'Licencia' => @$values['Licencia']['name'],
-                                'CertificadoOrigen' => @$values['CertificadoOrigen']['name'],
-                                'CarnetCirculacion' => @$values['CarnetCirculacion']['name'],
-                                'CertificadoMedico' => @$values['CertificadoMedico']['name'],
-                                'DocTransferencia' =>  @$values['DocTransferencia']['name'],
                                 'Estatus' => 'ENV',
                                 'TotalSinIva' => '0',
 				'TotalConIva' => '0',
@@ -356,36 +371,31 @@
 			
 		}
 		function updateSolicitudPlan($values){			
-			$array_solicitud_plan = array(
-				'name' => $values['name'],
-				'status' => $values['status']
+	$array_solicitud_plan = array(
+				'Nombres' => @$values['Nombres'],
+				'Apellidos' => @$values['Apellidos'],
+                                'Correo' => @$values['Correo'],
+                                'Cedula' => @strtoupper($values['Cedula']),
+				'Rif' => @strtoupper($values['Rif']),
+                                'Estado' => 'aaa',
+                                'Telefono' => @$values['Telefono'],
+				'Celular' => @$values['Celular'],
+                                'FechaSolicitud' => date('Y-m-d h:i:s'),
+				'TipoPago' => @$values['MET'],
+                                'NumeroTransaccion' => '0',
+                                'Marca' => @$values['Marca'],
+                                'Modelo' => @$values['Modelo'],
+                                'Anio' => @$values['Anio'],
+                                'Color' => @$values['Color'],
+                                'Placa' => @$values['Placa'],
+                                'Puestos' => @$values['Puestos']
+                                
 			);
+		
 			$idSolicitudPlan = $values['idSolicitudPlan'];
-			
-			//busco el nombre que tenia antes de la actualizacion para poder hacer update en las polizas
-			$solicitud_plan_antiguo = $this->getSolicitudPlanById($values);
-			$nombre_solicitud_plan_anterior = $solicitud_plan_antiguo['name'];
-				
-			
-			
 			$ConnectionORM = new ConnectionORM();
-			$ConnectionAws = new ConnectionAws();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array_solicitud_plan);	
-			
-			if($values['status']==0)
-			{
-				$status = 'Desactivado';
-			}else
-			{
-				$status = 'Activo';
-			}
-			
-			
-			//modifico en todas las polizas			
 
-			$q = $ConnectionORM->ejecutarPreparado("UPDATE Polizas set Seguro = '".$values['name']."', EstatusPoliza = '".$status."' where Seguro = '$nombre_solicitud_plan_anterior'");
-			$q = $ConnectionAws->ejecutarPreparado("UPDATE Polizas set Seguro = '".$values['name']."', EstatusPoliza = '".$status."' where Seguro = '$nombre_solicitud_plan_anterior'");
-			
 			
 			return $q;
 			
@@ -410,6 +420,18 @@
 			$ConnectionAws = new ConnectionAws();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	
                 }
+		public function getSolicitudPorPlaca($values){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudPlan
+			->select("count(*) as cuenta")
+			->where("SolicitudPlan.Placa=?",$values['Placa'])
+                        ->and('Estatus=?','ENV')
+			//echo $q;die;
+			->fetch();
+			return $q['cuenta']; 				
+			
+		}
+                
 	}
 			
 
