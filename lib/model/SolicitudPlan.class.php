@@ -58,20 +58,10 @@
 					WHERE p.Tipo = 'RCV'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
 				))";
-                        $columns[6] = "((
-					SELECT  PrecioConIva  
+                        $columns[6] = "(SELECT  SUM(PrecioConIva) 
 					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'RCV'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				) +
-				(
-					SELECT PrecioConIva  
-					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'tugruero.com'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				))";
+					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)";
                         $columns[7] = "(CASE 
 					WHEN Estatus = 'ENV' 
 					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
@@ -122,32 +112,29 @@
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'tugruero.com'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				),' / ',
-				(	
+				),
+				CASE WHEN(	
 					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
 					FROM SolicitudPlanSeleccion sps 
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'RCV'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				))) like ('%".$values['columns'][5]['search']['value']."%')";
+				) IS NULL THEN '' ELSE (SELECT CONCAT(' / ',Nombre, ' ',Puestos, ' Puestos' )  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)
+				
+
+				END)) like ('%".$values['columns'][5]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
 			{
-				$where.=" AND ((
-					SELECT  PrecioConIva  
+				$where.=" AND ((SELECT  SUM(PrecioConIva) 
 					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'RCV'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				) +
-				(
-					SELECT PrecioConIva  
-					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'tugruero.com'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				)) >= '".$values['columns'][6]['search']['value']."' ";
+					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)) >= '".$values['columns'][6]['search']['value']."' ";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
