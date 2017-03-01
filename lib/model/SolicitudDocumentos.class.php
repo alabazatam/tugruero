@@ -38,6 +38,34 @@
 			
 			
 		}
+		function updateSolicitudDocumentos($idSolicitudPlan,$TipoDocumento, $NombreDocumento){
+                        
+                        
+			$array = array(
+				'TipoDocumento' => $TipoDocumento,
+                                'NombreDocumento' => $NombreDocumento,
+                                'FechaSubida' => date('Y-m-d h:i:s'),
+                                'Estatus' => "ENV",
+
+			);
+			$ConnectionORM = new ConnectionORM(); 
+			$q = $ConnectionORM->ejecutarPreparado("UPDATE SolicitudDocumentos set NombreDocumento = '".$NombreDocumento."', FechaSubida = '".date('Y-m-d h:i:s')."' where idSolicitudPlan = $idSolicitudPlan AND TipoDocumento = '$TipoDocumento'");
+
+
+			
+			
+		}
+		public function getDocumentoByTipo($idSolicitudPlan, $TipoDocumento){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudDocumentos
+			->select("*")
+                        ->where('idSolicitudPlan=?',$idSolicitudPlan)
+                        ->and('TipoDocumento=?',$TipoDocumento) 
+                        ->fetch();
+			
+			return $q['NombreDocumento']; 				
+			
+		}
 
                 
 	}

@@ -9,14 +9,14 @@
 		
 		$errors = array();
 		$validator_values = array();
-		$validator_values['idPlan'] = array(
+		/*$validator_values['idPlan'] = array(
 			
 			"minlength" => 1,
 			"maxlength" => 100,
 			"type" => "number",
-			"label" => "Nombres",
+			"label" => "idPlan",
 			"required" => true
-		);		
+		);	*/	
 		$validator_values['Nombres'] = array(
 			
 			"minlength" => 3,
@@ -105,12 +105,12 @@
 			"label" => "Placa",
 			"required" => true
 		);
-		$validator_values['Puestos'] = array(
+		/*$validator_values['Puestos'] = array(
 			
 			"type" => "number",
 			"label" => "Puestos",
 			"required" => true
-		);
+		);*/
 		$ValidateBase = new ValidateBase();
 		$errors = $ValidateBase->validate_base($validator_values, $values);
 		
@@ -140,21 +140,21 @@
                     $errors['Celular'] = "Formato o número incorrecto (Ejemplo: 4241234567)";
                 }
                 
-                if(!isset($values['idPlan']) or $values['idPlan']==''){
+                /*if(!isset($values['idPlan']) or $values['idPlan']==''){
                     $errors['idPlan'] = 'Debe seleccionar el plan a contratar';
-                }
-                if(!isset($values['RCV']) or $values['RCV']==''){
+                }*/
+                /*if(!isset($values['RCV']) or $values['RCV']==''){
                     $errors['RCV'] = 'Debe indicar si elige RCV';
-                }
+                }*/
                 if(!isset($values['Marca']) or $values['Marca']==''){
                     $errors['Marca'] = 'Debe seleccionar la marca';
                 }
                 if(!isset($values['Anio']) or $values['Anio']==''){
                     $errors['Anio'] = 'Debe seleccionar el año';
                 }
-                if(!isset($values['MET']) or $values['MET']==''){
+                /*if(!isset($values['MET']) or $values['MET']==''){
                     $errors['MET'] = 'Debe indicar el método de pago';
-                }
+                }*/
 				if( (isset($values['Correo']) and isset($values['Correo2']) ) and $values['Correo'] != $values['Correo2']  ){
 						$errors['Correo2'] = 'Los correos electrónicos deben coincidir';
 				}
@@ -173,9 +173,6 @@
 			{
 				$errors['Licencia']= message_max_size;
 			}
-		}else
-		{
-			$errors['Licencia']= "Debe seleccionar un archivo para licencia";
 		}		
                
 		if($_FILES['CarnetCirculacion']['size']>0)
@@ -188,14 +185,10 @@
 			{
 				$errors['CarnetCirculacion']= message_max_size;
 			}
-		}else
-		{
-			$errors['CarnetCirculacion']= "Debe seleccionar un archivo para el carnet de circulación";
 		}
 		
 		
-		if(isset($values['RCV']) and  $values['RCV']=='SI')
-		{
+
 			if($_FILES['CertificadoMedico']['size']>0)
 			{
 				if(!in_array(pathinfo($_FILES['CertificadoMedico']['name'],PATHINFO_EXTENSION),$array_extensions)) 
@@ -206,9 +199,6 @@
 				{
 					$errors['CertificadoMedico']= message_max_size;
 				}
-			}else
-			{
-				$errors['CertificadoMedico']= "Debe seleccionar un archivo para el certificado médico";
 			}
 			
 			if($_FILES['CertificadoOrigen']['size']>0)
@@ -221,16 +211,13 @@
 				{
 					$errors['CertificadoOrigen']= message_max_size;
 				}
-			}else
-			{
-				$errors['CertificadoOrigen']= "Debe seleccionar un archivo para el certificado de origen";
 			}
-		}
+		
                 
                 
 /***************************Validación de archivos de pago************************/                
-		if(isset($values['MET']) and  $values['MET']=='DEP')
-		{
+		
+	
 			if($_FILES['DEP1']['size']>0)
 			{
 				if(!in_array(pathinfo($_FILES['DEP1']['name'],PATHINFO_EXTENSION),$array_extensions)) 
@@ -241,9 +228,6 @@
 				{
 					$errors['DEP1']= message_max_size;
 				}
-			}else
-			{
-				$errors['DEP1']= "Debe seleccionar el archivo de transferencia o deposito bancario";
 			}
 			
 			if($_FILES['DEP2']['size']>0)
@@ -268,7 +252,7 @@
 					$errors['DEP3']= message_max_size;
 				}
 			}
-		}                
+		               
                 
                 
                 

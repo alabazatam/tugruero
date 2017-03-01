@@ -1,6 +1,7 @@
 <?php include('../../view_header_app.php')?>
-<?php include('../menu.php')?>
+<?php //include('../menu.php')?>
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
+<?php $SolicitudDocumentos = new SolicitudDocumentos();?>
 <div class="form-group col-sm-12">
 <h1>Título</h1>
 
@@ -15,7 +16,7 @@
   <div class="form-group col-sm-12">
 	  <label for="idPlan" class="">Plan </label> <label class="text-danger"> * </label>
     <div class="">
-        <select class="form-control" id="idPlan" name="idPlan">
+        <select disabled class="form-control" id="idPlan" name="idPlan">
             <option value="">Seleccione el plan</option>
             <option value="2" <?php if(isset($values['idPlan']) and $values['idPlan']==2) echo "selected='selected'";?>>TU GRUERO GOLD</option>
             <option value="1" <?php if(isset($values['idPlan']) and $values['idPlan']==1) echo "selected='selected'";?>>TU GRUERO PLUS</option>
@@ -32,6 +33,7 @@
     <div class="">
         <input type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
     </div>
+    
         <?php if(isset($errors['Cedula']) and $errors['Cedula']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Cedula'];?></div>
 
@@ -101,10 +103,10 @@
           <label for="RCV" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
           <div class="">
           <label class="radio-inline">
-            <input type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
+            <input disabled type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
           </label>
           <label class="radio-inline">
-            <input type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
+            <input disabled type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
           </label>
           </div>
               <?php if(isset($errors['RCV']) and $errors['RCV']!=''):?>
@@ -113,8 +115,47 @@
               <?php endif;?>
         </div>
    </div>
+  <div class="form-group col-sm-12 RCV_SI CedulaDiv">
+      <label for="CedulaDoc" class="control-label">Cédula</label> <label class="text-danger"> * </label> 
+      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "Cedula"); ?>
+      <?php if($NombreDocumento !=""):?>
+        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
+            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
+        </a>
+      <?php endif;?>
+    <div class="">
+        <input type="file" name="CedulaDoc" class="form-control "  id="CedulaDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        
+    </div>
+        <?php if(isset($errors['CedulaDoc']) and $errors['CedulaDoc']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CedulaDoc'];?></div>
+
+        <?php endif;?>
+  </div>
+  <div class="form-group col-sm-12 RCV_SI RifDiv">
+    <label for="RifDoc" class="control-label">Rif</label> <label class="text-danger"> * </label>
+      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "Rif"); ?>
+      <?php if($NombreDocumento !=""):?>
+        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
+            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
+        </a>
+      <?php endif;?>
+    <div class="">
+        <input type="file" name="RifDoc" class="form-control "  id="RifDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+    </div>
+        <?php if(isset($errors['RifDoc']) and $errors['RifDoc']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['RifDoc'];?></div>
+
+        <?php endif;?>
+  </div>
   <div class="form-group col-sm-12 RCV_SI LicenciaDiv">
     <label for="Licencia" class="control-label">Licencia</label> <label class="text-danger"> * </label>
+      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "Licencia"); ?>
+      <?php if($NombreDocumento !=""):?>
+        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
+            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
+        </a>
+      <?php endif;?>
     <div class="">
         <input type="file" name="Licencia" class="form-control "  id="Licencia" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
@@ -125,6 +166,12 @@
   </div>
   <div class="form-group col-sm-12 CarnetCirculacionDiv">
     <label for="CarnetCirculacion" class="control-label">Carnet de circulación</label> <label class="text-danger"> * </label>
+      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "CarnetCirculacion"); ?>
+      <?php if($NombreDocumento !=""):?>
+        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
+            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
+        </a>
+      <?php endif;?>
     <div class="">
         <input type="file" name="CarnetCirculacion" class="form-control " id="CarnetCirculacion" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
@@ -135,6 +182,12 @@
   </div>
   <div class="form-group col-sm-12 CertificadoMedicoDiv">
     <label for="inputEmail3" class="control-label">Certificado médico</label> <label class="text-danger"> * </label>
+      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "CertificadoMedico"); ?>
+      <?php if($NombreDocumento !=""):?>
+        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
+            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
+        </a>
+      <?php endif;?>
     <div class="">
         <input type="file" name="CertificadoMedico" class="form-control " id="CertificadoMedico" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
@@ -145,6 +198,12 @@
   </div>
   <div class="form-group col-sm-12 CertificadoOrigenDiv">
     <label for="certificadoOrigen" class="control-label">Certificado de origen del vehículo (Título de propiedad)</label> <label class="text-danger"> * </label>
+      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "CertificadoOrigen"); ?>
+      <?php if($NombreDocumento !=""):?>
+        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
+            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
+        </a>
+      <?php endif;?>
     <div class="">
         <input type="file" name="CertificadoOrigen" class="form-control" id="CertificadoOrigen" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
@@ -220,7 +279,7 @@
   <div class="form-group col-sm-2 Puestos">
     <label for="Telefono" class="control-label">Cantidad de puestos</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="number" name="Puestos" class="form-control" id="Puestos" autocomplete="off" maxlength="1" value="<?php if(isset($values['Puestos']) and $values['Puestos']!='') echo $values['Puestos']; else echo "5";?>" min="5" max="7">
+        <input disabled type="number" name="Puestos" class="form-control" id="Puestos" autocomplete="off" maxlength="1" value="<?php if(isset($values['Puestos']) and $values['Puestos']!='') echo $values['Puestos']; else echo "5";?>" min="5" max="7">
     </div>
         <?php if(isset($errors['Puestos']) and $errors['Puestos']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Puestos'];?></div>
@@ -231,10 +290,10 @@
     <label for="inputEmail3" class="control-label">Método de pago</label> <label class="text-danger"> * </label>
     <div class="">
     <label class="radio-inline">
-      <input type="radio" name="MET" class="MET" value="TDC" <?php if(isset($values['MET']) and $values['MET']=='TDC') echo "checked='checked'";?>>Tarjeta de crédito
+      <input disabled type="radio" name="MET" class="MET" value="TDC" <?php if(isset($values['MET']) and $values['MET']=='TDC') echo "checked='checked'";?>>Tarjeta de crédito
     </label>
     <label class="radio-inline">
-      <input type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['MET']) and $values['MET']=='DEP') echo "checked='checked'";?>> Depósito o transferencia
+      <input disabled type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['MET']) and $values['MET']=='DEP') echo "checked='checked'";?>> Depósito o transferencia
     </label>
     </div>
         <?php if(isset($errors['MET']) and $errors['MET']!=''):?>
@@ -244,6 +303,12 @@
   </div>
   <div class="form-group col-sm-12 DEPOSITO">
     <label for="DEP1" class="control-label">Comprobante #1 </label> <label class="text-danger"> * </label>
+      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "DEP1"); ?>
+      <?php if($NombreDocumento !=""):?>
+        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
+            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
+        </a>
+      <?php endif;?>
     <div class="">
         <input type="file" name="DEP1" class="form-control" id="DEP1" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
@@ -254,6 +319,12 @@
   </div>
   <div class="form-group col-sm-12 DEPOSITO">
     <label for="DEP2" class="control-label">Comprobante #2</label>
+      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "DEP2"); ?>
+      <?php if($NombreDocumento !=""):?>
+        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
+            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
+        </a>
+      <?php endif;?>
     <div class="">
         <input type="file" name="DEP2" class="form-control " id="DEP2" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
@@ -264,6 +335,12 @@
   </div>
   <div class="form-group col-sm-12 DEPOSITO">
     <label for="DEP3" class="control-label">Comprobante #3</label>
+      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "DEP3"); ?>
+      <?php if($NombreDocumento !=""):?>
+        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
+            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
+        </a>
+      <?php endif;?>
     <div class="">
         <input type="file" name="DEP3" class="form-control " id="DEP3" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
@@ -278,7 +355,7 @@
          
     
 <div class="form-group col-sm-12">
-    <a class="btn btn-success">Regresar</a> 
+    <a class="btn btn-success" href="<?php echo full_url?>/adm/solicitud_plan/index.php">Regresar</a> 
     <button class="btn btn-success" type="submit">Aceptar</button>    
 </div>
 </form>
@@ -300,6 +377,8 @@ $(document).ready(function(){
             console.log('eligio no');
             $('.Puestos').hide();
             $('.LicenciaDiv').show();
+            $('.CedulaDiv').show();
+            $('.LicenciaDiv').show();
             $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
@@ -308,6 +387,8 @@ $(document).ready(function(){
             console.log('No eligio nada');
             $('.Puestos').hide();
             $('.LicenciaDiv').hide();
+            $('.CedulaDiv').hide();
+            $('.RifDiv').hide();
             $('.CarnetCirculacionDiv').hide();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
@@ -330,15 +411,19 @@ $(document).ready(function(){
     $('.RCV').change(function(e){
         calculaPrecio();
         if($('.RCV:checked').val() == 'SI'){
-            console.log('seleccione si');
+            //console.log('seleccione si');
             $('.Puestos').show();
+            $('.CedulaDiv').show();
+            $('.RifDiv').show();
             $('.LicenciaDiv').show();
             $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').show();
             $('.CertificadoOrigenDiv').show();
         }else{
-            console.log('seleccione no');
+            //console.log('seleccione no');
             $('.Puestos').hide();
+            $('.CedulaDiv').show();
+            $('.RifDiv').show();
             $('.LicenciaDiv').show();
             $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();

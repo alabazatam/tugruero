@@ -1,5 +1,5 @@
 <?php include('../../view_header_app.php')?>
-<?php include('../menu.php')?>
+<?php //include('../menu.php')?>
 <div class="">
 	<h1 class="text-center big_title">Solicitudes de planes</h1>
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
@@ -12,6 +12,7 @@
                                     <th>Rif</th>
                                     <th>Plan</th>
                                     <th>Precio total</th>
+                                    <th>Método de pago</th>
                                     <th>Estatus</th>
                                     <th>Fecha Solicitud</th>
                                     <th>Detalle</th>
@@ -25,7 +26,8 @@
                                         <th><input id="Cedula" name="Cedula" type="text"></th>
                                         <th><input id="Rif" name="Rif" type="text"></th>	
                                         <th><input id="Plan" name="Plan" type="text"></th>		
-                                        <th><input id="PrecioTotal" name="PrecioTotal" type="text"></th>		
+                                        <th><input id="PrecioTotal" name="PrecioTotal" type="text"></th>
+                                        <th><input id="TipoPago" name="TipoPago" type="text"></th>		
 					<th><input id="Estatus" name="Estatus" type="text"></th>		
 					<th><input id="FechaSolicitud" name="FechaSolicitud" type="text"></th>		
                                         <th>Detalle</th>
@@ -73,6 +75,7 @@ $(document).ready(function() {
             { "data": "Rif" },
             { "data": "Plan" },
             { "data": "PrecioTotal" },
+            { "data": "TipoPago" },
             { "data": "Estatus" },
             { "data": "FechaSolicitud" },
             { "data": "actions" }
@@ -125,6 +128,11 @@ $('#column_7').on ('keypress', function(e){
 $('#column_8').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(8)).search($(this).val()).draw();
+    }
+});
+$('#column_9').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(9)).search($(this).val()).draw();
     }
 });
 	$('#clear').click(function(){
