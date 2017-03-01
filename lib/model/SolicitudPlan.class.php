@@ -209,14 +209,21 @@
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'tugruero.com'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				),' / ',
-				(	
+				),
+				CASE WHEN(	
 					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
 					FROM SolicitudPlanSeleccion sps 
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'RCV'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				)) AS concatenado_plan,
+				) IS NULL THEN '' ELSE (SELECT CONCAT(' / ',Nombre, ' ',Puestos, ' Puestos' )  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)
+				
+
+				END) AS concatenado_plan,
 
 				(SELECT  SUM(PrecioConIva) 
 					FROM SolicitudPlanSeleccion sps 
