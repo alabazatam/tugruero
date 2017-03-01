@@ -218,36 +218,10 @@
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
 				)) AS concatenado_plan,
 
-				(CASE WHEN 
-					(SELECT  SUM(PrecioConIva) 
+				(SELECT  SUM(PrecioConIva) 
 					FROM SolicitudPlanSeleccion sps 
 					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'RCV'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)
-				
-				 IS NULL THEN 0 ELSE 
-				 
-				 (SELECT  SUM(PrecioConIva) 
-					FROM SolicitudPlanSeleccion sps 
-					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'RCV'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)  END
-				) +
-				(CASE WHEN 
-					(SELECT  SUM(PrecioConIva) 
-					FROM SolicitudPlanSeleccion sps 
-					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'tugruero.com'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)
-				
-				 IS NULL THEN 0 ELSE 
-				 
-				 (SELECT  SUM(PrecioConIva) 
-					FROM SolicitudPlanSeleccion sps 
-					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'tugruero.com'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)  END
-				) AS PrecioTotal,
+					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) AS PrecioTotal,
                                 CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' ELSE 'Depósito o Transferencia'  END AS TipoPago
 				")
 			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
