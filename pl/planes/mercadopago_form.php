@@ -1,13 +1,13 @@
 <?php include('../../view_header_app.php')?>
 <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
 <script src="<?php echo full_url;?>/web/js/mercadopago.js"></script>
-<input type="text" id="email" name="email" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo']?>">
-<input type="text" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
-<input type="text" id="Cedula" name="Cedula" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula']?>">
-<input type="text" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO ";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
-<input type="text" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
+<input type="hidden" id="email" name="email" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo']?>">
+<input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
+<input type="hidden" id="Cedula" name="Cedula" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula']?>">
+<input type="hidden" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO ";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
+<input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
 
-<div class="col-sm-6">
+<div class="col-sm-6" id="mercadopagodiv">
     <form action="" method="post" id="pay" name="pay" class="">
       <div class="form-group col-sm-12">
         <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label>
@@ -81,7 +81,7 @@
         <input type="submit" class="btn btn-success" value="Pagar" />
     </form>        
 </div>
+<div class="col-sm-12" id="mercadopagodivpagado"></div>
 
 
-
-<?php include('../../view_footer_solicitud.php')?>
+<?php include('../../view_footer_solicitud.php');?>

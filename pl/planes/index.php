@@ -27,7 +27,10 @@ $values = array_merge($values,$_FILES);
 		break;
 		case "cuadro_tugruero":
 			executeCuadroTugruero($values);	
-		break;            
+		break; 
+		case "pagado":
+			executePagado($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -50,9 +53,9 @@ $values = array_merge($values,$_FILES);
 					if($values['MET'] == 'TDC')
 					{
                                                 $values = $SolicitudPlan->saveSolicitudPlan($values);
-						print_r($values);die;
+						//print_r($values);die;
                                                 //subir documentos
-                                                //subirDocumentos($values, $_FILES);
+                                                subirDocumentos($values, $_FILES);
                                                 executeMercadoPago($values,$errors);
 					}else
 					{
@@ -122,6 +125,10 @@ $values = array_merge($values,$_FILES);
           
             $PDFPagos = new PDFPagos();
             $pdf = $PDFPagos->cuadroTUGRUERO($values);
+        }
+        function executePagado($values){
+          
+            require('pagado.php');
         }
         function subirDocumentos($values,$files){
         $SolicitudDocumentos = new SolicitudDocumentos; 

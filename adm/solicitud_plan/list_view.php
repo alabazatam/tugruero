@@ -34,7 +34,6 @@
 				</tr>
 			</tfoot>
 		</table>
-	<a class="btn btn-default"  href="<?php echo full_url."/adm/solicitud_plan/index.php?action=new"?>"><i class="fa fa-file-o fa-pull-left fa-border"></i>Agregar</a>
 </div>
 	<?php include('../../view_footer_solicitud.php')?>
 <script>

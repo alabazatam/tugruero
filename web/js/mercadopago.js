@@ -193,7 +193,10 @@ $(document).ready(function(){
 
                                                         if(data[0] == 'OK'){
                                                             $('#show_error').html("");
-                                                            $('#show_commit').html("<div class='alert alert-success'>Pago realizado</div>");
+                                                            //$('#show_commit').html("<div class='alert alert-success'>Pago realizado</div>");
+                                                            
+                                                            $("#mercadopagodiv").html('');
+                                                            $("#mercadopagodivpagado").html("</br></br></br></br></br></br></br><div class='col-sm-2'></div><div  class='col-sm-8 alert alert-success'>¡LISTO! Le hemos enviado un correo electrónico, por favor revise su Bandeja de entrada o Spam.</div><div class='col-sm-2'>");
                                                         }
                                                     }
                                             });     
