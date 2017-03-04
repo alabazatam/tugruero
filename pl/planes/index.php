@@ -45,11 +45,13 @@ $values = array_merge($values,$_FILES);
 	{
                 //subirDocumentos($values, $_FILES);
                 $errors = validate($values,$_FILES);
+                
 				if(count($errors)>0){
 					executeIndex($values,$errors);die;
 				}else{
                                         $values['PagoRealizado'] = 'N';
                                         $SolicitudPlan = new SolicitudPlan();
+                                        $Mail = new Mail();
 					if($values['MET'] == 'TDC')
 					{
                                                 $values = $SolicitudPlan->saveSolicitudPlan($values);
@@ -57,6 +59,8 @@ $values = array_merge($values,$_FILES);
                                                 //subir documentos
                                                 subirDocumentos($values, $_FILES);
                                                 executeMercadoPago($values,$errors);
+                                                $Mail->sendMessageMercadopago($values);
+                                                
 					}else
 					{
                                                 if(($_FILES['DEP1']['size']>0) or ($_FILES['DEP2']['size']>0) or ($_FILES['DEP3']['size']>0)){
@@ -68,6 +72,8 @@ $values = array_merge($values,$_FILES);
                                                 //print_r($values);die;
                                                 //subir documentos
                                                 subirDocumentos($values, $_FILES);
+                                                executePagado($values);
+                                                $Mail->sendMessageDepositoPago($values);
 
                                                 
                                         }

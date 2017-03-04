@@ -494,6 +494,53 @@
 			return $q['cuenta']; 				
 			
 		}
+                public function getSolicitudPlanInfo($idSolicitudPlan){
+                       $ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect('tugruero')->SolicitudPlan
+			->select("*,SolicitudPlan.idSolicitudPlan,DATE_FORMAT(FechaSolicitud, '%d/%m/%Y') as FechaSolicitud,
+				CASE 
+					WHEN Estatus = 'ENV' 
+					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
+					WHEN Estatus = 'ACT'
+					THEN 'PLAN PAGADO Y ACTIVO'
+					WHEN Estatus = 'REC'
+					THEN 'RECHAZADO'
+					END AS Estatus,
+				CONCAT
+				((
+					SELECT Nombre  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				),
+				CASE WHEN(	
+					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				) IS NULL THEN '' ELSE (SELECT CONCAT(' / ',Nombre, '' )  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)
+				
+
+				END) AS concatenado_plan,
+
+				(SELECT  SUM(PrecioConIva) 
+					FROM SolicitudPlanSeleccion sps 
+					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) AS PrecioTotal,
+                                CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' ELSE 'Depósito o Transferencia'  END AS TipoPago
+				")
+			->where("SolicitudPlan.idSolicitudPlan=?",$idSolicitudPlan)
+			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
+                        ->fetch();
+                        
+                        return $q;
+                }
                 
 	}
 			

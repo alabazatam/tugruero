@@ -119,6 +119,22 @@
 			$time               = implode( ':', $time );
 
 			return $minutes;
-		}		
+		}
+                public function saludo(){
+                    
+                    $saludo = 'Buenos días';
+                    $hora = date('H');
+                    if($hora>='6' and $hora<'12'){
+                        $saludo = "Buenos días";                       
+                    }elseif($hora>='12' and $hora<'18'){
+                        $saludo = "Buenas tardes";
+                    }elseif($hora>='18' and $hora<'24'){
+                        $saludo = "Buenas noches";
+                    }elseif($hora>='0' and $hora<'6'){
+                        $saludo = "Buenas noches";
+                    }
+                    return $saludo;
+                    
+                }
 		
 	}

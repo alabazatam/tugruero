@@ -354,5 +354,143 @@
 
 
     }
+    function sendMessageMercadopago($values){
+            
+            $Utilitarios = new Utilitarios();
+            $idSolicitudPlan = $values['idSolicitudPlan'];
+            $saludo = $Utilitarios->saludo();
+            $SolicitudPlan = new SolicitudPlan();
+            $data = $SolicitudPlan->getSolicitudPlanInfo($idSolicitudPlan);
+            $Nombres = strtoupper($data['Nombres']);
+            $Apellidos = strtoupper($data['Apellidos']);
+            $ConcatenadoPlan = $data['concatenado_plan'];
+            try{
+            $smtp = "server-0116a.gconex.net";
+            //$smtp = "mail.tugruero.com";
+            $port = 465;
+            $secure = "ssl";
+            $username = "mercadeo@tugruero.com";
+            $password = "tugruero123";
+            $mail_from = 'mercadeo@tugruero.com'; 
+            $username = $this->username;
+            $password = $this->password;
+            $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
+              ->setUsername($username)
+              ->setPassword($password);
+            $mailer = Swift_Mailer::newInstance($transport);
+            $email = array('deandrademarcos@gmail.com');
+
+            $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
+            $message->setBody('<!DOCTYPE html>
+    <html>
+
+        <head>
+            <title>TU/GRUERO®</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 12px;color:#262426;">
+            <div align="center">
+		<p align="justify">'.$saludo.', '.$Nombres.' '.$Apellidos.', gracias por la compra del plan '.$ConcatenadoPlan.'.</p>
+		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
+		<p align="justify">En este momento el Departamento de Suscripción está validando los datos y documentos suministrados, y en menos de 48 horas hábiles uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
+		<p align="justify">¡Esté atento!</p>
+		<p align="justify">Saludos.</p>
+		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
+		<p align="justify" style="font-size: 10px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0) y/o escribirnos a info@tugruero.com - tugruero@gmail.com</p>
+            </div>
+
+        </body>
+    </html>
+    ',"text/html");			
+
+            $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
+                    $message->setTo($email);
+                    //$message->setBcc('info@tugruero.com');
+            // Send the message
+
+
+                    $result = $mailer->send($message);	
+                    }catch(Exception $e){
+                            //echo $e->getMessage().$e->getTraceAsString();
+                            die;
+                    }
+
+
+
+
+
+
+    }
+    function sendMessageDepositoPago($values){
+            
+            $Utilitarios = new Utilitarios();
+            $idSolicitudPlan = $values['idSolicitudPlan'];
+            $saludo = $Utilitarios->saludo();
+            $SolicitudPlan = new SolicitudPlan();
+            $data = $SolicitudPlan->getSolicitudPlanInfo($idSolicitudPlan);
+            $Nombres = strtoupper($data['Nombres']);
+            $Apellidos = strtoupper($data['Apellidos']);
+            $ConcatenadoPlan = $data['concatenado_plan'];
+            try{
+            $smtp = "server-0116a.gconex.net";
+            //$smtp = "mail.tugruero.com";
+            $port = 465;
+            $secure = "ssl";
+            $username = "mercadeo@tugruero.com";
+            $password = "tugruero123";
+            $mail_from = 'mercadeo@tugruero.com'; 
+            $username = $this->username;
+            $password = $this->password;
+            $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
+              ->setUsername($username)
+              ->setPassword($password);
+            $mailer = Swift_Mailer::newInstance($transport);
+            $email = array('deandrademarcos@gmail.com');
+
+            $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
+            $message->setBody('<!DOCTYPE html>
+    <html>
+
+        <head>
+            <title>TU/GRUERO®</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 12px;color:#262426;">
+            <div align="center">
+		<p align="justify">'.$saludo.', '.$Nombres.' '.$Apellidos.', gracias por la compra del plan '.$ConcatenadoPlan.'.</p>
+		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
+		<p align="justify">En este momento el Departamento de Suscripción está validando los datos y documentos suministrados, y en menos de 24 horas hábiles uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días continuos</strong> después que el agente le dé la confirmación de su pago</p>
+		<p align="justify">¡Esté atento!</p>
+		<p align="justify">Saludos.</p>
+		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
+		<p align="justify" style="font-size: 10px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0) y/o escribirnos a info@tugruero.com - tugruero@gmail.com</p>
+            </div>
+
+        </body>
+    </html>
+    ',"text/html");			
+
+            $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
+                    $message->setTo($email);
+                    //$message->setBcc('info@tugruero.com');
+            // Send the message
+
+
+                    $result = $mailer->send($message);	
+                    }catch(Exception $e){
+                            //echo $e->getMessage().$e->getTraceAsString();
+                            die;
+                    }
+
+
+
+
+
+
+    }
 }
 
