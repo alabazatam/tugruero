@@ -2,6 +2,7 @@
 <?php //include('../menu.php')?>
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <?php $SolicitudDocumentos = new SolicitudDocumentos();?>
+<?php $SolicitudPagoDetalle = new SolicitudPagoDetalle();?>
 <div class="form-group col-sm-12">
 <h1>Título</h1>
 
@@ -350,10 +351,24 @@
         <?php endif;?>
   </div>
     
-<?php if(isset($values['MET']) and $values['MET']=='TDC'):?>    
-    <div class="col-sm-12">
-        hola
+<?php if(isset($values['MET']) and $values['MET']=='TDC'):?>
+	<?php $mercadopagodata = $SolicitudPagoDetalle->getPagoDetalleByID($values['idSolicitudPlan']);?>
+    <div class="form-group col-sm-12">
+		<label>Detalle de Mercadopago</label>
     </div>
+    <div class="form-group col-sm-12">
+		<label>Id: </label>
+		<?php echo $mercadopagodata['id'];?>
+		<label>Tipo de tarjeta: </label>
+		<?php echo $mercadopagodata['payment_method_id'];?>
+		<label>Cédula: </label>
+		<?php echo $mercadopagodata['payer_identification_type'];?> <?php echo $mercadopagodata['payer_identification_number'];?>
+		<label>Nombre en tarjeta: </label>
+		<?php echo $mercadopagodata['carholder_name'];?>
+		<label>Monto de la transacción: </label>
+		<?php echo $mercadopagodata['transaction_amount'];?>
+    </div>	
+
 <?php endif;?>
 </div>
 

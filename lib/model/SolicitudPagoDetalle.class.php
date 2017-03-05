@@ -55,6 +55,16 @@
              //print_r($array);die;
              
          }
+		public function getPagoDetalleByID($idSolicitudPlan){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudPagoDetalle
+			->select("*")
+            ->where('idSolicitudPlan=?',$idSolicitudPlan)
+            ->fetch();
+			
+			return $q; 				
+			
+		}
 		
 
 
