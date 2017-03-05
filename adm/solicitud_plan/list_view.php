@@ -80,7 +80,7 @@ $(document).ready(function() {
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 9 ] }
+          { 'bSortable': false, 'aTargets': [ 10 ] }
        ]				
     });
 

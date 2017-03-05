@@ -349,6 +349,13 @@
 
         <?php endif;?>
   </div>
+    
+<?php if(isset($values['MET']) and $values['MET']=='TDC'):?>    
+    <div class="col-sm-12">
+        hola
+    </div>
+<?php endif;?>
+</div>
 
   
     

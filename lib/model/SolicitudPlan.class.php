@@ -62,7 +62,9 @@
 					FROM SolicitudPlanSeleccion sps 
 					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)";
-                        $columns[7] = "(CASE 
+                        $columns[7] = "(CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' ELSE 'Depósito o Transferencia')";
+
+                        $columns[8] = "(CASE 
 					WHEN Estatus = 'ENV' 
 					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
 					WHEN Estatus = 'ACT'
@@ -70,8 +72,7 @@
 					WHEN Estatus = 'REC'
 					THEN 'RECHAZADO'
 					END)";
-                        $columns[8] = "(DATE_FORMAT(FechaSolicitud, '%d/%m/%Y'))";
-                        $columns[9] = "(CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' ELSE 'Depósito o Transferencia')";
+                        $columns[9] = "(DATE_FORMAT(FechaSolicitud, '%d/%m/%Y'))";
 			$column_order = $columns[0];
 			$where = '1 = 1';
 			$order = 'asc';
@@ -227,6 +228,7 @@
 		}
 		public function getCountSolicitudPlanList($values)
 		{	
+                        $Utilitarios = new Utilitarios();
 			$where = '1 = 1';
 			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
 			{
@@ -313,7 +315,7 @@
                                 
                                 $FechaSolicitud = $Utilitarios->formatFechaInput($FechaSolicitud);
                                 
-				$where.=" AND FechaSolicitud >=  '".$FechaSolicitud."'";
+				$where.=" AND FechaSolicitud =  '".$FechaSolicitud."'";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
             $ConnectionORM = new ConnectionORM();
