@@ -105,6 +105,20 @@
 			"label" => "Placa",
 			"required" => true
 		);
+		$validator_values['Estado'] = array(
+			
+			"type" => "text",
+			"label" => "Estado",
+			"required" => true
+		);
+		$validator_values['Domicilio'] = array(
+			
+			"type" => "text",
+			"label" => "Dirección de domicilio",
+			"required" => true,
+			"minlength" => 5,
+			"maxlength" => 200,
+		);
 		/*$validator_values['Puestos'] = array(
 			
 			"type" => "number",

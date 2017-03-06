@@ -28,7 +28,10 @@ $values = array_merge($values,$_FILES);
 		break;		
 		case "list_json":
 			executeListJson($values);	
-		break;		
+		break;
+		case "aprobar":
+			executeAprobar($values);	
+		break;            
 		default:
 			executeIndex($values);
 		break;
@@ -211,4 +214,14 @@ $values = array_merge($values,$_FILES);
                 }
 
             }
+        }
+        function executeAprobar($values){
+            
+            $idSolicitudPlan = $values['idSolicitudPlan'];
+            $VigenciaDesde = $values['VigenciaDesde'];
+            $VigenciaHasta = $values['VigenciaHasta'];
+            $idSolicitudPlan = $values['idSolicitudPlan'];
+            $SolicitudAprobada = new SolicitudAprobada();
+            $SolicitudAprobada->aprobar($idSolicitudPlan, $VigenciaDesde, $VigenciaHasta);
+            
         }

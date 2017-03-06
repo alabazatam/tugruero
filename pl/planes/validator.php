@@ -119,6 +119,20 @@
 			"label" => "Puestos",
 			"required" => true
 		);
+		$validator_values['Estado'] = array(
+			
+			"type" => "text",
+			"label" => "Estado",
+			"required" => true
+		);
+		$validator_values['Domicilio'] = array(
+			
+			"type" => "text",
+			"label" => "Dirección de domicilio",
+			"required" => true,
+			"minlength" => 5,
+			"maxlength" => 200,
+		);
 		$ValidateBase = new ValidateBase();
 		$errors = $ValidateBase->validate_base($validator_values, $values);
 		
@@ -155,6 +169,7 @@
                 {
                     $errors['Celular'] = "Formato o número incorrecto (Ejemplo: 4241234567)";
                 }
+                
                 
                 if(!isset($values['idPlan']) or $values['idPlan']==''){
                     $errors['idPlan'] = 'Debe seleccionar el plan a contratar';

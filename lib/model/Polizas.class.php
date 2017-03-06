@@ -165,7 +165,7 @@
 				'Color' => $values['Color'],
 				'Año' => $values['Año'],
 				'Serial' => $values['Serial'],
-				'Seguro' => $values['Seguro'],
+				'Seguro' => $values['concatenado_plan'],
 				'NumPoliza' => $values['NumPoliza'],
 				'DireccionEDO' => $values['DireccionEDO'],
 				'Domicilio' => $values['Domicilio'],

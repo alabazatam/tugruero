@@ -370,7 +370,8 @@
                 'Correo' => @$values['Correo'],
                 'Cedula' => @strtoupper($values['Cedula']),
 				'Rif' => @strtoupper($values['Rif']),
-                'Estado' => 'aaa',
+                'Estado' => $values['Estado'],
+                'Domicilio' => $values['Domicilio'],
                 'Telefono' => @$values['Telefono'],
 				'Celular' => @$values['Celular'],
                                 'FechaSolicitud' => date('Y-m-d h:i:s'),
@@ -445,7 +446,8 @@
                                 'Correo' => @$values['Correo'],
                                 'Cedula' => @strtoupper($values['Cedula']),
 				'Rif' => @strtoupper($values['Rif']),
-                                'Estado' => 'aaa',
+                                'Estado' => $values['Estado'],
+                                'Domicilio' => $values['Domicilio'],
                                 'Telefono' => @$values['Telefono'],
 				'Celular' => @$values['Celular'],
                                 'Marca' => @$values['Marca'],
@@ -544,6 +546,25 @@
                         return $q;
                 }
                 
+		public function getSolicitudPlanAprobadaInfo($idSolicitudPlan){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudPlan
+			->select("*,CONCAT
+				((
+					SELECT Nombre  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				))
+                                AS concatenado_plan")
+			->join("SolicitudAprobada","INNER JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
+			->where("SolicitudPlan.idSolicitudPlan=?",$idSolicitudPlan)
+			//echo $q;die;
+			->fetch();
+			return $q; 				
+			
+		}               
 	}
 			
 

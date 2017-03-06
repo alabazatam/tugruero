@@ -1,5 +1,6 @@
 <?php include('../../view_header_app.php')?>
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
+<?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
 <h1>Título</h1>
         <?php if(isset($errors['global']) and $errors['global']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['global'];?></div>
@@ -7,7 +8,7 @@
         <?php endif;?> 
 <form class="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
-    <input type="text" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
+    <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
 
     <div class="form-group col-sm-12 text-right PlanPrecio">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
@@ -106,6 +107,35 @@
 
         <?php endif;?>
   </div>
+    <div class=""> 
+        <div class="form-group col-sm-3">
+          <label for="Estado" class="control-label">Estado</label> <label class="text-danger"> * </label>
+          <div class="">
+            <select name="Estado" class="form-control" id="Estado">
+                <option value="">Seleccione...</option>
+                <?php if(count($list_estados)>0):?>
+                    <?php foreach($list_estados as $list):?>
+                        <option value="<?php echo $list['name'];?>" <?php if(isset($values['Estado']) and $values['Estado'] == $list['name'] ) echo "selected = 'selected'";?>><?php echo $list['name'];?></option>
+                    <?php endforeach;?>
+                <?php endif;?>						
+            </select>
+          </div>
+              <?php if(isset($errors['Estado']) and $errors['Estado']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Estado'];?></div>
+
+              <?php endif;?>
+        </div>
+        <div class="form-group col-sm-3">
+          <label for="Domicilio" class="control-label">Dirección de domicilio</label> <label class="text-danger"> * </label>
+          <div class="">
+              <textarea name="Domicilio" class="form-control"id="Domicilio"><?php if(isset($values['Domicilio']) and $values['Domicilio']!='') echo $values['Domicilio'];?></textarea>
+          </div>
+              <?php if(isset($errors['Domicilio']) and $errors['Domicilio']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Domicilio'];?></div>
+
+              <?php endif;?>
+        </div>
+    </div>    
     <div class="row"> 
         <div class="form-group col-sm-12">
           <label for="RCV" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
@@ -123,6 +153,7 @@
               <?php endif;?>
         </div>
    </div>
+    
   <div class="form-group col-sm-12 RCV_SI CedulaDiv">
     <label for="CedulaDoc" class="control-label">Cédula</label> <label class="text-danger"> * </label>
     <div class="">

@@ -3,6 +3,7 @@
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <?php $SolicitudDocumentos = new SolicitudDocumentos();?>
 <?php $SolicitudPagoDetalle = new SolicitudPagoDetalle();?>
+<?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
 <div class="form-group col-sm-12">
 <h1>Título</h1>
 
@@ -99,6 +100,35 @@
 
         <?php endif;?>
   </div>
+    <div class=""> 
+        <div class="form-group col-sm-3">
+          <label for="Estado" class="control-label">Estado</label> <label class="text-danger"> * </label>
+          <div class="">
+            <select name="Estado" class="form-control" id="Estado">
+                <option value="">Seleccione...</option>
+                <?php if(count($list_estados)>0):?>
+                    <?php foreach($list_estados as $list):?>
+                        <option value="<?php echo $list['name'];?>" <?php if(isset($values['Estado']) and $values['Estado'] == $list['name'] ) echo "selected = 'selected'";?>><?php echo $list['name'];?></option>
+                    <?php endforeach;?>
+                <?php endif;?>						
+            </select>
+          </div>
+              <?php if(isset($errors['Estado']) and $errors['Estado']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Estado'];?></div>
+
+              <?php endif;?>
+        </div>
+        <div class="form-group col-sm-3">
+          <label for="Domicilio" class="control-label">Dirección de domicilio</label> <label class="text-danger"> * </label>
+          <div class="">
+              <textarea name="Domicilio" class="form-control"id="Domicilio"><?php if(isset($values['Domicilio']) and $values['Domicilio']!='') echo $values['Domicilio'];?></textarea>
+          </div>
+              <?php if(isset($errors['Domicilio']) and $errors['Domicilio']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Domicilio'];?></div>
+
+              <?php endif;?>
+        </div>
+    </div> 
     <div class="row"> 
         <div class="form-group col-sm-12">
           <label for="RCV" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
@@ -375,11 +405,43 @@
   
     
          
-    
+<div id="aprobacion" class="col-sm-12 well-lg bg-warning">
+    <div id="" class="col-sm-2">
+
+    </div>
+    <div id="" class="col-sm-8">
+        <h2>Aprobar solicitud</h2>
+        <label>Vigencia desde</label><input type="text" value="" name="VigenciaDesde" id="VigenciaDesde">
+        <label>Vigencia hasta</label><input type="text" value="" name="VigenciaHasta" id="VigenciaHasta">
+        <button type="button" class="btn btn-success" id="btn-aprobar">Aprobar</button>
+    </div>
+    <div id="" class="col-sm-2">
+
+    </div>    
+</div>
+<div id="rechazo" class="col-sm-12 well-lg bg-warning">
+    <div id="" class="col-sm-2">
+
+    </div>
+    <div id="" class="col-sm-8">
+        <h2>Rechazar solicitud</h2>
+        <label>Motivo de rechazo</label><textarea name="Observacion" cols="50" id="Observacion"></textarea>
+        <button type="button" class="btn btn-danger" id="btn-rechazar">Rechazar</button>
+    </div>
+    <div id="" class="col-sm-2">
+
+    </div>    
+</div> 
 <div class="form-group col-sm-12">
     <a class="btn btn-success" href="<?php echo full_url?>/adm/solicitud_plan/index.php">Regresar</a> 
+    <?php if(isset($values['Estatus']) and $values['Estatus']=='ENV'):?>
     <button class="btn btn-success" type="submit">Aceptar</button>    
+    <button class="btn btn-info" type="button" id="aprobar"><i class="fa fa-check-circle fa-2x"></i></button>  
+    <button class="btn btn-danger" type="button" id="rechazar"><i class="fa fa-times-circle fa-2x"></i></button>  
+    <?php endif;?>
 </div>
+
+
 </form>
 
 
@@ -387,6 +449,9 @@
 <script>
 
 $(document).ready(function(){
+    
+$('#aprobacion').hide();    
+$('#rechazo').hide();       
 <?php if(isset($values['RCV']) and $values['RCV']=='SI'):?>
             console.log('eligio si');
             $('.Puestos').show();
@@ -469,6 +534,39 @@ $(document).ready(function(){
 
         
     });    
+    $('#aprobar').click(function(){
+       $('#aprobacion').show(); 
+       $('#rechazo').hide(); 
+    });
+    $('#rechazar').click(function(){
+       $('#rechazo').show();
+       $('#aprobacion').hide();
+    });
+    $('#btn-rechazar').click(function(){
+        
+        
+        
+        if(confirm('¿Está seguro(a) de rechazar la solicitud?')){
+           
+           return true;
+            
+        }
+    });    
+    $('#btn-aprobar').click(function(){
+        
+        if(confirm('¿Está seguro(a) de aprobar la solicitud?')){
+            $.ajax({
+            type: "POST",
+            url: '<?php echo full_url?>/adm/solicitud_plan/index.php?action=aprobar',
+            data: {idSolicitudPlan: $('#idSolicitudPlan').val(),VigenciaDesde: $('#VigenciaDesde').val(),VigenciaHasta: $('#VigenciaHasta').val() },
+            success: function(){
+                alert('Solicitud aprobada');
+                window.location.href = '<?php echo full_url?>/adm/solicitud_plan?action=edit&idSolicitudPlan=' + $('#idSolicitudPlan').val();
+            }
+          });
+        }
+        
+    });      
     
 });
 
