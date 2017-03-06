@@ -59,7 +59,7 @@
 				'Año' => $data['Anio'],
 				'Serial' => "N/A",
 				'Seguro' => $data['concatenado_plan'],
-				'NumPoliza' => 'TGP-PAG-000X',
+				'NumPoliza' => $data['NumProducto'],
 				'DireccionEDO' => $data['Estado'],
 				'Domicilio' => $data['Domicilio'],
 				'Vencimiento' => $data['VigenciaHasta'],
@@ -90,7 +90,6 @@
                      
 			$ConnectionAws= new ConnectionAws();
 			$q = $ConnectionAws->getConnect()->Polizas()->insert($array_poliza);
-
 			
 			
 		}
