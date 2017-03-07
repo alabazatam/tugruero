@@ -409,30 +409,30 @@
   
     
          
-<div id="aprobacion" class="col-sm-12 well-lg bg-warning">
-    <div id="" class="col-sm-2">
+<div id="aprobacion" class="col-sm-12 well-lg" >
+    <div id="" class="col-sm-3">
 
     </div>
-    <div id="" class="col-sm-8">
+    <div id="" class="col-sm-6" style="background-color:#ccc;">
         <h2>Aprobar solicitud</h2>
         <label>Vigencia desde</label><input type="text" value="" name="VigenciaDesde" id="VigenciaDesde">
         <label>Vigencia hasta</label><input type="text" value="" name="VigenciaHasta" id="VigenciaHasta">
-        <button type="button" class="btn btn-success" id="btn-aprobar">Aprobar</button>
+        <button type="button" class="btn btn-info" id="btn-aprobar"><i class="fa fa-check-circle"></i> Aprobar</button>
     </div>
-    <div id="" class="col-sm-2">
+    <div id="" class="col-sm-3">
 
     </div>    
 </div>
-<div id="rechazo" class="col-sm-12 well-lg bg-warning">
-    <div id="" class="col-sm-2">
+<div id="rechazo" class="col-sm-12 well-lg">
+    <div id="" class="col-sm-3">
 
     </div>
-    <div id="" class="col-sm-8">
+    <div id="" class="col-sm-6" style="background-color:#ccc;">
         <h2>Rechazar solicitud</h2>
         <label>Motivo de rechazo</label><textarea name="Observacion" cols="50" id="Observacion"></textarea>
-        <button type="button" class="btn btn-danger" id="btn-rechazar">Rechazar</button>
+        <button type="button" class="btn btn-danger" id="btn-rechazar"><i class="fa fa-times-circle"></i> Rechazar</button>
     </div>
-    <div id="" class="col-sm-2">
+    <div id="" class="col-sm-3">
 
     </div>    
 </div> 
@@ -440,8 +440,8 @@
     <a class="btn btn-success" href="<?php echo full_url?>/adm/solicitud_plan/index.php">Regresar</a> 
     <?php if(isset($values['Estatus']) and $values['Estatus']=='ENV'):?>
     <button class="btn btn-success" type="submit">Aceptar</button>    
-    <button class="btn btn-info" type="button" id="aprobar"><i class="fa fa-check-circle fa-2x"></i></button>  
-    <button class="btn btn-danger" type="button" id="rechazar"><i class="fa fa-times-circle fa-2x"></i></button>  
+    <button class="btn btn-info" type="button" id="aprobar"><i class="fa fa-check-circle"></i> Aprobar</button>  
+    <button class="btn btn-danger" type="button" id="rechazar"><i class="fa fa-times-circle"></i> Rechazar</button>  
     <?php endif;?>
 </div>
 
