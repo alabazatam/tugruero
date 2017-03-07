@@ -4,13 +4,17 @@
 <?php $SolicitudDocumentos = new SolicitudDocumentos();?>
 <?php $SolicitudPagoDetalle = new SolicitudPagoDetalle();?>
 <?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
+<?php $disabled = '';?>
+<?php if(isset($values['Estatus']) and $values['Estatus']!='ENV'):?>
+    <?php $disabled = ' disabled = "disabled" '?>
+<?php endif;?>
 <div class="form-group col-sm-12">
 <h1>Título</h1>
 
 <form class="" method="POST" enctype="multipart/form-data">
-    <input type="text" name="action" value="<?php echo $values['action']?>">
-    <input type="text" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
-    <input type="text" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']))echo $values['idSolicitudPlan']?>">
+    <input type="hidden" name="action" value="<?php echo $values['action']?>">
+    <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
+    <input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']))echo $values['idSolicitudPlan']?>">
 
     <div class="form-group col-sm-12 text-right PlanPrecio">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
@@ -33,7 +37,7 @@
   <div class="form-group col-sm-3">
     <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
+        <input <?php echo $disabled;?> type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
     </div>
     
         <?php if(isset($errors['Cedula']) and $errors['Cedula']!=''):?>
@@ -44,7 +48,7 @@
   <div class="form-group col-sm-3">
     <label for="Rif" class=" control-label">RIF</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Rif" class="form-control" maxlength="11" autocomplete="off" value="<?php if(isset($values['Rif']) and $values['Rif']!='') echo $values['Rif'];?>" id="Rif" placeholder="Ejemplo: V-123456781">
+        <input <?php echo $disabled;?> type="text" name="Rif" class="form-control" maxlength="11" autocomplete="off" value="<?php if(isset($values['Rif']) and $values['Rif']!='') echo $values['Rif'];?>" id="Rif" placeholder="Ejemplo: V-123456781">
     </div>
         <?php if(isset($errors['Rif']) and $errors['Rif']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Rif'];?></div>
@@ -54,16 +58,16 @@
   <div class="form-group col-sm-3">
     <label for="Nombres" class="control-label">Nombres</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Nombres" class="form-control" autocomplete="off" maxlength="50" id="Nombres" value="<?php if(isset($values['Nombres']) and $values['Nombres']!='') echo $values['Nombres'];?>" placeholder="Ejemplo: Juan José">
+        <input <?php echo $disabled;?> type="text" name="Nombres" class="form-control" autocomplete="off" maxlength="50" id="Nombres" value="<?php if(isset($values['Nombres']) and $values['Nombres']!='') echo $values['Nombres'];?>" placeholder="Ejemplo: Juan José">
     </div>
-        <?php if(isset($errors['Nombres']) and$errors['Nombres']!=''):?>
+        <?php if(isset($errors['Nombres']) and $errors['Nombres']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Nombres'];?></div>
         <?php endif;?>
   </div>
   <div class="form-group col-sm-3">
     <label for="Apellidos" class="2 control-label">Apellidos</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Apellidos" class="form-control" autocomplete="off" maxlength="50" id="Apellidos" value="<?php if(isset($values['Apellidos']) and $values['Apellidos']!='') echo $values['Apellidos'];?>"  placeholder="Ejemplo: Alvarez Pérez">
+        <input <?php echo $disabled;?> type="text" name="Apellidos" class="form-control" autocomplete="off" maxlength="50" id="Apellidos" value="<?php if(isset($values['Apellidos']) and $values['Apellidos']!='') echo $values['Apellidos'];?>"  placeholder="Ejemplo: Alvarez Pérez">
     </div>
         <?php if(isset($errors['Apellidos']) and$errors['Apellidos']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Apellidos'];?></div>
@@ -73,7 +77,7 @@
   <div class="form-group col-sm-6">
     <label for="Correo" class="control-label">Correo electrónico</label> <label class="text-danger"> * </label>
     <div class="">
-      <input type="email" class="form-control" name="Correo" autocomplete="off" id="Correo" maxlength="100" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo'];?>" placeholder="Ejemplo: correo@gmail.com">
+      <input <?php echo $disabled;?> type="email" class="form-control" name="Correo" autocomplete="off" id="Correo" maxlength="100" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo'];?>" placeholder="Ejemplo: correo@gmail.com">
     </div>
         <?php if(isset($errors['Correo']) and $errors['Correo']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Correo'];?></div>
@@ -83,7 +87,7 @@
   <div class="form-group col-sm-3">
     <label for="Telefono" class="control-label">Teléfono de habitación</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Telefono" class="form-control" autocomplete="off" id="Telefono" maxlength="10" value="<?php if(isset($values['Telefono']) and $values['Telefono']!='') echo $values['Telefono'];?>" placeholder="Ejemplo: 2121234567">
+        <input <?php echo $disabled;?> type="text" name="Telefono" class="form-control" autocomplete="off" id="Telefono" maxlength="10" value="<?php if(isset($values['Telefono']) and $values['Telefono']!='') echo $values['Telefono'];?>" placeholder="Ejemplo: 2121234567">
     </div>
         <?php if(isset($errors['Telefono']) and $errors['Telefono']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Telefono'];?></div>
@@ -93,7 +97,7 @@
   <div class="form-group col-sm-3">
     <label for="Celular" class="control-label">Celular</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Celular" class="form-control" autocomplete="off" id="Celular" maxlength="10" value="<?php if(isset($values['Celular']) and $values['Celular']!='') echo $values['Celular'];?>" placeholder="Ejemplo: 4141234567">
+        <input <?php echo $disabled;?> type="text" name="Celular" class="form-control" autocomplete="off" id="Celular" maxlength="10" value="<?php if(isset($values['Celular']) and $values['Celular']!='') echo $values['Celular'];?>" placeholder="Ejemplo: 4141234567">
     </div>
         <?php if(isset($errors['Celular']) and $errors['Celular']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Celular'];?></div>
@@ -104,7 +108,7 @@
         <div class="form-group col-sm-3">
           <label for="Estado" class="control-label">Estado</label> <label class="text-danger"> * </label>
           <div class="">
-            <select name="Estado" class="form-control" id="Estado">
+            <select <?php echo $disabled;?> name="Estado" class="form-control" id="Estado">
                 <option value="">Seleccione...</option>
                 <?php if(count($list_estados)>0):?>
                     <?php foreach($list_estados as $list):?>
@@ -121,7 +125,7 @@
         <div class="form-group col-sm-3">
           <label for="Domicilio" class="control-label">Dirección de domicilio</label> <label class="text-danger"> * </label>
           <div class="">
-              <textarea name="Domicilio" class="form-control"id="Domicilio"><?php if(isset($values['Domicilio']) and $values['Domicilio']!='') echo $values['Domicilio'];?></textarea>
+              <textarea <?php echo $disabled;?> name="Domicilio" class="form-control"id="Domicilio"><?php if(isset($values['Domicilio']) and $values['Domicilio']!='') echo $values['Domicilio'];?></textarea>
           </div>
               <?php if(isset($errors['Domicilio']) and $errors['Domicilio']!=''):?>
               <div id="" class="alert alert-danger"><?php echo $errors['Domicilio'];?></div>
@@ -155,7 +159,7 @@
         </a>
       <?php endif;?>
     <div class="">
-        <input type="file" name="CedulaDoc" class="form-control "  id="CedulaDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        <input <?php echo $disabled;?> type="file" name="CedulaDoc" class="form-control "  id="CedulaDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
         
     </div>
         <?php if(isset($errors['CedulaDoc']) and $errors['CedulaDoc']!=''):?>
@@ -172,7 +176,7 @@
         </a>
       <?php endif;?>
     <div class="">
-        <input type="file" name="RifDoc" class="form-control "  id="RifDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        <input <?php echo $disabled;?> type="file" name="RifDoc" class="form-control "  id="RifDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
         <?php if(isset($errors['RifDoc']) and $errors['RifDoc']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['RifDoc'];?></div>
@@ -188,7 +192,7 @@
         </a>
       <?php endif;?>
     <div class="">
-        <input type="file" name="Licencia" class="form-control "  id="Licencia" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        <input <?php echo $disabled;?> type="file" name="Licencia" class="form-control "  id="Licencia" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
         <?php if(isset($errors['Licencia']) and $errors['Licencia']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Licencia'];?></div>
@@ -204,7 +208,7 @@
         </a>
       <?php endif;?>
     <div class="">
-        <input type="file" name="CarnetCirculacion" class="form-control " id="CarnetCirculacion" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        <input <?php echo $disabled;?> type="file" name="CarnetCirculacion" class="form-control " id="CarnetCirculacion" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
         <?php if(isset($errors['CarnetCirculacion']) and $errors['CarnetCirculacion']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['CarnetCirculacion'];?></div>
@@ -220,7 +224,7 @@
         </a>
       <?php endif;?>
     <div class="">
-        <input type="file" name="CertificadoMedico" class="form-control " id="CertificadoMedico" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        <input <?php echo $disabled;?> type="file" name="CertificadoMedico" class="form-control " id="CertificadoMedico" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
         <?php if(isset($errors['CertificadoMedico']) and $errors['CertificadoMedico']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['CertificadoMedico'];?></div>
@@ -236,7 +240,7 @@
         </a>
       <?php endif;?>
     <div class="">
-        <input type="file" name="CertificadoOrigen" class="form-control" id="CertificadoOrigen" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        <input <?php echo $disabled;?> type="file" name="CertificadoOrigen" class="form-control" id="CertificadoOrigen" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
     <?php if(isset($errors['CertificadoOrigen']) and $errors['CertificadoOrigen']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['CertificadoOrigen'];?></div>
@@ -246,7 +250,7 @@
   <div class="form-group col-sm-2">
     <label for="Marca" class="control-label">Marca</label> <label class="text-danger"> * </label>
     <div class="">
-        <select name="Marca" id="Marca" class="form-control">
+        <select <?php echo $disabled;?> name="Marca" id="Marca" class="form-control">
                     <option value="">Seleccione...</option>
             <?php if(count($marcas_list)>0):?>
                 <?php foreach($marcas_list as $marcas):?>
@@ -263,7 +267,7 @@
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Modelo</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Modelo" class="form-control" autocomplete="off" id="Modelo" maxlength="20" value="<?php if(isset($values['Modelo']) and $values['Modelo']!='') echo $values['Modelo'];?>" placeholder="Ejemplo: AVEO">
+        <input <?php echo $disabled;?> type="text" name="Modelo" class="form-control" autocomplete="off" id="Modelo" maxlength="20" value="<?php if(isset($values['Modelo']) and $values['Modelo']!='') echo $values['Modelo'];?>" placeholder="Ejemplo: AVEO">
     </div>
         <?php if(isset($errors['Modelo']) and $errors['Modelo']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Modelo'];?></div>
@@ -273,7 +277,7 @@
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Año</label> <label class="text-danger"> * </label>
     <div class="">
-        <select name="Anio" id="Anio" class="form-control">
+        <select <?php echo $disabled;?> name="Anio" id="Anio" class="form-control">
                     <option value="">Seleccione...</option>
 
                 <?php for($anio = (date('Y')-17); $anio<=date('Y'); $anio++):?>
@@ -290,7 +294,7 @@
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Color</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Color" class="form-control" id="Color" autocomplete="off" maxlength="20" value="<?php if(isset($values['Color']) and $values['Color']!='') echo $values['Color'];?>" placeholder="Ejemplo: Azul">
+        <input <?php echo $disabled;?> type="text" name="Color" class="form-control" id="Color" autocomplete="off" maxlength="20" value="<?php if(isset($values['Color']) and $values['Color']!='') echo $values['Color'];?>" placeholder="Ejemplo: Azul">
     </div>
         <?php if(isset($errors['Color']) and $errors['Color']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Color'];?></div>
@@ -300,7 +304,7 @@
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Placa</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="Placa" class="form-control" id="Placa" autocomplete="off" maxlength="7" value="<?php if(isset($values['Placa']) and $values['Placa']!='') echo $values['Placa'];?>" placeholder="Ejemplo: AAABBB">
+        <input <?php echo $disabled;?> type="text" name="Placa" class="form-control" id="Placa" autocomplete="off" maxlength="7" value="<?php if(isset($values['Placa']) and $values['Placa']!='') echo $values['Placa'];?>" placeholder="Ejemplo: AAABBB">
     </div>
         <?php if(isset($errors['Placa']) and $errors['Placa']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Placa'];?></div>
@@ -341,7 +345,7 @@
         </a>
       <?php endif;?>
     <div class="">
-        <input type="file" name="DEP1" class="form-control" id="DEP1" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        <input <?php echo $disabled;?> type="file" name="DEP1" class="form-control" id="DEP1" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
         <?php if(isset($errors['DEP1']) and $errors['DEP1']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['DEP1'];?></div>
@@ -357,7 +361,7 @@
         </a>
       <?php endif;?>
     <div class="">
-        <input type="file" name="DEP2" class="form-control " id="DEP2" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        <input <?php echo $disabled;?> type="file" name="DEP2" class="form-control " id="DEP2" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
         <?php if(isset($errors['DEP2']) and $errors['DEP2']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['DEP2'];?></div>
@@ -373,7 +377,7 @@
         </a>
       <?php endif;?>
     <div class="">
-        <input type="file" name="DEP3" class="form-control " id="DEP3" accept="application/pdf,image/x-png,image/gif,image/jpeg">
+        <input <?php echo $disabled;?> type="file" name="DEP3" class="form-control " id="DEP3" accept="application/pdf,image/x-png,image/gif,image/jpeg">
     </div>
         <?php if(isset($errors['DEP3']) and $errors['DEP3']!=''):?>
         <div class="alert alert-danger"><?php echo $errors['DEP3'];?></div>
@@ -548,7 +552,15 @@ $('#rechazo').hide();
         
         if(confirm('¿Está seguro(a) de rechazar la solicitud?')){
            
-           return true;
+            $.ajax({
+            type: "POST",
+            url: '<?php echo full_url?>/adm/solicitud_plan/index.php?action=rechazar',
+            data: {idSolicitudPlan: $('#idSolicitudPlan').val(),Observacion: $('#Observacion').val() },
+            success: function(){
+                alert('Solicitud Rechazada');
+                window.location.href = '<?php echo full_url?>/adm/solicitud_plan?action=edit&idSolicitudPlan=' + $('#idSolicitudPlan').val();
+            }
+          });
             
         }
     });    

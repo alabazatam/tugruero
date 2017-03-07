@@ -564,7 +564,22 @@
 			->fetch();
 			return $q; 				
 			
-		}               
+		} 
+		function rechazarSolicitud($idSolicitudPlan, $Observacion){			
+                        $array_solicitud_plan = array(
+				'Observacion' => $Observacion,
+                                'Estatus' => 'REC'
+                                
+			);
+		
+			
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array_solicitud_plan);	
+
+			
+			return $q;
+			
+		}
 	}
 			
 

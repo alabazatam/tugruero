@@ -31,7 +31,10 @@ $values = array_merge($values,$_FILES);
 		break;
 		case "aprobar":
 			executeAprobar($values);	
-		break;            
+		break;
+		case "rechazar":
+			executeRechazar($values);	
+		break; 
 		default:
 			executeIndex($values);
 		break;
@@ -223,5 +226,13 @@ $values = array_merge($values,$_FILES);
             $idSolicitudPlan = $values['idSolicitudPlan'];
             $SolicitudAprobada = new SolicitudAprobada();
             $SolicitudAprobada->aprobar($idSolicitudPlan, $VigenciaDesde, $VigenciaHasta);
+            
+        }
+        function executeRechazar($values){
+            
+            $Observacion = $values['Observacion'];
+            $idSolicitudPlan = $values['idSolicitudPlan'];
+            $SolicitudPlan = new SolicitudPlan();
+            $SolicitudPlan->rechazarSolicitud($idSolicitudPlan,$Observacion);
             
         }
