@@ -557,7 +557,22 @@
 					WHERE p.Tipo = 'tugruero.com'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
 				))
-                                AS concatenado_plan")
+                                AS concatenado_plan,
+                                ( SELECT Kilometraje FROM SolicitudPlanSeleccion sps 
+                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                WHERE p.Tipo = 'tugruero.com' 
+                                AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
+                                ) AS Kilometraje,
+                                ( SELECT TipoServicio FROM SolicitudPlanSeleccion sps 
+                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                WHERE p.Tipo = 'tugruero.com' 
+                                AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
+                                ) AS TipoServicio,
+                                ( SELECT CantidadServicios FROM SolicitudPlanSeleccion sps 
+                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                WHERE p.Tipo = 'tugruero.com' 
+                                AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
+                                ) AS CantidadServicios")
 			->join("SolicitudAprobada","INNER JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->where("SolicitudPlan.idSolicitudPlan=?",$idSolicitudPlan)
 			//echo $q;die;
