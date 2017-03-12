@@ -30,7 +30,6 @@
                                 'FechaAprobacion' => date('Y-m-d h:i:s'),
 
 			);
-			 
                         $ConnectionORM = new ConnectionORM();
                         $q = $ConnectionORM->getConnect()->SolicitudAprobada()->insert($array);
                         

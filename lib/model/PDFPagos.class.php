@@ -6,7 +6,9 @@
         public function cuadroTUGRUERO($values){
 			setlocale(LC_NUMERIC,"es_ES.UTF8");
                         ob_start();
-			
+                        $SolicitudPlan = new SolicitudPlan();
+                        $idSolicitudPlan = 4;
+			$datos_cuadro = $SolicitudPlan->getSolicitudPlanAprobadaInfo($idSolicitudPlan);
 	
 			// create new PDF document
 			$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -65,7 +67,7 @@
                                     . '<td>N° PRODUCTO</td>'
                                     . '</tr>'
                                     . '<tr>'
-                                    . '<td>TGP-PT</td>'
+                                    . '<td>'.$datos_cuadro['NumProducto'].'</td>'
                                     . '</tr>'
                                     . '<tr>'
                                     . '<td>(Llenado por agente de venta)</td>'
@@ -292,7 +294,7 @@
                                 . '<p align="center">Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos, Municipio Sucre, Edo. Miranda, Caracas, Venezuela. Tlf: (212) 2271492 / (212)2275273 · tugruero@gmail.com - info@tugruero.com</p>'
                                 ;
 			$pdf->writeHTML($html);				
-			$pdf->Output("Cuadro Producto", 'I');            
+			$pdf->Output(dir_cuadros."/hola2.pdf", 'F');            
             
             
             

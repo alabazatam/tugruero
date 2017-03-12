@@ -413,7 +413,7 @@
     <div id="" class="col-sm-3">
 
     </div>
-    <div id="" class="col-sm-6" style="background-color:#ccc;">
+    <div id="" class="col-sm-8 col-md-6" style="background-color:#ccc;">
         <h2>Aprobar solicitud</h2>
         <label>Vigencia desde</label><input type="text" value="" name="VigenciaDesde" id="VigenciaDesde">
         <label>Vigencia hasta</label><input type="text" value="" name="VigenciaHasta" id="VigenciaHasta">

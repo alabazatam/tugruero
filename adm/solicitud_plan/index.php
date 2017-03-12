@@ -7,7 +7,8 @@ setlocale(LC_NUMERIC,"es_ES.UTF8");
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
-
+            /*$PDFPagos = new PDFPagos();
+            $pdf = $PDFPagos->cuadroTUGRUERO(array());*/
 $values = $_REQUEST;
 $values = array_merge($values,$_FILES);
 	switch ($action) {
@@ -226,7 +227,8 @@ $values = array_merge($values,$_FILES);
             $idSolicitudPlan = $values['idSolicitudPlan'];
             $SolicitudAprobada = new SolicitudAprobada();
             $SolicitudAprobada->aprobar($idSolicitudPlan, $VigenciaDesde, $VigenciaHasta);
-            
+            /*$PDFPagos = new PDFPagos();
+            $pdf = $PDFPagos->cuadroTUGRUERO($values);*/
         }
         function executeRechazar($values){
             

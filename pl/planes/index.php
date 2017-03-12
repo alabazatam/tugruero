@@ -190,21 +190,21 @@ $values = array_merge($values,$_FILES);
             if(isset($files['DEP1']) and $files['DEP1']['size']>0){
                 $nombreArchivo = "DEP1_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP1']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['DEP1']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "DEP1", $nombreArchivo);
                 }
 
             }
             if(isset($files['DEP2']) and $files['DEP2']['size']>0){
                 $nombreArchivo = "DEP2_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP2']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['DEP2']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "DEP2", $nombreArchivo);
                 }
 
             }
             if(isset($files['DEP3']) and $files['DEP3']['size']>0){
                 $nombreArchivo = "DEP3_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP3']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['DEP3']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+                    $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "DEP3", $nombreArchivo);
                 }
 
             }

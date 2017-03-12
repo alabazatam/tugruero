@@ -21,6 +21,7 @@ define("development_by","frbcomputersgroup");
 define("upload_temp_dir",$_SERVER["DOCUMENT_ROOT"]."/".main_folder."/web/uploads/temp");
 define("upload_dir",$_SERVER["DOCUMENT_ROOT"]."/".main_folder."/web/uploads/documentos");
 define("images_dir","../../../../web/images/");
+define("dir_cuadros",$_SERVER["DOCUMENT_ROOT"]."/".main_folder."/web/files/Cuadros/");
 
 /* configuraciones apache*/
 $base_dir  = __DIR__; // Absolute path to your installation, ex: /var/www/mywebsite
