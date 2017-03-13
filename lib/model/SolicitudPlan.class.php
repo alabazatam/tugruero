@@ -532,6 +532,13 @@
 				
 
 				END) AS concatenado_plan,
+				(
+					SELECT Nombre  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				) as plan_tugruero,
 
 				(SELECT  SUM(PrecioConIva) 
 					FROM SolicitudPlanSeleccion sps 

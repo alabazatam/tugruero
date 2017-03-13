@@ -492,5 +492,85 @@
 
 
     }
+    function sendMessagePolizaBienvenida($values){
+            
+            $Utilitarios = new Utilitarios();
+            $idSolicitudPlan = $values['idSolicitudPlan'];
+            $saludo = $Utilitarios->saludo();
+            $SolicitudPlan = new SolicitudPlan();
+            $data = $SolicitudPlan->getSolicitudPlanInfo($idSolicitudPlan);
+			$data_aprobada = $SolicitudPlan->getSolicitudPlanAprobadaInfo($idSolicitudPlan);
+			$NumProducto = $data_aprobada['NumProducto'];
+			$Cedula = strtoupper($data['Cedula']);
+			$Placa= strtoupper($data['Placa']);
+            $Nombres = strtoupper($data['Nombres']);
+            $Apellidos = strtoupper($data['Apellidos']);
+            $ConcatenadoPlan = $data['concatenado_plan'];
+			$plan_tugruero = $data['plan_tugruero'];
+            try{
+            $smtp = "server-0116a.gconex.net";
+            //$smtp = "mail.tugruero.com";
+            $port = 465;
+            $secure = "ssl";
+            $username = "mercadeo@tugruero.com";
+            $password = "tugruero123";
+            $mail_from = 'mercadeo@tugruero.com'; 
+            $username = $this->username;
+            $password = $this->password;
+            $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
+              ->setUsername($username)
+              ->setPassword($password);
+            $mailer = Swift_Mailer::newInstance($transport);
+            $email = array('deandrademarcos@gmail.com');
+
+            $message = Swift_Message::newInstance('¡Felicidades! ¡Bienvenido a TU/GRUERO®!');
+            $message->setBody('<!DOCTYPE html>
+    <html>
+
+        <head>
+            <title>TU/GRUERO®</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 12px;color:#262426;">
+            <div align="center">
+		<p align="justify">'.$saludo.', '.$Nombres.' '.$Apellidos.', tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro Dpto. de Suscripción.</p>
+		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
+		<p align="justify">A continuación le indicamos los datos para acceder a la <strong>aplicación móvil TU/GRUERO®</strong> y solicitar los servicios de grúa por allí:</p>
+		<p align="left"><strong>Cédula: '.$Cedula.'</strong></p>
+		<p align="left"><strong>Placa: '.$Placa.'</strong></p>
+		<p align="left"><strong>Seguro: '.$plan_tugruero.'</strong></p>
+		<p align="justify">¡Esté atento!</p>
+		<p align="justify">De igual forma puede solicitar sus servicios de grúa a través de nuestro Call Center al <strong>0500-GRUERO-0 (0500-478376-0)</strong> </p>
+		<p align="justify">Le adjuntamos a este correo el <strong>Cuadro Producto</strong> contratado, donde podrá ver su información personal y la del vehículo cubierto por el plan.</p>
+		<p align="justify">Es importante que sepa que usted estará activo tanto en el plan como en la aplicación móvil en <strong>5 días habiles</strong> a partir del día de hoy.</p>
+		<p align="justify">Saludos.</p>
+		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
+		<p align="justify" style="font-size: 10px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0) y/o escribirnos a info@tugruero.com - tugruero@gmail.com</p>
+
+		</div>
+
+        </body>
+    </html>
+    ',"text/html");			
+					$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf"));            
+					$message->setFrom(array ($mail_from => 'TU/GRUERO®'));
+                    $message->setTo($email);
+                    //$message->setBcc('info@tugruero.com');
+            // Send the message
+
+
+                    $result = $mailer->send($message);	
+                    }catch(Exception $e){
+                            echo $e->getMessage().$e->getTraceAsString();
+                            die;
+                    }
+
+
+
+
+
+
+    }
 }
 

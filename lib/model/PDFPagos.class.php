@@ -298,7 +298,7 @@
                                 . '<p align="center">Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos, Municipio Sucre, Edo. Miranda, Caracas, Venezuela. Tlf: (212) 2271492 / (212)2275273 · tugruero@gmail.com - info@tugruero.com</p>'
                                 ;
 			$pdf->writeHTML($html);				
-			$pdf->Output(dir_cuadros."/hola2.pdf", 'F');            
+			$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'F');            
             
             
             
