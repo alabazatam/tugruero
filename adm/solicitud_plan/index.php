@@ -229,6 +229,9 @@ $values = array_merge($values,$_FILES);
             $SolicitudAprobada->aprobar($idSolicitudPlan, $VigenciaDesde, $VigenciaHasta);
             $PDFPagos = new PDFPagos();
             $pdf = $PDFPagos->cuadroTUGRUERO($values);
+			$Mail = new Mail();
+			$Mail->sendMessagePolizaBienvenida($values);
+			
         }
         function executeRechazar($values){
             
