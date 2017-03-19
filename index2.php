@@ -56,7 +56,8 @@ $values = $_REQUEST;
 		//$objectives_title = $HtmlContents ->getContentTitle(1, 'objectives', 'page.php', 'es', 1, 'OBJETIVOS' );
 		//$objectives_contents = $HtmlContents ->getContents(1, 'objectives', 'page.php', 'es', 1, 'OBJETIVOS' );
         
-        
+        $Planes = new Planes();
+        $lista_beneficios = $Planes ->getBeneficios();
 	require('page2.php');
 	}
 

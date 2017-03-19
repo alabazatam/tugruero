@@ -618,7 +618,7 @@ fieldset[disabled] .btn-success.active {
     
 }
 .titulo_bancos{
-  font-size: 26px;
+  font-size: 26px !important;
   font-weight: 900;
   color: #f46830;
 }

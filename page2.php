@@ -68,7 +68,7 @@
                         <a href="#page-top">INICIO</a>
                     </li>
                     <li class="page-scroll font-nav">
-                        <a href="#gruero_plus">TU/GRUERO PLUS</a>
+                        <a href="#gruero_plus">Planes TU/GRUERO®</a>
                     </li>
                     <li class="page-scroll font-nav">
                         <a href="#quienes_somos">NOSOTROS</a>
@@ -274,11 +274,12 @@
             </div>
             <div class="col-sm-7 texto_gruero_plus text-left">
                     <div id="imagen">
-                        <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestro <strong>Plan de grúas anual</strong>
-                        <br>para que manejes tranquilo en <strong>todo el país</strong>
-                        <br>y disfruta de grúas <strong>ilimitadas</strong></p>
+                        <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestros planes vía online
+                        <br>para que manejes tranquilo en todo el país
+                        <br>y disfruta de grúas ilimitadas</p>
                         <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
-                        <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">MÁS INFORMACIÓN</button></p>
+                        <p align="center" class="titulo_gruero_plus"><strong>Ahora puedes adquirir nuestros planes vía online ¡Sin hacer ni una llamada!</strong></p>
+                        <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">MÁS INFORMACIÓN Y ADQUIRIR UN PLAN</button></p>
                     </div>
             </div>
             
@@ -597,46 +598,49 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="modal-body">
-													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-															<label class="popup_letras_p_header">Para que manejes tranquilo en todo el país</label>
+                            <div class="table-responsive">
+                            <table class="table-bordered" width="100%">
+                                <tr>
+                                    <td colspan="3">
+                                        <img src="web/img/fresh/header_tabla.png" class="img-responsive"></br>
+  
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><p>Beneficios</p></td>
+                                    <td><img src="web/img/fresh/logo_plus.png" class=""></td>
+                                    <td><img src="web/img/fresh/logo_gold.png" class=""></td>
+                                </tr>
+                            <?php foreach($lista_beneficios as $beneficios):?>
+                                <?php $plan_beneficio_plus = $Planes -> getPlanesBeneficios(1,$beneficios['idBeneficio']);?>
+                                <?php $plan_beneficio_gold = $Planes -> getPlanesBeneficios(2,$beneficios['idBeneficio']);?>
 
-													</div>
- 
-                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-														<ul class="ul_estrella text-left">
-															
-                                                            <li class="letra_popup">Servicios de grúas ilimitados por todo un año.</li>
+                                <tr>
+                                    <td><?php echo $beneficios['Descripcion'];?></td>
 
-                                                            <li class="letra_popup">Auxilio vial en menos de 30 minutos.</li>
+                                    <td>
+                                        <?php if($plan_beneficio_plus ==0):?>
+                                        <img src="web/img/fresh/guion.png" class="">
+                                        <?php endif;?>
+                                        <?php if($plan_beneficio_plus >0 ):?>
+                                        <img src="web/img/fresh/tick_naranja.png" class="">
+                                        <?php endif;?>
+                                    </td>                                    
+                                    <td>
+                                        <?php if($plan_beneficio_gold ==0):?>
+                                        <img src="web/img/fresh/guion.png" class="">
 
-                                                            <li class="letra_popup">Más de 2000 grueros en toda Venezuela.</li>
-
-                                                            <li class="letra_popup">Búsqueda de grueros vía GPS (Geolocalización).</li>
-
-                                                            <li class="letra_popup">Disponible en tu ciudad de residencia.</li>
-					
-												
-															<li class="letra_popup">Pagado en una sola cuota fija y válido por 365 días.</li>
-
-                                                            <li class="letra_popup">Disponible para carros tipo sedán, camionetas de uso personal hasta 3000Kg y motos de todo tipo.</li>
-														</ul>	
-                                                       
-                                                    </div>
-												<div class="row">
-                                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                                                        <div class="well background_caja_popup font_caja_quienes_somos">
-															<label class="popup_letras_p">Para más información de TU/GRUERO Plus y contratación llama a nuestro</label>
-															<label class="popup_letras_g">Call Center</label>
-															<label class="popup_letras_g">0500 GRUERO-0 (0500-478376-0)</label>
-															<label class="popup_letras_p text-center">Línea directa</label>
-															
-														</div>
-                                                    </div>
-
-												</div>
-                                                <div class="col-xs-12 franja_naranja_popup_clara" >
-                                                    <div class="franja_naranja_popup_oscura"><label class="white-font">¡24/7 los 365 días del año!</label></div>  
-                                                </div>
+                                        <?php endif;?>
+                                        <?php if($plan_beneficio_gold >0):?>
+                                        <img src="web/img/fresh/tick_naranja.png" class="">
+                                        <?php endif;?>
+                                    </td>
+                                    
+                                </tr>   
+                            <?php endforeach;?>
+                            </table>
+                            </div>
 				
                         </div>
                     </div>

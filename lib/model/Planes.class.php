@@ -71,7 +71,29 @@
 		}
 		
 
-
+		public function getBeneficios()
+		{	
+			
+                        $ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Beneficios
+			->select("*")
+			->where("Estatus = 'Activo'")
+                        ->order("orden asc");
+			return $q; 			
+		}
+		public function getPlanesBeneficios($idPlan,$idBeneficio)
+		{	
+			
+                        $ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->PlanesBeneficios
+			->select("count(*) as cuenta")
+			->join("Beneficios","INNER JOIN Beneficios b on b.idBeneficio = PlanesBeneficios.idBeneficio")
+			->where("idPlan =?",$idPlan)
+                        ->and("PlanesBeneficios.idBeneficio=?",$idBeneficio)
+                        ->and("PlanesBeneficios.Estatus=?","Activo")
+                        ->fetch();
+			return $q['cuenta']; 			
+		}
 
 	}
 	
