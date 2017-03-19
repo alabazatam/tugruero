@@ -592,25 +592,21 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 			<div class="close-modal" data-dismiss="modal">
 				<i class="fa fa-close fa-2x"></i>
 			</div>
-			<div class="modal-header">
-                            <img src="web/img/fresh/gruero_plus_p.png" alt="TU/GRUERO PLUS" class=""></br>
-			</div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    
                         <div class="modal-body">
+							<div class="col-xs-12 col-lg-6 col-lg-offset-3">
                             <div class="table-responsive">
-                            <table class="table-bordered" width="100%">
+							<table class="" width="100%" border="1" id="table_c_comparativo">
                                 <tr>
                                     <td colspan="3">
-                                        <img src="web/img/fresh/header_tabla.png" class="img-responsive"></br>
-  
-                                        
+                                        <img src="web/img/fresh/header_tabla.png" class="img-responsive">
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td><p>Beneficios</p></td>
-                                    <td><img src="web/img/fresh/logo_plus.png" class=""></td>
-                                    <td><img src="web/img/fresh/logo_gold.png" class=""></td>
+                                <tr class="background_cuadro_header">
+                                    <td class="text-center"><label class="beneficios_title">Beneficios</label></td>
+                                    <td class="text-center"><img src="web/img/fresh/logo_plus.png" class=""></td>
+                                    <td class="text-center"><img src="web/img/fresh/logo_gold.png" class=""></td>
                                 </tr>
                             <?php foreach($lista_beneficios as $beneficios):?>
                                 <?php $plan_beneficio_plus = $Planes -> getPlanesBeneficios(1,$beneficios['idBeneficio']);?>
@@ -619,7 +615,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                                 <tr>
                                     <td><?php echo $beneficios['Descripcion'];?></td>
 
-                                    <td>
+                                    <td class="text-center">
                                         <?php if($plan_beneficio_plus ==0):?>
                                         <img src="web/img/fresh/guion.png" class="">
                                         <?php endif;?>
@@ -627,7 +623,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                                         <img src="web/img/fresh/tick_naranja.png" class="">
                                         <?php endif;?>
                                     </td>                                    
-                                    <td>
+                                    <td class="text-center">
                                         <?php if($plan_beneficio_gold ==0):?>
                                         <img src="web/img/fresh/guion.png" class="">
 
@@ -639,6 +635,11 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                                     
                                 </tr>   
                             <?php endforeach;?>
+								<tr class="background_cuadro_footer">
+									<td><strong>&nbsp;&nbsp;&nbsp;Precio (con IVA incluido)</strong></td>
+									<td class="text-center"><strong><?php echo $Planes->getPlanPrecioIva(1)?></strong></td>
+									<td class="text-center"><strong><?php echo $Planes->getPlanPrecioIva(2)?></strong></td>
+								</tr>
                             </table>
                             </div>
 				

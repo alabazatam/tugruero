@@ -94,6 +94,17 @@
                         ->fetch();
 			return $q['cuenta']; 			
 		}
+		public function getPlanPrecioIva($idPlan)
+		{	
+			setlocale(LC_NUMERIC,"es_ES.UTF8");
+            $ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Planes
+			->select("PrecioIva")
+			->where("idPlan =?",$idPlan)
+            ->fetch();
+			
+			return number_format($q['PrecioIva'],2,",",".");	
+		}
 
 	}
 	
