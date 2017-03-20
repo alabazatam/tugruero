@@ -1130,3 +1130,6 @@ fieldset[disabled] .btn-success.active {
    background-repeat: repeat;
    
 }
+.bg-naranja {
+  background-color: #000 !important;
+}

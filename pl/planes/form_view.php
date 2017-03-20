@@ -1,11 +1,33 @@
 <?php include('../../view_header_app.php')?>
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
-<h1>Título</h1>
+<div class="" style="background-color: #E9E9E9;">
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+		<div class="row">
+			<div class="container text-center">
+				<a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="200"></a>
+			</div>
+		
+		</div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
+  </div>
+</nav>
+
+<h1 align="center">Proceso de contratación Plan TU/GRUERO®</h1>
         <?php if(isset($errors['global']) and $errors['global']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['global'];?></div>
 
         <?php endif;?> 
+		
 <form class="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
@@ -14,7 +36,7 @@
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
   </div>
   <div class="form-group col-sm-12">
-	  <label for="idPlan" class="">Plan </label> <label class="text-danger"> * </label>
+	  <label for="idPlan" class="">Escoja el plan de su preferencia </label> <label class="text-danger"> * </label>
     <div class="">
         <select class="form-control" id="idPlan" name="idPlan">
             <option value="">Seleccione el plan</option>
@@ -292,10 +314,10 @@
     <label for="inputEmail3" class="control-label">Método de pago</label> <label class="text-danger"> * </label>
     <div class="">
     <label class="radio-inline">
-      <input type="radio" name="MET" class="MET" value="TDC" <?php if(isset($values['MET']) and $values['MET']=='TDC') echo "checked='checked'";?>>Tarjeta de crédito
+		<input type="radio" name="MET" class="MET" value="TDC" <?php if(isset($values['MET']) and $values['MET']=='TDC') echo "checked='checked'";?>>Tarjeta de crédito <i class="fa fa-cc-visa fa-2x"></i> <i class="fa fa-cc-mastercard fa-2x"></i>
     </label>
     <label class="radio-inline">
-      <input type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['MET']) and $values['MET']=='DEP') echo "checked='checked'";?>> Depósito o transferencia
+      <input type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['MET']) and $values['MET']=='DEP') echo "checked='checked'";?>> Depósito o transferencia  <i class="fa fa-file-text-o fa-2x"></i>
     </label>
     </div>
         <?php if(isset($errors['MET']) and $errors['MET']!=''):?>
@@ -371,13 +393,15 @@
         <div id="" class="alert alert-danger col-sm-12"><?php echo $errors['global'];?></div>
 
         <?php endif;?> 
-  <div class="form-group col-sm-12">
-    <div class="col-sm-offset-10 col-sm-2">
-      <button type="submit" class="btn btn-default">Sign in</button>
+  <div class="form-group col-xs-12">
+	<div class="col-sm-4"></div>
+    <div class="col-sm-4 text-center" >
+		<button type="submit" class="btn btn-success"><i class="fa">Procesar pago</i></button>
     </div>
+	<div class="col-sm-4"></div>
   </div>
 </form>
-
+</div>
 <?php include('../../view_footer_solicitud.php')?>
 <script>
 

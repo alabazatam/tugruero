@@ -655,10 +655,10 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                     </div>
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
 						<div class="text-center">
-							<br><a class="btn btn-naranja" target="_blank" href="<?php echo full_url?>/pl/planes/index.php"><i class="fa fa-2x"> ¡CONTRATAR PLAN!</i></a><br></div>
+							<br><a class="btn btn-naranja" target="_blank" href="<?php echo full_url?>/pl/planes/index.php"><i class="fa fa-2x"> ¡CONTRATAR PLAN!</i></a></div>
 					</div>
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
-						
+						<br>
 						<ul>
 							<li class="small">Solo se puede contratar el plan para un (01) vehículo a la vez.</li>
 							<li class="small">Si usted realizó el pago por transferencia o depósito bancario asegúrese de tener el recibo o voucher digitalizado en su equipo, ya que lo tendrá que cargar al finalizar el proceso de contratación.</li>
