@@ -595,7 +595,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                 <div class="row">
                     
                         <div class="modal-body">
-							<div class="col-xs-12 col-lg-6 col-lg-offset-3">
+							<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
                             <div class="table-responsive">
 							<table class="" width="100%" border="1" id="table_c_comparativo">
                                 <tr>
@@ -644,7 +644,28 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                             </div>
 				
                         </div>
+							<div class="col-xs-12 col-sm-12 col-md-3 ">
+								<label><strong>Características y Coberturas de los planes:</strong></label>
+								<ul>
+									<li><i class="fa fa-file-pdf-o"></i> <a target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Plus_Clientes.pdf" ><small class="black-font">TU/GRUERO® Plus</small></a></li>
+									<li><i class="fa fa-file-pdf-o"></i> <a target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Gold_Clientes.pdf" ><small class="black-font">TU/GRUERO® GOLD</small></a></li>
+								</ul>
+								
+							</div>
                     </div>
+					<div class="col-sm-12 col-md-6 col-md-offset-3">
+						<div class="text-center">
+							<br><a class="btn btn-naranja" target="_blank" href="<?php echo full_url?>/pl/planes/index.php"><i class="fa fa-2x"> ¡CONTRATAR PLAN!</i></a><br></div>
+					</div>
+					<div class="col-sm-12 col-md-6 col-md-offset-3">
+						
+						<ul>
+							<li class="small">Solo se puede contratar el plan para un (01) vehículo a la vez.</li>
+							<li class="small">Si usted realizó el pago por transferencia o depósito bancario asegúrese de tener el recibo o voucher digitalizado en su equipo, ya que lo tendrá que cargar al finalizar el proceso de contratación.</li>
+						</ul>
+						
+					
+					</div>
                 </div>
         </div>
     </div>
