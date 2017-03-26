@@ -11,8 +11,8 @@
         <span class="icon-bar"></span>
       </button>
 		<div class="">
-			<div class="container text-center">
-				<a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="200"></a>
+			<div class="container text-left">
+				<a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="150"></a>
 			</div>
 		
 		</div>

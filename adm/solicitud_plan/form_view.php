@@ -1,5 +1,5 @@
 <?php include('../../view_header_app.php')?>
-<?php //include('../menu.php')?>
+<?php include('../menu.php')?>
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <?php $SolicitudDocumentos = new SolicitudDocumentos();?>
 <?php $SolicitudPagoDetalle = new SolicitudPagoDetalle();?>
@@ -9,7 +9,7 @@
     <?php $disabled = ' disabled = "disabled" '?>
 <?php endif;?>
 <div class="form-group col-sm-12">
-<h1>Título</h1>
+<h1 align="center">Proceso de contratación Plan TU/GRUERO®</h1>
 
 <form class="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
@@ -74,7 +74,49 @@
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-6">
+        <div class="form-group col-sm-3">
+          <label for="RCV" class="control-label">Sexo</label> <label class="text-danger"> * </label>
+          <div class="">
+          <label class="radio-inline">
+            <input type="radio" name="Sexo" class="Sexo" value="Masculino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Masculino') echo "checked='checked'";?>> Masculino
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="Sexo" class="Sexo" value="Femenino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Femenino') echo "checked='checked'";?>> Femenino
+          </label>
+          </div>
+              <?php if(isset($errors['Sexo']) and $errors['Sexo']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Sexo'];?></div>
+
+              <?php endif;?>
+        </div>
+        <div class="form-group col-sm-3">
+          <label for="EstadoCivil" class="control-label">Estado Civil</label> <label class="text-danger"> * </label>
+          <div class="">
+                <select name="EstadoCivil" class="form-control" id="EstadoCivil">
+                    <option value="">Seleccione...</option> 
+                    <option value="Casado(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Casado(a)') echo "selected = 'selected'"?> >Casado(a)</option>
+                    <option value="Divorciado(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Divorciado(a)') echo "selected = 'selected'"?> >Divorciado(a)</option>
+                    <option value="Soltero(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Soltero(a)') echo "selected = 'selected'"?> >Soltero(a)</option>
+                    <option value="Viudo(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Viudo(a)') echo "selected = 'selected'"?> >Viudo(a)</option>
+                    
+                </select> 
+          </div>
+              <?php if(isset($errors['EstadoCivil']) and $errors['EstadoCivil']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['EstadoCivil'];?></div>
+
+              <?php endif;?>
+        </div>
+  <div class="form-group col-sm-3">
+    <label for="FechaNacimiento" class="2 control-label">Fecha de nacimiento</label> <label class="text-danger"> * </label>
+    <div class="">
+        <input type="text" name="FechaNacimiento" class="form-control" autocomplete="off" maxlength="10" id="" value="<?php if(isset($values['FechaNacimiento']) and $values['FechaNacimiento']!='') echo $values['FechaNacimiento'];?>"  placeholder="Ejemplo: 01/01/1980">
+    </div>
+        <?php if(isset($errors['FechaNacimiento']) and$errors['FechaNacimiento']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['FechaNacimiento'];?></div>
+
+        <?php endif;?>
+  </div>
+  <div class="form-group col-sm-3">
     <label for="Correo" class="control-label">Correo electrónico</label> <label class="text-danger"> * </label>
     <div class="">
       <input <?php echo $disabled;?> type="email" class="form-control" name="Correo" autocomplete="off" id="Correo" maxlength="100" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo'];?>" placeholder="Ejemplo: correo@gmail.com">
@@ -123,6 +165,17 @@
               <?php endif;?>
         </div>
         <div class="form-group col-sm-3">
+          <label for="Ciudad" class="control-label">Ciudad</label> <label class="text-danger"> * </label>
+          <div class="">
+              <input type="text" name="Ciudad" class="form-control" id="Ciudad" value="<?php if(isset($values['Ciudad']) and $values['Ciudad']!='') echo $values['Ciudad'];?>" />
+          </div>
+              <?php if(isset($errors['Ciudad']) and $errors['Ciudad']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Ciudad'];?></div>
+
+              <?php endif;?>
+        </div>
+        
+        <div class="form-group col-sm-12">
           <label for="Domicilio" class="control-label">Dirección de domicilio</label> <label class="text-danger"> * </label>
           <div class="">
               <textarea <?php echo $disabled;?> name="Domicilio" class="form-control"id="Domicilio"><?php if(isset($values['Domicilio']) and $values['Domicilio']!='') echo $values['Domicilio'];?></textarea>
@@ -274,6 +327,21 @@
 
         <?php endif;?>
   </div> 
+        <div class="form-group col-sm-2">
+          <label for="Tipo" class="control-label">Tipo</label> <label class="text-danger"> * </label>
+          <div class="">
+                <select name="Tipo" class="form-control" id="Tipo">
+                    <option value="">Seleccione...</option> 
+                    <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>                   
+                    <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>                   
+
+                </select> 
+          </div>
+              <?php if(isset($errors['Tipo']) and $errors['Tipo']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Tipo'];?></div>
+
+              <?php endif;?>
+        </div> 
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Año</label> <label class="text-danger"> * </label>
     <div class="">

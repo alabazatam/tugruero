@@ -33,6 +33,22 @@
 			"label" => "Apellidos",
 			"required" => true
 		);
+		$validator_values['FechaNacimiento'] = array(
+			
+			"minlength" => 10,
+			"maxlength" => 10,
+			"type" => "text",
+			"label" => "Fecha de nacimiento",
+			"required" => true
+		);
+		$validator_values['Ciudad'] = array(
+			
+			"minlength" => 3,
+			"maxlength" => 30,
+			"type" => "text",
+			"label" => "Ciudad",
+			"required" => true
+		);
 		$validator_values['Cedula'] = array(
 			
 			"minlength" => 7,
@@ -160,12 +176,21 @@
                 /*if(!isset($values['RCV']) or $values['RCV']==''){
                     $errors['RCV'] = 'Debe indicar si elige RCV';
                 }*/
+                if(!isset($values['Sexo']) or $values['Sexo']==''){
+                    $errors['Sexo'] = 'Debe seleccionar el sexo';
+                }
+                if(!isset($values['EstadoCivil']) or $values['EstadoCivil']==''){
+                    $errors['EstadoCivil'] = 'Debe seleccionar el estado civil';
+                }  
                 if(!isset($values['Marca']) or $values['Marca']==''){
                     $errors['Marca'] = 'Debe seleccionar la marca';
                 }
                 if(!isset($values['Anio']) or $values['Anio']==''){
                     $errors['Anio'] = 'Debe seleccionar el año';
                 }
+                if(!isset($values['Tipo']) or $values['Tipo']==''){
+                    $errors['Tipo'] = 'Debe seleccionar el tipo de vehículo';
+                } 
                 /*if(!isset($values['MET']) or $values['MET']==''){
                     $errors['MET'] = 'Debe indicar el método de pago';
                 }*/
