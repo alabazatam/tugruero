@@ -267,12 +267,12 @@
     <section id="gruero_plus" onload="alert(1);">
         <div class="row margin_gruero_plus">
             
-            <div class="col-sm-5 text-right">
+            <!--<div class="col-sm-5 text-right">
                         <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/entrada_tugruero1.png" alt="TU/GRUERO PLUS" class=""></span>
                         <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/entrada_tugruero2.png" alt="TU/GRUERO PLUS" class=""></span>
 
-            </div>
-            <div class="col-sm-7 texto_gruero_plus text-left">
+            </div>-->
+            <div class="col-sm-12 texto_gruero_plus text-left">
                     <div id="imagen">
                         <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestros planes vía online
                         <br>para que manejes tranquilo en todo el país
