@@ -469,10 +469,9 @@ fieldset[disabled] .btn-success.active {
 .portfolio-modal .modal-content{
   margin: 0;
   padding: 0;
-  padding-left: 5px !important;
-  padding-right: 5px !important;
+  padding-left: 10px !important;
   padding-bottom: 20px;
-  /*text-align: center;*/
+  text-align: center;
   /*background: url(../img/fresh/popup_plus.png) ;*/
   background-position: center center;
   background-repeat: no-repeat;
@@ -488,9 +487,8 @@ fieldset[disabled] .btn-success.active {
   border: none;
   min-height: 100%;
   padding: 50px 0;
-  /*text-align: center;*/
-  color: #000000;
-  font-size: 22px;
+  text-align: center;
+  color: #6D6E71;
 }
 .portfolio-modal .modal-content p{
     font-size: 14px !important;
@@ -1105,31 +1103,25 @@ fieldset[disabled] .btn-success.active {
     }    
     
 }
-#table_c_comparativo {
+.table_cuadro {
   margin: 0;
   padding: 0;
+  padding-bottom: 0px;
+  /*text-align: center;*/
   /*background: #18BC9C;*/
-  background: url(../img/fresh/fondo_cuadro.png) ;
-  background-position: center center;
+  background: url(../img/fresh/fondo_cuadro_c.png) ;
+  /*background-position: center center;*/
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /*background-size: cover;*/    
+  background-size: contain;
+  /*background-color: #464646; */
+
 }
-.beneficios_title {
-    font-size: 40px;
-    color: #f14624;
-    font-weight: bolder;
+.beneficios_cuadro {
+    font-size: 26px;
+    color: #f14624 !important;
+    
 }
-.background_cuadro_header {
-   background: url(../img/fresh/pixel_header_cuadro.png) ;
-   background-repeat: repeat;
-   
-}
-.background_cuadro_footer {
-   background: url(../img/fresh/pixel_footer_cuadro.png) ;
-   background-repeat: repeat;
-   
-}
-.bg-naranja {
-  background-color: #000 !important;
+.letra_cuadro {
+    font-size: 50px !important;
 }

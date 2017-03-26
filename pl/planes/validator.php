@@ -33,6 +33,22 @@
 			"label" => "Apellidos",
 			"required" => true
 		);
+		$validator_values['FechaNacimiento'] = array(
+			
+			"minlength" => 10,
+			"maxlength" => 10,
+			"type" => "text",
+			"label" => "Fecha de nacimiento",
+			"required" => true
+		);
+		$validator_values['Ciudad'] = array(
+			
+			"minlength" => 3,
+			"maxlength" => 30,
+			"type" => "text",
+			"label" => "Ciudad",
+			"required" => true
+		);
 		$validator_values['Cedula'] = array(
 			
 			"minlength" => 7,
@@ -54,7 +70,7 @@
 			"minlength" => 1,
 			"maxlength" => 100,
 			"type" => "email",
-			"label" => "Correo electrónico",
+			"label" => "",
 			"required" => true
 		);
 		$validator_values['Correo2'] = array(
@@ -62,7 +78,7 @@
 			"minlength" => 1,
 			"maxlength" => 100,
 			"type" => "email",
-			"label" => "Confirme su correo electrónico",
+			"label" => "",
 			"required" => true
 		);
 		$validator_values['Telefono'] = array(
@@ -130,7 +146,7 @@
 			"type" => "text",
 			"label" => "Dirección de domicilio",
 			"required" => true,
-			"minlength" => 5,
+			"minlength" => 10,
 			"maxlength" => 200,
 		);
 		$ValidateBase = new ValidateBase();
@@ -161,6 +177,9 @@
                 {
                     $errors['Rif'] = "Verifique el formato del RIF (V-12345670)";
                 }
+                if (!preg_match("/^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$/", $values['FechaNacimiento'])) {
+                     $errors['FechaNacimiento'] = "Verifique el formato de la fecha de nacimiento (01/01/1980)";
+                }
                 if (!preg_match("/^[2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
                 {
                     $errors['Telefono'] = "Formato o número incorrecto (Ejemplo: 2121234567))";
@@ -171,6 +190,12 @@
                 }
                 
                 
+                if(!isset($values['Sexo']) or $values['Sexo']==''){
+                    $errors['Sexo'] = 'Debe seleccionar el sexo';
+                }
+                if(!isset($values['EstadoCivil']) or $values['EstadoCivil']==''){
+                    $errors['EstadoCivil'] = 'Debe seleccionar el estado civil';
+                }   
                 if(!isset($values['idPlan']) or $values['idPlan']==''){
                     $errors['idPlan'] = 'Debe seleccionar el plan a contratar';
                 }
@@ -183,6 +208,9 @@
                 if(!isset($values['Anio']) or $values['Anio']==''){
                     $errors['Anio'] = 'Debe seleccionar el año';
                 }
+                if(!isset($values['Tipo']) or $values['Tipo']==''){
+                    $errors['Tipo'] = 'Debe seleccionar el tipo de vehículo';
+                } 
                 if(!isset($values['MET']) or $values['MET']==''){
                     $errors['MET'] = 'Debe indicar el método de pago';
                 }

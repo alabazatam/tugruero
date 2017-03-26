@@ -597,23 +597,23 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                         <div class="modal-body">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
                             <div class="table-responsive">
-							<table class="" width="100%" border="1" id="table_c_comparativo">
+                            <table class="table-bordered table_cuadro" width="100%">
                                 <tr>
                                     <td colspan="3">
                                         <img src="web/img/fresh/header_tabla.png" class="img-responsive">
                                     </td>
                                 </tr>
-                                <tr class="background_cuadro_header">
-                                    <td class="text-center"><label class="beneficios_title">Beneficios</label></td>
-                                    <td class="text-center"><img src="web/img/fresh/logo_plus.png" class=""></td>
-                                    <td class="text-center"><img src="web/img/fresh/logo_gold.png" class=""></td>
+                                <tr>
+                                    <td><label class="beneficios_cuadro">Beneficios</label></td>
+                                    <td><img src="web/img/fresh/logo_plus.png" class="" style="vertical-align: middle !important;"></td>
+                                    <td><img src="web/img/fresh/logo_gold.png" class=""></td>
                                 </tr>
                             <?php foreach($lista_beneficios as $beneficios):?>
                                 <?php $plan_beneficio_plus = $Planes -> getPlanesBeneficios(1,$beneficios['idBeneficio']);?>
                                 <?php $plan_beneficio_gold = $Planes -> getPlanesBeneficios(2,$beneficios['idBeneficio']);?>
 
                                 <tr>
-                                    <td><?php echo $beneficios['Descripcion'];?></td>
+                                    <td><p class="letra_cuadro"><?php echo $beneficios['Descripcion'];?></p></td>
 
                                     <td class="text-center">
                                         <?php if($plan_beneficio_plus ==0):?>

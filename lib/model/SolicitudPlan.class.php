@@ -367,10 +367,15 @@
 			$array_solicitud_plan = array(
 				'Nombres' => @$values['Nombres'],
 				'Apellidos' => @$values['Apellidos'],
+                                'Sexo' => @$values['Sexo'],
+                                'EstadoCivil' => @$values['EstadoCivil'],
+                                'FechaNacimiento' => @$values['FechaNacimiento'],
+                                
                 'Correo' => @$values['Correo'],
                 'Cedula' => @strtoupper($values['Cedula']),
 				'Rif' => @strtoupper($values['Rif']),
                 'Estado' => $values['Estado'],
+                'Ciudad' => @$values['Ciudad'],
                 'Domicilio' => $values['Domicilio'],
                 'Telefono' => @$values['Telefono'],
 				'Celular' => @$values['Celular'],
@@ -382,6 +387,7 @@
                                 'Anio' => @$values['Anio'],
                                 'Color' => @$values['Color'],
                                 'Placa' => @$values['Placa'],
+                                'Tipo' => @$values['Tipo'],
                                 'Puestos' => @$values['Puestos'],
                                 'Estatus' => 'ENV',
                                 'TotalSinIva' => '0',
@@ -409,7 +415,7 @@
 			}
 			$TotalSinIva = 0;
                         $TotalConIva = 0;
-			//print_r($array_planes);
+		
 				foreach($array_planes as $plan){
                                                 $IVA = $Planes->getIvaPlan($plan);
 						$PrecioSinIva = $Planes->getPrecioPlan($plan);
@@ -428,7 +434,7 @@
 						$array_solicitud_plan_seleccion['FechaSolicitud'] = date('Y-m-d h:i:s');
 						$q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);
 						
-				}			
+				}
                         //actualizo la solicicitud para colocarle el total del precio con y sin IVA
 			$this->updatePrecios($TotalConIva,$TotalSinIva,$values['idSolicitudPlan']);
 			}catch(Exception $e){
@@ -473,9 +479,7 @@
 				'TotalConIva' => $TotalConIva,
 				'TotalSinIva' => $TotalSinIva
 			);
-					
 			$ConnectionORM = new ConnectionORM();
-			$ConnectionAws = new ConnectionAws();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	
                 }
 		function updatePagoRealizado($idSolicitudPlan,$PagoRealizado){			

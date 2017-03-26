@@ -1,9 +1,7 @@
 <?php include('../../view_header_app.php')?>
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
-<div class="" style="background-color: #E9E9E9;">
-<nav class="navbar navbar-default">
-  <div class="container">
+<nav class="navbar navbar-default" >
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -12,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-		<div class="row">
+		<div class="">
 			<div class="container text-center">
 				<a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="200"></a>
 			</div>
@@ -27,8 +25,8 @@
         <div id="" class="alert alert-danger"><?php echo $errors['global'];?></div>
 
         <?php endif;?> 
-		
-<form class="" method="POST" enctype="multipart/form-data">
+    <div class="" style="background: #000 !important;">	
+    <form class="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
 
@@ -86,6 +84,49 @@
     </div>
         <?php if(isset($errors['Apellidos']) and$errors['Apellidos']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Apellidos'];?></div>
+
+        <?php endif;?>
+  </div>
+    
+        <div class="form-group col-sm-3">
+          <label for="RCV" class="control-label">Sexo</label> <label class="text-danger"> * </label>
+          <div class="">
+          <label class="radio-inline">
+            <input type="radio" name="Sexo" class="Sexo" value="Masculino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Masculino') echo "checked='checked'";?>> Masculino
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="Sexo" class="Sexo" value="Femenino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Femenino') echo "checked='checked'";?>> Femenino
+          </label>
+          </div>
+              <?php if(isset($errors['Sexo']) and $errors['Sexo']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Sexo'];?></div>
+
+              <?php endif;?>
+        </div>
+        <div class="form-group col-sm-3">
+          <label for="EstadoCivil" class="control-label">Estado Civil</label> <label class="text-danger"> * </label>
+          <div class="">
+                <select name="EstadoCivil" class="form-control" id="EstadoCivil">
+                    <option value="">Seleccione...</option> 
+                    <option value="Casado(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Casado(a)') echo "selected = 'selected'"?> >Casado(a)</option>
+                    <option value="Divorciado(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Divorciado(a)') echo "selected = 'selected'"?> >Divorciado(a)</option>
+                    <option value="Soltero(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Soltero(a)') echo "selected = 'selected'"?> >Soltero(a)</option>
+                    <option value="Viudo(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Viudo(a)') echo "selected = 'selected'"?> >Viudo(a)</option>
+                    
+                </select> 
+          </div>
+              <?php if(isset($errors['EstadoCivil']) and $errors['EstadoCivil']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['EstadoCivil'];?></div>
+
+              <?php endif;?>
+        </div>
+  <div class="form-group col-sm-3">
+    <label for="FechaNacimiento" class="2 control-label">Fecha de nacimiento</label> <label class="text-danger"> * </label>
+    <div class="">
+        <input type="text" name="FechaNacimiento" class="form-control" autocomplete="off" maxlength="10" id="" value="<?php if(isset($values['FechaNacimiento']) and $values['FechaNacimiento']!='') echo $values['FechaNacimiento'];?>"  placeholder="Ejemplo: 01/01/1980">
+    </div>
+        <?php if(isset($errors['FechaNacimiento']) and$errors['FechaNacimiento']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['FechaNacimiento'];?></div>
 
         <?php endif;?>
   </div>
@@ -147,7 +188,17 @@
 
               <?php endif;?>
         </div>
-        <div class="form-group col-sm-3">
+        <div class="form-group col-sm-6">
+          <label for="Ciudad" class="control-label">Ciudad</label> <label class="text-danger"> * </label>
+          <div class="">
+              <input type="text" name="Ciudad" class="form-control" id="Ciudad" value="<?php if(isset($values['Ciudad']) and $values['Ciudad']!='') echo $values['Ciudad'];?>" />
+          </div>
+              <?php if(isset($errors['Ciudad']) and $errors['Ciudad']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Ciudad'];?></div>
+
+              <?php endif;?>
+        </div>
+        <div class="form-group col-sm-6">
           <label for="Domicilio" class="control-label">Dirección de domicilio</label> <label class="text-danger"> * </label>
           <div class="">
               <textarea name="Domicilio" class="form-control"id="Domicilio"><?php if(isset($values['Domicilio']) and $values['Domicilio']!='') echo $values['Domicilio'];?></textarea>
@@ -158,7 +209,7 @@
               <?php endif;?>
         </div>
     </div>    
-    <div class="row"> 
+    <div class=""> 
         <div class="form-group col-sm-12">
           <label for="RCV" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
           <div class="">
@@ -262,7 +313,22 @@
         <div id="" class="alert alert-danger"><?php echo $errors['Modelo'];?></div>
 
         <?php endif;?>
-  </div> 
+  </div>
+        <div class="form-group col-sm-2">
+          <label for="Tipo" class="control-label">Tipo</label> <label class="text-danger"> * </label>
+          <div class="">
+                <select name="Tipo" class="form-control" id="Tipo">
+                    <option value="">Seleccione...</option> 
+                    <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>                   
+                    <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>                   
+
+                </select> 
+          </div>
+              <?php if(isset($errors['Tipo']) and $errors['Tipo']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['Tipo'];?></div>
+
+              <?php endif;?>
+        </div> 
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Año</label> <label class="text-danger"> * </label>
     <div class="">
@@ -299,8 +365,8 @@
         <div id="" class="alert alert-danger"><?php echo $errors['Placa'];?></div>
 
         <?php endif;?>
-  </div> 
-  <div class="form-group col-sm-2 Puestos">
+  </div>
+  <div class="form-group col-sm-12 Puestos">
     <label for="Telefono" class="control-label">Cantidad de puestos</label> <label class="text-danger"> * </label>
     <div class="">
         <input type="number" name="Puestos" class="form-control" id="Puestos" autocomplete="off" maxlength="1" value="<?php if(isset($values['Puestos']) and $values['Puestos']!='') echo $values['Puestos']; else echo "5";?>" min="5" max="7">
@@ -401,7 +467,8 @@
 	<div class="col-sm-4"></div>
   </div>
 </form>
-</div>
+    </div>
+        
 <?php include('../../view_footer_solicitud.php')?>
 <script>
 

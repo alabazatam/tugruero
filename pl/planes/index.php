@@ -55,7 +55,7 @@ $values = array_merge($values,$_FILES);
 					if($values['MET'] == 'TDC')
 					{
                                                 $values = $SolicitudPlan->saveSolicitudPlan($values);
-						//print_r($values);die;
+
                                                 //subir documentos
                                                 subirDocumentos($values, $_FILES);
                                                 executeMercadoPago($values,$errors);
