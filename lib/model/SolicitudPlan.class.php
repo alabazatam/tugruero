@@ -363,13 +363,13 @@
 		}		
 		function saveSolicitudPlan($values){
                         
-                        
+            $Utilitarios = new Utilitarios();           
 			$array_solicitud_plan = array(
 				'Nombres' => @$values['Nombres'],
 				'Apellidos' => @$values['Apellidos'],
                                 'Sexo' => @$values['Sexo'],
                                 'EstadoCivil' => @$values['EstadoCivil'],
-                                'FechaNacimiento' => @$values['FechaNacimiento'],
+                                'FechaNacimiento' => $Utilitarios->formatFechaInput(@$values['FechaNacimiento']),
                                 
                 'Correo' => @$values['Correo'],
                 'Cedula' => @strtoupper($values['Cedula']),
@@ -445,13 +445,14 @@
 			return $values;	
 			
 		}
-		function updateSolicitudPlan($values){			
+		function updateSolicitudPlan($values){	
+			$Utilitarios = new Utilitarios();
 	$array_solicitud_plan = array(
 				'Nombres' => @$values['Nombres'],
 				'Apellidos' => @$values['Apellidos'],
     				'EstadoCivil' => @$values['EstadoCivil'],
     				'Sexo' => @$values['Sexo'],
-    				'FechaNacimiento' => @$values['FechaNacimiento'],
+    				'FechaNacimiento' => $Utilitarios->formatFechaInput(@$values['FechaNacimiento']),
                                 'Correo' => @$values['Correo'],
                                 'Cedula' => @strtoupper($values['Cedula']),
 				'Rif' => @strtoupper($values['Rif']),
@@ -588,7 +589,8 @@
                                 INNER JOIN Planes p ON p.idPlan = sps.idPlan 
                                 WHERE p.Tipo = 'tugruero.com' 
                                 AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
-                                ) AS CantidadServicios")
+                                ) AS CantidadServicios,
+								TIMESTAMPDIFF(YEAR, FechaNacimiento, CURDATE()) AS Edad")
 			->join("SolicitudAprobada","INNER JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->where("SolicitudPlan.idSolicitudPlan=?",$idSolicitudPlan)
 			//echo $q;die;

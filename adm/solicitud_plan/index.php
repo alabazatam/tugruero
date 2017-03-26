@@ -8,7 +8,7 @@ if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
             $PDFPagos = new PDFPagos();
-            $pdf = $PDFPagos->cuadroTUGRUERO(array('idSolicitudPlan'=> 6));
+            $pdf = $PDFPagos->cuadroTUGRUERO(array('idSolicitudPlan'=> 17));
 $values = $_REQUEST;
 $values = array_merge($values,$_FILES);
 	switch ($action) {

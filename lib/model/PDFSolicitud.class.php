@@ -44,7 +44,51 @@ class MYPDF extends TCPDF {
 		$this->Cell(0, 10, 'Página '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
 	}
 }
-	
+class MYPDF2 extends TCPDF {
+
+	//Page header
+	public function Header() {
+		// Logo
+		//$image_file = K_PATH_IMAGES.'logo_tugruero.png';
+		//$this->Image($image_file, 15, 2, 25, '', 'PNG', '', 'T', false, 100, '', false, false, 0, false, false, false);
+		// Set font
+		//$this->SetFont('times', '', 8);
+		// Title
+		//$this->Cell(0, 15, 'Soluciones Tugruero, C.A', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+		//$this->Cell(0, 20, 'Soluciones Tugruero, C.A', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+		/*
+		$html = '<table width="100%" border="0">'
+			. '<tr>'
+			. '<td align="center"><br></td>'
+			. '</tr>'
+			. '<tr>'
+			. '<td align="left"><b>Soluciones Tugruero, C.A</b></td>'
+			. '</tr>'
+			. '<tr>'
+			. '<td align="center"><b>Av. Principal Los Dos Caminossssssssss. Edif. Provincial. Piso 8. Ofic. 8 "B". Los Dos Caminos. Municipio Sucre. Caracas.</b></td>'
+			. '</tr>'
+			. '<tr>'
+			. '<td align="center">tugruero@gmail.com - www.tugruero.com.ve</td>'
+			. '</tr>'
+			. '<tr>'
+			. '<td align="center">02122357207 / 02122391093</td>'
+			. '</tr>'
+			. '</table><br><br><hr>';
+		$this->writeHTML($html);*/
+		
+		
+	}
+
+	// Page footer
+	public function Footer() {
+		// Position at 15 mm from bottom
+		$this->SetY(-15);
+		// Set font
+		$this->SetFont('helvetica', 'I', 8);
+		// Page number
+		/*$this->Cell(0, 10, 'Página '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');*/
+	}
+}	
 	class PDFSolicitud 
 	{
 		

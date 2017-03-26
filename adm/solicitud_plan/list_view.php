@@ -1,5 +1,5 @@
 <?php include('../../view_header_app.php')?>
-<?php //include('../menu.php')?>
+<?php include('../menu.php')?>
 <div class="">
 	<h1 class="text-center big_title">Solicitudes de planes</h1>
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
