@@ -3,14 +3,27 @@
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <?php $SolicitudDocumentos = new SolicitudDocumentos();?>
 <?php $SolicitudPagoDetalle = new SolicitudPagoDetalle();?>
+<?php $SolicitudAprobada = new SolicitudAprobada();?>
+<?php $Utilitarios  = new Utilitarios();?>
+
 <?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
-<?php $disabled = '';?>
+<?php 
+$disabled = '';
+$isAprobada = false;
+
+?>
 <?php if(isset($values['Estatus']) and $values['Estatus']!='ENV'):?>
     <?php $disabled = ' disabled = "disabled" '?>
 <?php endif;?>
+
+<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!=''):?>
+    <?php $isAprobada = $SolicitudAprobada->isAprobada($values['idSolicitudPlan']);?>
+<?php endif;?>
+
+
+
 <div class="form-group col-sm-12">
 <h1 align="center">Proceso de contratación Plan TU/GRUERO®</h1>
-
 <form class="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
@@ -19,6 +32,22 @@
     <div class="form-group col-sm-12 text-right PlanPrecio">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
   </div>
+<?php if($isAprobada == true):?>
+<?php $datos_aprobacion = $SolicitudAprobada->getSolicitudAprobada($values['idSolicitudPlan'])?>
+<div class="form-group col-sm-3">
+     <label>Producto # </label> <?php echo $datos_aprobacion['NumProducto'];?>
+</div>
+<div class="form-group col-sm-3">
+     <label>Fecha aprobación</label> <?php echo $datos_aprobacion['FechaAprobacion'];?>
+</div>
+<div class="form-group col-sm-3">
+     <label>Vigencia desde</label> <?php echo $datos_aprobacion['VigenciaDesde'];?>
+</div>
+<div class="form-group col-sm-3">
+     <label>Vigencia hasta</label> <?php echo $datos_aprobacion['VigenciaHasta'];?>
+
+</div>
+<?php endif;?>
   <div class="form-group col-sm-12">
 	  <label for="idPlan" class="">Plan </label> <label class="text-danger"> * </label>
     <div class="">
@@ -78,10 +107,10 @@
           <label for="RCV" class="control-label">Sexo</label> <label class="text-danger"> * </label>
           <div class="">
           <label class="radio-inline">
-            <input type="radio" name="Sexo" class="Sexo" value="Masculino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Masculino') echo "checked='checked'";?>> Masculino
+            <input type="radio" <?php echo $disabled;?> name="Sexo" class="Sexo" value="Masculino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Masculino') echo "checked='checked'";?>> Masculino
           </label>
           <label class="radio-inline">
-            <input type="radio" name="Sexo" class="Sexo" value="Femenino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Femenino') echo "checked='checked'";?>> Femenino
+            <input type="radio" <?php echo $disabled;?> name="Sexo" class="Sexo" value="Femenino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Femenino') echo "checked='checked'";?>> Femenino
           </label>
           </div>
               <?php if(isset($errors['Sexo']) and $errors['Sexo']!=''):?>
@@ -92,7 +121,7 @@
         <div class="form-group col-sm-3">
           <label for="EstadoCivil" class="control-label">Estado Civil</label> <label class="text-danger"> * </label>
           <div class="">
-                <select name="EstadoCivil" class="form-control" id="EstadoCivil">
+                <select name="EstadoCivil" <?php echo $disabled;?> class="form-control" id="EstadoCivil">
                     <option value="">Seleccione...</option> 
                     <option value="Casado(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Casado(a)') echo "selected = 'selected'"?> >Casado(a)</option>
                     <option value="Divorciado(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Divorciado(a)') echo "selected = 'selected'"?> >Divorciado(a)</option>
@@ -109,7 +138,7 @@
   <div class="form-group col-sm-3">
     <label for="FechaNacimiento" class="2 control-label">Fecha de nacimiento</label> <label class="text-danger"> * </label>
     <div class="">
-        <input type="text" name="FechaNacimiento" class="form-control" autocomplete="off" maxlength="10" id="" value="<?php if(isset($values['FechaNacimiento']) and $values['FechaNacimiento']!='') echo $values['FechaNacimiento'];?>"  placeholder="Ejemplo: 01/01/1980">
+        <input <?php echo $disabled;?> type="text" name="FechaNacimiento" class="form-control" autocomplete="off" maxlength="10" id="" value="<?php if(isset($values['FechaNacimiento']) and $values['FechaNacimiento']!='') echo $values['FechaNacimiento'];?>"  placeholder="Ejemplo: 01/01/1980">
     </div>
         <?php if(isset($errors['FechaNacimiento']) and$errors['FechaNacimiento']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['FechaNacimiento'];?></div>
@@ -167,7 +196,7 @@
         <div class="form-group col-sm-3">
           <label for="Ciudad" class="control-label">Ciudad</label> <label class="text-danger"> * </label>
           <div class="">
-              <input type="text" name="Ciudad" class="form-control" id="Ciudad" value="<?php if(isset($values['Ciudad']) and $values['Ciudad']!='') echo $values['Ciudad'];?>" />
+              <input type="text" <?php echo $disabled;?> name="Ciudad" class="form-control" id="Ciudad" value="<?php if(isset($values['Ciudad']) and $values['Ciudad']!='') echo $values['Ciudad'];?>" />
           </div>
               <?php if(isset($errors['Ciudad']) and $errors['Ciudad']!=''):?>
               <div id="" class="alert alert-danger"><?php echo $errors['Ciudad'];?></div>
@@ -330,7 +359,7 @@
         <div class="form-group col-sm-2">
           <label for="Tipo" class="control-label">Tipo</label> <label class="text-danger"> * </label>
           <div class="">
-                <select name="Tipo" class="form-control" id="Tipo">
+                <select <?php echo $disabled;?> name="Tipo" class="form-control" id="Tipo">
                     <option value="">Seleccione...</option> 
                     <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>                   
                     <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>                   

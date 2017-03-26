@@ -68,7 +68,7 @@
 					WHEN Estatus = 'ENV' 
 					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
 					WHEN Estatus = 'ACT'
-					THEN 'PLAN PAGADO Y ACTIVO'
+					THEN 'PLAN PAGADO'
 					WHEN Estatus = 'REC'
 					THEN 'RECHAZADO'
 					END)";
@@ -149,7 +149,7 @@
 					WHEN Estatus = 'ENV' 
 					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
 					WHEN Estatus = 'ACT'
-					THEN 'PLAN PAGADO Y ACTIVO'
+					THEN 'PLAN PAGADO'
 					WHEN Estatus = 'REC'
 					THEN 'RECHAZADO'
 					END) like ('%".$values['columns'][8]['search']['value']."%')";
@@ -186,7 +186,7 @@
 					WHEN Estatus = 'ENV' 
 					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
 					WHEN Estatus = 'ACT'
-					THEN 'PLAN PAGADO Y ACTIVO'
+					THEN 'PLAN PAGADO'
 					WHEN Estatus = 'REC'
 					THEN 'RECHAZADO'
 					END AS Estatus,
@@ -303,7 +303,7 @@
 					WHEN Estatus = 'ENV' 
 					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
 					WHEN Estatus = 'ACT'
-					THEN 'PLAN PAGADO Y ACTIVO'
+					THEN 'PLAN PAGADO'
 					WHEN Estatus = 'REC'
 					THEN 'RECHAZADO'
 					END) like ('%".$values['columns'][8]['search']['value']."%')";
@@ -515,7 +515,7 @@
 					WHEN Estatus = 'ENV' 
 					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
 					WHEN Estatus = 'ACT'
-					THEN 'PLAN PAGADO Y ACTIVO'
+					THEN 'PLAN PAGADO'
 					WHEN Estatus = 'REC'
 					THEN 'RECHAZADO'
 					END AS Estatus,

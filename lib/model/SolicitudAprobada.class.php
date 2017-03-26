@@ -92,8 +92,26 @@
 			
 			
 		}
-
-                
+		public function isAprobada($idSolicitudPlan){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudAprobada
+			->select("count(*) as cuenta")
+                        ->where('idSolicitudPlan=?',$idSolicitudPlan)
+                        ->fetch();
+			if($q['cuenta']>0){
+                            return true;
+                        }else{
+                            return false;
+                        }			
+		}
+		public function getSolicitudAprobada($idSolicitudPlan){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudAprobada
+			->select("*,DATE_FORMAT(VigenciaDesde, '%d/%m/%Y') as VigenciaDesde,DATE_FORMAT(VigenciaHasta, '%d/%m/%Y') as VigenciaHasta,DATE_FORMAT(FechaAprobacion, '%d/%m/%Y') as FechaAprobacion")
+                        ->where('idSolicitudPlan=?',$idSolicitudPlan)
+                        ->fetch();
+                        return $q;
+		}                
 	}
 			
 
