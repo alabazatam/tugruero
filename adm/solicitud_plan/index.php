@@ -7,8 +7,8 @@ setlocale(LC_NUMERIC,"es_ES.UTF8");
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
-            $PDFPagos = new PDFPagos();
-            $pdf = $PDFPagos->cuadroTUGRUERO(array('idSolicitudPlan'=> 17));
+            /*$PDFPagos = new PDFPagos();
+            $pdf = $PDFPagos->cuadroTUGRUERO(array('idSolicitudPlan'=> 17));*/
 $values = $_REQUEST;
 $values = array_merge($values,$_FILES);
 	switch ($action) {
@@ -107,25 +107,49 @@ $values = array_merge($values,$_FILES);
 				}
 				
 				
-				
-				$array_json['data'][] = array(
-					"idSolicitudPlan" => $idSolicitudPlan,
-					"Nombres" => $list['Nombres'],
-					"Apellidos" => $list['Apellidos'],
-                                        "Cedula" => $list['Cedula'],
-                                        "Plan" => $list['concatenado_plan'],
-					"Rif" => $list['Rif'],
-                                        "PrecioTotal" => number_format($list['PrecioTotal'],2,",","."),
-					"Estatus" => $list['Estatus'],
-                                        "FechaSolicitud" => $list['FechaSolicitud'],
-                                        "TipoPago" => $list['TipoPago'],
-                                        "actions" => 
-                                       '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
-                                       .'<input type="hidden" name="action" value="edit">  '
-                                       .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
-                                       .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
-										.'</form>'
-					);	
+				if($list['EstatusAbr']!="ACT")
+				{
+					$array_json['data'][] = array(
+						"idSolicitudPlan" => $idSolicitudPlan,
+						"Nombres" => $list['Nombres'],
+						"Apellidos" => $list['Apellidos'],
+						"Cedula" => $list['Cedula'],
+						"Plan" => $list['concatenado_plan'],
+						"Rif" => $list['Rif'],
+						"PrecioTotal" => number_format($list['PrecioTotal'],2,",","."),
+						"Estatus" => $list['Estatus'],
+											"FechaSolicitud" => $list['FechaSolicitud'],
+											"TipoPago" => $list['TipoPago'],
+											"actions" => 
+										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
+										   .'<input type="hidden" name="action" value="edit">  '
+										   .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
+										   .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
+											.'</form>'
+						);	
+				}else
+				{
+					$array_json['data'][] = array(
+						"idSolicitudPlan" => $idSolicitudPlan,
+						"Nombres" => $list['Nombres'],
+						"Apellidos" => $list['Apellidos'],
+						"Cedula" => $list['Cedula'],
+						"Plan" => $list['concatenado_plan'],
+						"Rif" => $list['Rif'],
+						"PrecioTotal" => number_format($list['PrecioTotal'],2,",","."),
+						"Estatus" => $list['Estatus'],
+											"FechaSolicitud" => $list['FechaSolicitud'],
+											"TipoPago" => $list['TipoPago'],
+											"actions" => 
+										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
+										   .'<input type="hidden" name="action" value="edit">  '
+										   .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
+										   .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
+											.'<a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="btn btn-default" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
+											.'</form>'
+						);	
+				}
+
 			}		
 		}else{
 			$array_json['recordsTotal'] = 0;

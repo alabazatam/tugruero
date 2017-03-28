@@ -49,7 +49,7 @@
   </div>    
 
   <div class="form-group col-sm-3">
-    <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label>
+	  <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label><small> (V-12345678)</small>
     <div class="">
         <input type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
     </div>
@@ -59,7 +59,7 @@
         <?php endif;?>
   </div>
   <div class="form-group col-sm-3">
-    <label for="Rif" class=" control-label">RIF</label> <label class="text-danger"> * </label>
+	  <label for="Rif" class=" control-label">RIF</label> <label class="text-danger"> * </label><small> (V-123456781)</small>
     <div class="">
         <input type="text" name="Rif" class="form-control" maxlength="11" autocomplete="off" value="<?php if(isset($values['Rif']) and $values['Rif']!='') echo $values['Rif'];?>" id="Rif" placeholder="Ejemplo: V-123456781">
     </div>
@@ -121,7 +121,7 @@
               <?php endif;?>
         </div>
   <div class="form-group col-sm-3">
-    <label for="FechaNacimiento" class="2 control-label">Fecha de nacimiento</label> <label class="text-danger"> * </label>
+    <label for="FechaNacimiento" class="2 control-label">Fecha de nacimiento</label> <label class="text-danger"> * </label><small> (01/01/1980)</small>
     <div class="">
         <input type="text" name="FechaNacimiento" class="form-control" autocomplete="off" maxlength="10" id="" value="<?php if(isset($values['FechaNacimiento']) and $values['FechaNacimiento']!='') echo $values['FechaNacimiento'];?>"  placeholder="Ejemplo: 01/01/1980">
     </div>
@@ -151,7 +151,7 @@
         <?php endif;?>    
   </div>
   <div class="form-group col-sm-3">
-    <label for="Telefono" class="control-label">Teléfono de habitación</label> <label class="text-danger"> * </label>
+    <label for="Telefono" class="control-label">Teléfono de habitación</label> <label class="text-danger"> * </label><small> (2121234567)</small>
     <div class="">
         <input type="text" name="Telefono" class="form-control" autocomplete="off" id="Telefono" maxlength="10" value="<?php if(isset($values['Telefono']) and $values['Telefono']!='') echo $values['Telefono'];?>" placeholder="Ejemplo: 2121234567">
     </div>
@@ -161,7 +161,7 @@
         <?php endif;?>
   </div> 
   <div class="form-group col-sm-3">
-    <label for="Celular" class="control-label">Celular</label> <label class="text-danger"> * </label>
+    <label for="Celular" class="control-label">Celular</label> <label class="text-danger"> * </label><small> (4141234567)</small>
     <div class="">
         <input type="text" name="Celular" class="form-control" autocomplete="off" id="Celular" maxlength="10" value="<?php if(isset($values['Celular']) and $values['Celular']!='') echo $values['Celular'];?>" placeholder="Ejemplo: 4141234567">
     </div>

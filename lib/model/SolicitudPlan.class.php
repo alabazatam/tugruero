@@ -181,7 +181,7 @@
 			//echo $column_order;die;
                         $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->SolicitudPlan
-			->select("*,SolicitudPlan.idSolicitudPlan,DATE_FORMAT(FechaSolicitud, '%d/%m/%Y') as FechaSolicitud,
+			->select("*,SolicitudPlan.idSolicitudPlan,DATE_FORMAT(FechaSolicitud, '%d/%m/%Y') as FechaSolicitud, Estatus AS EstatusAbr,
 				CASE 
 					WHEN Estatus = 'ENV' 
 					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
@@ -221,6 +221,8 @@
 				")
 			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
+			->join("SolicitudAprobada","LEFT JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
+
 			->order("$column_order $order")			
 			->limit($limit,$offset);
 			//echo $q;die;
@@ -323,6 +325,7 @@
 			->select("count(*) as cuenta")
 			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
+			->join("SolicitudAprobada","LEFT JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->fetch();
 			return $q['cuenta']; 			
 		}
