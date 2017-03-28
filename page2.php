@@ -644,9 +644,9 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                             </div>
 				
                         </div>
-							<div class="col-xs-12 col-sm-12 col-md-3 ">
+							<div class="col-xs-12 col-sm-12 col-md-3 text-left">
 								<label><strong>Características y Coberturas de los planes:</strong></label>
-								<ul>
+								<ul class="text-left">
 									<li><i class="fa fa-file-pdf-o"></i> <a target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Plus_Clientes.pdf" ><small class="black-font">TU/GRUERO® Plus</small></a></li>
 									<li><i class="fa fa-file-pdf-o"></i> <a target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Gold_Clientes.pdf" ><small class="black-font">TU/GRUERO® GOLD</small></a></li>
 								</ul>
