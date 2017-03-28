@@ -177,7 +177,7 @@ $(document).ready(function(){
                                 var email = $('#email').val();
                                 var paymentMethodId = $('#paymentMethodId').val();
                                 $.ajax({
-                                   url: "http://52.25.178.106/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
+                                   url: "http://www.tugruero.com/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
                                    data: response ,
                                    dataType: "json",
                                    success: function(data){
@@ -186,7 +186,7 @@ $(document).ready(function(){
                                         var status = data.response["status"];
                                         //alert('no es undefined');
                                             $.ajax({
-                                                    url: "http://localhost/tugruero/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val(),
+                                                    url: "http://www.tugruero.com/tugruero/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val(),
                                                     data: data ,
                                                     dataType: "json",
                                                     success: function(data){
