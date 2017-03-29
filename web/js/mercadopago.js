@@ -117,7 +117,7 @@ $(document).ready(function(){
                                 if (document.querySelector("input[name=paymentMethodId]") == null) {
                                     var paymentMethod = document.createElement('input');
                                     paymentMethod.setAttribute('name', "paymentMethodId");
-                                    paymentMethod.setAttribute('type', "text");
+                                    paymentMethod.setAttribute('type', "hidden");
                                     paymentMethod.setAttribute('id', "paymentMethodId");
                                     paymentMethod.setAttribute('value', response[0].id);
 
@@ -164,7 +164,7 @@ $(document).ready(function(){
 
                                 var card = document.createElement('input');
                                 card.setAttribute('name',"token");
-                                card.setAttribute('type',"text");
+                                card.setAttribute('type',"hidden");
                                 card.setAttribute('id',"token");
                                 card.setAttribute('value',response.id);
                                 form.appendChild(card);
