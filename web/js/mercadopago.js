@@ -185,12 +185,15 @@ $(document).ready(function(){
                                     if (typeof data.error == 'undefined') { 
                                         var status = data.response["status"];
                                         //alert('no es undefined');
+                                        //alert(status);
+                                        //console.log('arriba');
+                                        if(status !='rejected'){
                                             $.ajax({
-                                                    url: "http://www.tugruero.com/tugruero/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val(),
+                                                    url: "http://www.tugruero.com/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val(),
                                                     data: data ,
                                                     dataType: "json",
                                                     success: function(data){
-
+                                                    //console.log(data);
                                                         if(data[0] == 'OK'){
                                                             $('#show_error').html("");
                                                             //$('#show_commit').html("<div class='alert alert-success'>Pago realizado</div>");
@@ -199,7 +202,15 @@ $(document).ready(function(){
                                                             $("#mercadopagodivpagado").html("</br></br></br></br></br></br></br><div class='col-sm-2'></div><div  class='col-sm-8 alert alert-success'>¡LISTO! Le hemos enviado un correo electrónico, por favor revise su Bandeja de entrada o Spam.</div><div class='col-sm-2'>");
                                                         }
                                                     }
-                                            });     
+                                            });   
+                                        }else{
+                                            
+                                                $('#show_error').html("<div class='alert alert-danger'>La transacción ha sido rechazada</div>");
+
+                                            
+                                            
+                                        }
+  
                                     }else{
                                         //alert("Revise la información suministrada");
                                         $('#show_error').html("<div class='alert alert-danger'>Revise la información suministrada</div>");

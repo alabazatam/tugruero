@@ -74,7 +74,7 @@
 					END)";
                         $columns[9] = "(DATE_FORMAT(FechaSolicitud, '%d/%m/%Y'))";
 			$column_order = $columns[0];
-			$where = '1 = 1';
+			$where = "1 = 1 and PagoRealizado = 'S'";
 			$order = 'asc';
 			$limit = $values['length'];
 			$offset = $values['start'];
@@ -231,7 +231,7 @@
 		public function getCountSolicitudPlanList($values)
 		{	
                         $Utilitarios = new Utilitarios();
-			$where = '1 = 1';
+			$where = "1 = 1 and PagoRealizado = 'S' ";
 			if(isset($values['columns'][0]['search']['value']) and $values['columns'][0]['search']['value']!='')
 			{
 				$where.=" AND SolicitudPlan.idSolicitudPlan = ".$values['columns'][0]['search']['value']."";

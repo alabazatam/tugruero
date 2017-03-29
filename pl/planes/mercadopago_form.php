@@ -1,16 +1,31 @@
 <?php include('../../view_header_app.php')?>
 <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
 <script src="<?php echo full_url;?>/web/js/mercadopago.js"></script>
-<input type="hidden" id="email" name="email" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo']?>">
-<input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
-<input type="hidden" id="Cedula" name="Cedula" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula']?>">
-<input type="hidden" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO ";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
-<input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
+email-<input type="TEXT" id="email" name="email" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo']?>">
+precio- <input type="TEXT" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
+Cedula <input type="TEXT" id="Cedula" name="Cedula" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula']?>">
+descripcion <input type="TEXT" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO ";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
+idSolicitudPlan<input type="TEXT" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
 
 <div class="col-sm-6" id="mercadopagodiv">
     <form action="" method="post" id="pay" name="pay" class="">
       <div class="form-group col-sm-12">
-        <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label>
+        <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label> APRO
+    Pago aprobado
+CONT
+    Pago pendiente
+CALL
+    Rechazo llamar para autorizar
+FUND
+    Rechazo por monto insuficiente
+SECU
+    Rechazo por código de seguridad
+EXPI
+    Rechazo por fecha de expiración
+FORM
+    Rechazo por error en formulario
+OTHE
+    Rechazo general 
         <div class="">
             <input type="text" required class="form-control" autocomplete="off" id="cardholderName" maxlength="50" data-checkout="cardholderName" maxlength="" value="APRO">
         </div>

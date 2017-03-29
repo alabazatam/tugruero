@@ -498,6 +498,8 @@ $isAprobada = false;
 		<?php echo $mercadopagodata['carholder_name'];?>
 		<label>Monto de la transacción: </label>
 		<?php echo $mercadopagodata['transaction_amount'];?>
+		<label>Estatus: </label>
+		<?php echo $mercadopagodata['status'];?>
     </div>	
 
 <?php endif;?>
