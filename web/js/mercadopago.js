@@ -59,7 +59,8 @@
 
 
 
-Mercadopago.setPublishableKey("TEST-6d4e759f-3000-4816-bb77-45ce06df576e");
+//Mercadopago.setPublishableKey("TEST-6d4e759f-3000-4816-bb77-45ce06df576e");
+Mercadopago.setPublishableKey("APP_USR-09293edc-8543-4c7e-aa50-f04305e47448");
 
 
 $(document).ready(function(){
@@ -177,7 +178,7 @@ $(document).ready(function(){
                                 var email = $('#email').val();
                                 var paymentMethodId = $('#paymentMethodId').val();
                                 $.ajax({
-                                   url: "http://www.tugruero.com/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
+                                   url: "https://tugruero.com/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
                                    data: response ,
                                    dataType: "json",
                                    success: function(data){
@@ -189,7 +190,7 @@ $(document).ready(function(){
                                         //console.log('arriba');
                                         if(status !='rejected'){
                                             $.ajax({
-                                                    url: "http://www.tugruero.com/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val(),
+                                                    url: "https://tugruero.com/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val(),
                                                     data: data ,
                                                     dataType: "json",
                                                     success: function(data){
