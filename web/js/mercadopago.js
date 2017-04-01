@@ -206,7 +206,7 @@ $(document).ready(function(){
                                             });   
                                         }else{
                                             
-                                                $('#show_error').html("<div class='alert alert-danger'>La transacción ha sido rechazada</div>");
+                                                $('#show_error').html("<div class='alert alert-danger'>La transacción ha sido rechazada" + status + "</div>");
 
                                             
                                             
