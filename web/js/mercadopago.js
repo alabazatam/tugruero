@@ -60,7 +60,7 @@
 
 
 //Mercadopago.setPublishableKey("TEST-6d4e759f-3000-4816-bb77-45ce06df576e");
-Mercadopago.setPublishableKey("APP_USR-09293edc-8543-4c7e-aa50-f04305e47448");
+Mercadopago.setPublishableKey("APP_USR-220b371a-4b3b-45af-9441-137e0e3d7732");
 
 
 $(document).ready(function(){
