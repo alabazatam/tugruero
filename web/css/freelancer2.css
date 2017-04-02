@@ -622,7 +622,7 @@ fieldset[disabled] .btn-success.active {
     
 }
 .titulo_bancos{
-  font-size: 26px !important;
+  font-size: 32px !important;
   font-weight: 900;
   color: #f46830;
 }
@@ -958,12 +958,13 @@ fieldset[disabled] .btn-success.active {
   background-color: #464646;    
 }
 .titulo_clientes{
-  font-size: 32px;
+  font-size: 38px;
+  color: #000 !important;
   font-weight: 900;
   margin: 0;
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #26282b;
+  background-color: #E9E9E9;
 }
 .fondo_row_clientes_alto{
     background-color: white;
@@ -1073,7 +1074,7 @@ fieldset[disabled] .btn-success.active {
     padding-bottom: 30px;
 }
 .siguenos{
-    font-size: 26px;
+    font-size: 30px;
     text-align: center;
 }
 .telefono_sombra{
@@ -1090,7 +1091,10 @@ fieldset[disabled] .btn-success.active {
         font-weight:bolder !important;
         /*text-shadow: #F46830 0.1em 0.1em 0.2em;*/
         text-shadow: 0.04em -0.04em #F46830;
-    }    
+    }   
+    .font-34 {
+        font-size: 16px !important;
+    }
     
 }
 @media (min-width: 361px) and (max-width: 768px){
@@ -1100,8 +1104,16 @@ fieldset[disabled] .btn-success.active {
         font-weight:bolder !important;
         /*text-shadow: #F46830 0.1em 0.1em 0.2em;*/
         text-shadow: 0.04em -0.04em #F46830;
-    }    
+    } 
+    .font-34 {
+        font-size: 28px !important;
+    }
     
+}
+@media (min-width: 769px){
+    .font-34 {
+        font-size: 32px !important;
+    }    
 }
 .table_cuadro {
   margin: 0;
@@ -1125,3 +1137,4 @@ fieldset[disabled] .btn-success.active {
 .letra_cuadro {
     font-size: 50px !important;
 }
+

@@ -28,11 +28,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-					<h2 class="text-center white-font big_title"><b class="white-font big_title">Clasificación vehículos por pesos</b></h2>
+					<h2 class="text-center white-font big_title"><b class="white-font big_title">Clasificación vehículos por peso</b></h2>
 					</br>
 					<!--<h3 class="text-left white-font extra_bold">Clasificación</h3>-->
 					<p class="text-justify white-font extra_bold">
-                                            <a class="white-font" href="<?php echo full_url?>/web/terms/clasificacion_pesos.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-3x"></i> Clasificación vehículos por pesos</a>
+                                            <a class="white-font" href="<?php echo full_url?>/web/terms/clasificacion_peso.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-3x"></i> Clasificación vehículos por peso</a>
                                         </p>
                                         </br>
                                         </br>

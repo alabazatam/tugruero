@@ -95,7 +95,7 @@
                     <br><br><br><br>
                     <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="">
                     <div class="intro-text">
-                        <p class="name">¡La nueva mejor forma de solicitar una grúa!<br><br> </p>
+                        <p class="name">¡Quedarse accidentado ya no es un problema!<br><br> </p>
                     </div>
                 </div>
                 <div class="col-sm-12 franja_transparente">
@@ -104,7 +104,7 @@
                              <div class="thumbnail ">
                              <img src="web/img/fresh/c1.png" alt="...">
                                  <div class="caption">
-                                     <p class="font-principal">Servicio activo <strong class="font-principal-strong">24/7</strong> todos los días del año</p>
+                                     <p class="font-principal">Servicio activo <strong class="font-principal-strong">24/7</strong> </br>todos los días del año</p>
                                  </div>
                              </div>
                          </div>
@@ -112,7 +112,7 @@
                              <div class="thumbnail">
                              <img src="web/img/fresh/c2.png" alt="...">
                                  <div class="caption">
-                                     <p class="font-principal">Rescate en menos de <strong class="font-principal-strong">30 minutos</strong></p>
+                                     <p class="font-principal">Rescate en menos de <strong class="font-principal-strong"><br>30 minutos</strong></p>
                                  </div>
                              </div>
                          </div>
@@ -136,11 +136,15 @@
        
                 </div>  
                 <div class="col-sm-12 franja_naranja" >
-                    <p><strong>REVOLUCIONANDO LA INDUSTRIA DEL AUXILIO VIAL EN VENEZUELA</strong></p>  
+                    <p class=""><strong class="font-34">¡EL MEJOR SERVICIO DE GRÚAS DE TODO EL PAÍS!</strong></p>  
                 </div>
                 <div class="col-sm-12" >
                     <br>
-                    <p class="telefono_sombra">0500-GRUERO-0 (0500-478376-0) </p>
+                    <div class="intro-text">
+                        <p class="name">¡Comunícate con nosotros! </p>
+                        <p class="telefono_sombra">0500-GRUERO-0 (0500-478376-0) </p>
+
+                    </div>
                     <!--<img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">-->
                 </div>  
             </div>
@@ -162,7 +166,7 @@
                              <img src="web/img/fresh/p1.png" alt="Llama a nuestro Call Center">
                                  <div class="caption">
                                      <br><br>
-                                     <p class="text-center white-font">Llama a nuestro Call Center <strong>0500-GRUERO-0 (0500-478376-0) </strong> y dinos tu requerimiento</p>
+                                     <p class="text-center white-font">Llama a nuestro Call Center <strong><br>0500-GRUERO-0 <br>(0500-478376-0)<br> </strong> y dinos tu requerimiento</p>
                                  </div>
                              </div>
                          </div>
@@ -180,7 +184,7 @@
                              <img src="web/img/fresh/p3.png" alt="...">
                                  <div class="caption">
                                      <br><br>
-                                     <p class="text-center white-font"><strong>¡LISTO!</strong> La grúa llegará en menos de <strong>30 minutos</strong> </p>
+                                     <p class="text-center white-font"><strong>¡LISTO!</strong> La grúa llegará en menos de <strong><br>30 minutos</strong> </p>
                                  </div>
                              </div>
                          </div>
@@ -264,7 +268,10 @@
             </div>
     </section>   
     
-    <section id="gruero_plus" onload="alert(1);">
+    <section id="gruero_plus" onload="">
+        <div class="text-center" id="animationSandbox">    
+            <p class="text-center telefono_sombra" >PLANES DE GRÚAS ILIMITADAS</p>
+        </div>
         <div class="row margin_gruero_plus">
             
             <!--<div class="col-sm-5 text-right">
@@ -273,13 +280,14 @@
 
             </div>-->
             <div class="col-sm-12 texto_gruero_plus text-left">
+                
                     <div id="imagen">
                         <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestros planes vía online
                         <br>para que manejes tranquilo en todo el país
                         <br>y disfruta de grúas ilimitadas</p>
                         <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
-                        <p align="center" class="titulo_gruero_plus"><strong>Ahora puedes adquirir nuestros planes vía online ¡Sin hacer ni una llamada!</strong></p>
-                        <p align="center" class="titulo_gruero_plus"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">MÁS INFORMACIÓN Y ADQUIRIR UN PLAN</button></p>
+                        <p align="center" class="titulo_gruero_plus"><strong><br><br>Ahora puedes adquirir nuestros planes vía online ¡Sin hacer ni una llamada!</strong></p>
+                        <p align="center" class="titulo_gruero_plus" ID="animationSandbox2"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p>
                     </div>
             </div>
             
@@ -328,9 +336,7 @@
 			<div class="row margin_quienessomos">
 				<div class="">
 					<div class="well background_caja">
-						<p class="font_caja_quienes_somos" align="justify" id="caja">Somos una empresa venezolana dedicada al auxilio vial. Trabajamos las 24
-horas del día y los 365 días del año. Buscamos a los grueros más cercanos por
-GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
+						<p class="font_caja_quienes_somos" align="justify" id="caja">Somos una empresa venezolana de base tecnológica dedica al auxilio y asistencia vial mediante una aplicación móvil y centro de monitoreo. Trabajamos las 24 horas del dia y los 365 dias del año. Buscamos a los grueros via GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 						
 						
 					</div>
@@ -338,20 +344,23 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 			</div>
     
     </section>    
+    <section class="success5 nav-close" id="video">
+        <div class="container">
+            <div class="embed-responsive embed-responsive-16by9" >
+		<!--<iframe  src="https://www.youtube.com/watch?v=IZVAZ4XIOwc"></iframe>-->
+		<iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/IZVAZ4XIOwc" frameborder="0" allowfullscreen></iframe>
+            </div>
 
+	</div>
+    </section>
     <section id="clientes">
             <div class="row">
                 <p class="titulo_clientes text-center">Clientes y Aliados</p>
             </div> 
 			<div class="row margin_clientes">
-                         <div class="col-sm-2 col-sm-offset-1">
+                         <div class="col-sm-3 col-sm-offset-1">
                              <div class="thumbnail padding_clientes">
                                  <img src="web/img/fresh/clientes_aliados/probilinca.png" alt="Probilinca">
-                             </div>
-                         </div>
-                         <div class="col-sm-2">
-                             <div class="thumbnail padding_clientes">
-                                 <img src="web/img/fresh/lavitalicia.png" alt="Seguros la Vitalicia">
                              </div>
                          </div>
                          <div class="col-sm-2">
@@ -426,7 +435,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                          </div>
             </div>
 			<div class="row">
-				<p align="center" class="propaganda_clientes">¡Y MÁS DE 1000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS!</p>
+				<p align="center" class="propaganda_clientes">¡Y MÁS DE 3000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS!</p>
 			</div>
     </section>
 
@@ -443,7 +452,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                 <div class="thumbnail">
                     <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
                     <div class="fondo_testimonios">
-                        <p class="nombres_testimonios text-left">Fran Marchan</p>
+                        <p class="nombres_testimonios text-left">Juan Panto</p>
                         <p class="subtitulo_testimonios text-justify">Gruero del Estado Bolívar inscrito en el Club Grúas Venezuela:</p>
                         <p class="texto_testimonios text-justify">Con TU/GRUERO® toda ha marchado muy bien. Siempre le recomiendo a todos mis compañeros se afilien con esta empresa.</p>
 
@@ -491,9 +500,9 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                 <div class="col-sm-12 text-right">
                     <div class="col-sm-8 col-sm-offset-4">
                         <label class="letras_bancos siguenos">Síguenos</label>
-                        <a href="https://twitter.com/tugruero" target="_blank" class=""><img src="web/img/fresh/twitter.png" alt="Twitter"></a>
-                        <a href="https://wwww.facebook.com/tugruero" target="_blank" class=""><img src="web/img/fresh/facebook.png" alt="Facebook"></a>
-                        <a href="https://www.instagram.com/tugruero/" target="_blank" class=""><img src="web/img/fresh/instagram.png" alt="Instagram"></a>
+                        <a href="https://twitter.com/tugruero" target="_blank" ><img src="web/img/fresh/twitter.png" onmouseover="this.src='web/img/fresh/twitter2.png'" onmouseout="this.src='web/img/fresh/twitter.png'" alt="Twitter"></a>
+                        <a href="https://wwww.facebook.com/tugruero" target="_blank" class="twitter_change"><img src="web/img/fresh/facebook.png" onmouseover="this.src='web/img/fresh/facebook2.png'" onmouseout="this.src='web/img/fresh/facebook.png'" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/tugruero/" target="_blank" class="twitter_change"><img src="web/img/fresh/instagram.png" onmouseover="this.src='web/img/fresh/instagram2.png'" onmouseout="this.src='web/img/fresh/instagram.png'" alt="Instagram"></a>
                     </div>
                 </div>
                 <div class="col-sm-12">
@@ -538,7 +547,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                     </form>
                 </div>
                 <div class="col-sm-3">
-                        <img src="web/img/fresh/taxi.png" alt="Servicio de taxi">
+                        <!--<img src="web/img/fresh/taxi.png" alt="Servicio de taxi">-->
                 </div>
             </div>
         </div>
@@ -554,7 +563,7 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
                                                     <img src="web/img/fresh/titulo3.png" alt="grua">
                                                 </div>
                         <p class="white-font text_footer">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
-						<p class="white-font text_footer">tugruero@gmail.com / info@tugruero.com</p>						
+						<p class="white-font text_footer">info@tugruero.com / tugruero@gmail.com</p>						
 						<p class="white-font text_footer">0500-GRUERO-0 (0500-478376-0) </p>
                     </div>                
                 </div>
@@ -731,18 +740,23 @@ GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 		$("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos.png)");
 		if(caja == 1)//nosotros
 		{
-			text = "Somos una empresa venezolana dedicada al auxilio vial. Trabajamos las 24 horas del día y los 365 días del año. Buscamos a los grueros más cercanos por GPS y garantizamos un tiempo de respuesta menor a 30 minutos";
+			text = "Somos una empresa venezolana de base tecnológica dedicada al auxilio y asistencia vial mediante una aplicación móvil y centro de monitoreo. Trabajamos las 24 horas del día y los 365 días del año. Buscamos a los grueros vía GPS y garantizamos un tiempo de respuesta menor a 30 minutos.";
 			$("#nosotros").css("background-image", "url(web/img/fresh/nosotros2.png)");
 		
 		}else if(caja == 2){//que hacemos
-			text = "Ofrecemos el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad ";
+			text = "Ofrecemos tranquilidad a los accidentados en la vía entregándoles el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación.";
 			$("#quehacemos").css("background-image", "url(web/img/fresh/quehacemos2.png)");			  
 		}else if(caja == 3){//a donde vamos
 			text = "TU/GRUERO® se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado";
 			$("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos2.png)");	
 		}else if(caja == 4){//como funcionamos
-			text = "Actualmente trabajamos en el mercado asegurador, por lo que TU/GRUERO® funciona como intermediario directo entre el accidentado y los grueros más cercanos dispuestos a auxiliarlo, siempre y cuando el accidentado esté asegurado con una compañía de seguros afiliada a TU/GRUERO®.Muy pronto nuestros servicios podrán ser utilizados por cualquier persona que no tenga su vehículo asegurado. Mantente atento a nuestros anuncios para descargar y disfrutar de la aplicación móvil ";
-			$("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos2.png)");	
+			text = "<strong> Puedes disfrutar de nuestros servicios de las siguientes formas: </strong>";
+                        text+= "<ol>";
+			text+= "<li> <label style='text-decoration: underline;'>Compañías de Seguros:</label> Si tu compañía de seguros está afiliada a nuestros servicios, tan solo te basta tener tu póliza de automóvil con Asistencia en Viajes (consulta con tu corredor de seguros)</li>";
+                        text+= "<li> <label style='text-decoration: underline;'>Planes TU/GRUERO®:</label> Adquiriendo cualquiera de nuestros Planes de Grúas ilimitados (TU/GRUERO® Plus o TU/GRUERO® Gold)</li>";
+                        text+= "<li> <label style='text-decoration: underline;'>Servicios particulares:</label> Si no estás amparado por ninguna de las dos soluciones anteriores, puedes pedir tu servicio de grúa de forma particular usando nuestra App o llamando a nuestro Call Center y pagar por el servicio puntual.</li>";
+                        text+= "</ol>";
+                        $("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos2.png)");	
 		}
 	   
 		$('#caja').html(text);

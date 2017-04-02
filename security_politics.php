@@ -30,7 +30,7 @@
                 <div class="col-lg-12 text-center">
 					<h2 class="text-center white-font big_title"><b class="white-font big_title">Políticas de privacidad<br>TU/GRUERO®</b></h2>
 					
-					<h3 class="text-left white-font extra_bold">DATOS DE UBICACION/GPS:</h3>
+					<h3 class="text-left white-font extra_bold">DATOS DE UBICACION - GPS:</h3>
 					<hr>
 					<p class="text-justify white-font extra_bold">
 						TUGRUERO utiliza los datos de GPS de los dispositivos móviles tanto de usuarios accidentados como de grueros, 

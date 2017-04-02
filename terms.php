@@ -40,9 +40,9 @@
                                             <a class="white-font" href="<?php echo full_url?>/web/terms/Términos y Condiciones TUGRUERO® - PARTICULARES.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-3x"></i> Términos y condiciones TU/GRUERO® - Clientes particulares no asegurados</a>
                                         </p> 
                                         </br>
-					<h3 class="text-left white-font extra_bold">Plus</h3>
+					<h3 class="text-left white-font extra_bold">Planes TU/GRUERO® Plus y TU/GRUERO® Gold</h3>
 					<p class="text-justify white-font extra_bold">
-                                            <a class="white-font " href="<?php echo full_url?>/web/terms/Términos y Condiciones TUGRUERO® - TUGRUERO® Plus.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-3x"></i> Términos y condiciones TU/GRUERO® - Plus</a>
+                                            <a class="white-font " href="<?php echo full_url?>/web/terms/Términos y Condiciones TUGRUERO® - TUGRUERO® Plus.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-3x"></i> Planes TU/GRUERO® Plus y TU/GRUERO® Gold</a>
                                         </p>
                                         </br>
                                         </br>
