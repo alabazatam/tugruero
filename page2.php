@@ -358,9 +358,14 @@
                 <p class="titulo_clientes text-center">Clientes y Aliados</p>
             </div> 
 			<div class="row margin_clientes">
-                         <div class="col-sm-3 col-sm-offset-1">
+                         <div class="col-sm-2 col-sm-offset-1">
                              <div class="thumbnail padding_clientes">
                                  <img src="web/img/fresh/clientes_aliados/probilinca.png" alt="Probilinca">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail padding_clientes">
+				  <img src="web/img/fresh/clientes_aliados/logo_previ.png" alt="La Previsora">
                              </div>
                          </div>
                          <div class="col-sm-2">
@@ -403,7 +408,7 @@
 
                          <div class="col-sm-2">
                              <div class="thumbnail  ">
-				  <img src="web/img/fresh/clientes_aliados/tecontacto.png" alt="Te contacto">
+				  <img src="web/img/fresh/clientes_aliados/te-contacto-logo.jpg" alt="Te contacto">
                              </div>
                          </div>
                 </div>        
@@ -431,6 +436,33 @@
                          <div class="col-sm-2">
                              <div class="thumbnail ">
                                 <img src="web/img/fresh/clientes_aliados/ubikeitor.png" alt="Ubikeitor">
+                             </div>
+                         </div>
+            </div>
+                <div class="row">
+                         <div class="col-sm-2 col-sm-offset-1">
+                             <div class="thumbnail ">
+				  <img src="web/img/fresh/clientes_aliados/4lotrack.png" alt="4lotrack">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+				  <img src="web/img/fresh/clientes_aliados/chacao.png" alt="Alcaldia de Chacao">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+				  <img src="web/img/fresh/banesco.png" alt="Banesco">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+                                <img src="web/img/fresh/provincial.png" alt="Provincial">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+                                 <img src="web/img/fresh/clientes_aliados/locktrack.png" alt="Locktrack">
                              </div>
                          </div>
             </div>
