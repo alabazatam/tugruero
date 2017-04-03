@@ -607,7 +607,7 @@
                     <div class="col-sm-12">
                         <p class="white-font text_footer">Copyright &copy; Soluciones Tu Gruero, C.A. 2016. J-40680605-6</p>
                     </div>
-					<div class="col-xs-3">
+					<div class="col-xs-2">
 						<a  href="<?php echo full_url?>/terms.php" target="_blank"><small class="white-font text_footer_strong">Términos y condiciones</small></a>	
                                         </div>
 					<div class="col-xs-2">
@@ -619,8 +619,11 @@
 					<div class="col-xs-2">
 						<a  href="<?php echo full_url?>/redzones.php" target="_blank"><small class="white-font text_footer_strong">Zonas Peligrosas</small></a>		
                                         </div>
-					<div class="col-xs-3">
+					<div class="col-xs-2">
 						<a  href="<?php echo full_url?>/weights.php" target="_blank"><small class="white-font text_footer_strong">Clasificación de vehículos por peso</small></a>		
+                                        </div>
+					<div class="col-xs-2">
+						<a  href="<?php echo full_url?>/faqs.php" target="_blank"><small class="white-font text_footer_strong">Preguntas frecuentes</small></a>		
                                         </div>
                 </div>
             </div>
