@@ -1,33 +1,19 @@
 <?php include('../../view_header_app.php')?>
 <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
 <script src="<?php echo full_url;?>/web/js/mercadopago.js"></script>
-email-<input type="TEXT" id="email" name="email" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo']?>">
-precio- <input type="TEXT" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
-Cedula <input type="TEXT" id="Cedula" name="Cedula" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula']?>">
-descripcion <input type="TEXT" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO ";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
-idSolicitudPlan<input type="TEXT" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
+<input type="hidden" id="email" name="email" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo']?>">
+<input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
+<input type="hidden" id="Cedula" name="Cedula" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula']?>">
+<input type="hidden" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO ";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
+<input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
 
 <div class="col-sm-6" id="mercadopagodiv">
     <form action="" method="post" id="pay" name="pay" class="">
       <div class="form-group col-sm-12">
-        <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label> APRO
-    Pago aprobado
-CONT
-    Pago pendiente
-CALL
-    Rechazo llamar para autorizar
-FUND
-    Rechazo por monto insuficiente
-SECU
-    Rechazo por código de seguridad
-EXPI
-    Rechazo por fecha de expiración
-FORM
-    Rechazo por error en formulario
-OTHE
-    Rechazo general 
+        <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label>
+
         <div class="">
-            <input type="text" required class="form-control" autocomplete="off" id="cardholderName" maxlength="50" data-checkout="cardholderName" maxlength="" value="APRO">
+            <input type="text" required class="form-control" autocomplete="off" id="cardholderName" maxlength="50" data-checkout="cardholderName" maxlength="" value="" Placeholder="Ejemplo: JUAN A ALVAREZ C">
         </div>
       </div>
       <div class="form-group col-sm-4">
@@ -37,27 +23,27 @@ OTHE
         </div>
       </div>
       <div class="form-group col-sm-8">
-        <label for="Apellidos" class="control-label">Número de documento</label> <label class="text-danger"> * </label>
+        <label for="Apellidos" class="control-label">Número de documento</label> <label class="text-danger"> * </label> (12345678)
         <div class="">
-            <input required type="text" class="form-control" autocomplete="off" data-checkout="docNumber" id="docNumber" maxlength="8" value="18020594">
+            <input required type="text" class="form-control" autocomplete="off" data-checkout="docNumber" id="docNumber" maxlength="8" value="" placeholder="Ejemplo: 12345678"> 
         </div>
       </div>
       <div class="form-group col-sm-12">
         <label for="email" class="control-label">Correo electrónico</label> <label class="text-danger"> * </label>
         <div class="">
-            <input required type="text" class="form-control" autocomplete="off" id="email" maxlength="" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo']; else echo "deandrademarcos@hotmail.com";?>" placeholder="Ejemplo: correo@gmail.com">
+            <input required type="text" class="form-control" autocomplete="off" id="email" maxlength="" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo'];?>" placeholder="Ejemplo: correo@gmail.com">
         </div>
       </div>
       <div class="form-group col-sm-8">
         <label for="cardNumber" class="control-label">Número de tarjeta</label> <label class="text-danger"> * </label>
         <div class="">
-            <input required type="text" class="form-control" autocomplete="off" data-checkout="cardNumber" id="cardNumber" maxlength="16" value="4966382331109310"  placeholder="Ejemplo: 4966382331109310">
+            <input required type="text" class="form-control" autocomplete="off" data-checkout="cardNumber" id="cardNumber" maxlength="16" value=""  placeholder="Ejemplo: 4966382331109310">
         </div>
       </div>
       <div class="form-group col-sm-4">
         <label for="securityCode" class="control-label">Código de seguridad</label> <label class="text-danger"> * </label>
         <div class="">
-            <input required type="text" class="form-control" data-checkout="securityCode" autocomplete="off" id="securityCode" maxlength="3" value="123" placeholder="Ejemplo: 123">
+            <input required type="text" class="form-control" data-checkout="securityCode" autocomplete="off" id="securityCode" maxlength="3" value="" placeholder="Ejemplo: 123">
         </div>
       </div>
       <div class="form-group col-sm-6">
@@ -65,7 +51,7 @@ OTHE
         <div class="">
             <select required id="cardExpirationYear" data-checkout="cardExpirationYear" class="form-control">
                     <?php for($anio = (date('Y')); $anio<=date('Y')+10; $anio++):?>
-                        <option value="<?php echo $anio?>" <?php if(isset($values['Anio']) and ($anio == $values['Anio'] or $anio=='2017')) echo "selected='selected'";?>><?php echo $anio?></option>    
+                        <option value="<?php echo $anio?>" ><?php echo $anio?></option>    
                     <?php endfor;?>
 
             </select>
@@ -76,7 +62,7 @@ OTHE
         <div class="">
             <select required id="cardExpirationMonth" data-checkout="cardExpirationMonth" class="form-control">
                                                                     <option value="01">01</option>
-                                                                    <option value="02" selected="selected">02</option>
+                                                                    <option value="02">02</option>
                                                                     <option value="03">03</option>
                                                                     <option value="04">04</option>
                                                                     <option value="05">05</option>

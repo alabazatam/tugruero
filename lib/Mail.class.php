@@ -355,7 +355,7 @@
 
     }
     function sendMessageMercadopago($values){
-            
+            try{
             $Utilitarios = new Utilitarios();
             $idSolicitudPlan = $values['idSolicitudPlan'];
             $saludo = $Utilitarios->saludo();
@@ -364,7 +364,7 @@
             $Nombres = strtoupper($data['Nombres']);
             $Apellidos = strtoupper($data['Apellidos']);
             $ConcatenadoPlan = $data['concatenado_plan'];
-            try{
+            
             $smtp = "server-0116a.gconex.net";
             //$smtp = "mail.tugruero.com";
             $port = 465;
@@ -413,7 +413,7 @@
 
                     $result = $mailer->send($message);	
                     }catch(Exception $e){
-                            //echo $e->getMessage().$e->getTraceAsString();
+                            echo $e->getMessage().$e->getTraceAsString();
                             die;
                     }
 
