@@ -408,7 +408,7 @@
 
                          <div class="col-sm-2">
                              <div class="thumbnail  ">
-				  <img src="web/img/fresh/clientes_aliados/te-contacto-logo.jpg" alt="Te contacto">
+				  <img src="web/img/fresh/clientes_aliados/tecontacto.png" alt="Te contacto">
                              </div>
                          </div>
                 </div>        
@@ -464,6 +464,26 @@
                              <div class="thumbnail ">
                                  <img src="web/img/fresh/clientes_aliados/locktrack.png" alt="Locktrack">
                              </div>
+                         </div>
+            </div>
+                <div class="row">
+                         <div class="col-sm-2 col-sm-offset-1">
+
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+				  <img src="web/img/fresh/clientes_aliados/Beatriz_Fratini.png" alt="Beatriz Fratini">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail ">
+                                <img src="web/img/fresh/clientes_aliados/tesoro.png" alt="Banco del Tesoro">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+
                          </div>
             </div>
 			<div class="row">
