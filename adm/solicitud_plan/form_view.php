@@ -650,7 +650,6 @@ $('#rechazo').hide();
         
         
         if(confirm('¿Está seguro(a) de rechazar la solicitud?')){
-           
             $.ajax({
             type: "POST",
             url: '<?php echo full_url?>/adm/solicitud_plan/index.php?action=rechazar',
@@ -664,7 +663,10 @@ $('#rechazo').hide();
         }
     });    
     $('#btn-aprobar').click(function(){
-        
+        if($('#VigenciaDesde').val() == '' || $('#VigenciaHasta').val() == ''){
+            alert('Debe indicar la vigencia ');
+            return false;
+        }
         if(confirm('¿Está seguro(a) de aprobar la solicitud?')){
             $.ajax({
             type: "POST",

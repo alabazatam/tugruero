@@ -1,6 +1,30 @@
 <?php include('../../view_header_app.php')?>
 <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
 <script src="<?php echo full_url;?>/web/js/mercadopago.js"></script>
+
+<nav class="navbar navbar-default" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+		<div class="">
+			<div class="container text-left">
+				<a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="150"></a>
+			</div>
+		
+		</div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
+  </div>
+</nav>
+
+<h1 align="center">Proceso de contratación Plan TU/GRUERO®</h1>
+
+
+
 <input type="hidden" id="email" name="email" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo']?>">
 <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
 <input type="hidden" id="Cedula" name="Cedula" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula']?>">
@@ -77,6 +101,11 @@
             </select>
         </div>
       </div>
+        <?php if(isset($values['precio']) and $values['precio']!=''):?>
+        <div class="col-sm-12">
+            <p><b>Total a pagar:</b> <?php echo number_format($values['precio'],2,",",".")." Bs.";?></p>
+        </div>
+        <?php endif;?>
         <div id="show_error"></div>
         <div id="show_commit"></div>
         <input type="submit" class="btn btn-success" value="Pagar" />

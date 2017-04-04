@@ -31,7 +31,7 @@
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
 
     <div class="form-group col-sm-12 text-right PlanPrecio">
-      <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
+      <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",",".")." Bs."; else echo "0,00 Bs."?></p>
   </div>
   <div class="form-group col-sm-12">
 	  <label for="idPlan" class="">Escoja el plan de su preferencia </label> <label class="text-danger"> * </label>
