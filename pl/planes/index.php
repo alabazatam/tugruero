@@ -59,7 +59,7 @@ $values = array_merge($values,$_FILES);
                                                 //subir documentos
                                                 subirDocumentos($values, $_FILES);
                                                 executeMercadoPago($values,$errors);
-                                                $Mail->sendMessageMercadopago($values);
+                                                
                                                 
 					}else
 					{
@@ -124,7 +124,8 @@ $values = array_merge($values,$_FILES);
             $SolicitudPagoDetalle = new SolicitudPagoDetalle();
             $SolicitudPagoDetalle->savePagoDetalle($values);
             $array = array('OK');
-            
+            $Mail = new Mail();
+            $Mail->sendMessageMercadopago($values);
             echo json_encode($array);die;
         }
         function executeCuadroTugruero($values){
