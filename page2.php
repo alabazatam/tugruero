@@ -719,7 +719,7 @@
                     </div>
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
 						<div class="text-center">
-							<br><a class="btn btn-naranja" target="_blank" href="<?php echo full_url?>/pl/planes/index.php"><i class="fa fa-2x"> ¡CONTRATAR PLAN!</i></a></div>
+							<br><a class="btn btn-naranja" target="_blank" href="https://tugruero.com/pl/planes/index.php"><i class="fa fa-2x"> ¡CONTRATAR PLAN!</i></a></div>
 					</div>
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
 						<br>

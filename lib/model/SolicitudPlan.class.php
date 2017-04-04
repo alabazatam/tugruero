@@ -506,6 +506,7 @@
 			->select("count(*) as cuenta")
 			->where("SolicitudPlan.Placa=?",$values['Placa'])
                         ->and('Estatus=?','ENV')
+                        ->and('PagoRealizado=?','S')
 			//echo $q;die;
 			->fetch();
 			return $q['cuenta']; 				
