@@ -378,7 +378,7 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array('deandrademarcos@gmail.com');
+            $email = array($values['email']);
 
             $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
             $message->setBody('<!DOCTYPE html>
