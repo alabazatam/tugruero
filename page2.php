@@ -714,8 +714,9 @@
 									<li><i class="fa fa-file-pdf-o"></i> <a target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Plus_Clientes.pdf" ><small class="black-font">TU/GRUERO® Plus</small></a></li>
 									<li><i class="fa fa-file-pdf-o"></i> <a target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Gold_Clientes.pdf" ><small class="black-font">TU/GRUERO® GOLD</small></a></li>
 								</ul>
-								
-							</div>
+								<label><strong>Cuentas bancarias de TU/GRUERO®</strong></label><br>
+                                                                <a class="btn btn-naranja" target="_blank" href="<?php echo full_url?>/cuentas_bancarias.php">Click aquí</a>
+                                                        </div>
                     </div>
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
 						<div class="text-center">
@@ -733,18 +734,34 @@
 			</div>
                 <div class="row">
                         <div class="modal-body">
-							<div class="col-sm-12 col-md-6 col-md-offset-3">
+							<div class="col-sm-12 col-md-6 col-md-offset-3 table-responsive">
 								<br>
-								<ul>
-									<li class="">Solo se puede contratar el plan para un (01) vehículo a la vez.</li>
-									<li class="">Si usted realizó el pago por transferencia o depósito bancario asegúrese de tener el recibo o voucher digitalizado en su equipo, ya que lo tendrá que cargar al finalizar el proceso de contratación.</li>
-								</ul>
+                                                                <table class="table-bordered-dark bg-warning"> 
+                                                                    <tr class="text-left">
+                                                                        <td class="grande">Solo se puede contratar el plan para un (01) vehículo a la vez.</p></td>
+                                                                    </tr>
+                                                                    <tr class="text-left">
+                                                                        <td class="grande">Si usted realizó el pago por transferencia o depósito bancario asegúrese de tener el recibo o voucher digitalizado en su equipo, ya que lo tendrá que cargar al finalizar el proceso de contratación.</td>
+                                                                    </tr>
+                                                                    <tr class="text-left">
+                                                                        <td class="grande">Asegúrese de tener digitalizado en su equipo los siguientes documentos:
+                                                                            <ul>
+                                                                                <li>Cedula de identidad.</li>
+                                                                                <li>RIF personal.</li>
+                                                                                <li>Licencia de conducir.</li>
+                                                                                <li>Carnet de circulación.</li>
+                                                                                <li>Certificado médico. (En caso de adquirir RCV)</li>
+                                                                                <li>Certificado de origen del vehículo. (título de propiedad) (En caso de adquirir RCV)</li>
+                                                                            </ul>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
 
 
 							</div>
-							<div class="col-sm-12 col-md-6 col-md-offset-3">
+							<div class="col-sm-12 col-md-6 col-md-offset-3 text-right">
 								<br>
-								<a class="btn btn-success">Continuar</a>
+                                                                <a class="btn btn-success" href="https://tugruero.com/pl/planes/index.php">Continuar</a>
 							</div>				
                         </div>
                 </div>

@@ -385,6 +385,7 @@
                                 'FechaSolicitud' => date('Y-m-d h:i:s'),
 				'TipoPago' => @$values['MET'],
                                 'NumeroTransaccion' => '0',
+                                'Clase' => @$values['Clase'],
                                 'Marca' => @$values['Marca'],
                                 'Modelo' => @$values['Modelo'],
                                 'Anio' => @$values['Anio'],

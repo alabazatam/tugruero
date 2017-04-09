@@ -83,16 +83,16 @@
 		);
 		$validator_values['Telefono'] = array(
 			
-			"minlength" => 10,
-			"maxlength" => 10,
+			"minlength" => 11,
+			"maxlength" => 11,
 			"type" => "number",
 			"label" => "Teléfono de habitación",
 			"required" => true
 		);
 		$validator_values['Celular'] = array(
 			
-			"minlength" => 10,
-			"maxlength" => 10,
+			"minlength" => 11,
+			"maxlength" => 11,
 			"type" => "number",
 			"label" => "Celular",
 			"required" => true
@@ -180,11 +180,11 @@
                 if (!preg_match("/^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$/", $values['FechaNacimiento'])) {
                      $errors['FechaNacimiento'] = "Verifique el formato de la fecha de nacimiento (01/01/1980)";
                 }
-                if (!preg_match("/^[2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
+                if (!preg_match("/^[0][2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
                 {
                     $errors['Telefono'] = "Formato o número incorrecto (Ejemplo: 2121234567))";
                 }
-                if (!preg_match("/^[4][1-2][2,4,6][0-9]{7}$/", $values['Celular'], $matches))      
+                if (!preg_match("/^[0][4][1-2][2,4,6][0-9]{7}$/", $values['Celular'], $matches))      
                 {
                     $errors['Celular'] = "Formato o número incorrecto (Ejemplo: 4241234567)";
                 }

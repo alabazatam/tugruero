@@ -1140,4 +1140,8 @@ fieldset[disabled] .btn-success.active {
 .letra_cuadro {
     font-size: 50px !important;
 }
+.grande {
+    font-size: 20px !important;
+}
+
 
