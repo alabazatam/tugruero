@@ -13,7 +13,7 @@
    height="297mm"
    id="svg8991"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="tugrueroplus.svg">
   <defs
      id="defs8993" />
@@ -24,16 +24,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="100.7449"
-     inkscape:cy="373.4984"
+     inkscape:zoom="0.7"
+     inkscape:cx="-216.09225"
+     inkscape:cy="550.45464"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="959"
-     inkscape:window-height="744"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:window-width="1680"
+     inkscape:window-height="961"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata8996">
@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,8 +53,8 @@
      id="layer1">
     <g
        id="g1532"
-       transform="matrix(1.25,0,0,-1.25,102.36591,438.88194)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,101.9874,446.96863)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -65,8 +65,8 @@
     </g>
     <g
        id="g1544"
-       transform="matrix(1.25,0,0,-1.25,202.96591,477.64424)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,189.80321,480.80505)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -77,8 +77,8 @@
     </g>
     <g
        id="g1548"
-       transform="matrix(1.25,0,0,-1.25,244.05416,430.08314)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,225.66998,439.28799)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -89,8 +89,8 @@
     </g>
     <g
        id="g1552"
-       transform="matrix(1.25,0,0,-1.25,281.33316,475.24674)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,258.21158,478.71222)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -101,8 +101,8 @@
     </g>
     <g
        id="g1556"
-       transform="matrix(1.25,0,0,-1.25,374.94041,450.96934)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,339.92327,457.51998)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -113,8 +113,8 @@
     </g>
     <g
        id="g1560"
-       transform="matrix(1.25,0,0,-1.25,422.89566,477.64424)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,381.78438,480.80505)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -125,8 +125,8 @@
     </g>
     <g
        id="g1564"
-       transform="matrix(1.25,0,0,-1.25,451.85804,468.75134)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,407.06624,473.04225)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -137,8 +137,8 @@
     </g>
     <g
        id="g1568"
-       transform="matrix(1.25,0,0,-1.25,539.17679,450.96934)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,483.28857,457.51998)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -149,8 +149,8 @@
     </g>
     <g
        id="g1572"
-       transform="matrix(1.25,0,0,-1.25,597.31704,481.73724)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,534.04038,484.37791)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -161,8 +161,8 @@
     </g>
     <g
        id="g1576"
-       transform="matrix(1.25,0,0,-1.25,590.29379,464.05414)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,527.90964,468.94197)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -173,8 +173,8 @@
     </g>
     <g
        id="g1580"
-       transform="matrix(1.25,0,0,-1.25,496.32154,251.25752)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,445.87934,283.18744)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -185,8 +185,8 @@
     </g>
     <g
        id="g1584"
-       transform="matrix(1.25,0,0,-1.25,482.60879,251.25752)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,433.9092,283.18744)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -197,8 +197,8 @@
     </g>
     <g
        id="g1588"
-       transform="matrix(1.25,0,0,-1.25,313.80329,273.30092)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,286.55543,302.42958)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -209,8 +209,8 @@
     </g>
     <g
        id="g1592"
-       transform="matrix(1.25,0,0,-1.25,441.66341,309.79874)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,398.16714,334.28926)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -221,8 +221,8 @@
     </g>
     <g
        id="g1596"
-       transform="matrix(1.25,0,0,-1.25,380.75029,215.75822)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,344.99483,252.19938)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -233,8 +233,8 @@
     </g>
     <g
        id="g1600"
-       transform="matrix(1.25,0,0,-1.25,311.00366,297.42194)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,284.11157,323.4853)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -245,8 +245,8 @@
     </g>
     <g
        id="g1604"
-       transform="matrix(1.25,0,0,-1.25,410.41091,298.60864)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,370.88619,324.5212)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -257,8 +257,8 @@
     </g>
     <g
        id="g1608"
-       transform="matrix(1.25,0,0,-1.25,380.75029,261.45282)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,344.99483,292.08712)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -269,8 +269,8 @@
     </g>
     <g
        id="g1612"
-       transform="matrix(1.25,0,0,-1.25,316.50779,309.16764)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,288.91623,333.73837)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -281,8 +281,8 @@
     </g>
     <g
        id="g1616"
-       transform="matrix(1.25,0,0,-1.25,410.74179,309.16764)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,371.17502,333.73837)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -293,8 +293,8 @@
     </g>
     <g
        id="g1620"
-       transform="matrix(1.25,0,0,-1.25,376.22817,182.94322)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,341.04738,223.5545)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -305,8 +305,8 @@
     </g>
     <g
        id="g1624"
-       transform="matrix(1.25,0,0,-1.25,367.82492,171.63092)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,333.71201,213.67976)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -317,8 +317,8 @@
     </g>
     <g
        id="g1628"
-       transform="matrix(1.25,0,0,-1.25,358.09279,160.83272)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,325.21664,204.25379)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -329,8 +329,8 @@
     </g>
     <g
        id="g1632"
-       transform="matrix(1.25,0,0,-1.25,378.55004,178.30092)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,343.07418,219.50213)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -341,8 +341,8 @@
     </g>
     <g
        id="g1636"
-       transform="matrix(1.25,0,0,-1.25,370.14479,166.98872)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,335.73707,209.62748)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -353,8 +353,8 @@
     </g>
     <g
        id="g1640"
-       transform="matrix(1.25,0,0,-1.25,360.41341,156.19162)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,327.24236,200.20247)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -365,8 +365,8 @@
     </g>
     <g
        id="g1644"
-       transform="matrix(1.25,0,0,-1.25,99.387414,435.33714)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,99.387414,443.87431)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -377,8 +377,8 @@
     </g>
     <g
        id="g1648"
-       transform="matrix(1.25,0,0,-1.25,199.98679,474.10414)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,187.20267,477.71482)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -389,8 +389,8 @@
     </g>
     <g
        id="g1652"
-       transform="matrix(1.25,0,0,-1.25,241.07992,426.54434)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,223.0737,436.19889)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -401,8 +401,8 @@
     </g>
     <g
        id="g1656"
-       transform="matrix(1.25,0,0,-1.25,278.35891,471.69934)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,255.6153,475.61562)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -413,8 +413,8 @@
     </g>
     <g
        id="g1660"
-       transform="matrix(1.25,0,0,-1.25,371.96241,447.42934)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,337.32371,454.42984)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -425,8 +425,8 @@
     </g>
     <g
        id="g1664"
-       transform="matrix(1.25,0,0,-1.25,419.91654,474.10414)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,379.18385,477.71482)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -437,8 +437,8 @@
     </g>
     <g
        id="g1668"
-       transform="matrix(1.25,0,0,-1.25,448.88329,465.21264)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,404.46953,469.95324)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -449,8 +449,8 @@
     </g>
     <g
        id="g1672"
-       transform="matrix(1.25,0,0,-1.25,536.20379,447.42934)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,480.69338,454.42984)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -461,8 +461,8 @@
     </g>
     <g
        id="g1676"
-       transform="matrix(1.25,0,0,-1.25,594.33917,478.19834)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,531.44094,481.28872)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path
@@ -473,8 +473,8 @@
     </g>
     <g
        id="g1680"
-       transform="matrix(1.25,0,0,-1.25,587.31891,460.50924)"
-       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/entrada_tugruero1.png"
+       transform="matrix(1.0911506,0,0,-1.0911506,525.31281,465.84754)"
+       inkscape:export-filename="/var/www/html/tugruero/web/img/fresh/logo_header.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <path

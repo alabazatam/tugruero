@@ -95,7 +95,7 @@
                     <br><br><br><br>
                     <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="">
                     <div class="intro-text">
-                        <p class="name">¡Quedarse accidentado ya no es un problema!<br><br> </p>
+                        <div class="name">¡Quedarse accidentado ya no es un problema!<br><br> </div>
                     </div>
                 </div>
                 <div class="col-sm-12 franja_transparente">
@@ -193,9 +193,9 @@
     </section>
     
      <section id="bancos">
-            <div class="col-sm-12 text-center">
-                <p class="titulo_bancos">Bancos disponibles</p>
-            </div>      
+            <div class="row">
+                <p class="titulo_bancos text-center">Bancos disponibles</p><br><br><br><br>
+            </div>     
             <div class="row margin_bancos">
                  <div class="col-xs-1">
                      
@@ -224,9 +224,6 @@
                  </div>                 
             </div>  
             <div class="row margin_bancos separador_bancos">
-                 <div class="col-xs-1">
-                     
-                 </div>  
                  <div class="col-xs-2">
                      <img src="web/img/fresh/provincial.png" alt="Paga con Banco Provincial" class="img-responsive" width="">
                  </div> 
@@ -242,12 +239,13 @@
                      <img src="web/img/fresh/venezolanodecredito.png" alt="Paga con Venezolano de Crédito" class="img-responsive" width="">
 
                  </div> 
+
+                 <div class="col-xs-2">
+                     <img src="web/img/fresh/banco_plaza.png" alt="Paga con Banco Plaza" class="img-responsive" width="">
+                 </div>  
                  <div class="col-xs-2">
                      <img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive" width="">
                  </div> 
-                 <div class="col-xs-1">
-                     
-                 </div>                 
             </div>
             <div class="row margin_bancos letras_bancos text-center" align="center">
                 <div class="col-sm-12 text-center">
@@ -266,6 +264,9 @@
                     <img src="web/img/fresh/mercadopago.png" alt="Mercado Pago" class="" width="">
                 </div>
             </div>
+		  <div class="row margin_bancos letras_bancos text-right" align="right">
+				<button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">Ver cuentas bancarias</button>
+		  </div>
     </section>   
     
     <section id="gruero_plus" onload="">
@@ -767,7 +768,22 @@
                 </div>
         </div>
     </div>	
+	<!-- Modal3 -->
+    <div class="portfolio-modal modal fade " id="myModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+                <div class="row">
+                        <div class="modal-body">
+							<div class="col-sm-12 col-md-6 col-md-offset-3 table-responsive">
+								<img src="web/img/fresh/cuentas_bancarias.jpg" class="img-responsive"> 
 
+							</div>			
+                        </div>
+                </div>
+        </div>
+    </div>	
     <!-- jQuery -->
     <script src="web/js/jquery.js"></script>
 
