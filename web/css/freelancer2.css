@@ -1129,6 +1129,9 @@ fieldset[disabled] .btn-success.active {
   /*background-color: #464646; */
 
 }
+.table-bordered-dark td {
+    border: 1px solid #000 !important;
+  }
 .beneficios_cuadro {
     font-size: 26px;
     color: #f14624 !important;

@@ -661,7 +661,7 @@
                         <div class="modal-body">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
                             <div class="table-responsive">
-                            <table class="table-bordered table_cuadro" width="100%">
+                            <table class="table-bordered-dark table_cuadro" width="100%">
                                 <tr>
                                     <td colspan="3">
                                         <img src="web/img/fresh/header_tabla.png" class="img-responsive">
@@ -719,7 +719,7 @@
                     </div>
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
 						<div class="text-center">
-							<br><a class="btn btn-naranja" target="_blank" href="https://tugruero.com/pl/planes/index.php"><i class="fa fa-2x"> ¡CONTRATAR PLAN!</i></a></div>
+							<br><a class="btn btn-naranja" href="#" onclick="openAdvertencia();"><h1>¡CONTRATAR PLAN!</h1></a></div>
 					</div>
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
 						<br>
@@ -733,6 +733,20 @@
                 </div>
         </div>
     </div>
+	<!-- Modal2 -->
+    <div class="portfolio-modal modal fade " id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<i class="fa fa-close fa-2x"></i>
+			</div>
+                <div class="row">
+                        <div class="modal-body">
+							hola
+				
+                        </div>
+                </div>
+        </div>
+    </div>	
 
     <!-- jQuery -->
     <script src="web/js/jquery.js"></script>
@@ -786,6 +800,14 @@
           }
         });
   });
+  
+  
+  
+	function openAdvertencia(){
+		
+		$('#myModal').modal('toggle');
+		$('#myModal2').modal('show');
+	}
   function TextCaja(caja)
   {
 	  var text = '';
@@ -837,6 +859,7 @@
     <script>
       $("nav.navbar-fixed-top").autoHidingNavbar();
     </script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
