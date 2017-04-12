@@ -17,11 +17,12 @@
     <!-- <link rel="stylesheet" href="http://cssa.cssawards123.netdna-cdn.com/wp-content/themes/cssawds/assets/css/cssawds.min.css"> -->
     <link rel="stylesheet" href="web/css/menu.css">  
 	<link rel="stylesheet" href="web/css/hover.css">  
-	<link href="web/css/freelancer.css" rel="stylesheet">
+	<link href="web/css/freelancer2.css" rel="stylesheet">
         <title>TUGRUERO®</title>
 </head>
-<body id="page-top" class="index" class="">
-    <img src="web/img/fresh/cuentas_bancarias.jpg" class="img-responsive">
-
+<body id="">
+	<div align="center">
+    <img src="web/img/fresh/cuentas_bancarias.jpg" class="img-responsive" width="700">
+	</div>
 </body>
 </html>
