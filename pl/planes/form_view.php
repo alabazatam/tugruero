@@ -1,4 +1,29 @@
-<?php include('../../view_header_app.php')?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
+    <meta name="author" content="tugruero">
+    <meta name="google-site-verification" content="kXlZJPIsjo2kzjHRJpgR4ncAn-g_bF5ipNOvRSkhsE0" />
+    <link rel="alternate" hreflang="es" href="www.tugruero.com" />
+    <link rel="icon" href="<?php echo full_url?>/web/img/favicon.ico" type="image/x-icon"/>
+    <title>TUGRUERO®</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="<?php echo full_url?>/web/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="<?php echo full_url?>/web/css/freelancer2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="<?php echo full_url?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<?php echo full_url?>/web/css/animate.min.css" />
+</head>
+<body class="" style="background-color: #F5F5F5">
+
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
 <nav class="navbar navbar-default" >
@@ -23,7 +48,7 @@
 
 
     <form  method="POST" enctype="multipart/form-data">
-    <h1 align="center" class="">Proceso de contratación Plan TU/GRUERO®</h1>
+    <h1 align="center" class="titulo_contratacion">Proceso de contratación Plan TU/GRUERO®</h1>
         <?php if(isset($errors['global']) and $errors['global']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['global'];?></div>
 
@@ -202,7 +227,7 @@
         <div class="form-group col-sm-6">
           <label for="Domicilio" class="control-label">Dirección de domicilio</label> <label class="text-danger"> * </label>
           <div class="">
-              <textarea name="Domicilio" class="form-control"id="Domicilio" placeholder="Colocar una Dirección de domicilio de mínimo 10 caracteres."><?php if(isset($values['Domicilio']) and $values['Domicilio']!='') echo $values['Domicilio'];?></textarea>
+              <textarea name="Domicilio" class="form-control" id="Domicilio" placeholder="Colocar una Dirección de domicilio de mínimo 10 caracteres."><?php if(isset($values['Domicilio']) and $values['Domicilio']!='') echo $values['Domicilio'];?></textarea>
           </div>
               <?php if(isset($errors['Domicilio']) and $errors['Domicilio']!=''):?>
               <div id="" class="alert alert-danger"><?php echo $errors['Domicilio'];?></div>

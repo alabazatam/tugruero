@@ -737,7 +737,7 @@
                         <div class="modal-body">
 							<div class="col-sm-12 col-md-6 col-md-offset-3 table-responsive">
 								<br>
-                                                                <table class="table-bordered-dark bg-warning"> 
+                                                                <table class="table-bordered-dark bg-success"> 
                                                                     <tr class="text-left">
                                                                         <td class="grande">Solo se puede contratar el plan para un (01) vehículo a la vez.</p></td>
                                                                     </tr>

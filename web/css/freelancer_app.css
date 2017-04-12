@@ -615,3 +615,8 @@ input[readonly="readonly"] {
 .big-font{
     font-size: 18px !important;
 }
+.titulo_contratacion {
+    font-size: 36px !important;
+    text-decoration: underline;
+    font-weight: bolder;
+}

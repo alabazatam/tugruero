@@ -1147,5 +1147,10 @@ fieldset[disabled] .btn-success.active {
 .grande {
     font-size: 20px !important;
 }
+.titulo_contratacion {
+    font-size: 36px !important;
+    text-decoration: underline;
+    font-weight: bolder;
+}
 
 
