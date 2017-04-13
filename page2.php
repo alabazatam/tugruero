@@ -461,14 +461,9 @@
 				  <img src="web/img/fresh/clientes_aliados/Beatriz_Fratini.png" alt="Beatriz Fratini">
                              </div>
                          </div>
-                         <div class="col-sm-2">
+                         <div class="col-sm-3">
                          </div>
-                         <div class="col-sm-2">
-                             <div class="thumbnail ">
-                                <img src="web/img/fresh/clientes_aliados/tesoro.png" alt="Banco del Tesoro">
-                             </div>
-                         </div>
-                         <div class="col-sm-2">
+                         <div class="col-sm-3">
 
                          </div>
             </div>
@@ -491,7 +486,7 @@
                     <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
                     <div class="fondo_testimonios">
                         <p class="nombres_testimonios text-left">Juan Panto</p>
-                        <p class="subtitulo_testimonios text-justify">Gruero del Estado Bolívar inscrito en el Club Grúas Venezuela:</p>
+                        <p class="subtitulo_testimonios text-justify">Gruero del Estado Miranda inscrito en el Club Grúas Venezuela:</p>
                         <p class="texto_testimonios text-justify">Con TU/GRUERO® toda ha marchado muy bien. Siempre le recomiendo a todos mis compañeros se afilien con esta empresa.</p>
 
                     </div>
@@ -537,7 +532,7 @@
             <div class="row margin_contactenos">
                 <div class="col-sm-12 text-right">
                     <div class="col-sm-8 col-sm-offset-4">
-                        <label class="letras_bancos siguenos">Síguenos</label>
+                        <label class="letras_bancos siguenos">Síguenos </label>
                         <a href="https://twitter.com/tugruero" target="_blank" ><img src="web/img/fresh/twitter.png" onmouseover="this.src='web/img/fresh/twitter2.png'" onmouseout="this.src='web/img/fresh/twitter.png'" alt="Twitter"></a>
                         <a href="https://wwww.facebook.com/tugruero" target="_blank" class="twitter_change"><img src="web/img/fresh/facebook.png" onmouseover="this.src='web/img/fresh/facebook2.png'" onmouseout="this.src='web/img/fresh/facebook.png'" alt="Facebook"></a>
                         <a href="https://www.instagram.com/tugruero/" target="_blank" class="twitter_change"><img src="web/img/fresh/instagram.png" onmouseover="this.src='web/img/fresh/instagram2.png'" onmouseout="this.src='web/img/fresh/instagram.png'" alt="Instagram"></a>
@@ -848,7 +843,7 @@
 			text = "TU/GRUERO® se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado";
 			$("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos2.png)");	
 		}else if(caja == 4){//como funcionamos
-			text = "<strong> Puedes disfrutar de nuestros servicios de las siguientes formas: </strong>";
+			text = "<strong> Puedes disfrutar de nuestros servicios de las siguientes formas: </strong><br><br>";
                         text+= "<ol>";
 			text+= "<li> <label style='text-decoration: underline;'>Compañías de Seguros:</label> Si tu compañía de seguros está afiliada a nuestros servicios, tan solo te basta tener tu póliza de automóvil con Asistencia en Viajes (consulta con tu corredor de seguros)</li>";
                         text+= "<li> <label style='text-decoration: underline;'>Planes TU/GRUERO®:</label> Adquiriendo cualquiera de nuestros Planes de Grúas ilimitados (TU/GRUERO® Plus o TU/GRUERO® Gold)</li>";

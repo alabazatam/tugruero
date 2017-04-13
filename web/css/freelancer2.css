@@ -946,6 +946,16 @@ fieldset[disabled] .btn-success.active {
 .btn-naranja {
     background-color: #CC5A27 !important;
     color: #fff;
+    font-size: 120% !important;
+}
+.btn-naranja:hover{
+  background-color: #cc7e27 !important;  
+  color: #fff;
+}
+.btn-naranja:focus {
+  background-color: #cc7e27 !important;
+  background-position: 0 -15px;
+  color: #fff;
 }
 #clientes{
   margin: 0;
@@ -1078,7 +1088,7 @@ fieldset[disabled] .btn-success.active {
     padding-bottom: 30px;
 }
 .siguenos{
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
 }
 .telefono_sombra{
