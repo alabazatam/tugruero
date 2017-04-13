@@ -22,29 +22,6 @@
     <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="web/css/animate.min.css" />
 </head>
-<style>
-
-#animationSandbox {
-  -moz-animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  -moz-animation-delay: 0s;
-  -webkit-animation-delay: 0s;
-
-}
-#animationSandbox2 {
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  -moz-animation-delay: 0s;
-  -webkit-animation-delay: 0s;
-}
-#imagen {
-  -moz-animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  -moz-animation-delay: 0s;
-  -webkit-animation-delay: 0s;
-}
-		
-</style>
 <body id="page-top" class="index">
 
     <!-- Navigation -->
@@ -265,22 +242,30 @@
                 </div>
             </div>
 		  <div class="row margin_bancos letras_bancos text-right" align="right">
-				<button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">Ver cuentas bancarias</button>
+				<button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">VER CUENTAS BANCARIAS</button>
 		  </div>
     </section>   
     
     <section id="gruero_plus" onload="">
         <div class="text-center" id="animationSandbox">    
-            <p class="text-center telefono_sombra" >PLANES DE GRÚAS ILIMITADAS</p>
+            <h1 class="text-center titulo_planes" >PLANES DE GRÚAS ILIMITADAS</h1>
+
         </div>
+        <div class="row text-center" id="" style="display: block;">
+
+            <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/plan3.png" alt="TU/GRUERO PLUS" class=""></span>
+
+		
+		</div>
+
         <div class="row margin_gruero_plus">
             
             <!--<div class="col-sm-5 text-right">
-                        <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/entrada_tugruero1.png" alt="TU/GRUERO PLUS" class=""></span>
-                        <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/entrada_tugruero2.png" alt="TU/GRUERO PLUS" class=""></span>
+                        <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/plan1.png" alt="TU/GRUERO PLUS" class=""></span>
+                        <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/plan2.png" alt="TU/GRUERO PLUS" class=""></span>
 
             </div>-->
-            <div class="col-sm-12 texto_gruero_plus text-left">
+            <div class="col-sm-12 texto_gruero_plus">
                 
                     <div id="imagen">
                         <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestros planes vía online
@@ -288,7 +273,7 @@
                         <br>y disfruta de grúas ilimitadas</p>
                         <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
                         <p align="center" class="titulo_gruero_plus"><strong><br><br>Ahora puedes adquirir nuestros planes vía online ¡Sin hacer ni una llamada!</strong></p>
-                        <p align="center" class="titulo_gruero_plus" ID="animationSandbox2"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p>
+                        <p align="center" class="titulo_gruero_plus" ID=""><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p>
                     </div>
             </div>
             
@@ -822,8 +807,8 @@
                 $('#imagen').show();               
                 
                 if($('#animate1').val()==0){
-                    testAnim2('slideInRight');
-                    testAnim('slideInLeft');
+                    testAnim2('slideInLeft');
+                    testAnim('slideInRight');
                     testAnim3('slideInUp');
                     $('#animate1').val(1);
                     $('#animate2').val(1);
