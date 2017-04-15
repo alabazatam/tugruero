@@ -75,7 +75,7 @@
                         $columns[9] = "(DATE_FORMAT(FechaSolicitud, '%d/%m/%Y'))";
 			$column_order = $columns[0];
 			$where = "1 = 1 and PagoRealizado = 'S'";
-			$order = 'asc';
+			$order = 'desc';
 			$limit = $values['length'];
 			$offset = $values['start'];
 			
@@ -169,7 +169,7 @@
 			{
                                 $column_order = $columns[$values['order'][0]['column']];
 			}else{
-                                $column_order = " FechaSolicitud ";
+                                $column_order = " SolicitudPlan.idSolicitudPlan ";
                         }
 			if(isset($values['order'][0]['dir']) and $values['order'][0]['dir']!='0')
 			{

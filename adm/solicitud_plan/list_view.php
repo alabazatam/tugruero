@@ -65,7 +65,7 @@ $(document).ready(function() {
 		"language": {
                 "url": "<?php echo full_url."/web/js/"?>datatables.spanish.lang"
         },
-        "order": [[ 8, "desc" ]],
+        "order": [[ 0, "desc" ]],
         "columns": [
             { "data": "idSolicitudPlan" },
             { "data": "Nombres" },
