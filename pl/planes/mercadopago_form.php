@@ -1,6 +1,32 @@
-<?php include('../../view_header_app.php')?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
+    <meta name="author" content="tugruero">
+    <meta name="google-site-verification" content="kXlZJPIsjo2kzjHRJpgR4ncAn-g_bF5ipNOvRSkhsE0" />
+    <link rel="alternate" hreflang="es" href="www.tugruero.com" />
+    <link rel="icon" href="<?php echo full_url?>/web/img/favicon.ico" type="image/x-icon"/>
+    <title>TUGRUERO®</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="<?php echo full_url?>/web/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="<?php echo full_url?>/web/css/freelancer2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="<?php echo full_url?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<?php echo full_url?>/web/css/animate.min.css" />
+	<link href="<?php echo full_url;?>/web/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
+	<script src="<?php echo full_url;?>/web/js/jquery.js"></script>
 <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
 <script src="<?php echo full_url;?>/web/js/mercadopago.js"></script>
+</head>
+
 
 <nav class="navbar navbar-default" >
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -21,12 +47,14 @@
   </div>
 </nav>
 
-<h1 align="center">Proceso de contratación Plan TU/GRUERO®</h1>
+		<div class="text-center col-sm-12">
+		<label class="titulo_contratacion text-center">
+			Proceso de contratación Plan TU/GRUERO®
+		</label> 
+		<strong>(Parte 2 de 2)</strong>
+		</div>
 
-
-
-<input type="hidden" id="email" name="email" value="<?php if(isset($values['Correo']) and $values['Correo']!='') echo $values['Correo']?>">
-<input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
+<input type="TEXT" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
 <input type="hidden" id="Cedula" name="Cedula" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula']?>">
 <input type="hidden" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO ";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
 <input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
@@ -34,7 +62,7 @@
 <div class="col-sm-6" id="mercadopagodiv">
     <form action="" method="post" id="pay" name="pay" class="">
       <div class="form-group col-sm-12">
-        <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label>
+		  <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label> &nbsp;&nbsp;&nbsp;&nbsp;<small>(Colocar las letras en mayúsculas)</small>
 
         <div class="">
             <input type="text" required class="form-control" autocomplete="off" id="cardholderName" maxlength="50" data-checkout="cardholderName" maxlength="" value="" Placeholder="Ejemplo: JUAN A ALVAREZ C">
@@ -108,7 +136,7 @@
         <?php endif;?>
         <div id="show_error"></div>
         <div id="show_commit"></div>
-        <input type="submit" class="btn btn-success" value="Pagar" />
+        <input type="submit" class="btn btn-success" value="Procesar Pago" />
     </form>        
 </div>
 <div class="col-sm-12" id="mercadopagodivpagado"></div>

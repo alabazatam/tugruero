@@ -364,7 +364,9 @@
             $Nombres = strtoupper($data['Nombres']);
             $Apellidos = strtoupper($data['Apellidos']);
             $ConcatenadoPlan = $data['concatenado_plan'];
-            
+            $Modelo = $data['Modelo'];
+			$Marca= $data['Marca'];
+			$Anio= $data['Anio'];
             $smtp = "server-0116a.gconex.net";
             //$smtp = "mail.tugruero.com";
             $port = 465;
@@ -378,10 +380,11 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array($values['email']);
+            $email = array($values['response']['payer']['email']);
 
             $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
-            $message->setBody('<!DOCTYPE html>
+            $message->setBody('
+<!DOCTYPE html>
     <html>
 
         <head>
@@ -389,18 +392,27 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 12px;color:#262426;">
+        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 16px;color:#000000;">
             <div align="center">
-		<p align="justify">'.$saludo.', '.$Nombres.' '.$Apellidos.', gracias por la compra del plan '.$ConcatenadoPlan.'.</p>
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
-		<p align="justify">En este momento el Departamento de Suscripción está validando los datos y documentos suministrados, y en menos de 48 horas hábiles uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
 		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 		<p align="justify">¡Esté atento!</p>
-		<p align="justify">Saludos.</p>
+		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
-		<p align="justify" style="font-size: 10px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0) y/o escribirnos a info@tugruero.com - tugruero@gmail.com</p>
+		<p align="justify" style="font-size: 14px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
-
+            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
+            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
+            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
+            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
+            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+            <p><b>Síguenos</b></p>
+            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
+            <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
     ',"text/html");			
@@ -447,7 +459,7 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array('deandrademarcos@gmail.com');
+            $email = array($values['email']);
 
             $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
             $message->setBody('<!DOCTYPE html>
@@ -458,24 +470,33 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 12px;color:#262426;">
+        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 16px;color:#000000;">
             <div align="center">
-		<p align="justify">'.$saludo.', '.$Nombres.' '.$Apellidos.', gracias por la compra del plan '.$ConcatenadoPlan.'.</p>
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
-		<p align="justify">En este momento el Departamento de Suscripción está validando los datos y documentos suministrados, y en menos de 24 horas hábiles uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
-		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días continuos</strong> después que el agente le dé la confirmación de su pago</p>
+		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>24 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 		<p align="justify">¡Esté atento!</p>
-		<p align="justify">Saludos.</p>
+		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
-		<p align="justify" style="font-size: 10px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0) y/o escribirnos a info@tugruero.com - tugruero@gmail.com</p>
+		<p align="justify" style="font-size: 14px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
-
+            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
+            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
+            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
+            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
+            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+            <p><b>Síguenos</b></p>
+            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
+            <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
     ',"text/html");			
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
-                    $message->setTo($email);
+                    $message->setTo($values['Correo']);
                     //$message->setBcc('info@tugruero.com');
             // Send the message
 
@@ -521,7 +542,7 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array('deandrademarcos@gmail.com');
+            $email = array($data_aprobada['Correo']);
 
             $message = Swift_Message::newInstance('¡Felicidades! ¡Bienvenido a TU/GRUERO®!');
             $message->setBody('<!DOCTYPE html>
@@ -532,22 +553,37 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 12px;color:#262426;">
+        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 16px;color:#000000;">
             <div align="center">
-		<p align="justify">'.$saludo.', '.$Nombres.' '.$Apellidos.', tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro Dpto. de Suscripción.</p>
+		<p align="justify">'.$saludo.', '.$Nombres.' '.$Apellidos.', tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
 		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
-		<p align="justify">A continuación le indicamos los datos para acceder a la <strong>aplicación móvil TU/GRUERO®</strong> y solicitar los servicios de grúa por allí:</p>
+		<p align="justify">A continuación le indicamos los datos para acceder a la <strong>aplicación móvil TU/GRUERO®</strong> y solicitar los servicios de grúa por esa vía:</p>
 		<p align="left"><strong>Cédula: '.$Cedula.'</strong></p>
 		<p align="left"><strong>Placa: '.$Placa.'</strong></p>
 		<p align="left"><strong>Seguro: '.$plan_tugruero.'</strong></p>
+		<br><br>
 		<p align="justify">¡Esté atento!</p>
-		<p align="justify">De igual forma puede solicitar sus servicios de grúa a través de nuestro Call Center al <strong>0500-GRUERO-0 (0500-478376-0)</strong> </p>
-		<p align="justify">Le adjuntamos a este correo el <strong>Cuadro Producto</strong> contratado, donde podrá ver su información personal y la del vehículo cubierto por el plan.</p>
-		<p align="justify">Es importante que sepa que usted estará activo tanto en el plan como en la aplicación móvil en <strong>5 días habiles</strong> a partir del día de hoy.</p>
-		<p align="justify">Saludos.</p>
-		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
-		<p align="justify" style="font-size: 10px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0) y/o escribirnos a info@tugruero.com - tugruero@gmail.com</p>
 
+		<p align="justify">De igual forma puede solicitar sus servicios de grúa a través de nuestro Call Center al <strong>0500-GRUERO-0 (0500-478376-0)</strong> </p>
+
+		<p align="justify">Le adjuntamos a este correo el <strong>Cuadro Producto</strong> contratado, donde podrá ver su información personal y la del vehículo cubierto por el plan.</p>
+
+		<p align="justify">Es importante que sepa que usted estará activo tanto en el plan como en la aplicación móvil en <strong>5 días habiles</strong> a partir del día de hoy.</p>
+
+		<p align="justify">Saludos.<br><br><br><br>
+		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
+		<p align="justify" style="font-size: 14px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
+            </div>
+            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
+            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
+            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
+            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
+            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+            <p><b>Síguenos</b></p>
+            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
+            <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
 		</div>
 
         </body>

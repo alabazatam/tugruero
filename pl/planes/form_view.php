@@ -21,6 +21,7 @@
     <!-- Custom Fonts -->
     <link href="<?php echo full_url?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<?php echo full_url?>/web/css/animate.min.css" />
+	<link href="<?php echo full_url;?>/web/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
 </head>
 <body class="" style="background-color: #F5F5F5">
 
@@ -48,7 +49,12 @@
 
 
     <form  method="POST" enctype="multipart/form-data">
-    <h1 align="center" class="titulo_contratacion">Proceso de contratación Plan TU/GRUERO®</h1>
+		<div class="text-center col-sm-12">
+		<label class="titulo_contratacion text-center">
+			Proceso de contratación Plan TU/GRUERO®
+		</label> 
+		<strong>(Parte 1 de 2)</strong>
+		</div>
         <?php if(isset($errors['global']) and $errors['global']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['global'];?></div>
 
@@ -56,7 +62,7 @@
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
 
-    <div class="form-group col-sm-12 text-right PlanPrecio">
+    <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-success">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",",".")." Bs."; else echo "0,00 Bs."?></p>
   </div>
   <div class="form-group col-sm-12">
@@ -421,11 +427,11 @@
   <div class="form-group col-sm-12">
     <label for="inputEmail3" class="control-label">Método de pago</label> <label class="text-danger"> * </label>
     <div class="">
-    <label class="radio-inline">
-		<input type="radio" name="MET" class="MET" value="TDC" <?php if(isset($values['MET']) and $values['MET']=='TDC') echo "checked='checked'";?>>Tarjeta de crédito <i class="fa fa-cc-visa fa-2x"></i> <i class="fa fa-cc-mastercard fa-2x"></i>
+    <label class="">
+		<input type="radio" name="MET" class="MET " value="TDC" <?php if(isset($values['MET']) and $values['MET']=='TDC') echo "checked='checked'";?>> Tarjeta de crédito <img src="<?php echo full_url;?>/web/img/fresh/medios_pagos/visa.png"> <img src="<?php echo full_url;?>/web/img/fresh/medios_pagos/mastercard.png">
     </label>
-    <label class="radio-inline">
-      <input type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['MET']) and $values['MET']=='DEP') echo "checked='checked'";?>> Depósito o transferencia  <i class="fa fa-file-text-o fa-2x"></i>
+    <label class="">
+      <input type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['MET']) and $values['MET']=='DEP') echo "checked='checked'";?>> Depósito o transferencia  <i class="fa fa-file-text-o fa-3x btn-info"></i>
     </label>
     </div>
         <?php if(isset($errors['MET']) and $errors['MET']!=''):?>
@@ -433,6 +439,9 @@
 
         <?php endif;?>
   </div>
+	<div id="mensajetarjeta" class="col-sm-12 alert alert-info">
+		¡Excelente! En la próxima parte de este proceso podrás indicarnos los datos de tu tarjeta para que procesemos tu pago.
+	</div>
   <div class="form-group col-sm-12 DEPOSITO">
     <label for="DEP1" class="control-label">Comprobante #1 </label> <label class="text-danger"> * </label>
     <div class="">
@@ -464,7 +473,7 @@
         <?php endif;?>
   </div>
     
-  <div class="form-group col-sm-12 text-right PlanPrecio">
+  <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-success">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
   </div>
 	<div class="col-sm-5">
@@ -514,6 +523,7 @@
 <script>
 
 $(document).ready(function(){
+			 $('#mensajetarjeta').hide();
 <?php if(isset($values['RCV']) and $values['RCV']=='SI'):?>
             console.log('eligio si');
             $('.Puestos').show();
@@ -554,9 +564,11 @@ $(document).ready(function(){
 
 <?php if(isset($values['MET']) and $values['MET']=='DEP'):?>
          $('.DEPOSITO').show();
+		 $('#mensajetarjeta').hide();
 <?php endif;?>
 <?php if(isset($values['MET']) and $values['MET']=='TDC'):?>
          $('.DEPOSITO').hide();
+		 $('#mensajetarjeta').show();
 <?php endif;?>
 <?php if((!isset($values['MET']))):?>
         $('.DEPOSITO').hide();
@@ -593,6 +605,19 @@ $(document).ready(function(){
             $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
+        }
+        
+
+        
+    });
+    $('.MET').change(function(e){
+        calculaPrecio();
+        if($('.MET:checked').val() == 'TDC'){
+			console.log($('.MET:checked').val());
+			$('#mensajetarjeta').show();
+        }else{
+            console.log($('.MET:checked').val());
+            $('#mensajetarjeta').hide();
         }
         
 

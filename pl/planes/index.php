@@ -68,7 +68,7 @@ $values = array_merge($values,$_FILES);
    
                                                 }
                                                     
-						$values = $SolicitudPlan->saveSolicitudPlan($values);
+												$values = $SolicitudPlan->saveSolicitudPlan($values);
                                                 //print_r($values);die;
                                                 //subir documentos
                                                 subirDocumentos($values, $_FILES);

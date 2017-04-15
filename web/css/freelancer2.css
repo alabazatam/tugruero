@@ -1158,9 +1158,11 @@ fieldset[disabled] .btn-success.active {
     font-size: 20px !important;
 }
 .titulo_contratacion {
-    font-size: 36px !important;
+    font-size: 42px !important;
     text-decoration: underline;
     font-weight: bolder;
+    text-transform: uppercase;
+    text-align: center;
 }
 #animationSandbox {
   -moz-animation-duration: 1s;
