@@ -138,7 +138,7 @@ $isAprobada = false;
   <div class="form-group col-sm-3">
     <label for="FechaNacimiento" class="2 control-label">Fecha de nacimiento</label> <label class="text-danger"> * </label>
     <div class="">
-        <input <?php echo $disabled;?> type="text" name="FechaNacimiento" class="form-control" autocomplete="off" maxlength="10" id="" value="<?php if(isset($values['FechaNacimiento']) and $values['FechaNacimiento']!='') echo $values['FechaNacimiento'];?>"  placeholder="Ejemplo: 01/01/1980">
+        <input <?php echo $disabled;?> type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" autocomplete="off" maxlength="10" id="" value="<?php if(isset($values['FechaNacimiento']) and $values['FechaNacimiento']!='') echo $values['FechaNacimiento'];?>"  placeholder="Ejemplo: 01/01/1980">
     </div>
         <?php if(isset($errors['FechaNacimiento']) and$errors['FechaNacimiento']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['FechaNacimiento'];?></div>
@@ -329,6 +329,18 @@ $isAprobada = false;
 
         <?php endif;?>
   </div>
+        <div class="form-group col-sm-12">
+          <label for="Clase" class="control-label">Clase</label> <label class="text-danger"> * </label>
+          <div class="">
+                <select <?php echo $disabled;?> name="Clase" class="form-control" id="Clase">
+                    <option value="">Seleccione...</option> 
+                    <option value="Automóvil" <?php if(isset($values['Clase']) and $values['Clase']=='Automóvil') echo "selected = 'selected'"?> >Automóvil</option>                   
+                    <option value="Camioneta" <?php if(isset($values['Clase']) and $values['Clase']=='Camioneta') echo "selected = 'selected'"?> >Camioneta</option>                   
+                    <option value="Moto" <?php if(isset($values['Clase']) and $values['Clase']=='Moto') echo "selected = 'selected'"?> >Moto</option>                   
+
+                </select> 
+          </div>
+        </div>
   <div class="form-group col-sm-2">
     <label for="Marca" class="control-label">Marca</label> <label class="text-danger"> * </label>
     <div class="">
@@ -356,7 +368,7 @@ $isAprobada = false;
 
         <?php endif;?>
   </div> 
-        <div class="form-group col-sm-2">
+        <div class="form-group col-sm-2 TIPO">
           <label for="Tipo" class="control-label">Tipo</label> <label class="text-danger"> * </label>
           <div class="">
                 <select <?php echo $disabled;?> name="Tipo" class="form-control" id="Tipo">
@@ -583,6 +595,12 @@ $('#rechazo').hide();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
 <?php endif;?>
+<?php if(isset($values['Clase']) and $values['Clase']=='Moto'):?>
+         $('.TIPO').hide();
+<?php endif;?>
+<?php if(isset($values['Clase']) and $values['Clase']!='Moto'):?>
+         $('.TIPO').show();
+<?php endif;?>
 
 <?php if(isset($values['MET']) and $values['MET']=='DEP'):?>
          $('.DEPOSITO').show();
@@ -596,6 +614,14 @@ $('#rechazo').hide();
 
     $('#idPlan').change(function(e){
     calculaPrecio();       
+    });
+    $('#Clase').change(function(e){
+        if($('#Clase').val()=='Moto'){
+            $('.TIPO').hide();
+        }else{
+            $('.TIPO').show();
+        }
+            
     });
 
     $('.RCV').change(function(e){

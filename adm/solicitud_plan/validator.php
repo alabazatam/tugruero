@@ -75,16 +75,16 @@
 		);
 		$validator_values['Telefono'] = array(
 			
-			"minlength" => 10,
-			"maxlength" => 10,
+			"minlength" => 11,
+			"maxlength" => 11,
 			"type" => "number",
 			"label" => "Teléfono de habitación",
 			"required" => true
 		);
 		$validator_values['Celular'] = array(
 			
-			"minlength" => 10,
-			"maxlength" => 10,
+			"minlength" => 11,
+			"maxlength" => 11,
 			"type" => "number",
 			"label" => "Celular",
 			"required" => true
@@ -161,13 +161,13 @@
                 {
                     $errors['Rif'] = "Verifique el formato del RIF (V-12345670)";
                 }
-                if (!preg_match("/^[2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
+                if (!preg_match("/^[0][2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
                 {
-                    $errors['Telefono'] = "Formato o número incorrecto (Ejemplo: 2121234567))";
+                    $errors['Telefono'] = "Formato o número incorrecto (Ejemplo: 02121234567))";
                 }
-                if (!preg_match("/^[4][1-2][2,4,6][0-9]{7}$/", $values['Celular'], $matches))      
+                if (!preg_match("/^[0][4][1-2][2,4,6][0-9]{7}$/", $values['Celular'], $matches))      
                 {
-                    $errors['Celular'] = "Formato o número incorrecto (Ejemplo: 4241234567)";
+                    $errors['Celular'] = "Formato o número incorrecto (Ejemplo: 04241234567)";
                 }
                 
                 /*if(!isset($values['idPlan']) or $values['idPlan']==''){
@@ -188,7 +188,7 @@
                 if(!isset($values['Anio']) or $values['Anio']==''){
                     $errors['Anio'] = 'Debe seleccionar el año';
                 }
-                if(!isset($values['Tipo']) or $values['Tipo']==''){
+                if(!isset($values['Tipo']) or $values['Tipo']=='' and $values['Clase']!='Moto'){
                     $errors['Tipo'] = 'Debe seleccionar el tipo de vehículo';
                 } 
                 /*if(!isset($values['MET']) or $values['MET']==''){

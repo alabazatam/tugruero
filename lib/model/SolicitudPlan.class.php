@@ -356,7 +356,8 @@
                                 AND Tipo = 'RCV' 
                         ) AS Puestos,
                         TipoPago AS MET,
-                        (SELECT SUM(PrecioConIva) FROM SolicitudPlanSeleccion s WHERE s.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) AS precio 
+                        (SELECT SUM(PrecioConIva) FROM SolicitudPlanSeleccion s WHERE s.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) AS precio,
+                        DATE_FORMAT(FechaNacimiento, '%d/%m/%Y') as FechaNacimiento
                         ")
 			->where("SolicitudPlan.idSolicitudPlan=?",$values['idSolicitudPlan'])
 			//echo $q;die;

@@ -558,9 +558,19 @@
 		<p align="justify">'.$saludo.', '.$Nombres.' '.$Apellidos.', tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
 		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
 		<p align="justify">A continuación le indicamos los datos para acceder a la <strong>aplicación móvil TU/GRUERO®</strong> y solicitar los servicios de grúa por esa vía:</p>
-		<p align="left"><strong>Cédula: '.$Cedula.'</strong></p>
-		<p align="left"><strong>Placa: '.$Placa.'</strong></p>
-		<p align="left"><strong>Seguro: '.$plan_tugruero.'</strong></p>
+		<p align="left">
+                    <ul>
+                        <li align="left">
+                            <strong>Cédula: '.$Cedula.'</strong>
+                        </li>
+                        <li align="left">
+                            <strong>Placa: '.$Placa.'</strong>
+                        </li>
+                        <li align="left">
+                            <strong>Seguro: '.$plan_tugruero.'</strong>
+                        </li>
+                    </ul>
+                </p>
 		<br><br>
 		<p align="justify">¡Esté atento!</p>
 
