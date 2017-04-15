@@ -7,8 +7,8 @@ setlocale(LC_NUMERIC,"es_ES.UTF8");
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
-            $PDFPagos = new PDFPagos();
-            $pdf = $PDFPagos->cuadroTUGRUERO(array('idSolicitudPlan'=> 1));
+            /*$PDFPagos = new PDFPagos();
+            $pdf = $PDFPagos->cuadroTUGRUERO(array('idSolicitudPlan'=> 1));*/
 $values = $_REQUEST;
 $values = array_merge($values,$_FILES);
 	switch ($action) {
