@@ -442,6 +442,9 @@
 	<div id="mensajetarjeta" class="col-sm-12 alert alert-info">
 		¡Excelente! En la próxima parte de este proceso podrás indicarnos los datos de tu tarjeta para que procesemos tu pago.
 	</div>
+	<div id="mensajedeposito" class="col-sm-12 alert alert-info">
+		Puedes pagar el monto total con una (01) o varias transferencias y/o depósitos, carga los comprobantes de todos los pagos.
+	</div>
   <div class="form-group col-sm-12 DEPOSITO">
     <label for="DEP1" class="control-label">Comprobante #1 </label> <label class="text-danger"> * </label>
     <div class="">
@@ -524,6 +527,7 @@
 
 $(document).ready(function(){
 			 $('#mensajetarjeta').hide();
+                         $('#mensajedeposito').hide();
 <?php if(isset($values['RCV']) and $values['RCV']=='SI'):?>
             console.log('eligio si');
             $('.Puestos').show();
@@ -565,10 +569,12 @@ $(document).ready(function(){
 <?php if(isset($values['MET']) and $values['MET']=='DEP'):?>
          $('.DEPOSITO').show();
 		 $('#mensajetarjeta').hide();
+                 $('#mensajedeposito').show();
 <?php endif;?>
 <?php if(isset($values['MET']) and $values['MET']=='TDC'):?>
          $('.DEPOSITO').hide();
 		 $('#mensajetarjeta').show();
+                 $('#mensajedeposito').hide();
 <?php endif;?>
 <?php if((!isset($values['MET']))):?>
         $('.DEPOSITO').hide();
@@ -615,9 +621,11 @@ $(document).ready(function(){
         if($('.MET:checked').val() == 'TDC'){
 			console.log($('.MET:checked').val());
 			$('#mensajetarjeta').show();
+                        $('#mensajedeposito').hide();
         }else{
             console.log($('.MET:checked').val());
             $('#mensajetarjeta').hide();
+             $('#mensajedeposito').show();
         }
         
 

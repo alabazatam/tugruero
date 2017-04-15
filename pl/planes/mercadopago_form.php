@@ -59,7 +59,7 @@
 <input type="hidden" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO ";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
 <input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
 
-<div class="col-sm-6" id="mercadopagodiv">
+<div class="col-sm-8" id="mercadopagodiv">
     <form action="" method="post" id="pay" name="pay" class="">
       <div class="form-group col-sm-12">
 		  <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label> &nbsp;&nbsp;&nbsp;&nbsp;<small>(Colocar las letras en mayúsculas)</small>
@@ -93,9 +93,10 @@
         </div>
       </div>
       <div class="form-group col-sm-4">
-        <label for="securityCode" class="control-label">Código de seguridad</label> <label class="text-danger"> * </label>
+          <label for="securityCode" class="control-label">Código de seguridad</label> <label class="text-danger"> * </label> 
         <div class="">
             <input required type="text" class="form-control" data-checkout="securityCode" autocomplete="off" id="securityCode" maxlength="3" value="" placeholder="Ejemplo: 123">
+            <small style="cursor: pointer;"><a id="codigoseguridad" data-toggle="modal" data-target="#myModal5">¿Cuál es el código de seguridad?</a></small>
         </div>
       </div>
       <div class="form-group col-sm-6">
@@ -141,5 +142,24 @@
 </div>
 <div class="col-sm-12" id="mercadopagodivpagado"></div>
 
-
+<!-- Modal -->
+<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-footer">
+          <div class="text-center">
+              <img class="img-responsive" src="<?php echo full_url?>/web/img/fresh/medios_pagos/codigo_seguridad.jpg">
+          </div>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 <?php include('../../view_footer_solicitud.php');?>
+
+<script>
+    /*$("#codigoseguridad").click(function(){
+       
+    });*/
+    
+</script>
