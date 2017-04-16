@@ -1,5 +1,4 @@
 <?php
-
 header('Content-Type: application/json; charset:utf-8');
 $myInput = file_get_contents('php://input');
 $obj = json_decode($myInput, true);
@@ -24,6 +23,12 @@ include_once 'conexion.php';
 //------------------------------
 //Parámetros
 //------------------------------
+//var_dump($obj);die;
+if(isset($obj["idPoliza"]) and $obj["idPoliza"]!=""){
+    $idPoliza = ($obj["idPoliza"]);  
+}else{
+        crearPolizaOnline($link,$link2,$obj);
+}
 $idPoliza = ($obj["idPoliza"]);
 $latOrigen = ($obj["latOrigen"]);
 $lngOrigen = ($obj["lngOrigen"]);
@@ -232,4 +237,32 @@ function GetDistancia($oLAT, $oLNG, $dLAT, $dLNG) { //equación de Haversine
     $distancia = $cFactor * 6371.137 * 1.3; //Distancia en KM
 
     return round($distancia);
+}
+function crearPolizaOnline($link,$link2,$obj){
+$fechahora = date('Y-m-d H:i:s');   
+$fecha = date('Y-m-d');
+$seguro = "APP-TEMPORAL";
+//inserto para la web   
+    $result = $link2->query("INSERT INTO `admin_tugruero`.`Polizas` 
+        (Placa,Cedula,Nombre,Apellido,Marca,Modelo,Clase,Tipo,Color,Año,Serial,Seguro,NumPoliza,DireccionEDO,Domicilio,DireccionFiscal,Vencimiento,date_created,date_updated,created_by,updated_by,Nacionalidad,Celular,Email,DesdeVigencia,EstatusPoliza)
+	VALUES
+	('".strtoupper($obj["Placa"])."','".strtoupper($obj["Cedula"])."','".strtoupper($obj["Nombres"])."','".strtoupper($obj["Apellidos"])."','".strtoupper($obj["Marca"])."','".strtoupper($obj["Modelo"])."','".$obj["Clase"]."','".$obj["Tipo"]."','".strtoupper($obj["Color"])."','".$obj["Anio"]."','','".$seguro."','".strtoupper($obj["EstadoOrigen"])."','".strtoupper($obj["EstadoOrigen"])."','".strtoupper($obj["EstadoOrigen"])."','".strtoupper($obj["EstadoOrigen"])."','".$fecha."','".$fechahora."','".$fechahora."','1','1','V','".$obj["CellContacto"]."',null,'".$fecha."','Inactivo')");
+    
+    
+    
+    if (!$result) {
+    Error($link2->error, $link2);
+    }
+    
+    $idPoliza = $link2->insert_id;   
+//inserto para la app
+    $result = $link->query("INSERT INTO `TuGruero`.`Polizas` 
+	(idPoliza, Placa,Cedula,Nombre,Apellido, Marca,Modelo,Clase,Tipo,Color,Año,Seguro,  DireccionEDO,Vencimiento,Serial,Celular,Email,DesdeVigencia,EstatusPoliza)
+	VALUES('".$idPoliza."','".strtoupper($obj["Placa"])."','".strtoupper($obj["Cedula"])."','".strtoupper($obj["Nombres"])."','".strtoupper($obj["Apellidos"])."','".strtoupper($obj["Marca"])."','".strtoupper($obj["Modelo"])."','".$obj["Clase"]."','".$obj["Tipo"]."','".strtoupper($obj["Color"])."','".$obj["Anio"]."','".$seguro."','".strtoupper($obj["EstadoOrigen"])."','".$fecha."',null,'".$obj["CellContacto"]."',null,'".$fechahora."','Inactivo')");
+
+    if (!$result) {
+    Error($link->error, $link);
+    }
+
+
 }
