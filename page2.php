@@ -483,7 +483,7 @@
 				<br><br>
             </div>
             <div class="row">
-                <p class="titulo_testimonios text-center">Testimonios de Grueros</p>
+                <div class="titulo_testimonios text-center">Testimonios de Grueros</div>
             </div> 
         
             <div class="row margin_testimonios" >
