@@ -171,12 +171,9 @@
     
      <section id="bancos">
             <div class="row">
-                <p class="titulo_bancos text-center">Bancos disponibles</p><br><br><br><br>
+                <div class="titulo_bancos text-center">Bancos disponibles</div><br><br><br><br>
             </div>     
             <div class="row margin_bancos">
-                 <div class="col-xs-1">
-                     
-                 </div>  
                  <div class="col-xs-2">
                      <img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive" width="">
                  </div> 
@@ -196,8 +193,9 @@
                     <img src="web/img/fresh/bancovenezuela.png" alt="Paga con Banco Venezuela" class="img-responsive" width="">
 
                  </div> 
-                 <div class="col-xs-1">
-                     
+                 <div class="col-xs-2">
+					 <img src="web/img/fresh/banco_tesoro.png" alt="Paga con Banco del Tesoro" class="img-responsive" width="">
+
                  </div>                 
             </div>  
             <div class="row margin_bancos separador_bancos">
@@ -341,7 +339,7 @@
     </section>
     <section id="clientes">
             <div class="row">
-                <p class="titulo_clientes text-center">Clientes y Aliados</p>
+                <div class="titulo_clientes text-center">Clientes y Aliados</div>
             </div> 
 			<div class="row margin_clientes">
                          <div class="col-sm-2 col-sm-offset-1">
@@ -773,7 +771,7 @@
                 <div class="row">
                         <div class="modal-body">
 							<div class="col-sm-12 col-md-6 col-md-offset-3 table-responsive">
-								<img src="web/img/fresh/cuentas_bancarias.jpg" class="img-responsive"> 
+								<img src="web/img/fresh/cuentas_bancarias.jpg" class="img-responsive" style="border: #000 solid 5px;"> 
 
 							</div>			
                         </div>
