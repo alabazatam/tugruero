@@ -723,35 +723,43 @@
 			</div>
                 <div class="row">
                         <div class="modal-body">
-							<div class="col-sm-12 col-md-6 col-md-offset-3 table-responsive">
-								<br>
-                                                                <table class="table-bordered-dark bg-success"> 
-                                                                    <tr class="text-left">
-                                                                        <td class="grande">Solo se puede contratar el plan para un (01) vehículo a la vez.</p></td>
-                                                                    </tr>
-                                                                    <tr class="text-left">
-                                                                        <td class="grande">Si usted realizó el pago por transferencia o depósito bancario asegúrese de tener el recibo o voucher digitalizado en su equipo, ya que lo tendrá que cargar al finalizar el proceso de contratación.</td>
-                                                                    </tr>
-                                                                    <tr class="text-left">
-                                                                        <td class="grande">Asegúrese de tener digitalizado en su equipo los siguientes documentos:
-                                                                            <ul>
-                                                                                <li>Cedula de identidad.</li>
-                                                                                <li>RIF personal.</li>
-                                                                                <li>Licencia de conducir.</li>
-                                                                                <li>Carnet de circulación.</li>
-                                                                                <li>Certificado médico. (En caso de adquirir RCV)</li>
-                                                                                <li>Certificado de origen del vehículo. (título de propiedad) (En caso de adquirir RCV)</li>
-                                                                            </ul>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
+                            <div class="col-xs-3 col-xs-offset-4" style=";margin-bottom: -1.9%;z-index: 1;background-color: #E7E8EB !important;">
+                                <img src="web/img/fresh/atencion.png" class="img-responsive">
+                            </div>
+                            <div class="col-xs-12 table-responsive" style="z-index: 0;border-top: dotted 3px #e76115;border-bottom: dotted 3px #e76115;border-left: dotted 3px #e76115;border-right: dotted 3px #e76115; z-index:0;">
+                                <div class="col-xs-12"  style="border: dotted 1px #000;margin-top: 3%;margin-bottom: 3%;background-color: #e7e8eb;padding-top: 2%;">
+                                    <div class="" style="background-color: #444142;margin-left: -1.8%;margin-right: -1.8%;color:#fff;">
+                                          <p class="text-center"><strong>SOLO SE PUEDE CONTRATAR EL PLAN PARA UN (01) VEHÍCULO A LA VEZ</strong></p>  
+                                    </div>
+                                    <div class="" style="margin-left: -3%;">
+                                        <p class="text-center" style="font-size: 1.5em;">Si usted realizó el pago por transferencia o depósito<br>
+                                            bancario asegúrese de tener el recibo o voucher<br>
+                                            digitalizado en su equipo, ya que lo tendrá que <br>
+                                            cargar al finalizar el proceso de contratación
+                                        </p>
 
+                                    </div>     
+                                    <div class="" style="background-color: #e76115;border-radius: 10px;color:#ffffff !important;">
+                                        <p class="text-left" style="font-size: 1.5em;">
+                                            &nbsp;&nbsp;&nbsp;<strong>Asegúrese de tener digitalizado en su equipo los siguientes documentos</strong>
+                                        </p>
+                                        <ul style="font-size: 1.3em;">
+                                            <li class="text-left">Cédula de identidad.</li>
+                                            <li class="text-left">RIF personal.</li>
+                                            <li class="text-left">Licencia de conducir.</li>
+                                            <li class="text-left">Carnet de circulación.</li>
+                                            <li class="text-left">Certificado médico (en caso de adquirir RCV).</li>
+                                            <li class="text-left">Certificado de origen del vehículo. (Título de propiedad) (en caso de adquirir RCV)</li>
+                                        </ul>
+                                    </div>     
 
-							</div>
-							<div class="col-sm-12 col-md-6 col-md-offset-3 text-right">
-								<br>
-                                                                <a class="btn btn-success" href="https://tugruero.com/pl/planes/index.php">Continuar</a>
-							</div>				
+                                </div>
+
+                            </div>    
+                            <div class="col-sm-12 col-md-6 col-md-offset-3 text-right">
+                                <br>
+                                <a class="btn btn-success" href="https://tugruero.com/pl/planes/index.php">Continuar</a>
+                            </div>				
                         </div>
                 </div>
         </div>
