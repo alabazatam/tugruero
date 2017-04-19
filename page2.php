@@ -373,82 +373,82 @@
             <div class="row ">
                          <div class="col-sm-2 col-sm-offset-1">
                              <div class="thumbnail  ">
-				  <img src="web/img/fresh/clientes/vitalicia.png" alt="Airs">
+				  <img src="web/img/fresh/clientes/vitalicia.png" alt="Vitalicia">
+                             </div>
+                         </div>
+                         <div class="col-sm-2">
+                             <div class="thumbnail" >
+				  <img src="web/img/fresh/clientes/laprevisora.png" alt="La Previsora" >
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes/laprevisora.png" alt="Universal seguros">
+                                 <img src="web/img/fresh/clientes/more.png" alt="More consulting">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-                                 <img src="web/img/fresh/clientes/more.png" alt="Club grúas venezuela">
-                             </div>
-                         </div>
-                         <div class="col-sm-2">
-                             <div class="thumbnail ">
-                                 <img src="web/img/fresh/clientes/tecontacto.png" alt="Coprevial">
+                                 <img src="web/img/fresh/clientes/tecontacto.png" alt="Te Contacto">
                              </div>
                          </div>
 
                          <div class="col-sm-2">
                              <div class="thumbnail  ">
-				  <img src="web/img/fresh/clientes/easytaxi.png" alt="Te contacto">
+				  <img src="web/img/fresh/clientes/easytaxi.png" alt="EasYtaxi">
                              </div>
                          </div>
                 </div>        
                 <div class="row">
                          <div class="col-sm-2 col-sm-offset-1">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes/mercantil.png" alt="Seguros la viatalicia">
+				  <img src="web/img/fresh/clientes/mercantil.png" alt="Seguros Mercantil">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes/provincial.png" alt="Banco mercantil">
+				  <img src="web/img/fresh/clientes/provincial.png" alt="Banco Provincial">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes/plataformasatelital.png" alt="More consulting">
+				  <img src="web/img/fresh/clientes/plataformasatelital.png" alt="Plataforma Satelital">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-                                <img src="web/img/fresh/clientes/ubikeitor.png" alt="Asistir cooperativa">
+                                <img src="web/img/fresh/clientes/ubikeitor.png" alt="Ubikeitor">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-                                <img src="web/img/fresh/clientes/locktrack.png" alt="Ubikeitor">
+                                <img src="web/img/fresh/clientes/locktrack.png" alt="LockTrack">
                              </div>
                          </div>
             </div>
                 <div class="row">
                          <div class="col-sm-2 col-sm-offset-1">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes/exterior.png" alt="4lotrack">
+				  <img src="web/img/fresh/clientes/exterior.png" alt="Banco Exterior">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes/banesco.png" alt="Alcaldia de Chacao">
+				  <img src="web/img/fresh/clientes/banesco.png" alt="Banco Banesco">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-				  <img src="web/img/fresh/clientes/valuarty.png" alt="Banesco">
+				  <img src="web/img/fresh/clientes/valuarty.png" alt="Valuarty">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-                                <img src="web/img/fresh/clientes/4lotrack.png" alt="Provincial">
+                                <img src="web/img/fresh/clientes/4lotrack.png" alt="4lotrack">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-                                 <img src="web/img/fresh/clientes/bf.png" alt="Locktrack">
+                                 <img src="web/img/fresh/clientes/bf.png" alt="BF">
                              </div>
                          </div>
             </div>
@@ -458,17 +458,17 @@
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-									<img src="web/img/fresh/clientes/problinca.png" alt="Beatriz Fratini">
+									<img src="web/img/fresh/clientes/problinca.png" alt="Problinca">
                              </div>
                          </div>
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-									<img src="web/img/fresh/clientes/clubgruas.png" alt="Beatriz Fratini">
+									<img src="web/img/fresh/clientes/clubgruas.png" alt="Club Grúas Venezuela">
                              </div>
                          </div>					
                          <div class="col-sm-2">
                              <div class="thumbnail ">
-									<img src="web/img/fresh/clientes/asistir.png" alt="Beatriz Fratini">
+									<img src="web/img/fresh/clientes/asistir.png" alt="Asistir">
                              </div>
                          </div>
                          <div class="col-sm-3">
