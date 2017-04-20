@@ -97,13 +97,14 @@
 					<p class="text-justify white-font">
 						Está activo las 24/7 y los 365 días del año.
 					</p>
-					<h3 class="text-left white-font extra_bold">¿Dónde funciona la aplicación y el servicio de auxilio vial de TU/GRUERO®?</h3>
 					<hr>
+					<h3 class="text-left white-font extra_bold">¿Dónde funciona la aplicación y el servicio de auxilio vial de TU/GRUERO®?</h3>
+					
 					<p class="text-justify white-font">
 						A lo largo de todo el territorio nacional de Venezuela (en los 24 estados incluyendo, Nueva Esparta), tanto la aplicación como el servicio prestado por nuestro Call Center.
 					</p>
 					<hr>
-					<h3 class="text-left white-font">¿TU/GRUERO® funciona a nivel internacional?</h3>
+					<h3 class="text-left white-font extra_bold">¿TU/GRUERO® funciona a nivel internacional?</h3>
 					
 					<p class="text-justify white-font">
 						En estos momentos el servicio sólo se presta en el territorio nacional de Venezuela indicado en la pregunta anterior.
