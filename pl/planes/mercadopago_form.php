@@ -61,6 +61,9 @@
 
 <div class="col-sm-8" id="mercadopagodiv">
     <form action="" method="post" id="pay" name="pay" class="">
+	<div class="form-group col-sm-12">
+		<p class="subtitulo_planes"><strong>Datos de su Tarjeta de Crédito</strong></p>
+	</div>
       <div class="form-group col-sm-12">
 		  <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label> &nbsp;&nbsp;&nbsp;&nbsp;<small>(Colocar las letras en mayúsculas)</small>
 

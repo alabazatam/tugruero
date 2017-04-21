@@ -79,9 +79,9 @@
                                 . '<td colspan="9" align="center" style="border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; background-color: #fce4d6;"><strong>DATOS CLIENTE</strong></td>'
                                 . '</tr>'
                                 . '<tr>'
-                                . '<td style="border-left-width:1px;"> NOMBRE:</td>'
+                                . '<td style="border-left-width:1px;"> NOMBRES:</td>'
                                 . '<td>'.$datos_cuadro['Nombres'].'</td>'
-                                . '<td>APELLIDO:</td>'
+                                . '<td>APELLIDOS:</td>'
                                 . '<td>'.$datos_cuadro['Apellidos'].'</td>'
                                 . '<td>EDAD:</td>'
                                 . '<td>'.$datos_cuadro['Edad'].'</td>'
@@ -98,16 +98,16 @@
                                 . '<td style="border-right-width:1px;">'.strtoupper($datos_cuadro['Sexo']).'</td>'
                                 . '</tr>'
                                 . '<tr >'
-                                . '<td  style="border-left-width:1px;border-top-width:1px;">DOMICILIO:</td>'
+                                
                                 . ''
-                                . '<td style="border-top-width:1px;">ESTADO:</td>'
+                                . '<td style="border-top-width:1px;" colspan="2">ESTADO:</td>'
                                 . '<td colspan="2" style="border-top-width:1px;">'.strtoupper($datos_cuadro['Estado']).'</td>'
                                 . '<td colspan="" style="border-top-width:1px;">CIUDAD:</td>'
                                 . '<td colspan="4" style="border-right-width:1px;border-top-width:1px;">'.$datos_cuadro['Ciudad'].'</td>'
                                 . '</tr>'
                                 . '<tr>'
-                                . '<td  style="border-left-width:1px;">DIRECCION: </td>'
-                                . '<td colspan="8" style="border-right-width:1px;">'.$datos_cuadro['Domicilio'].'</td>'
+                                . '<td colspan="2" style="border-left-width:1px;">DIRECCION DOMICILIO: </td>'
+                                . '<td colspan="7" style="border-right-width:1px;">'.$datos_cuadro['Domicilio'].'</td>'
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td colspan="9" align="center" style="border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; background-color: #fce4d6;"><strong>DATOS VEHÍCULO</strong></td>'
@@ -317,7 +317,7 @@
 			$pdf->writeHTML($html);				
 			$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'F');            
             
-            //$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'I');   
+                        //$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'I');   
             
             
         }

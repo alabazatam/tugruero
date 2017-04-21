@@ -373,7 +373,7 @@
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
             $password = "tugruero123";
-            $mail_from = 'mercadeo@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com'; 
             $username = $this->username;
             $password = $this->password;
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
@@ -401,8 +401,9 @@
 		<p align="justify">¡Esté atento!</p>
 		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
-		<p align="justify" style="font-size: 14px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
+		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
+            <br><br>--<br>
             <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
             <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
             <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
@@ -479,8 +480,9 @@
 		<p align="justify">¡Esté atento!</p>
 		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
-		<p align="justify" style="font-size: 14px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
+		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
+            <br><br>--<br>
             <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
             <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
             <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
@@ -555,7 +557,7 @@
         </head>
         <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 16px;color:#000000;">
             <div align="center">
-		<p align="justify">'.$saludo.', '.$Nombres.' '.$Apellidos.', tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
 		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
 		<p align="justify">A continuación le indicamos los datos para acceder a la <strong>aplicación móvil TU/GRUERO®</strong> y solicitar los servicios de grúa por esa vía:</p>
 		<p align="left">
