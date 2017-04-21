@@ -21,8 +21,13 @@
         <title>TUGRUERO®</title>
 </head>
 <body id="">
-	<div align="center">
-    <img src="web/img/fresh/cuentas_bancarias.jpg" class="img-responsive" width="700">
-	</div>
+                <div class="row">
+                        <div class="modal-body">
+							<div class="col-sm-12 col-md-6 col-md-offset-3 table-responsive">
+								<img src="web/img/fresh/cuentas_bancarias.jpg" class="img-responsive" style="border: #000 solid 5px;"> 
+
+							</div>			
+                        </div>
+                </div>
 </body>
 </html>

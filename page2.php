@@ -664,7 +664,7 @@
                                 <?php $plan_beneficio_gold = $Planes -> getPlanesBeneficios(2,$beneficios['idBeneficio']);?>
 
                                 <tr>
-                                    <td><p class="letra_cuadro"><?php echo $beneficios['Descripcion'];?></p></td>
+                                    <td><p class="letra_cuadro_p"><?php echo $beneficios['Descripcion'];?></p></td>
 
                                     <td class="text-center">
                                         <?php if($plan_beneficio_plus ==0):?>
@@ -687,27 +687,28 @@
                                 </tr>   
                             <?php endforeach;?>
 								<tr class="background_cuadro_footer">
-									<td><strong>&nbsp;&nbsp;&nbsp;Precio (con IVA incluido)</strong></td>
-									<td class="text-center"><strong><?php echo $Planes->getPlanPrecioIva(1)?></strong></td>
-									<td class="text-center"><strong><?php echo $Planes->getPlanPrecioIva(2)?></strong></td>
+									<td ><strong class="letra_cuadro_p">&nbsp;&nbsp;&nbsp;Precio (con IVA incluido)</strong></td>
+									<td class="text-center "><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(1)?></strong></td>
+									<td class="text-center" ><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(2)?></strong></td>
 								</tr>
                             </table>
                             </div>
 				
                         </div>
 							<div class="col-xs-12 col-sm-12 col-md-3 text-left">
-								<label><strong>Características y Coberturas de los planes:</strong></label>
+								<label><strong style="text-decoration: underline;">Características y Coberturas de los planes:</strong></label>
 								<ul class="text-left">
-									<li><i class="fa fa-file-pdf-o"></i> <a target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Plus_Clientes.pdf" ><small class="black-font">TU/GRUERO® Plus</small></a></li>
-									<li><i class="fa fa-file-pdf-o"></i> <a target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Gold_Clientes.pdf" ><small class="black-font">TU/GRUERO® GOLD</small></a></li>
+									<li><i class="fa fa-file-pdf-o"></i> <a style="text-decoration: none;" target="_blank" class="" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Plus_Clientes.pdf" ><small style="color: #000 !important">TU/GRUERO® Plus</small></a></li>
+									<li><i class="fa fa-file-pdf-o"></i> <a style="text-decoration: none;" target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Gold_Clientes.pdf" ><small style="color: #000 !important; text-decoration: none;">TU/GRUERO® GOLD</small></a></li>
 								</ul>
-								<label><strong>Cuentas bancarias de TU/GRUERO®</strong></label><br>
-                                                                <a class="btn btn-naranja" target="_blank" href="<?php echo full_url?>/cuentas_bancarias.php">Click aquí</a>
+								<label><strong style="text-decoration: underline;">Cuentas bancarias de TU/GRUERO®</strong></label><br>
+                                                                <!--<a class="btn btn-naranja" target="_blank" href="<?php echo full_url?>/cuentas_bancarias.php">Click aquí</a>-->
+																<button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">Click aquí</button>
                                                         </div>
                     </div>
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
 						<div class="text-center">
-							<br><a class="btn btn-naranja" href="#" onclick="openAdvertencia();"><h1>¡CONTRATAR PLAN!</h1></a></div>
+							<br><a class="btn btn-naranja" href="#" onclick="openAdvertencia();"><h1 style="margin-top: -3px !important;margin-bottom: -3px !important;">¡CONTRATAR PLAN!</h1></a></div>
 					</div>
 
                 </div>
@@ -754,7 +755,7 @@
 													<li class="text-left">Licencia de conducir.</li>
 													<li class="text-left">Carnet de circulación.</li>
 													<li class="text-left">Certificado médico (en caso de adquirir RCV).</li>
-													<li class="text-left">Certificado de origen del vehículo. (Título de propiedad) (en caso de adquirir RCV)</li>
+													<li class="text-left">Certificado de origen del vehículo / Título de propiedad (En caso de adquirir RCV).</li>
 												</ul>
 												</div>
 											</td>

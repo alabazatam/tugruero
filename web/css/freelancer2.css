@@ -393,8 +393,8 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-success {
   color: white;
-  background-color: #18BC9C;
-  border-color: #18BC9C;
+  background-color: #5CB85C;
+  border-color: #5CB85C;
   font-weight: 700;
 }
 .btn-success:hover,
@@ -403,8 +403,8 @@ fieldset[disabled] .btn-primary.active {
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
   color: white;
-  background-color: #128f76;
-  border-color: #11866f;
+  background-color: #5CB85C;
+  border-color: #5CB85C;
 }
 .btn-success:active,
 .btn-success.active,
@@ -1148,11 +1148,15 @@ fieldset[disabled] .btn-success.active {
   }
 .beneficios_cuadro {
     font-size: 26px;
-    color: #f14624 !important;
+    color: #000 !important;
     
 }
 .letra_cuadro {
     font-size: 50px !important;
+    color: #000 !important;
+}
+.letra_cuadro_p {
+    color: #000 !important;
 }
 .grande {
     font-size: 20px !important;
@@ -1186,4 +1190,7 @@ fieldset[disabled] .btn-success.active {
 .titulo_planes {
     font-size: 50px !important;
 }
-
+.subtitulo_planes{
+  font-size: 24px;
+  text-decoration: underline;
+}
