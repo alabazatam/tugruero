@@ -596,7 +596,10 @@
                                 WHERE p.Tipo = 'tugruero.com' 
                                 AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
                                 ) AS CantidadServicios,
-								TIMESTAMPDIFF(YEAR, FechaNacimiento, CURDATE()) AS Edad")
+								TIMESTAMPDIFF(YEAR, FechaNacimiento, CURDATE()) AS Edad,
+								( SELECT Urbano FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) AS Urbano, 
+								( SELECT ExtraUrbano FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) AS ExtraUrbano
+								")
 			->join("SolicitudAprobada","INNER JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->where("SolicitudPlan.idSolicitudPlan=?",$idSolicitudPlan)
 			//echo $q;die;
