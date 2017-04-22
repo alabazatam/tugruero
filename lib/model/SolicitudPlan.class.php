@@ -540,7 +540,7 @@
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'RCV'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				) IS NULL THEN '' ELSE (SELECT CONCAT(' / ',Nombre, '' )  
+				) IS NULL THEN '' ELSE (SELECT CONCAT(' + ',Nombre, '' )  
 					FROM SolicitudPlanSeleccion sps 
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'RCV'
