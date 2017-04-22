@@ -722,7 +722,7 @@
 			</div>
                 <div class="row">
                         <div class="modal-body">
-                            <div class="col-xs-3 col-xs-offset-4" style=";margin-bottom: -1.9%;z-index: 1;background-color: #E7E8EB !important;">
+                            <!--<div class="col-xs-3 col-xs-offset-4" style=";margin-bottom: -1.9%;z-index: 1;background-color: #E7E8EB !important;">
                                 <img src="web/img/fresh/atencion.png" class="img-responsive">
                             </div>
                             <div class="col-xs-12 col-md-10 col-md-offset-1 table-responsive" style="z-index: 0;border-top: dotted 3px #e76115;border-bottom: dotted 3px #e76115;border-left: dotted 3px #e76115;border-right: dotted 3px #e76115; z-index:0;">
@@ -764,7 +764,11 @@
 
                                 </div>
 
-                            </div>    
+                            </div> -->
+                            <div class="col-sm-10 col-sm-offset-1 text-center">
+                                <img src="web/img/fresh/cuadro_requisitos.png" class="img-responsive">
+
+                            </div>
                             <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 text-right">
                                 <br>
                                 <a class="btn btn-success" href="https://tugruero.com/pl/planes/index.php">Continuar</a>
