@@ -456,7 +456,7 @@
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
             $password = "tugruero123";
-            $mail_from = 'mercadeo@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com'; 
             $username = $this->username;
             $password = $this->password;
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)

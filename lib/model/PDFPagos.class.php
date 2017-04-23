@@ -220,7 +220,7 @@
                                 
 								if($datos_cuadro['Urbano'] == 'S')
 								{
-									$html.='<span style="font-size: 14px;"><strong>(*) Servicio Urbano:</strong> Servicios dentro de la ciudad indicada al momento de la solicitud del servicio.</span>';
+									$html.='<span style="font-size: 14px;"><strong>(*) Servicio Urbano:</strong> Servicios de máximo 50km de recorrido.</span>';
 
 								}
 								if($datos_cuadro['ExtraUrbano'] == 'S')
@@ -325,7 +325,7 @@
                                 
 								if($datos_cuadro['Urbano'] == 'S')
 								{
-									$html.='<span style="font-size: 14px;"><strong>(*) Servicio Urbano:</strong> Servicios dentro de la ciudad indicada al momento de la solicitud del servicio.</span>';
+									$html.='<span style="font-size: 14px;"><strong>(*) Servicio Urbano:</strong> Servicios de máximo 50km de recorrido.</span>';
 
 								}
 								if($datos_cuadro['ExtraUrbano'] == 'S')

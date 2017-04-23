@@ -47,18 +47,19 @@
   </div>
 </nav>
 
-		<div class="text-center col-sm-12">
-		<label class="titulo_contratacion text-center">
-			Proceso de contratación Plan TU/GRUERO<small style="font-size: 60%;">®</small>
-		</label> 
-		<strong>(Parte 2 de 2)</strong>
-		</div>
+
 
 <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
 <input type="hidden" id="Cedula" name="Cedula" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula']?>">
 <input type="hidden" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO WEB";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
 <input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
-
+		
+		<div class="text-center col-sm-12 mercadopagodiv">
+		<label class="titulo_contratacion text-center">
+			Proceso de contratación Plan TU/GRUERO®
+		</label> 
+		<strong>(Parte 2 de 2)</strong>
+		</div>
 <div class="col-sm-8" id="mercadopagodiv">
     <form action="" method="post" id="pay" name="pay" class="">
 	<div class="form-group col-sm-12">
@@ -158,6 +159,17 @@
     </div>
   </div>
 </div>
+<div class="modal fade bs-example-modal-xs" id="ModalLoading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+		  
+			<br><br><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><br><br><br>Espere un momento por favor. <br>No cierre ni recargue la ventana.<br><br><br><br>
+			
+      </div>
+    </div>
+  </div>
+</div>   
 <?php include('../../view_footer_solicitud.php');?>
 
 <script>

@@ -48,10 +48,10 @@
 
 
 
-    <form  method="POST" enctype="multipart/form-data">
+    <form  method="POST" enctype="multipart/form-data" id="sendForm">
 		<div class="text-center col-sm-12">
 		<label class="titulo_contratacion text-center">
-			Proceso de contratación Plan TU/GRUERO<small style="font-size: 60%;">®</small>
+			Proceso de contratación Plan TU/GRUERO®
 		</label> 
 		<strong>(Parte 1 de 2)</strong>
 		</div>
@@ -553,13 +553,31 @@
 	<div class="col-sm-4"></div>
   </div>
 </form>
-        
+<!-- Modal -->
+<div class="modal fade bs-example-modal-xs" id="ModalLoading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+		  
+			<br><br><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><br><br><br>Espere un momento por favor. <br>No cierre ni recargue la ventana.<br><br><br><br>
+			
+      </div>
+    </div>
+  </div>
+</div>     
 <?php include('../../view_footer_solicitud.php')?>
 <script>
 
 $(document).ready(function(){
-			 $('#mensajetarjeta').hide();
-                         $('#mensajedeposito').hide();
+	
+	
+			$('#mensajetarjeta').hide();
+            $('#mensajedeposito').hide();
+			$("#sendForm").submit(function(){
+				$('#ModalLoading').modal('show');
+			});
+			
+			
 <?php if(isset($values['RCV']) and $values['RCV']=='SI'):?>
             console.log('eligio si');
             $('.Puestos').show();
@@ -680,6 +698,10 @@ $(document).ready(function(){
     
 });
 
+	function submitForm(){
+		
+		$('#ModalLoading').modal('show');
+	}
     function calculaPrecio(){
         $.ajax({
         url: '<?php echo full_url?>/pl/planes/index.php',
