@@ -698,8 +698,8 @@
 							<div class="col-xs-12 col-sm-12 col-md-3 text-left">
 								<label><strong style="text-decoration: underline;">Características y Coberturas de los planes:</strong></label>
 								<ul class="text-left">
-									<li><i class="fa fa-file-pdf-o"></i> <a style="text-decoration: none;" target="_blank" class="" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Plus_Clientes.pdf" ><small style="color: #000 !important">TU/GRUERO® Plus</small></a></li>
-									<li><i class="fa fa-file-pdf-o"></i> <a style="text-decoration: none;" target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Gold_Clientes.pdf" ><small style="color: #000 !important; text-decoration: none;">TU/GRUERO® GOLD</small></a></li>
+									<li style="padding-top: 15px;"><i class="fa fa-file-pdf-o"></i> <a style="text-decoration: none;" target="_blank" class="" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Plus_Clientes.pdf" ><small style="color: #000 !important">TU/GRUERO® Plus</small></a></li>
+									<li style="padding-top: 15px;"><i class="fa fa-file-pdf-o"></i> <a style="text-decoration: none;" target="_blank" href="<?php echo full_url?>/web/terms/Condicionado_producto_TUGRUERO_Gold_Clientes.pdf" ><small style="color: #000 !important; text-decoration: none;">TU/GRUERO® GOLD</small></a></li>
 								</ul>
 								<label><strong style="text-decoration: underline;">Cuentas bancarias de TU/GRUERO®</strong></label><br>
                                                                 <!--<a class="btn btn-naranja" target="_blank" href="<?php echo full_url?>/cuentas_bancarias.php">Click aquí</a>-->
@@ -765,7 +765,7 @@
                                 </div>
 
                             </div> -->
-                            <div class="col-sm-10 col-sm-offset-1 text-center">
+                            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-3">
                                 <img src="web/img/fresh/cuadro_requisitos.png" class="img-responsive">
 
                             </div>

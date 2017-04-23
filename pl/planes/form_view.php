@@ -66,6 +66,7 @@
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",",".")." Bs."; else echo "0,00 Bs."?></p>
   </div>
 	<div class="form-group col-sm-12">
+		<hr class="hr_subtitulo_planes">
 		<p class="subtitulo_planes"><strong>Escoja el Plan de su preferencia</strong></p>
 	</div>
   <div class="form-group col-sm-12">
@@ -83,6 +84,7 @@
         <?php endif;?> 
   </div>    
 	<div class="form-group col-sm-12">
+		<hr class="hr_subtitulo_planes">
 		<p class="subtitulo_planes"><strong>Información personal</strong></p>
 	</div>
   <div class="form-group col-sm-3">
@@ -264,6 +266,7 @@
         </div>
    </div>
 	<div class="form-group col-sm-12 CedulaDiv">
+		<hr class="hr_subtitulo_planes">
 		<p class="subtitulo_planes"><strong>Documentos personales</strong></p>
 	</div>
   <div class="form-group col-sm-12 RCV_SI CedulaDiv" style="display:none;">
@@ -327,6 +330,7 @@
         <?php endif;?>
   </div>
 	<div class="form-group col-sm-12">
+		<hr class="hr_subtitulo_planes">
 		<p class="subtitulo_planes"><strong>Información de su vehículo</strong></p>
 	</div>
         <div class="form-group col-sm-12">
@@ -435,6 +439,7 @@
         <?php endif;?>
   </div>  
 	<div class="form-group col-sm-12">
+		<hr class="hr_subtitulo_planes">
 		<p class="subtitulo_planes"><strong>Método de pago</strong></p>
 	</div>
   <div class="form-group col-sm-12">
@@ -498,12 +503,16 @@
 
         <?php endif;?>
 	</div>
-    
+	<div class="col-sm-12">
+			<hr class="hr_subtitulo_planes">
+	</div>
   <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-success">
-      <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
+      
+	  <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
   </div>
+
 	<div class="col-sm-5">
-		
+			
 	</div>
 	<div class="form-group col-sm-3">		
 		<?php

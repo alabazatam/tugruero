@@ -100,7 +100,7 @@
                                 . '<tr >'
                                 
                                 . ''
-                                . '<td style="border-top-width:1px;" colspan="2">ESTADO:</td>'
+                                . '<td style="border-top-width:1px;border-left-width: 1px;" colspan="2">ESTADO:</td>'
                                 . '<td colspan="2" style="border-top-width:1px;">'.strtoupper($datos_cuadro['Estado']).'</td>'
                                 . '<td colspan="" style="border-top-width:1px;">CIUDAD:</td>'
                                 . '<td colspan="4" style="border-right-width:1px;border-top-width:1px;">'.$datos_cuadro['Ciudad'].'</td>'
@@ -120,7 +120,7 @@
                                 . '<td>MODELO:</td>'
                                 . '<td>'.$datos_cuadro['Modelo'].'</td>'
                                 . '<td>COLOR:</td>'
-                                . '<td colspan="2">'.$datos_cuadro['Color'].'</td>'
+                                . '<td colspan="2" style="border-right-width:1px;">'.$datos_cuadro['Color'].'</td>'
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td style="border-left-width:1px;">AÑO:</td>'
@@ -138,20 +138,20 @@
                                 . '<td COLSPAN="2">'.$datos_cuadro['concatenado_plan'].'</td>'
                                 . '<td>COSTO:</td>'
                                 . '<td>'.$datos_cuadro['TotalConIva'].' Bs.</td>'
-                                . '<td colspan="">INICIO VIG.</td>'
-                                . '<td colspan="2" style="border-right-width:1px;">'.$Utilitarios->formateaFecha($datos_cuadro['VigenciaDesde'], 'd/m/Y').'</td>'
+                                . '<td colspan="2">INICIO VIG.</td>'
+                                . '<td colspan="" style="border-right-width:1px;">'.$Utilitarios->formateaFecha($datos_cuadro['VigenciaDesde'], 'd/m/Y').'</td>'
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td colspan="2"  style="border-left-width:1px;">CANTIDAD DE SERVICIOS:</td>'
                                 . '<td COLSPAN="4">'.$datos_cuadro['CantidadServicios'].'</td>'
-                                . '<td>FIN VIG.</td>'
-                                . '<td colspan="2" style="border-right-width:1px;">'.$Utilitarios->formateaFecha($datos_cuadro['VigenciaHasta'], 'd/m/Y').'</td>'
+                                . '<td colspan="2">FIN VIG.</td>'
+                                . '<td  style="border-right-width:1px;">'.$Utilitarios->formateaFecha($datos_cuadro['VigenciaHasta'], 'd/m/Y').'</td>'
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td  colspan="3"  style="border-left-width:1px;">TIPO DE SERVICIOS DE GRUA:</td>'
-                                . '<td COLSPAN="2"> '.$datos_cuadro['TipoServicio'].'</td>'
+                                . '<td COLSPAN="3"> '.$datos_cuadro['TipoServicio'].'</td>'
                                 . '<td colspan="2">KILOMETRAJE:</td>'
-                                . '<td colspan="2" style="border-right-width:1px;">'.$datos_cuadro['Kilometraje'].'</td>'
+                                . '<td colspan="" style="border-right-width:1px;">'.$datos_cuadro['Kilometraje'].'</td>'
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td colspan="9" align="center" style="border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; background-color: #fce4d6;"><strong>ACUERDO LEGAL(I)</strong></td>'
@@ -216,9 +216,20 @@
                                 . '<br><br><strong>DECIMA SEGUNDA:</strong>  Para mayor información le recomendamos que se tome el tiempo de leer los términos y condiciones, así como nuestra política de privacidad CUIDADOSAMENTE del producto que está adquiriendo a través de nuestro portal web www.tugruero.com y www.tugruero.com.ve.<br><br>'
                                 . '</td>'
                                 . '</tr>'
-								. '</table>'
-                                . '<p style="font-size: 14px;"><strong>(*) Servicio Urbano:</strong> servicios dentro de la ciudad indicada al momento de la solicitud del servicio.</p>'
-                                . '<p align="center">Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos, Municipio Sucre, Edo. Miranda, Caracas, Venezuela. Tlf: <b>0500-GRUERO-0 (0500-478376-0) / 0212-2379227 / 0212-4190105 · info@tugruero.com - tugruero@gmail.com</b></p>'
+								. '</table>';
+                                
+								if($datos_cuadro['Urbano'] == 'S')
+								{
+									$html.='<span style="font-size: 14px;"><strong>(*) Servicio Urbano:</strong> Servicios dentro de la ciudad indicada al momento de la solicitud del servicio.</span>';
+
+								}
+								if($datos_cuadro['ExtraUrbano'] == 'S')
+								{
+									$html.='<br><span style="font-size: 14px;"><strong>(*) Servicio Extraurbano:</strong> Servicios de máximo 300km de recorrido.</span>';
+
+								}                                
+								
+								$html.='<p align="center">Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos, Municipio Sucre, Edo. Miranda, Caracas, Venezuela. Tlf: <b>0500-GRUERO-0 (0500-478376-0) / 0212-2379227 / 0212-4190105 · info@tugruero.com - tugruero@gmail.com</b></p>'
                                 ;
 			$pdf->writeHTML($html);	
 			$pdf->AddPage();	
@@ -310,14 +321,24 @@
                                 . '<br><br><strong>VIGESIMA OCTAVA:</strong>  Para mayor información le recomendamos que se tome el tiempo de leer los términos y condiciones, así como nuestra política de privacidad CUIDADOSAMENTE del producto que está adquiriendo a través de nuestro portal web www.tugruero.com y www.tugruero.com.ve.<br><br>'
                                 . '</td>'
                                 . '</tr>' 
-                                . '</table>'
-                                . '<p style="font-size: 14px;"><strong>(*) Servicio Urbano:</strong> servicios dentro de la ciudad indicada al momento de la solicitud del servicio.</p>'
-                                . '<p align="center">Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos, Municipio Sucre, Edo. Miranda, Caracas, Venezuela. Tlf: <b>0500-GRUERO-0 (0500-478376-0) / 0212-2379227 / 0212-4190105 · info@tugruero.com - tugruero@gmail.com</b></p>'
+								. '</table>';
+                                
+								if($datos_cuadro['Urbano'] == 'S')
+								{
+									$html.='<span style="font-size: 14px;"><strong>(*) Servicio Urbano:</strong> Servicios dentro de la ciudad indicada al momento de la solicitud del servicio.</span>';
+
+								}
+								if($datos_cuadro['ExtraUrbano'] == 'S')
+								{
+									$html.='<br><span style="font-size: 14px;"><strong>(*) Servicio Extraurbano:</strong> Servicios de máximo 300km de recorrido.</span>';
+
+								}                                
+								
+								$html.='<p align="center">Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos, Municipio Sucre, Edo. Miranda, Caracas, Venezuela. Tlf: <b>0500-GRUERO-0 (0500-478376-0) / 0212-2379227 / 0212-4190105 · info@tugruero.com - tugruero@gmail.com</b></p>'
                                 ;
 			$pdf->writeHTML($html);				
 			$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'F');            
-            
-                        //$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'I');   
+            //$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'I');   
             
             
         }
