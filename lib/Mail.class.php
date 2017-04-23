@@ -445,6 +445,9 @@
             $data = $SolicitudPlan->getSolicitudPlanInfo($idSolicitudPlan);
             $Nombres = strtoupper($data['Nombres']);
             $Apellidos = strtoupper($data['Apellidos']);
+            $Modelo = $data['Modelo'];
+			$Marca= $data['Marca'];
+			$Anio= $data['Anio'];
             $ConcatenadoPlan = $data['concatenado_plan'];
             try{
             $smtp = "server-0116a.gconex.net";
@@ -556,12 +559,12 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
         <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 16px;color:#000000;">
-            <div align="center">
+            <div align="">
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
 		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
 		<p align="justify">A continuación le indicamos los datos para acceder a la <strong>aplicación móvil TU/GRUERO®</strong> y solicitar los servicios de grúa por esa vía:</p>
 		<p align="left">
-                    <ul>
+                    <ul align="left">
                         <li align="left">
                             <strong>Cédula: '.$Cedula.'</strong>
                         </li>

@@ -49,7 +49,7 @@
 
 		<div class="text-center col-sm-12">
 		<label class="titulo_contratacion text-center">
-			Proceso de contratación Plan TU/GRUERO®
+			Proceso de contratación Plan TU/GRUERO<small style="font-size: 60%;">®</small>
 		</label> 
 		<strong>(Parte 2 de 2)</strong>
 		</div>
