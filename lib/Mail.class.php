@@ -386,13 +386,12 @@
             $message->setBody('
 <!DOCTYPE html>
     <html>
-
         <head>
             <title>TU/GRUERO®</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 16px;color:#000000;">
+        <body style="font-size: 16px;color:#000000;">
             <div align="center">
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
@@ -474,7 +473,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 16px;color:#000000;">
+        <body style="font-size: 16px;color:#000000;">
             <div align="center">
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
@@ -558,7 +557,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 16px;color:#000000;">
+        <body style="font-size: 16px;color:#000000;">
             <div align="">
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
 		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
