@@ -53,8 +53,8 @@ define("image_url",full_url."/web/images/");
  define('mail_from',"tugruero@tugruero.com");
  define('message_updated',"Registro actualizado satisfactoriamente");
  define('message_created',"Registro creado satisfactoriamente");
- define('max_input_size',1000000);
- define('message_max_size',"El archivo debe pesar máximo 1MB");
+ define('max_input_size',3000000);
+ define('message_max_size',"El archivo debe pesar máximo 3MB");
  define('IVA',1.10);
 //Class definition
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/notorm-master/NotORM.php");//se debe incluir una sola vez en todo el cms
