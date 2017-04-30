@@ -7,8 +7,8 @@ setlocale(LC_NUMERIC,"es_ES.UTF8");
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
-            /*$PDFPagos = new PDFPagos();
-            $pdf = $PDFPagos->cuadroTUGRUERO(array('idSolicitudPlan'=> 8));*/
+            $PDFPagos = new PDFPagos();
+            $pdf = $PDFPagos->cuadroRCV(array('idSolicitudPlan'=> 4));
 $values = $_REQUEST;
 $values = array_merge($values,$_FILES);
 	switch ($action) {
@@ -119,6 +119,7 @@ $values = array_merge($values,$_FILES);
 						"PrecioTotal" => number_format($list['PrecioTotal'],2,",","."),
 						"Estatus" => $list['Estatus'],
 											"FechaSolicitud" => $list['FechaSolicitud'],
+                                                                                        "NombreVendedor" => $list['NombreVendedor'],
 											"TipoPago" => $list['TipoPago'],
 											"actions" => 
 										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
@@ -139,6 +140,7 @@ $values = array_merge($values,$_FILES);
 						"PrecioTotal" => number_format($list['PrecioTotal'],2,",","."),
 						"Estatus" => $list['Estatus'],
 											"FechaSolicitud" => $list['FechaSolicitud'],
+                                                                                        "NombreVendedor" => $list['NombreVendedor'],
 											"TipoPago" => $list['TipoPago'],
 											"actions" => 
 										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
@@ -164,6 +166,7 @@ $values = array_merge($values,$_FILES);
                                 "PrecioTotal" =>"",
                                 "Estatus" => "",
                                 "FechaSolicitud" => "",
+                                "NombreVendedor" => "",
                                 "TipoPago" => "",
 				"actions"=>"");
 		}

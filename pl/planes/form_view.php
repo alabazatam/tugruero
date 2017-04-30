@@ -61,6 +61,7 @@
         <?php endif;?> 
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
+    <input type="hidden" id="IdV" name="IdV" value="<?php if(isset($values['IdV']))echo $values['IdV']?>">
 
     <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-success">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",",".")." Bs."; else echo "0,00 Bs."?></p>

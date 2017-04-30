@@ -73,7 +73,8 @@
 					THEN 'RECHAZADO'
 					END)";
                         $columns[9] = "(DATE_FORMAT(FechaSolicitud, '%d/%m/%Y'))";
-			$column_order = $columns[0];
+                        $columns[10] = "pv.NombreVendedor ";
+                        $column_order = $columns[0];
 			$where = "1 = 1 and PagoRealizado = 'S'";
 			$order = 'desc';
 			$limit = $values['length'];
@@ -164,6 +165,11 @@
 				$where.=" AND FechaSolicitud >=  '".$FechaSolicitud."'";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
+			if(isset($values['columns'][10]['search']['value']) and $values['columns'][10]['search']['value']!='')
+			{
+				$where.=" AND upper(pv.NombreVendedor) LIKE(upper('%".$values['columns'][10]['search']['value']."%'))";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
 
 			if(isset($values['order'][0]['column']) and $values['order'][0]['column']!='0')
 			{
@@ -222,6 +228,7 @@
 			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->join("SolicitudAprobada","LEFT JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
+			->join("PlanesVendedores","LEFT JOIN PlanesVendedores pv on pv.idV = SolicitudPlan.idV")
 
 			->order("$column_order $order")			
 			->limit($limit,$offset);
@@ -320,13 +327,19 @@
 				$where.=" AND FechaSolicitud =  '".$FechaSolicitud."'";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
+                        if(isset($values['columns'][10]['search']['value']) and $values['columns'][10]['search']['value']!='')
+			{
+				$where.=" AND upper(pv.NombreVendedor) LIKE (upper('%".$values['columns'][10]['search']['value']."%'))";
+				//echo $values['columns'][0]['search']['value'];die;
+			}
             $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan
 			->select("count(*) as cuenta")
 			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->join("SolicitudAprobada","LEFT JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
-			->fetch();
+			->join("PlanesVendedores","LEFT JOIN PlanesVendedores pv on pv.idV = SolicitudPlan.idV")
+                        ->fetch();
 			return $q['cuenta']; 			
 		}
 		public function getSolicitudPlanById($values){
@@ -359,6 +372,7 @@
                         (SELECT SUM(PrecioConIva) FROM SolicitudPlanSeleccion s WHERE s.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) AS precio,
                         DATE_FORMAT(FechaNacimiento, '%d/%m/%Y') as FechaNacimiento
                         ")
+                        ->join("PlanesVendedores","LEFT JOIN PlanesVendedores pv on pv.idV = SolicitudPlan.idV")
 			->where("SolicitudPlan.idSolicitudPlan=?",$values['idSolicitudPlan'])
 			//echo $q;die;
 			->fetch();
@@ -398,15 +412,15 @@
                                 'TotalSinIva' => '0',
 				'TotalConIva' => '0',
                                 'PagoRealizado' => @$values['PagoRealizado'],
+                                'IdV' => @$values['IdV']
 			);
-			 
-               
+              
 			try{
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan()->insert($array_solicitud_plan);
 			$values['idSolicitudPlan'] = $ConnectionORM->getConnect()->SolicitudPlan()->insert_id();
             //almaceno los plens contratados en la solicitud
-			
+
 			$array_planes = array($values['idPlan']);
 			$Planes = new Planes();
 			if(isset($values['RCV']) and $values['RCV']=='SI' and isset($values['Puestos'])){
@@ -598,11 +612,19 @@
                                 ) AS CantidadServicios,
 								TIMESTAMPDIFF(YEAR, FechaNacimiento, CURDATE()) AS Edad,
 								( SELECT Urbano FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) AS Urbano, 
-								( SELECT ExtraUrbano FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) AS ExtraUrbano
-								")
+								( SELECT ExtraUrbano FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) AS ExtraUrbano,
+                                                                (
+                                                                SELECT PrecioConIva FROM SolicitudPlanSeleccion sps
+                                                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                                                WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'tugruero.com'
+                                                                ) AS costoplantugruero,
+								(
+                                                                SELECT PrecioConIva FROM SolicitudPlanSeleccion sps
+                                                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                                                WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV'
+                                                                ) AS costoplanrcv")
 			->join("SolicitudAprobada","INNER JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->where("SolicitudPlan.idSolicitudPlan=?",$idSolicitudPlan)
-			//echo $q;die;
 			->fetch();
 			return $q; 				
 			
@@ -622,6 +644,14 @@
 			return $q;
 			
 		}
+		public function getCuentaIdV($IdV){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->PlanesVendedores
+			->select("*")
+			->where("IdV=?",$IdV);
+			return $q; 				
+			
+		} 
 	}
 			
 

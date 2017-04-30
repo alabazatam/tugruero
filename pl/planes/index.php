@@ -8,6 +8,16 @@ if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
 $values = $_REQUEST;
+    if(!isset($values['IdV']) or $values['IdV']==''){
+        $values['IdV'] = '1';
+    }else{
+        $SolicitudPlan = new SolicitudPlan();
+        $cuenta_idv = $SolicitudPlan->getCuentaIdV($values['IdV']);
+        if(count($cuenta_idv)==0){
+            echo "No puede continuar con la petición";die;
+        } 
+        
+    }
 $values = array_merge($values,$_FILES);
 	switch ($action) {
 		case "index":
@@ -39,6 +49,10 @@ $values = array_merge($values,$_FILES);
 	{       
         $values['action'] = 'add';
 		//print_r($values);die;
+        
+                
+
+            
 		require('form_view.php');
 	}
 	function executeAdd($values = null,$errors = array())

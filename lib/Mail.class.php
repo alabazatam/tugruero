@@ -462,7 +462,7 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array($values['email']);
+            $email = array($data['Correo']);
 
             $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
             $message->setBody('<!DOCTYPE html>

@@ -6,11 +6,12 @@
                 function __construct() 
                 {
                     $this->dbname = "admin_tugruero";
-                    $this->host = '34.208.124.125';
+                    //$this->host = '34.208.124.125';
+                    $this->host = 'localhost';
                     $this->port = "3306";
                     $this->charset = "utf8";
                     $this->dsn = "mysql:dbname=".$this->dbname.";host=".$this->host.";port=".$this->port.";charset=".$this->charset;  
-                    $this->username = 'root';
+                    $this->username = 'admin_tugruero';
                     $this->password = 'tugrua';
                 return $this->open();
                     

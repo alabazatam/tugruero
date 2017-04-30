@@ -32,6 +32,9 @@ $isAprobada = false;
     <div class="form-group col-sm-12 text-right PlanPrecio">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
   </div>
+    <div class="form-group col-sm-12 text-left">
+      <p><b>Solicitado desde:</b> <?php if(isset($values['NombreVendedor']) and $values['NombreVendedor']!='') echo $values['NombreVendedor']; ?></p>
+  </div>
 <?php if($isAprobada == true):?>
 <?php $datos_aprobacion = $SolicitudAprobada->getSolicitudAprobada($values['idSolicitudPlan'])?>
 <div class="form-group col-sm-3">

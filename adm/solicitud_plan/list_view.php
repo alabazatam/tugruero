@@ -15,6 +15,7 @@
                                     <th>Método de pago</th>
                                     <th>Estatus</th>
                                     <th>Fecha Solicitud</th>
+                                    <th>Vendedor</th>
                                     <th>Detalle</th>
 				</tr>
 			</thead>
@@ -29,7 +30,9 @@
                                         <th><input id="PrecioTotal" name="PrecioTotal" type="text"></th>
                                         <th><input id="TipoPago" name="TipoPago" type="text"></th>		
 					<th><input id="Estatus" name="Estatus" type="text"></th>		
-					<th><input id="FechaSolicitud" name="FechaSolicitud" type="text"></th>		
+					<th><input id="FechaSolicitud" name="FechaSolicitud" type="text"></th>	
+					<th><input id="IdV" name="IdV" type="text"></th>		
+
                                         <th>Detalle</th>
 				</tr>
 			</tfoot>
@@ -77,10 +80,11 @@ $(document).ready(function() {
             { "data": "TipoPago" },
             { "data": "Estatus" },
             { "data": "FechaSolicitud" },
+            { "data": "NombreVendedor" },
             { "data": "actions" }
         ],
       "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 10 ] }
+          { 'bSortable': false, 'aTargets': [ 11 ] }
        ]				
     });
 
@@ -132,6 +136,11 @@ $('#column_8').on ('keypress', function(e){
 $('#column_9').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(9)).search($(this).val()).draw();
+    }
+});
+$('#column_10').on ('keypress', function(e){
+    if(e.which == 13) {
+        table.column(table.column(10)).search($(this).val()).draw();
     }
 });
 	$('#clear').click(function(){
