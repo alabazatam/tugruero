@@ -467,31 +467,31 @@
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td style="border-left-width:1px;"> Marca:</td>'
-                                . '<td colspan="2">02-30521</td>'
+                                . '<td colspan="2">'.$datos_cuadro['Marca'].'</td>'
                                 . '<td>Modelo:</td>'
-                                . '<td>9900005253</td>'
+                                . '<td>'.$datos_cuadro['Modelo'].'</td>'
                                 . '<td>Clase:</td>'
-								. '<td colspan="2">9900005253</td>'
+								. '<td colspan="2">'.$datos_cuadro['Clase'].'</td>'
                                 . '<td>Serial de Motor:</td>'
-                                . '<td colspan="2" style="border-right-width:1px;">Anual</td>'
+                                . '<td colspan="2" style="border-right-width:1px;">'.$datos_cuadro['SerialMotor'].'</td>'
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td colspan="2" style="border-left-width:1px;"> Serial de Carroceria:</td>'
-                                . '<td colspan="4">02-30521</td>'
+                                . '<td colspan="4">'.$datos_cuadro['SerialCarroceria'].'</td>'
                                 . '<td>N° Placa:</td>'
-                                . '<td>9900005253</td>'
+                                . '<td>'.$datos_cuadro['Placa'].'</td>'
                                 . '<td>Uso:</td>'
 								. '<td colspan="2" style="border-right-width:1px;"></td>'
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td style="border-left-width:1px;border-bottom-width:1px;"> Tipo:</td>'
-                                . '<td style="border-bottom-width:1px;" colspan="2">02-30521</td>'
+                                . '<td style="border-bottom-width:1px;" colspan="2">'.$datos_cuadro['Tipo'].'</td>'
                                 . '<td style="border-bottom-width:1px;">Color:</td>'
-                                . '<td style="border-bottom-width:1px;">9900005253</td>'
+                                . '<td style="border-bottom-width:1px;">'.$datos_cuadro['Color'].'</td>'
                                 . '<td style="border-bottom-width:1px;">N° Puestos:</td>'
-								. '<td style="border-bottom-width:1px;" colspan="2">9900005253</td>'
+								. '<td style="border-bottom-width:1px;" colspan="2">'.$datos_cuadro['Puestos'].'</td>'
                                 . '<td style="border-bottom-width:1px;">Año:</td>'
-                                . '<td colspan="2" style="border-right-width:1px;border-bottom-width:1px;">2008</td>'
+                                . '<td colspan="2" style="border-right-width:1px;border-bottom-width:1px;">'.$datos_cuadro['Anio'].'</td>'
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td colspan="5" align="center" style="border-left-width:1px;border-bottom-width:1px;"><br><br>Coberturas<br></td>'
@@ -595,8 +595,8 @@
 
 
 			
-			$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'F');            
-            $pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'I');   
+			$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'F');            
+            //$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'I');   
             
             
         }        

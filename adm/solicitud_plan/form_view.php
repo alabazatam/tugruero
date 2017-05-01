@@ -424,7 +424,7 @@ $isAprobada = false;
         <?php endif;?>
   </div> 
   <div class="form-group col-sm-2 Puestos">
-    <label for="Telefono" class="control-label">Cantidad de puestos</label> <label class="text-danger"> * </label>
+    <label for="Puestos" class="control-label">Cantidad de puestos</label> <label class="text-danger"> * </label>
     <div class="">
         <input disabled type="number" name="Puestos" class="form-control" id="Puestos" autocomplete="off" maxlength="1" value="<?php if(isset($values['Puestos']) and $values['Puestos']!='') echo $values['Puestos']; else echo "5";?>" min="5" max="7">
     </div>
@@ -432,7 +432,30 @@ $isAprobada = false;
         <div id="" class="alert alert-danger"><?php echo $errors['Puestos'];?></div>
 
         <?php endif;?>
-  </div>    
+  </div>
+	<div class="row">
+		
+	</div>
+  <div class="form-group col-sm-6">
+    <label for="SerialMotor" class="control-label">Serial de motor</label> <label class="text-danger"> * </label>
+    <div class="">
+        <input <?php echo $disabled;?>  type="text" name="SerialMotor" class="form-control" id="SerialMotor" autocomplete="off" maxlength="50" value="<?php if(isset($values['SerialMotor']) and $values['SerialMotor']!='') echo $values['SerialMotor'];?>">
+    </div>
+        <?php if(isset($errors['SerialMotor']) and $errors['SerialMotor']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['SerialMotor'];?></div>
+
+        <?php endif;?>
+  </div>
+  <div class="form-group col-sm-6">
+    <label for="SerialCarroceria" class="control-label">Serial de carrocería</label> <label class="text-danger"> * </label>
+    <div class="">
+        <input <?php echo $disabled;?>  type="text" name="SerialCarroceria" class="form-control" id="SerialCarroceria" autocomplete="off" maxlength="50" value="<?php if(isset($values['SerialCarroceria']) and $values['SerialCarroceria']!='') echo $values['SerialCarroceria'];?>">
+    </div>
+        <?php if(isset($errors['SerialCarroceria']) and $errors['SerialCarroceria']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['SerialCarroceria'];?></div>
+
+        <?php endif;?>
+  </div> 
   <div class="form-group col-sm-12">
     <label for="inputEmail3" class="control-label">Método de pago</label> <label class="text-danger"> * </label>
     <div class="">
@@ -696,11 +719,19 @@ $('#rechazo').hide();
             alert('Debe indicar la vigencia ');
             return false;
         }
+        if($('#SerialMotor').val() == ''){
+            alert('Debe indicar el serial de motor ');
+            return false;
+        }
+        if($('#SerialCarroceria').val() == ''){
+            alert('Debe indicar el serial de carroceria ');
+            return false;
+        }
         if(confirm('¿Está seguro(a) de aprobar la solicitud?')){
             $.ajax({
             type: "POST",
             url: '<?php echo full_url?>/adm/solicitud_plan/index.php?action=aprobar',
-            data: {idSolicitudPlan: $('#idSolicitudPlan').val(),VigenciaDesde: $('#VigenciaDesde').val(),VigenciaHasta: $('#VigenciaHasta').val() },
+            data: {idSolicitudPlan: $('#idSolicitudPlan').val(),VigenciaDesde: $('#VigenciaDesde').val(),VigenciaHasta: $('#VigenciaHasta').val(),SerialMotor: $('#SerialMotor').val(),SerialCarroceria: $('#SerialCarroceria').val() },
             success: function(){
                 alert('Solicitud aprobada');
                 window.location.href = '<?php echo full_url?>/adm/solicitud_plan?action=edit&idSolicitudPlan=' + $('#idSolicitudPlan').val();

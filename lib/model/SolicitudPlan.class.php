@@ -486,7 +486,9 @@
                                 'Anio' => @$values['Anio'],
                                 'Color' => @$values['Color'],
                                 'Placa' => @$values['Placa'],
-                                'Puestos' => @$values['Puestos']
+                                'Puestos' => @$values['Puestos'],
+				'SerialMotor' => @$values['SerialMotor'],
+				'SerialCarroceria' => @$values['SerialCarroceria']
                                 
 			);
 		
@@ -506,7 +508,16 @@
 			);
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	
-                }
+        }
+		function updateSeriales($values ){	
+			$idSolicitudPlan = $values['idSolicitudPlan'];
+			$array = array(
+				'SerialMotor' => $values['SerialMotor'],
+				'SerialCarroceria' => $values['SerialCarroceria'],
+			);
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	
+        }
 		function updatePagoRealizado($idSolicitudPlan,$PagoRealizado){			
 			$array = array(
 				'PagoRealizado' => $PagoRealizado,
@@ -707,6 +718,17 @@
 			$q = $ConnectionORM->getConnect()->PlanesVendedores
 			->select("*")
 			->where("IdV=?",$IdV);
+			return $q; 				
+			
+		}
+		public function getPlanesRCV($idSolicitudPlan){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Planes
+			->select("*")
+			->join("SolicitudPlanSeleccion","INNER JOIN SolicitudPlanSeleccion sa on sa.idPlan = Planes.idPlan")
+			->where("idSolicitudPlan=?",$idSolicitudPlan)
+			->and("Tipo=?",'RCV')
+			->fetch();
 			return $q; 				
 			
 		} 

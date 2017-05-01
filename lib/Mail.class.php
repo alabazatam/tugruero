@@ -604,13 +604,14 @@
         </body>
     </html>
     ',"text/html");			
-					$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf"));            
+					$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf")); 
+					$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
+					if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
+						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto."_rcv.pdf")); 	
+					}
+					
 					$message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
-                    //$message->setBcc('info@tugruero.com');
-            // Send the message
-
-
                     $result = $mailer->send($message);	
                     }catch(Exception $e){
                             echo $e->getMessage().$e->getTraceAsString();

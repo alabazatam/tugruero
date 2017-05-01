@@ -135,6 +135,22 @@
 			"minlength" => 5,
 			"maxlength" => 200,
 		);
+		$validator_values['SerialMotor'] = array(
+			
+			"type" => "text",
+			"label" => "Serial de motor",
+			"required" => true,
+			"minlength" => 5,
+			"maxlength" => 30,
+		);
+		$validator_values['SerialCarroceria'] = array(
+			
+			"type" => "text",
+			"label" => "Serial de carroceria",
+			"required" => true,
+			"minlength" => 5,
+			"maxlength" => 50,
+		);
 		/*$validator_values['Puestos'] = array(
 			
 			"type" => "number",

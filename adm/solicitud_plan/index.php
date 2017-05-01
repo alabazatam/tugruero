@@ -60,9 +60,7 @@ $values = array_merge($values,$_FILES);
 	{
 		
 		$SolicitudPlan = new SolicitudPlan();
-		//print_r($values);die;
 		$values = $SolicitudPlan->getSolicitudPlanById($values);
-		
 		$values['action'] = 'update';
 		$values['msg'] = $msg;
 		
@@ -247,15 +245,36 @@ $values = array_merge($values,$_FILES);
             }
         }
         function executeAprobar($values){
-            
-            $idSolicitudPlan = $values['idSolicitudPlan'];
-            $VigenciaDesde = $values['VigenciaDesde'];
-            $VigenciaHasta = $values['VigenciaHasta'];
-            $idSolicitudPlan = $values['idSolicitudPlan'];
+			
+			
+            $PDFPagos = new PDFPagos();
+            $idSolicitudPlan = @$values['idSolicitudPlan'];
+            $VigenciaDesde = @$values['VigenciaDesde'];
+            $VigenciaHasta = @$values['VigenciaHasta'];
+            $idSolicitudPlan = @$values['idSolicitudPlan'];
+			
+			$SolicitudPlan = new SolicitudPlan();
+
+			$SolicitudPlan->updateSeriales($values);
             $SolicitudAprobada = new SolicitudAprobada();
             $SolicitudAprobada->aprobar($idSolicitudPlan, $VigenciaDesde, $VigenciaHasta);
-            $PDFPagos = new PDFPagos();
+            
             $pdf = $PDFPagos->cuadroTUGRUERO($values);
+			$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
+			if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
+				$Aseguradora = $planes_rcv['Aseguradora'];
+				
+				switch ($Aseguradora) {
+					case 'Asistir':
+						$pdf2 = $PDFPagos->cuadroRCVAsistir($values);
+						break;
+
+					default:
+						$pdf2 = $PDFPagos->cuadroRCVAsistir($values);
+						break;
+				}
+				
+			}
 			$Mail = new Mail();
 			$Mail->sendMessagePolizaBienvenida($values);
 			
