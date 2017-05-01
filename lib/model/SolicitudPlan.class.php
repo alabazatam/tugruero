@@ -628,7 +628,65 @@
 			->fetch();
 			return $q; 				
 			
-		} 
+		}
+		public function getSolicitudPlanAprobadaInfoAsistir($idSolicitudPlan){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudPlan
+			->select("*,CONCAT
+				((
+					SELECT Nombre  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'tugruero.com'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
+				))
+                                AS concatenado_plan,
+                                ( SELECT Kilometraje FROM SolicitudPlanSeleccion sps 
+                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                WHERE p.Tipo = 'tugruero.com' 
+                                AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
+                                ) AS Kilometraje,
+                                ( SELECT TipoServicio FROM SolicitudPlanSeleccion sps 
+                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                WHERE p.Tipo = 'tugruero.com' 
+                                AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
+                                ) AS TipoServicio,
+                                ( SELECT CantidadServicios FROM SolicitudPlanSeleccion sps 
+                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                WHERE p.Tipo = 'tugruero.com' 
+                                AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
+                                ) AS CantidadServicios,
+								TIMESTAMPDIFF(YEAR, FechaNacimiento, CURDATE()) AS Edad,
+								( SELECT Urbano FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) AS Urbano, 
+								( SELECT ExtraUrbano FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) AS ExtraUrbano,
+                                                                (
+                                                                SELECT PrecioConIva FROM SolicitudPlanSeleccion sps
+                                                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                                                WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'tugruero.com'
+                                                                ) AS costoplantugruero,
+								(
+                                                                SELECT PrecioConIva FROM SolicitudPlanSeleccion sps
+                                                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                                                WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV'
+                                                                ) AS costoplanrcv,
+								( SELECT RCVCosas FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS RCVCosas,
+								( SELECT RCVPersonas FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS RCVPersonas,
+								( SELECT RCVPrima FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS RCVPrima,
+								( SELECT ExcesoLimites FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS ExcesoLimites,
+								( SELECT ExcesoPrima FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS ExcesoPrima,
+								( SELECT DefensaPenal FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS DefensaPenal,
+								( SELECT DefensaPrima FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS DefensaPrima,
+								( SELECT APOVMuerte FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS APOVMuerte,
+								( SELECT APOVInvalidez FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS APOVInvalidez,
+								( SELECT APOVGastos FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS APOVGastos,
+								( SELECT APOVPrima FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV' ) AS APOVPrima
+								")
+			->join("SolicitudAprobada","INNER JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
+			->where("SolicitudPlan.idSolicitudPlan=?",$idSolicitudPlan)
+			->fetch();
+			return $q; 				
+			
+		}
 		function rechazarSolicitud($idSolicitudPlan, $Observacion){			
                         $array_solicitud_plan = array(
 				'Observacion' => $Observacion,
