@@ -32,7 +32,7 @@
 					</br>
 					<!--<h3 class="text-left white-font extra_bold">Clasificación</h3>-->
 					<p class="text-justify white-font extra_bold">
-                                            <a class="white-font" href="<?php echo full_url?>/web/terms/zonas_rojas.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-3x"></i> Zonas peligrosas</a>
+                                            <a class="white-font" href="<?php echo full_url?>/web/terms/zonas_peligrosas.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-3x"></i> Zonas peligrosas</a>
                                         </p>
                                         </br>
                                         </br>

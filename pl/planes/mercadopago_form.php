@@ -136,7 +136,7 @@
       </div>
         <?php if(isset($values['precio']) and $values['precio']!=''):?>
         <div class="col-sm-12">
-            <p><b>Total a pagar:</b> <?php echo number_format($values['precio'],2,",",".")." Bs.";?></p>
+            <p><b>Total a pagar:</b> <?php echo "Bs. ".number_format($values['precio'],2,",",".").".";?></p>
         </div>
         <?php endif;?>
         <div id="show_error"></div>

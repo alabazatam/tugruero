@@ -64,7 +64,7 @@
     <input type="hidden" id="IdV" name="IdV" value="<?php if(isset($values['IdV']))echo $values['IdV']?>">
 
     <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-success">
-      <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",",".")." Bs."; else echo "0,00 Bs."?></p>
+      <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo "Bs. ".number_format($values['precio'],2,",",".")."."; else echo " Bs. 0,00"?></p>
   </div>
 	<div class="form-group col-sm-12">
 		<hr class="hr_subtitulo_planes">
@@ -509,7 +509,7 @@
 	</div>
   <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-success">
       
-	  <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo number_format($values['precio'],2,",","."); else echo "0,00 Bs."?></p>
+	  <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo "Bs. ".number_format($values['precio'],2,",",".")."."; else echo "Bs. 0,00 "?></p>
   </div>
 
 	<div class="col-sm-5">
@@ -708,7 +708,7 @@ $(document).ready(function(){
         url: '<?php echo full_url?>/pl/planes/index.php',
 	data: { action: "precio_plan",id_plan: $('#idPlan').val(), RCV: $('.RCV:checked').val(), Puestos: $('#Puestos').val()},
 	success: function(data){
-            $('.PlanPrecio').html("<p><b>Total a pagar:</b> " + data.precio + " Bs.</p>")
+            $('.PlanPrecio').html("<p><b>Total a pagar:</b> Bs. " + data.precio + ".</p>")
             $('#precio').val(data.precio_sin_formato);
 	},
           dataType: 'JSON'

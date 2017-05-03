@@ -27,6 +27,51 @@
 	<section id="contact" class="success5">
         <div class="container">
             <div class="row">
+				
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne">
+					  <h4 class="panel-title">
+						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						  Collapsible Group Item #1
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					  <div class="panel-body">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					  </div>
+					</div>
+				  </div>
+				  <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo">
+					  <h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						  Collapsible Group Item #2
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					  <div class="panel-body">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					  </div>
+					</div>
+				  </div>
+				  <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree">
+					  <h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						  Collapsible Group Item #3
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					  <div class="panel-body">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					  </div>
+					</div>
+				  </div>
+				</div>		
                 <div class="col-lg-12 text-center">
 					<h2 class="text-center white-font big_title"><b class="white-font big_title">Preguntas frecuentes</b></h2>
 					<hr>
@@ -36,12 +81,6 @@
                                             <strong class="white-font extra_bold">TU/GRUERO®</strong>, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados en la vía con los grueros más cercanos usando tecnología GPS, permitiéndoles obtener un servicio rápido, eficiente y seguro simplemente con tocar un botón	
 					</p>
 					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cuál es la página web de TU/GRUERO®?</h3>
-					
-					<p class="text-justify white-font">
-						www.tugruero.com
-					</p>
-					<hr>
 					<h3 class="text-left white-font extra_bold">¿Cuál es el correo electrónico de contacto y atención al cliente de TU/GRUERO®?</h3>
 					
 					<p class="text-justify white-font extra_bold">
@@ -49,18 +88,6 @@
                                             <li class="text-left white-font">info@tugruero.com</li>
                                             <li class="text-left white-font"><strong class="extra_bold white-font">0500-GRUERO-0 (0500-478376-0)</strong> (Solicitud de servicios de grúas) / <strong class=" white-font extra_bold">0212-419-0105</strong> (Información y Suscripción) </li>
                                         </ul>
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Qué hacemos?</h3>
-					
-					<p class="text-justify white-font">
-						Ofrecemos servicios de auxilio vial (servicios de grúa para vehículos y motos) por medio de nuestra excelente plataforma de comunicación, garantizando la tranquilidad a los accidentados en la vía, y esforzándonos siempre en actuar con amabilidad, transparencia e integridad
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Qué queremos ser?</h3>
-					
-					<p class="text-justify white-font">
-                                            <strong class="extra_bold white-font">TU/GRUERO®</strong> se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado.
 					</p>
 					<hr>
 					<h3 class="text-left white-font extra_bold">¿Cómo funciona TU/GRUERO®?</h3>
@@ -132,16 +159,10 @@
                                             No tiene costo alguno. Su descarga es gratuita.
 					</p>
 					<hr>
-					<h3 class="text-left white-font extra_bold">¿La Aplicación tiene algún costo?</h3>
-					
-					<p class="text-justify white-font">
-                                            No tiene costo alguno. Su descarga es gratuita.
-					</p>
-					<hr>
 					<h3 class="text-left white-font extra_bold">¿Cómo me afilio a los planes TU/GRUERO® Plus y TU/GRUERO® Gold?</h3>
 					
 					<p class="text-justify white-font">
-                                            Puede adquirirlos mediante nuestra página web, o escribirnos un correo electrónico a suscripción@tugruero.com y llamando a nuestro Call Center al <strong class="white-font extra_bold">0212-419-0105</strong>
+                                            Puede adquirirlos en nuestra página web, o escribirnos un correo electrónico a suscripcion@tugruero.com o también llamando a nuestro Call Center al <strong class="white-font extra_bold">0500-GRUERO-0 (0500-478376-0)</strong> y al <strong class="white-font extra_bold">0212-419-0105</strong>
 					</p>
 					<hr>
 					<h3 class="text-left white-font extra_bold">¿Cuánto cuesta el plan TU/GRUERO PLUS?</h3>
@@ -188,7 +209,7 @@
                                             La Aplicación pesa 4mb
 					</p>
 					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cuáles son las opciones que tengo que tener activas en mi teléfono inteligente para el buen funcionamiento de la aplicación?</h3>
+					<h3 class="text-left white-font extra_bold">¿Cuáles son las opciones que tengo que tener activas en mi teléfono inteligente para la aplicación?</h3>
 					
 					<p class="text-justify white-font">
                                             Debes poseer un plan de datos y el GPS activado.
@@ -210,7 +231,7 @@
 					
 					<p class="text-justify white-font">
                                         <ol>
-                                            <li class="text-left white-font">Busca nuestra aplicación en cualquiera de las tiendas de aplicaciones como TUGRUERO– App para clientes</li>
+                                            <li class="text-left white-font">Busca nuestra aplicación en Appstore (iOS) o PlayStore (Android) como TUGRUERO- App para clientes</li>
                                             <li class="text-left white-font">Descárgala</li>
                                             <li class="text-left white-font">Disfruta de Nuestro Servicio de grúa</li>
 
@@ -267,3 +288,13 @@
 	</section>
 </body>
 </html>
+<script src="web/js/jquery.js"></script>
+<script src="web/js/bootstrap.min.js"></script>
+<script>
+var $myGroup = $('#myGroup');
+$myGroup.on('show.bs.collapse','.collapse', function() {
+    $myGroup.find('.collapse.in').collapse('hide');
+});
+
+</script>
+
