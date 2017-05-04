@@ -1,4 +1,9 @@
-<?php include("autoload.php");?>	
+<?php include("autoload.php");
+$PreguntasFrecuentes = new PreguntasFecuentes();
+$lista_preguntas = $PreguntasFrecuentes->getPreguntasRespuestas();
+
+?>
+
 <!doctype html>
 <html ng-app="cssawds">
 <head>
@@ -28,263 +33,37 @@
         <div class="container">
             <div class="row">
 				
-				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-				  <div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingOne">
-					  <h4 class="panel-title">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						  Collapsible Group Item #1
-						</a>
-					  </h4>
-					</div>
-					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-					  <div class="panel-body">
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-					  </div>
-					</div>
-				  </div>
-				  <div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingTwo">
-					  <h4 class="panel-title">
-						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						  Collapsible Group Item #2
-						</a>
-					  </h4>
-					</div>
-					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-					  <div class="panel-body">
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-					  </div>
-					</div>
-				  </div>
-				  <div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingThree">
-					  <h4 class="panel-title">
-						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						  Collapsible Group Item #3
-						</a>
-					  </h4>
-					</div>
-					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-					  <div class="panel-body">
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-					  </div>
-					</div>
-				  </div>
-				</div>		
+	
                 <div class="col-lg-12 text-center">
+					<br>
 					<h2 class="text-center white-font big_title"><b class="white-font big_title">Preguntas frecuentes</b></h2>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Qué es TU/GRUERO®?</h3>
+					<br>
+					<br>
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<?php foreach($lista_preguntas as $lista):?>
+					<!--Ini-->									
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="heading<?php echo $lista['Id']?>" style="background-color: #404040;">
+							
+						  <h4 class="panel-title extra_bold text-left ">
+							<a class="collapsed extra_bold white-font" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $lista['Id']?>" aria-expanded="false" aria-controls="collapseThree">
+							  <?php echo $lista['Pregunta'];?>
+							</a>
+						  </h4>
+						</div>
+						<div id="collapse<?php echo $lista['Id']?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $lista['Id']?>">
+							<div class="panel-body" style="background-color: #464646;">
+							  <?php echo $lista['Respuesta'];?>
+							</div>
+						</div>
+					</div>
+					<!--Fin-->
+					<?php endforeach;?>
+				</div>	
 					
-					<p class="text-justify white-font">
-                                            <strong class="white-font extra_bold">TU/GRUERO®</strong>, es la primera aplicación de teléfonos inteligentes hecha para el auxilio vial. La aplicación conecta a los accidentados en la vía con los grueros más cercanos usando tecnología GPS, permitiéndoles obtener un servicio rápido, eficiente y seguro simplemente con tocar un botón	
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cuál es el correo electrónico de contacto y atención al cliente de TU/GRUERO®?</h3>
-					
-					<p class="text-justify white-font extra_bold">
-                                        <ul>
-                                            <li class="text-left white-font">info@tugruero.com</li>
-                                            <li class="text-left white-font"><strong class="extra_bold white-font">0500-GRUERO-0 (0500-478376-0)</strong> (Solicitud de servicios de grúas) / <strong class=" white-font extra_bold">0212-419-0105</strong> (Información y Suscripción) </li>
-                                        </ul>
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cómo funciona TU/GRUERO®?</h3>
-					
-					<p class="text-justify white-font extra_bold">
-						Funcionamos de 3 formas diferentes:
-                                        <ol>
-                                            <li class="text-left white-font"><strong class="white-font extra_bold">Seguros. </strong> Le prestamos nuestros servicios de grúa a las personas aseguradas con las compañías de seguro afiliadas a nuestra empresa.</li>
-                                            <li class="text-left white-font"><strong class="white-font extra_bold">Planes TU/GRUERO® Plus y TU/GRUERO® Gold. </strong> Ofrecemos nuestros servicios a personas NO aseguradas, por medio de nuestro plan de grúas anualizado llamado TU/GRUERO Plus, el cual brinda una cobertura ilimitada de grúas por todo un año. Éste se puede adquirir en conjunto con una póliza de seguro de Responsabilidad Civil Vehicular (RCV) de forma opcional.</li>
-                                            <li class="text-left white-font"><strong class="white-font extra_bold">Servicios al momento.</strong> Si no estás asegurado y tampoco tienes TU/GRUERO PLUS, puedes llamarnos a nuestro Call Center al número <strong class="white-font extra_bold">0500-GRUERO-0 (0500-478376-0)</strong> y solicitar un servicio de grúas, pagando al momento y de forma directa en cualquiera de nuestras cuentas bancarias  o con Tarjeta de Crédito. El pago se verifica al momento y te enviamos al gruero más cercano.</li>
-                                        </ol>
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Qué es TU/GRUERO® Plus y TU/GRUERO® Gold?</h3>
-					
-					<p class="text-justify white-font extra_bold">
-                                            <strong class="white-font extra_bold">TU/GRUERO® Plus y TU/GRUERO® Gold</strong> son planes de grúas anualizados que brindan los siguientes beneficios:
-                                        <ul>
-                                            <li class="text-left white-font">Servicios de grúa ilimitados a nivel nacional. 24/7, los 365 días del año.</li>
-                                            <li class="text-left white-font">Rescate en menos de 30 minutos.</li>
-                                            <li class="text-left white-font">Más de 2000 grueros en todo el país.</li>
-                                            <li class="text-left white-font">Búsqueda del gruero más cercano vía GPS.</li>
-                                            <li class="text-left white-font">Los grueros más calificados del mercado.</li>
-                                            <li class="text-left white-font">Acceso a la innovadora aplicación móvil para el auxilio vial  <strong class="white-font extra_bold">TU/GRUERO®</strong></li>
-                                        </ul>
-                                            
-                                        </p>
-                                        <p class="text-justify white-font">
-                                            Este plan puede adquirirse en conjunto con una póliza de seguro de <strong class="white-font extra_bold">Responsabilidad Civil Vehicular (RCV)</strong>, de forma opcional.
-                                        </p>
-					<hr>					
-					<h3 class="text-left white-font extra_bold">¿Qué días y en qué horarios funciona el servicio TU/GRUERO®?</h3>
-					
-					<p class="text-justify white-font">
-						Está activo las 24/7 y los 365 días del año.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Dónde funciona la aplicación y el servicio de auxilio vial de TU/GRUERO®?</h3>
-					
-					<p class="text-justify white-font">
-						A lo largo de todo el territorio nacional de Venezuela (en los 24 estados incluyendo, Nueva Esparta), tanto la aplicación como el servicio prestado por nuestro Call Center.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿TU/GRUERO® funciona a nivel internacional?</h3>
-					
-					<p class="text-justify white-font">
-						En estos momentos el servicio sólo se presta en el territorio nacional de Venezuela indicado en la pregunta anterior.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿A qué número de teléfono puedo llamar para pedir información?</h3>
-					
-					<p class="text-justify white-font">
-                                            <strong class="white-font extra_bold">0500-GRUERO-0 (0500-478376-0)</strong> (Solicitud de servicios de grúas) / <strong class="white-font extra_bold">0212-419-0105</strong> (Información y Suscripción)
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Sólo descargo la aplicación y ya puedo disfrutar del servicio?</h3>
-					
-					<p class="text-justify white-font">
-                                            Para solicitar servicios de grúa en la aplicación debes estar asegurado con alguna compañía de seguro afiliada a nosotros o debes estar afiliado a TU/GRUERO PLUS. 
-					</p>
-                                        <p class="text-justify white-font">
-                                            De igual forma, puedes disfrutar de nuestros servicios sin estar asegurado a ninguna compañía de seguros ni afiliado a nuestro plan, llamando a nuestro Call Center al 0500-GRUERO-0 (0500-478376-0)
-                                            
-                                        </p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿La Aplicación tiene algún costo?</h3>
-					
-					<p class="text-justify white-font">
-                                            No tiene costo alguno. Su descarga es gratuita.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cómo me afilio a los planes TU/GRUERO® Plus y TU/GRUERO® Gold?</h3>
-					
-					<p class="text-justify white-font">
-                                            Puede adquirirlos en nuestra página web, o escribirnos un correo electrónico a suscripcion@tugruero.com o también llamando a nuestro Call Center al <strong class="white-font extra_bold">0500-GRUERO-0 (0500-478376-0)</strong> y al <strong class="white-font extra_bold">0212-419-0105</strong>
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cuánto cuesta el plan TU/GRUERO PLUS?</h3>
-					
-					<p class="text-justify white-font">
-                                            El plan cuesta 30.000 Bs. + IVA (pregunte por formas de pago). Precio vigente hasta el 31 Mayo de 2017.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cubren Taxis y vehículos de transporte con los planes TU/GRUERO® Plus y TU/GRUERO® Gold?</h3>
-					
-					<p class="text-justify white-font">
-                                            Sí. Para consultar precios del plan para este tipo de vehículos llamar al <strong class="white-font extra_bold">0212-419-0105.</strong>
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cuáles son los métodos de pago para la afiliación a TU/GRUERO® Plus y TU/GRUERO® Gold?</h3>
-					
-					<p class="text-justify white-font">
-                                            Puede pagar vía transferencia bancaria o con su Tarjeta de Crédito a través de nuestro botón de pago virtual.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cuáles son los Bancos disponibles para hacer pagos?</h3>
-					
-					<p class="text-justify white-font">
-                                        <ul>
-                                            <li class="text-left white-font">Banesco</li>
-                                            <li class="text-left white-font">Mercantil</li>
-                                            <li class="text-left white-font">Provincial</li>
-                                            <li class="text-left white-font">Banco de Venezuela</li>
-                                            <li class="text-left white-font">Banco Venezolano de Crédito</li>
-                                            <li class="text-left white-font">BNC</li>
-                                            <li class="text-left white-font">Banco Exterior</li>
-                                            <li class="text-left white-font">BOD</li>
-                                            <li class="text-left white-font">Bancaribe</li>
-                                            <li class="text-left white-font">Banco Activo</li>
-                                            <li class="text-left white-font">Banco Plaza</li>
-                                            <li class="text-left white-font">Banco del Tesoro</li>
-                                        </ul>
-					</p>
-					<hr>
-					
-					<h3 class="text-left white-font extra_bold">¿Cuánto pesa la Aplicación TU/GRUERO®?</h3>
-					
-					<p class="text-justify white-font">
-                                            La Aplicación pesa 4mb
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cuáles son las opciones que tengo que tener activas en mi teléfono inteligente para la aplicación?</h3>
-					
-					<p class="text-justify white-font">
-                                            Debes poseer un plan de datos y el GPS activado.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Para cuáles plataformas está disponible la aplicación TU/GRUERO®?</h3>
-					
-					<p class="text-justify white-font">
-                                            Está disponible en las tiendas: <strong class="white-font extra_bold">Google Play</strong> (para Androids) y <strong class="white-font extra_bold">AppStore</strong> (para teléfonos marca Apple).
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿La aplicación TU/GRUERO® funciona para Windows Phone y Blackberry?</h3>
-					
-					<p class="text-justify white-font">
-                                            No
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cómo descargar la aplicación TU/GRUERO®?</h3>
-					
-					<p class="text-justify white-font">
-                                        <ol>
-                                            <li class="text-left white-font">Busca nuestra aplicación en Appstore (iOS) o PlayStore (Android) como TUGRUERO- App para clientes</li>
-                                            <li class="text-left white-font">Descárgala</li>
-                                            <li class="text-left white-font">Disfruta de Nuestro Servicio de grúa</li>
-
-                                        </ol>
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cómo usar la aplicación TU/GRUERO – App para clientes?</h3>
-					<p class="text-justify white-font">
-                                        <ol>
-                                            <li class="text-left white-font">Ingresa en la aplicación</li>
-                                            <li class="text-left white-font">Ingresa tus datos</li>
-                                            <li class="text-left white-font">Indica que le sucedió a tu vehículo</li>
-                                            <li class="text-left white-font">Indica a donde vas</li>
-                                            <li class="text-left white-font">Confirma tu ubicación</li>
-                                            <li class="text-left white-font">Mira donde está el gruero que te auxiliará</li>
-                                            <li class="text-left white-font">Califica el servicio y sigue en la vía</li>
-                                        </ol>
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cuánto tiempo tarda una grúa en llegar al sitio del vehículo accidentado?</h3>
-					<p class="text-justify white-font">
-                                            <strong class="white-font extra_bold">TU/GRUERO®</strong> garantiza un tiempo de rescate menor a 30 minutos en ciudades, y menor  a 1 hora y 30 minutos cuando son vehículos averiados en mitad de autopistas y carreteras nacionales e interestatales.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Tienen servicios de taxi?</h3>
-					<p class="text-justify white-font">
-                                            Si. <strong class="white-font extra_bold">TU/GRUERO®</strong> presta servicios de taxi.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Hay que hacer un pago adicional para contar con el servicio de Taxi?</h3>
-					<p class="text-justify white-font">
-                                            Si usted está asegurado con una compañía de seguros afiliada a nosotros o está afiliado a <strong class="white-font extra_bold">TU/GRUERO® Plus o TU/GRUERO® Gold</strong>, el servicio de taxi por cada servicio de grúa está cubierto (no debe pagarlo)
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cómo puedo ser parte del equipo de TU/GRUERO como proveedor de grúa?</h3>
-					<p class="text-justify white-font">
-                                            Debe ser parte del <strong class="white-font extra_bold">Club de Grúas Venezuela</strong> con su número de socio asignado.
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Cómo me hago miembro del Club de Grúas Venezuela?</h3>
-					<p class="text-justify white-font">
-                                            Debe aplicar para ser socio del <strong class="white-font extra_bold">Club Grúas Venezuela</strong> llamando a cualquiera de los directivos regionales de dicho gremio. Para saber información de estos directivos puede llamar a nuestro Call Center al <strong class="white-font extra_bold">0212-227-5273</strong> (línea directa para proveedores). 
-					</p>
-					<hr>
-					<h3 class="text-left white-font extra_bold">¿Hay una aplicación para los grueros?</h3>
-					<p class="text-justify white-font">
-                                            Sí. La aplicación <strong class="white-font extra_bold">TU/GRUERO®</strong> es bilateral, es decir, hay una <strong class="white-font extra_bold">App para clientes</strong> y una <strong class="white-font extra_bold">App para Grueros.</strong>
-                                        </p>
 				</div>
 			</div>
 		</div>
-	</section>
-		
 	</section>
 </body>
 </html>
