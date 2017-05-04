@@ -7,8 +7,8 @@ setlocale(LC_NUMERIC,"es_ES.UTF8");
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
-            $PDFPagos = new PDFPagos();
-            $pdf = $PDFPagos->cuadroRCVAsistir(array('idSolicitudPlan'=> 3));
+            /*$PDFPagos = new PDFPagos();
+            $pdf = $PDFPagos->cuadroRCVAsistir(array('idSolicitudPlan'=> 3));*/
 $values = $_REQUEST;
 $values = array_merge($values,$_FILES);
 	switch ($action) {
@@ -128,6 +128,31 @@ $values = array_merge($values,$_FILES);
 						);	
 				}else
 				{
+					$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
+					if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
+					$array_json['data'][] = array(
+						"idSolicitudPlan" => $idSolicitudPlan,
+						"Nombres" => $list['Nombres'],
+						"Apellidos" => $list['Apellidos'],
+						"Cedula" => $list['Cedula'],
+						"Plan" => $list['concatenado_plan'],
+						"Rif" => $list['Rif'],
+						"PrecioTotal" => number_format($list['PrecioTotal'],2,",","."),
+						"Estatus" => $list['Estatus'],
+											"FechaSolicitud" => $list['FechaSolicitud'],
+                                                                                        "NombreVendedor" => $list['NombreVendedor'],
+											"TipoPago" => $list['TipoPago'],
+											"actions" => 
+										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
+										   .'<input type="hidden" name="action" value="edit">  '
+										   .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
+										   .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
+											.'<a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="btn btn-default" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
+											.'<a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'_rcv.pdf" class="btn btn-default" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
+
+											.'</form>'
+						);	
+					}else{
 					$array_json['data'][] = array(
 						"idSolicitudPlan" => $idSolicitudPlan,
 						"Nombres" => $list['Nombres'],
@@ -148,6 +173,12 @@ $values = array_merge($values,$_FILES);
 											.'<a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="btn btn-default" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
 											.'</form>'
 						);	
+					}
+					
+
+					
+					
+					
 				}
 
 			}		
@@ -275,6 +306,7 @@ $values = array_merge($values,$_FILES);
 				}
 				
 			}
+			
 			$Mail = new Mail();
 			$Mail->sendMessagePolizaBienvenida($values);
 			

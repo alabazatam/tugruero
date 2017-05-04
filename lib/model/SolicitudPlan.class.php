@@ -729,6 +729,7 @@
 			->where("idSolicitudPlan=?",$idSolicitudPlan)
 			->and("Tipo=?",'RCV')
 			->fetch();
+			//echo $q;die;
 			return $q; 				
 			
 		} 
