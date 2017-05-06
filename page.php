@@ -133,35 +133,42 @@
     </header>
     <!-- About Section -->
     <section class="pasos" id="pasos">
-            <div class="col-sm-12 text-center">
+            <!--<div class="col-sm-12 text-center">
                 <p class="titulo_paso">¡PIDE TU GRúA EN <b class="titulo_paso_numero">3</b> SENCILLOS PASOS!</p>
-            </div>
+            </div>-->
+            <div class="col-sm-12 text-center">
+				<div >
+					<img src="web/img/fresh/titulopasos.png" alt="..." class="img-responsive img-centered">
+				</div>
+                
+            </div>			
             
             <div class="row margin_pasos">
                          <div class="col-sm-4">
                              <div class="thumbnail">
-                             <img src="web/img/fresh/p1.png" alt="Llama a nuestro Call Center">
+                             <img src="web/img/fresh/cel1.png" alt="Llama a nuestro Call Center">
                                  <div class="caption">
                                      <br><br>
-                                     <p class="text-center white-font">Llama a nuestro Call Center <strong><br>0500-GRUERO-0 <br>(0500-478376-0)<br> </strong> y dinos tu requerimiento</p>
+                                     <!--<p class="text-center white-font">Llama a nuestro Call Center <strong><br>0500-GRUERO-0 <br>(0500-478376-0)<br> </strong> y dinos tu requerimiento</p>-->
+									 <p class="text-center" style="margin-top: -3em;font-size: 1.8em;color:#fff;font-weight: bolder;">Ingresa a la aplicación<br>e introduce tus datos</p>
                                  </div>
                              </div>
                          </div>
                          <div class="col-sm-4">
                              <div class="thumbnail">
-                             <img src="web/img/fresh/p2.png" alt="...">
+                             <img src="web/img/fresh/cel2.png" alt="...">
                                  <div class="caption">
                                      <br><br>
-                                     <p class="text-center white-font">Paga con <strong>tarjeta de crédito</strong> o <strong>transferencia bancaria</strong></p>
+                                     <p class="text-center" style="margin-top: -3em;font-size: 1.8em;color:#fff;font-weight: bolder;">Pide tu grúa</p>
                                  </div>
                              </div>
                          </div>
                          <div class="col-sm-4">
                              <div class="thumbnail">
-                             <img src="web/img/fresh/p3.png" alt="...">
+                             <img src="web/img/fresh/cel3.png" alt="...">
                                  <div class="caption">
                                      <br><br>
-                                     <p class="text-center white-font"><strong>¡LISTO!</strong> La grúa llegará en menos de <strong><br>30 minutos</strong> </p>
+                                     <p class="text-center" style="margin-top: -3em;font-size: 1.8em;color:#fff;font-weight: bolder;">Califica el servicio y<br>vuelve a la vía </p>
                                  </div>
                              </div>
                          </div>
