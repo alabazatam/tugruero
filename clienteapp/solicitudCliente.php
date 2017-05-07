@@ -29,6 +29,7 @@ if(isset($obj["idPoliza"]) and $obj["idPoliza"]!=""){
     $idPoliza = ($obj["idPoliza"]);  
 }else{
         $idPoliza = crearPolizaOnline($link,$link2,$obj);
+        $obj["idPoliza"] = $idPoliza;
 }
 //$idPoliza = ($obj["idPoliza"]);
 $latOrigen = ($obj["latOrigen"]);
