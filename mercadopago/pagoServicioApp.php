@@ -9,8 +9,8 @@ include_once 'funcionesGenerales.php';
 
 $obj = $_REQUEST;
 require_once ('lib/mercadopago.php');
-$mp = new MP('TEST-5186169867844597-010416-c52b08ec7835da68699c21828d0e3edf__LA_LD__-47922559');
-//$mp = new MP('APP_USR-2019407814509205-033114-293bc8d65b89b8a59ffc7e161e2787e4__LB_LA__-221065884');
+//$mp = new MP('TEST-5186169867844597-010416-c52b08ec7835da68699c21828d0e3edf__LA_LD__-47922559');
+$mp = new MP('APP_USR-2019407814509205-033114-293bc8d65b89b8a59ffc7e161e2787e4__LB_LA__-221065884');
 $valido = true;
 //print_r($obj);die;
 //print_r($obj['params']);die;

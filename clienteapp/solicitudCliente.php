@@ -24,12 +24,13 @@ include_once 'conexion.php';
 //Parámetros
 //------------------------------
 //var_dump($obj);die;
+$idPoliza = null;
 if(isset($obj["idPoliza"]) and $obj["idPoliza"]!=""){
     $idPoliza = ($obj["idPoliza"]);  
 }else{
-        crearPolizaOnline($link,$link2,$obj);
+        $idPoliza = crearPolizaOnline($link,$link2,$obj);
 }
-$idPoliza = ($obj["idPoliza"]);
+//$idPoliza = ($obj["idPoliza"]);
 $latOrigen = ($obj["latOrigen"]);
 $lngOrigen = ($obj["lngOrigen"]);
 $latDestino = ($obj["latDestino"]);
@@ -264,5 +265,5 @@ $seguro = "APP-TEMPORAL";
     Error($link->error, $link);
     }
 
-
+    return $idPoliza;
 }
