@@ -480,7 +480,7 @@
                                 . '<td>N° Placa:</td>'
                                 . '<td>'.$datos_cuadro['Placa'].'</td>'
                                 . '<td>Uso:</td>'
-								. '<td colspan="2" style="border-right-width:1px;"></td>'
+								. '<td colspan="2" style="border-right-width:1px;">Particular</td>'
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td style="border-left-width:1px;border-bottom-width:1px;"> Tipo:</td>'
