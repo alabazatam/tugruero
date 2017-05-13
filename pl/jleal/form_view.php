@@ -22,37 +22,29 @@
     <link href="<?php echo full_url?>/web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<?php echo full_url?>/web/css/animate.min.css" />
 	<link href="<?php echo full_url;?>/web/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
+        
 </head>
-<body class="" style="background-color: #F5F5F5">
+<body class="" style="background-color: /*#004e9c*/#fff;color:#737474;">
 
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
-<nav class="navbar navbar-default" >
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+
 		<div class="">
-			<div class="container text-left">
-				<a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="150"></a>
-			</div>
+			<div class="">
+				<div class="col-sm-12 text-center">
+                                    <a class="text-center" href="<?php echo full_url;?>/index.php"><img class="img-responsive text-center" src="<?php echo full_url;?>/web/img/fresh/jleal.png" alt=""></a>
+                                </div>  
+
+                        </div>
 		
 		</div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
-  </div>
-</nav>
-
 
 
     <form  method="POST" enctype="multipart/form-data" id="sendForm">
-		<div class="text-center col-sm-12">
-		<label class="titulo_contratacion text-center">
+		<div class="well well-sm text-center col-sm-12 text-info">
+		<h1 class="text-center">
 			Proceso de contratación Plan TU/GRUERO®
-		</label> 
+		</h1> 
 		<strong>(Parte 1 de 2)</strong>
 		</div>
         <?php if(isset($errors['global']) and $errors['global']!=''):?>
@@ -63,12 +55,12 @@
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
     <input type="hidden" id="IdV" name="IdV" value="<?php if(isset($values['IdV']))echo $values['IdV']?>">
 
-    <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-success">
+    <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-info">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo "Bs. ".number_format($values['precio'],2,",",".")."."; else echo " Bs. 0,00"?></p>
   </div>
-	<div class="form-group col-sm-12">
-		<hr class="hr_subtitulo_planes">
-		<p class="subtitulo_planes"><strong>Escoja el Plan de su preferencia</strong></p>
+	<div class="form-group col-sm-12 well well-sm text-info">
+		
+		<p class="subtitulo_planes_jleal"><strong>Escoja el Plan de su preferencia</strong></p>
 	</div>
   <div class="form-group col-sm-12">
 	  <!--<label for="idPlan" class="">Plan </label> <label class="text-danger"> * </label>-->
@@ -84,65 +76,66 @@
 
         <?php endif;?> 
   </div>    
-	<div class="form-group col-sm-12">
-		<hr class="hr_subtitulo_planes">
-		<p class="subtitulo_planes"><strong>Información personal</strong></p>
+	<div class="well well-sm form-group col-sm-12 text-info">
+		
+		<p class="subtitulo_planes_jleal"><strong>Información personal</strong></p>
 	</div>
-  <div class="form-group col-sm-3">
-	  <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;<small> (V-12345678)</small>
-    <div class="">
-        <input type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
-    </div>
-        <?php if(isset($errors['Cedula']) and $errors['Cedula']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['Cedula'];?></div>
 
-        <?php endif;?>
-  </div>
-  <div class="form-group col-sm-3">
-	  <label for="Rif" class=" control-label">RIF</label> <label class="text-danger"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;<small> (V-123456781)</small>
-    <div class="">
-        <input type="text" name="Rif" class="form-control" maxlength="11" autocomplete="off" value="<?php if(isset($values['Rif']) and $values['Rif']!='') echo $values['Rif'];?>" id="Rif" placeholder="Ejemplo: V-123456781">
-    </div>
-        <?php if(isset($errors['Rif']) and $errors['Rif']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['Rif'];?></div>
+            <div class="form-group col-sm-3">
+                    <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;<small> (V-12345678)</small>
+              <div class="">
+                  <input type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
+              </div>
+                  <?php if(isset($errors['Cedula']) and $errors['Cedula']!=''):?>
+                  <div id="" class="alert alert-danger"><?php echo $errors['Cedula'];?></div>
 
-        <?php endif;?>
-  </div>
-  <div class="form-group col-sm-3">
-    <label for="Nombres" class="control-label">Nombres</label> <label class="text-danger"> * </label>
-    <div class="">
-        <input type="text" name="Nombres" class="form-control" autocomplete="off" maxlength="50" id="Nombres" value="<?php if(isset($values['Nombres']) and $values['Nombres']!='') echo $values['Nombres'];?>" placeholder="Ejemplo: Juan José">
-    </div>
-        <?php if(isset($errors['Nombres']) and$errors['Nombres']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['Nombres'];?></div>
-        <?php endif;?>
-  </div>
-  <div class="form-group col-sm-3">
-    <label for="Apellidos" class="2 control-label">Apellidos</label> <label class="text-danger"> * </label>
-    <div class="">
-        <input type="text" name="Apellidos" class="form-control" autocomplete="off" maxlength="50" id="Apellidos" value="<?php if(isset($values['Apellidos']) and $values['Apellidos']!='') echo $values['Apellidos'];?>"  placeholder="Ejemplo: Alvarez Pérez">
-    </div>
-        <?php if(isset($errors['Apellidos']) and $errors['Apellidos']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['Apellidos'];?></div>
+                  <?php endif;?>
+            </div>
+              <div class="form-group col-sm-3">
+                      <label for="Rif" class=" control-label">RIF</label> <label class="text-danger"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;<small> (V-123456781)</small>
+                <div class="">
+                    <input type="text" name="Rif" class="form-control" maxlength="11" autocomplete="off" value="<?php if(isset($values['Rif']) and $values['Rif']!='') echo $values['Rif'];?>" id="Rif" placeholder="Ejemplo: V-123456781">
+                </div>
+                    <?php if(isset($errors['Rif']) and $errors['Rif']!=''):?>
+                    <div id="" class="alert alert-danger"><?php echo $errors['Rif'];?></div>
 
-        <?php endif;?>
-  </div>
-    
-        <div class="form-group col-sm-3">
-          <label for="RCV" class="control-label">Sexo</label> <label class="text-danger"> * </label>
-          <div class="">
-          <label class="radio-inline">
-            <input type="radio" name="Sexo" class="Sexo" value="Masculino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Masculino') echo "checked='checked'";?>> Masculino
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="Sexo" class="Sexo" value="Femenino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Femenino') echo "checked='checked'";?>> Femenino
-          </label>
-          </div>
-              <?php if(isset($errors['Sexo']) and $errors['Sexo']!=''):?>
-              <div id="" class="alert alert-danger"><?php echo $errors['Sexo'];?></div>
+                    <?php endif;?>
+              </div>
+              <div class="form-group col-sm-3">
+                <label for="Nombres" class="control-label">Nombres</label> <label class="text-danger"> * </label>
+                <div class="">
+                    <input type="text" name="Nombres" class="form-control" autocomplete="off" maxlength="50" id="Nombres" value="<?php if(isset($values['Nombres']) and $values['Nombres']!='') echo $values['Nombres'];?>" placeholder="Ejemplo: Juan José">
+                </div>
+                    <?php if(isset($errors['Nombres']) and$errors['Nombres']!=''):?>
+                    <div id="" class="alert alert-danger"><?php echo $errors['Nombres'];?></div>
+                    <?php endif;?>
+              </div>
+              <div class="form-group col-sm-3">
+                <label for="Apellidos" class="2 control-label">Apellidos</label> <label class="text-danger"> * </label>
+                <div class="">
+                    <input type="text" name="Apellidos" class="form-control" autocomplete="off" maxlength="50" id="Apellidos" value="<?php if(isset($values['Apellidos']) and $values['Apellidos']!='') echo $values['Apellidos'];?>"  placeholder="Ejemplo: Alvarez Pérez">
+                </div>
+                    <?php if(isset($errors['Apellidos']) and $errors['Apellidos']!=''):?>
+                    <div id="" class="alert alert-danger"><?php echo $errors['Apellidos'];?></div>
 
-              <?php endif;?>
-        </div>
+                    <?php endif;?>
+              </div>
+
+              <div class="form-group col-sm-3">
+                <label for="RCV" class="control-label">Sexo</label> <label class="text-danger"> * </label>
+                <div class="">
+                <label class="radio-inline">
+                  <input type="radio" name="Sexo" class="Sexo" value="Masculino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Masculino') echo "checked='checked'";?>> Masculino
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="Sexo" class="Sexo" value="Femenino" <?php if(isset($values['Sexo']) and $values['Sexo']=='Femenino') echo "checked='checked'";?>> Femenino
+                </label>
+                </div>
+                    <?php if(isset($errors['Sexo']) and $errors['Sexo']!=''):?>
+                    <div id="" class="alert alert-danger"><?php echo $errors['Sexo'];?></div>
+
+                    <?php endif;?>
+              </div>
         <div class="form-group col-sm-6">
           <label for="EstadoCivil" class="control-label">Estado Civil</label> <label class="text-danger"> * </label>
           <div class="">
@@ -266,9 +259,9 @@
               <?php endif;?>
         </div>
    </div>
-	<div class="form-group col-sm-12 CedulaDiv">
-		<hr class="hr_subtitulo_planes">
-		<p class="subtitulo_planes"><strong>Documentos personales</strong></p>
+	<div class="form-group col-sm-12 CedulaDiv well well-sm text-info">
+
+		<p class="subtitulo_planes_jleal"><strong>Documentos personales</strong></p>
 	</div>
   <div class="form-group col-sm-12 RCV_SI CedulaDiv" style="display:none;">
     <label for="CedulaDoc" class="control-label">Cédula</label> <label class="text-danger"> * </label>
@@ -330,9 +323,9 @@
 
         <?php endif;?>
   </div>
-	<div class="form-group col-sm-12">
-		<hr class="hr_subtitulo_planes">
-		<p class="subtitulo_planes"><strong>Información de su vehículo</strong></p>
+	<div class="form-group col-sm-12 well well-sm text-info">
+		
+		<p class="subtitulo_planes_jleal"><strong>Información de su vehículo</strong></p>
 	</div>
         <div class="form-group col-sm-12">
           <label for="Clase" class="control-label">Clase</label> <label class="text-danger"> * </label>
@@ -439,9 +432,8 @@
 
         <?php endif;?>
   </div>  
-	<div class="form-group col-sm-12">
-		<hr class="hr_subtitulo_planes">
-		<p class="subtitulo_planes"><strong>Método de pago</strong></p>
+	<div class="form-group col-sm-12 well well-sm text-info">
+		<p class="subtitulo_planes_jleal"><strong>Método de pago</strong></p>
 	</div>
   <div class="form-group col-sm-12">
     <!--<label for="inputEmail3" class="control-label">Método de pago</label> <label class="text-danger"> * </label>-->
@@ -505,9 +497,9 @@
         <?php endif;?>
 	</div>
 	<div class="col-sm-12">
-			<hr class="hr_subtitulo_planes">
+			<hr class="hr_subtitulo_planes_jleal">
 	</div>
-  <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-success">
+  <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-info">
       
 	  <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo "Bs. ".number_format($values['precio'],2,",",".")."."; else echo "Bs. 0,00 "?></p>
   </div>
@@ -565,7 +557,8 @@
       </div>
     </div>
   </div>
-</div>     
+</div> 
+
 <?php include('../../view_footer_solicitud.php')?>
 <script>
 
