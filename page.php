@@ -69,6 +69,7 @@
                     <input type="hidden" id="animate1" value="0">
                     <input type="hidden" id="animate2" value="0">
                     <input type="hidden" id="animate3" value="0">
+                    <input type="hidden" id="animate4" value="0">
                     <br><br><br><br>
                     <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="">
                     <div class="intro-text">
@@ -150,7 +151,7 @@
                                  <div class="caption">
                                      <br><br>
                                      <!--<p class="text-center white-font">Llama a nuestro Call Center <strong><br>0500-GRUERO-0 <br>(0500-478376-0)<br> </strong> y dinos tu requerimiento</p>-->
-									 <p class="text-center" style="margin-top: -3em;font-size: 1.8em;color:#fff;font-weight: bolder;">Ingresa a la aplicación<br>e introduce tus datos</p>
+									 <p class="text-center" style="margin-top: -3em;font-size: 1.5em;color:#fff;">Ingresa a la aplicación<br>e introduce tus datos</p>
                                  </div>
                              </div>
                          </div>
@@ -159,7 +160,7 @@
                              <img src="web/img/fresh/cel2.png" alt="...">
                                  <div class="caption">
                                      <br><br>
-                                     <p class="text-center" style="margin-top: -3em;font-size: 1.8em;color:#fff;font-weight: bolder;">Pide tu grúa</p>
+                                     <p class="text-center" style="margin-top: -3em;font-size: 1.5em;color:#fff;">Pide tu grúa</p>
                                  </div>
                              </div>
                          </div>
@@ -168,7 +169,7 @@
                              <img src="web/img/fresh/cel3.png" alt="...">
                                  <div class="caption">
                                      <br><br>
-                                     <p class="text-center" style="margin-top: -3em;font-size: 1.8em;color:#fff;font-weight: bolder;">Califica el servicio y<br>vuelve a la vía </p>
+                                     <p class="text-center" style="margin-top: -3em;font-size: 1.5em;color:#fff;">Califica el servicio y<br>vuelve a la vía </p>
                                  </div>
                              </div>
                          </div>
@@ -252,8 +253,14 @@
     </section>   
     
     <section id="gruero_plus" onload="">
-        <div class="text-center" id="animationSandbox">    
-            <h1 class="text-center titulo_planes" >PLANES DE GRÚAS ILIMITADAS</h1>
+        <div class="text-right" id="animationSandbox">    
+            <div class="col-xs-11">
+                <h1 class="text-center titulo_planes" >PLANES DE GRÚAS ILIMITADAS <small style="font-size: 0.5em;display: block;" id="imagen2"> <b style="color:#4F4C4D;">+</b> <b style="color:#F46830;">RCV</b></small></h1>
+            </div>
+            <div class="col-xs-1 text-left" id="imagen2">
+                
+
+            </div>
 
         </div>
         <div class="row text-center" id="" style="display: block;">
@@ -261,7 +268,7 @@
             <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/plan3.png" alt="TU/GRUERO PLUS" class=""></span>
 
 		
-		</div>
+        </div>
 
         <div class="row margin_gruero_plus">
             
@@ -828,6 +835,7 @@
           $('#animationSandbox').hide();
           $('#animationSandbox2').hide();
           $('#imagen').hide();
+          $('#imagen2').hide();
 
         $("#gruero_plus").bind("inview", function(isVisible) {
           // Event is triggered once the element becomes visible in the browser's viewport, and once when it becomes invisible
@@ -835,15 +843,18 @@
             //console.log("element #foobar became visible in the browser's viewport");
                 $('#animationSandbox').show();
                 $('#animationSandbox2').show();
-                $('#imagen').show();               
+                $('#imagen').show();  
+                $('#imagen2').show();  
                 
                 if($('#animate1').val()==0){
                     testAnim2('slideInLeft');
                     testAnim('slideInRight');
                     testAnim3('slideInUp');
+                    testAnim4('swing');
                     $('#animate1').val(1);
                     $('#animate2').val(1);
-                    $('#animate3').val(1);  
+                    $('#animate3').val(1);
+                    $('#animate4').val(1);  
                 }
 
 
@@ -904,6 +915,11 @@
   };
   function testAnim3(x) {
     $('#imagen').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $(this).removeClass();
+    });
+  };
+  function testAnim4(x) {
+    $('#imagen2').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
       $(this).removeClass();
     });
   }; 

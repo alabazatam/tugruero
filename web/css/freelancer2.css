@@ -1163,8 +1163,14 @@ fieldset[disabled] .btn-success.active {
   -moz-animation-delay: 0s;
   -webkit-animation-delay: 0s;
 }
+#imagen2 {
+  -moz-animation-duration: 4s;
+  -webkit-animation-duration: 4s;
+  -moz-animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
 .titulo_planes {
-    font-size: 50px !important;
+    font-size: 45px !important;
 }
 .subtitulo_planes{
   font-size: 24px;
