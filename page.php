@@ -254,13 +254,10 @@
     
     <section id="gruero_plus" onload="">
         <div class="text-right" id="animationSandbox">    
-            <div class="col-xs-11">
-                <h1 class="text-center titulo_planes" >PLANES DE GRÚAS ILIMITADAS <small style="font-size: 0.5em;display: block;" id="imagen2"> <b style="color:#4F4C4D;">+</b> <b style="color:#F46830;">RCV</b></small></h1>
+            <div class="col-xs-12">
+                <h1 class="text-center titulo_planes" >PLANES DE GRÚAS ILIMITADAS <small style="font-size:0.8em;display: block;padding-top: 20px;padding-bottom: 20px;" id="imagen2"> <b style="color:#4F4C4D;">+</b> <b style="color:#F46830;">RCV</b></small></h1>
             </div>
-            <div class="col-xs-1 text-left" id="imagen2">
-                
 
-            </div>
 
         </div>
         <div class="row text-center" id="" style="display: block;">
