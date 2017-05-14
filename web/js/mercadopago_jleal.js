@@ -59,8 +59,8 @@
 
 
 
-Mercadopago.setPublishableKey("TEST-6d4e759f-3000-4816-bb77-45ce06df576e");
-//Mercadopago.setPublishableKey("APP_USR-220b371a-4b3b-45af-9441-137e0e3d7732");
+//Mercadopago.setPublishableKey("TEST-6d4e759f-3000-4816-bb77-45ce06df576e");
+Mercadopago.setPublishableKey("APP_USR-220b371a-4b3b-45af-9441-137e0e3d7732");
 
 
 $(document).ready(function(){
@@ -167,7 +167,7 @@ $(document).ready(function(){
 
                                 var card = document.createElement('input');
                                 card.setAttribute('name',"token");
-                                card.setAttribute('type',"hidden");
+                                card.setAttribute('type',"text");
                                 card.setAttribute('id',"token");
                                 card.setAttribute('value',response.id);
                                 form.appendChild(card);
@@ -180,7 +180,7 @@ $(document).ready(function(){
                                 var email = $('#email').val();
                                 var paymentMethodId = $('#paymentMethodId').val();
                                 $.ajax({
-                                   url: "https://tugruero.com/mercadopago/pagoServicioDesarrollo.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
+                                   url: "https://tugruero.com/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
                                    data: response ,
                                    dataType: "json",
                                    error: function(response){
@@ -195,7 +195,7 @@ $(document).ready(function(){
                                         //console.log('arriba');
                                         if(status !='rejected'){
                                             $.ajax({
-                                                    url: "http://localhost/tugruero/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val() + "&email=" + email,
+                                                    url: "https://tugruero.com/pl/jleal/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val() + "&email=" + email,
                                                     data: data ,
                                                     dataType: "json",
                                                     error: function(response){
@@ -209,8 +209,9 @@ $(document).ready(function(){
                                                             
                                                             $("#mercadopagodiv").html('');
                                                             $(".mercadopagodiv").html('');
+                                                            $(".mercadopagodiv").removeClass('well');
                                                             $('#ModalLoading').modal('toggle');  
-                                                            $("#mercadopagodivpagado").html("</br></br></br></br></br></br></br><div class='col-sm-3'></div><div  class='col-sm-6 alert alert-success'>¡LISTO! Ya procesamos su pago. Le hemos enviado un correo electrónico al indicado en el proceso de registro. Por favor revise su Bandeja de entrada o Spam.</div><div class='col-sm-3'></div><div class='col-sm-12 text-center'><a class='btn btn-success' href='http://www.tugruero.com'>Aceptar</a></div>");
+                                                            $("#mercadopagodivpagado").html("</br></br></br></br></br></br></br><div class='col-sm-3'></div><div  class='col-sm-6 alert alert-success'>¡LISTO! Ya procesamos su pago. Le hemos enviado un correo electrónico al indicado en el proceso de registro. Por favor revise su Bandeja de entrada o Spam.</div><div class='col-sm-3'></div><div class='col-sm-12 text-center'><a class='btn btn-success' href='http://www.corredorleal.com/'>Aceptar</a></div>");
                                                         }
                                                     }
                                             });   

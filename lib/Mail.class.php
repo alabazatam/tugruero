@@ -502,6 +502,8 @@
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($values['Correo']);
                     $message->setBcc('suscripcion@tugruero.com');
+					
+
             // Send the message
 
 
@@ -612,6 +614,14 @@
 					
 					$message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
+					//envío la aprobacion al vendedor
+					if(isset($data['IdV']) and $data['IdV']!=1)
+					{
+						//obtener correo del vendedor
+						$datos_vendedor = $SolicitudPlan->getDatosVendedor($data['IdV']);
+						$correo_vendedor = $datos_vendedor['Correo'];
+						$message->setBcc($correo_vendedor);
+					}
                     $result = $mailer->send($message);	
                     }catch(Exception $e){
                             echo $e->getMessage().$e->getTraceAsString();

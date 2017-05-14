@@ -25,19 +25,28 @@
         
 </head>
 <body class="" style="background-color: /*#004e9c*/#fff;color:#737474;">
-
+<nav class="navbar navbar-default" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+		<div class="">
+			<div class="container text-left">
+				<a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="150"></a>
+			</div>
+		
+		</div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
+  </div>
+</nav>
 <?php $Marcas = new Marcas(); $marcas_list = $Marcas->getMarcasListSelect();?>
 <?php $Estados = new Estados(); $list_estados = $Estados->getEstadosListSelect()?>
 
-		<div class="">
-			<div class="">
-				<div class="col-sm-12 text-center">
-                                    <a class="text-center" href="<?php echo full_url;?>/index.php"><img class="img-responsive text-center" src="<?php echo full_url;?>/web/img/fresh/jleal.png" alt=""></a>
-                                </div>  
 
-                        </div>
-		
-		</div>
 
 
     <form  method="POST" enctype="multipart/form-data" id="sendForm">
@@ -51,9 +60,16 @@
         <div id="" class="alert alert-danger"><?php echo $errors['global'];?></div>
 
         <?php endif;?> 
+			<div class="">
+				<div class="col-sm-12 text-center">
+					<a class="text-center" href="#"><img class="text-center" src="<?php echo full_url;?>/web/img/fresh/jleal.png" alt=""></a>
+                </div>  
+
+            </div>
+		
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
-    <input type="hidden" id="IdV" name="IdV" value="<?php if(isset($values['IdV']))echo $values['IdV']?>">
+    <input type="hidden" id="IdV" name="IdV" value="2">
 
     <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-info">
       <p><b>Total a pagar:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo "Bs. ".number_format($values['precio'],2,",",".")."."; else echo " Bs. 0,00"?></p>

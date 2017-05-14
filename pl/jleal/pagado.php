@@ -17,13 +17,21 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
   </div>
 </nav>
-</br></br></br></br></br></br></br>
+			<div class="">
+				<div class="col-sm-12 text-center">
+					<a class="text-center" href="#"><img class="text-center" src="<?php echo full_url;?>/web/img/fresh/jleal.png" alt=""></a>
+                </div>  
+
+            </div>
+
 <div class='col-sm-3'></div>
+<br><br><br><br><br><br><br>
 <div  class='col-sm-6 alert alert-success'>
+	
     ¡LISTO! Ya procesamos su pago. Le hemos enviado un correo electrónico al indicado en el proceso de registro. Por favor revise su Bandeja de entrada o Spam.</div>
 <div class='col-sm-3'></div>
 <div class='col-sm-12 text-center'>
-        <a class='btn btn-success' href='http://www.tugruero.com'>Aceptar</a>
+        <a class='btn btn-success' href='http://www.corredorleal.com/'>Aceptar</a>
 </div>
 
 <?php include('../../view_footer_solicitud.php')?>

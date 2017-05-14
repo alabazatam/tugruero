@@ -733,6 +733,16 @@
 			return $q; 				
 			
 		} 
+		public function getDatosVendedor($IdV){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->PlanesVendedores
+			->select("*")
+			->where("IdV=?",$IdV)
+			->fetch();
+			//echo $q;die;
+			return $q; 
+			
+		}
 	}
 			
 

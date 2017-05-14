@@ -24,7 +24,7 @@
 	<link href="<?php echo full_url;?>/web/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
 	<script src="<?php echo full_url;?>/web/js/jquery.js"></script>
 <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
-<script src="<?php echo full_url;?>/web/js/mercadopago.js"></script>
+<script src="<?php echo full_url;?>/web/js/mercadopago_jleal.js"></script>
 </head>
 
 
@@ -54,16 +54,22 @@
 <input type="hidden" id="descripcion" name="descripcion" value="<?php if(isset($values['descripcion']) and $values['descripcion']!='') echo $values['descripcion'];else echo "Afiliacion de plan TU/GRUERO WEB";?> <?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
 <input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']) and $values['idSolicitudPlan']!='') echo $values['idSolicitudPlan']?>">
 		
-		<div class="text-center col-sm-12 mercadopagodiv">
-		<label class="titulo_contratacion text-center">
+		<div class="text-center col-sm-12 mercadopagodiv well well-sm text-info">
+		<h1 class="text-center">
 			Proceso de contratación Plan TU/GRUERO®
-		</label> 
+		</h1> 
 		<strong>(Parte 2 de 2)</strong>
 		</div>
-<div class="col-sm-8" id="mercadopagodiv">
+			<div class="">
+				<div class="col-sm-12 text-center">
+					<a class="text-center" href="#"><img class="text-center" src="<?php echo full_url;?>/web/img/fresh/jleal.png" alt=""></a>
+                </div>  
+
+            </div>
+<div class="col-sm-8 col-sm-offset-2" id="mercadopagodiv">
     <form action="" method="post" id="pay" name="pay" class="">
-	<div class="form-group col-sm-12">
-		<p class="subtitulo_planes"><strong>Datos de su Tarjeta de Crédito</strong></p>
+	<div class="form-group col-sm-12 well well-sm text-info">
+		<p class="subtitulo_planes_jleal"><strong>Datos de su Tarjeta de Crédito</strong></p>
 	</div>
       <div class="form-group col-sm-12">
 		  <label for="cardholderName" class="control-label">Titular</label> <label class="text-danger"> * </label> &nbsp;&nbsp;&nbsp;&nbsp;<small>(Colocar las letras en mayúsculas)</small>
@@ -141,7 +147,7 @@
         <?php endif;?>
         <div id="show_error"></div>
         <div id="show_commit"></div>
-        <input type="submit" class="btn btn-success" value="Procesar Pago" />
+        <div class="text-right"><input type="submit" class="btn btn-success" value="Procesar Pago" /></div>
     </form>        
 </div>
 <div class="col-sm-12" id="mercadopagodivpagado"></div>
