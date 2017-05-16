@@ -393,7 +393,7 @@
         </head>
         <body style="font-size: 16px;color:#000000;">
             <div align="center">
-		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
 		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
 		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
@@ -421,6 +421,108 @@
                     $message->setTo($email);
                     $message->setBcc('suscripcion@tugruero.com');
             // Send the message
+
+
+                    $result = $mailer->send($message);	
+                    }catch(Exception $e){
+                            echo $e->getMessage().$e->getTraceAsString();
+                            die;
+                    }
+
+
+
+
+
+
+    }
+    function sendMessageMercadopagoVendedor($values){
+            try{
+            $Utilitarios = new Utilitarios();
+            $idSolicitudPlan = $values['idSolicitudPlan'];
+            $saludo = $Utilitarios->saludo();
+            $SolicitudPlan = new SolicitudPlan();
+            $data = $SolicitudPlan->getSolicitudPlanInfo($idSolicitudPlan);
+            $Nombres = strtoupper($data['Nombres']);
+            $Apellidos = strtoupper($data['Apellidos']);
+            $ConcatenadoPlan = $data['concatenado_plan'];
+            $Modelo = $data['Modelo'];
+            $Marca= $data['Marca'];
+            $Anio= $data['Anio'];
+            $correo1_vendedor = '';
+            $correo2_vendedor = '';
+            $correo3_vendedor = '';
+            $NombreVendedor = '';
+                if(isset($data['IdV']) and $data['IdV']!=1)
+                {
+                    $datos_vendedor = $SolicitudPlan->getDatosVendedor($data['IdV']);
+                    $correo1_vendedor = $datos_vendedor['Correo1'];
+                    $correo2_vendedor = $datos_vendedor['Correo2'];
+                    $correo3_vendedor = $datos_vendedor['Correo3'];
+                    $NombreVendedor = $datos_vendedor['NombreVendedor'];
+                    
+                }
+            $smtp = "server-0116a.gconex.net";
+            //$smtp = "mail.tugruero.com";
+            $port = 465;
+            $secure = "ssl";
+            $username = "mercadeo@tugruero.com";
+            $password = "tugruero123";
+            $mail_from = 'suscripcion@tugruero.com'; 
+            $username = $this->username;
+            $password = $this->password;
+            $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
+              ->setUsername($username)
+              ->setPassword($password);
+            $mailer = Swift_Mailer::newInstance($transport);
+            $email = array($values['response']['payer']['email']);
+
+            $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
+            $message->setBody('
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>TU/GRUERO®</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-size: 16px;color:#000000;">
+            <div align="center">
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
+		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted, y que nuestro aliado comercial <strong>'.$NombreVendedor.'</strong> le ha ofrecido.</p>
+		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
+		<p align="justify">¡Esté atento!</p>
+		<p align="justify">Saludos.<br><br><br><br>
+		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
+		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
+            </div>
+            <br><br>--<br>
+            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
+            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
+            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
+            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
+            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+            <p><b>Síguenos</b></p>
+            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
+            <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
+        </body>
+    </html>
+    ',"text/html");			
+
+            $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
+                    $message->setTo($email);
+                    $message->setBcc('suscripcion@tugruero.com');
+                    if($correo1_vendedor!=''){
+                       $message->setBcc($correo1_vendedor); 
+                    }
+                    if($correo2_vendedor!=''){
+                       $message->setBcc($correo2_vendedor); 
+                    }
+                    if($correo3_vendedor!=''){
+                       $message->setBcc($correo3_vendedor); 
+                    }
 
 
                     $result = $mailer->send($message);	
@@ -475,7 +577,7 @@
         </head>
         <body style="font-size: 16px;color:#000000;">
             <div align="center">
-		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
 		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>24 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
 		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
@@ -519,6 +621,111 @@
 
 
     }
+    function sendMessageDepositoPagoVendedor($values){
+            
+            $Utilitarios = new Utilitarios();
+            $idSolicitudPlan = $values['idSolicitudPlan'];
+            $saludo = $Utilitarios->saludo();
+            $SolicitudPlan = new SolicitudPlan();
+            $data = $SolicitudPlan->getSolicitudPlanInfo($idSolicitudPlan);
+            $Nombres = strtoupper($data['Nombres']);
+            $Apellidos = strtoupper($data['Apellidos']);
+            $Modelo = $data['Modelo'];
+            $Marca= $data['Marca'];
+            $Anio= $data['Anio'];
+            $correo1_vendedor = '';
+            $correo2_vendedor = '';
+            $correo3_vendedor = '';
+            $ConcatenadoPlan = $data['concatenado_plan'];
+					//envío la aprobacion al vendedor
+                if(isset($data['IdV']) and $data['IdV']!=1)
+                {
+                    $datos_vendedor = $SolicitudPlan->getDatosVendedor($data['IdV']);
+                    $correo1_vendedor = $datos_vendedor['Correo1'];
+                    $correo2_vendedor = $datos_vendedor['Correo2'];
+                    $correo3_vendedor = $datos_vendedor['Correo3'];
+                    $NombreVendedor = $datos_vendedor['NombreVendedor'];
+                    
+                }
+            try{
+            $smtp = "server-0116a.gconex.net";
+            //$smtp = "mail.tugruero.com";
+            $port = 465;
+            $secure = "ssl";
+            $username = "mercadeo@tugruero.com";
+            $password = "tugruero123";
+            $mail_from = 'suscripcion@tugruero.com'; 
+            $username = $this->username;
+            $password = $this->password;
+            $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
+              ->setUsername($username)
+              ->setPassword($password);
+            $mailer = Swift_Mailer::newInstance($transport);
+            $email = array($data['Correo']);
+
+            $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
+            $message->setBody('<!DOCTYPE html>
+    <html>
+
+        <head>
+            <title>TU/GRUERO®</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-size: 16px;color:#000000;">
+            <div align="center">
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
+		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted, y que nuestro aliado comercial <strong>'.$NombreVendedor.'</strong> le ha ofrecido.</p>
+		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>24 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
+		<p align="justify">¡Esté atento!</p>
+		<p align="justify">Saludos.<br><br><br><br>
+		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
+		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
+            </div>
+            <br><br>--<br>
+            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
+            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
+            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
+            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
+            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+            <p><b>Síguenos</b></p>
+            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
+            <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
+        </body>
+    </html>
+    ',"text/html");			
+
+            $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
+                    $message->setTo($values['Correo']);
+                    $message->setBcc('suscripcion@tugruero.com');
+                    if($correo1_vendedor!=''){
+                       $message->setBcc($correo1_vendedor); 
+                    }
+                    if($correo2_vendedor!=''){
+                       $message->setBcc($correo2_vendedor); 
+                    }
+                    if($correo3_vendedor!=''){
+                       $message->setBcc($correo3_vendedor); 
+                    }
+
+            // Send the message
+
+
+                    $result = $mailer->send($message);	
+                    }catch(Exception $e){
+                            //echo $e->getMessage().$e->getTraceAsString();
+                            die;
+                    }
+
+
+
+
+
+
+    }
     function sendMessagePolizaBienvenida($values){
             
             $Utilitarios = new Utilitarios();
@@ -533,7 +740,16 @@
             $Nombres = strtoupper($data['Nombres']);
             $Apellidos = strtoupper($data['Apellidos']);
             $ConcatenadoPlan = $data['concatenado_plan'];
-			$plan_tugruero = $data['plan_tugruero'];
+            $plan_tugruero = $data['plan_tugruero'];
+                if(isset($data['IdV']) and $data['IdV']!=1)
+                {
+                    $datos_vendedor = $SolicitudPlan->getDatosVendedor($data['IdV']);
+                    $correo1_vendedor = $datos_vendedor['Correo1'];
+                    $correo2_vendedor = $datos_vendedor['Correo2'];
+                    $correo3_vendedor = $datos_vendedor['Correo3'];
+                    $NombreVendedor = $datos_vendedor['NombreVendedor'];
+                    
+                }
             try{
             $smtp = "server-0116a.gconex.net";
             //$smtp = "mail.tugruero.com";
@@ -612,16 +828,9 @@
 						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto."_rcv.pdf")); 	
 					}
 					
-					$message->setFrom(array ($mail_from => 'TU/GRUERO®'));
+                    $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
-					//envío la aprobacion al vendedor
-					if(isset($data['IdV']) and $data['IdV']!=1)
-					{
-						//obtener correo del vendedor
-						$datos_vendedor = $SolicitudPlan->getDatosVendedor($data['IdV']);
-						$correo_vendedor = $datos_vendedor['Correo'];
-						$message->setBcc($correo_vendedor);
-					}
+
                     $result = $mailer->send($message);	
                     }catch(Exception $e){
                             echo $e->getMessage().$e->getTraceAsString();
