@@ -34,7 +34,7 @@
 			->select("*")
 			->where("Estado = 'A'")
             ->and('idPlan=?',$idPlan)->fetch();
-			return $q['Precio']; 			
+			return $q['PrecioIva']; 			
 		}
 		public function getPrecioRCV($Puestos)
 		{	

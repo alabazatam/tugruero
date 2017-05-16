@@ -55,7 +55,7 @@ define("image_url",full_url."/web/images/");
  define('message_created',"Registro creado satisfactoriamente");
  define('max_input_size',3000000);
  define('message_max_size',"El archivo debe pesar máximo 3MB");
- define('IVA',1.10);
+ define('IVA',1.12);
 //Class definition
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/notorm-master/NotORM.php");//se debe incluir una sola vez en todo el cms
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/ConnectionORM.class.php");

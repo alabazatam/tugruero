@@ -111,11 +111,11 @@ $values = array_merge($values,$_FILES);
             $precio_plan = 0;
          
             if($idPlan!=''){
-                $precio_plan = ($Planes->getPrecioPlan($idPlan) * 1.10);
+                $precio_plan = ($Planes->getPrecioPlan($idPlan));
                
                 
                 if(isset($values['RCV']) and $values['RCV']=='SI' ){
-                    $precio_plan = ($Planes->getPrecioPlan($idPlan) * 1.10);
+                    $precio_plan = ($Planes->getPrecioPlan($idPlan));
                     $precio_rcv = $Planes->getPrecioRCV($Puestos);
                     $precio_plan = $precio_plan + $precio_rcv;
                      
