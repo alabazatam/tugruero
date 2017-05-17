@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+error_reporting(1);
 $project_folder = '';
 $development_env = false;
 if(@$_SERVER['HTTP_HOST'] == '127.0.0.1' or @$_SERVER['HTTP_HOST'] == 'localhost' or strpos(@$_SERVER['HTTP_HOST'], "192.168") !== false)
@@ -108,7 +108,6 @@ include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/PDFPagos.class.php
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/SolicitudDocumentos.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/SolicitudAprobada.class.php");
 include($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/lib/model/PreguntasFrecuentes.class.php");
-
 
 /*validation class*/
 

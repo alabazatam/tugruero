@@ -280,7 +280,7 @@
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-12 RCV_SI RifDiv">
+  <!--<div class="form-group col-sm-12 RCV_SI RifDiv">
     <label for="RifDoc" class="control-label">Rif</label> <label class="text-danger"> * </label>
     <div class="">
         <input type="file" name="RifDoc" class="form-control "  id="RifDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
@@ -299,7 +299,7 @@
         <div id="" class="alert alert-danger"><?php echo $errors['Licencia'];?></div>
 
         <?php endif;?>
-  </div>
+  </div>-->
   <div class="form-group col-sm-12 CarnetCirculacionDiv">
     <label for="CarnetCirculacion" class="control-label">Carnet de circulación</label> <label class="text-danger"> * </label>
     <div class="">
@@ -310,7 +310,7 @@
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-12 CertificadoMedicoDiv">
+  <!--<div class="form-group col-sm-12 CertificadoMedicoDiv">
     <label for="inputEmail3" class="control-label">Certificado médico</label> <label class="text-danger"> * </label>
     <div class="">
         <input type="file" name="CertificadoMedico" class="form-control " id="CertificadoMedico" accept="application/pdf,image/x-png,image/gif,image/jpeg">
@@ -329,7 +329,7 @@
         <div id="" class="alert alert-danger"><?php echo $errors['CertificadoOrigen'];?></div>
 
         <?php endif;?>
-  </div>
+  </div>-->
 	<div class="form-group col-sm-12">
 		<hr class="hr_subtitulo_planes">
 		<p class="subtitulo_planes"><strong>Información de su vehículo</strong></p>

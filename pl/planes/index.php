@@ -165,7 +165,7 @@ $values = array_merge($values,$_FILES);
                 }
 
             }
-            if(isset($files['RifDoc']) and $files['RifDoc']['size']>0){
+            /*if(isset($files['RifDoc']) and $files['RifDoc']['size']>0){
                 $nombreArchivo = "Rif_".$values['idSolicitudPlan'].".".pathinfo($_FILES['RifDoc']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['RifDoc']['tmp_name'], $fichero_subido.$nombreArchivo)){
                     //inserto en bd;
@@ -180,7 +180,7 @@ $values = array_merge($values,$_FILES);
                     $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Licencia", $nombreArchivo);
                 }
 
-            }
+            }*/
             if(isset($files['CarnetCirculacion']) and $files['CarnetCirculacion']['size']>0){
                 $nombreArchivo = "CarnetCirculacion_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CarnetCirculacion']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['CarnetCirculacion']['tmp_name'], $fichero_subido.$nombreArchivo)){
@@ -188,7 +188,7 @@ $values = array_merge($values,$_FILES);
                 }
 
             }
-            if(isset($files['CertificadoMedico']) and $files['CertificadoMedico']['size']>0){
+           /* if(isset($files['CertificadoMedico']) and $files['CertificadoMedico']['size']>0){
                 $nombreArchivo = "CertificadoMedico_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CertificadoMedico']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['CertificadoMedico']['tmp_name'], $fichero_subido.$nombreArchivo)){
                     $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "CertificadoMedico", $nombreArchivo);
@@ -201,7 +201,7 @@ $values = array_merge($values,$_FILES);
                     $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "CertificadoOrigen", $nombreArchivo);
                 }
 
-            }
+            }*/
             if(isset($files['DEP1']) and $files['DEP1']['size']>0){
                 $nombreArchivo = "DEP1_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP1']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['DEP1']['tmp_name'], $fichero_subido.$nombreArchivo)){

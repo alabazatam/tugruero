@@ -251,7 +251,7 @@
 		{
 			$errors['Licencia']= "Debe seleccionar un archivo para la Cédula";
 		}
-		if($_FILES['RifDoc']['size']>0)
+		/*if($_FILES['RifDoc']['size']>0)
 		{
 			if(!in_array(pathinfo($_FILES['RifDoc']['name'],PATHINFO_EXTENSION),$array_extensions)) 
 			{
@@ -278,7 +278,7 @@
 		}else
 		{
 			$errors['Licencia']= "Debe seleccionar un archivo para la licencia";
-		}		
+		}	*/	
                
 		if($_FILES['CarnetCirculacion']['size']>0)
 		{
@@ -296,7 +296,7 @@
 		}
 		
 		
-		if(isset($values['RCV']) and  $values['RCV']=='SI')
+		/*if(isset($values['RCV']) and  $values['RCV']=='SI')
 		{
 			if($_FILES['CertificadoMedico']['size']>0)
 			{
@@ -327,7 +327,7 @@
 			{
 				$errors['CertificadoOrigen']= "Debe seleccionar un archivo para el certificado de origen";
 			}
-		}
+		}*/
                 
                 
 /***************************Validación de archivos de pago************************/                

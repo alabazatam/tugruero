@@ -252,7 +252,7 @@ $isAprobada = false;
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-12 RCV_SI RifDiv">
+  <!--<div class="form-group col-sm-12 RCV_SI RifDiv">
     <label for="RifDoc" class="control-label">Rif</label> <label class="text-danger"> * </label>
       <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "Rif"); ?>
       <?php if($NombreDocumento !=""):?>
@@ -283,7 +283,7 @@ $isAprobada = false;
         <div id="" class="alert alert-danger"><?php echo $errors['Licencia'];?></div>
 
         <?php endif;?>
-  </div>
+  </div>-->
   <div class="form-group col-sm-12 CarnetCirculacionDiv">
     <label for="CarnetCirculacion" class="control-label">Carnet de circulación</label> <label class="text-danger"> * </label>
       <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "CarnetCirculacion"); ?>
@@ -300,7 +300,7 @@ $isAprobada = false;
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-12 CertificadoMedicoDiv">
+  <!--<div class="form-group col-sm-12 CertificadoMedicoDiv">
     <label for="inputEmail3" class="control-label">Certificado médico</label> <label class="text-danger"> * </label>
       <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "CertificadoMedico"); ?>
       <?php if($NombreDocumento !=""):?>
@@ -331,7 +331,7 @@ $isAprobada = false;
         <div id="" class="alert alert-danger"><?php echo $errors['CertificadoOrigen'];?></div>
 
         <?php endif;?>
-  </div>
+  </div>-->
         <div class="form-group col-sm-12">
           <label for="Clase" class="control-label">Clase</label> <label class="text-danger"> * </label>
           <div class="">
