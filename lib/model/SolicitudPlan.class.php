@@ -441,7 +441,7 @@
 						$PrecioConIva = $Planes->getPrecioPlan($plan);
                                                 
                                                 if($IVA=='S'){
-                                                    $PrecioConIva = $Planes->getPrecioPlan($plan) * IVA;
+                                                    $PrecioConIva = $Planes->getPrecioPlan($plan);
                                                 }
                                                 $TotalSinIva = $TotalSinIva + $PrecioSinIva;
                                                 $TotalConIva = $TotalConIva + $PrecioConIva;

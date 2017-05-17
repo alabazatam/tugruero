@@ -137,7 +137,7 @@
                                 . '<td colspan="2"  style="border-left-width:1px;">NOMBRE PRODUCTO:</td>'
                                 . '<td COLSPAN="2">'.$datos_cuadro['concatenado_plan'].'</td>'
                                 . '<td>COSTO:</td>'
-                                . '<td>'.$datos_cuadro['costoplantugruero'].' Bs.</td>'
+                                . '<td>'.number_format($datos_cuadro['costoplantugruero'],2,",",".").' Bs.</td>'
                                 . '<td colspan="2">INICIO VIG.</td>'
                                 . '<td colspan="" style="border-right-width:1px;">'.$Utilitarios->formateaFecha($datos_cuadro['VigenciaDesde'], 'd/m/Y').'</td>'
                                 . '</tr>'
@@ -594,8 +594,8 @@
 
 
 			
-			$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'F');            
-            //$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'I');   
+			//$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'F');            
+            $pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'I');   
             
             
         }        
