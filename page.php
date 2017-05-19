@@ -733,56 +733,12 @@
 			</div>
                 <div class="row">
                         <div class="modal-body">
-                            <!--<div class="col-xs-3 col-xs-offset-4" style=";margin-bottom: -1.9%;z-index: 1;background-color: #E7E8EB !important;">
-                                <img src="web/img/fresh/atencion.png" class="img-responsive">
-                            </div>
-                            <div class="col-xs-12 col-md-10 col-md-offset-1 table-responsive" style="z-index: 0;border-top: dotted 3px #e76115;border-bottom: dotted 3px #e76115;border-left: dotted 3px #e76115;border-right: dotted 3px #e76115; z-index:0;">
-                                <div class="col-xs-12"  style="border: dotted 1px #000;margin-top: 3%;margin-bottom: 3%;background-color: #e7e8eb;padding-top: 2%;">
-                                    
-									<table width="100%">
-										<tr style="background-color: #444142;color:#fff;">
-											<td>
-												<p class="text-center"><strong>SOLO SE PUEDE CONTRATAR EL PLAN PARA UN (01) VEHÍCULO A LA VEZ</strong></p>  
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<p class="text-center" style="font-size: 1.5em;">Si usted realizó el pago por transferencia o depósito<br>
-													bancario asegúrese de tener el recibo o voucher<br>
-													digitalizado en su equipo, ya que lo tendrá que <br>
-													cargar al finalizar el proceso de contratación
-												</p>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div style="border-radius: 10px;background-color: #E76115;">
-												<p class="text-left" >
-													&nbsp;&nbsp;&nbsp;<strong style="font-size: 1.6em;color:#fff;">Asegúrese de tener digitalizado en su equipo los siguientes documentos</strong>
-												</p>
-												<ul style="font-size: 1.3em;color:#fff;">
-													<li class="text-left">Cédula de identidad.</li>
-													<li class="text-left">RIF personal.</li>
-													<li class="text-left">Licencia de conducir.</li>
-													<li class="text-left">Carnet de circulación.</li>
-													<li class="text-left">Certificado médico (en caso de adquirir RCV).</li>
-													<li class="text-left">Certificado de origen del vehículo / Título de propiedad (En caso de adquirir RCV).</li>
-												</ul>
-												</div>
-											</td>
-										</tr>
-									</table>
-
-                                </div>
-
-                            </div> -->
-                            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-3">
-                                <img src="web/img/fresh/cuadro_requisitos.png" class="img-responsive">
+                            <div class="col-sm-8 col-sm-offset-3 text-center">
+                                <img src="web/img/fresh/cuadro_requisitos.png" class="img-responsive text-center">
 
                             </div>
-                            <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 text-right">
-                                <br>
-                                <a class="btn btn-success" href="https://tugruero.com/pl/planes/index.php">Continuar</a>
+                            <div class="col-sm-6  col-sm-offset-3 text-right">
+                                <a style="" class="btn btn-success" href="https://tugruero.com/pl/planes/index.php">Continuar</a>
                             </div>				
                         </div>
                 </div>

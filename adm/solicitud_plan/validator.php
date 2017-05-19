@@ -79,7 +79,7 @@
 			"maxlength" => 11,
 			"type" => "number",
 			"label" => "Teléfono de habitación",
-			"required" => true
+			"required" => false
 		);
 		$validator_values['Celular'] = array(
 			
@@ -177,7 +177,7 @@
                 {
                     $errors['Rif'] = "Verifique el formato del RIF (V-12345670)";
                 }
-                if (!preg_match("/^[0][2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
+                if ( isset($values['Telefono']) and $values['Telefono']!='' and !preg_match("/^[0][2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
                 {
                     $errors['Telefono'] = "Formato o número incorrecto (Ejemplo: 02121234567))";
                 }

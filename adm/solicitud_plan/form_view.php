@@ -159,7 +159,7 @@ $isAprobada = false;
         <?php endif;?>
   </div>
   <div class="form-group col-sm-3">
-    <label for="Telefono" class="control-label">Teléfono de habitación</label> <label class="text-danger"> * </label>
+    <label for="Telefono" class="control-label">Teléfono de habitación</label> <label class="text-danger"></label>
     <div class="">
         <input <?php echo $disabled;?> type="text" name="Telefono" class="form-control" autocomplete="off" id="Telefono" maxlength="10" value="<?php if(isset($values['Telefono']) and $values['Telefono']!='') echo $values['Telefono'];?>" placeholder="Ejemplo: 2121234567">
     </div>
@@ -426,7 +426,7 @@ $isAprobada = false;
   <div class="form-group col-sm-2 Puestos">
     <label for="Puestos" class="control-label">Cantidad de puestos</label> <label class="text-danger"> * </label>
     <div class="">
-        <input disabled type="number" name="Puestos" class="form-control" id="Puestos" autocomplete="off" maxlength="1" value="<?php if(isset($values['Puestos']) and $values['Puestos']!='') echo $values['Puestos']; else echo "5";?>" min="5" max="7">
+        <input <?php echo $disabled;?> type="number" name="Puestos" class="form-control" id="Puestos" autocomplete="off" maxlength="1" value="<?php if(isset($values['Puestos']) and $values['Puestos']!='') echo $values['Puestos']; else echo "5";?>" min="5" max="7">
     </div>
         <?php if(isset($errors['Puestos']) and $errors['Puestos']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Puestos'];?></div>

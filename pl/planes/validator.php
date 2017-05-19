@@ -87,7 +87,7 @@
 			"maxlength" => 11,
 			"type" => "number",
 			"label" => "Teléfono de habitación",
-			"required" => true
+			"required" => false
 		);
 		$validator_values['Celular'] = array(
 			
@@ -180,7 +180,7 @@
                 if (!preg_match("/^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$/", $values['FechaNacimiento'])) {
                      $errors['FechaNacimiento'] = "Verifique el formato de la fecha de nacimiento (01/01/1980)";
                 }
-                if (!preg_match("/^[0][2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
+                if ( isset($values['Telefono']) and $values['Telefono']!='' and !preg_match("/^[0][2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
                 {
                     $errors['Telefono'] = "Formato o número incorrecto (Ejemplo: 02121234567))";
                 }
