@@ -294,7 +294,7 @@
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
-            $password = "tugruero123";
+            $password = "tugruero123!";
             $mail_from = 'mercadeo@tugruero.com'; 
 
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
