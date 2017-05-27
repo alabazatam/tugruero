@@ -430,25 +430,26 @@
                                     $array_planes[] = $id_plan_rcv;
                                 }
 				
-
 			}
+			
 			$TotalSinIva = 0;
                         $TotalConIva = 0;
 		
 				foreach($array_planes as $plan){
-                                                $IVA = $Planes->getIvaPlan($plan);
+                        $IVA = $Planes->getIvaPlan($plan);
 						$PrecioSinIva = $Planes->getPrecioPlan($plan);
 						$PrecioConIva = $Planes->getPrecioPlan($plan);
                                                 
-                                                if($IVA=='S'){
-                                                    $PrecioConIva = $Planes->getPrecioPlan($plan);
-                                                }
-                                                $TotalSinIva = $TotalSinIva + $PrecioSinIva;
+                                                
+                                                $PrecioConIva = $Planes->getPrecioPlan($plan);
+                                                
+												
+                                                $TotalSinIva = $TotalSinIva + $PrecioConIva;
                                                 $TotalConIva = $TotalConIva + $PrecioConIva;
                                                 $array_solicitud_plan_seleccion = array();
 						$array_solicitud_plan_seleccion['idSolicitudPlan'] = $values['idSolicitudPlan'];
 						$array_solicitud_plan_seleccion['idPlan'] = $plan;
-						$array_solicitud_plan_seleccion['PrecioSinIva'] = $PrecioSinIva;
+						$array_solicitud_plan_seleccion['PrecioSinIva'] = $PrecioConIva;
 						$array_solicitud_plan_seleccion['PrecioConIva'] = $PrecioConIva;
 						$array_solicitud_plan_seleccion['FechaSolicitud'] = date('Y-m-d h:i:s');
 						$q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);

@@ -81,7 +81,16 @@
       <div class="form-group col-sm-4">
         <label for="docType" class="control-label">Tipo de documento</label> <label class="text-danger"> * </label>
         <div class="">
-             <select required  id="docType" data-checkout="docType"  data-checkout="docType" class="form-control"></select>    
+			<select required  id="docType" data-checkout="docType"  data-checkout="docType" class="form-control">
+				<option value="CI-V">CI-V</option>
+				<option value="CI-E">CI-E</option>
+				<option value="RIF-J">RIF-J</option>
+				<option value="RIF-P">RIF-P</option>
+				<option value="RIF-V">RIF-V</option>
+				<option value="RIF-E">RIF-E</option>
+				<option value="RIF-G">RIF-G</option>
+				<option value="PASAPORTE">PASAPORTE</option>
+			</select>    
         </div>
       </div>
       <div class="form-group col-sm-8">

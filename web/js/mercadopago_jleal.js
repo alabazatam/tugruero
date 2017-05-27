@@ -64,7 +64,7 @@ Mercadopago.setPublishableKey("APP_USR-220b371a-4b3b-45af-9441-137e0e3d7732");
 
 
 $(document).ready(function(){
-  Mercadopago.getIdentificationTypes();
+ //Mercadopago.getIdentificationTypes();
 
                         addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'keyup', guessingPaymentMethod);
                         addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'change', guessingPaymentMethod);
