@@ -132,6 +132,43 @@
       
 
     </header>
+    <section id="gruero_plus" onload="">
+        <div class="text-right" id="animationSandbox">    
+            <div class="col-xs-12">
+                <h1 class="text-center titulo_planes" >PLANES DE GRÚAS ILIMITADAS <small style="font-size:0.8em;display: block;padding-top: 20px;padding-bottom: 20px;" id="imagen2"> <b style="color:#4F4C4D;">+</b> <b style="color:#F46830;">RCV</b></small></h1>
+            </div>
+
+
+        </div>
+        <div class="row text-center" id="" style="display: block;">
+
+            <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/plan3.png" alt="TU/GRUERO PLUS" class=""></span>
+
+		
+        </div>
+
+        <div class="row margin_gruero_plus">
+            
+            <!--<div class="col-sm-5 text-right">
+                        <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/plan1.png" alt="TU/GRUERO PLUS" class=""></span>
+                        <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/plan2.png" alt="TU/GRUERO PLUS" class=""></span>
+
+            </div>-->
+            <div class="col-sm-12 texto_gruero_plus">
+                
+                    <div id="imagen">
+                        <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestros planes vía online
+                        <br>para que manejes tranquilo en todo el país
+                        <br>y disfruta de grúas ilimitadas</p>
+                        <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
+                        <p align="center" class="titulo_gruero_plus"><strong><br><br>Ahora puedes adquirir nuestros planes vía online ¡Sin hacer ni una llamada!</strong></p>
+                        <p align="center" class="titulo_gruero_plus" ID=""><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p>
+                    </div>
+            </div>
+            
+
+	</div>
+    </section>    
     <!-- About Section -->
     <section class="pasos" id="pasos">
             <!--<div class="col-sm-12 text-center">
@@ -252,43 +289,7 @@
 		  </div>
     </section>   
     
-    <section id="gruero_plus" onload="">
-        <div class="text-right" id="animationSandbox">    
-            <div class="col-xs-12">
-                <h1 class="text-center titulo_planes" >PLANES DE GRÚAS ILIMITADAS <small style="font-size:0.8em;display: block;padding-top: 20px;padding-bottom: 20px;" id="imagen2"> <b style="color:#4F4C4D;">+</b> <b style="color:#F46830;">RCV</b></small></h1>
-            </div>
 
-
-        </div>
-        <div class="row text-center" id="" style="display: block;">
-
-            <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/plan3.png" alt="TU/GRUERO PLUS" class=""></span>
-
-		
-        </div>
-
-        <div class="row margin_gruero_plus">
-            
-            <!--<div class="col-sm-5 text-right">
-                        <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/plan1.png" alt="TU/GRUERO PLUS" class=""></span>
-                        <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/plan2.png" alt="TU/GRUERO PLUS" class=""></span>
-
-            </div>-->
-            <div class="col-sm-12 texto_gruero_plus">
-                
-                    <div id="imagen">
-                        <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestros planes vía online
-                        <br>para que manejes tranquilo en todo el país
-                        <br>y disfruta de grúas ilimitadas</p>
-                        <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
-                        <p align="center" class="titulo_gruero_plus"><strong><br><br>Ahora puedes adquirir nuestros planes vía online ¡Sin hacer ni una llamada!</strong></p>
-                        <p align="center" class="titulo_gruero_plus" ID=""><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p>
-                    </div>
-            </div>
-            
-
-	</div>
-    </section>    
 	<section id="quienes_somos">
             <div class="row margin_quienessomos">
                          <div class="col-sm-3">
