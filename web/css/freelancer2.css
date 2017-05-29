@@ -759,6 +759,30 @@ fieldset[disabled] .btn-success.active {
     margin-left: 15%;
     height: 310px;
 }
+@media (min-width: 990px) and (max-width: 1279px) {
+    
+    .fondo_testimonios{
+        border: 0px solid #555;
+        background: #D8D8DA;
+        -moz-border-radius: 8px 8px 8px 8px;
+        -webkit-border-radius: 8px 8px 8px 8px;
+        border-radius: 8px 8px 8px 8px;
+        max-width: 70%;
+        margin-left: 15%;
+        height: 310px;
+    }   
+.texto_testimonios{
+    
+  font-size: 12px;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #4A4D51;
+  padding-top: 15px;
+  padding-bottom: 8px;
+}
+    
+}
+
 
 .margin_testimonios{
    padding-left: 10%;

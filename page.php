@@ -500,7 +500,7 @@
             <div class="row margin_testimonios" >
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">                
                 <div class="thumbnail">
-                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios">
+                    <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios" class="img-responsive" >
                     <div class="fondo_testimonios">
                         <p class="nombres_testimonios text-left">Juan Panto</p>
                         <p class="subtitulo_testimonios text-justify">Gruero del Estado Miranda inscrito en el Club Grúas Venezuela:</p>
