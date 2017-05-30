@@ -780,6 +780,9 @@ fieldset[disabled] .btn-success.active {
   padding-top: 15px;
   padding-bottom: 8px;
 }
+.img-testimonios{
+    width: 60%;
+}
     
 }
 
