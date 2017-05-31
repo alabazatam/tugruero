@@ -367,12 +367,12 @@
             $Modelo = $data['Modelo'];
 			$Marca= $data['Marca'];
 			$Anio= $data['Anio'];
-            $smtp = "server-0116a.gconex.net";
-            //$smtp = "mail.tugruero.com";
+            //$smtp = "server-0116a.gconex.net";
+            $smtp = "mail.tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
-            $password = "tugruero123";
+            $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
             $username = $this->username;
             $password = $this->password;
@@ -461,12 +461,12 @@
                     $NombreVendedor = $datos_vendedor['NombreVendedor'];
                     
                 }
-            $smtp = "server-0116a.gconex.net";
-            //$smtp = "mail.tugruero.com";
+            //$smtp = "server-0116a.gconex.net";
+            $smtp = "mail.tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
-            $password = "tugruero123";
+            $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
             $username = $this->username;
             $password = $this->password;
@@ -551,12 +551,12 @@
 			$Anio= $data['Anio'];
             $ConcatenadoPlan = $data['concatenado_plan'];
             try{
-            $smtp = "server-0116a.gconex.net";
-            //$smtp = "mail.tugruero.com";
+            //$smtp = "server-0116a.gconex.net";
+            $smtp = "mail.tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
-            $password = "tugruero123";
+            $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
             $username = $this->username;
             $password = $this->password;
@@ -648,12 +648,12 @@
                     
                 }
             try{
-            $smtp = "server-0116a.gconex.net";
-            //$smtp = "mail.tugruero.com";
+            //$smtp = "server-0116a.gconex.net";
+            $smtp = "mail.tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
-            $password = "tugruero123";
+            $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
             $username = $this->username;
             $password = $this->password;
@@ -751,12 +751,12 @@
                     
                 }
             try{
-            $smtp = "server-0116a.gconex.net";
-            //$smtp = "mail.tugruero.com";
+            //$smtp = "server-0116a.gconex.net";
+            $smtp = "mail.tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
-            $password = "tugruero123";
+            $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
             $username = $this->username;
             $password = $this->password;
