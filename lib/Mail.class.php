@@ -4,11 +4,11 @@
    
     function __construct() 
     {
-        $this->smtp = "server-0116a.gconex.net";
+        $this->smtp = "tugruero.com";
         $this->port = 465;
         $this->secure = "ssl";
-        $this->username = "contactenos@tugruero.com.ve";
-        $this->password = "230386";
+        $this->username = "mercadeo@tugruero.com";
+        $this->password = "tugruero123!";
         
     }
     
@@ -290,7 +290,7 @@
 
             try{
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "mail.tugruero.com";
+            $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
@@ -301,7 +301,7 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array('tugruero@gmail.com','suscripcion@tugruero.com','info@tugruero.com','acostantini@tugruero.com');
+            $email = array('deandrademarcos@gmail.com','tugruero@gmail.com','suscripcion@tugruero.com','info@tugruero.com','acostantini@tugruero.com');
             $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['message'];
 
             $message = Swift_Message::newInstance('Solicitud de información');
@@ -368,14 +368,12 @@
 			$Marca= $data['Marca'];
 			$Anio= $data['Anio'];
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "mail.tugruero.com";
+            $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
             $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
-            $username = $this->username;
-            $password = $this->password;
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -425,7 +423,7 @@
 
                     $result = $mailer->send($message);	
                     }catch(Exception $e){
-                            echo $e->getMessage().$e->getTraceAsString();
+                            //echo $e->getMessage().$e->getTraceAsString();
                             die;
                     }
 
@@ -462,14 +460,12 @@
                     
                 }
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "mail.tugruero.com";
+            $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
             $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
-            $username = $this->username;
-            $password = $this->password;
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -527,7 +523,7 @@
 
                     $result = $mailer->send($message);	
                     }catch(Exception $e){
-                            echo $e->getMessage().$e->getTraceAsString();
+                            //echo $e->getMessage().$e->getTraceAsString();
                             die;
                     }
 
@@ -550,16 +546,15 @@
 			$Marca= $data['Marca'];
 			$Anio= $data['Anio'];
             $ConcatenadoPlan = $data['concatenado_plan'];
+           
             try{
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "mail.tugruero.com";
+            $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
             $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
-            $username = $this->username;
-            $password = $this->password;
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -649,14 +644,12 @@
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "mail.tugruero.com";
+            $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
             $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
-            $username = $this->username;
-            $password = $this->password;
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -752,14 +745,12 @@
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "mail.tugruero.com";
+            $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
             $username = "mercadeo@tugruero.com";
             $password = "tugruero123!";
             $mail_from = 'suscripcion@tugruero.com'; 
-            $username = $this->username;
-            $password = $this->password;
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -833,7 +824,7 @@
 
                     $result = $mailer->send($message);	
                     }catch(Exception $e){
-                            echo $e->getMessage().$e->getTraceAsString();
+                            //echo $e->getMessage().$e->getTraceAsString();
                             die;
                     }
 
