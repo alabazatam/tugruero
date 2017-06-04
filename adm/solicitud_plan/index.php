@@ -35,7 +35,10 @@ $values = array_merge($values,$_FILES);
 		break;
 		case "rechazar":
 			executeRechazar($values);	
-		break; 
+		break;
+		case "precio_plan":
+			executePrecioPlan($values);	
+		break;
 		default:
 			executeIndex($values);
 		break;
@@ -319,3 +322,41 @@ $values = array_merge($values,$_FILES);
             $SolicitudPlan->rechazarSolicitud($idSolicitudPlan,$Observacion);
             
         }
+	function executePrecioPlan($values = null,$errors = array())
+	{
+
+            $array= array('precio' => '0');
+            $Planes = new Planes();
+            $Puestos = $values['Puestos'];
+            $idPlan = $values['id_plan'];
+            $precio_plan = 0;
+         
+            if($idPlan!=''){
+                $precio_plan = ($Planes->getPrecioPlan($idPlan));
+               
+                
+                if(isset($values['RCV']) and $values['RCV']=='SI' ){
+                    $precio_plan = ($Planes->getPrecioPlan($idPlan));
+                    $precio_rcv = $Planes->getPrecioRCV($Puestos);
+                    $precio_plan = $precio_plan + $precio_rcv;
+                     
+                }
+			}else{
+				
+                if(isset($values['RCV']) and $values['RCV']=='SI' ){
+                    $precio_plan = ($Planes->getPrecioPlan($idPlan));
+                    $precio_rcv = $Planes->getPrecioRCV($Puestos);
+                    $precio_plan = $precio_plan + $precio_rcv;
+                     
+                }	
+			}
+
+            $precio_plan_formateado = number_format($precio_plan,2,",",".");
+            $array= array('precio' => $precio_plan_formateado, 'precio_sin_formato' => $precio_plan);  
+            
+            
+            echo json_encode($array);
+            
+            
+                
+	}
