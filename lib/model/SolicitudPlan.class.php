@@ -196,28 +196,25 @@
 					WHEN Estatus = 'REC'
 					THEN 'RECHAZADO'
 					END AS Estatus,
-				CONCAT
-				((
-					SELECT Nombre  
-					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'tugruero.com'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				),
-				CASE WHEN(	
-					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
-					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'RCV'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				) IS NULL THEN '' ELSE (SELECT CONCAT(' / ',Nombre, ' ',Puestos, ' Puestos' )  
-					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'RCV'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)
-				
-
-				END) AS concatenado_plan,
+                                        CONCAT (
+                                        ( 
+                                        CASE WHEN(SELECT Nombre 
+                                        FROM SolicitudPlanSeleccion sps 
+                                        INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                        WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) IS NULL THEN '' 
+                                        ELSE (SELECT Nombre 
+                                        FROM SolicitudPlanSeleccion sps 
+                                        INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                        WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)
+                                        END), 
+                                        CASE WHEN(
+                                                SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' ) 
+                                                FROM SolicitudPlanSeleccion sps 
+                                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                                WHERE p.Tipo = 'RCV' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) 
+                                                IS NULL THEN '' ELSE (SELECT CONCAT(' / ',Nombre, ' ',Puestos, ' Puestos' ) 
+                                                FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan 
+                                                WHERE p.Tipo = 'RCV' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) END) AS concatenado_plan, 
 
 				(SELECT  SUM(PrecioConIva) 
 					FROM SolicitudPlanSeleccion sps 
@@ -457,6 +454,100 @@
 				}
                         //actualizo la solicicitud para colocarle el total del precio con y sin IVA
 			$this->updatePrecios($TotalConIva,$TotalSinIva,$values['idSolicitudPlan']);
+			}catch(Exception $e){
+				echo $e->getMessage();die;
+			}
+                        
+
+			return $values;	
+			
+		}
+		function saveSolicitudPlanAdmin($values){
+             
+                    if(isset( $values['precio_rcv']) and  $values['precio_rcv']!=''){
+                        $precio_rcv = $values['precio_rcv'];
+                    }
+                    if(isset( $values['precio_tugruero']) and  $values['precio_tugruero']!=''){
+                        $precio_tugruero = $values['precio_tugruero'];
+                    }
+                    
+                    
+            $Utilitarios = new Utilitarios();           
+			$array_solicitud_plan = array(
+				'Nombres' => @$values['Nombres'],
+				'Apellidos' => @$values['Apellidos'],
+                                'Sexo' => @$values['Sexo'],
+                                'EstadoCivil' => @$values['EstadoCivil'],
+                                'FechaNacimiento' => $Utilitarios->formatFechaInput(@$values['FechaNacimiento']),
+                                
+                'Correo' => @$values['Correo'],
+                'Cedula' => @strtoupper($values['Cedula']),
+				'Rif' => @strtoupper($values['Rif']),
+                'Estado' => $values['Estado'],
+                'Ciudad' => @$values['Ciudad'],
+                'Domicilio' => $values['Domicilio'],
+                'Telefono' => @$values['Telefono'],
+				'Celular' => @$values['Celular'],
+                                'FechaSolicitud' => date('Y-m-d h:i:s'),
+				'TipoPago' => @$values['MET'],
+                                'NumeroTransaccion' => '0',
+                                'Clase' => @$values['Clase'],
+                                'Marca' => @$values['Marca'],
+                                'Modelo' => @$values['Modelo'],
+                                'Anio' => @$values['Anio'],
+                                'Color' => @$values['Color'],
+                                'Placa' => @$values['Placa'],
+                                'Tipo' => @$values['Tipo'],
+                                'Puestos' => @$values['Puestos'],
+                                'Estatus' => 'ENV',
+                                'TotalSinIva' => '0',
+				'TotalConIva' => '0',
+                                'PagoRealizado' => @$values['PagoRealizado'],
+                                'IdV' => @$values['IdV']
+			);
+              
+			try{
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->SolicitudPlan()->insert($array_solicitud_plan);
+			$values['idSolicitudPlan'] = $ConnectionORM->getConnect()->SolicitudPlan()->insert_id();
+                        //almaceno los plens contratados en la solicitud
+                        $array_planes = array();
+                        if(isset($values['idPlan']) and $values['idPlan']!=""){
+                                    $array_planes = array($values['idPlan']);
+                                    $TotalConIva = $precio_tugruero;
+                                    $TotalSinIva = $precio_tugruero;
+                                    $array_solicitud_plan_seleccion = array();
+                                    $array_solicitud_plan_seleccion['idSolicitudPlan'] = $values['idSolicitudPlan'];
+                                    $array_solicitud_plan_seleccion['idPlan'] = $values['idPlan'];
+                                    $array_solicitud_plan_seleccion['PrecioSinIva'] = $precio_tugruero;
+                                    $array_solicitud_plan_seleccion['PrecioConIva'] = $precio_tugruero;
+                                    $array_solicitud_plan_seleccion['FechaSolicitud'] = date('Y-m-d h:i:s');
+                                    $q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);
+                                    $this->updatePrecios($TotalConIva,$TotalSinIva,$values['idSolicitudPlan']);
+
+                        }
+			
+			$Planes = new Planes();
+			if(isset($values['RCV']) and $values['RCV']=='SI' and isset($values['Puestos'])){
+				
+				$id_plan_rcv = $Planes->getIdPlanRCV($values['Puestos']);
+                                if($id_plan_rcv > 0){
+                                    $TotalConIva = $precio_rcv;
+                                    $TotalSinIva = $precio_rcv;
+                                    $array_solicitud_plan_seleccion = array();
+                                    $array_solicitud_plan_seleccion['idSolicitudPlan'] = $values['idSolicitudPlan'];
+                                    $array_solicitud_plan_seleccion['idPlan'] = $id_plan_rcv;
+                                    $array_solicitud_plan_seleccion['PrecioSinIva'] = $precio_rcv;
+                                    $array_solicitud_plan_seleccion['PrecioConIva'] = $precio_rcv;
+                                    $array_solicitud_plan_seleccion['FechaSolicitud'] = date('Y-m-d h:i:s');
+                                    $q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);
+                                    $this->updatePrecios($TotalConIva,$TotalSinIva,$values['idSolicitudPlan']);
+
+                                }
+				
+			}
+			
+		
 			}catch(Exception $e){
 				echo $e->getMessage();die;
 			}
@@ -744,6 +835,16 @@
 			return $q; 
 			
 		}
+		public function getPlanesSeleccionados($idSolicitudPlan){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Planes
+			->select("*")
+			->join("SolicitudPlanSeleccion","INNER JOIN SolicitudPlanSeleccion sa on sa.idPlan = Planes.idPlan")
+			->where("idSolicitudPlan=?",$idSolicitudPlan);
+                        
+			return $q; 				
+			
+		} 
 	}
 			
 

@@ -10,6 +10,16 @@ if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
             /*$PDFPagos = new PDFPagos();
             $pdf = $PDFPagos->cuadroRCVAsistir(array('idSolicitudPlan'=> 3));*/
 $values = $_REQUEST;
+    if(!isset($values['IdV']) or $values['IdV']==''){
+        $values['IdV'] = '1';
+    }else{
+        $SolicitudPlan = new SolicitudPlan();
+        $cuenta_idv = $SolicitudPlan->getCuentaIdV($values['IdV']);
+        if(count($cuenta_idv)==0){
+            echo "No puede continuar con la petición";die;
+        } 
+        
+    }
 $values = array_merge($values,$_FILES);
 	switch ($action) {
 		case "index":
@@ -19,7 +29,7 @@ $values = array_merge($values,$_FILES);
 			executeNew($values);	
 		break;
 		case "add":
-			executeSave($values);	
+			executeAdd($values);	
 		break;
 		case "edit":
 			executeEdit($values);	
@@ -36,8 +46,11 @@ $values = array_merge($values,$_FILES);
 		case "rechazar":
 			executeRechazar($values);	
 		break;
-		case "precio_plan":
-			executePrecioPlan($values);	
+		case "precio_tugruero":
+			executePrecioTugruero($values);	
+		break;
+		case "precio_rcv":
+			executePrecioRcv($values);	
 		break;
 		default:
 			executeIndex($values);
@@ -47,9 +60,9 @@ $values = array_merge($values,$_FILES);
 	{
 		require('list_view.php');
 	}
-	function executeNew($values = null)
+	function executeNew($values = null,$errors = null)
 	{       
-        $values['status'] = '1';
+                
 		$values['action'] = 'add';
 		require('form_view.php');
 	}
@@ -59,12 +72,64 @@ $values = array_merge($values,$_FILES);
 		$values = $SolicitudPlan->saveSolicitudPlan($values);
 		executeEdit($values,message_created);die;
 	}
+	function executeAdd($values = null,$errors = array())
+	{
+                //subirDocumentos($values, $_FILES);
+                $errors = validate($values,$_FILES);
+                
+				if(count($errors)>0){
+					executeNew($values,$errors);die;
+				}else{
+                                        $values['PagoRealizado'] = 'S';
+                                        $SolicitudPlan = new SolicitudPlan();
+                                        $Mail = new Mail();
+					if($values['MET'] == 'TDC')
+					{
+                                                $values = $SolicitudPlan->saveSolicitudPlanAdmin($values);
+
+                                                //subir documentos
+                                                subirDocumentos($values, $_FILES);
+                                               
+                                                //executeMercadoPago($values,$errors);
+                                                
+                                                
+					}else
+					{
+                                                if(($_FILES['DEP1']['size']>0) or ($_FILES['DEP2']['size']>0) or ($_FILES['DEP3']['size']>0)){
+                                                $values['PagoRealizado'] = 'S';
+   
+                                                }
+                                                    
+						$values = $SolicitudPlan->saveSolicitudPlanAdmin($values);
+                                                //print_r($values);die;
+                                                //subir documentos
+                                                subirDocumentos($values, $_FILES);
+                                                //executePagado($values);
+                                                //$Mail->sendMessageDepositoPago($values);
+
+                                                
+                                        }
+					executeIndex($values);die;
+				}
+                
+	}
 	function executeEdit($values = null,$msg = null, $errors = null)
 	{
 		
 		$SolicitudPlan = new SolicitudPlan();
 		$values = $SolicitudPlan->getSolicitudPlanById($values);
-		$values['action'] = 'update';
+                $planes_seleccionados = $SolicitudPlan -> getPlanesSeleccionados($values['idSolicitudPlan']);
+		if(count($planes_seleccionados)>0){
+                    foreach($planes_seleccionados as $seleccionados){
+                        if($seleccionados['Tipo']=='tugruero.com'){
+                            $values['precio_tugruero'] = $seleccionados['PrecioConIva'];
+                        }
+                        if($seleccionados['Tipo']=='RCV'){
+                            $values['precio_rcv'] = $seleccionados['PrecioConIva'];
+                        }
+                    }
+                }
+                $values['action'] = 'update';
 		$values['msg'] = $msg;
 		
 		require('form_view.php');
@@ -95,7 +160,8 @@ $values = array_merge($values,$_FILES);
 		if(count($list_json)>0)
 		{
 			foreach ($list_json as $list) 
-			{
+			{   
+
 				$idSolicitudPlan = $list['idSolicitudPlan'];
 				$status = $list['status'];
 				if($status == 'Desactivado')
@@ -110,6 +176,7 @@ $values = array_merge($values,$_FILES);
 				
 				if($list['EstatusAbr']!="ACT")
 				{
+
 					$array_json['data'][] = array(
 						"idSolicitudPlan" => $idSolicitudPlan,
 						"Nombres" => $list['Nombres'],
@@ -131,8 +198,22 @@ $values = array_merge($values,$_FILES);
 						);	
 				}else
 				{
+                                        $plan_gruero = false;
+                                        $plan_rcv = false;
+                                        $planes_seleccionados = $SolicitudPlan -> getPlanesSeleccionados($idSolicitudPlan);
+                                        if(count($planes_seleccionados)>0){
+                                            foreach($planes_seleccionados as $seleccionados){
+                                                if($seleccionados['Tipo']=='tugruero.com'){
+                                                    $plan_tugruero = true;
+                                                }
+                                                if($seleccionados['Tipo']=='RCV'){
+                                                    $plan_rcv= true;
+                                                }
+                                            } 
+                                        }
 					$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
-					if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
+					if($plan_tugruero == true and $plan_rcv == true){
+                                           
 					$array_json['data'][] = array(
 						"idSolicitudPlan" => $idSolicitudPlan,
 						"Nombres" => $list['Nombres'],
@@ -151,11 +232,11 @@ $values = array_merge($values,$_FILES);
 										   .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
 										   .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
 											.'<a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="btn btn-default" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
-											.'<a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'_rcv.pdf" class="btn btn-default" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
+											.'<a href="'.full_url.'/web/files/Cuadros/'.$idSolicitudPlan.'_rcv.pdf" class="btn btn-default" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
 
 											.'</form>'
 						);	
-					}else{
+					}elseif($plan_tugruero == true and $plan_rcv == false){
 					$array_json['data'][] = array(
 						"idSolicitudPlan" => $idSolicitudPlan,
 						"Nombres" => $list['Nombres'],
@@ -176,7 +257,29 @@ $values = array_merge($values,$_FILES);
 											.'<a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="btn btn-default" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
 											.'</form>'
 						);	
-					}
+                                        }elseif($plan_tugruero == false and $plan_rcv == true){
+                                                $array_json['data'][] = array(
+						"idSolicitudPlan" => $idSolicitudPlan,
+						"Nombres" => $list['Nombres'],
+						"Apellidos" => $list['Apellidos'],
+						"Cedula" => $list['Cedula'],
+						"Plan" => $list['concatenado_plan'],
+						"Rif" => $list['Rif'],
+						"PrecioTotal" => number_format($list['PrecioTotal'],2,",","."),
+						"Estatus" => $list['Estatus'],
+											"FechaSolicitud" => $list['FechaSolicitud'],
+                                                                                        "NombreVendedor" => $list['NombreVendedor'],
+											"TipoPago" => $list['TipoPago'],
+											"actions" => 
+										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
+										   .'<input type="hidden" name="action" value="edit">  '
+										   .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
+										   .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
+											.'<a href="'.full_url.'/web/files/Cuadros/'.$idSolicitudPlan.'_rcv.pdf" class="btn btn-default" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
+
+											.'</form>'
+						);	 
+                                        }
 					
 
 					
@@ -210,108 +313,130 @@ $values = array_merge($values,$_FILES);
         $idSolicitudPlan = $values['idSolicitudPlan'];
 	$carpeta = "../../web/files/Solicitudes";
 	$fichero_subido = $carpeta."/";
-           // print_r($_FILES);die;
+            //print_r($_FILES);die;
             if(isset($files['CedulaDoc']) and $files['CedulaDoc']['size']>0){
                 $nombreArchivo = "Cedula_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CedulaDoc']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['CedulaDoc']['tmp_name'], $fichero_subido.$nombreArchivo)){
                     //inserto en bd;
-                    $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "Cedula", $nombreArchivo);
+                    if($values['action']=='add'){
+                        $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Cedula", $nombreArchivo);
+
+                    }else{
+                        $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "Cedula", $nombreArchivo);
+
+                    }
+                        
                 }
 
             }
-            /*if(isset($files['RifDoc']) and $files['RifDoc']['size']>0){
-                $nombreArchivo = "Rif_".$values['idSolicitudPlan'].".".pathinfo($_FILES['RifDoc']['name'],PATHINFO_EXTENSION);
-                if (move_uploaded_file($files['RifDoc']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    //inserto en bd;
-                    $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "Rif", $nombreArchivo);
-                }
-
-            }
-            if(isset($files['Licencia']) and $files['Licencia']['size']>0){
-                $nombreArchivo = "Licencia_".$values['idSolicitudPlan'].".".pathinfo($_FILES['Licencia']['name'],PATHINFO_EXTENSION);
-                if (move_uploaded_file($files['Licencia']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    //inserto en bd;
-                    $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "Licencia", $nombreArchivo);
-                }
-
-            }*/
             if(isset($files['CarnetCirculacion']) and $files['CarnetCirculacion']['size']>0){
                 $nombreArchivo = "CarnetCirculacion_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CarnetCirculacion']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['CarnetCirculacion']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "CarnetCirculacion", $nombreArchivo);
+                    if($values['action']=='add'){
+                        $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "CarnetCirculacion", $nombreArchivo);
+                    }else {
+                        $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "CarnetCirculacion", $nombreArchivo);
+  
+                    }
                 }
 
             }
-            /*if(isset($files['CertificadoMedico']) and $files['CertificadoMedico']['size']>0){
-                $nombreArchivo = "CertificadoMedico_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CertificadoMedico']['name'],PATHINFO_EXTENSION);
-                if (move_uploaded_file($files['CertificadoMedico']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "CertificadoMedico", $nombreArchivo);
-                }
-
-            }
-            if(isset($files['CertificadoOrigen']) and $files['CertificadoOrigen']['size']>0){
-                $nombreArchivo = "CertificadoOrigen_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CertificadoOrigen']['name'],PATHINFO_EXTENSION);
-                if (move_uploaded_file($files['CertificadoOrigen']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "CertificadoOrigen", $nombreArchivo);
-                }
-
-            }*/
             if(isset($files['DEP1']) and $files['DEP1']['size']>0){
                 $nombreArchivo = "DEP1_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP1']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['DEP1']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+                    if($values['action']=='add'){
+                        $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "DEP1", $nombreArchivo);
+ 
+                    }else{
+                        $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "DEP1", $nombreArchivo);
+
+                    }
                 }
 
             }
             if(isset($files['DEP2']) and $files['DEP2']['size']>0){
                 $nombreArchivo = "DEP2_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP2']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['DEP2']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+                    if($values['action']=='add'){
+                        $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "DEP2", $nombreArchivo);
+                    }else{
+                        $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "DEP2", $nombreArchivo);
+ 
+                    }
                 }
 
             }
             if(isset($files['DEP3']) and $files['DEP3']['size']>0){
                 $nombreArchivo = "DEP3_".$values['idSolicitudPlan'].".".pathinfo($_FILES['DEP3']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['DEP3']['tmp_name'], $fichero_subido.$nombreArchivo)){
-                    $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+                    if($values['action']=='add'){
+                        $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "DEP3", $nombreArchivo);
+  
+                    }else{
+                        $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "Deposito/Transferencia", $nombreArchivo);
+
+                    }
                 }
 
             }
         }
         function executeAprobar($values){
 			
-			
+            $mail_poliza_tugruero = false;
             $PDFPagos = new PDFPagos();
             $idSolicitudPlan = @$values['idSolicitudPlan'];
             $VigenciaDesde = @$values['VigenciaDesde'];
             $VigenciaHasta = @$values['VigenciaHasta'];
             $idSolicitudPlan = @$values['idSolicitudPlan'];
 			
-			$SolicitudPlan = new SolicitudPlan();
+            $SolicitudPlan = new SolicitudPlan();
 
-			$SolicitudPlan->updateSeriales($values);
+            $SolicitudPlan->updateSeriales($values);
             $SolicitudAprobada = new SolicitudAprobada();
             $SolicitudAprobada->aprobar($idSolicitudPlan, $VigenciaDesde, $VigenciaHasta);
             
-            $pdf = $PDFPagos->cuadroTUGRUERO($values);
-			$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
-			if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
-				$Aseguradora = $planes_rcv['Aseguradora'];
-				
-				switch ($Aseguradora) {
-					case 'Asistir':
-						$pdf2 = $PDFPagos->cuadroRCVAsistir($values);
-						break;
+            
+                $planes_seleccionados = $SolicitudPlan -> getPlanesSeleccionados($values['idSolicitudPlan']);
+		if(count($planes_seleccionados)>0){
+                    foreach($planes_seleccionados as $seleccionados){
+                        if($seleccionados['Tipo']=='tugruero.com'){
+                            $mail_poliza_tugruero = true;
+                            $pdf = $PDFPagos->cuadroTUGRUERO($values);
+                        }
+                        if($seleccionados['Tipo']=='RCV'){
+                            $planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
+                            if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
+                                    $Aseguradora = $planes_rcv['Aseguradora'];
 
-					default:
-						$pdf2 = $PDFPagos->cuadroRCVAsistir($values);
-						break;
-				}
-				
-			}
+                                    switch ($Aseguradora) {
+                                            case 'Asistir':
+                                                    $pdf2 = $PDFPagos->cuadroRCVAsistir($values);
+                                                    break;
+
+                                            default:
+                                                    $pdf2 = $PDFPagos->cuadroRCVAsistir($values);
+                                                    break;
+                                    }
+
+                            }                        
+                            
+                        }
+                    }
+                }
+            
+            
+            
+            
+            
+
 			
 			$Mail = new Mail();
-			$Mail->sendMessagePolizaBienvenida($values);
+                        if($mail_poliza_tugruero == true){
+                            $Mail->sendMessagePolizaBienvenida($values);
+
+                        }else{
+                            $Mail->sendMessagePolizaBienvenidaRCV($values);
+                        }
 			
         }
         function executeRechazar($values){
@@ -322,7 +447,28 @@ $values = array_merge($values,$_FILES);
             $SolicitudPlan->rechazarSolicitud($idSolicitudPlan,$Observacion);
             
         }
-	function executePrecioPlan($values = null,$errors = array())
+	function executePrecioTugruero($values = null,$errors = array())
+	{
+
+            $array= array('precio' => '0');
+            $Planes = new Planes();
+            $Puestos = $values['Puestos'];
+            $idPlan = $values['id_plan'];
+            $precio_plan = 0;         
+            if($idPlan!=''){
+            $precio_plan = ($Planes->getPrecioPlan($idPlan));
+            $precio_plan_formateado = number_format($precio_plan,2,",",".");
+            $array= array('precio' => $precio_plan_formateado, 'precio_sin_formato' => $precio_plan);  
+            
+            
+             
+            }else{
+                $array= array('precio' => 0, 'precio_sin_formato' => 0);  
+  
+            }
+            echo json_encode($array);
+        }
+	function executePrecioRcv($values = null,$errors = array())
 	{
 
             $array= array('precio' => '0');
@@ -330,31 +476,13 @@ $values = array_merge($values,$_FILES);
             $Puestos = $values['Puestos'];
             $idPlan = $values['id_plan'];
             $precio_plan = 0;
-         
-            if($idPlan!=''){
-                $precio_plan = ($Planes->getPrecioPlan($idPlan));
-               
-                
                 if(isset($values['RCV']) and $values['RCV']=='SI' ){
-                    $precio_plan = ($Planes->getPrecioPlan($idPlan));
                     $precio_rcv = $Planes->getPrecioRCV($Puestos);
                     $precio_plan = $precio_plan + $precio_rcv;
                      
                 }
-			}else{
-				
-                if(isset($values['RCV']) and $values['RCV']=='SI' ){
-                    $precio_plan = ($Planes->getPrecioPlan($idPlan));
-                    $precio_rcv = $Planes->getPrecioRCV($Puestos);
-                    $precio_plan = $precio_plan + $precio_rcv;
-                     
-                }	
-			}
-
             $precio_plan_formateado = number_format($precio_plan,2,",",".");
             $array= array('precio' => $precio_plan_formateado, 'precio_sin_formato' => $precio_plan);  
-            
-            
             echo json_encode($array);
             
             

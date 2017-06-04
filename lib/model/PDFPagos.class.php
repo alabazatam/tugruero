@@ -594,8 +594,8 @@
 
 
 			
-			//$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'F');            
-            $pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'I');   
+			$pdf->Output(dir_cuadros."/". $values['idSolicitudPlan']."_rcv.pdf", 'F');            
+                        //$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'I');   
             
             
         }        

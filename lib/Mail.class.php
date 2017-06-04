@@ -834,5 +834,107 @@
 
 
     }
+    function sendMessagePolizaBienvenidaRCV($values){
+            
+            $Utilitarios = new Utilitarios();
+            $idSolicitudPlan = $values['idSolicitudPlan'];
+            $saludo = $Utilitarios->saludo();
+            $SolicitudPlan = new SolicitudPlan();
+            $data = $SolicitudPlan->getSolicitudPlanInfo($idSolicitudPlan);
+			$data_aprobada = $SolicitudPlan->getSolicitudPlanAprobadaInfo($idSolicitudPlan);
+			$NumProducto = $data_aprobada['NumProducto'];
+			$Cedula = strtoupper($data['Cedula']);
+			$Placa= strtoupper($data['Placa']);
+            $Nombres = strtoupper($data['Nombres']);
+            $Apellidos = strtoupper($data['Apellidos']);
+            $ConcatenadoPlan = $data['concatenado_plan'];
+            $plan_tugruero = $data['plan_tugruero'];
+                if(isset($data['IdV']) and $data['IdV']!=1)
+                {
+                    $datos_vendedor = $SolicitudPlan->getDatosVendedor($data['IdV']);
+                    $correo1_vendedor = $datos_vendedor['Correo1'];
+                    $correo2_vendedor = $datos_vendedor['Correo2'];
+                    $correo3_vendedor = $datos_vendedor['Correo3'];
+                    $NombreVendedor = $datos_vendedor['NombreVendedor'];
+                    
+                }
+            try{
+            //$smtp = "server-0116a.gconex.net";
+            $smtp = "tugruero.com";
+            $port = 465;
+            $secure = "ssl";
+            $username = "mercadeo@tugruero.com";
+            $password = "tugruero123!";
+            $mail_from = 'suscripcion@tugruero.com'; 
+            $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
+              ->setUsername($username)
+              ->setPassword($password);
+            $mailer = Swift_Mailer::newInstance($transport);
+            $email = array($data_aprobada['Correo']);
+
+            $message = Swift_Message::newInstance('¡Felicidades! ¡Bienvenido a TU/GRUERO®!');
+            $message->setBody('<!DOCTYPE html>
+    <html>
+
+        <head>
+            <title>TU/GRUERO®</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-size: 16px;color:#000000;">
+            <div align="">
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
+		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
+		<p align="justify">A continuación le indicamos los datos para acceder a la <strong>aplicación móvil TU/GRUERO®</strong> y solicitar los servicios de grúa por esa vía:</p>
+		<br><br>
+		<p align="justify">¡Esté atento!</p>
+
+		<p align="justify">De igual forma puede solicitar sus servicios de grúa a través de nuestro Call Center al <strong>0500-GRUERO-0 (0500-478376-0)</strong> </p>
+
+		<p align="justify">Le adjuntamos a este correo el <strong>Cuadro Producto</strong> contratado, donde podrá ver su información personal y la del vehículo cubierto por el plan.</p>
+
+		<p align="justify">Es importante que sepa que usted estará activo tanto en el plan como en la aplicación móvil en <strong>5 días habiles</strong> a partir del día de hoy.</p>
+
+		<p align="justify">Saludos.<br><br><br><br>
+		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
+		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
+            </div>
+			<br><br>--<br>
+            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
+            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
+            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
+            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
+            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+            <p><b>Síguenos</b></p>
+            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
+            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
+            <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
+		</div>
+
+        </body>
+    </html>
+    ',"text/html");			
+					$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf")); 
+					$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
+					if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
+						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto."_rcv.pdf")); 	
+					}
+					
+                    $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
+                    $message->setTo($email);
+
+                    $result = $mailer->send($message);	
+                    }catch(Exception $e){
+                            //echo $e->getMessage().$e->getTraceAsString();
+                            die;
+                    }
+
+
+
+
+
+
+    }
 }
 
