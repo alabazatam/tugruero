@@ -503,7 +503,9 @@
                                 'TotalSinIva' => '0',
 				'TotalConIva' => '0',
                                 'PagoRealizado' => @$values['PagoRealizado'],
-                                'IdV' => @$values['IdV']
+                                'IdV' => @$values['IdV'],
+				"SerialMotor" =>  @$values['SerialMotor'],
+				"SerialCarroceria" =>  @$values['SerialCarroceria']
 			);
               
 			try{

@@ -7,8 +7,8 @@ setlocale(LC_NUMERIC,"es_ES.UTF8");
 if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
-            /*$PDFPagos = new PDFPagos();
-            $pdf = $PDFPagos->cuadroRCVAsistir(array('idSolicitudPlan'=> 3));*/
+            $PDFPagos = new PDFPagos();
+            $pdf = $PDFPagos->cuadroRCVAsistir(array('idSolicitudPlan'=> 27));
 $values = $_REQUEST;
     if(!isset($values['IdV']) or $values['IdV']==''){
         $values['IdV'] = '1';

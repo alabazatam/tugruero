@@ -85,44 +85,7 @@ $hidden = '';
         <div id="" class="alert alert-danger"><?php echo $errors['idPlan'];?></div>
 
         <?php endif;?> 
-  </div> 
-        <div class="form-group col-sm-12">
-          <label for="RCV" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
-          <div class="">
-          <label class="radio-inline">
-            <input <?php //echo $disabled?> <?php //echo $disabled_plan;?> type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
-          </label>
-          <label class="radio-inline">
-            <input <?php echo $disabled?> <?php //echo $disabled_plan;?> type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
-          </label>
-          </div>
-              <?php if(isset($errors['RCV']) and $errors['RCV']!=''):?>
-              <div id="" class="alert alert-danger"><?php echo $errors['RCV'];?></div>
-
-              <?php endif;?>
-        </div>
-  <div class="form-group col-sm-6">
-	  <label for="idPlan" class="">Precio plan Tugruero</label> <label class="text-danger"> * </label>
-    <div class="">
-            <input type="text" <?php echo $disabled;?> <?php echo $disabled_plan;?> id="precio_tugruero" name="precio_tugruero" value="<?php if(isset($values['precio_tugruero']))echo $values['precio_tugruero']?>">
-
-    </div>
-        <?php if(isset($errors['precio_tugruero']) and $errors['precio_tugruero']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['precio_tugruero'];?></div>
-
-        <?php endif;?> 
-  </div>
-  <div class="form-group col-sm-6">
-	  <label for="idPlan" class="">Precio plan RCV </label> <label class="text-danger"> * </label>
-    <div class="">
-            <input type="text" <?php echo $disabled;?> <?php echo $disabled_plan;?> id="precio_rcv" name="precio_rcv" value="<?php if(isset($values['precio_rcv']))echo $values['precio_rcv']?>">
-
-    </div>
-        <?php if(isset($errors['precio_rcv']) and $errors['precio_rcv']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['precio_rcv'];?></div>
-
-        <?php endif;?> 
-  </div>
+  </div> 	
   <div class="form-group col-sm-3">
     <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label>
     <div class="">
@@ -275,6 +238,21 @@ $hidden = '';
               <?php endif;?>
         </div>
     </div> 
+        <div class="form-group col-sm-12">
+          <label for="RCV" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
+          <div class="">
+          <label class="radio-inline">
+            <input <?php //echo $disabled?> <?php //echo $disabled_plan;?> type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
+          </label>
+          <label class="radio-inline">
+            <input <?php echo $disabled?> <?php //echo $disabled_plan;?> type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
+          </label>
+          </div>
+              <?php if(isset($errors['RCV']) and $errors['RCV']!=''):?>
+              <div id="" class="alert alert-danger"><?php echo $errors['RCV'];?></div>
+
+              <?php endif;?>
+        </div>
   <div class="form-group col-sm-12 RCV_SI CedulaDiv">
       <label for="CedulaDoc" class="control-label">Cédula</label> <label class="text-danger"> * </label> 
       <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "Cedula"); ?>
@@ -564,7 +542,28 @@ $hidden = '';
 
         <?php endif;?>
   </div>
-    
+  <div class="form-group col-sm-6">
+	  <label for="idPlan" class="">Precio plan Tugruero</label> <label class="text-danger"> * </label>
+    <div class="">
+            <input type="text" <?php echo $disabled;?> <?php echo $disabled_plan;?> id="precio_tugruero" name="precio_tugruero" value="<?php if(isset($values['precio_tugruero']))echo $values['precio_tugruero']?>">
+
+    </div>
+        <?php if(isset($errors['precio_tugruero']) and $errors['precio_tugruero']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['precio_tugruero'];?></div>
+
+        <?php endif;?> 
+  </div>
+  <div class="form-group col-sm-6">
+	  <label for="idPlan" class="">Precio plan RCV </label> <label class="text-danger"> * </label>
+    <div class="">
+		<input type="text" readonly="" <?php echo $disabled;?> <?php echo $disabled_plan;?> id="precio_rcv" name="precio_rcv" value="<?php if(isset($values['precio_rcv']))echo $values['precio_rcv']?>">
+
+    </div>
+        <?php if(isset($errors['precio_rcv']) and $errors['precio_rcv']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['precio_rcv'];?></div>
+
+        <?php endif;?> 
+  </div>    
 <?php if(isset($values['MET']) and $values['MET']=='TDC'):?>
 	<?php $mercadopagodata = $SolicitudPagoDetalle->getPagoDetalleByID($values['idSolicitudPlan']);?>
     <div class="form-group col-sm-12">
@@ -617,7 +616,8 @@ $hidden = '';
     <div id="" class="col-sm-3">
 
     </div>    
-</div> 
+</div>
+
 <div class="form-group col-sm-12">
     <a class="btn btn-success" href="<?php echo full_url?>/adm/solicitud_plan/index.php">Regresar</a> 
     <?php if((isset($values['action']) and $values['action']=='add')):?>
@@ -780,7 +780,7 @@ $('#rechazo').hide();
             type: "POST",
             url: '<?php echo full_url?>/adm/solicitud_plan/index.php?action=aprobar',
             data: {idSolicitudPlan: $('#idSolicitudPlan').val(),VigenciaDesde: $('#VigenciaDesde').val(),VigenciaHasta: $('#VigenciaHasta').val(),SerialMotor: $('#SerialMotor').val(),SerialCarroceria: $('#SerialCarroceria').val() },
-            success: function(){
+			success: function(){
                 alert('Solicitud aprobada');
                 window.location.href = '<?php echo full_url?>/adm/solicitud_plan?action=index&idSolicitudPlan=' + $('#idSolicitudPlan').val();
             }

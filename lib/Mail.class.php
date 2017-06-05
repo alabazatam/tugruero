@@ -914,11 +914,10 @@
 
         </body>
     </html>
-    ',"text/html");			
-					$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf")); 
+    ',"text/html");			 
 					$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
 					if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
-						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto."_rcv.pdf")); 	
+						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$idSolicitudPlan."_rcv.pdf")); 	
 					}
 					
                     $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
