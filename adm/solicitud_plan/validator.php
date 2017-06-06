@@ -189,6 +189,10 @@
                 /*if(!isset($values['idPlan']) or $values['idPlan']==''){
                     $errors['idPlan'] = 'Debe seleccionar el plan a contratar';
                 }*/
+                if((!isset($values['RCV']) or $values['RCV'] == '') and (!isset($values['idPlan']) or $values['idPlan'] == '')){
+                         $errors['idPlan'] = 'Debe indicar si requiere un plan TU/GRUERO.';
+                         $errors['RCV'] = 'Debe indicar si requiere una póliza de RCV.';
+                }
                 if(isset($values['RCV']) and $values['RCV']=='SI'){
                     if(!isset($values['SerialMotor']) or $values['SerialMotor']==''){
                         $errors['SerialMotor'] = 'Debe indicar el serial del motor';

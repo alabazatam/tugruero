@@ -43,10 +43,11 @@ $hidden = '';
     <input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']))echo $values['idSolicitudPlan']?>">
     <input type="hidden" id="IdV" name="IdV" value="<?php if(isset($values['IdV']))echo $values['IdV']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
-
+    <?php if(isset($values['action']) and $values['action']!='add'):?>
     <div class="form-group col-sm-12 text-right PlanPrecio">
       <p><b>Total a pagar con IVA:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo "Bs. ".number_format($values['precio'],2,",",".")."."; else echo " Bs. 0,00"?></p>
-  </div>
+    </div>
+    <?php endif;?>
     <div class="form-group col-sm-12 text-left <?php echo $hidden;?>">
       <p><b>Solicitado desde:</b> <?php if(isset($values['NombreVendedor']) and $values['NombreVendedor']!='') echo $values['NombreVendedor']; ?></p>
   </div>
@@ -563,12 +564,71 @@ $hidden = '';
         <div id="" class="alert alert-danger"><?php echo $errors['precio_rcv'];?></div>
 
         <?php endif;?> 
-  </div>    
+  </div>   
+  <?php if(isset($values['action']) and $values['action']=='add'):?>
+
+    <div class="form-group col-sm-12" id="mercadopago">
+        <div class="row">
+            <p class="subtitulo_planes"><strong>Datos de mercadopago</strong></p>
+        </div>
+      <div class="form-group col-sm-2">
+        <label for="id" class="control-label">Id</label> <label class="text-danger"> * </label>
+        <div class="">
+            <input <?php echo $disabled;?> type="text" name="id" class="form-control" autocomplete="off" id="id" maxlength="20" value="<?php if(isset($values['id']) and $values['id']!='') echo $values['id'];?>" placeholder="">
+        </div>
+            <?php if(isset($errors['id']) and $errors['id']!=''):?>
+            <div id="" class="alert alert-danger"><?php echo $errors['id'];?></div>
+
+            <?php endif;?>
+        </div>
+      <div class="form-group col-sm-2">
+        <label for="id" class="control-label">Tipo de tarjeta:</label> <label class="text-danger"> * </label>
+        <div class="">
+            <input <?php echo $disabled;?> type="text" name="id" class="form-control" autocomplete="off" id="id" maxlength="20" value="<?php if(isset($values['id']) and $values['id']!='') echo $values['id'];?>" placeholder="">
+        </div>
+            <?php if(isset($errors['id']) and $errors['id']!=''):?>
+            <div id="" class="alert alert-danger"><?php echo $errors['id'];?></div>
+
+            <?php endif;?>
+        </div> 
+      <div class="form-group col-sm-3">
+        <label for="id" class="control-label">Cédula:</label> <label class="text-danger"> * </label>
+        <div class="">
+            <input <?php echo $disabled;?> type="text" name="payer_identification_number" class="form-control" autocomplete="off" id="payer_identification_number" maxlength="20" value="<?php if(isset($values['payer_identification_number']) and $values['payer_identification_number']!='') echo $values['payer_identification_number'];?>" placeholder="">
+        </div>
+            <?php if(isset($errors['payer_identification_number']) and $errors['payer_identification_number']!=''):?>
+            <div id="" class="alert alert-danger"><?php echo $errors['payer_identification_number'];?></div>
+
+            <?php endif;?>
+        </div> 
+      <div class="form-group col-sm-3">
+        <label for="id" class="control-label">Nombre en tarjeta</label> <label class="text-danger"> * </label>
+        <div class="">
+            <input <?php echo $disabled;?> type="text" name="carholder_name" class="form-control" autocomplete="off" id="carholder_name" maxlength="20" value="<?php if(isset($values['carholder_name']) and $values['carholder_name']!='') echo $values['carholder_name'];?>" placeholder="">
+        </div>
+            <?php if(isset($errors['carholder_name']) and $errors['carholder_name']!=''):?>
+            <div id="" class="alert alert-danger"><?php echo $errors['carholder_name'];?></div>
+
+            <?php endif;?>
+        </div>
+      <div class="form-group col-sm-2">
+        <label for="id" class="control-label">Monto de la transacción</label> <label class="text-danger"> * </label>
+        <div class="">
+            <input <?php echo $disabled;?> type="text" name="transaction_amount" class="form-control" autocomplete="off" id="transaction_amount" maxlength="20" value="<?php if(isset($values['transaction_amount']) and $values['transaction_amount']!='') echo $values['transaction_amount'];?>" placeholder="">
+        </div>
+            <?php if(isset($errors['transaction_amount']) and $errors['transaction_amount']!=''):?>
+            <div id="" class="alert alert-danger"><?php echo $errors['transaction_amount'];?></div>
+
+            <?php endif;?>
+        </div>
+    </div>
+  <?php endif;?>
 <?php if(isset($values['MET']) and $values['MET']=='TDC'):?>
 	<?php $mercadopagodata = $SolicitudPagoDetalle->getPagoDetalleByID($values['idSolicitudPlan']);?>
     <div class="form-group col-sm-12">
 		<label>Detalle de Mercadopago</label>
     </div>
+   
     <div class="form-group col-sm-12">
 		<label>Id: </label>
 		<?php echo $mercadopagodata['id'];?>
@@ -678,12 +738,15 @@ $('#rechazo').hide();
 
 <?php if(isset($values['MET']) and $values['MET']=='DEP'):?>
          $('.DEPOSITO').show();
+         $('#mercadopago').hide();
 <?php endif;?>
 <?php if(isset($values['MET']) and $values['MET']=='TDC'):?>
          $('.DEPOSITO').hide();
+         $('#mercadopago').show();
 <?php endif;?>
 <?php if((!isset($values['MET']))):?>
         $('.DEPOSITO').hide();
+        $('#mercadopago').hide();
 <?php endif;?>   
 
     $('#idPlan').change(function(e){
@@ -729,9 +792,11 @@ $('#rechazo').hide();
     $('.MET').change(function(e){
         if($('.MET:checked').val() == 'DEP'){
             $('.DEPOSITO').show();
+            $('#mercadopago').hide();
         }else{
            
-            $('.DEPOSITO').hide();            
+            $('.DEPOSITO').hide();
+            $('#mercadopago').show();
         }
         
 
