@@ -512,7 +512,30 @@
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan()->insert($array_solicitud_plan);
 			$values['idSolicitudPlan'] = $ConnectionORM->getConnect()->SolicitudPlan()->insert_id();
-                        //almaceno los plens contratados en la solicitud
+                        //en caso de ser TDC almaceno en pago detalle
+                        if(isset($values['MET']) == 'TDC'){
+                            $array_solicitud_pago_detalle = array(
+                                "idSolicitudPlan" => $values['idSolicitudPlan'],
+                                "id" => $values['id'],
+                                "description" => "Pago de plan mediante la herramienta administrativa",
+                                "payment_method_id" => $values['payment_method_id'],
+                                "payer_identification_number" => $values['payer_identification_number'],
+                                "carholder_name" => $values['carholder_name'],
+                                "transaction_amount" => $values['transaction_amount'],
+                                "date_approved" => date('Y-m-d h:i:s'),
+                                "payer_id" => "guest",
+                                "payment_type_id" => 'credit_card',
+                                "payer_email" => $values['Correo']
+                            
+
+                            );
+                            $q = $ConnectionORM->getConnect()->SolicitudPagoDetalle()->insert($array_solicitud_pago_detalle);
+                        }
+
+                        
+                       
+
+                        //almaceno los planes contratados en la solicitud
                         $array_planes = array();
                         if(isset($values['idPlan']) and $values['idPlan']!=""){
                                     $array_planes = array($values['idPlan']);
@@ -560,7 +583,7 @@
 		}
 		function updateSolicitudPlan($values){	
 			$Utilitarios = new Utilitarios();
-	$array_solicitud_plan = array(
+                            $array_solicitud_plan = array(
 				'Nombres' => @$values['Nombres'],
 				'Apellidos' => @$values['Apellidos'],
     				'EstadoCivil' => @$values['EstadoCivil'],
@@ -585,6 +608,7 @@
 				'SerialCarroceria' => @$values['SerialCarroceria']
                                 
 			);
+                        
 		
 			$idSolicitudPlan = $values['idSolicitudPlan'];
 			$ConnectionORM = new ConnectionORM();
@@ -606,8 +630,8 @@
 		function updateSeriales($values ){	
 			$idSolicitudPlan = $values['idSolicitudPlan'];
 			$array = array(
-				'SerialMotor' => $values['SerialMotor'],
-				'SerialCarroceria' => $values['SerialCarroceria'],
+				'SerialMotor' => @$values['SerialMotor'],
+				'SerialCarroceria' => @$values['SerialCarroceria'],
 			);
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	

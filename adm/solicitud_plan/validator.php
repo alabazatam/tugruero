@@ -189,7 +189,7 @@
                 /*if(!isset($values['idPlan']) or $values['idPlan']==''){
                     $errors['idPlan'] = 'Debe seleccionar el plan a contratar';
                 }*/
-                if((!isset($values['RCV']) or $values['RCV'] == '') and (!isset($values['idPlan']) or $values['idPlan'] == '')){
+                if((!isset($values['RCV']) or $values['RCV'] == '') and (!isset($values['idPlan']) or $values['idPlan'] == '') and $values['action'] == 'add'){
                          $errors['idPlan'] = 'Debe indicar si requiere un plan TU/GRUERO.';
                          $errors['RCV'] = 'Debe indicar si requiere una póliza de RCV.';
                 }
@@ -219,6 +219,23 @@
                 if(!isset($values['Tipo']) or $values['Tipo']=='' and $values['Clase']!='Moto'){
                     $errors['Tipo'] = 'Debe seleccionar el tipo de vehículo';
                 } 
+                if(isset($values['MET']) and $values['MET']=='TDC'){
+                    if(!isset($values['id']) or $values['id']==''){
+                        $errors['id'] = 'Debe colocar el id de la transacción';
+                    }
+                    if(!isset($values['payment_method_id']) or $values['payment_method_id']==''){
+                        $errors['payment_method_id'] = 'Debe seleccionar el tipo de tarjeta';
+                    }
+                    if(!isset($values['payer_identification_number']) or $values['payer_identification_number']==''){
+                        $errors['payer_identification_number'] = 'Debe colocar la cédula del tarjetahabiente';
+                    }
+                    if(!isset($values['carholder_name']) or $values['carholder_name']==''){
+                        $errors['carholder_name'] = 'Debe colocar el nombre y apellido del tarjetahabiente (JOSE A PEREZ C)';
+                    }
+                    if(!isset($values['transaction_amount']) or $values['transaction_amount']==''){
+                        $errors['transaction_amount'] = 'Debe colocar el monto de la transacción';
+                    }    
+                }
                 /*if(!isset($values['MET']) or $values['MET']==''){
                     $errors['MET'] = 'Debe indicar el método de pago';
                 }*/

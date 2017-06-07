@@ -219,17 +219,7 @@
                     $errors['Correo2'] = 'Los correos electrónicos deben coincidir';
 		}
                 
-                if(isset($values['MET']) and $values['MET']=='TDC'){
-                    if(!isset($values['id']) or $values['id']==''){
-                        $errors['id'] = 'Debe colocar el id de la transacción';
-                    }
-                    if(!isset($values['payer_identification_number']) or $values['payer_identification_number']==''){
-                        $errors['payer_identification_number'] = 'Debe colocar la cédula del tarjetahabiente';
-                    }
-                    if(!isset($values['carholder_name']) or $values['carholder_name']==''){
-                        $errors['carholder_name'] = 'Debe colocar el nombre y apellido del tarjetahabiente (JOSE A PEREZ C)';
-                    }                        
-                }
+
                 /**************valido que esa placa no se encuentre en una solicitud que este en proceso para evitar duplicados******************************************/
                 
                 if(isset($values['Placa']) and $values['Placa']!=''){

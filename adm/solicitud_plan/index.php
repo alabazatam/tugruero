@@ -137,13 +137,15 @@ $values = array_merge($values,$_FILES);
 	function executeUpdate($values = null)
 	{
 		$SolicitudPlan = new SolicitudPlan();
-                
+                                   
                 $errors = validate($values);
                 if(count($errors)>0){
                    executeEdit($values,null,$errors); 
                 }else{
+                     
                     $SolicitudPlan->updateSolicitudPlan($values);
                     subirDocumentos($values,$_FILES);
+                   
                     executeEdit($values,message_updated);die;   
                 }
                 

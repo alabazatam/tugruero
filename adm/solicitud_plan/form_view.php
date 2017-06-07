@@ -40,7 +40,7 @@ $hidden = '';
 <h1 align="center">Proceso de contratación Plan TU/GRUERO®</h1>
 <form class="" method="POST" enctype="multipart/form-data">
     <input type="hidden" id="action" name="action" value="<?php echo $values['action']?>">
-    <input type="hidden" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']))echo $values['idSolicitudPlan']?>">
+    <input type="text" id="idSolicitudPlan" name="idSolicitudPlan" value="<?php if(isset($values['idSolicitudPlan']))echo $values['idSolicitudPlan']?>">
     <input type="hidden" id="IdV" name="IdV" value="<?php if(isset($values['IdV']))echo $values['IdV']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
     <?php if(isset($values['action']) and $values['action']!='add'):?>
@@ -243,10 +243,10 @@ $hidden = '';
           <label for="RCV" class="control-label">¿Opción de RCV?</label> <label class="text-danger"> * </label>
           <div class="">
           <label class="radio-inline">
-            <input <?php //echo $disabled?> <?php //echo $disabled_plan;?> type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
+            <input <?php echo $disabled?> <?php echo $disabled_plan;?> type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
           </label>
           <label class="radio-inline">
-            <input <?php echo $disabled?> <?php //echo $disabled_plan;?> type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
+            <input <?php echo $disabled?> <?php echo $disabled_plan;?> type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
           </label>
           </div>
               <?php if(isset($errors['RCV']) and $errors['RCV']!=''):?>
@@ -584,15 +584,18 @@ $hidden = '';
       <div class="form-group col-sm-2">
         <label for="id" class="control-label">Tipo de tarjeta:</label> <label class="text-danger"> * </label>
         <div class="">
-            <input <?php echo $disabled;?> type="text" name="id" class="form-control" autocomplete="off" id="id" maxlength="20" value="<?php if(isset($values['id']) and $values['id']!='') echo $values['id'];?>" placeholder="">
+            <select class="form-control" name="payment_method_id">
+                <option value="visa" <?php if(isset($values['payment_method_id']) and $values['payment_method_id'] =='visa') echo "selected='selected'"?>>Visa</option>
+                <option value="mastercard" <?php if(isset($values['payment_method_id']) and $values['payment_method_id'] =='mastercard') echo "selected='selected'"?>>Mastercard</option>
+            </select>
         </div>
-            <?php if(isset($errors['id']) and $errors['id']!=''):?>
-            <div id="" class="alert alert-danger"><?php echo $errors['id'];?></div>
+            <?php if(isset($errors['payment_method_id']) and $errors['payment_method_id']!=''):?>
+            <div id="" class="alert alert-danger"><?php echo $errors['payment_method_id'];?></div>
 
             <?php endif;?>
         </div> 
       <div class="form-group col-sm-3">
-        <label for="id" class="control-label">Cédula:</label> <label class="text-danger"> * </label>
+        <label for="id" class="control-label">Cédula:</label> <label class="text-danger"> * </label> <small> &nbsp;&nbsp;&nbsp;&nbsp;(V-12345678) </small>
         <div class="">
             <input <?php echo $disabled;?> type="text" name="payer_identification_number" class="form-control" autocomplete="off" id="payer_identification_number" maxlength="20" value="<?php if(isset($values['payer_identification_number']) and $values['payer_identification_number']!='') echo $values['payer_identification_number'];?>" placeholder="">
         </div>
@@ -602,9 +605,9 @@ $hidden = '';
             <?php endif;?>
         </div> 
       <div class="form-group col-sm-3">
-        <label for="id" class="control-label">Nombre en tarjeta</label> <label class="text-danger"> * </label>
+          <label for="id" class="control-label">Nombre en tarjeta</label><label class="text-danger"> * </label><small> &nbsp;&nbsp;&nbsp;&nbsp;(JOSE A PEREZ C) </small>
         <div class="">
-            <input <?php echo $disabled;?> type="text" name="carholder_name" class="form-control" autocomplete="off" id="carholder_name" maxlength="20" value="<?php if(isset($values['carholder_name']) and $values['carholder_name']!='') echo $values['carholder_name'];?>" placeholder="">
+            <input <?php echo $disabled;?> type="text" name="carholder_name" class="form-control" autocomplete="off" id="carholder_name" maxlength="20" value="<?php if(isset($values['carholder_name']) and $values['carholder_name']!='') echo $values['carholder_name'];?>" placeholder=""> 
         </div>
             <?php if(isset($errors['carholder_name']) and $errors['carholder_name']!=''):?>
             <div id="" class="alert alert-danger"><?php echo $errors['carholder_name'];?></div>
@@ -612,9 +615,9 @@ $hidden = '';
             <?php endif;?>
         </div>
       <div class="form-group col-sm-2">
-        <label for="id" class="control-label">Monto de la transacción</label> <label class="text-danger"> * </label>
+        <label for="id" class="control-label">Monto</label>  <label class="text-danger"> * </label> <small> &nbsp;&nbsp;&nbsp;&nbsp;(5932.9) </small>
         <div class="">
-            <input <?php echo $disabled;?> type="text" name="transaction_amount" class="form-control" autocomplete="off" id="transaction_amount" maxlength="20" value="<?php if(isset($values['transaction_amount']) and $values['transaction_amount']!='') echo $values['transaction_amount'];?>" placeholder="">
+            <input <?php echo $disabled;?> type="text" id="transaction_amount"  name="transaction_amount" class="form-control" autocomplete="off"  maxlength="20" value="<?php if(isset($values['transaction_amount']) and $values['transaction_amount']!='') echo $values['transaction_amount'];?>" placeholder="">
         </div>
             <?php if(isset($errors['transaction_amount']) and $errors['transaction_amount']!=''):?>
             <div id="" class="alert alert-danger"><?php echo $errors['transaction_amount'];?></div>
@@ -623,7 +626,7 @@ $hidden = '';
         </div>
     </div>
   <?php endif;?>
-<?php if(isset($values['MET']) and $values['MET']=='TDC'):?>
+<?php if(isset($values['MET']) and $values['MET']=='TDC' and $values['action']!='add'):?>
 	<?php $mercadopagodata = $SolicitudPagoDetalle->getPagoDetalleByID($values['idSolicitudPlan']);?>
     <div class="form-group col-sm-12">
 		<label>Detalle de Mercadopago</label>
@@ -787,7 +790,7 @@ $('#rechazo').hide();
         
     });
     $('#Puestos').change(function(e){
-    calculaPrecioRcv();       
+    calculaPrecioRcv();
     });
     $('.MET').change(function(e){
         if($('.MET:checked').val() == 'DEP'){
@@ -832,13 +835,15 @@ $('#rechazo').hide();
             alert('Debe indicar la vigencia ');
             return false;
         }
-        if($('#SerialMotor').val() == ''){
-            alert('Debe indicar el serial de motor ');
-            return false;
-        }
-        if($('#SerialCarroceria').val() == ''){
-            alert('Debe indicar el serial de carroceria ');
-            return false;
+        if($('.RCV:checked').val() == 'SI'){
+            if($('#SerialMotor').val() == ''){
+                alert('Debe indicar el serial de motor ');
+                return false;
+            }
+            if($('#SerialCarroceria').val() == ''){
+                alert('Debe indicar el serial de carroceria ');
+                return false;
+            }
         }
         if(confirm('¿Está seguro(a) de aprobar la solicitud?')){
             $.ajax({
@@ -867,9 +872,10 @@ $('#rechazo').hide();
 	success: function(data){
             //$('.PlanPrecio').html("<p><b>Total a pagar:</b> " + data.precio + " Bs.</p>")
             $('#precio_tugruero').val(data.precio_sin_formato);
+            calculaAmount();
 	},
           dataType: 'JSON'
-        });        
+        });
         
     }
     function calculaPrecioRcv(){
@@ -885,9 +891,32 @@ $('#rechazo').hide();
 	success: function(data){
             //$('.PlanPrecio').html("<p><b>Total a pagar:</b> " + data.precio + " Bs.</p>")
             $('#precio_rcv').val(data.precio_sin_formato);
+            calculaAmount();
+            
 	},
           dataType: 'JSON'
-        });        
+        });  
+    }
+    function calculaAmount(){
+    
+
+        var precio_tugruero = $('#precio_tugruero').val();
+        var precio_rcv = $('#precio_rcv').val();
+        var total = 0;
+        
+        //alert(total);
+        if(isNaN(parseFloat(precio_tugruero))){
+            precio_tugruero = 0;
+            //alert("nan tugruero");
+        }
+        if(isNaN(parseFloat(precio_rcv))){
+            precio_rcv = 0;
+            //alert("nan rcv");
+        }
+        console.log("precio_tugruero" + precio_tugruero);
+        console.log("precio_rcv" + precio_rcv);
+        var total = parseFloat(precio_tugruero) + parseFloat(precio_rcv);
+        $('#transaction_amount').val(total);
         
     }
 </script>
