@@ -70,6 +70,7 @@
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
     <input type="hidden" id="IdV" name="IdV" value="2">
+    <input type="hidden" id="plan" name="plan" value="<?php if(isset($values['plan']))echo $values['plan']?>">
 
     <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-info">
       <p><b>Total a pagar con IVA:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo "Bs. ".number_format($values['precio'],2,",",".")."."; else echo " Bs. 0,00"?></p>
@@ -540,7 +541,7 @@
 
 $(document).ready(function(){
 	
-	
+			calculaPrecio();
 			$('#mensajetarjeta').hide();
             $('#mensajedeposito').hide();
 			$("#sendForm").submit(function(){
@@ -599,7 +600,6 @@ $(document).ready(function(){
 <?php if((!isset($values['MET']))):?>
         $('.DEPOSITO').hide();
 <?php endif;?>   
-
     $('#idPlan').change(function(e){
     calculaPrecio();       
     });

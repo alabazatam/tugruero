@@ -19,6 +19,18 @@ $values = $_REQUEST;
         
     }
 $values = array_merge($values,$_FILES);
+if(isset($values['plan']) and $values['plan']!='' and (!isset($values['idPlan']) and $values['idPlan']=='')){
+	switch ($values['plan']){
+		case "gold":
+		$values['idPlan'] = 2;
+			break;
+		case "plus":
+		$values['idPlan'] = 1;
+			break;
+		default:
+			break;
+	}
+}
 	switch ($action) {
 		case "index":
 			executeIndex($values);	
