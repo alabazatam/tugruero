@@ -362,6 +362,10 @@ $hidden = '';
 
                 </select> 
           </div>
+        <?php if(isset($errors['Clase']) and $errors['Clase']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['Clase'];?></div>
+
+        <?php endif;?>
         </div>
   <div class="form-group col-sm-2">
     <label for="Marca" class="control-label">Marca</label> <label class="text-danger"> * </label>
@@ -461,7 +465,7 @@ $hidden = '';
 		
 	</div>
   <div class="form-group col-sm-6">
-    <label for="SerialMotor" class="control-label">Serial de motor</label> <label class="text-danger"> * </label>
+    <label for="SerialMotor" class="control-label">Serial de motor</label> <label class="text-danger">  </label>
     <div class="">
         <input <?php echo $disabled;?>  type="text" name="SerialMotor" class="form-control" id="SerialMotor" autocomplete="off" maxlength="50" value="<?php if(isset($values['SerialMotor']) and $values['SerialMotor']!='') echo $values['SerialMotor'];?>">
     </div>
@@ -471,7 +475,7 @@ $hidden = '';
         <?php endif;?>
   </div>
   <div class="form-group col-sm-6">
-    <label for="SerialCarroceria" class="control-label">Serial de carrocería</label> <label class="text-danger"> * </label>
+    <label for="SerialCarroceria" class="control-label">Serial de carrocería</label> <label class="text-danger">  </label>
     <div class="">
         <input <?php echo $disabled;?>  type="text" name="SerialCarroceria" class="form-control" id="SerialCarroceria" autocomplete="off" maxlength="50" value="<?php if(isset($values['SerialCarroceria']) and $values['SerialCarroceria']!='') echo $values['SerialCarroceria'];?>">
     </div>
@@ -480,6 +484,26 @@ $hidden = '';
 
         <?php endif;?>
   </div> 
+  <div class="form-group col-sm-6">
+      <label for="SerialMotor" class="control-label">Kilometraje</label> <label class="text-danger">  </label> <small> MAX 50 KM</small>
+    <div class="">
+        <input <?php echo $disabled;?>  type="text" name="Kilometraje" class="form-control" id="Kilometraje" autocomplete="off" maxlength="50" value="<?php if(isset($values['Kilometraje']) and $values['Kilometraje']!='') echo $values['Kilometraje'];?>">
+    </div>
+        <?php if(isset($errors['Kilometraje']) and $errors['Kilometraje']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['Kilometraje'];?></div>
+
+        <?php endif;?>
+  </div>
+  <div class="form-group col-sm-6">
+    <label for="CantidadServicios" class="control-label">Cantidad de servicios</label> <label class="text-danger">  </label> <small> ILIMITADO URBANO (*) Y UNO (01) EXTRAURBANO (*)</small>
+    <div class="">
+        <input <?php echo $disabled;?>  type="text" name="CantidadServicios" class="form-control" id="CantidadServicios" autocomplete="off" maxlength="50" value="<?php if(isset($values['CantidadServicios']) and $values['CantidadServicios']!='') echo $values['CantidadServicios'];?>">
+    </div>
+        <?php if(isset($errors['CantidadServicios']) and $errors['CantidadServicios']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CantidadServicios'];?></div>
+
+        <?php endif;?>
+  </div>
   <div class="form-group col-sm-12">
     <label for="inputEmail3" class="control-label">Método de pago</label> <label class="text-danger"> * </label>
     <div class="">

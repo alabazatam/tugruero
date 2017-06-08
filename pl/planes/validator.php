@@ -202,6 +202,9 @@
                 if(!isset($values['RCV']) or $values['RCV']==''){
                     $errors['RCV'] = 'Debe indicar si elige RCV';
                 }
+                if(!isset($values['Clase']) or $values['Clase']==''){
+                    $errors['Clase'] = 'Debe seleccionar la Clase';
+                }
                 if(!isset($values['Marca']) or $values['Marca']==''){
                     $errors['Marca'] = 'Debe seleccionar la marca';
                 }
@@ -251,36 +254,8 @@
 			}
 		}else
 		{
-			$errors['Licencia']= "Debe seleccionar un archivo para la Cédula";
+			$errors['CedulaDoc']= "Debe seleccionar un archivo para la Cédula";
 		}
-		/*if($_FILES['RifDoc']['size']>0)
-		{
-			if(!in_array(pathinfo($_FILES['RifDoc']['name'],PATHINFO_EXTENSION),$array_extensions)) 
-			{
-				$errors['RifDoc']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
-			}
-			if($_FILES['RifDoc']['size']>max_input_size)
-			{
-				$errors['RifDoc']= message_max_size;
-			}
-		}else
-		{
-			$errors['Licencia']= "Debe seleccionar un archivo para el Rif";
-		}
-                if($_FILES['Licencia']['size']>0)
-		{
-			if(!in_array(pathinfo($_FILES['Licencia']['name'],PATHINFO_EXTENSION),$array_extensions)) 
-			{
-				$errors['Licencia']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
-			}
-			if($_FILES['Licencia']['size']>max_input_size)
-			{
-				$errors['Licencia']= message_max_size;
-			}
-		}else
-		{
-			$errors['Licencia']= "Debe seleccionar un archivo para la licencia";
-		}	*/	
                
 		if($_FILES['CarnetCirculacion']['size']>0)
 		{
@@ -297,39 +272,6 @@
 			$errors['CarnetCirculacion']= "Debe seleccionar un archivo para el carnet de circulación";
 		}
 		
-		
-		/*if(isset($values['RCV']) and  $values['RCV']=='SI')
-		{
-			if($_FILES['CertificadoMedico']['size']>0)
-			{
-				if(!in_array(pathinfo($_FILES['CertificadoMedico']['name'],PATHINFO_EXTENSION),$array_extensions)) 
-				{
-					$errors['CertificadoMedico']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
-				}
-				if($_FILES['CertificadoMedico']['size']>max_input_size)
-				{
-					$errors['CertificadoMedico']= message_max_size;
-				}
-			}else
-			{
-				$errors['CertificadoMedico']= "Debe seleccionar un archivo para el certificado médico";
-			}
-			
-			if($_FILES['CertificadoOrigen']['size']>0)
-			{
-				if(!in_array(pathinfo($_FILES['CertificadoOrigen']['name'],PATHINFO_EXTENSION),$array_extensions)) 
-				{
-					$errors['CertificadoOrigen']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
-				}
-				if($_FILES['CertificadoOrigen']['size']>max_input_size)
-				{
-					$errors['CertificadoOrigen']= message_max_size;
-				}
-			}else
-			{
-				$errors['CertificadoOrigen']= "Debe seleccionar un archivo para el certificado de origen";
-			}
-		}*/
                 
                 
 /***************************Validación de archivos de pago************************/                

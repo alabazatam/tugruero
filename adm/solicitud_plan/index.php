@@ -8,7 +8,7 @@ if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 	$action = $_REQUEST["action"];
 }
             /*$PDFPagos = new PDFPagos();
-            $pdf = $PDFPagos->cuadroRCVAsistir(array('idSolicitudPlan'=> 27));*/
+            $pdf = $PDFPagos->cuadroTUGRUERO(array('idSolicitudPlan'=> 16));*/
 $values = $_REQUEST;
     if(!isset($values['IdV']) or $values['IdV']==''){
         $values['IdV'] = '1';
@@ -323,10 +323,12 @@ $values = array_merge($values,$_FILES);
         function subirDocumentos($values,$files){
         $SolicitudDocumentos = new SolicitudDocumentos; 
         $idSolicitudPlan = $values['idSolicitudPlan'];
+       
 	$carpeta = "../../web/files/Solicitudes";
 	$fichero_subido = $carpeta."/";
             //print_r($_FILES);die;
             if(isset($files['CedulaDoc']) and $files['CedulaDoc']['size']>0){
+                 
                 $nombreArchivo = "Cedula_".$values['idSolicitudPlan'].".".pathinfo($_FILES['CedulaDoc']['name'],PATHINFO_EXTENSION);
                 if (move_uploaded_file($files['CedulaDoc']['tmp_name'], $fichero_subido.$nombreArchivo)){
                     //inserto en bd;
@@ -334,6 +336,7 @@ $values = array_merge($values,$_FILES);
                         $SolicitudDocumentos->saveSolicitudDocumentos($idSolicitudPlan, "Cedula", $nombreArchivo);
 
                     }else{
+                       
                         $SolicitudDocumentos->updateSolicitudDocumentos($idSolicitudPlan, "Cedula", $nombreArchivo);
 
                     }

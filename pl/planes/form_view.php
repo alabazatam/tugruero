@@ -345,6 +345,10 @@
 
                 </select> 
           </div>
+        <?php if(isset($errors['Clase']) and $errors['Clase']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['Clase'];?></div>
+
+        <?php endif;?>
         </div>
   <div class="form-group col-sm-2">
     <label for="Marca" class="control-label">Marca</label> <label class="text-danger"> * </label>

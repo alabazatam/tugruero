@@ -367,7 +367,7 @@
                         ) AS Puestos,
                         TipoPago AS MET,
                         (SELECT SUM(PrecioConIva) FROM SolicitudPlanSeleccion s WHERE s.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) AS precio,
-                        DATE_FORMAT(FechaNacimiento, '%d/%m/%Y') as FechaNacimiento
+                        DATE_FORMAT(FechaNacimiento, '%d/%m/%Y') as FechaNacimiento, SolicitudPlan.Kilometraje, SolicitudPlan.CantidadServicios
                         ")
                         ->join("PlanesVendedores","LEFT JOIN PlanesVendedores pv on pv.idV = SolicitudPlan.idV")
 			->where("SolicitudPlan.idSolicitudPlan=?",$values['idSolicitudPlan'])
@@ -419,6 +419,9 @@
             //almaceno los plens contratados en la solicitud
 
 			$array_planes = array($values['idPlan']);
+                        //actualizo el Kilometraje y la cantidad de servicios acorde al plan seleccionado
+                        $datos_plan = $this->getDatosPlan($values['idPlan']);
+                        $this->updateCantidadServiciosKm($values['idSolicitudPlan'],$datos_plan);
 			$Planes = new Planes();
 			if(isset($values['RCV']) and $values['RCV']=='SI' and isset($values['Puestos'])){
 				
@@ -512,6 +515,7 @@
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->SolicitudPlan()->insert($array_solicitud_plan);
 			$values['idSolicitudPlan'] = $ConnectionORM->getConnect()->SolicitudPlan()->insert_id();
+
                         //en caso de ser TDC almaceno en pago detalle
                         if(isset($values['MET']) == 'TDC'){
                             $array_solicitud_pago_detalle = array(
@@ -538,6 +542,10 @@
                         //almaceno los planes contratados en la solicitud
                         $array_planes = array();
                         if(isset($values['idPlan']) and $values['idPlan']!=""){
+                                    //actualizo el km acorde a lo que existe en la tabla planes
+                                    $datos_plan = $this->getDatosPlan($values['idPlan']);
+                                    $this->updateCantidadServiciosKm($values['idSolicitudPlan'],$datos_plan);
+                                    /////////////////////////////////////////////
                                     $array_planes = array($values['idPlan']);
                                     $TotalConIva = $precio_tugruero;
                                     $TotalSinIva = $precio_tugruero;
@@ -605,7 +613,9 @@
                                 'Placa' => @$values['Placa'],
                                 'Puestos' => @$values['Puestos'],
 				'SerialMotor' => @$values['SerialMotor'],
-				'SerialCarroceria' => @$values['SerialCarroceria']
+				'SerialCarroceria' => @$values['SerialCarroceria'],
+                                'Kilometraje' => @$values['Kilometraje'],
+                                'CantidadServicios' => @$values['CantidadServicios']
                                 
 			);
                         
@@ -724,21 +734,12 @@
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
 				))
                                 AS concatenado_plan,
-                                ( SELECT Kilometraje FROM SolicitudPlanSeleccion sps 
-                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
-                                WHERE p.Tipo = 'tugruero.com' 
-                                AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
-                                ) AS Kilometraje,
                                 ( SELECT TipoServicio FROM SolicitudPlanSeleccion sps 
                                 INNER JOIN Planes p ON p.idPlan = sps.idPlan 
                                 WHERE p.Tipo = 'tugruero.com' 
                                 AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
                                 ) AS TipoServicio,
-                                ( SELECT CantidadServicios FROM SolicitudPlanSeleccion sps 
-                                INNER JOIN Planes p ON p.idPlan = sps.idPlan 
-                                WHERE p.Tipo = 'tugruero.com' 
-                                AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan 
-                                ) AS CantidadServicios,
+                                
 								TIMESTAMPDIFF(YEAR, FechaNacimiento, CURDATE()) AS Edad,
 								( SELECT Urbano FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) AS Urbano, 
 								( SELECT ExtraUrbano FROM SolicitudPlanSeleccion sps INNER JOIN Planes p ON p.idPlan = sps.idPlan WHERE p.Tipo = 'tugruero.com' AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan ) AS ExtraUrbano,
@@ -751,7 +752,7 @@
                                                                 SELECT PrecioConIva FROM SolicitudPlanSeleccion sps
                                                                 INNER JOIN Planes p ON p.idPlan = sps.idPlan 
                                                                 WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan AND p.Tipo = 'RCV'
-                                                                ) AS costoplanrcv")
+                                                                ) AS costoplanrcv, Kilometraje, CantidadServicios")
 			->join("SolicitudAprobada","INNER JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->where("SolicitudPlan.idSolicitudPlan=?",$idSolicitudPlan)
 			->fetch();
@@ -871,7 +872,27 @@
 			return $q; 				
 			
 		} 
-	}
+
+            function getDatosPlan($idPlan){			
+                            $ConnectionORM = new ConnectionORM();
+                            $q = $ConnectionORM->getConnect()->Planes
+                            ->select("*")
+                            ->where("idPlan=?",$idPlan)
+                            ->fetch();
+                            return $q; 
+
+            }
+        function updateCantidadServiciosKm($idSolicitudPlan,$datos_plan){			
+            $array = array(
+                    'Kilometraje' => $datos_plan['Kilometraje'],
+                    'CantidadServicios' => $datos_plan['CantidadServicios']);
+            $ConnectionORM = new ConnectionORM();
+            $q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	
+        
+        }
+
+        }
+        
 			
 
 	

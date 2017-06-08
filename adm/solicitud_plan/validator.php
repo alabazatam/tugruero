@@ -151,6 +151,14 @@
 			"minlength" => 5,
 			"maxlength" => 50,
 		);
+		$validator_values['Clase'] = array(
+			
+			"type" => "text",
+			"label" => "Clase",
+			"required" => true,
+			"minlength" => 2,
+			"maxlength" => 50,
+		);
 		/*$validator_values['Puestos'] = array(
 			
 			"type" => "number",
@@ -192,6 +200,15 @@
                 if((!isset($values['RCV']) or $values['RCV'] == '') and (!isset($values['idPlan']) or $values['idPlan'] == '') and $values['action'] == 'add'){
                          $errors['idPlan'] = 'Debe indicar si requiere un plan TU/GRUERO.';
                          $errors['RCV'] = 'Debe indicar si requiere una póliza de RCV.';
+                }
+                if((isset($values['idPlan']) and $values['idPlan'] != '')){
+                    
+                    if(!isset($values['Kilometraje']) or $values['Kilometraje']==''){
+                        $errors['Kilometraje'] = 'Debe indicar el Kilometraje a permitir';
+                    }
+                    if(!isset($values['CantidadServicios']) or $values['CantidadServicios']==''){
+                        $errors['CantidadServicios'] = 'Debe indicar la cantidad de servicios';
+                    }
                 }
                 if(isset($values['RCV']) and $values['RCV']=='SI'){
                     if(!isset($values['SerialMotor']) or $values['SerialMotor']==''){
@@ -247,18 +264,23 @@
           /******************Validación de archivos*************************/ 
         //echo $files['Licencia']['size'];die;
 		$array_extensions = array('jpg','JPG','PNG','png','jpeg','JPEG','pdf','PDF','octet-stream');
-		if($_FILES['Licencia']['size']>0)
+		if($_FILES['CedulaDoc']['size']>0)
 		{
-			if(!in_array(pathinfo($_FILES['Licencia']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+			if(!in_array(pathinfo($_FILES['CedulaDoc']['name'],PATHINFO_EXTENSION),$array_extensions)) 
 			{
-				$errors['Licencia']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+				$errors['CedulaDoc']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
 			}
-			if($_FILES['Licencia']['size']>max_input_size)
+			if($_FILES['CedulaDoc']['size']>max_input_size)
 			{
-				$errors['Licencia']= message_max_size;
+				$errors['CedulaDoc']= message_max_size;
 			}
-		}		
-               
+		}else
+		{
+                        if($values['action']=='add'){
+                            $errors['CedulaDoc']= "Debe seleccionar un archivo para la Cédula";
+                        }
+			
+		}               
 		if($_FILES['CarnetCirculacion']['size']>0)
 		{
 			if(!in_array(pathinfo($_FILES['CarnetCirculacion']['name'],PATHINFO_EXTENSION),$array_extensions)) 
@@ -269,38 +291,20 @@
 			{
 				$errors['CarnetCirculacion']= message_max_size;
 			}
-		}
-		
-		
-
-			if($_FILES['CertificadoMedico']['size']>0)
-			{
-				if(!in_array(pathinfo($_FILES['CertificadoMedico']['name'],PATHINFO_EXTENSION),$array_extensions)) 
-				{
-					$errors['CertificadoMedico']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
-				}
-				if($_FILES['CertificadoMedico']['size']>max_input_size)
-				{
-					$errors['CertificadoMedico']= message_max_size;
-				}
-			}
+		}else
+		{   
+                        if($values['action']=='add'){
+                           $errors['CarnetCirculacion']= "Debe seleccionar un archivo para el carnet de circulación";  
+                        }
 			
-			if($_FILES['CertificadoOrigen']['size']>0)
-			{
-				if(!in_array(pathinfo($_FILES['CertificadoOrigen']['name'],PATHINFO_EXTENSION),$array_extensions)) 
-				{
-					$errors['CertificadoOrigen']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
-				}
-				if($_FILES['CertificadoOrigen']['size']>max_input_size)
-				{
-					$errors['CertificadoOrigen']= message_max_size;
-				}
-			}
+		}
 		
                 
                 
 /***************************Validación de archivos de pago************************/                
-		
+                if($values['MET'] == "DEP"){
+                            
+
 	
 			if($_FILES['DEP1']['size']>0)
 			{
@@ -312,6 +316,9 @@
 				{
 					$errors['DEP1']= message_max_size;
 				}
+			}else
+			{
+				$errors['DEP1']= "Debe seleccionar el archivo de transferencia o deposito bancario";
 			}
 			
 			if($_FILES['DEP2']['size']>0)
@@ -336,10 +343,9 @@
 					$errors['DEP3']= message_max_size;
 				}
 			}
-		               
+                }		               
                 
-                
-                
+               
                 return $errors;
 		
 		
