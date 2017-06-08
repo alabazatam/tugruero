@@ -192,11 +192,14 @@ $values = array_merge($values,$_FILES);
                                                                                         "NombreVendedor" => $list['NombreVendedor'],
 											"TipoPago" => $list['TipoPago'],
 											"actions" => 
-										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
-										   .'<input type="hidden" name="action" value="edit">  '
-										   .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
-										   .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
-											.'</form>'
+											'<div class="btn-group">
+											<button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											  <i class="fa fa-gear"></i> <span class="caret"></span>
+											</button>
+												<ul class="dropdown-menu dropdown-menu-right">
+												  <li><a href="'.full_url.'/adm/solicitud_plan/index.php?action=edit&idSolicitudPlan='.$idSolicitudPlan.'"> <i class="fa fa-edit"></i> Editar</a></li>
+												</ul>
+										  </div>'
 						);	
 				}else
 				{
@@ -229,14 +232,16 @@ $values = array_merge($values,$_FILES);
                                                                                         "NombreVendedor" => $list['NombreVendedor'],
 											"TipoPago" => $list['TipoPago'],
 											"actions" => 
-										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
-										   .'<input type="hidden" name="action" value="edit">  '
-										   .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
-										   .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
-											.'<a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="btn btn-default" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
-											.'<a href="'.full_url.'/web/files/Cuadros/'.$idSolicitudPlan.'_rcv.pdf" class="btn btn-default" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
-
-											.'</form>'
+											'<div class="btn-group">
+											<button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											  <i class="fa fa-gear"></i> <span class="caret"></span>
+											</button>
+												<ul class="dropdown-menu dropdown-menu-right">
+												  <li><a href="'.full_url.'/adm/solicitud_plan/index.php?action=edit&idSolicitudPlan='.$idSolicitudPlan.'"> <i class="fa fa-edit"></i> Editar</a></li>
+												  <li><a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o"></i> Cuadro póliza</a></li>
+												  <li><a href="'.full_url.'/web/files/Cuadros/'.$idSolicitudPlan.'_rcv.pdf" class="" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o"></i> Cuadro RCV</a></li>
+												</ul>
+										  </div>'
 						);	
 					}elseif($plan_tugruero == true and $plan_rcv == false){
 					$array_json['data'][] = array(
@@ -252,12 +257,15 @@ $values = array_merge($values,$_FILES);
                                                                                         "NombreVendedor" => $list['NombreVendedor'],
 											"TipoPago" => $list['TipoPago'],
 											"actions" => 
-										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
-										   .'<input type="hidden" name="action" value="edit">  '
-										   .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
-										   .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
-											.'<a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="btn btn-default" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
-											.'</form>'
+											'<div class="btn-group">
+											<button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											  <i class="fa fa-gear"></i> <span class="caret"></span>
+											</button>
+												<ul class="dropdown-menu dropdown-menu-right">
+												  <li><a href="'.full_url.'/adm/solicitud_plan/index.php?action=edit&idSolicitudPlan='.$idSolicitudPlan.'"> <i class="fa fa-edit"></i> Editar</a></li>
+												  <li><a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o"></i> Cuadro póliza</a></li>
+												</ul>
+										  </div>'
 						);	
                                         }elseif($plan_tugruero == false and $plan_rcv == true){
                                                 $array_json['data'][] = array(
@@ -273,13 +281,15 @@ $values = array_merge($values,$_FILES);
                                                                                         "NombreVendedor" => $list['NombreVendedor'],
 											"TipoPago" => $list['TipoPago'],
 											"actions" => 
-										   '<form method="POST" action = "'.full_url.'/adm/solicitud_plan/index.php" >'
-										   .'<input type="hidden" name="action" value="edit">  '
-										   .'<input type="hidden" name="idSolicitudPlan" value="'.$idSolicitudPlan.'">  '
-										   .'<button class="btn btn-default btn-sm" title="Ver detalle" type="submit"><i class="fa fa-edit  fa-pull-left fa-border"></i></button>'                                       
-											.'<a href="'.full_url.'/web/files/Cuadros/'.$idSolicitudPlan.'_rcv.pdf" class="btn btn-default" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o  fa-pull-left fa-border"></i></a>'
-
-											.'</form>'
+											'<div class="btn-group">
+											<button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											  <i class="fa fa-gear"></i> <span class="caret"></span>
+											</button>
+												<ul class="dropdown-menu dropdown-menu-right">
+												  <li><a href="'.full_url.'/adm/solicitud_plan/index.php?action=edit&idSolicitudPlan='.$idSolicitudPlan.'"> <i class="fa fa-edit"></i> Editar</a></li>
+												  <li><a href="'.full_url.'/web/files/Cuadros/'.$idSolicitudPlan.'_rcv.pdf" class="" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o"></i> Cuadro RCV</a></li>
+												</ul>
+										  </div>'
 						);	 
                                         }
 					

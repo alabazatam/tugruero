@@ -1,11 +1,22 @@
 <?php include('../../view_header_app.php')?>
 <?php include('../menu.php')?>
+<style>
+
+table tbody tr {
+	cursor: pointer;	
+}
+table.dataTable tbody > tr.seleccionado,
+table.dataTable tbody > tr > .seleccionado {
+  background-color: #ccc !important;
+  color: #000 !important
+}
+</style>
 <div class="">
 	<h1 class="text-center big_title">Solicitudes de planes</h1>
 	<table id="example" class="table table-striped table-bordered table-responsive" width="100%" cellspacing="0">
 			<thead>
 				<tr>
-                                    <th>IdSolicitudPlan</th>
+                                    <th>ID</th>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>	
                                     <th>Cédula</th>	
@@ -45,17 +56,32 @@
 
 	
 $(document).ready(function() {
-	
 	$('#example tfoot th').each( function () {
 		var title = $('#example thead th').eq( $(this).index() ).text();
 		
 		if(title != 'Detalle')
 		{
-			$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+			$(this).html( '<input size="5" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+			if(title=="Apellidos"){
+				$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+
+			}
+			if(title=="Nombres"){
+				$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+
+			}
+			if(title=="Plan"){
+				$(this).html( '<input size="10" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+
+			}
+			if(title=="ID"){
+				$(this).html( '<input size="2" class="input-sm filtros" id="column_'+$(this).index()+'" type="text" placeholder="'+title+'" />' );			
+
+			}
 		}
 		if(title == 'Detalle')
 		{
-			$(this).html( '<button id="clear">Limpiar</button>' );	
+			$(this).html( '<button class="btn btn-sm" id="clear">Limpiar</button>' );	
 		}
 
 	} );
@@ -63,6 +89,7 @@ $(document).ready(function() {
 	
     var table = $('#example').DataTable({
         "scrollX": true,
+		"autoWidth": true,
         "processing": true,
         "serverSide": true,
 		 "sDom": 'ltrip',
@@ -72,24 +99,41 @@ $(document).ready(function() {
         },
         "order": [[ 0, "desc" ]],
         "columns": [
-            { "data": "idSolicitudPlan" },
-            { "data": "Nombres" },
-            { "data": "Apellidos" },
-            { "data": "Cedula" },
-            { "data": "Rif" },
-            { "data": "Plan" },
-            { "data": "PrecioTotal" },
-            { "data": "TipoPago" },
-            { "data": "Estatus" },
-            { "data": "FechaSolicitud" },
-            { "data": "NombreVendedor" },
-            { "data": "actions" }
+            { "data": "idSolicitudPlan","width": "5%" },
+            { "data": "Nombres","width": "12%" },
+            { "data": "Apellidos","width": "12%" },
+            { "data": "Cedula","width": "5%" },
+            { "data": "Rif","width": "5%" },
+            { "data": "Plan","width": "16%" },
+            { "data": "PrecioTotal","width": "5%" },
+            { "data": "TipoPago","width": "10%" },
+            { "data": "Estatus","width": "5%" },
+            { "data": "FechaSolicitud","width": "5%" },
+            { "data": "NombreVendedor","width": "5%" },
+            { "data": "actions", "width": "15%"}
         ],
       "aoColumnDefs": [
           { 'bSortable': false, 'aTargets': [ 11 ] }
        ]				
     });
+	//click
+    $('#example tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('seleccionado') ) {
+            $(this).removeClass('seleccionado');
+        }
+        else {
+            table.$('tr.seleccionado').removeClass('seleccionado');
+            $(this).addClass('seleccionado');
+        }
+    } );
+	//double click
+	$('#example tbody').on('dblclick', 'tr', function () {
+	var data = table.row( this ).data();
+	$(this).addClass('seleccionado');
+	console.log(data.idSolicitudPlan);
 
+	$(location).attr('href', '<?php echo full_url."/adm/solicitud_plan/index.php?action=edit&idSolicitudPlan="?>' + + data.idSolicitudPlan);
+	} );
 $('#column_0').on ('keypress', function(e){
     if(e.which == 13) {
         table.column(table.column(0)).search($(this).val()).draw();
@@ -152,5 +196,4 @@ $('#column_10').on ('keypress', function(e){
 
 
 } );
-
 </script>
