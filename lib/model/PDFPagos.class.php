@@ -154,6 +154,17 @@
                                 . '<td colspan="" style="border-right-width:1px;">'.$datos_cuadro['Kilometraje'].'</td>'
                                 . '</tr>'
                                 . '<tr>'
+                                . '<td colspan="9" align="center"  style="border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; background-color: #fce4d6;"><strong>DATOS DE ACCESO PARA APP TU/GRUERO®</strong></td>'
+                                . '</tr>'
+                                . '<tr>'
+                                . '<td colspan="1"  style="border-left-width:1px;">C.I./RIF:</td>'
+                                . '<td COLSPAN="2">'.$datos_cuadro['Cedula'].'</td>'
+                                . '<td colspan="1">Placa:</td>'
+                                . '<td COLSPAN="2">'.$datos_cuadro['Placa'].'</td>'
+                                . '<td colspan="1">Seguro:</td>'
+                                . '<td colspan="2" style="border-right-width:1px;">'.$datos_cuadro['concatenado_plan'].'</td>'
+                                . '</tr>'
+                                . '<tr>'
                                 . '<td colspan="9" align="center" style="border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; background-color: #fce4d6;"><strong>ACUERDO LEGAL(I)</strong></td>'
                                 . '</tr>'
                                 . '<tr>'
@@ -337,8 +348,8 @@
 								$html.='<p align="center">Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos, Municipio Sucre, Edo. Miranda, Caracas, Venezuela. Tlf: <b>0500-GRUERO-0 (0500-478376-0) / 0212-2379227 / 0212-4190105 · info@tugruero.com - tugruero@gmail.com</b></p>'
                                 ;
 			$pdf->writeHTML($html);				
-			$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'F');            
-            //$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'I');   
+			//$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'F');            
+            $pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'I');   
             
             
         }
@@ -595,7 +606,7 @@
 
 			
 			$pdf->Output(dir_cuadros."/". $values['idSolicitudPlan']."_rcv.pdf", 'F');            
-                        //$pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto']."_rcv.pdf", 'I');   
+                        //$pdf->Output(dir_cuadros."/".$values['idSolicitudPlan']."_rcv.pdf", 'I');   
             
             
         }        

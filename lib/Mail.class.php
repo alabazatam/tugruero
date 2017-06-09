@@ -816,7 +816,7 @@
 					$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf")); 
 					$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
 					if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
-						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto."_rcv.pdf")); 	
+						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$idSolicitudPlan."_rcv.pdf")); 	
 					}
 					
                     $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
@@ -885,15 +885,14 @@
             <div align="">
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
 		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
-		<p align="justify">A continuación le indicamos los datos para acceder a la <strong>aplicación móvil TU/GRUERO®</strong> y solicitar los servicios de grúa por esa vía:</p>
 		<br><br>
 		<p align="justify">¡Esté atento!</p>
 
 		<p align="justify">De igual forma puede solicitar sus servicios de grúa a través de nuestro Call Center al <strong>0500-GRUERO-0 (0500-478376-0)</strong> </p>
 
-		<p align="justify">Le adjuntamos a este correo el <strong>Cuadro Producto</strong> contratado, donde podrá ver su información personal y la del vehículo cubierto por el plan.</p>
+		<p align="justify">Le adjuntamos a este correo el <strong>Cuadro RCV</strong> contratado, donde podrá ver su información personal y la del vehículo cubierto por el plan.</p>
 
-		<p align="justify">Es importante que sepa que usted estará activo tanto en el plan como en la aplicación móvil en <strong>5 días habiles</strong> a partir del día de hoy.</p>
+		<p align="justify">Es importante que sepa que usted estará activo en <strong>5 días habiles</strong> a partir del día de hoy.</p>
 
 		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
