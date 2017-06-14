@@ -163,7 +163,7 @@ $values = array_merge($values,$_FILES);
 		{
 			foreach ($list_json as $list) 
 			{   
-
+                
 				$idSolicitudPlan = $list['idSolicitudPlan'];
 				$status = $list['status'];
 				if($status == 'Desactivado')
@@ -176,9 +176,8 @@ $values = array_merge($values,$_FILES);
 				}
 				
 				
-				if($list['EstatusAbr']!="ACT")
+				if($list['EstatusAbr']=="ENV")
 				{
-
 					$array_json['data'][] = array(
 						"idSolicitudPlan" => $idSolicitudPlan,
 						"Nombres" => $list['Nombres'],
@@ -189,7 +188,7 @@ $values = array_merge($values,$_FILES);
 						"PrecioTotal" => number_format($list['PrecioTotal'],2,",","."),
 						"Estatus" => $list['Estatus'],
 											"FechaSolicitud" => $list['FechaSolicitud'],
-                                                                                        "NombreVendedor" => $list['NombreVendedor'],
+                                            "NombreVendedor" => $list['NombreVendedor'],
 											"TipoPago" => $list['TipoPago'],
 											"actions" => 
 											'<div class="btn-group">

@@ -187,7 +187,7 @@
 			//echo $column_order;die;
                         $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->SolicitudPlan
-			->select("*,SolicitudPlan.idSolicitudPlan,DATE_FORMAT(FechaSolicitud, '%d/%m/%Y') as FechaSolicitud, Estatus AS EstatusAbr,
+			->select("SolicitudPlan.*,sa.*,SolicitudPlan.idSolicitudPlan,DATE_FORMAT(FechaSolicitud, '%d/%m/%Y') as FechaSolicitud, Estatus AS EstatusAbr,
 				CASE 
 					WHEN Estatus = 'ENV' 
 					THEN 'EN PROCESO DE VALIDACIÓN DE PAGO' 
@@ -220,7 +220,7 @@
 					FROM SolicitudPlanSeleccion sps 
 					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) AS PrecioTotal,
-                                CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' ELSE 'Depósito o Transferencia'  END AS TipoPago
+                    CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' ELSE 'Depósito o Transferencia'  END AS TipoPago, pv.NombreVendedor
 				")
 			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
@@ -270,32 +270,29 @@
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'tugruero.com'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				),' / ',
-				(	
+				),
+				CASE WHEN(	
 					SELECT CONCAT(Nombre, ' ',Puestos, ' Puestos' )  
 					FROM SolicitudPlanSeleccion sps 
 					INNER JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE p.Tipo = 'RCV'
 					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				))) like ('%".$values['columns'][5]['search']['value']."%')";
+				) IS NULL THEN '' ELSE (SELECT CONCAT(' / ',Nombre, ' ',Puestos, ' Puestos' )  
+					FROM SolicitudPlanSeleccion sps 
+					INNER JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE p.Tipo = 'RCV'
+					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)
+				
+
+				END)) like ('%".$values['columns'][5]['search']['value']."%')";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][6]['search']['value']) and $values['columns'][6]['search']['value']!='')
 			{
-				$where.=" AND ((
-					SELECT  PrecioConIva  
+				$where.=" AND ((SELECT  SUM(PrecioConIva) 
 					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'RCV'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				) +
-				(
-					SELECT PrecioConIva  
-					FROM SolicitudPlanSeleccion sps 
-					INNER JOIN Planes p ON p.idPlan = sps.idPlan
-					WHERE p.Tipo = 'tugruero.com'
-					AND sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan
-				)) >= '".$values['columns'][6]['search']['value']."' ";
+					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
+					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)) >= '".$values['columns'][6]['search']['value']."' ";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
 			if(isset($values['columns'][7]['search']['value']) and $values['columns'][7]['search']['value']!='')
@@ -321,12 +318,12 @@
                                 
                                 $FechaSolicitud = $Utilitarios->formatFechaInput($FechaSolicitud);
                                 
-				$where.=" AND FechaSolicitud =  '".$FechaSolicitud."'";
+				$where.=" AND FechaSolicitud >=  '".$FechaSolicitud."'";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
-                        if(isset($values['columns'][10]['search']['value']) and $values['columns'][10]['search']['value']!='')
+			if(isset($values['columns'][10]['search']['value']) and $values['columns'][10]['search']['value']!='')
 			{
-				$where.=" AND upper(pv.NombreVendedor) LIKE (upper('%".$values['columns'][10]['search']['value']."%'))";
+				$where.=" AND upper(pv.NombreVendedor) LIKE(upper('%".$values['columns'][10]['search']['value']."%'))";
 				//echo $values['columns'][0]['search']['value'];die;
 			}
             $ConnectionORM = new ConnectionORM();
@@ -336,7 +333,8 @@
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->join("SolicitudAprobada","LEFT JOIN SolicitudAprobada sa on sa.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
 			->join("PlanesVendedores","LEFT JOIN PlanesVendedores pv on pv.idV = SolicitudPlan.idV")
-                        ->fetch();
+            ->fetch();
+            //echo $q;die;
 			return $q['cuenta']; 			
 		}
 		public function getSolicitudPlanById($values){

@@ -720,7 +720,18 @@ $hidden = '';
 
 
 </form>
-
+<!-- Modal -->
+<div class="modal fade bs-example-modal-xs" id="ModalLoading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+		  
+			<br><br><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><br><br><br>Espere un momento por favor. <br>No cierre ni recargue la ventana.<br><br><br><br>
+			
+      </div>
+    </div>
+  </div>
+</div> 
 
 <?php include('../../view_footer_solicitud.php')?>
 <script>
@@ -871,6 +882,7 @@ $('#rechazo').hide();
             }
         }
         if(confirm('¿Está seguro(a) de aprobar la solicitud?')){
+            $('#ModalLoading').modal('show');
             $.ajax({
             type: "POST",
             url: '<?php echo full_url?>/adm/solicitud_plan/index.php?action=aprobar',
