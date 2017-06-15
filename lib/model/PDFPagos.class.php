@@ -137,7 +137,7 @@
                                 . '<td colspan="2"  style="border-left-width:1px;">NOMBRE PRODUCTO:</td>'
                                 . '<td COLSPAN="2">'.$datos_cuadro['concatenado_plan'].'</td>'
                                 . '<td>COSTO:</td>'
-                                . '<td>'.number_format($datos_cuadro['costoplantugruero'],2,",",".").' Bs.</td>'
+                                . '<td>Bs. '.number_format($datos_cuadro['costoplantugruero'],2,",",".").'</td>'
                                 . '<td colspan="2">INICIO VIG.</td>'
                                 . '<td colspan="" style="border-right-width:1px;">'.$Utilitarios->formateaFecha($datos_cuadro['VigenciaDesde'], 'd/m/Y').'</td>'
                                 . '</tr>'
