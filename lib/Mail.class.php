@@ -293,9 +293,9 @@
             $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
-            $username = "mercadeo@tugruero.com";
+            $username = "suscripcion@tugruero.com";
             $password = "tugruero123!";
-            $mail_from = 'mercadeo@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com'; 
 
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
@@ -371,9 +371,9 @@
             $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
-            $username = "mercadeo@tugruero.com";
+            $username = "suscripcion@tugruero.com";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -391,21 +391,17 @@
         </head>
         <body style="font-size: 16px;color:#000000;">
             <div align="center">
-		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
-		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
-		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
-		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
-		<p align="justify">¡Esté atento!</p>
-		<p align="justify">Saludos.<br><br><br><br>
-		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
-		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
+				<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
+				<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
+				<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+				<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
+				<p align="justify">¡Esté atento!</p>
+				<p align="justify">Saludos.<br><br><br><br>
+				<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
+				<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
-            <br><br>--<br>
-            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
-            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
-            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
-            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
-            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+			<br><br>--<br>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
             <p><b>Síguenos</b></p>
             <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
             <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
@@ -463,9 +459,9 @@
             $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
-            $username = "mercadeo@tugruero.com";
+            $username = "suscripcion@tugruero.com";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -492,13 +488,9 @@
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
-            <br><br>--<br>
-            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
-            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
-            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
-            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
-            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
-            <p><b>Síguenos</b></p>
+			<br><br>--<br>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
+			<p><b>Síguenos</b></p>
             <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
             <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
             <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
@@ -552,9 +544,9 @@
             $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
-            $username = "mercadeo@tugruero.com";
+            $username = "suscripcion@tugruero.com";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -581,12 +573,9 @@
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
-            <br><br>--<br>
-            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
-            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
-            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
-            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
-            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+			<br><br>--<br>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
+
             <p><b>Síguenos</b></p>
             <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
             <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
@@ -647,9 +636,9 @@
             $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
-            $username = "mercadeo@tugruero.com";
+            $username = "suscripcion@tugruero.com";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -676,12 +665,8 @@
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
-            <br><br>--<br>
-            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
-            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
-            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
-            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
-            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+			<br><br>--<br>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
             <p><b>Síguenos</b></p>
             <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
             <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
@@ -748,9 +733,9 @@
             $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
-            $username = "mercadeo@tugruero.com";
+            $username = "suscripcion@tugruero.com";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -798,11 +783,7 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
-            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
-            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
-            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
-            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
             <p><b>Síguenos</b></p>
             <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
             <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
@@ -863,9 +844,9 @@
             $smtp = "tugruero.com";
             $port = 465;
             $secure = "ssl";
-            $username = "mercadeo@tugruero.com";
+            $username = "suscripcion@tugruero.com";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -899,11 +880,7 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-            <p>Equipo&nbsp;<b>TU/GRUERO</b><b>®</b></p>
-            <p><b>Soluciones Tu Gruero, C.A.</b>  J-40680605-6</p>
-            <p>Av Francisco de Miranda, Edif Provincial, Piso 8, Oficina 8B. Los Dos Caminos. Municipio Sucre, Edo. Miranda, Caracas, Venezuela. </p>
-            <p><font style="color: #6F7DAA; ">Tlf:</font> <b><font style="color: #1B6055; ">(0500-GRUERO-0) / (0500-478376-0) / (0212) 237-9227 / (0212) 419-0105</font></b> · <a href="mailto:info@tugruero.com" style="text-decoration: none;"><font style="color:#1155D1;">info@tugruero.com</font></a>  <font style="color:#B45F06;">-</font> <a href="mailto:tugruero@gmail.com" style="text-decoration: none;"><font style="color:#1155D1;">tugruero@gmail.com</font></a></p>
-            <img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/logo_correo.jpg')).'" alt="" />
+			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
             <p><b>Síguenos</b></p>
             <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
             <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>

@@ -229,12 +229,12 @@
                                 . '</tr>'
 								. '</table>';
 								$html.='<div align="center">'
-									. '<br><br><table width="100%" border="0">'
+									. '<br><table width="100%" border="0">'
 									. '<tr>'
-									. '<td><img src="'.full_url.'/web/img/FIRMA1.jpg" width="140"></td>'
+									. '<td><img src="'.full_url.'/web/img/FIRMA1.jpg" width="120"></td>'
 									. '</tr>'
 									. '<tr>'
-									. '<td><img src="'.full_url.'/web/img/SELLO1.jpg" width="140"></td>'
+									. '<td><img src="'.full_url.'/web/img/SELLO1.jpg" width="120"></td>'
 									. '</tr>'
 									. '</table><br><br><br></div>';;
 								if($datos_cuadro['Urbano'] == 'S')
@@ -344,10 +344,10 @@
 								$html.='<div align="center">'
 									. '<br><br><br><table width="100%" border="0">'
 									. '<tr>'
-									. '<td><img src="'.full_url.'/web/img/FIRMA1.jpg" width="140"></td>'
+									. '<td><img src="'.full_url.'/web/img/FIRMA1.jpg" width="120"></td>'
 									. '</tr>'
 									. '<tr>'
-									. '<td><img src="'.full_url.'/web/img/SELLO1.jpg" width="140"></td>'
+									. '<td><img src="'.full_url.'/web/img/SELLO1.jpg" width="120"></td>'
 									. '</tr>'
 									. '</table><br><br><br></div>';;
 
