@@ -402,10 +402,6 @@
             </div>
 			<br><br>--<br>
 			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
-            <p><b>Síguenos</b></p>
-            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
             <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
@@ -490,10 +486,6 @@
             </div>
 			<br><br>--<br>
 			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
-			<p><b>Síguenos</b></p>
-            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
             <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
@@ -575,11 +567,6 @@
             </div>
 			<br><br>--<br>
 			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
-
-            <p><b>Síguenos</b></p>
-            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
             <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
@@ -667,11 +654,7 @@
             </div>
 			<br><br>--<br>
 			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
-            <p><b>Síguenos</b></p>
-            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
-            <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
+           <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
     ',"text/html");			
@@ -784,10 +767,6 @@
             </div>
 			<br><br>--<br>
 			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
-            <p><b>Síguenos</b></p>
-            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
             <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
 		</div>
 
@@ -881,10 +860,6 @@
             </div>
 			<br><br>--<br>
 			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/firma_alessandro.png')).'" alt="" /></p>
-            <p><b>Síguenos</b></p>
-            <a target="_blank" href="https://www.instagram.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/instagram_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://twitter.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/twitter_correo.png')).'" alt="" /></a>
-            <a target="_blank" href="https://www.facebook.com/tugruero"><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/fresh/facebook_correo.png')).'" alt="" /></a>
             <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
 		</div>
 
