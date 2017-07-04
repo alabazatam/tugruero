@@ -394,7 +394,7 @@
 				<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 				<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
 				<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
-				<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
+				<p align="justify">Es importante que sepa que el plan estará vigente <strong>10 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 				<p align="justify">¡Esté atento!</p>
 				<p align="justify">Saludos.<br><br><br><br>
 				<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
@@ -478,7 +478,7 @@
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted, y que nuestro aliado comercial <strong>'.$NombreVendedor.'</strong> le ha ofrecido.</p>
 		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
-		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
+		<p align="justify">Es importante que sepa que el plan estará vigente <strong>10 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 		<p align="justify">¡Esté atento!</p>
 		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
@@ -559,7 +559,7 @@
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
 		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
-		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
+		<p align="justify">Es importante que sepa que el plan estará vigente <strong>10 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 		<p align="justify">¡Esté atento!</p>
 		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
@@ -646,7 +646,7 @@
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted, y que nuestro aliado comercial <strong>'.$NombreVendedor.'</strong> le ha ofrecido.</p>
 		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
-		<p align="justify">Es importante que sepa que el plan estará vigente <strong>5 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
+		<p align="justify">Es importante que sepa que el plan estará vigente <strong>10 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 		<p align="justify">¡Esté atento!</p>
 		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
@@ -759,7 +759,7 @@
 
 		<p align="justify">Le adjuntamos a este correo el <strong>Cuadro Producto</strong> contratado, donde podrá ver su información personal y la del vehículo cubierto por el plan.</p>
 
-		<p align="justify">Es importante que sepa que usted estará activo tanto en el plan como en la aplicación móvil en <strong>5 días habiles</strong> a partir del día de hoy.</p>
+		<p align="justify">Es importante que sepa que usted estará activo tanto en el plan como en la aplicación móvil en <strong>10 días habiles</strong> a partir del día de hoy.</p>
 
 		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>
@@ -852,7 +852,7 @@
 
 		<p align="justify">Le adjuntamos a este correo el <strong>Cuadro RCV</strong> contratado, donde podrá ver su información personal y la del vehículo cubierto por el plan.</p>
 
-		<p align="justify">Es importante que sepa que usted estará activo en <strong>5 días habiles</strong> a partir del día de hoy.</p>
+		<p align="justify">Es importante que sepa que usted estará activo en <strong>10 días habiles</strong> a partir del día de hoy.</p>
 
 		<p align="justify">Saludos.<br><br><br><br>
 		<p align="justify"><strong>TU/GRUERO® quedarse accidentado, ya no es un problema.</strong></p>

@@ -262,7 +262,7 @@
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td colspan="9" style="border-style: solid; border-top-width: -1px; border-right-width: 1px; border-bottom-width: -1px; border-left-width: 1px">'
-                                . '<br><strong>DECIMA TERCERA:</strong>  El servicio de grúas TUGRUERO PLUS estará activo, y el cliente lo podrá disfrutar, luego de cinco (05) días hábiles del pago del mismo y entrega de esta planilla firmada y sellada.'
+                                . '<br><strong>DECIMA TERCERA:</strong>  Sí su vehículo es del año 2000 en adelante, el servicio de grúas TUGRUERO PLUS o GOLD estará activo, y el cliente lo podrá disfrutar, luego de diez (10) días hábiles del pago del mismo y entrega de esta planilla firmada y sellada. De lo contrario, si su vehículo es anterior al año 2000, el servicio de grúas TUGRUERO PLUS o GOLD estará activo, y el cliente lo podrá disfrutar, luego de veinte (20) días hábiles del pago del mismo y entrega de esta planilla firmada y sellada.'
                                 . '</td>'
                                 . '</tr>'
                                 . '<tr>'
