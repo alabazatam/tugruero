@@ -22,6 +22,20 @@
     <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="web/css/animate.min.css" />
 </head>
+<style>
+.carousel-control {
+    width: 1%
+}
+.carousel-control.left .glyphicon {
+    left: 8%;
+    
+    margin-left: 5%;
+}
+.carousel-control.right .glyphicon {
+    right: 0;
+    margin-right: 0;
+}
+</style>
 <body id="page-top" class="index">
 
     <!-- Navigation -->
@@ -341,12 +355,42 @@
     
     </section>    
     <section class="success5 nav-close" id="video">
-        <div class="container">
-            <div class="embed-responsive embed-responsive-16by9" >
-		<!--<iframe  src="https://www.youtube.com/watch?v=IZVAZ4XIOwc"></iframe>-->
-		<iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/IZVAZ4XIOwc" frameborder="0" allowfullscreen></iframe>
-            </div>
+	<div class="container">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+		  <!-- Indicators -->
+		  <!--<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		  </ol>-->
 
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<div class="embed-responsive embed-responsive-16by9" >
+				<iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/IZVAZ4XIOwc" frameborder="0" allowfullscreen></iframe>
+				</div>
+			  <div class="carousel-caption">
+			  </div>
+			</div>
+			<div class="item">
+				<div class="embed-responsive embed-responsive-16by9" >
+				<iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/bwwNdFsSQ04" frameborder="0" allowfullscreen></iframe>
+				</div>
+			  <div class="carousel-caption">
+			  </div>
+			</div>
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Anterior</span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Siguiente</span>
+		  </a>
+		</div>
 	</div>
     </section>
     <section id="clientes">

@@ -464,6 +464,8 @@
 			
 		}
 		function saveSolicitudPlanAdmin($values){
+			        $precio_tugruero = 0;
+					$precio_rcv = 0;
              
                     if(isset( $values['precio_rcv']) and  $values['precio_rcv']!=''){
                         $precio_rcv = $values['precio_rcv'];
@@ -472,7 +474,7 @@
                         $precio_tugruero = $values['precio_tugruero'];
                     }
                     
-                    
+
             $Utilitarios = new Utilitarios();           
 			$array_solicitud_plan = array(
 				'Nombres' => @$values['Nombres'],
@@ -554,7 +556,7 @@
                                     $array_solicitud_plan_seleccion['PrecioConIva'] = $precio_tugruero;
                                     $array_solicitud_plan_seleccion['FechaSolicitud'] = date('Y-m-d h:i:s');
                                     $q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);
-                                    $this->updatePrecios($TotalConIva,$TotalSinIva,$values['idSolicitudPlan']);
+                                    
 
                         }
 			
@@ -572,11 +574,16 @@
                                     $array_solicitud_plan_seleccion['PrecioConIva'] = $precio_rcv;
                                     $array_solicitud_plan_seleccion['FechaSolicitud'] = date('Y-m-d h:i:s');
                                     $q = $ConnectionORM->getConnect()->SolicitudPlanSeleccion()->insert($array_solicitud_plan_seleccion);
-                                    $this->updatePrecios($TotalConIva,$TotalSinIva,$values['idSolicitudPlan']);
+                                    //$this->updatePrecios($TotalConIva,$TotalSinIva,$values['idSolicitudPlan']);
 
                                 }
 				
 			}
+			
+			$TotalConIva = $precio_tugruero + $precio_rcv;
+			$TotalSinIva = $precio_tugruero + $precio_rcv;
+			
+			$this->updatePrecios($TotalConIva,$TotalSinIva,$values['idSolicitudPlan']);
 			
 		
 			}catch(Exception $e){

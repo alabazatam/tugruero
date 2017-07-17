@@ -23,7 +23,8 @@
                         $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect()->Marcas
 			->select("*")
-			->where("Estado = 'A'");
+			->where("Estado = 'A'")
+			->order("Marca asc");
 			return $q; 			
 		}
 	
