@@ -20,7 +20,7 @@ $data = array( 'message' => '¡Nuevo servicio de Grúa!' );
 // http://developer.android.com/google/gcm/
 //------------------------------
 
-$ids = array( 'APA91bEv49lUIJqf0fd9j2EPkM-D8bN9AnPhvsAZFfw9XfBgMzNItKeNsfJUEZvy53nZyJvd3pVZkS6K6elvCvmYg7iMjJeoUhSzVOeX2uGcPQxfHRlI6DtEgNi9H3X4VskxKmb88i4DVnvNgWBPxsY4QfZ-Mk03AA' );
+$ids = array( 'clf_iCYh4JY:APA91bEiYHRpyizf93parcaqvSLpC_5riCaiVCC-Dxz5Afoo1x_s9cURLz45m6Z6Y3u0hWMFkSnhBI_KwlVfZbR6po2TEqXegnV83POg3p59g5YAOtlurwrM7YJQ-1eN4QMMF3gpZklU' );
 
 //------------------------------
 // Call our custom GCM function

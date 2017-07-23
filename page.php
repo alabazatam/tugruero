@@ -354,42 +354,38 @@
 			</div>
     
     </section>    
-    <section class="success5 nav-close" id="video">
-	<div class="container">
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-		  <!-- Indicators -->
-		  <!--<ol class="carousel-indicators">
-			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-		  </ol>-->
+    <section class="success5 nav-close" id="video" style="padding: 40px !important;">
+	<div class="container">		
 
-		  <!-- Wrapper for slides -->
-		  <div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<div class="embed-responsive embed-responsive-16by9" >
-				<iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/IZVAZ4XIOwc" frameborder="0" allowfullscreen></iframe>
-				</div>
-			  <div class="carousel-caption">
-			  </div>
-			</div>
-			<div class="item">
-				<div class="embed-responsive embed-responsive-16by9" >
-				<iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/bwwNdFsSQ04" frameborder="0" allowfullscreen></iframe>
-				</div>
-			  <div class="carousel-caption">
-			  </div>
-			</div>
-		  </div>
+		<div class="col-sm-12">
+			<div class="col-sm-6">
+				<div class="panel panel-default" style="border: 0px solid transparent;">
+					<div class="panel-heading" style="border: 0px solid transparent;">
+						<h4 class="text-center">¿Qué es TU/GRUERO®?</h4>
+					</div>
+					<div class="panel-body">
+					  <div class="embed-responsive embed-responsive-16by9" >
 
-		  <!-- Controls -->
-		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Anterior</span>
-		  </a>
-		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Siguiente</span>
-		  </a>
+						  <iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/IZVAZ4XIOwc" frameborder="0" allowfullscreen></iframe>
+					  </div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-sm-6">
+				<div class="panel panel-default" style="border: 0px solid transparent;">
+					<div class="panel-heading" style="border: 0px solid transparent;">
+						<h4 class="text-center">Comercial publicitario TU/GRUERO®</h4>
+					</div>
+					<div class="panel-body">
+					  <div class="embed-responsive embed-responsive-16by9" >
+
+						  <iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/bwwNdFsSQ04" frameborder="0" allowfullscreen></iframe>
+					  </div>
+					</div>
+				</div>
+
+			</div>						
 		</div>
 	</div>
     </section>
