@@ -44,7 +44,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menú <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars fa-2x"></i>
                 </button>
                 <a class="navbar-brand" href="#page-top"><img class="img-responsive" src="web/img/fresh/logo_menu.png" alt=""></a>
             </div>
@@ -63,6 +63,9 @@
                     </li>
                     <li class="page-scroll font-nav">
                         <a href="#quienes_somos">NOSOTROS</a>
+                    </li>
+                    <li class="page-scroll font-nav">
+                        <a href="#video">GALERÍA</a>
                     </li>
                     <li class="page-scroll font-nav">
                         <a href="#contactenos">CONTÁCTANOS</a>
