@@ -236,52 +236,68 @@
     <div class="titulo_bancos text-center">Bancos disponibles</div><br><br><br><br>
   </div>
   <div class="row margin_bancos">
-    <div class="col-xs-2">
-      <img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive" width="">
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive" width="">
+      </div>
     </div>
-    <div class="col-xs-2">
-      <img src="web/img/fresh/bancaribe.png" alt="Paga con BANCARIBE" class="img-responsive" width="">
-
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bancaribe.png" alt="Paga con BANCARIBE" class="img-responsive" width="">
+      </div>
     </div>
-    <div class="col-xs-2">
-      <img src="web/img/fresh/banconacional.png" alt="Paga con Banco Nacional de Crédito" class="img-responsive" width="">
-
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/banconacional.png" alt="Paga con Banco Nacional de Crédito" class="img-responsive" width="">
+      </div>
     </div>
-    <div class="col-xs-2">
-      <img src="web/img/fresh/bancoactivo.png" alt="Paga con Banco Activo" class="img-responsive" width="">
-
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bancoactivo.png" alt="Paga con Banco Activo" class="img-responsive" width="">
+      </div>
     </div>
-    <div class="col-xs-2">
-      <img src="web/img/fresh/bancovenezuela.png" alt="Paga con Banco Venezuela" class="img-responsive" width="">
-
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bancovenezuela.png" alt="Paga con Banco Venezuela" class="img-responsive" width="">
+      </div>
     </div>
-    <div class="col-xs-2">
-      <img src="web/img/fresh/banco_tesoro.png" alt="Paga con Banco del Tesoro" class="img-responsive" width="">
-
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/banco_tesoro.png" alt="Paga con Banco del Tesoro" class="img-responsive" width="">
+      </div>
     </div>
   </div>
   <div class="row margin_bancos separador_bancos">
-    <div class="col-xs-2">
-      <img src="web/img/fresh/provincial.png" alt="Paga con Banco Provincial" class="img-responsive" width="">
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/provincial.png" alt="Paga con Banco Provincial" class="img-responsive" width="">
+      </div>
     </div>
-    <div class="col-xs-2">
-      <img src="web/img/fresh/bancoexterior.png" alt="Paga con Banco Exterior" class="img-responsive" width="">
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bancoexterior.png" alt="Paga con Banco Exterior" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/mercantil.png" alt="Paga con Banco Mercantil" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/venezolanodecredito.png" alt="Paga con Venezolano de Crédito" class="img-responsive" width="">
+      </div>
+    </div>
 
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/banco_plaza.png" alt="Paga con Banco Plaza" class="img-responsive" width="">
+      </div>
     </div>
-    <div class="col-xs-2">
-      <img src="web/img/fresh/mercantil.png" alt="Paga con Banco Mercantil" class="img-responsive" width="">
-
-    </div>
-    <div class="col-xs-2">
-      <img src="web/img/fresh/venezolanodecredito.png" alt="Paga con Venezolano de Crédito" class="img-responsive" width="">
-
-    </div>
-
-    <div class="col-xs-2">
-      <img src="web/img/fresh/banco_plaza.png" alt="Paga con Banco Plaza" class="img-responsive" width="">
-    </div>
-    <div class="col-xs-2">
-      <img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive" width="">
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive" width="">
+      </div>
     </div>
   </div>
   <div class="row margin_bancos letras_bancos text-center" align="center">
@@ -568,7 +584,7 @@
         <img src="web/img/fresh/testimonio_circle3.png" alt="Testimonios" class="img-testimonios">
         <div class="fondo_testimonios">
           <p class="nombres_testimonios text-left">Carlos Otero</p>
-          <p class="subtitulo_testimonios text-justify">Directivo del Club Gruas en el Estado Anzoategui:</p>
+          <p class="subtitulo_testimonios text-justify">Directivo del Club Grúas Venezuela en el Estado Anzoátegui:</p>
           <p class="texto_testimonios text-justify">No trabajamos con otras compañías de asistencia, pero en comparación con otro servicios ustedes son más atentos y responsables.</p>
 
         </div>
@@ -597,66 +613,66 @@
   <div class="row margin_contactenos" style="padding:50px;">
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/el_estimulo_3.png" alt="Llama a nuestro Call Center" width="70%">
+        <img src="web/img/fresh/medios/el_estimulo_3.png" alt="" width="">
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/el_emprendedor_3.png" alt="Llama a nuestro Call Center" width="70%">
+        <img src="web/img/fresh/medios/Touch_Fm_3.png" alt="" width="">
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/El_mundo_economia_y_negocios_3.png" alt="Llama a nuestro Call Center" width="40%">
+        <img src="web/img/fresh/medios/El_mundo_economia_y_negocios_3.png" alt="" width="">
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/el_nacional_3.png" alt="Llama a nuestro Call Center" width="70%">
-      </div>
-    </div>
-  </div>
-  <div class="row margin_contactenos" style="padding:50px;">
-    <div class="col-sm-3">
-      <div class="thumbnail">
-        <img src="web/img/fresh/medios/El_Universal_3.png" alt="Llama a nuestro Call Center" width="30%">
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail">
-        <img src="web/img/fresh/medios/Exitos_3.png" alt="Llama a nuestro Call Center" width="40%">
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail">
-        <img src="web/img/fresh/medios/kyz_3.png" alt="Llama a nuestro Call Center" width="30%">
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail">
-        <img src="web/img/fresh/medios/La_Mega_3.png" alt="Llama a nuestro Call Center" width="90%">
+        <img src="web/img/fresh/medios/el_nacional_3.png" alt="" width="">
       </div>
     </div>
   </div>
-  <div class="row" style="padding:50px;">
+  <div class="row margin_contactenos" style="padding:40px;">
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/Producto_3.png" alt="Llama a nuestro Call Center" width="50%">
+        <img src="web/img/fresh/medios/El_Universal_3.png" alt="" width="">
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/todo_en_domingo_3.png" alt="Llama a nuestro Call Center" width="70%">
+        <img src="web/img/fresh/medios/Exitos_3.png" alt="" width="">
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/Touch_Fm_3.png" alt="Llama a nuestro Call Center" width="70%">
+        <img src="web/img/fresh/medios/kyz_3.png" alt="" width="">
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/Union_Radio_3.png" alt="Llama a nuestro Call Center" width="30%">
+        <img src="web/img/fresh/medios/Union_Radio_3.png" alt="" width="" class="">
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding:40px;">
+    <div class="col-sm-3">
+      <div class="thumbnail">
+        <img src="web/img/fresh/medios/Producto_3.png" alt="" width="">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail">
+        <img src="web/img/fresh/medios/todo_en_domingo_3.png" alt="" width="">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail">
+        <img src="web/img/fresh/medios/el_emprendedor_3.png" alt="" width="">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail margin-50">
+        <img src="web/img/fresh/medios/La_Mega_3.png" alt="" width="">
       </div>
     </div>
   </div>
@@ -729,7 +745,7 @@
             <img src="web/img/fresh/titulo3.png" alt="grua">
           </div>
           <p class="white-font text_footer">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
-          <p class="white-font text_footer">info@tugruero.com / tugruero@gmail.com</p>
+          <p class="white-font text_footer">info@tugruero.com</p>
           <p class="white-font text_footer">0500-GRUERO-0 (0500-478376-0) </p>
         </div>
       </div>

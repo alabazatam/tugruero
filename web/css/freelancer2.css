@@ -836,15 +836,12 @@ fieldset[disabled] .btn-success.active {
 }
 }
 .titulo_medios{
-  font-size: 40px;
-  font-weight: 900;
-  margin: 0;
-
-  padding-top: 20px;
-  padding-bottom: 20px;
+	font-size: 50px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 53.9px;
   color: #fff;
-  font-style: italic;
-  /*background-color: #f8531b;*/
 }
 @media (min-width: 359px) and (max-width: 360px) {
     .font_caja_quienes_somos {
@@ -853,6 +850,14 @@ fieldset[disabled] .btn-success.active {
     }
     .titulo_gruero_plus{
       font-size: 14px;
+    }
+    .titulo_medios{
+    	font-size: 22px;
+    	font-style: normal;
+    	font-variant: normal;
+    	font-weight: bold;
+    	line-height: 53.9px;
+      color: #fff;
     }
 .propaganda_clientes{
     font-size: 14px;
@@ -893,6 +898,15 @@ fieldset[disabled] .btn-success.active {
     }
     .titulo_gruero_plus{
       font-size: 18px;
+    }
+    .titulo_medios{
+    	font-size: 50px;
+    	font-style: normal;
+    	font-variant: normal;
+    	font-weight: bold;
+    	line-height: 53.9px;
+      color: #fff;
+      padding-top: 20px;
     }
 .subtitulo_testimonios{
   font-size: 14px;
