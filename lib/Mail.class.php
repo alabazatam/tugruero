@@ -1,20 +1,20 @@
 <?php
 
     class Mail {
-   
-    function __construct() 
+
+    function __construct()
     {
         $this->smtp = "tugruero.com";
         $this->port = 465;
         $this->secure = "ssl";
         $this->username = "mercadeo@tugruero.com";
         $this->password = "tugruero123!";
-        
+
     }
-    
-    
-    
-    function send($to = array(), $from = array() , $subject , $message ) 
+
+
+
+    function send($to = array(), $from = array() , $subject , $message )
     {
         $transport = Swift_SmtpTransport::newInstance( $this->smtp, $this->port, $this->secure)
           ->setUsername($this->username)
@@ -30,16 +30,16 @@
           ;
 
         // Send the message
-        $result = $mailer->send($send);        
+        $result = $mailer->send($send);
     }
 		public function mail1($values){
-			
+
         $transport = Swift_SmtpTransport::newInstance( $this->smtp, $this->port, $this->secure)
           ->setUsername($this->username)
           ->setPassword($this->password);
         // Create the Mailer using your created Transport
         $mailer = Swift_Mailer::newInstance($transport);
-			
+
 			$message = Swift_Message::newInstance('Siga con su proceso de registro en TU/GRUERO®');
 			$message->setBody("
 				<html>
@@ -50,105 +50,105 @@
 				<p align='center'>
 				<a href='".$values['url']."'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/haz_click_aqui.png'))."' alt='' /></a>
 				</p>
-				
-				
+
+
 				<p align='justify'><strong>Gracias.</strong></p>
 				<p align='justify'>Equipo – <strong>TU/GRUERO®</strong></p>
 
 				<br><br>
 				<p align='center'>
 				<img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/logo_tugruero_mail.png'))."' alt='' />
-					
+
 				</p>
 				<p align='center' style='color: #f1452b !important;font-style: italic !important;'>
 					Revolucionando la industria del auxilio vial
 				</p>
 				</body>
-				</html>","text/html");			
-			
+				</html>","text/html");
+
         $message  ->setFrom(array (mail_from => 'TU/GRUERO®'));
 		$message   ->setTo($values['email']);
         // Send the message
-        $result = $mailer->send($message); 
+        $result = $mailer->send($message);
 			return $result;
 		}
 		public function mail2($values){
-		
+
 
         $transport = Swift_SmtpTransport::newInstance( $this->smtp, $this->port, $this->secure)
           ->setUsername($this->username)
           ->setPassword($this->password);
         // Create the Mailer using your created Transport
         $mailer = Swift_Mailer::newInstance($transport);
-			
+
 			$UsersData = new UsersData();
 			$master = $UsersData->getMasterByIdCompany($values['id']);
 
 			$login =  $master['login'];
 			$name =  ucwords(strtolower($master['first_name']))." ".ucwords(strtolower($master['first_last_name']));
-			
+
 			$email =  $master['mail'];
-			
+
 			$message = Swift_Message::newInstance('Información registrada con éxito – TU/GRUERO®');
 			$message->setBody("
 				<html>
 				<head></head>
 				<body style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;font-size: 18px;'>
 				<p align='left'><strong> <br><br>Sr(a). ".$name."</strong></p>
-				
-				<p align='justify'>Hemos registrado con éxito toda su información. Ahora debe esperar a que el equipo de 
-				validación de proveedores apruebe su registro, después, ingresar en la página web de <strong>TU/GRUERO®</strong> 
+
+				<p align='justify'>Hemos registrado con éxito toda su información. Ahora debe esperar a que el equipo de
+				validación de proveedores apruebe su registro, después, ingresar en la página web de <strong>TU/GRUERO®</strong>
 				y registrar todas sus grúas y choferes/operadores para luego empezar a trabajar con la aplicación móvil <strong>TU/GRUERO®</strong>.</p>
-				
+
 				<p align='justify'>
-				Recuerde que sus datos con los que podrá iniciar sesión en su cuenta tanto en la página web como en la aplicación móvil, son los siguientes:	
+				Recuerde que sus datos con los que podrá iniciar sesión en su cuenta tanto en la página web como en la aplicación móvil, son los siguientes:
 
 				</p>
-	
+
 				<p align='left'> - <strong> Usuario: </strong>".$login."</p>
-				<p align='left'> - <strong> Clave: </strong>".$values['password']."</p>	
-				<p align='left'> - <strong> Placa: </strong>".$values['placa']." (ésta solo la usará para la aplicación móvil)</p>	
+				<p align='left'> - <strong> Clave: </strong>".$values['password']."</p>
+				<p align='left'> - <strong> Placa: </strong>".$values['placa']." (ésta solo la usará para la aplicación móvil)</p>
 
 				<p align='justify'>Puede cambiar su clave una vez inicie sesión, en el módulo de <strong>Modificación de Clave</strong> dentro de su cuenta.</p>
 
 
-				
+
 				<p align='justify'><strong>Gracias.</strong></p>
 				<p align='justify'>Equipo – <strong>TU/GRUERO®</strong></p>
 
 				<br><br>
 				<p align='center'>
 				<img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/logo_tugruero_mail.png'))."' alt='' />
-					
+
 				</p>
 				<p align='center' style='color: #f1452b !important;font-style: italic !important;'>
 					Revolucionando la industria del auxilio vial
 				</p>
 				</body>
-				</html>","text/html");			
-			
+				</html>","text/html");
+
         $message  ->setFrom(array (mail_from => 'TU/GRUERO®'));
 		$message   ->setTo($email);
         // Send the message
-        $result = $mailer->send($message); 
+        $result = $mailer->send($message);
 			return $result;
 		}
 		public function mail3($values){
-			
+
         $transport = Swift_SmtpTransport::newInstance( $this->smtp, $this->port, $this->secure)
           ->setUsername($this->username)
           ->setPassword($this->password);
         // Create the Mailer using your created Transport
         $mailer = Swift_Mailer::newInstance($transport);
-			
+
 			$UsersData = new UsersData();
 			$master = $UsersData->getMasterByIdCompany($values['id']);
 			$email = $master['mail'];
 			$login =  $master['login'];
 			$name =  ucwords(strtolower($master['first_name']))." ".ucwords(strtolower($master['first_last_name']));
-			
-			
-			
+
+
+
 			$message = Swift_Message::newInstance('¡Felicidades! Ha sido aceptado en TU/GRUERO®');
 			$message->setBody("
 				<html>
@@ -159,25 +159,25 @@
 
 				<p align='justify'><strong>¡Felicidades!</strong> Nuestro equipo de validación de proveedores ha
 				confirmado todos sus documentos y le da la bienvenida a <strong>TU/GRUERO®</strong>.</p>
-				
-				<p align='justify'>A partir de este momento puede iniciar sesión en la página web de <strong>TU/GRUERO®</strong> donde podrá 
-				registrar sus grúas y sus choferes/operadores, para luego entrar en la aplicación 
+
+				<p align='justify'>A partir de este momento puede iniciar sesión en la página web de <strong>TU/GRUERO®</strong> donde podrá
+				registrar sus grúas y sus choferes/operadores, para luego entrar en la aplicación
 				de <strong>TU/GRUERO®</strong> y tomar las solicitudes de servicio que tengan nuestros clientes accidentados.</p>
-				
+
 				<p align='justify'>Registre primero sus grúas disponibles y posteriormente los operadores/choferes que las conducirán.</p>
-				
+
 				<p align='justify'>Si usted mismo es quien conduce su grúa, agregue primero la grúa y luego asígnesela en el módulo <strong>Admin. Operadores</strong>.</p>
-				
-				<p align='justify'>EL <strong>Usuario</strong>, <strong>Placa</strong> y <strong>Clave</strong> para acceder a la página web y aplicación móvil <strong>TU/GRUERO®</strong> son 
-				los que le enviamos en el correo anterior a éste. 
-				Recuerde escribir ".'"<strong>V-</strong>", "<strong>E-</strong>" o "<strong>J-</strong>"'." seguido de su número de 
+
+				<p align='justify'>EL <strong>Usuario</strong>, <strong>Placa</strong> y <strong>Clave</strong> para acceder a la página web y aplicación móvil <strong>TU/GRUERO®</strong> son
+				los que le enviamos en el correo anterior a éste.
+				Recuerde escribir ".'"<strong>V-</strong>", "<strong>E-</strong>" o "<strong>J-</strong>"'." seguido de su número de
 				identificación cuando vaya a indicar su <strong>Usuario</strong>.</p>
-				
+
 				<p align='justify'>Puede cambiar su clave una vez inicie sesión en el módulo de <strong>Modificación de Clave</strong> dentro de su cuenta.</p>
 				<p align='center'>
 				<a href='".full_url."/ap/index.php'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/inicie_sesion.png'))."' alt='' /></a>
 				</p>
-				
+
 				<p align='justify'>Si aún no ha descargado la aplicación en su teléfono, le invitamos
 				a buscarla en la tienda de aplicaciones de acuerdo al teléfono
 				inteligente que tenga (Play Store o App Store), con el
@@ -185,45 +185,45 @@
 				<p align='center'>
 				<a href='#'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/apps_store.png'))."' alt='' /></a>
 				<a href='#'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/google_play.png'))."' alt='' /></a>
-					
+
 				</p>
-				
+
 				<p align='justify'>Por cualquier duda en la descarga, uso y funcionalidad de la aplicación
 				puede llamarnos al <strong>0212-227-5273</strong> o escribirnos a: <strong>tugruero@gmail.com</strong>.</p>
-				
+
 				<p align='left'>¡Gracias y disfrute de ofrecer el mejor	servicio de auxilio vial con <strong>TU/GRUERO®!</strong></p>
 				<p align='left'>Equipo – <strong>TU/GRUERO®</strong></p>
 				<br><br>
 				<p align='center'>
 				<img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/logo_tugruero_mail.png'))."' alt='' />
-					
+
 				</p>
 				<p align='center' style='color: #f1452b !important;font-style: italic !important;'>
 					Revolucionando la industria del auxilio vial
 				</p>
 				</body>
-				</html>","text/html");			
-			
+				</html>","text/html");
+
         $message  ->setFrom(array (mail_from => 'TU/GRUERO®'));
 		$message   ->setTo($email);
         // Send the message
-        $result = $mailer->send($message); 
+        $result = $mailer->send($message);
 			return $result;
 		}
 		public function mail4($values){
-			
+
 			$UsersData = new UsersData();
 			$master = $UsersData->getUsersDataById($values);
 			$email = $master['mail'];
 			$login =  $master['login'];
 			$name =  ucwords(strtolower($master['first_name']))." ".ucwords(strtolower($master['first_last_name']));
-			
+
         $transport = Swift_SmtpTransport::newInstance( $this->smtp, $this->port, $this->secure)
           ->setUsername($this->username)
           ->setPassword($this->password);
         // Create the Mailer using your created Transport
         $mailer = Swift_Mailer::newInstance($transport);
-			
+
 			$message = Swift_Message::newInstance('Recuperación de clave – TU/GRUERO®');
 			$message->setBody("
 				<html>
@@ -231,59 +231,59 @@
 				<body style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;font-size: 18px;'>
 				<p align='left'><strong> Sr(a). ".$name."</strong></p>
 				<p align='left'><label style='color: #f1452b !important;'>Esta es su nueva clave:</label> <strong>".$values['password']."</strong></p>
-					
+
 				<p align='justify'>Recuerde que esta clave puede modificarla dentro de su cuenta
 				en el módulo de Modificación de Clave. Y que ésta es la misma
 				tanto para el acceso a su cuenta en la Página web como en la
 				Aplicación móvil.</p>
-				
+
 				<p align='justify'><strong>Gracias.</strong></p>
 				<p align='justify'>Equipo – <strong>TU/GRUERO®</strong></p>
 
 				<br><br>
 				<p align='center'>
 				<img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.com/web/img/logo_tugruero_mail.png'))."' alt='' />
-					
+
 				</p>
 				<p align='center' style='color: #f1452b !important;font-style: italic !important;'>
 					Revolucionando la industria del auxilio vial
 				</p>
 				</body>
-				</html>","text/html");			
-			
+				</html>","text/html");
+
         $message  ->setFrom(array (mail_from => 'TU/GRUERO®'));
 		$message   ->setTo($email);
         // Send the message
-        $result = $mailer->send($message); 
+        $result = $mailer->send($message);
 			return $result;
 		}
         public function mailMarketing1($values){
-			
+
         $transport = Swift_SmtpTransport::newInstance( $this->smtp, $this->port, $this->secure)
           ->setUsername($this->username)
           ->setPassword($this->password);
         // Create the Mailer using your created Transport
         $mailer = Swift_Mailer::newInstance($transport);
         $email = array('deandrademarcos@gmail.com','deandrademarcos@hotmail.com');
-			
+
 			$message = Swift_Message::newInstance('TU/GRUERO®');
 			$message->setBody("
                             <html>
                             <body>
                             <p align='center'>
 				<a href='www.tugruero.com' target='_blank'><img width='600'  src='http://www.tugruero.com/web/img/mail/flyer1.png' alt='tugruero.com' /></a>
-					
+
                             </p>
-                            <p align='justify'>Si no puede observar la imagen dele click <strong><a href='http://www.tugruero.com/tugruero.php' target='_blank'>Aquí</a></strong</p>                            
-                            <p align='justify'><strong>2016. TU/GRUERO®.</strong> <strong style='color: #4C4C4C;'>Todos los Derechos Reservados.</strong></p>                            
+                            <p align='justify'>Si no puede observar la imagen dele click <strong><a href='http://www.tugruero.com/tugruero.php' target='_blank'>Aquí</a></strong</p>
+                            <p align='justify'><strong>2016. TU/GRUERO®.</strong> <strong style='color: #4C4C4C;'>Todos los Derechos Reservados.</strong></p>
                             </body>
                             </html>
-","text/html");			
-			
+","text/html");
+
         $message  ->setFrom(array (mail_from => 'TU/GRUERO®'));
 		$message   ->setTo($email);
         // Send the message
-        $result = $mailer->send($message); 
+        $result = $mailer->send($message);
 			return $result;
 		}
     function sendMessageContactenos($values){
@@ -295,13 +295,13 @@
             $secure = "ssl";
             $username = "suscripcion@tugruero.com";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com'; 
+            $mail_from = 'suscripcion@tugruero.com';
 
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array('deandrademarcos@gmail.com','tugruero@gmail.com','suscripcion@tugruero.com','info@tugruero.com','acostantini@tugruero.com');
+            $email = array('deandrademarcos@gmail.com','suscripcion@tugruero.com','info@tugruero.com','acostantini@tugruero.com');
             $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['message'];
 
             $message = Swift_Message::newInstance('Solicitud de información');
@@ -317,24 +317,24 @@
             <div align="center">
             <table width="700">
                 <tr>
-                    <td style="background-color:#CCC !important;"><b>Nombre y apellido:</b></td><td>'.$values['names'].'</td> 
+                    <td style="background-color:#CCC !important;"><b>Nombre y apellido:</b></td><td>'.$values['names'].'</td>
                 </tr>
                 <tr>
-                    <td style="background-color:#CCC !important;"><b>Correo electrónico:</b></td><td>'.$values['email'].'</td> 
+                    <td style="background-color:#CCC !important;"><b>Correo electrónico:</b></td><td>'.$values['email'].'</td>
                 </tr>
                 <tr>
-                    <td style="background-color:#CCC !important;"><b>Número de contacto:</b></td><td>'.$values['phone'].'</td> 
+                    <td style="background-color:#CCC !important;"><b>Número de contacto:</b></td><td>'.$values['phone'].'</td>
                 </tr>
                 <tr>
-                    <td style="background-color:#CCC !important;"><b>Mensaje:</b></td><td><p align="justify">'.$values['message'].'</p></td> 
-                        
+                    <td style="background-color:#CCC !important;"><b>Mensaje:</b></td><td><p align="justify">'.$values['message'].'</p></td>
+
                 </tr>
-            </table>   
+            </table>
             </div>
 
         </body>
     </html>
-    ',"text/html");			
+    ',"text/html");
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
@@ -342,7 +342,7 @@
             // Send the message
 
 
-                    $result = $mailer->send($message);	
+                    $result = $mailer->send($message);
                     }catch(Exception $e){
                             //echo $e->getMessage().$e->getTraceAsString();
                             die;
@@ -405,7 +405,7 @@
             <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
-    ',"text/html");			
+    ',"text/html");
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
@@ -413,7 +413,7 @@
             // Send the message
 
 
-                    $result = $mailer->send($message);	
+                    $result = $mailer->send($message);
                     }catch(Exception $e){
                             //echo $e->getMessage().$e->getTraceAsString();
                             die;
@@ -449,7 +449,7 @@
                     $correo2_vendedor = $datos_vendedor['Correo2'];
                     $correo3_vendedor = $datos_vendedor['Correo3'];
                     $NombreVendedor = $datos_vendedor['NombreVendedor'];
-                    
+
                 }
             //$smtp = "server-0116a.gconex.net";
             $smtp = "tugruero.com";
@@ -489,23 +489,23 @@
             <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
-    ',"text/html");			
+    ',"text/html");
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
                     $message->setBcc('suscripcion@tugruero.com');
                     if($correo1_vendedor!=''){
-                       $message->setBcc($correo1_vendedor); 
+                       $message->setBcc($correo1_vendedor);
                     }
                     if($correo2_vendedor!=''){
-                       $message->setBcc($correo2_vendedor); 
+                       $message->setBcc($correo2_vendedor);
                     }
                     if($correo3_vendedor!=''){
-                       $message->setBcc($correo3_vendedor); 
+                       $message->setBcc($correo3_vendedor);
                     }
 
 
-                    $result = $mailer->send($message);	
+                    $result = $mailer->send($message);
                     }catch(Exception $e){
                             //echo $e->getMessage().$e->getTraceAsString();
                             die;
@@ -518,7 +518,7 @@
 
     }
     function sendMessageDepositoPago($values){
-            
+
             $Utilitarios = new Utilitarios();
             $idSolicitudPlan = $values['idSolicitudPlan'];
             $saludo = $Utilitarios->saludo();
@@ -530,7 +530,7 @@
 			$Marca= $data['Marca'];
 			$Anio= $data['Anio'];
             $ConcatenadoPlan = $data['concatenado_plan'];
-           
+
             try{
             //$smtp = "server-0116a.gconex.net";
             $smtp = "tugruero.com";
@@ -570,17 +570,17 @@
             <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
-    ',"text/html");			
+    ',"text/html");
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($values['Correo']);
                     $message->setBcc('suscripcion@tugruero.com');
-					
+
 
             // Send the message
 
 
-                    $result = $mailer->send($message);	
+                    $result = $mailer->send($message);
                     }catch(Exception $e){
                             //echo $e->getMessage().$e->getTraceAsString();
                             die;
@@ -593,7 +593,7 @@
 
     }
     function sendMessageDepositoPagoVendedor($values){
-            
+
             $Utilitarios = new Utilitarios();
             $idSolicitudPlan = $values['idSolicitudPlan'];
             $saludo = $Utilitarios->saludo();
@@ -616,7 +616,7 @@
                     $correo2_vendedor = $datos_vendedor['Correo2'];
                     $correo3_vendedor = $datos_vendedor['Correo3'];
                     $NombreVendedor = $datos_vendedor['NombreVendedor'];
-                    
+
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
@@ -657,25 +657,25 @@
            <p><a href="http://www.tugruero.com" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.com</b></font></a></p>
         </body>
     </html>
-    ',"text/html");			
+    ',"text/html");
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($values['Correo']);
                     $message->setBcc('suscripcion@tugruero.com');
                     if($correo1_vendedor!=''){
-                       $message->setBcc($correo1_vendedor); 
+                       $message->setBcc($correo1_vendedor);
                     }
                     if($correo2_vendedor!=''){
-                       $message->setBcc($correo2_vendedor); 
+                       $message->setBcc($correo2_vendedor);
                     }
                     if($correo3_vendedor!=''){
-                       $message->setBcc($correo3_vendedor); 
+                       $message->setBcc($correo3_vendedor);
                     }
 
             // Send the message
 
 
-                    $result = $mailer->send($message);	
+                    $result = $mailer->send($message);
                     }catch(Exception $e){
                             //echo $e->getMessage().$e->getTraceAsString();
                             die;
@@ -688,7 +688,7 @@
 
     }
     function sendMessagePolizaBienvenida($values){
-            
+
             $Utilitarios = new Utilitarios();
             $idSolicitudPlan = $values['idSolicitudPlan'];
             $saludo = $Utilitarios->saludo();
@@ -709,7 +709,7 @@
                     $correo2_vendedor = $datos_vendedor['Correo2'];
                     $correo3_vendedor = $datos_vendedor['Correo3'];
                     $NombreVendedor = $datos_vendedor['NombreVendedor'];
-                    
+
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
@@ -772,17 +772,17 @@
 
         </body>
     </html>
-    ',"text/html");			
-					$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf")); 
+    ',"text/html");
+					$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf"));
 					$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
 					if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
-						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$idSolicitudPlan."_rcv.pdf")); 	
+						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$idSolicitudPlan."_rcv.pdf"));
 					}
-					
+
                     $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
 
-                    $result = $mailer->send($message);	
+                    $result = $mailer->send($message);
                     }catch(Exception $e){
                             //echo $e->getMessage().$e->getTraceAsString();
                             die;
@@ -795,7 +795,7 @@
 
     }
     function sendMessagePolizaBienvenidaRCV($values){
-            
+
             $Utilitarios = new Utilitarios();
             $idSolicitudPlan = $values['idSolicitudPlan'];
             $saludo = $Utilitarios->saludo();
@@ -816,7 +816,7 @@
                     $correo2_vendedor = $datos_vendedor['Correo2'];
                     $correo3_vendedor = $datos_vendedor['Correo3'];
                     $NombreVendedor = $datos_vendedor['NombreVendedor'];
-                    
+
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
@@ -865,16 +865,16 @@
 
         </body>
     </html>
-    ',"text/html");			 
+    ',"text/html");
 					$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
 					if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
-						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$idSolicitudPlan."_rcv.pdf")); 	
+						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$idSolicitudPlan."_rcv.pdf"));
 					}
-					
+
                     $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
 
-                    $result = $mailer->send($message);	
+                    $result = $mailer->send($message);
                     }catch(Exception $e){
                             //echo $e->getMessage().$e->getTraceAsString();
                             die;
@@ -887,4 +887,3 @@
 
     }
 }
-

@@ -68,7 +68,7 @@
             <a href="#video">GALERÍA</a>
           </li>
           <li class="page-scroll font-nav">
-            <a href="#contactenos">CONTÁCTANOS</a>
+            <a href="#contactenos2">CONTÁCTANOS</a>
           </li>
         </ul>
       </div>
@@ -610,7 +610,7 @@
     <div class="row">
       <div class="titulo_medios text-center">Ellos han hablado de nosotros</div>
     </div>
-  <div class="row margin_contactenos" style="padding:50px;">
+  <div class="row" style="padding-top:50px !important;">
     <div class="col-sm-3">
       <div class="thumbnail">
         <img src="web/img/fresh/medios/el_estimulo_3.png" alt="" width="">
@@ -623,7 +623,7 @@
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/El_mundo_economia_y_negocios_3.png" alt="" width="">
+        <img src="web/img/fresh/medios/kyz_3.png" alt="" width="">
       </div>
     </div>
     <div class="col-sm-3">
@@ -632,7 +632,7 @@
       </div>
     </div>
   </div>
-  <div class="row margin_contactenos" style="padding:40px;">
+  <div class="row" style="padding-top:40px !important;">
     <div class="col-sm-3">
       <div class="thumbnail">
         <img src="web/img/fresh/medios/El_Universal_3.png" alt="" width="">
@@ -645,16 +645,16 @@
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/kyz_3.png" alt="" width="">
+        <img src="web/img/fresh/medios/El_mundo_economia_y_negocios_3.png" alt="" width="">
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <img src="web/img/fresh/medios/Union_Radio_3.png" alt="" width="" class="">
+        <img src="web/img/fresh/medios/Union_Radio_3.png" alt="" width="">
       </div>
     </div>
   </div>
-  <div class="row" style="padding:40px;">
+  <div class="row" style="padding-top:40px !important;padding-bottom:100px;">
     <div class="col-sm-3">
       <div class="thumbnail">
         <img src="web/img/fresh/medios/Producto_3.png" alt="" width="">
@@ -671,13 +671,13 @@
       </div>
     </div>
     <div class="col-sm-3">
-      <div class="thumbnail margin-50">
+      <div class="thumbnail">
         <img src="web/img/fresh/medios/La_Mega_3.png" alt="" width="">
       </div>
     </div>
   </div>
   </div>
-  <div class="">
+  <div class="" id="contactenos2">
     <div class="row margin_contactenos">
       <div class="col-sm-12 text-right">
         <div class="col-sm-8 col-sm-offset-4">
