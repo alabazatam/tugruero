@@ -126,10 +126,10 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 				$zip->addGlob("../../web/files/Cuadros/*.pdf",GLOB_BRACE, $options_cuadros);
 				$zip->addGlob("../../web/files/Solicitudes/*",GLOB_BRACE, $options_solicitudes);
 				$zip->close();
-				echo 'Creado '.$filename;
+				//echo 'Creado '.$filename;
 		}
 		else {
-				echo 'Error creando '.$filename;
+				echo 'Error creando '.$filename;die;
 		}
 		unlink($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/web/files/Respaldos/admin_tugruero_".$fecha.".sql");
 		
@@ -191,8 +191,15 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 
 			$query = "UPDATE SolicitudPlan set Respaldo = 0";
 			
-			$ConnectionAws = new ConnectionORM();
-			$q = $ConnectionAws->ejecutarPreparado($query);
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->ejecutarPreparado($query);
+			return $q;
+		}
+		function Restaurar($sql){
+			$query = $sql;
+			
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->ejecutarPreparado($query);
 			return $q;
 		}
 	
