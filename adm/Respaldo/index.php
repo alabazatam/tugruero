@@ -57,6 +57,7 @@ $values = array_merge($values,$_FILES);
 	$fichero_subido = $carpeta."/";
 	$unzip = true;
             if(isset($values['zip']) and $values['zip']['size']>0){
+				
                 $nombreArchivo = "respaldo".".".pathinfo($values['zip']['name'],PATHINFO_EXTENSION);
 				//echo $fichero_subido.$nombreArchivo;die;
                 if (move_uploaded_file($values['zip']['tmp_name'], $fichero_subido.$nombreArchivo)){
@@ -88,8 +89,15 @@ $values = array_merge($values,$_FILES);
 							}
 
 					//se lee el contenido sql del 
-
-					$sql = file_get_contents("../../web/files/Restaurar/admin_tugruero_20170814065716.sql");
+							$files_sql = glob("../../web/files/Restaurar/*.sql"); // obtiene todos los archivos
+								foreach($files_sql as $file){
+									$sql = file_get_contents($file);
+								}
+							$files_sql = glob("../../web/files/Restaurar/*.sql"); // obtiene todos los archivos
+								foreach($files_sql as $file){
+									$filename = str_replace("../../web/files/Restaurar/", "", $file);
+									unlink($file);
+								}
 					$Respaldar = new Respaldar();
 					$Respaldar->Restaurar($sql);
 					unlink("../../web/files/Restaurar/respaldo.zip");

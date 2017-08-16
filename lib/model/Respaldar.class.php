@@ -48,6 +48,32 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 		
 	$file=fopen($_SERVER["DOCUMENT_ROOT"]."/".main_folder."/web/files/Respaldos/admin_tugruero_".$fecha.".sql","x+") or die("Problemas");
 	//vamos añadiendo el contenido
+	$polizas = $this->respaldoPolizas();
+	fputs($file,"#########Polizas############\n");
+	foreach($polizas as $datos){
+	if($datos['date_created']==''){
+		$datos['date_created'] = date("Y-m-d h:i:s");
+	}
+	if($datos['date_updated']==''){
+		$datos['date_updated'] = date("Y-m-d h:i:s");
+	}
+	if($datos['created_by']==''){
+		$datos['created_by'] = 1;
+	}
+	if($datos['updated_by']==''){
+		$datos['updated_by'] = 1;
+	}
+	fputs($file,"INSERT INTO `admin_tugruero`.`PolizasBCK` 
+	(`Placa`,`Cedula`,`Nombre`,`Apellido`,`Marca`,`Modelo`,`Clase`,`Tipo`,`Color`,`Año`,`Serial`,`Seguro`,`NumPoliza`,`DireccionEDO`,`Domicilio`,`DireccionFiscal`, 
+	`Vencimiento`,`date_created`,`date_updated`,`created_by`,`updated_by`,`Nacionalidad`,`Celular`,`Email`,`DesdeVigencia`,`EstatusPoliza`,`Respaldo`
+	)
+	VALUES
+	('".$datos['Placa']."','".$datos['Cedula']."','".$datos['Nombre']."','".$datos['Apellido']."','".$datos['Marca']."','".$datos['Modelo']."','".$datos['Clase']."','".$datos['Tipo']."','".$datos['Color']."','".$datos['Año']."','".$datos['Serial']."','".$datos['Seguro']."','".$datos['NumPoliza']."','".$datos['DireccionEDO']."','".$datos['Domicilio']."','".$datos['DireccionFiscal']."', 
+	'".$datos['Vencimiento']."','".$datos['date_created']."','".$datos['date_updated']."','".$datos['created_by']."','".$datos['updated_by']."','".$datos['Nacionalidad']."','".$datos['Celular']."','".$datos['Email']."','".$datos['DesdeVigencia']."','".$datos['EstatusPoliza']."','".$datos['Respaldo']."');\n");	
+		
+		
+	}
+	
 	$solicitud_plan_datos = $this->respaldoSolicitudPlan();
 	fputs($file,"#########SolicitudPlan############\n");
 	foreach($solicitud_plan_datos as $datos){
@@ -55,13 +81,13 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 	(`idSolicitudPlan`,`Nombres`,`Apellidos`,`Correo`, `Cedula`, `EstadoCivil`,	`FechaNacimiento`,`Sexo`,`Rif`, 
 	`Estado`,`Ciudad`,`Domicilio`, `Telefono`,`Celular`,`FechaSolicitud`, `TipoPago`,`NumeroTransaccion`,`Clase`, 
 	`Marca`, `Modelo`,`Anio`, `Color`, `Placa`, `Tipo`, `Puestos`, `SerialMotor`, `SerialCarroceria`, `Estatus`, 
-	`TotalSinIva`, `TotalConIva`, `PagoRealizado`, `Observacion`, `IdV`, `Kilometraje`, `CantidadServicios`,`Respaldo`
+	`TotalSinIva`, `TotalConIva`, `PagoRealizado`, `Observacion`, `IdV`, `Kilometraje`, `CantidadServicios`,`Respaldo`,`IdRespaldo`
 	)
 	VALUES
 	('".$datos['idSolicitudPlan']."','".$datos['Nombres']."','".$datos['Apellidos']."', '".$datos['Correo']."', '".$datos['Cedula']."','".$datos['EstadoCivil']."',	'".$datos['FechaNacimiento']."','".$datos['Sexo']."' ,'".$datos['Rif']."', 
 	'".$datos['Estado']."',	'".$datos['Ciudad']."', '".$datos['Domicilio']."', '".$datos['Telefono']."','".$datos['Celular']."','".$datos['FechaSolicitud']."','".$datos['TipoPago']."', '".$datos['NumeroTransaccion']."', 
 	'".$datos['Clase']."', '".$datos['Marca']."', '".$datos['Modelo']."','".$datos['Anio']."','".$datos['Color']."','".$datos['Placa']."','".$datos['Tipo']."','".$datos['Puestos']."','".$datos['SerialMotor']."', '".$datos['SerialCarroceria']."','".$datos['Estatus']."', 
-	'".$datos['TotalSinIva']."', '".$datos['TotalConIva']."', '".$datos['PagoRealizado']."', '".$datos['Observacion']."', '".$datos['IdV']."', '".$datos['Kilometraje']."', '".$datos['CantidadServicios']."','".$datos['Respaldo']."');\n");
+	'".$datos['TotalSinIva']."', '".$datos['TotalConIva']."', '".$datos['PagoRealizado']."', '".$datos['Observacion']."', '".$datos['IdV']."', '".$datos['Kilometraje']."', '".$datos['CantidadServicios']."','".$datos['Respaldo']."','".$datos['IdRespaldo']."');\n");
 	}
 	
 	
@@ -107,11 +133,7 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 		
 		
 	}
-	
-	
-	
-	
-	
+
 	
 	fclose($file);
 	
@@ -187,9 +209,16 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 		->where("Respaldo=?",0);
 		return $q;
 	}
+	function respaldoPolizas(){
+		$ConnectionORM = new ConnectionORM();
+		$q = $ConnectionORM->getConnect()->Polizas
+		->select("*")
+		->where("Respaldo=?",0);
+		return $q;
+	}
 		function updateRespaldo(){			
 
-			$query = "UPDATE SolicitudPlan set Respaldo = 0";
+			$query = "UPDATE SolicitudPlan set Respaldo = 1; UPDATE Polizas set Respaldo = 1;";
 			
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->ejecutarPreparado($query);
@@ -197,7 +226,6 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 		}
 		function Restaurar($sql){
 			$query = $sql;
-			
 			$ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->ejecutarPreparado($query);
 			return $q;
