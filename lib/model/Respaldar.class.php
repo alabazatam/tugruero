@@ -4,45 +4,6 @@ class Respaldar {
 	
 	function generarRespaldo(){
 	
-	/*
-DROP TABLE SolicitudPlanBCK;
-DROP TABLE SolicitudPagoDetalleBCK;
-DROP TABLE SolicitudPlanSeleccionBCK;
-DROP TABLE SolicitudDocumentosBCK;
-DROP TABLE SolicitudAprobadaBCK;
-
-CREATE TABLE SolicitudPlanBCK AS 
-SELECT * FROM SolicitudPlan WHERE Respaldo = 0;
-
-CREATE TABLE SolicitudPagoDetalleBCK AS 
-SELECT spd.*
-FROM SolicitudPagoDetalle spd
-INNER JOIN SolicitudPlan sp ON sp.IdSolicitudPlan = spd.IdSolicitudPlan
-WHERE Respaldo = 0;
-
-CREATE TABLE SolicitudPlanSeleccionBCK AS
-SELECT sps.* 
-FROM SolicitudPlanSeleccion sps
-INNER JOIN SolicitudPlan sp ON sp.IdSolicitudPlan = sps.IdSolicitudPlan
-WHERE Respaldo = 0;
-
-CREATE TABLE SolicitudDocumentosBCK AS
-SELECT sd.* 
-FROM SolicitudDocumentos sd
-INNER JOIN SolicitudPlan sp ON sp.IdSolicitudPlan = sd.IdSolicitudPlan
-WHERE Respaldo = 0;
-
-CREATE TABLE SolicitudAprobadaBCK AS
-SELECT sa.* 
-FROM SolicitudAprobada sa
-INNER JOIN SolicitudPlan sp ON sp.IdSolicitudPlan = sa.IdSolicitudPlan
-WHERE Respaldo = 0;
-
-
-UPDATE SolicitudPlan SET Respaldo = 1;
-*/
-		
-
 	
 	$fecha = date("Ymdhis");
 		
@@ -87,7 +48,7 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 	('".$datos['idSolicitudPlan']."','".$datos['Nombres']."','".$datos['Apellidos']."', '".$datos['Correo']."', '".$datos['Cedula']."','".$datos['EstadoCivil']."',	'".$datos['FechaNacimiento']."','".$datos['Sexo']."' ,'".$datos['Rif']."', 
 	'".$datos['Estado']."',	'".$datos['Ciudad']."', '".$datos['Domicilio']."', '".$datos['Telefono']."','".$datos['Celular']."','".$datos['FechaSolicitud']."','".$datos['TipoPago']."', '".$datos['NumeroTransaccion']."', 
 	'".$datos['Clase']."', '".$datos['Marca']."', '".$datos['Modelo']."','".$datos['Anio']."','".$datos['Color']."','".$datos['Placa']."','".$datos['Tipo']."','".$datos['Puestos']."','".$datos['SerialMotor']."', '".$datos['SerialCarroceria']."','".$datos['Estatus']."', 
-	'".$datos['TotalSinIva']."', '".$datos['TotalConIva']."', '".$datos['PagoRealizado']."', '".$datos['Observacion']."', '".$datos['IdV']."', '".$datos['Kilometraje']."', '".$datos['CantidadServicios']."','".$datos['Respaldo']."','".$datos['IdRespaldo']."');\n");
+	'".$datos['TotalSinIva']."', '".$datos['TotalConIva']."', '".$datos['PagoRealizado']."', '".$datos['Observacion']."', '".$datos['IdV']."', '".$datos['Kilometraje']."', '".$datos['CantidadServicios']."','".$datos['Respaldo']."',null);\n");
 	}
 	
 	
@@ -166,7 +127,10 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 			unlink($file); // lo elimina
 		}	
 		
+        $array_respaldo = array();
+        $array_respaldo['Nombre'] = "admin_tugruero_".$fecha.".zip";
 		$this->updateRespaldo();
+        $this->saveRespaldo($array_respaldo);
 	}
 
 	function respaldoSolicitudPlan(){
@@ -230,5 +194,23 @@ UPDATE SolicitudPlan SET Respaldo = 1;
 			$q = $ConnectionORM->ejecutarPreparado($query);
 			return $q;
 		}
+        function saveRespaldo($values){
+		
+			$array = array(
+				'Nombre' => $values['Nombre'],
+				'Fecha' => date('Y-m-d h:i:s'),
+			);
+			
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Respaldos()->insert($array);
+        }
+	function listarRespaldos(){
+		$ConnectionORM = new ConnectionORM();
+		$q = $ConnectionORM->getConnect()->Respaldos
+		->select("*,DATE_FORMAT(Fecha, '%d/%m/%Y %H:%i:%s') as Fecha")
+        ->order("Fecha desc")
+		->limit(3);
+		return $q;
+	}
 	
 }

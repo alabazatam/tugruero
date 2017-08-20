@@ -33,16 +33,19 @@ $values = array_merge($values,$_FILES);
 	}
 	function executeIndex($values = null)
 	{
-		require('list_view.php');
+		require('respaldo.php');
 	}
 	function executeGenerar($values = null)
 	{    
 		
 		$Respaldar = new Respaldar();
 		$Respaldar->generarRespaldo();
+        
+        $values['msg'] = "Respaldo generado satisfactoriamente.";            
+        executeNew($values);
 	}
 	function executeNew($values = null)
-	{
+	{   
 		$values['action'] = 'generar';
 		require('form_view.php');
 	}
@@ -52,10 +55,12 @@ $values = array_merge($values,$_FILES);
 		require('respaldo.php');
 	}
 	function executeRestaurar($values)
-	{    
+	{   
+
 	$carpeta = "../../web/files/Restaurar";
 	$fichero_subido = $carpeta."/";
 	$unzip = true;
+           
             if(isset($values['zip']) and $values['zip']['size']>0){
 				
                 $nombreArchivo = "respaldo".".".pathinfo($values['zip']['name'],PATHINFO_EXTENSION);
@@ -68,7 +73,6 @@ $values = array_merge($values,$_FILES);
 								$zip->close();
 
 								/***mover los archivos a la carpeta de solicitudes y cuadros**/
-
 								$files_cuadros = glob("../../web/files/Restaurar/Cuadros/*"); // obtiene todos los archivos
 								foreach($files_cuadros as $file){
 									$filename = str_replace("../../web/files/Restaurar/Cuadros/", "", $file);
@@ -100,6 +104,7 @@ $values = array_merge($values,$_FILES);
 								}
 					$Respaldar = new Respaldar();
 					$Respaldar->Restaurar($sql);
+                    $Respaldar->Restaurar("CALL cargar_ventas_stand();");
 					unlink("../../web/files/Restaurar/respaldo.zip");
 					}
 				}else{
