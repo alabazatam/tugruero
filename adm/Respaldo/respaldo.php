@@ -12,3 +12,16 @@
 		<button type="submit" class="btn btn-default"><i class="fa fa-save fa-pull-left fa-border"></i> Subir respaldo</button>
 	</form>
 </div>
+<?php include('../../view_footer_solicitud.php');?>
+<script>
+$(document).ready(function(){
+    <?php if(isset($values['error']) and $values['error']!=''):?>
+			$('.modal-body').html('<div class="alert alert-danger" role="alert"><?php echo $values['error'];?></div>');
+			$('#myModal').modal('show');
+    <?php endif;?>
+    <?php if(isset($values['msg']) and $values['msg']!=''):?>
+			$('.modal-body').html('<div class="alert alert-success" role="alert"><?php echo $values['msg'];?></div>');
+			$('#myModal').modal('show');
+    <?php endif;?>
+});  
+</script>

@@ -212,5 +212,12 @@ class Respaldar {
 		->limit(3);
 		return $q;
 	}
-	
+	function respaldoRealizado($Nombre){
+		$ConnectionORM = new ConnectionORM();
+		$q = $ConnectionORM->getConnect()->Respaldos
+		->select("count(*) as cuenta")
+        ->where("Nombre=?",$Nombre)
+        ->fetch();
+		return $q['cuenta'];
+	}	
 }

@@ -28,7 +28,7 @@ $values = array_merge($values,$_FILES);
 		break;
 	
 		default:
-			executeNew($values);
+			executeSubir($values);
 		break;
 	}
 	function executeIndex($values = null)
@@ -60,9 +60,19 @@ $values = array_merge($values,$_FILES);
 	$carpeta = "../../web/files/Restaurar";
 	$fichero_subido = $carpeta."/";
 	$unzip = true;
-           
+    $Respaldar = new Respaldar();
+    
             if(isset($values['zip']) and $values['zip']['size']>0){
 				
+                $respaldo_realizado = $Respaldar->respaldoRealizado($values['zip']['name']);
+                
+                if($respaldo_realizado == 1){
+                    
+                    $values['error'] = "Ya se ha subido este respaldo";
+                    executeSubir($values);die;
+                }
+                
+                
                 $nombreArchivo = "respaldo".".".pathinfo($values['zip']['name'],PATHINFO_EXTENSION);
 				//echo $fichero_subido.$nombreArchivo;die;
                 if (move_uploaded_file($values['zip']['tmp_name'], $fichero_subido.$nombreArchivo)){
@@ -102,10 +112,13 @@ $values = array_merge($values,$_FILES);
 									$filename = str_replace("../../web/files/Restaurar/", "", $file);
 									unlink($file);
 								}
-					$Respaldar = new Respaldar();
+					
 					$Respaldar->Restaurar($sql);
                     $Respaldar->Restaurar("CALL cargar_ventas_stand();");
+                    $values['Nombre'] = $values['zip']['name'];
+                    $Respaldar->saveRespaldo($values);
 					unlink("../../web/files/Restaurar/respaldo.zip");
+                    $values['msg'] = "Carga de planes completa.";
 					}
 				}else{
 					echo "No se subio el archivo zip";die;
@@ -114,6 +127,6 @@ $values = array_merge($values,$_FILES);
             }
 
 			
-			executeSubir();die;
+			executeSubir($values);die;
 
 	}
