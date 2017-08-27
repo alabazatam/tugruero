@@ -163,7 +163,7 @@ $values = array_merge($values,$_FILES);
 		{
 			foreach ($list_json as $list) 
 			{   
-                
+                $cuadro_rcv = "";
 				$idSolicitudPlan = $list['idSolicitudPlan'];
 				$status = $list['status'];
 				if($status == 'Desactivado')
@@ -175,7 +175,11 @@ $values = array_merge($values,$_FILES);
 					$message_status = "<label class='label label-success'>Activo</label>";
 				}
 				
-				
+				if($list['NombreVendedor']=='tugruero.com'){
+                    $cuadro_rcv = $idSolicitudPlan.'_rcv.pdf';
+                }else{
+                    $cuadro_rcv = $list['PolizaAsistir'].'.pdf';
+                }
 				if($list['EstatusAbr']=="ENV")
 				{
 					$array_json['data'][] = array(
@@ -238,7 +242,7 @@ $values = array_merge($values,$_FILES);
 												<ul class="dropdown-menu dropdown-menu-right">
 												  <li><a href="'.full_url.'/adm/solicitud_plan/index.php?action=edit&idSolicitudPlan='.$idSolicitudPlan.'"> <i class="fa fa-edit"></i> Editar</a></li>
 												  <li><a href="'.full_url.'/web/files/Cuadros/'.$list['NumProducto'].'.pdf" class="" target="_blank" title="Imprimir Cuadro"><i class="fa fa-file-pdf-o"></i> Cuadro póliza</a></li>
-												  <li><a href="'.full_url.'/web/files/Cuadros/'.$idSolicitudPlan.'_rcv.pdf" class="" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o"></i> Cuadro RCV</a></li>
+												  <li><a href="'.full_url.'/web/files/Cuadros/'.$cuadro_rcv.'" class="" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o"></i> Cuadro RCV</a></li>
 												</ul>
 										  </div>'
 						);	
@@ -286,7 +290,7 @@ $values = array_merge($values,$_FILES);
 											</button>
 												<ul class="dropdown-menu dropdown-menu-right">
 												  <li><a href="'.full_url.'/adm/solicitud_plan/index.php?action=edit&idSolicitudPlan='.$idSolicitudPlan.'"> <i class="fa fa-edit"></i> Editar</a></li>
-												  <li><a href="'.full_url.'/web/files/Cuadros/'.$idSolicitudPlan.'_rcv.pdf" class="" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o"></i> Cuadro RCV</a></li>
+												  <li><a href="'.full_url.'/web/files/Cuadros/'.$cuadro_rcv.'" class="" target="_blank" title="Imprimir RCV"><i class="fa fa-file-pdf-o"></i> Cuadro RCV</a></li>
 												</ul>
 										  </div>'
 						);	 
