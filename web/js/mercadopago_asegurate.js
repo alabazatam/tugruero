@@ -195,7 +195,7 @@ $(document).ready(function(){
                                         //console.log('arriba');
                                         if(status !='rejected'){
                                             $.ajax({
-                                                    url: "https://tugruero.com/pl/jleal/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val() + "&email=" + email,
+                                                    url: "https://tugruero.com/pl/asegurate/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val() + "&email=" + email,
                                                     data: data ,
                                                     dataType: "json",
                                                     error: function(response){
@@ -211,7 +211,7 @@ $(document).ready(function(){
                                                             $(".mercadopagodiv").html('');
                                                             $(".mercadopagodiv").removeClass('well');
                                                             $('#ModalLoading').modal('toggle');  
-                                                            $("#mercadopagodivpagado").html("</br></br></br></br></br></br></br><div class='col-sm-3'></div><div  class='col-sm-6 alert alert-success'>¡LISTO! Ya procesamos su pago. Le hemos enviado un correo electrónico al indicado en el proceso de registro. Por favor revise su Bandeja de entrada o Spam.</div><div class='col-sm-3'></div><div class='col-sm-12 text-center'><a class='btn btn-success' href='http://www.corredorleal.com/'>Aceptar</a></div>");
+                                                            $("#mercadopagodivpagado").html("</br></br></br></br></br></br></br><div class='col-sm-3'></div><div  class='col-sm-6 alert alert-success'>¡LISTO! Ya procesamos su pago. Le hemos enviado un correo electrónico al indicado en el proceso de registro. Por favor revise su Bandeja de entrada o Spam.</div><div class='col-sm-3'></div><div class='col-sm-12 text-center'><a class='btn btn-success' href='http://www.asegurate.com.ve/'>Aceptar</a></div>");
                                                         }
                                                     }
                                             });   
