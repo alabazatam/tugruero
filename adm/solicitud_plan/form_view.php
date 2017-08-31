@@ -401,7 +401,9 @@ $hidden = '';
                     <option value="">Seleccione...</option> 
                     <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>                   
                     <option value="Cross Over" <?php if(isset($values['Tipo']) and $values['Tipo']=='Cross Over') echo "selected = 'selected'"?> >Cross Over</option>                   
-                    <option value="Hatchback" <?php if(isset($values['Tipo']) and $values['Tipo']=='Hatchback') echo "selected = 'selected'"?> >Hatchback</option>                   
+                    <option value="Furgón" <?php if(isset($values['Tipo']) and $values['Tipo']=='Furgón') echo "selected = 'selected'"?> >Furgón</option>                   
+                    <option value="Hatchback" <?php if(isset($values['Tipo']) and $values['Tipo']=='Hatchback') echo "selected = 'selected'"?> >Hatchback</option> 
+                    <option value="Panel" <?php if(isset($values['Tipo']) and $values['Tipo']=='Panel') echo "selected = 'selected'"?> >Panel</option> 
                     <option value="Pick Up" <?php if(isset($values['Tipo']) and $values['Tipo']=='Pick Up') echo "selected = 'selected'"?> >Pick Up</option>                   
                     <option value="Rústico" <?php if(isset($values['Tipo']) and $values['Tipo']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>                   
                     <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>                   

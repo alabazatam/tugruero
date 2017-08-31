@@ -169,11 +169,11 @@
                 {
                     $errors['Apellidos'] = "El campo debe contener solamente letras";
                 }
-                if (!preg_match("/^[Vv,Ee][-][1-9][0-9]{5,7}$/", $values['Cedula'], $matches))      
+                if (!preg_match("/^[Vv,Ee,Gg,Jj][-][1-9][0-9]{5,7}$/", $values['Cedula'], $matches))      
                 {
                     $errors['Cedula'] = "Verifique el formato de la cédula (V-1234567)";
                 }
-                if (!preg_match("/^[Vv,Ee][-][0-9]{6,9}$/", $values['Rif'], $matches))      
+                if (!preg_match("/^[Vv,Ee,Gg,Jj][-][0-9]{6,9}$/", $values['Rif'], $matches))      
                 {
                     $errors['Rif'] = "Verifique el formato del RIF (V-12345670)";
                 }
