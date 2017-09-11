@@ -419,7 +419,7 @@
 			$array_planes = array($values['idPlan']);
                         //actualizo el Kilometraje y la cantidad de servicios acorde al plan seleccionado
                         $datos_plan = $this->getDatosPlan($values['idPlan']);
-                        $this->updateCantidadServiciosKm($values['idSolicitudPlan'],$datos_plan);
+                        $this->updateCantidadServiciosKm($values['idSolicitudPlan'],$datos_plan,$values);
 			$Planes = new Planes();
 			if(isset($values['RCV']) and $values['RCV']=='SI' and isset($values['Puestos'])){
 				
@@ -544,7 +544,7 @@
                         if(isset($values['idPlan']) and $values['idPlan']!=""){
                                     //actualizo el km acorde a lo que existe en la tabla planes
                                     $datos_plan = $this->getDatosPlan($values['idPlan']);
-                                    $this->updateCantidadServiciosKm($values['idSolicitudPlan'],$datos_plan);
+                                    $this->updateCantidadServiciosKm($values['idSolicitudPlan'],$datos_plan,$values);
                                     /////////////////////////////////////////////
                                     $array_planes = array($values['idPlan']);
                                     $TotalConIva = $precio_tugruero;
@@ -672,6 +672,7 @@
 			return $q['cuenta']; 				
 			
 		}
+
                 public function getSolicitudPlanInfo($idSolicitudPlan){
                        $ConnectionORM = new ConnectionORM();
 			$q = $ConnectionORM->getConnect('tugruero')->SolicitudPlan
@@ -887,10 +888,17 @@
                             return $q; 
 
             }
-        function updateCantidadServiciosKm($idSolicitudPlan,$datos_plan){			
+        function updateCantidadServiciosKm($idSolicitudPlan,$datos_plan,$values = array()){			
+            
+            $Planes = new Planes();
+            $recarga = $Planes->getDatosPreciosRecargas($datos_plan['idPlan'],$values['Anio']);
+            
+
             $array = array(
-                    'Kilometraje' => $datos_plan['Kilometraje'],
-                    'CantidadServicios' => $datos_plan['CantidadServicios']);
+                    'Kilometraje' => $recarga['Kilometraje'],
+                    'CantidadServicios' => $recarga['CantidadServicios']);
+            
+            
             $ConnectionORM = new ConnectionORM();
             $q = $ConnectionORM->getConnect()->SolicitudPlan("idSolicitudPlan", $idSolicitudPlan)->update($array);	
         

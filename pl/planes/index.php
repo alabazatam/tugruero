@@ -109,13 +109,25 @@ $values = array_merge($values,$_FILES);
             $Puestos = $values['Puestos'];
             $idPlan = $values['id_plan'];
             $precio_plan = 0;
+            $Anio = $values['Anio'];
          
             if($idPlan!=''){
                 $precio_plan = ($Planes->getPrecioPlan($idPlan));
-               
+                if(isset($Anio) and $Anio !=''){
+                    $recarga = $Planes->getDatosPreciosRecargas($idPlan,$Anio);
+                    $precio_plan = $recarga["PrecioRecarga"];    
+                    //echo $precio_plan;die;
+                    
+                }
                 
                 if(isset($values['RCV']) and $values['RCV']=='SI' ){
                     $precio_plan = ($Planes->getPrecioPlan($idPlan));
+                    if(isset($Anio) and $Anio !=''){
+                        $recarga = $Planes->getDatosPreciosRecargas($idPlan,$Anio);
+                        $precio_plan = $recarga["PrecioRecarga"];    
+                        //echo $precio_plan;die;
+
+                    }
                     $precio_rcv = $Planes->getPrecioRCV($Puestos);
                     $precio_plan = $precio_plan + $precio_rcv;
                      

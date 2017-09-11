@@ -105,6 +105,19 @@
 			
 			return number_format($q['PrecioIva'],2,",",".");	
 		}
+		public function getDatosPreciosRecargas($idPlan, $Anio){
+			$ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->PlanesRecarga
+			->select("*,(p.Precio * Factor) AS PrecioRecarga, PlanesRecarga.Kilometraje, PlanesRecarga.CantidadServicios")
+            ->join("Planes","INNER JOIN Planes p on p.idPlan = PlanesRecarga.idPlan")
+			->where("AnioDesde <= $Anio AND AnioHasta >= $Anio")
+            ->and('PlanesRecarga.idPlan=?',$idPlan)
+			//echo $q;die;
+			->fetch();
+			return $q; 				
+			
+		}
+
 
 	}
 	

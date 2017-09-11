@@ -63,7 +63,7 @@
 			"maxlength" => 11,
 			"type" => "text",
 			"label" => "RIF",
-			"required" => true
+			"required" => false
 		);
 		$validator_values['Correo'] = array(
 			
@@ -72,22 +72,6 @@
 			"type" => "email",
 			"label" => "",
 			"required" => true
-		);
-		$validator_values['Correo2'] = array(
-			
-			"minlength" => 1,
-			"maxlength" => 100,
-			"type" => "email",
-			"label" => "",
-			"required" => true
-		);
-		$validator_values['Telefono'] = array(
-			
-			"minlength" => 11,
-			"maxlength" => 11,
-			"type" => "number",
-			"label" => "Teléfono de habitación",
-			"required" => false
 		);
 		$validator_values['Celular'] = array(
 			
@@ -173,16 +157,8 @@
                 {
                     $errors['Cedula'] = "Verifique el formato de la cédula (V-1234567)";
                 }
-                if (!preg_match("/^[Vv,Ee,Gg,Jj][-][0-9]{6,9}$/", $values['Rif'], $matches))      
-                {
-                    $errors['Rif'] = "Verifique el formato del RIF (V-12345670)";
-                }
                 if (!preg_match("/^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$/", $values['FechaNacimiento'])) {
                      $errors['FechaNacimiento'] = "Verifique el formato de la fecha de nacimiento (01/01/1980)";
-                }
-                if ( isset($values['Telefono']) and $values['Telefono']!='' and !preg_match("/^[0][2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
-                {
-                    $errors['Telefono'] = "Formato o número incorrecto (Ejemplo: 02121234567))";
                 }
                 if (!preg_match("/^[0][4][1-2][2,4,6][0-9]{7}$/", $values['Celular'], $matches))      
                 {
@@ -218,9 +194,6 @@
                 if(!isset($values['MET']) or $values['MET']==''){
                     $errors['MET'] = 'Debe indicar el método de pago';
                 }
-		if( (isset($values['Correo']) and isset($values['Correo2']) ) and $values['Correo'] != $values['Correo2']  ){
-                    $errors['Correo2'] = 'Los correos electrónicos deben coincidir';
-		}
                 
 
                 /**************valido que esa placa no se encuentre en una solicitud que este en proceso para evitar duplicados******************************************/
@@ -240,37 +213,42 @@
           /******************Validación de archivos*************************/ 
         //echo $files['Licencia']['size'];die;
 		$array_extensions = array('jpg','JPG','PNG','png','jpeg','JPEG','pdf','PDF','octet-stream');
-		
+		if(isset($values['RCV']) and $values['RCV']=='SI'){
                 
-		if($_FILES['CedulaDoc']['size']>0)
-		{
-			if(!in_array(pathinfo($_FILES['CedulaDoc']['name'],PATHINFO_EXTENSION),$array_extensions)) 
-			{
-				$errors['CedulaDoc']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
-			}
-			if($_FILES['CedulaDoc']['size']>max_input_size)
-			{
-				$errors['CedulaDoc']= message_max_size;
-			}
-		}else
-		{
-			$errors['CedulaDoc']= "Debe seleccionar un archivo para la Cédula";
-		}
-               
-		if($_FILES['CarnetCirculacion']['size']>0)
-		{
-			if(!in_array(pathinfo($_FILES['CarnetCirculacion']['name'],PATHINFO_EXTENSION),$array_extensions)) 
-			{
-				$errors['CarnetCirculacion']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
-			}
-			if($_FILES['CarnetCirculacion']['size']>max_input_size)
-			{
-				$errors['CarnetCirculacion']= message_max_size;
-			}
-		}else
-		{
-			$errors['CarnetCirculacion']= "Debe seleccionar un archivo para el carnet de circulación";
-		}
+        
+                if($_FILES['CedulaDoc']['size']>0)
+                {
+                    if(!in_array(pathinfo($_FILES['CedulaDoc']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+                    {
+                        $errors['CedulaDoc']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+                    }
+                    if($_FILES['CedulaDoc']['size']>max_input_size)
+                    {
+                        $errors['CedulaDoc']= message_max_size;
+                    }
+                }else
+                {
+                    $errors['CedulaDoc']= "Debe seleccionar un archivo para la Cédula";
+                }
+
+                if($_FILES['CarnetCirculacion']['size']>0)
+                {
+                    if(!in_array(pathinfo($_FILES['CarnetCirculacion']['name'],PATHINFO_EXTENSION),$array_extensions)) 
+                    {
+                        $errors['CarnetCirculacion']= "Solamente se permiten los tipos de archivos JPG, JPEG, PNG y PDF";
+                    }
+                    if($_FILES['CarnetCirculacion']['size']>max_input_size)
+                    {
+                        $errors['CarnetCirculacion']= message_max_size;
+                    }
+                }else
+                {
+                    $errors['CarnetCirculacion']= "Debe seleccionar un archivo para el carnet de circulación";
+                }         
+                    
+        }
+                
+
 		
                 
                 
