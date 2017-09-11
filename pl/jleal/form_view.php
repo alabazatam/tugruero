@@ -98,7 +98,7 @@
 		<p class="subtitulo_planes_jleal"><strong>Información personal</strong></p>
 	</div>
 
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-4">
                     <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;<small> (V-12345678)</small>
               <div class="">
                   <input type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
@@ -108,17 +108,7 @@
 
                   <?php endif;?>
             </div>
-              <div class="form-group col-sm-3">
-                      <label for="Rif" class=" control-label">RIF</label> <label class="text-danger"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;<small> (V-123456781)</small>
-                <div class="">
-                    <input type="text" name="Rif" class="form-control" maxlength="11" autocomplete="off" value="<?php if(isset($values['Rif']) and $values['Rif']!='') echo $values['Rif'];?>" id="Rif" placeholder="Ejemplo: V-123456781">
-                </div>
-                    <?php if(isset($errors['Rif']) and $errors['Rif']!=''):?>
-                    <div id="" class="alert alert-danger"><?php echo $errors['Rif'];?></div>
-
-                    <?php endif;?>
-              </div>
-              <div class="form-group col-sm-3">
+              <div class="form-group col-sm-4">
                 <label for="Nombres" class="control-label">Nombres</label> <label class="text-danger"> * </label>
                 <div class="">
                     <input type="text" name="Nombres" class="form-control" autocomplete="off" maxlength="50" id="Nombres" value="<?php if(isset($values['Nombres']) and $values['Nombres']!='') echo $values['Nombres'];?>" placeholder="Ejemplo: Juan José">
@@ -127,8 +117,8 @@
                     <div id="" class="alert alert-danger"><?php echo $errors['Nombres'];?></div>
                     <?php endif;?>
               </div>
-              <div class="form-group col-sm-3">
-                <label for="Apellidos" class="2 control-label">Apellidos</label> <label class="text-danger"> * </label>
+              <div class="form-group col-sm-4">
+                <label for="Apellidos" class="control-label">Apellidos</label> <label class="text-danger"> * </label>
                 <div class="">
                     <input type="text" name="Apellidos" class="form-control" autocomplete="off" maxlength="50" id="Apellidos" value="<?php if(isset($values['Apellidos']) and $values['Apellidos']!='') echo $values['Apellidos'];?>"  placeholder="Ejemplo: Alvarez Pérez">
                 </div>
@@ -190,26 +180,6 @@
 
         <?php endif;?>
   </div>
-  <div class="form-group col-sm-6">
-    <label for="Correo2" class="control-label">Confirme su correo electrónico</label> <label class="text-danger"> * </label>
-    <div class="">
-      <input type="email" class="form-control" name="Correo2" autocomplete="off" id="Correo2" maxlength="100" value="<?php if(isset($values['Correo2']) and $values['Correo2']!='') echo $values['Correo2'];?>" placeholder="Ejemplo: correo@gmail.com">
-    </div>
-        <?php if(isset($errors['Correo2']) and $errors['Correo2']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['Correo2'];?></div>
-
-        <?php endif;?>    
-  </div>
-  <div class="form-group col-sm-6">
-    <label for="Telefono" class="control-label">Teléfono de habitación</label> <label class="text-danger">  </label>&nbsp;&nbsp;&nbsp;<small> (02121234567)</small>
-    <div class="">
-        <input type="text" name="Telefono" class="form-control" autocomplete="off" id="Telefono" maxlength="11" value="<?php if(isset($values['Telefono']) and $values['Telefono']!='') echo $values['Telefono'];?>" placeholder="Ejemplo: 02121234567">
-    </div>
-        <?php if(isset($errors['Telefono']) and $errors['Telefono']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['Telefono'];?></div>
-
-        <?php endif;?>
-  </div> 
   <div class="form-group col-sm-6">
     <label for="Celular" class="control-label">Celular</label> <label class="text-danger"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;<small> (04141234567)</small>
     <div class="">
@@ -375,7 +345,7 @@
         <select name="Anio" id="Anio" class="form-control">
                     <option value="">Seleccione...</option>
 
-                <?php for($anio = (date('Y')-17); $anio<=date('Y'); $anio++):?>
+                <?php for($anio = (date('Y')-37); $anio<=date('Y'); $anio++):?>
                     <option value="<?php echo $anio?>" <?php if(isset($values['Anio']) and $anio == $values['Anio']) echo "selected='selected'";?>><?php echo $anio?></option>    
                 <?php endfor;?>
  
@@ -548,7 +518,7 @@
 
 $(document).ready(function(){
 	
-			calculaPrecio();
+	
 			$('#mensajetarjeta').hide();
             $('#mensajedeposito').hide();
 			$("#sendForm").submit(function(){
@@ -572,7 +542,7 @@ $(document).ready(function(){
             $('.CedulaDiv').show();
             $('.RifDiv').show();
             $('.LicenciaDiv').show();
-            $('.CarnetCirculacionDiv').show();
+            $('.CarnetCirculacionDiv').hide();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
 <?php endif;?>
@@ -607,6 +577,7 @@ $(document).ready(function(){
 <?php if((!isset($values['MET']))):?>
         $('.DEPOSITO').hide();
 <?php endif;?>   
+
     $('#idPlan').change(function(e){
     calculaPrecio();       
     });
@@ -632,10 +603,10 @@ $(document).ready(function(){
         }else{
             console.log('seleccione no');
             $('.Puestos').hide();
-            $('.CedulaDiv').show();
-            $('.RifDiv').show();
-            $('.LicenciaDiv').show();
-            $('.CarnetCirculacionDiv').show();
+            $('.CedulaDiv').hide();
+            $('.RifDiv').hide();
+            $('.LicenciaDiv').hide();
+            $('.CarnetCirculacionDiv').hide();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
         }
@@ -661,6 +632,10 @@ $(document).ready(function(){
     $('#Puestos').change(function(e){
     calculaPrecio();       
     });
+    
+    $('#Anio').change(function(e){
+    calculaPrecio();       
+    }); 
     $('.MET').change(function(e){
         if($('.MET:checked').val() == 'DEP'){
             $('.DEPOSITO').show();
@@ -672,7 +647,7 @@ $(document).ready(function(){
 
         
     });    
-    
+   
 });
 
 	function submitForm(){
@@ -680,12 +655,14 @@ $(document).ready(function(){
 		$('#ModalLoading').modal('show');
 	}
     function calculaPrecio(){
+        var Anio = $("#Anio :selected").val();
         $.ajax({
         url: '<?php echo full_url?>/pl/planes/index.php',
-	data: { action: "precio_plan",id_plan: $('#idPlan').val(), RCV: $('.RCV:checked').val(), Puestos: $('#Puestos').val()},
+	data: { action: "precio_plan","Anio": Anio ,id_plan: $('#idPlan').val(), RCV: $('.RCV:checked').val(), Puestos: $('#Puestos').val()},
 	success: function(data){
             $('.PlanPrecio').html("<p><b>Total a pagar con IVA:</b> Bs. " + data.precio + ".</p>")
             $('#precio').val(data.precio_sin_formato);
+            console.log(data.precio_sin_formato);
 	},
           dataType: 'JSON'
         });        

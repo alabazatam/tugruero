@@ -99,7 +99,7 @@ $hidden = '';
         <?php endif;?>
   </div>
   <div class="form-group col-sm-3">
-    <label for="Rif" class=" control-label">RIF</label> <label class="text-danger"> * </label>
+    <label for="Rif" class=" control-label">RIF</label>
     <div class="">
         <input <?php echo $disabled;?> type="text" name="Rif" class="form-control" maxlength="11" autocomplete="off" value="<?php if(isset($values['Rif']) and $values['Rif']!='') echo $values['Rif'];?>" id="Rif" placeholder="Ejemplo: V-123456781">
     </div>
@@ -122,7 +122,7 @@ $hidden = '';
     <div class="">
         <input <?php echo $disabled;?> type="text" name="Apellidos" class="form-control" autocomplete="off" maxlength="50" id="Apellidos" value="<?php if(isset($values['Apellidos']) and $values['Apellidos']!='') echo $values['Apellidos'];?>"  placeholder="Ejemplo: Alvarez Pérez">
     </div>
-        <?php if(isset($errors['Apellidos']) and$errors['Apellidos']!=''):?>
+        <?php if(isset($errors['Apellidos']) and $errors['Apellidos']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Apellidos'];?></div>
 
         <?php endif;?>
@@ -180,7 +180,7 @@ $hidden = '';
         <?php endif;?>
   </div>
   <div class="form-group col-sm-3">
-    <label for="Telefono" class="control-label">Teléfono de habitación</label> <label class="text-danger"></label>
+    <label for="Telefono" class="control-label">Teléfono de habitación</label>
     <div class="">
         <input <?php echo $disabled;?> type="text" name="Telefono" class="form-control" autocomplete="off" id="Telefono" maxlength="11" value="<?php if(isset($values['Telefono']) and $values['Telefono']!='') echo $values['Telefono'];?>" placeholder="Ejemplo: 02121234567">
     </div>
@@ -255,7 +255,7 @@ $hidden = '';
               <?php endif;?>
         </div>
   <div class="form-group col-sm-12 RCV_SI CedulaDiv">
-      <label for="CedulaDoc" class="control-label">Cédula</label> <label class="text-danger"> * </label> 
+      <label for="CedulaDoc" class="control-label">Cédula</label>
       <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "Cedula"); ?>
       <?php if($NombreDocumento !=""):?>
         <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
@@ -271,40 +271,8 @@ $hidden = '';
 
         <?php endif;?>
   </div>
-  <!--<div class="form-group col-sm-12 RCV_SI RifDiv">
-    <label for="RifDoc" class="control-label">Rif</label> <label class="text-danger"> * </label>
-      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "Rif"); ?>
-      <?php if($NombreDocumento !=""):?>
-        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
-            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
-        </a>
-      <?php endif;?>
-    <div class="">
-        <input <?php echo $disabled;?> type="file" name="RifDoc" class="form-control "  id="RifDoc" accept="application/pdf,image/x-png,image/gif,image/jpeg">
-    </div>
-        <?php if(isset($errors['RifDoc']) and $errors['RifDoc']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['RifDoc'];?></div>
-
-        <?php endif;?>
-  </div>
-  <div class="form-group col-sm-12 RCV_SI LicenciaDiv">
-    <label for="Licencia" class="control-label">Licencia</label> <label class="text-danger"> * </label>
-      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "Licencia"); ?>
-      <?php if($NombreDocumento !=""):?>
-        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
-            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
-        </a>
-      <?php endif;?>
-    <div class="">
-        <input <?php echo $disabled;?> type="file" name="Licencia" class="form-control "  id="Licencia" accept="application/pdf,image/x-png,image/gif,image/jpeg">
-    </div>
-        <?php if(isset($errors['Licencia']) and $errors['Licencia']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['Licencia'];?></div>
-
-        <?php endif;?>
-  </div>-->
   <div class="form-group col-sm-12 CarnetCirculacionDiv">
-    <label for="CarnetCirculacion" class="control-label">Carnet de circulación</label> <label class="text-danger"> * </label>
+    <label for="CarnetCirculacion" class="control-label">Carnet de circulación</label>
       <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "CarnetCirculacion"); ?>
       <?php if($NombreDocumento !=""):?>
         <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
@@ -319,38 +287,6 @@ $hidden = '';
 
         <?php endif;?>
   </div>
-  <!--<div class="form-group col-sm-12 CertificadoMedicoDiv">
-    <label for="inputEmail3" class="control-label">Certificado médico</label> <label class="text-danger"> * </label>
-      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "CertificadoMedico"); ?>
-      <?php if($NombreDocumento !=""):?>
-        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
-            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
-        </a>
-      <?php endif;?>
-    <div class="">
-        <input <?php echo $disabled;?> type="file" name="CertificadoMedico" class="form-control " id="CertificadoMedico" accept="application/pdf,image/x-png,image/gif,image/jpeg">
-    </div>
-        <?php if(isset($errors['CertificadoMedico']) and $errors['CertificadoMedico']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['CertificadoMedico'];?></div>
-
-        <?php endif;?>
-  </div>
-  <div class="form-group col-sm-12 CertificadoOrigenDiv">
-    <label for="certificadoOrigen" class="control-label">Certificado de origen del vehículo (Título de propiedad)</label> <label class="text-danger"> * </label>
-      <?php $NombreDocumento = $SolicitudDocumentos->getDocumentoByTipo($values['idSolicitudPlan'], "CertificadoOrigen"); ?>
-      <?php if($NombreDocumento !=""):?>
-        <a class="" target="_blank" href="<?php echo full_url?>/web/files/Solicitudes/<?php echo $NombreDocumento;?>">
-            <i class="fa fa-eye alert alert-success" aria-hidden="true"> Descargar/Ver</i>
-        </a>
-      <?php endif;?>
-    <div class="">
-        <input <?php echo $disabled;?> type="file" name="CertificadoOrigen" class="form-control" id="CertificadoOrigen" accept="application/pdf,image/x-png,image/gif,image/jpeg">
-    </div>
-    <?php if(isset($errors['CertificadoOrigen']) and $errors['CertificadoOrigen']!=''):?>
-        <div id="" class="alert alert-danger"><?php echo $errors['CertificadoOrigen'];?></div>
-
-        <?php endif;?>
-  </div>-->
         <div class="form-group col-sm-12">
           <label for="Clase" class="control-label">Clase</label> <label class="text-danger"> * </label>
           <div class="">
@@ -423,7 +359,7 @@ $hidden = '';
         <select <?php echo $disabled;?> name="Anio" id="Anio" class="form-control">
                     <option value="">Seleccione...</option>
 
-                <?php for($anio = (date('Y')-27); $anio<=date('Y'); $anio++):?>
+                <?php for($anio = (date('Y')-37); $anio<=date('Y'); $anio++):?>
                     <option value="<?php echo $anio?>" <?php if(isset($values['Anio']) and $anio == $values['Anio']) echo "selected='selected'";?>><?php echo $anio?></option>    
                 <?php endfor;?>
  
@@ -793,6 +729,9 @@ $('#rechazo').hide();
     $('#idPlan').change(function(e){
     calculaPrecioTugruero();       
     });
+    $('#Anio').change(function(e){
+    calculaPrecioTugruero();       
+    });
     $('#Clase').change(function(e){
         if($('#Clase').val()=='Moto'){
             $('.TIPO').hide();
@@ -901,15 +840,17 @@ $('#rechazo').hide();
 });
 
     function calculaPrecioTugruero(){
+	    var Anio = $("#Anio :selected").val();
         if($('#action').val() == 'update'){
             
             return false;
         }
         $.ajax({
         url: '<?php echo full_url?>/adm/solicitud_plan/index.php',
-	data: { action: "precio_tugruero",id_plan: $('#idPlan').val(), RCV: $('.RCV:checked').val(), Puestos: $('#Puestos').val()},
+	data: { action: "precio_tugruero","Anio": Anio,id_plan: $('#idPlan').val(), RCV: $('.RCV:checked').val(), Puestos: $('#Puestos').val()},
 	success: function(data){
-            //$('.PlanPrecio').html("<p><b>Total a pagar:</b> " + data.precio + " Bs.</p>")
+            $("#Kilometraje").val(data.Kilometraje);
+			$("#CantidadServicios").val(data.CantidadServicios);
             $('#precio_tugruero').val(data.precio_sin_formato);
             calculaAmount();
 	},
@@ -952,8 +893,8 @@ $('#rechazo').hide();
             precio_rcv = 0;
             //alert("nan rcv");
         }
-        console.log("precio_tugruero" + precio_tugruero);
-        console.log("precio_rcv" + precio_rcv);
+        //console.log("precio_tugruero" + precio_tugruero);
+        //console.log("precio_rcv" + precio_rcv);
         var total = parseFloat(precio_tugruero) + parseFloat(precio_rcv);
         $('#transaction_amount').val(total);
         

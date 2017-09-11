@@ -472,12 +472,24 @@ $values = array_merge($values,$_FILES);
             $Planes = new Planes();
             $Puestos = $values['Puestos'];
             $idPlan = $values['id_plan'];
-            $precio_plan = 0;         
+            $precio_plan = 0; 
+			$Anio = $values['Anio'];
             if($idPlan!=''){
             $precio_plan = ($Planes->getPrecioPlan($idPlan));
+                if(isset($Anio) and $Anio !=''){
+                    $recarga = $Planes->getDatosPreciosRecargas($idPlan,$Anio);
+                    $precio_plan = $recarga["PrecioRecarga"];    
+                    //echo $precio_plan;die;
+                    
+                }
+			
+			
             $precio_plan_formateado = number_format($precio_plan,2,",",".");
             $array= array('precio' => $precio_plan_formateado, 'precio_sin_formato' => $precio_plan);  
-            
+			if(count($recarga)>0){
+				$array["Kilometraje"] = $recarga["Kilometraje"];
+				$array["CantidadServicios"] = $recarga["CantidadServicios"];
+			}
             
              
             }else{

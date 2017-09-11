@@ -55,7 +55,7 @@
 			"maxlength" => 10,
 			"type" => "text",
 			"label" => "Cédula",
-			"required" => true
+			"required" => false
 		);
 		$validator_values['Rif'] = array(
 			
@@ -277,7 +277,7 @@
 		}else
 		{
                         if($values['action']=='add'){
-                            $errors['CedulaDoc']= "Debe seleccionar un archivo para la Cédula";
+                            //$errors['CedulaDoc']= "Debe seleccionar un archivo para la Cédula";
                         }
 			
 		}               
@@ -294,7 +294,7 @@
 		}else
 		{   
                         if($values['action']=='add'){
-                           $errors['CarnetCirculacion']= "Debe seleccionar un archivo para el carnet de circulación";  
+                           //$errors['CarnetCirculacion']= "Debe seleccionar un archivo para el carnet de circulación";  
                         }
 			
 		}
