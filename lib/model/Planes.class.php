@@ -117,6 +117,15 @@
 			return $q; 				
 			
 		}
+		public function getTipoPlan($idPlan)
+		{	
+			
+            $ConnectionORM = new ConnectionORM();
+			$q = $ConnectionORM->getConnect()->Planes
+			->select("*")   
+            ->where('idPlan=?',$idPlan)->fetch();
+			return $q['Tipo']; 			
+		}
 
 
 	}

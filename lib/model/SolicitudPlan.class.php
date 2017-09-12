@@ -437,9 +437,13 @@
                         $IVA = $Planes->getIvaPlan($plan);
 						$PrecioSinIva = $Planes->getPrecioPlan($plan);
 						$PrecioConIva = $Planes->getPrecioPlan($plan);
-                                                
-                                                
-                                                $PrecioConIva = $Planes->getPrecioPlan($plan);
+                        
+						$tipo_plan = $Planes->getTipoPlan($plan);
+						if($tipo_plan!='RCV'){
+							$datos_precio = $Planes -> getDatosPreciosRecargas($plan, $values["Anio"]);
+							$PrecioSinIva = $datos_precio["PrecioRecarga"];
+							$PrecioConIva = $datos_precio["PrecioRecarga"];  
+						}
                                                 
 												
                                                 $TotalSinIva = $TotalSinIva + $PrecioConIva;
