@@ -298,7 +298,7 @@
                     <option value="">Seleccione...</option>
             <?php if(count($marcas_list)>0):?>
                 <?php foreach($marcas_list as $marcas):?>
-                    <option value="<?php echo $marcas['Marca']?>" <?php if(isset($values['Marca']) and $marcas['Marca'] == $values['Marca']) echo "selected='selected'";?>><?php echo $marcas['Marca']?></option>    
+                    <option value="<?php echo $marcas['Marca']?>" class="<?php echo $marcas['Tipo'];?>" <?php if(isset($values['Marca']) and $marcas['Marca'] == $values['Marca']) echo "selected='selected'";?>><?php echo $marcas['Marca']?></option>    
                 <?php endforeach;?>
             <?php endif;?>
         </select>
@@ -576,8 +576,37 @@ $(document).ready(function(){
 <?php endif;?>
 <?php if((!isset($values['MET']))):?>
         $('.DEPOSITO').hide();
-<?php endif;?>   
-
+<?php endif;?>  
+<?php if(isset($values['Clase']) and $values['Clase']!=''):?>
+         ocultaMarcas('<?php echo $values['Clase']?>',false);
+<?php endif;?>
+	$('#Clase').change(function(e){
+		ocultaMarcas($(this).val(),true);
+    });
+	function ocultaMarcas(Clase,Cambio){
+		
+		if(Cambio){
+			$('#Marca option:eq("")').prop('selected', true);
+		}
+		
+		if(Clase != 'Moto'){
+			console.log("No es moto");
+			$('.1').css("font-weight","Bold");
+			$('.2').css("font-weight","normal");
+			$('.1').css("color","#000");
+			$('.2').css("color","#ccc");
+			$('.2').attr("disabled",true);
+			$('.1').attr("disabled",false);
+		}else{
+			console.log("si es moto");
+			$('.2').css("font-weight","Bold");
+			$('.1').css("font-weight","normal");
+			$('.2').css("color","#000");
+			$('.1').css("color","#ccc");
+			$('.1').attr("disabled",true);
+			$('.2').attr("disabled",false);
+		}
+	}
     $('#idPlan').change(function(e){
     calculaPrecio();       
     });
