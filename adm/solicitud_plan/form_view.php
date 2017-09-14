@@ -393,7 +393,7 @@ $hidden = '';
   <div class="form-group col-sm-2 Puestos">
     <label for="Puestos" class="control-label">Cantidad de puestos</label> <label class="text-danger"> * </label>
     <div class="">
-        <input <?php echo $disabled;?> type="number" name="Puestos" class="form-control" id="Puestos" autocomplete="off" maxlength="1" value="<?php if(isset($values['Puestos']) and $values['Puestos']!='') echo $values['Puestos']; else echo "5";?>" min="5" max="7">
+        <input <?php echo $disabled;?> <?php echo $disabled_plan;?> type="number" name="Puestos" class="form-control" id="Puestos" autocomplete="off" maxlength="1" value="<?php if(isset($values['Puestos']) and $values['Puestos']!='') echo $values['Puestos']; else echo "5";?>" min="5" max="7">
     </div>
         <?php if(isset($errors['Puestos']) and $errors['Puestos']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Puestos'];?></div>
@@ -697,7 +697,7 @@ $('#rechazo').hide();
             $('.CertificadoOrigenDiv').hide();
 <?php endif;?>
 <?php if((!isset($values['RCV'])) or @$values['RCV']==''):?>
-            console.log('No eligio nada');
+            //console.log('No eligio nada');
             $('.Puestos').hide();
             $('.LicenciaDiv').hide();
             $('.CedulaDiv').hide();
@@ -891,7 +891,7 @@ $('#rechazo').hide();
     
         if($('#action').val() == 'update'){
             
-            return false;
+            //return false;
         }
             
         $.ajax({

@@ -599,6 +599,7 @@
 			
 		}
 		function updateSolicitudPlan($values){	
+			//print_r($values);die;
 			$Utilitarios = new Utilitarios();
                             $array_solicitud_plan = array(
 				'Nombres' => @$values['Nombres'],

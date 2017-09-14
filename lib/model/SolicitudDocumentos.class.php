@@ -49,6 +49,7 @@
 
 			);
 			$ConnectionORM = new ConnectionORM(); 
+			//echo "UPDATE SolicitudDocumentos set NombreDocumento = '".$NombreDocumento."', FechaSubida = '".date('Y-m-d h:i:s')."' where idSolicitudPlan = $idSolicitudPlan AND TipoDocumento = '$TipoDocumento'";die;
 			$q = $ConnectionORM->ejecutarPreparado("UPDATE SolicitudDocumentos set NombreDocumento = '".$NombreDocumento."', FechaSubida = '".date('Y-m-d h:i:s')."' where idSolicitudPlan = $idSolicitudPlan AND TipoDocumento = '$TipoDocumento'");
 
 

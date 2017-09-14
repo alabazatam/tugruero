@@ -63,7 +63,7 @@
 			"maxlength" => 11,
 			"type" => "text",
 			"label" => "RIF",
-			"required" => true
+			"required" => false
 		);
 		$validator_values['Correo'] = array(
 			
@@ -181,10 +181,13 @@
                 {
                     $errors['Cedula'] = "Verifique el formato de la cédula (V-1234567)";
                 }
-                if (!preg_match("/^[Vv,Ee,Gg,Jj][-][0-9]{6,9}$/", $values['Rif'], $matches))      
-                {
-                    $errors['Rif'] = "Verifique el formato del RIF (V-12345670)";
-                }
+				if(isset($values['Rif']) and $values['Rif']!=''){
+					if (!preg_match("/^[Vv,Ee,Gg,Jj][-][0-9]{6,9}$/", $values['Rif'], $matches))      
+					{
+						$errors['Rif'] = "Verifique el formato del RIF (V-12345670)";
+					}
+				}
+
                 if ( isset($values['Telefono']) and $values['Telefono']!='' and !preg_match("/^[0][2][1-9][1-9][0-9]{7}$/", $values['Telefono'], $matches))      
                 {
                     $errors['Telefono'] = "Formato o número incorrecto (Ejemplo: 02121234567))";
