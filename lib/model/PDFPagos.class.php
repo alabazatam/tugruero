@@ -184,7 +184,7 @@
                                 . '</tr>'
                                 . '<tr>'
                                 . '<td colspan="9" style="border-style: solid; border-top-width: -1px; border-right-width: 1px; border-bottom-width: -1px; border-left-width: 1px">'
-                                . '<br><strong>TERCERA:</strong> Ud., podrá solicitar nuestros servicios mediante nuestra aplicación para Smartphones (teléfonos inteligentes) “TUGRUERO app clientes”, la cual podrá ser descargada de forma gratuita desde la respectiva tienda del sistema operativo de su teléfono. A todo evento, igual podrá solicitar los servicios mediante nuestro Call-Center por los números telefónicos (0212) 2379227.'
+                                . '<br><strong>TERCERA:</strong> Ud., podrá solicitar nuestros servicios mediante nuestra aplicación para Smartphones (teléfonos inteligentes) “TUGRUERO app clientes”, la cual podrá ser descargada de forma gratuita desde la respectiva tienda del sistema operativo de su teléfono. A todo evento, igual podrá solicitar los servicios mediante nuestro Call-Center por el número telefónico, <b style="font-size: 12px;"> 0500-GRUERO-0 (0500-478376-0)</b>.'
                                 . '</td>'
                                 . '</tr>'
                                 . '<tr>'
