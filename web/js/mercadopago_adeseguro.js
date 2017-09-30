@@ -180,7 +180,7 @@ $(document).ready(function(){
                                 var email = $('#email').val();
                                 var paymentMethodId = $('#paymentMethodId').val();
                                 $.ajax({
-                                   url: "https://tugruero.com/mercadopago/pagoServicioDesarrollo.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
+                                   url: "https://tugruero.com/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
                                    data: response ,
                                    dataType: "json",
                                    error: function(response){
