@@ -9,7 +9,7 @@ if(isset($_REQUEST["action"]) and $_REQUEST["action"]!=""){
 }
 $values = $_REQUEST;
     if(!isset($values['IdV']) or $values['IdV']==''){
-        $values['IdV'] = '1';
+        $values['IdV'] = '4';
     }else{
         $SolicitudPlan = new SolicitudPlan();
         $cuenta_idv = $SolicitudPlan->getCuentaIdV($values['IdV']);

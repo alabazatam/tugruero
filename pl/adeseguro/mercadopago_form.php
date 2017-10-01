@@ -76,7 +76,7 @@
 		  <label for="precio" class="control-label">Precio</label> <label class="text-danger"> * </label>
 
         <div class="">
-			<input type="number" class="form-control" required id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
+			<input type="number" step="0.01" class="form-control" required id="precio" name="precio" value="<?php if(isset($values['precio']) and $values['precio']!='') echo $values['precio']?>">
         </div>
       </div>
 		
@@ -120,7 +120,7 @@
       <div class="form-group col-sm-8">
         <label for="cardNumber" class="control-label">Número de tarjeta</label> <label class="text-danger"> * </label>
         <div class="">
-            <input required type="number" class="form-control" autocomplete="off" data-checkout="cardNumber" id="cardNumber" maxlength="16" value=""  placeholder="Ejemplo: 4966382331109310">
+            <input required type="number" maxlength="16" class="form-control" autocomplete="off" data-checkout="cardNumber" id="cardNumber" maxlength="16" value=""  placeholder="Ejemplo: 4966382331109310">
         </div>
       </div>
       <div class="form-group col-sm-4">
