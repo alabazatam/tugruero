@@ -183,39 +183,36 @@ $(document).ready(function(){
                                    url: "https://tugruero.com/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
                                    data: response ,
                                    dataType: "json",
+                                   crossDomain: true,
                                    error: function(response){
                                        $('#ModalLoading').modal('toggle');
                                    },
                                    success: function(data){
+                                      console.log(data);
                                    //console.log(data.error);
                                     if (typeof data.error == 'undefined') { 
                                         var status = data.response["status"];
                                         //alert('no es undefined');
                                         //alert(status);
                                         //console.log('arriba');
+                                        console.log(data);
                                         if(status !='rejected'){
-                                            $.ajax({
-                                                    url: "https://tugruero.com/pl/asegurate/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val() + "&email=" + email,
-                                                    data: data ,
-                                                    dataType: "json",
-                                                    error: function(response){
-                                                        $('#ModalLoading').modal('toggle');
-                                                    },
-                                                    success: function(data){
-                                                    //console.log(data);
-                                                        if(data[0] == 'OK'){
-                                                            $('#show_error').html("");
-                                                            //$('#show_commit').html("<div class='alert alert-success'>Pago realizado</div>");
-                                                            
-                                                            $("#mercadopagodiv").html('');
-                                                            $(".mercadopagodiv").html('');
-                                                            $(".mercadopagodiv").removeClass('well');
-                                                            $('#ModalLoading').modal('toggle');  
-                                                            $("#mercadopagodivpagado").html("</br></br></br></br></br></br></br><div class='col-sm-3'></div><div  class='col-sm-6 alert alert-success'>¡LISTO! Ya procesamos su pago. Le hemos enviado un correo electrónico al indicado en el proceso de registro. Por favor revise su Bandeja de entrada o Spam.</div><div class='col-sm-3'></div><div class='col-sm-12 text-center'><a class='btn btn-success' href='./index.php'>Aceptar</a></div>");
-                                                        }
-                                                    }
-                                            });   
-                                        }else{
+                                            var descripcion = $("#descripcion").val();
+                                            var date_created = new Date(data.response.date_created);
+                                            var cardholder_name = $("#cardholderName").val();
+                                               $("#mercadopagodiv").html('');
+                                               $(".mercadopagodiv").html('');
+                                               $('#ModalLoading').modal('toggle'); 
+                                               $("#mercadopagodivpagado").append("<br>");                                        
+                                               $("#mercadopagodivpagado").append("<div class='col-sm-12 text-center'><label>Descripción del producto: </label> " + descripcion.toUpperCase() + "</div>");                
+                                               $("#mercadopagodivpagado").append("<div class='col-sm-12 text-center'><label>ID.Pago: </label> " + data.response["id"] + "</div>");                
+                                               $("#mercadopagodivpagado").append("<div class='col-sm-12 text-center'><label>Cédula cliente: </label> " + data.response.payer.identification.type  + " " + data.response.payer.identification.number + "</div>");                
+                                               $("#mercadopagodivpagado").append("<div class='col-sm-12 text-center'><label>Nombre en tarjeta: </label> " + cardholder_name  + "</div>");                
+                                               $("#mercadopagodivpagado").append("<div class='col-sm-12 text-center'><label>Fecha: </label> " + date_created.toLocaleDateString()  + "</div>");                
+                                               $("#mercadopagodivpagado").append("<div class='col-sm-12 text-center'><label><a class='btn btn-info' onclick='window.print();'> Imprimir </a></div>");                
+                                               $("#mercadopagodivpagado").append("<div class='col-sm-12 text-center'><label><a class='btn btn-success' href='./index.php'> Salir </a></div>");                
+
+                                           }else{
                                                 //console.log(data.response);
                                                 $('#ModalLoading').modal('toggle');  
                                                 $('#show_error').html("<div class='alert alert-danger'>La transacción ha sido rechazada</div>");

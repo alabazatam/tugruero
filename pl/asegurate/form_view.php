@@ -54,7 +54,7 @@
 		<h1 class="text-center">
 			Proceso de contratación Plan TU/GRUERO®
 		</h1> 
-		<strong>(Parte 1 de 2)</strong>
+		<strong>(Parte 1 de 1)</strong>
 		</div>
         <?php if(isset($errors['global']) and $errors['global']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['global'];?></div>
@@ -84,9 +84,11 @@
     <div class="">
         <select class="form-control" id="idPlan" name="idPlan">
             <option value="">Seleccione el plan</option>
-            <option value="2" <?php if(isset($values['idPlan']) and $values['idPlan']==2) echo "selected='selected'";?>>TU GRUERO GOLD</option>
-            <option value="1" <?php if(isset($values['idPlan']) and $values['idPlan']==1) echo "selected='selected'";?>>TU GRUERO PLUS</option>
-        </select>
+            <option value="6" <?php if(isset($values['idPlan']) and $values['idPlan']==6) echo "selected='selected'";?>>TU GRUERO FULL - Particulares</option>
+            <option value="7" <?php if(isset($values['idPlan']) and $values['idPlan']==7) echo "selected='selected'";?>>TU GRUERO FULL - Pickups/Rústicos</option>
+            <option value="8" <?php if(isset($values['idPlan']) and $values['idPlan']==8) echo "selected='selected'";?>>TU GRUERO FULL - Carga max. 12 ton</option>
+            <option value="9" <?php if(isset($values['idPlan']) and $values['idPlan']==9) echo "selected='selected'";?>>TU GRUERO FULL - Carga mayor 12 ton</option>
+		</select>
     </div>
         <?php if(isset($errors['idPlan']) and $errors['idPlan']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['idPlan'];?></div>
@@ -234,10 +236,10 @@
           <label for="RCV" class="control-label">¿Quiere el RCV? (Responsabilidad Civil Vehicular)</label> <label class="text-danger"> * </label>
           <div class="">
           <label class="radio-inline">
-            <input type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
+			  <input type="radio" name="RCV" class="RCV" value="SI" disabled="disabled" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
           </label>
           <label class="radio-inline">
-            <input type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
+			  <input type="radio" name="RCV" class="RCV" value="NO" checked="checked" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
           </label>
           </div>
               <?php if(isset($errors['RCV']) and $errors['RCV']!=''):?>
@@ -279,12 +281,12 @@
           <div class="">
                 <select name="Clase" class="form-control" id="Clase">
                     <option value="">Seleccione...</option> 
-                    <option value="Automóvil" <?php if(isset($values['Clase']) and $values['Clase']=='Automóvil') echo "selected = 'selected'"?> >Automóvil</option>                   
-                    <option value="Camioneta" <?php if(isset($values['Clase']) and $values['Clase']=='Camioneta') echo "selected = 'selected'"?> >Camioneta</option>                   
-                    <option value="Moto" <?php if(isset($values['Clase']) and $values['Clase']=='Moto') echo "selected = 'selected'"?> >Moto</option>                   
-                    <option value="Rústico" <?php if(isset($values['Clase']) and $values['Clase']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>                   
-
-                </select> 
+                    <option class="plan 8 9" value="Autobús/Autobusete" <?php if(isset($values['Clase']) and $values['Clase']=='Camioneta') echo "selected = 'selected'"?> >Autobús/Autobusete</option>                   
+					<option class="plan 6" value="Automóvil" <?php if(isset($values['Clase']) and $values['Clase']=='Automóvil') echo "selected = 'selected'"?> >Automóvil</option>                   
+                    <option class="plan 7 8" value="Camioneta" <?php if(isset($values['Clase']) and $values['Clase']=='Camioneta') echo "selected = 'selected'"?> >Camioneta</option>                   
+                    <option class="plan 6" value="Moto" <?php if(isset($values['Clase']) and $values['Clase']=='Moto') echo "selected = 'selected'"?> >Moto</option>                   
+                    <option class="plan 7" value="Rústico" <?php if(isset($values['Clase']) and $values['Clase']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>                   
+               </select> 
           </div>
             <?php if(isset($errors['Clase']) and $errors['Clase']!=''):?>
             <div id="" class="alert alert-danger"><?php echo $errors['Clase'];?></div>
@@ -323,11 +325,13 @@
           <div class="">
                 <select name="Tipo" class="form-control" id="Tipo">
                     <option value="">Seleccione...</option> 
+					<option value="Autobús/Autobusete" <?php if(isset($values['Tipo']) and $values['Tipo']=='Autobús/Autobusete') echo "selected = 'selected'"?> >Autobús/Autobusete</option>                   
                     <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>                   
                     <option value="Cross Over" <?php if(isset($values['Tipo']) and $values['Tipo']=='Cross Over') echo "selected = 'selected'"?> >Cross Over</option>                   
                     <option value="Furgón" <?php if(isset($values['Tipo']) and $values['Tipo']=='Furgón') echo "selected = 'selected'"?> >Furgón</option>                   
                     <option value="Hatchback" <?php if(isset($values['Tipo']) and $values['Tipo']=='Hatchback') echo "selected = 'selected'"?> >Hatchback</option> 
-                    <option value="Panel" <?php if(isset($values['Tipo']) and $values['Tipo']=='Panel') echo "selected = 'selected'"?> >Panel</option>                     <option value="Pick Up" <?php if(isset($values['Tipo']) and $values['Tipo']=='Pick Up') echo "selected = 'selected'"?> >Pick Up</option>                   
+                    <option value="Panel" <?php if(isset($values['Tipo']) and $values['Tipo']=='Panel') echo "selected = 'selected'"?> >Panel</option>                     
+					<option value="Pick Up" <?php if(isset($values['Tipo']) and $values['Tipo']=='Pick Up') echo "selected = 'selected'"?> >Pick Up</option>                   
                     <option value="Rústico" <?php if(isset($values['Tipo']) and $values['Tipo']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>                   
                     <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>                   
                     <option value="Sport Wagon" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sport Wagon') echo "selected = 'selected'"?> >Sport Wagon</option>                   
@@ -344,8 +348,7 @@
     <div class="">
         <select name="Anio" id="Anio" class="form-control">
                     <option value="">Seleccione...</option>
-
-                <?php for($anio = (date('Y')-37); $anio<=date('Y'); $anio++):?>
+                <?php for($anio = (date('Y')-17); $anio<=date('Y'); $anio++):?>
                     <option value="<?php echo $anio?>" <?php if(isset($values['Anio']) and $anio == $values['Anio']) echo "selected='selected'";?>><?php echo $anio?></option>    
                 <?php endfor;?>
  
@@ -580,6 +583,9 @@ $(document).ready(function(){
 <?php if(isset($values['Clase']) and $values['Clase']!=''):?>
          ocultaMarcas('<?php echo $values['Clase']?>',false);
 <?php endif;?>
+<?php if(isset($values['idPlan']) and $values['idPlan']!=''):?>
+         ocultaClases('<?php echo $values['idPlan']?>');
+<?php endif;?>
 	$('#Clase').change(function(e){
 		ocultaMarcas($(this).val(),true);
     });
@@ -607,8 +613,39 @@ $(document).ready(function(){
 			$('.2').attr("disabled",false);
 		}
 	}
+	function ocultaClases(idPlan){
+			$('#Clase option:eq("")').prop('selected', true);
+			switch(idPlan){
+			case("6"):
+				console.log(idPlan);
+				$('.plan').attr("disabled",true);
+				$('.6').attr("disabled",false);
+				break;
+			case("7"):
+				console.log(idPlan);
+				$('.plan').attr("disabled",true);
+				$('.7').attr("disabled",false);
+				break;
+			case("8"):
+				console.log(idPlan);
+				$('.plan').attr("disabled",true);
+				$('.8').attr("disabled",false);
+				break;
+			case("9"):
+				console.log(idPlan);
+				$('.plan').attr("disabled",true);
+				$('.9').attr("disabled",false);
+				break;
+			default:
+
+				break;	
+			}
+	}
     $('#idPlan').change(function(e){
-    calculaPrecio();       
+
+		var idPlan = $('#idPlan').val();
+		ocultaClases(idPlan);
+		calculaPrecio();       
     });
     $('#Clase').change(function(e){
         if($('#Clase').val()=='Moto'){

@@ -455,6 +455,8 @@
             $correo2_vendedor = '';
             $correo3_vendedor = '';
             $NombreVendedor = '';
+			$correos = array($data["Correo"]);
+					//envío la aprobacion al vendedor
                 if(isset($data['IdV']) and $data['IdV']!=1)
                 {
                     $datos_vendedor = $SolicitudPlan->getDatosVendedor($data['IdV']);
@@ -462,8 +464,12 @@
                     $correo2_vendedor = $datos_vendedor['Correo2'];
                     $correo3_vendedor = $datos_vendedor['Correo3'];
                     $NombreVendedor = $datos_vendedor['NombreVendedor'];
-
+					$correos[] = $correo1_vendedor;
+					$correos[] = $correo2_vendedor;
+					$correos[] = $correo3_vendedor;
+					
                 }
+				//print_r($correos);die;
             //$smtp = "server-0116a.gconex.net";
             $smtp = "tugruero.com";
             $port = 465;
@@ -475,7 +481,7 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array($values['response']['payer']['email']);
+            $email = $correos;
 
             $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
             $message->setBody('
@@ -505,9 +511,9 @@
     ',"text/html");
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
-                    $message->setTo($email);
+                    $message->setTo($correos);
                     $message->setBcc('suscripcion@tugruero.com');
-                    if($correo1_vendedor!=''){
+                    /*if($correo1_vendedor!=''){
                        $message->setBcc($correo1_vendedor);
                     }
                     if($correo2_vendedor!=''){
@@ -515,7 +521,7 @@
                     }
                     if($correo3_vendedor!=''){
                        $message->setBcc($correo3_vendedor);
-                    }
+                    }*/
 
 
                     $result = $mailer->send($message);
@@ -621,6 +627,7 @@
             $correo2_vendedor = '';
             $correo3_vendedor = '';
             $ConcatenadoPlan = $data['concatenado_plan'];
+			$correos = array($data['Correo'],"suscripcion@tugruero.com");
 					//envío la aprobacion al vendedor
                 if(isset($data['IdV']) and $data['IdV']!=1)
                 {
@@ -629,7 +636,10 @@
                     $correo2_vendedor = $datos_vendedor['Correo2'];
                     $correo3_vendedor = $datos_vendedor['Correo3'];
                     $NombreVendedor = $datos_vendedor['NombreVendedor'];
-
+					$correos[] = $correo1_vendedor;
+					$correos[] = $correo2_vendedor;
+					$correos[] = $correo3_vendedor;
+					
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
@@ -643,7 +653,7 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array($data['Correo']);
+            $email = $correos;
 
             $message = Swift_Message::newInstance('¡Compra Plan TU/GRUERO®!');
             $message->setBody('<!DOCTYPE html>
@@ -673,9 +683,9 @@
     ',"text/html");
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
-                    $message->setTo($values['Correo']);
-                    $message->setBcc('suscripcion@tugruero.com');
-                    if($correo1_vendedor!=''){
+                    $message->setTo($correos);
+                    //$message->setBcc('suscripcion@tugruero.com');
+                    /*if($correo1_vendedor!=''){
                        $message->setBcc($correo1_vendedor);
                     }
                     if($correo2_vendedor!=''){
@@ -683,7 +693,7 @@
                     }
                     if($correo3_vendedor!=''){
                        $message->setBcc($correo3_vendedor);
-                    }
+                    }*/
 
             // Send the message
 

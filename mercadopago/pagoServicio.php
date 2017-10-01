@@ -1,5 +1,5 @@
 <?php
-
+header("Access-Control-Allow-Origin: *");
 $obj = $_REQUEST;
 require_once ('lib/mercadopago.php');
 $mp = new MP('TEST-5186169867844597-010416-c52b08ec7835da68699c21828d0e3edf__LA_LD__-47922559');
