@@ -22,6 +22,10 @@
 		<?php if(isset($values['phone'])) echo $values['phone']?>
 	  </div>
 	  <div class="form-group">
+		<label for="">Asunto:</label>
+		<p class="text-justify"><?php if(isset($values['subject'])) echo $values['subject']?></p>
+	  </div>
+	  <div class="form-group">
 		<label for="">Mensaje:</label>
 		<!--<input readonly="readonly" type="text" id="" class="form-control input-sm" name="message" value="<?php if(isset($values['message'])) echo $values['message']?>">-->
 		<p class="text-justify"><?php if(isset($values['message'])) echo $values['message']?></p>

@@ -12,7 +12,7 @@ $values = $_REQUEST;
 			executeIndex($values);	
 		break;
 		case "message":                   
-			executeMessage($values);	
+			executeMessage($values);
 		break;	
 		default:
 			executeIndex($values);
@@ -68,7 +68,7 @@ $values = $_REQUEST;
         
         
         $Mail = new Mail();
-        $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['message'];
+        $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['subject']." ".$values['message'];
         
         $Mail ->sendMessageContactenos($values);
 	}			

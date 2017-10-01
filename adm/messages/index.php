@@ -85,7 +85,8 @@ $values = $_REQUEST;
 					"names" => $message['names'],
 					"email" => $message['email'],
 					"phone" => $message['phone'],
-					"message" => $message['message'],
+                                        "subject" => $message['subject'],
+    					"message" => $message['message'],
 					"status" => $message_status,
 					"date_created" => $message['date_created'],
 					"date_updated" => $message['date_updated'],
@@ -96,7 +97,7 @@ $values = $_REQUEST;
 		}else{
 			$array_json['recordsTotal'] = 0;
 			$array_json['recordsFiltered'] = 0;
-			$array_json['data'][0] = array("id_message"=>null,"names"=>"","email"=>"","phone"=>"","message"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
+			$array_json['data'][0] = array("id_message"=>null,"names"=>"","email"=>"","phone"=>"","subject"=>"","message"=>"","status"=>"","date_created"=>"","date_updated"=>"","actions"=>"");
 		}
 
 		echo json_encode($array_json);die;

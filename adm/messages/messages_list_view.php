@@ -9,7 +9,8 @@
 					<th>Contacto</th>
 					<th>Email</th>
 					<th>Teléfono</th>
-					<th>Mensaje</th>
+					<th>Asunto</th>
+                                        <th>Mensaje</th>
 					<th>Status</th>
 					<th>Fecha envio</th>
 					<th>Fecha visto</th>
@@ -22,6 +23,7 @@
 					<th>Contacto</th>
 					<th>Email</th>
 					<th>Teléfono</th>
+                                        <th>Asunto</th>
 					<th>Mensaje</th>
 					<th>Status</th>
 					<th>Fecha envio</th>
@@ -48,6 +50,7 @@ $(document).ready(function() {
             { "data": "names" },
             { "data": "email" },
             { "data": "phone" },
+            { "data": "subject" },
             { "data": "message" },
 			{ "data": "status" },
 			{ "data": "date_created" },

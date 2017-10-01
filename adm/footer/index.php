@@ -80,7 +80,8 @@ $values = $_REQUEST;
 					"names" => $message['names'],
 					"email" => $message['email'],
 					"phone" => $message['phone'],
-					"message" => $message['message'],
+                                        "subject" => $message['subject'],	
+                                        "message" => $message['message'],
                                         "status" => $message['status'],
                                         "date_added" => $message['date_added'],
 					"actions" => '<a href="index.php?action=edit&id_message='.$id_message.'" class="btn btn-default btn-sm"><i class="fa fa-edit  fa-pull-left fa-border"></i></a>'
@@ -94,6 +95,7 @@ $values = $_REQUEST;
 					"names" => "",
 					"email" => "",
 					"phone" => "",
+                                        "subject" => "",
 					"message" => "",
                                         "status" => "",
                                         "date_added" => "",

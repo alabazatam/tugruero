@@ -301,8 +301,18 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array('deandrademarcos@gmail.com','suscripcion@tugruero.com','info@tugruero.com','acostantini@tugruero.com');
-            $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['message'];
+            $email = array('deandrademarcos@gmail.com','vcampos@tugruero.com');//estos siempre reciben
+            
+            if (in_array(array(1, 5), $values['subject'])) //afiliacion como proveedor, precios traslados
+                    array_push($email, "operaciones@tugruero.com","jjaime@tugruero.com");
+            if (in_array(array(2, 6, 7), $values['subject'])) //alianza venta planes, precio e info planes, otro
+                    array_push($email, "acostantini@tugruero.com");                   
+            if (in_array(array(3), $values['subject'])) //info alianza internacional
+                    array_push($email, "cecheverria@tugruero.com", "aecheverria@tugruero.com", "cheinze@tugruero.com");                   
+            if (in_array(array(4), $values['subject'])) //pago a proveedores
+                    array_push($email, "administracion@tugruero.com", "ccisneros@tugruero.com");                   
+
+            $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['subject']." ".$values['message'];
 
             $message = Swift_Message::newInstance('Solicitud de información');
             $message->setBody('<!DOCTYPE html>
@@ -326,8 +336,11 @@
                     <td style="background-color:#CCC !important;"><b>Número de contacto:</b></td><td>'.$values['phone'].'</td>
                 </tr>
                 <tr>
-                    <td style="background-color:#CCC !important;"><b>Mensaje:</b></td><td><p align="justify">'.$values['message'].'</p></td>
+                    <td style="background-color:#CCC !important;"><b>Asunto:</b></td><td><p align="justify">'.$values['subject'].'</p></td>
 
+                </tr>
+                <tr>
+                    <td style="background-color:#CCC !important;"><b>Mensaje:</b></td><td><p align="justify">'.$values['message'].'</p></td>
                 </tr>
             </table>
             </div>
@@ -335,18 +348,18 @@
         </body>
     </html>
     ',"text/html");
-
+            $email='hectord.mata@gmail.com';
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
-                    $message->setTo($email);
-                    //$message->setBcc('info@tugruero.com');
+            $message->setTo($email);
+            //$message->setBcc('info@tugruero.com');
             // Send the message
 
 
-                    $result = $mailer->send($message);
-                    }catch(Exception $e){
-                            //echo $e->getMessage().$e->getTraceAsString();
-                            die;
-                    }
+            $result = $mailer->send($message);
+            }catch(Exception $e){
+                    //echo $e->getMessage().$e->getTraceAsString();
+                    die;
+            }
 
 
 
