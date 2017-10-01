@@ -712,7 +712,21 @@
             <div class="col-sm-8">
               <input type="tel" class="form-control input_contact" id="phone" placeholder="" required data-validation-required-message="Por favor indique su Número de Contacto.">
             </div>
-          </div>
+            </div>
+            <div class="form-group">
+                <label for="subject" class="col-sm-4 text-left">Asunto</label>
+                <div class="col-sm-8 container">
+                    <select multiple class="form-control input_contact" id="subject" name="subject[]" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
+                        <option value="1">Afiliación como proveedor de grúa </option> 
+                        <option value="2">Alianzas para venta de nuestros planes</option>                     
+                        <option value="3">Información para Alianza internacional</option> 
+                        <option value="4">Pago de facturas a proveedores</option> 
+                        <option value="5">Precios de traslados de vehículos </option> 
+                        <option value="6">Precios e información de nuestros planes </option> 
+                        <option value="7">Otro</option>
+                    </select>
+               </div>
+            </div>
           <div class="form-group">
             <label for="message" class="col-sm-4 text-left">Mensaje</label>
             <div class="col-sm-8">
