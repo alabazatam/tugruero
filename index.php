@@ -12,7 +12,7 @@ $values = $_REQUEST;
 			executeIndex($values);	
 		break;
 		case "message":                   
-			executeMessage($values);
+			executeMessage($values);	
 		break;	
 		default:
 			executeIndex($values);
