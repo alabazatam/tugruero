@@ -304,13 +304,13 @@
             $email = array('deandrademarcos@gmail.com','vcampos@tugruero.com');//estos siempre reciben
             
             if (in_array(array(1, 5), $values['subject'])) //afiliacion como proveedor, precios traslados
-                    array_push($email, "operaciones@tugruero.com","jjaime@tugruero.com");
+                    array_push($email, ",operaciones@tugruero.com","jjaime@tugruero.com");
             if (in_array(array(2, 6, 7), $values['subject'])) //alianza venta planes, precio e info planes, otro
-                    array_push($email, "acostantini@tugruero.com");                   
+                    array_push($email, ",acostantini@tugruero.com");                   
             if (in_array(array(3), $values['subject'])) //info alianza internacional
-                    array_push($email, "cecheverria@tugruero.com", "aecheverria@tugruero.com", "cheinze@tugruero.com");                   
+                    array_push($email, ",cecheverria@tugruero.com", "aecheverria@tugruero.com", "cheinze@tugruero.com");                   
             if (in_array(array(4), $values['subject'])) //pago a proveedores
-                    array_push($email, "administracion@tugruero.com", "ccisneros@tugruero.com");                   
+                    array_push($email, ",administracion@tugruero.com", "ccisneros@tugruero.com");                   
 
             $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['subject']." ".$values['message'];
 
