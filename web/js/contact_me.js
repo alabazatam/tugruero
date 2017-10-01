@@ -14,6 +14,7 @@ $(function() {
             var name = $("input#name").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();
+            var subject = $("select#subject").val();
             var message = $("input#message").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
@@ -28,6 +29,7 @@ $(function() {
                     names: name,
                     phone: phone,
                     email: email,
+                    subject: subject,
                     message: message
                 },
                 cache: false,
