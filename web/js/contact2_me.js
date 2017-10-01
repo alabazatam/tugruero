@@ -14,8 +14,17 @@ $(function() {
             var name = $("input#name").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();            
-            var subject = $("select#subject").val();
-            //var subject = $("input#subject").val();
+            //var subject = $("select#subject").val();
+            var subject = [];
+            var i = 0;
+            $("#subject option:selected").each(function () {
+               var $this = $(this);
+               if ($this.length) {
+                subject[i] = $this.val();
+                console.log(subject[i]);
+                i++;
+               }
+            });
             var message = $("textarea#message").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
