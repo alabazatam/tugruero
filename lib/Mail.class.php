@@ -311,7 +311,11 @@
                     array_push($email, "cecheverria@tugruero.com", "aecheverria@tugruero.com", "cheinze@tugruero.com");                   
             if (in_array(array(4), $values['subject'])) //pago a proveedores
                     array_push($email, "administracion@tugruero.com", "ccisneros@tugruero.com");                   
-
+            
+            foreach ($email as &$correo) {
+                $correo = join(',', $correo);
+            }
+            
             $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['subject']." ".$values['message'];
 
             $message = Swift_Message::newInstance('Solicitud de información');
