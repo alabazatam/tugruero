@@ -239,7 +239,7 @@
             <input type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
           </label>
           <label class="radio-inline">
-            <input type="radio" name="RCV" class="RCV" value="NO" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
+			  <input type="radio" name="RCV" class="RCV" value="NO"  <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
           </label>
           </div>
               <?php if(isset($errors['RCV']) and $errors['RCV']!=''):?>
@@ -325,7 +325,7 @@
           <div class="">
                 <select name="Tipo" class="form-control" id="Tipo">
                     <option value="">Seleccione...</option> 
-					<option value="Autobús/Autobusete" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Autobús/Autobusete</option>                   
+					<option value="Autobús/Autobusete" <?php if(isset($values['Tipo']) and $values['Tipo']=='Autobús/Autobusete') echo "selected = 'selected'"?> >Autobús/Autobusete</option>                   
                     <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>                   
                     <option value="Cross Over" <?php if(isset($values['Tipo']) and $values['Tipo']=='Cross Over') echo "selected = 'selected'"?> >Cross Over</option>                   
                     <option value="Furgón" <?php if(isset($values['Tipo']) and $values['Tipo']=='Furgón') echo "selected = 'selected'"?> >Furgón</option>                   
