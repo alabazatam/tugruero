@@ -236,10 +236,10 @@
           <label for="RCV" class="control-label">¿Quiere el RCV? (Responsabilidad Civil Vehicular)</label> <label class="text-danger"> * </label>
           <div class="">
           <label class="radio-inline">
-            <input type="radio" name="RCV" class="RCV" value="SI" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
+			  <input type="radio" name="RCV" class="RCV" value="SI" disabled="disabled" <?php if(isset($values['RCV']) and $values['RCV']=='SI') echo "checked='checked'";?>> Si
           </label>
           <label class="radio-inline">
-			  <input type="radio" name="RCV" class="RCV" value="NO"  <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
+			  <input type="radio" name="RCV" class="RCV" value="NO" checked="checked" <?php if(isset($values['RCV']) and $values['RCV']=='NO') echo "checked='checked'";?>> No
           </label>
           </div>
               <?php if(isset($errors['RCV']) and $errors['RCV']!=''):?>
