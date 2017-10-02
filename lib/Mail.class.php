@@ -301,88 +301,88 @@
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email = array('deandrademarcos@gmail.com','vcampos@tugruero.com');//estos siempre reciben
-            
-            if (in_array(array(1, 5), $values['subject'])) //afiliacion como proveedor, precios traslados
-                    array_push($email, "operaciones@tugruero.com","jjaime@tugruero.com");
-            if (in_array(array(2, 6, 7), $values['subject'])) //alianza venta planes, precio e info planes, otro
-                    array_push($email, "acostantini@tugruero.com");                   
-            if (in_array(array(3), $values['subject'])){ //info alianza internacional
-                    array_push($email, "cecheverria@tugruero.com", "aecheverria@tugruero.com", "cheinze@tugruero.com");                   
-                    unset($email[1]);//saco a vcampos que no recibe alianza internacional        
-            }
-            if (in_array(array(4), $values['subject'])) //pago a proveedores
-                    array_push($email, "administracion@tugruero.com", "ccisneros@tugruero.com"); 
-            
-                
-            function getSubject($key){
-                try{
-                    switch($key){
-                        case '1': $str =  '<li>Afiliacion como proveedor de grúa</li>'; break;
-                        case '2': $str =  '<li>Alianzas para venta de nuestros planes</li>'; break;
-                        case '3': $str =  '<li>Información para Alianza internacional</li>'; break;
-                        case '4': $str =  '<li>Pago de facturas a proveedores</li>'; break;
-                        case '5': $str =  '<li>Precios de traslados de vehículo</li>'; break;
-                        case '6': $str =  '<li>Precios e información de nuestros planes</li>'; break;
-                        case '7': $str =  '<li>Otro</li>'; break;
-                        default: $str =  '<li>Otro</li>'; break;
-                    }
-                } catch(Exception $e){
-                    //echo $e->getMessage().$e->getTraceAsString();
-                    die;
-                }
-                return $str;
-            }
-            
+            $email[0] = array('deandrademarcos@gmail.com','vcampos@tugruero.com');//estos siempre reciben
+           
             unset($subject);
-            foreach ($values['subject'] as $clave) {
-                $subject .= getSubject($clave);
+            if (in_array(1, $values['subject'])){ 
+                $subject[1] = '<li>Afiliacion como proveedor de grúa</li>'; 
+                $email[1]=array("operaciones@tugruero.com","jjaime@tugruero.com");
             }
-
-            $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$subject." ".$values['message'];
-
+            if (in_array(2, $values['subject'])) {
+                $subject[2] = '<li>Alianzas para venta de nuestros planes</li>'; 
+                $email[2]=array("acostantini@tugruero.com");
+            }
+            if (in_array(3, $values['subject'])) {
+                $subject[3] = '<li>Información para Alianza internacional</li>'; 
+                $email[3]=array("cecheverria@tugruero.com", "aecheverria@tugruero.com", "cheinze@tugruero.com");
+                //unset($email[1]);//vcampos no recibe esta opcion
+            }
+            if (in_array(4, $values['subject'])){ 
+                $subject[4] = '<li>Pago de facturas a proveedores</li>'; 
+                $email[4]=array("administracion@tugruero.com", "ccisneros@tugruero.com");
+            }
+            if (in_array(5, $values['subject'])){
+                $subject[5] = '<li>Precios de traslados de vehículo</li>'; 
+                $email[5]=array("operaciones@tugruero.com","jjaime@tugruero.com");
+            }
+            if (in_array(6, $values['subject'])){
+                $subject[6] = '<li>Precios e información de nuestros planes</li>';
+                $email[6]=array("acostantini@tugruero.com");
+            }  
+            if (in_array(7, $values['subject'])){ 
+                $subject[7] = '<li>Otro</li>'; 
+                $email[7]=array("acostantini@tugruero.com");                
+            }
             $message = Swift_Message::newInstance('Solicitud de información');
-            $message->setBody('<!DOCTYPE html>
-    <html>
+            //$mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$subject." ".$values['message'];
+print_r($values['subject']);
+            for($i=1;$i<8;$i++){
+                if (in_array($i, $values['subject'])){
+                    
+                    $message->setBody('<!DOCTYPE html>
+                    <html>
 
-        <head>
-            <title>TU/GRUERO®</title>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 12px;color:#262426;">
-            <div align="center">
-            <table width="700">
-                <tr>
-                    <td style="background-color:#CCC !important;"><b>Nombre y apellido:</b></td><td>'.$values['names'].'</td>
-                </tr>
-                <tr>
-                    <td style="background-color:#CCC !important;"><b>Correo electrónico:</b></td><td>'.$values['email'].'</td>
-                </tr>
-                <tr>
-                    <td style="background-color:#CCC !important;"><b>Número de contacto:</b></td><td>'.$values['phone'].'</td>
-                </tr>
-                <tr>
-                    <td style="background-color:#CCC !important;"><b>Asunto:</b></td><td><p align="justify">'.$subject.'</p></td>
+                        <head>
+                            <title>TU/GRUERO®</title>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        </head>
+                        <body style="font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif, cursive;font-size: 12px;color:#262426;">
+                            <div align="center">
+                            <table width="700">
+                                <tr>
+                                    <td style="background-color:#CCC !important;"><b>Nombre y apellido:</b></td><td>'.$values['names'].'</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color:#CCC !important;"><b>Correo electrónico:</b></td><td>'.$values['email'].'</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color:#CCC !important;"><b>Número de contacto:</b></td><td>'.$values['phone'].'</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color:#CCC !important;"><b>Asunto:</b></td><td><p align="justify">'.$subject[$i].'</p></td>
 
-                </tr>
-                <tr>
-                    <td style="background-color:#CCC !important;"><b>Mensaje:</b></td><td><p align="justify">'.$values['message'].'</p></td>
-                </tr>
-            </table>
-            </div>
+                                </tr>
+                                <tr>
+                                    <td style="background-color:#CCC !important;"><b>Mensaje:</b></td><td><p align="justify">'.$values['message'].'</p></td>
+                                </tr>
+                            </table>
+                            </div>
 
-        </body>
-    </html>
-    ',"text/html");
-            //$email='hectord.mata@gmail.com';//<---------------------- pruebas locales
-            $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
-            $message->setTo($email);
-            //$message->setBcc('info@tugruero.com');
-            // Send the message
+                        </body>
+                    </html>
+                    ',"text/html");
+                   // $email1='hectord.mata@gmail.com';//<---------------------- pruebas locales
+                    $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
 
-
-            $result = $mailer->send($message);
+                    $destinatarios= array_merge($email[0],$email[$i]);
+                    //print_r($destinatarios);
+                    $message->setTo($destinatarios);
+                    //$message->setBcc('info@tugruero.com');
+                    // Send the message
+                    $result = $mailer->send($message);
+                }
+            }  
             }catch(Exception $e){
                     //echo $e->getMessage().$e->getTraceAsString();
                     die;
