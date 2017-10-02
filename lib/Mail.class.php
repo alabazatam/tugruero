@@ -302,7 +302,8 @@
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
             $email[0] = array('deandrademarcos@gmail.com','vcampos@tugruero.com');//estos siempre reciben
-
+            
+            $subject = array();
             $subject[1]='Afiliacion como proveedor de grúa';
             $email[1]=array('operaciones@tugruero.com','jjaime@tugruero.com');
             $subject[2]='Alianzas para venta de nuestros planes';
@@ -318,10 +319,10 @@
             $subject[7]='Otro';
             $email[7]=array('acostantini@tugruero.com');
 
-            $message = Swift_Message::newInstance('Solicitud de información');
             //$mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$subject." ".$values['message'];
             for($i=1;$i<8;$i++){
-                if (in_array($i, $values['subject'])){                    
+                if (in_array($i, $values['subject'])){
+                    $message = Swift_Message::newInstance('Solicitud de información');
                     $message->setBody('<!DOCTYPE html>
                     <html>
                         <head>
@@ -356,6 +357,7 @@
                     ',"text/html");
                     $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $destinatarios= array_merge($email[0],$email[$i]);
+                    //print_r($destinatarios);
                     //$destinatarios='hectord.mata@gmail.com';
                     $message->setTo($destinatarios);
                     //$message->setBcc('info@tugruero.com');
