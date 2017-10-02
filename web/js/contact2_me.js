@@ -21,7 +21,7 @@ $(function() {
                var $this = $(this);
                if ($this.length) {
                 subject[i] = $this.val();
-                console.log(subject[i]);
+                //console.log(subject[i]);
                 i++;
                }
             });
