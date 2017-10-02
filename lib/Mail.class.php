@@ -307,16 +307,39 @@
                     array_push($email, "operaciones@tugruero.com","jjaime@tugruero.com");
             if (in_array(array(2, 6, 7), $values['subject'])) //alianza venta planes, precio e info planes, otro
                     array_push($email, "acostantini@tugruero.com");                   
-            if (in_array(array(3), $values['subject'])) //info alianza internacional
+            if (in_array(array(3), $values['subject'])){ //info alianza internacional
                     array_push($email, "cecheverria@tugruero.com", "aecheverria@tugruero.com", "cheinze@tugruero.com");                   
+                    unset($email[1]);//saco a vcampos que no recibe alianza internacional        
+            }
             if (in_array(array(4), $values['subject'])) //pago a proveedores
-                    array_push($email, "administracion@tugruero.com", "ccisneros@tugruero.com");                   
+                    array_push($email, "administracion@tugruero.com", "ccisneros@tugruero.com"); 
             
-            foreach ($email as &$correo) {
-                $correo = join(',', $correo);
+                
+            function getSubject($key){
+                try{
+                    switch($key){
+                        case '1': $str =  '<li>Afiliacion como proveedor de grúa</li>'; break;
+                        case '2': $str =  '<li>Alianzas para venta de nuestros planes</li>'; break;
+                        case '3': $str =  '<li>Información para Alianza internacional</li>'; break;
+                        case '4': $str =  '<li>Pago de facturas a proveedores</li>'; break;
+                        case '5': $str =  '<li>Precios de traslados de vehículo</li>'; break;
+                        case '6': $str =  '<li>Precios e información de nuestros planes</li>'; break;
+                        case '7': $str =  '<li>Otro</li>'; break;
+                        default: $str =  '<li>Otro</li>'; break;
+                    }
+                } catch(Exception $e){
+                    //echo $e->getMessage().$e->getTraceAsString();
+                    die;
+                }
+                return $str;
             }
             
-            $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$values['subject']." ".$values['message'];
+            unset($subject);
+            foreach ($values['subject'] as $clave) {
+                $subject .= getSubject($clave);
+            }
+
+            $mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$subject." ".$values['message'];
 
             $message = Swift_Message::newInstance('Solicitud de información');
             $message->setBody('<!DOCTYPE html>
@@ -340,7 +363,7 @@
                     <td style="background-color:#CCC !important;"><b>Número de contacto:</b></td><td>'.$values['phone'].'</td>
                 </tr>
                 <tr>
-                    <td style="background-color:#CCC !important;"><b>Asunto:</b></td><td><p align="justify">'.$values['subject'].'</p></td>
+                    <td style="background-color:#CCC !important;"><b>Asunto:</b></td><td><p align="justify">'.$subject.'</p></td>
 
                 </tr>
                 <tr>
@@ -800,11 +823,11 @@
         </body>
     </html>
     ',"text/html");
-					$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf"));
-					$planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
-					if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
-						$message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$idSolicitudPlan."_rcv.pdf"));
-					}
+                    $message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$NumProducto.".pdf"));
+                    $planes_rcv = $SolicitudPlan->getPlanesRCV($idSolicitudPlan);
+                    if(isset($planes_rcv['idPlan']) and $planes_rcv['idPlan']!=''){
+                            $message->attach(Swift_Attachment::fromPath(dir_cuadros."/".$idSolicitudPlan."_rcv.pdf"));
+                    }
 
                     $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
@@ -907,10 +930,6 @@
                             die;
                     }
 
-
-
-
-
-
     }
+
 }
