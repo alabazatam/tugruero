@@ -375,7 +375,7 @@
         </body>
     </html>
     ',"text/html");
-            $email='hectord.mata@gmail.com';//<---------------------- pruebas locales
+            //$email='hectord.mata@gmail.com';//<---------------------- pruebas locales
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
             $message->setTo($email);
             //$message->setBcc('info@tugruero.com');
