@@ -719,7 +719,7 @@
             <div class="form-group">
                 <label for="subject" class="col-sm-4 text-left">Asunto</label>
                 <div class="col-sm-8 container text-left"> 
-                    <select multiple="multiple" class="form-control input_contact" id="subject" name="subject[]" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
+                    <select multiple="multiple" class="form-control input_contact" id="subject" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
                         <option value="1">Afiliación como proveedor de grúa </option>
                         <option value="2">Alianzas para venta de nuestros planes</option>
                         <option value="3">Información para Alianza internacional</option>
@@ -1044,6 +1044,11 @@ ga('send', 'pageview');
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#subject').multiselect();
+        $('#subject').multiselect( {
+            numberDisplayed: 2,
+            nonSelectedText: 'Seleccione una o más opciones', 
+            nSelectedText: 'Seleccionados',
+            allSelectedText: 'Todos Seleccionados',
+        } );
     });
 </script>
