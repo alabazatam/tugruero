@@ -22,8 +22,8 @@
   <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="web/css/animate.min.css" />
   
-  <!-- Select2 CSS -->
-  <link rel="stylesheet" href="web/css/select2.min.css" />
+  <!-- Botstrap Multiselect CSS -->
+  <link rel="stylesheet" href="web/css/bootstrap-multiselect.css" />
 </head>
 <style>
 .carousel-control {
@@ -718,17 +718,17 @@
             </div>
             <div class="form-group">
                 <label for="subject" class="col-sm-4 text-left">Asunto</label>
-                <div class="col-sm-8 container">
-                    <select class="form-control input_contact js-example-basic-multiple" id="subject" name="subject[]" multiple="multiple" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
-                        <option style="background-color: graytext" value="1">Afiliación como proveedor de grúa </option> 
-                        <option style="background-color: graytext" value="2">Alianzas para venta de nuestros planes</option>                     
-                        <option style="background-color: graytext" value="3">Información para Alianza internacional</option> 
-                        <option style="background-color: graytext" value="4">Pago de facturas a proveedores</option> 
-                        <option style="background-color: graytext" value="5">Precios de traslados de vehículos </option> 
-                        <option style="background-color: graytext" value="6">Precios e información de nuestros planes </option> 
-                        <option style="background-color: graytext" value="7">Otro</option>
+                <div class="col-sm-8 container text-left">
+                    <select multiple="multiple" class="form-control input_contact" id="subject" name="subject[]" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
+                        <option value="1">Afiliación como proveedor de grúa </option>
+                        <option value="2">Alianzas para venta de nuestros planes</option>
+                        <option value="3">Información para Alianza internacional</option>
+                        <option value="4">Pago de facturas a proveedores</option>
+                        <option value="5">Precios de traslados de vehículos </option>
+                        <option value="6">Precios e información de nuestros planes </option>
+                        <option value="7">Otro</option>
                     </select>
-               </div>
+                </div>
             </div>
           <div class="form-group">
             <label for="message" class="col-sm-4 text-left">Mensaje</label>
@@ -855,6 +855,7 @@
           </div>
 
         </div>
+          
         <div class="col-xs-12 col-sm-12 col-md-3 text-left">
           <label><strong style="text-decoration: underline;">Características y Coberturas de los planes:</strong></label>
           <ul class="text-left">
@@ -908,15 +909,15 @@
       </div>
     </div>
   </div>
-  <!-- Select2 -->
-  <script src="web/js/select2.min.js"></script>
-  
   <!-- jQuery -->
   <script src="web/js/jquery.js"></script>
 
   <!-- Bootstrap Core JavaScript -->
   <script src="web/js/bootstrap.min.js"></script>
 
+  <!-- Bootstrap Multiselect -->
+  <script src="web/js/bootstrap-multiselect.js"></script>
+  
   <!-- Plugin JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
@@ -928,7 +929,6 @@
   <script src="web/js/freelancer.js"></script>
   <script src="web/js/jquery.bootstrap-autohidingnavbar.js"></script>
   <script src="web/js/jquery.inview.js"></script>
-
 </body>
 
 </html>
@@ -1042,8 +1042,8 @@ ga('create', 'UA-101125352-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-<script>
-$(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#subject').multiselect();
+    });
 </script>
