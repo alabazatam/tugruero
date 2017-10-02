@@ -21,6 +21,9 @@
   <!-- Custom Fonts -->
   <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="web/css/animate.min.css" />
+  
+  <!-- Select2 CSS -->
+  <link rel="stylesheet" href="web/css/select2.min.css" />
 </head>
 <style>
 .carousel-control {
@@ -716,14 +719,14 @@
             <div class="form-group">
                 <label for="subject" class="col-sm-4 text-left">Asunto</label>
                 <div class="col-sm-8 container">
-                    <select size="8" class="selectpicker form-control input_contact" id="subject" name="subject" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
-                        <option value="1">Afiliación como proveedor de grúa </option> 
-                        <option value="2">Alianzas para venta de nuestros planes</option>                     
-                        <option value="3">Información para Alianza internacional</option> 
-                        <option value="4">Pago de facturas a proveedores</option> 
-                        <option value="5">Precios de traslados de vehículos </option> 
-                        <option value="6">Precios e información de nuestros planes </option> 
-                        <option value="7">Otro</option>
+                    <select class="form-control input_contact js-example-basic-multiple" id="subject" name="subject[]" multiple="multiple" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
+                        <option style="background-color: graytext" value="1">Afiliación como proveedor de grúa </option> 
+                        <option style="background-color: graytext" value="2">Alianzas para venta de nuestros planes</option>                     
+                        <option style="background-color: graytext" value="3">Información para Alianza internacional</option> 
+                        <option style="background-color: graytext" value="4">Pago de facturas a proveedores</option> 
+                        <option style="background-color: graytext" value="5">Precios de traslados de vehículos </option> 
+                        <option style="background-color: graytext" value="6">Precios e información de nuestros planes </option> 
+                        <option style="background-color: graytext" value="7">Otro</option>
                     </select>
                </div>
             </div>
@@ -905,6 +908,9 @@
       </div>
     </div>
   </div>
+  <!-- Select2 -->
+  <script src="web/js/select2.min.js"></script>
+  
   <!-- jQuery -->
   <script src="web/js/jquery.js"></script>
 
@@ -1037,7 +1043,7 @@ ga('send', 'pageview');
 
 </script>
 <script>
-$('.selectpicker').selectpicker({
-    style: 'btn-info'
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
 });
 </script>
