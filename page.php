@@ -720,12 +720,13 @@
                 <label for="subject" class="col-sm-4 text-left">Asunto</label>
                 <div class="col-sm-8 text-left"> 
                     <select multiple="multiple" class="form-control" id="subject" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
-                        <option value="1">Afiliación como proveedor de grúa </option>
+                        <option value="5">Precios de traslados de vehículos </option>
+                        <option value="6">Precios e información de nuestros planes </option>
+						<option value="1">Afiliación como proveedor de grúa </option>
                         <option value="2">Alianzas para venta de nuestros planes</option>
                         <option value="3">Información para Alianza internacional</option>
                         <option value="4">Pago de facturas a proveedores</option>
-                        <option value="5">Precios de traslados de vehículos </option>
-                        <option value="6">Precios e información de nuestros planes </option>
+
                         <option value="7">Otro</option>
                     </select>
                 </div>
