@@ -718,8 +718,8 @@
             </div>
             <div class="form-group">
                 <label for="subject" class="col-sm-4 text-left">Asunto</label>
-                <div class="col-sm-8 container text-left"> 
-                    <select multiple="multiple" class="form-control input_contact" id="subject" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
+                <div class="col-sm-8 text-left"> 
+                    <select multiple="multiple" class="form-control" id="subject" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
                         <option value="1">Afiliación como proveedor de grúa </option>
                         <option value="2">Alianzas para venta de nuestros planes</option>
                         <option value="3">Información para Alianza internacional</option>

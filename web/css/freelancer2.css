@@ -1232,3 +1232,23 @@ fieldset[disabled] .btn-success.active {
   font-size: 20px;
   text-decoration: none;
 }
+button.multiselect.dropdown-toggle.btn.btn-default{
+    
+    background: transparent !important;
+    color: #fff;
+    width: 100% !important;
+}
+ul.multiselect-container.dropdown-menu {
+    background: transparent !important;
+    color: #fff; 
+}
+label.checkbox {
+    background: #26282b !important;
+    color: #ccc;    
+}
+div.btn-group {
+    width: 100%;
+}
+span.multiselect-selected-text {
+    width: 100%;
+}
