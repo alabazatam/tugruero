@@ -849,8 +849,8 @@
               <?php endforeach;?>
               <tr class="background_cuadro_footer">
                 <td ><strong class="letra_cuadro_p">&nbsp;&nbsp;&nbsp;Precio (con IVA incluido)</strong></td>
-                <td class="text-center "><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(1)?></strong></td>
-                <td class="text-center" ><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(2)?></strong></td>
+                <td class="text-center "><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(1)?><small style="font-size:10px;">,00</small></strong></td>
+                <td class="text-center" ><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(2)?><small style="font-size:10px;">,00</small></strong></td>
               </tr>
             </table>
           </div>

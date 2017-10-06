@@ -103,7 +103,7 @@
 			->where("idPlan =?",$idPlan)
             ->fetch();
 			
-			return number_format($q['PrecioIva'],2,",",".");	
+			return number_format($q['PrecioIva'],0,",",".");	
 		}
 		public function getDatosPreciosRecargas($idPlan, $Anio){
 			$ConnectionORM = new ConnectionORM();
