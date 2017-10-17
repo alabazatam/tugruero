@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-  font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  font-family: Montserrat;
   overflow-x: hidden;
 }
 p {
@@ -30,7 +30,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -67,9 +66,9 @@ header img {
 }
 header .intro-text .name {
   display: block;
-  font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
   font-weight: 700;
   font-size: 20px;
+  text-transform: uppercase;
 }
 header .intro-text .skills {
   font-size: 1.25em;
@@ -90,7 +89,6 @@ header .intro-text .skills {
 .navbar-custom {
   /*background: #393536;*/
   background: url(../img/fresh/pixel1.png) ;
-  font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
   text-transform: uppercase;
   font-weight: 0;
   border: none;
@@ -169,7 +167,7 @@ header .intro-text .skills {
   }
 }
 section {
-  padding: 100px 0;
+  padding: 50px 0 !important;
 }
 section h2 {
   margin: 0;
@@ -559,6 +557,7 @@ fieldset[disabled] .btn-success.active {
    color: #393536;
    font-weight: 500;
     font-size: 16px;
+    padding-top: 1em;
 }
 .font-principal-strong {
    color: #393536;
@@ -730,7 +729,8 @@ fieldset[disabled] .btn-success.active {
 
 }
 .titulo_gruero_plus{
-  font-size: 22px;
+  font-size: 1em;
+  padding: 0 2em;
   /*font-weight: 900;*/
 }
 .propaganda_clientes{
@@ -739,15 +739,13 @@ fieldset[disabled] .btn-success.active {
     font-weight: 900;
 }
 .titulo_testimonios{
-  font-size: 50px;
+  font-size: 35px;
   font-weight: 900;
   margin: 0;
-
   padding-top: 0px;
   padding-bottom: 0px;
-  color: #26282B;
-  background-color: #ccc;
-  margin-bottom: 5%;
+  color: #ccc;
+  text-transform: uppercase;
 }
 .fondo_testimonios{
     border: 0px solid #555;
@@ -940,7 +938,7 @@ fieldset[disabled] .btn-success.active {
       color: #fff;
     }
     .titulo_gruero_plus{
-      font-size: 22px;
+      font-size: 18px;
     }
 .propaganda_clientes{
     font-size: 22px;
@@ -972,16 +970,26 @@ fieldset[disabled] .btn-success.active {
      background-color: #464646 !important;
 }
 .btn-naranja {
-    background-color: #CC5A27 !important;
+    background-color: #f46830 !important;
     color: #fff;
     font-size: 120% !important;
+    padding:15px 25px;
+}
+.btn-blanco {
+    color: #f46830 !important;
+    background-color: #fff;
+    font-size: 120% !important;
+    padding: 15px 25px;
+}
+.btn-blanco:hover {
+    background-color: #eee;
 }
 .btn-naranja:hover{
-  background-color: #cc7e27 !important;
+  background-color: #D05524 !important;
   color: #fff;
 }
 .btn-naranja:focus {
-  background-color: #cc7e27 !important;
+  background-color: #D05524 !important;
   background-position: 0 -15px;
   color: #fff;
 }
@@ -1096,7 +1104,7 @@ fieldset[disabled] .btn-success.active {
    padding-right: 10%;
 }
 .texto_gruero_plus{
-   padding-top: 3%;
+   padding-top: 0%;
 }
 .text_footer{
     font-size: 12px;
@@ -1121,7 +1129,7 @@ fieldset[disabled] .btn-success.active {
 }
 .telefono_sombra{
     color: #4F4C4D;
-    font-size: 50px;
+    font-size: 40px;
     font-weight:bolder !important;
     /*text-shadow: #F46830 0.1em 0.1em 0.2em;*/
     text-shadow: 0.04em -0.04em #F46830;
@@ -1150,6 +1158,10 @@ fieldset[disabled] .btn-success.active {
     .font-34 {
         font-size: 28px !important;
     }
+
+          #android, #apple{
+        width: 50% !important;
+      }
 
 }
 @media (min-width: 769px){
@@ -1222,7 +1234,10 @@ fieldset[disabled] .btn-success.active {
   -webkit-animation-delay: 0s;
 }
 .titulo_planes {
-    font-size: 45px !important;
+    font-size: 35px !important;
+    color: #f46830;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 .subtitulo_planes{
   font-size: 24px;
@@ -1233,21 +1248,20 @@ fieldset[disabled] .btn-success.active {
   text-decoration: none;
 }
 button.multiselect.dropdown-toggle.btn.btn-default{
-    
+
     background: transparent !important;
     color: #fff;
 }
 ul.multiselect-container.dropdown-menu {
     background: transparent !important;
-    color: #fff; 
+    color: #fff;
 }
 label.checkbox {
     background: #26282b !important;
-    color: #ccc;    
+    color: #ccc;
 }
 div.btn-group {
     width: 100%;
 }
 span.multiselect-selected-text {
     width: 100%;
-}

@@ -21,23 +21,8 @@
   <!-- Custom Fonts -->
   <link href="web/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="web/css/animate.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
-
-    <!-- jQuery -->
-  <script src="web/js/jquery.js"></script>
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="web/js/bootstrap.min.js"></script>
-  <script src="web/js/bootstrap-multiselect.js"></script>
-  <!-- Slick Slider -->
-  <link rel="stylesheet" type="text/css" href="web/css/infinite-slider.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-  <script type="text/javascript" src="web/js/carousel.js"></script>
-  <script type="text/javascript" src="web/js/new.js"></script>
-  <!-- Owl Carousel -->
-  <script src="web/js/owl.carousel.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="web/css/renew.css">
+  
+  <!-- Botstrap Multiselect CSS -->
   <link rel="stylesheet" href="web/css/bootstrap-multiselect.css" />
 </head>
 <style>
@@ -96,197 +81,112 @@
   </nav>
 
   <!-- Header -->
-  <header class=business-header>
+  <header>
 
 
-    <div class="row">
-      <div class="col-sm-12" >
+    <div class="row ">
+      <div class="col-sm-12">
         <input type="hidden" id="animate1" value="0">
         <input type="hidden" id="animate2" value="0">
         <input type="hidden" id="animate3" value="0">
         <input type="hidden" id="animate4" value="0">
         <br><br><br><br>
-        <img class="img-responsive" src="web/img/fresh/logo_header.png" style="max-height: 340px; padding: 0 1em">
-        <div class="intro-text text-center">
-          <div class="name">¡Quedarse accidentado ya no es un problema!<br></div>
-          <p class="telefono_sombra text-center">0500-GRUERO-0 (0500-478376-0) </p>
+        <img class="img-responsive" src="web/img/fresh/logo_header.png" alt="" id="">
+        <div class="intro-text">
+          <div class="name">¡Quedarse accidentado ya no es un problema!<br><br> </div>
         </div>
-        <br>
-        <div class="row" style="margin: 2em 0">
-          <div class="col-sm-3"></div>
+      </div>
+      <div class="col-sm-12 franja_transparente">
+        <div class="margin_header">
           <div class="col-sm-3">
-            <a href='https://play.google.com/store/apps/details?id=com.tugruero.grua&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
-            ><img id="android" alt='Disponible en Google Play' src='web/img/android_button.png' style="width: 18em" /></a>
+            <div class="thumbnail ">
+              <img src="web/img/fresh/c1.png" alt="...">
+              <div class="caption">
+                <p class="font-principal">Servicio activo <strong class="font-principal-strong">24/7</strong> </br>todos los días del año</p>
+              </div>
+            </div>
           </div>
           <div class="col-sm-3">
-            <a href="https://itunes.apple.com/ve/app/tu-gruero-app-para-clientes/id1107659718?mt=8">
-            <img id="apple" alt='Disponible en Google Play' src='web/img/apple_button.png' style="width: 18em" /></a>
+            <div class="thumbnail">
+              <img src="web/img/fresh/c2.png" alt="...">
+              <div class="caption">
+                <p class="font-principal">Rescate en menos de <strong class="font-principal-strong"><br>30 minutos</strong></p>
+              </div>
+            </div>
           </div>
-          <div class="col-sm-3"></div>
+          <div class="col-sm-3">
+            <div class="thumbnail">
+              <img src="web/img/fresh/c3.png" alt="...">
+              <div class="caption">
+                <p class="font-principal">Más de <strong class="font-principal-strong">2000 grueros</strong> en toda Venezuela</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="thumbnail">
+              <img src="web/img/fresh/c4.png" alt="...">
+              <div class="caption">
+                <p class="font-principal">Búsqueda de grueros por <strong class="font-principal-strong">GPS</strong></p>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
+      <div class="col-sm-12 franja_naranja" >
+        <p class=""><strong class="font-34">¡EL MEJOR SERVICIO DE GRÚAS DE TODO EL PAÍS!</strong></p>
+      </div>
+      <div class="col-sm-12" >
+        <br>
+        <div class="intro-text">
+          <p class="name">¡Comunícate con nosotros! </p>
+          <p class="telefono_sombra">0500-GRUERO-0 (0500-478376-0) </p>
 
+        </div>
+        <!--<img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">-->
+      </div>
     </div>
+
+
+
+
 
   </header>
-  <section id="features">
-    <div class="container">
-      <div class="row text-center">
-          <div class="col-lg-12">
-            <h1 class="text-center titulo_planes">EL MEJOR SERVICIO DE GRÚAS DE TODO EL PAÍS</h1>
-          </div>
-          <div class="col-lg-1" ></div>
-          <div class="col-lg-10" >
-            <br>
-            <div class="intro-text">
-              <p class="titulo_gruero_plus">La primera plataforma web de servicios de grúas de Venezuela. Recibe asistencia vial
-              confiable de forma instántanea a través de nuestra aplicación y olvídate de los largos tiempos de espera.</p>
-            </div>
-            <!--<img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">-->
-          </div>
-          <div class="col-lg-1" ></div>
-      </div>
-      <div class="row" style="text-align: center">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="thumbnail ">
-                <img src="web/img/fresh/c1.png" alt="...">
-                <div class="caption">
-                  <p class="font-principal">Servicio activo <strong class="font-principal-strong">24/7</strong>
-                  </br>todos los días del año</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="thumbnail">
-                <img src="web/img/fresh/c2.png" alt="...">
-                <div class="caption">
-                  <p class="font-principal">Rescate en menos de <strong class="font-principal-strong"><br>30 minutos</strong></p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="thumbnail">
-                <img src="web/img/fresh/c3.png" alt="...">
-                <div class="caption">
-                  <p class="font-principal">Más de <strong class="font-principal-strong">2000 grueros</strong> en toda Venezuela</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="thumbnail">
-                <img src="web/img/fresh/c4.png" alt="...">
-                <div class="caption">
-                  <p class="font-principal">Búsqueda de grueros por <strong class="font-principal-strong">GPS</strong></p>
-                </div>
-              </div>
-            </div>
-      </div>
-    </div>
-  </section>
   <section id="gruero_plus" onload="">
-  <div class="container">
-    <div class="row">
-      <div class="text-right" id="animationSandbox">
-        <div class="col-xs-12">
-          <h1 class="text-center titulo_planes" >PLANES DE GRÚAS ILIMITADAS</h1>
-        </div>
+    <div class="text-right" id="animationSandbox">
+      <div class="col-xs-12">
+        <h1 class="text-center titulo_planes" >PLANES DE GRÚAS ILIMITADAS <small style="font-size:0.8em;display: block;padding-top: 20px;padding-bottom: 20px;" id="imagen2"> <b style="color:#4F4C4D;">+</b> <b style="color:#F46830;">RCV</b></small></h1>
       </div>
+
+
     </div>
-    <div class="row">
-      <div class="col-lg-1"></div>
-        <div class="col-lg-10 texto_gruero_plus">
-          <div id="imagen">
-            <br>
-            <p align="center" class="titulo_gruero_plus">Adquiere nuestros planes directamente desde nuestra plataforma web y
-            disfruta de grúas ilimitadas, sin llamadas telefónicas</p>
-            <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
-          </div>
-        </div>
-      <div class="col-lg-1"></div>
-    </div>
-  </div>
+    <div class="row text-center" id="" style="display: block;">
 
+      <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/plan3.png" alt="TU/GRUERO PLUS" class=""></span>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="row text-center" id="" style="display: block;">
-        </div>
-        <ul class="pricing_table">
-            <li class="price_block nohover">
-              <h3 style="visibility: hidden;"><img src="web/img/plus.png"></h3>
-              <div class="price">
-                <div class="price_figure">
-                  <span class="price_number">Beneficios</span>
-                   <span class="price_tenure"></span>
-                </div>
-              </div>
-              <ul class="features">
-                <li>Auxilio vial en 30 minutos</li>
-                <li>Acceso a la APP móvil TU/GRUERO®</li>
-                <li>Acceso a servicios vía Call Center</li>
-                <li>Búsqueda de grueros vía GPS</li>
-                <li>Disponible en los 24 estados del país</li>
-                <li>2000 grueros disponibles para el auxilio</li>
-                <li>Servicios de grúa urbanos ilimitados</li>
-                <li><b>RCV (opcional)</b></li>
-                <li>Un (01) servicio de grúa Extraurbano de 300km</li>
-              </ul>
-
-            </li>
-            <li class="price_block">
-              <h3><img src="web/img/plus.png"></h3>
-              <div class="price">
-                <div class="price_figure">
-                  <span class="price_number"><?php echo $Planes->getPlanPrecioIva(1)?>,00</span>
-                  <span class="price_tenure">por un año (IVA incluido)</span>
-                </div>
-              </div>
-              <ul class="features">
-                <li><i class="fa fa-check fa-lg"></i></li>
-                <li><i class="fa fa-check fa-lg"></i></li>
-                <li><i class="fa fa-check fa-lg"></i></li>
-                <li><i class="fa fa-check fa-lg"></i></li>
-                <li><i class="fa fa-check fa-lg"></i></li>
-                <li><i class="fa fa-check fa-lg"></i></li>
-                <li><i class="fa fa-check fa-lg"></i></li>
-                <li><i class="fa fa-check fa-lg"></i></li>
-                <li><i class="fa fa-times fa-lg"></i></li>
-              </ul>
-              <div class="footer">
-                <a href="https://tugruero.com/pl/planes/index.php" target="_blank" class="action_button">Comprar</a>
-              </div>
-            </li>
-            <li class="price_block">
-              <h3><img src="web/img/gold.png"></h3>
-              <div class="price">
-                <div class="price_figure">
-                  <span class="price_number"><?php echo $Planes->getPlanPrecioIva(2)?>,00</span>
-                   <span class="price_tenure">por un año (IVA incluido)</span>
-                </div>
-              </div>
-              <ul class="features">
-<li><i class="fa fa-check fa-lg"></i></li>
-<li><i class="fa fa-check fa-lg"></i></li>
-<li><i class="fa fa-check fa-lg"></i></li>
-<li><i class="fa fa-check fa-lg"></i></li>
-<li><i class="fa fa-check fa-lg"></i></li>
-<li><i class="fa fa-check fa-lg"></i></li>
-<li><i class="fa fa-check fa-lg"></i></li>
-<li><i class="fa fa-check fa-lg"></i></li>
-<li><i class="fa fa-check fa-lg"></i></li>
-              </ul>
-              <div class="footer">
-                <a href="https://tugruero.com/pl/planes/index.php" target="_blank" class="action_button">Comprar</a>
-              </div>
-            </li>
-        </ul>
-      </div>
 
     </div>
 
-    <p align="center" class="titulo_gruero_plus" ID="" style="margin-top: 2em"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p>
+    <div class="row margin_gruero_plus">
+
+      <!--<div class="col-sm-5 text-right">
+      <span id="animationSandbox" style="display: block;"><img src="web/img/fresh/plan1.png" alt="TU/GRUERO PLUS" class=""></span>
+      <span id="animationSandbox2" style="display: block;"><img src="web/img/fresh/plan2.png" alt="TU/GRUERO PLUS" class=""></span>
+
+    </div>-->
+    <div class="col-sm-12 texto_gruero_plus">
+
+      <div id="imagen">
+        <p align="center" id class="titulo_gruero_plus">Adquiere <strong>YA</strong> nuestros planes vía online
+          <br>para que manejes tranquilo en todo el país
+          <br>y disfruta de grúas ilimitadas</p>
+          <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
+          <p align="center" class="titulo_gruero_plus"><strong><br><br>Ahora puedes adquirir nuestros planes vía online ¡Sin hacer ni una llamada!</strong></p>
+          <p align="center" class="titulo_gruero_plus" ID=""><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p>
+        </div>
       </div>
+
+
     </div>
   </section>
   <!-- About Section -->
@@ -334,30 +234,75 @@
 
 </section>
 
-<section id="bancos" style="background: white !important">
-
+<section id="bancos">
   <div class="row">
-    <h1 class="titulo_planes text-center">Bancos disponibles</h1><br>
+    <div class="titulo_bancos text-center">Bancos disponibles</div><br><br><br><br>
   </div>
-  <div class="container">
-  <div class="row" style="color: black">
-    <p style=" text-align: center" class="titulo_gruero_plus">¡Más de 10 bancos afiliados en todo el territorio nacional!</p>
+  <div class="row margin_bancos">
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bancaribe.png" alt="Paga con BANCARIBE" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/banconacional.png" alt="Paga con Banco Nacional de Crédito" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bancoactivo.png" alt="Paga con Banco Activo" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bancovenezuela.png" alt="Paga con Banco Venezuela" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/banco_tesoro.png" alt="Paga con Banco del Tesoro" class="img-responsive" width="">
+      </div>
+    </div>
   </div>
-   <section class="customer-logos slider" style="padding-left:8em !important; padding-right: 8em !important">
-      <div class="slide"><img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/bancaribe.png" alt="Paga con BANCARIBE" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/banconacional.png" alt="Paga con Banco Nacional de Crédito" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/bancoactivo.png" alt="Paga con Banco Activo" class="img-responsive" ></div>
-      <div class="slide"><img src="web/img/fresh/bancovenezuela.png" alt="Paga con Banco Venezuela" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/banco_tesoro.png" alt="Paga con Banco del Tesoro" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/provincial.png" alt="Paga con Banco Provincial" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/bancoexterior.png" alt="Paga con Banco Exterior" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/mercantil.png" alt="Paga con Banco Mercantil" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/venezolanodecredito.png" alt="Paga con Venezolano de Crédito" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/banco_plaza.png" alt="Paga con Banco Plaza" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive"></div>
-   </section>
-</div>
+  <div class="row margin_bancos separador_bancos">
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/provincial.png" alt="Paga con Banco Provincial" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bancoexterior.png" alt="Paga con Banco Exterior" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/mercantil.png" alt="Paga con Banco Mercantil" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/venezolanodecredito.png" alt="Paga con Venezolano de Crédito" class="img-responsive" width="">
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/banco_plaza.png" alt="Paga con Banco Plaza" class="img-responsive" width="">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive" width="">
+      </div>
+    </div>
+  </div>
   <div class="row margin_bancos letras_bancos text-center" align="center">
     <div class="col-sm-12 text-center">
       También aceptamos
@@ -375,7 +320,7 @@
       <img src="web/img/fresh/mercadopago.png" alt="Mercado Pago" class="" width="">
     </div>
   </div>
-  <div class="row margin_bancos letras_bancos" style="text-align: center; margin-top: 3em">
+  <div class="row margin_bancos letras_bancos text-right" align="right">
     <button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">VER CUENTAS BANCARIAS</button>
   </div>
 </section>
@@ -468,154 +413,199 @@
 </section>
 <section id="clientes">
   <div class="row">
-    <div class="titulo_planes text-center">Clientes y Aliados</div>
+    <div class="titulo_clientes text-center">Clientes y Aliados</div>
   </div>
-  <div class="container">
-   <section class="customer-logos slider" style="padding-left:8em !important; padding-right: 8em !important">
-      <div class="slide"><img src="web/img/fresh/clientes/vitalicia.png" alt="Vitalicia"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/laprevisora.png" alt="La Previsora" ></div>
-      <div class="slide"><img src="web/img/fresh/clientes/more.png" alt="More consulting"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/tecontacto.png" alt="Te Contacto"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/easytaxi.png" alt="EasYtaxi"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/universal.png" alt="Probilinca"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/chacao.png" alt="La Previsora"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/coprevial.png" alt="Asistir cooperativa"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/airs.png" alt="Plataforma satelital"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/resvialcar.png" alt="Asistir cooperativa"></div>
+  <div class="row margin_clientes">
+    <div class="col-sm-2 col-sm-offset-1">
+      <div class="thumbnail padding_clientes">
+        <img src="web/img/fresh/clientes/universal.png" alt="Probilinca">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail padding_clientes">
+        <img src="web/img/fresh/clientes/chacao.png" alt="La Previsora">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail padding_clientes">
+        <img src="web/img/fresh/clientes/coprevial.png" alt="Asistir cooperativa">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail padding_clientes">
+        <img src="web/img/fresh/clientes/airs.png" alt="Plataforma satelital">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail padding_clientes">
+        <img src="web/img/fresh/clientes/resvialcar.png" alt="Asistir cooperativa">
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-sm-2 col-sm-offset-1">
+      <div class="thumbnail  ">
+        <img src="web/img/fresh/clientes/vitalicia.png" alt="Vitalicia">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail" >
+        <img src="web/img/fresh/clientes/laprevisora.png" alt="La Previsora" >
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/more.png" alt="More consulting">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/tecontacto.png" alt="Te Contacto">
+      </div>
+    </div>
 
-      <div class="slide"><img src="web/img/fresh/clientes/mercantil.png" alt="Seguros Mercantil"></div>
-      <div class="slide"><img src="web/img/fresh/provincial.png" alt="Banco Provincial" class="img-responsive"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/ubikeitor.png" alt="Ubikeitor"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/locktrack.png" alt="LockTrack"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/exterior.png" alt="Banco Exterior"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/banesco.png" alt="Banco Banesco"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/valuarty.png" alt="Valuarty"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/4lotrack.png" alt="4lotrack"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/bf.png" alt="BF"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/problinca.png" alt="Problinca"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/clubgruas.png" alt="Club Grúas Venezuela"></div>
-      <div class="slide"><img src="web/img/fresh/clientes/asistir.png" alt="Asistir"></div>
-   </section>
+    <div class="col-sm-2">
+      <div class="thumbnail  ">
+        <img src="web/img/fresh/clientes/easytaxi.png" alt="EasYtaxi">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-1">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/mercantil.png" alt="Seguros Mercantil">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/provincial.png" alt="Banco Provincial">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/plataformasatelital.png" alt="Plataforma Satelital">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/ubikeitor.png" alt="Ubikeitor">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/locktrack.png" alt="LockTrack">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-1">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/exterior.png" alt="Banco Exterior">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/banesco.png" alt="Banco Banesco">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/valuarty.png" alt="Valuarty">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/4lotrack.png" alt="4lotrack">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/bf.png" alt="BF">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/problinca.png" alt="Problinca">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/clubgruas.png" alt="Club Grúas Venezuela">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="thumbnail ">
+        <img src="web/img/fresh/clientes/asistir.png" alt="Asistir">
+      </div>
+    </div>
+    <div class="col-sm-3">
+
+    </div>
   </div>
   <div class="row">
     <p align="center" class="propaganda_clientes">¡Y MÁS DE 3000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS!</p>
   </div>
 </section>
 
-<section id="CTA">
-  <div class="container" >
-    <div class="row">
-      <div class="titulo_testimonios text-center" style="color: white">¡COMIENZA YA!</div>
-    </div>
-    <div class="row text-center">
-      <div class="col-lg-12" style="padding: 1em 5em 0 5em">
-        <h4 style="color: white; font-weight: 400">Empieza a disfrutar del mejor servicio de grúas del país y olvídate de los largos tiempos de espera para rescates.</h4>
+<section id="testimonios">
+  <div class="row">
+    <br><br>
+  </div>
+  <div class="row">
+    <div class="titulo_testimonios text-center">Testimonios de Grueros</div>
+  </div>
+
+  <div class="row margin_testimonios" >
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+      <div class="thumbnail">
+        <img src="web/img/fresh/testimonio_circle1.png" alt="Testimonios" class="img-testimonios">
+        <div class="fondo_testimonios">
+          <p class="nombres_testimonios text-left">Juan Panto</p>
+          <p class="subtitulo_testimonios text-justify">Gruero del Estado Miranda inscrito en el Club Grúas Venezuela:</p>
+          <p class="texto_testimonios text-justify">Con TU/GRUERO® toda ha marchado muy bien. Siempre le recomiendo a todos mis compañeros se afilien con esta empresa.</p>
+
+        </div>
       </div>
     </div>
-    <div class="row" style="text-align: center; margin-top: 3em">
-      <button class="btn btn-blanco" data-toggle="modal" data-target="#myModal3">CONTRATAR PLAN</button>
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+      <div class="thumbnail">
+        <img src="web/img/fresh/testimonio_circle2.png" alt="Testimonios" class="img-testimonios">
+        <div class="fondo_testimonios">
+          <p class="nombres_testimonios text-left">David Urbina</p>
+          <p class="subtitulo_testimonios text-justify">Gruero del Estado Carabobo inscrito en el Club Grúas Venezuela:</p>
+          <p class="texto_testimonios text-justify">Prefiero trabajar con ustedes, las otras compañías no están pendientes de pagar. En cambio ustedes sí lo están y pagan al día.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+      <div class="thumbnail">
+        <img src="web/img/fresh/testimonio_circle3.png" alt="Testimonios" class="img-testimonios">
+        <div class="fondo_testimonios">
+          <p class="nombres_testimonios text-left">Carlos Otero</p>
+          <p class="subtitulo_testimonios text-justify">Directivo del Club Grúas Venezuela en el Estado Anzoátegui:</p>
+          <p class="texto_testimonios text-justify">No trabajamos con otras compañías de asistencia, pero en comparación con otro servicios ustedes son más atentos y responsables.</p>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+      <div class="thumbnail">
+        <img src="web/img/fresh/testimonio_circle4.png" alt="Testimonios" class="img-testimonios">
+        <div class="fondo_testimonios">
+          <p class="nombres_testimonios text-left">Ivan Fernandez</p>
+          <p class="subtitulo_testimonios text-justify">Gruero del Estado Miranda inscrito en el Club Grúas Venezuela:</p>
+          <p class="texto_testimonios text-justify">A mi parecer, por los momentos es lo mejor que hay.</p>
+
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-
-
-<section id="testimonios" style="display: ">
-<div class="container">
-  <div class="row">
-    <h1 class="titulo_testimonios text-center">Testimonios</h1>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-      <div class="col-lg-12">
-          <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-                              <!-- Bottom Carousel Indicators -->
-              <ol class="carousel-indicators">
-                  <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="web/img/fresh/testimonio_circle1.png" alt="">
-                  </li>
-                  <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="web/img/fresh/testimonio_circle2.png" alt="">
-                  </li>
-                  <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="web/img/fresh/testimonio_circle3.png" alt="">
-                  </li>
-                  <li data-target="#quote-carousel" data-slide-to="3"><img class="img-responsive" src="web/img/fresh/testimonio_circle4.png" alt="">
-                  </li>
-              </ol>
-              <!-- Carousel Slides / Quotes -->
-              <div class="carousel-inner text-center">
-                  <!-- Quote 1 -->
-                  <div class="item active">
-                      <blockquote>
-                          <div class="row">
-                          <div class="col-sm-2"></div>
-                              <div class="col-sm-8">
-                                  <p>Con TU/GRUERO® toda ha marchado muy bien. Siempre le recomiendo a todos mis compañeros se afilien con esta empresa.</p>
-                                  <small>Juan Panto</small>
-                                  <small>Gruero del Estado Miranda inscrito en el Club Grúas Venezuela</small>
-                              </div>
-                            <div class="col-sm-2"></div>
-                          </div>
-                      </blockquote>
-                  </div>
-                  <!-- Quote 2 -->
-                  <div class="item">
-                      <blockquote>
-                          <div class="row">
-                              <div class="col-sm-8 col-sm-offset-2">
-                                  <p>Prefiero trabajar con ustedes, las otras compañías no están pendientes de pagar. En cambio ustedes sí lo están y pagan al día.</p>
-                                  <small>David Urbina</small>
-                                  <small>Gruero del Estado Carabobo inscrito en el Club Grúas Venezuela</small>
-                              </div>
-                          </div>
-                      </blockquote>
-                  </div>
-                  <!-- Quote 3 -->
-                  <div class="item">
-                      <blockquote>
-                          <div class="row">
-                              <div class="col-sm-8 col-sm-offset-2">
-                                  <p>No trabajamos con otras compañías de asistencia, pero en comparación con otro servicios ustedes son más atentos y responsables.</p>
-                                  <small>Carlos Otero</small>
-                                  <small>Directivo del Club Grúas Venezuela en el Estado Anzoátegui</small>
-                              </div>
-                          </div>
-                      </blockquote>
-                  </div>
-                  <!-- Quote 4 -->
-                  <div class="item">
-                      <blockquote>
-                          <div class="row">
-                              <div class="col-sm-8 col-sm-offset-2">
-                                  <p>A mi parecer, por los momentos es lo mejor que hay.</p>
-                                  <small>Ivan Fernandez</small>
-                                  <small>Gruero del Estado Miranda inscrito en el Club Grúas Venezuela</small>
-                              </div>
-                          </div>
-                      </blockquote>
-                  </div>
-              </div>
-              <br>
-              <br>
-
-
-              <!-- Carousel Buttons Next/Prev -->
-              <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-              <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
-          </div>
-      </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-</section>
-
-
 
 <!-- Contact Section -->
 <section id="contactenos" class="">
@@ -728,11 +718,11 @@
             </div>
             <div class="form-group">
                 <label for="subject" class="col-sm-4 text-left">Asunto</label>
-                <div class="col-sm-8 text-left">
+                <div class="col-sm-8 text-left"> 
                     <select multiple="multiple" class="form-control" id="subject" placeholder="" required data-validation-required-message="Por favor seleccione el asunto.">
                         <option value="5">Precios de traslados de vehículos </option>
                         <option value="6">Precios e información de nuestros planes </option>
-						            <option value="1">Afiliación como proveedor de grúa </option>
+						<option value="1">Afiliación como proveedor de grúa </option>
                         <option value="2">Alianzas para venta de nuestros planes</option>
                         <option value="3">Información para Alianza internacional</option>
                         <option value="4">Pago de facturas a proveedores</option>
@@ -859,13 +849,14 @@
               <?php endforeach;?>
               <tr class="background_cuadro_footer">
                 <td ><strong class="letra_cuadro_p">&nbsp;&nbsp;&nbsp;Precio (con IVA incluido)</strong></td>
-                <td class="text-center "><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(1)?></strong></td>
-                <td class="text-center" ><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(2)?></strong></td>
+                <td class="text-center "><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(1)?><small style="font-size:10px;">,00</small></strong></td>
+                <td class="text-center" ><strong class="letra_cuadro_p"><?php echo $Planes->getPlanPrecioIva(2)?><small style="font-size:10px;">,00</small></strong></td>
               </tr>
             </table>
           </div>
 
         </div>
+          
         <div class="col-xs-12 col-sm-12 col-md-3 text-left">
           <label><strong style="text-decoration: underline;">Características y Coberturas de los planes:</strong></label>
           <ul class="text-left">
@@ -919,8 +910,15 @@
       </div>
     </div>
   </div>
+  <!-- jQuery -->
+  <script src="web/js/jquery.js"></script>
 
+  <!-- Bootstrap Core JavaScript -->
+  <script src="web/js/bootstrap.min.js"></script>
 
+  <!-- Bootstrap Multiselect -->
+  <script src="web/js/bootstrap-multiselect.js"></script>
+  
   <!-- Plugin JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
@@ -932,9 +930,6 @@
   <script src="web/js/freelancer.js"></script>
   <script src="web/js/jquery.bootstrap-autohidingnavbar.js"></script>
   <script src="web/js/jquery.inview.js"></script>
-
-
-
 </body>
 
 </html>
@@ -1052,7 +1047,7 @@ ga('send', 'pageview');
     $(document).ready(function() {
         $('#subject').multiselect( {
             numberDisplayed: 2,
-            nonSelectedText: 'Seleccione una o más opciones',
+            nonSelectedText: 'Seleccione una o más opciones', 
             nSelectedText: 'Seleccionados',
             allSelectedText: 'Todos Seleccionados',
         } );
