@@ -528,7 +528,9 @@ label.checkbox:hover {
         </div>
       </div>
       <div class="row" style="text-align: center; margin-top: 3em">
-        <button class="btn btn-blanco" data-toggle="modal" data-target="#myModal2">CONTRATAR PLAN</button>
+        <div>
+        <button class="btn btn-blanco " data-toggle="modal" data-target="#myModal2">CONTRATAR PLAN</button>
+        </div>
       </div>
     </div>
   </section>

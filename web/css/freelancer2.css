@@ -983,7 +983,14 @@ fieldset[disabled] .btn-success.active {
 }
 .btn-blanco:hover {
   background-color: #eee;
-}
+  display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    background: linear-gradient(#666, #333);
+    font-size: 24px;
+    border: 1px solid #fff;
+  }
 .btn-naranja:hover{
   background-color: #D05524 !important;
   color: #fff;
@@ -1152,6 +1159,7 @@ fieldset[disabled] .btn-success.active {
     white-space: nowrap;
 
   }
+}
   @media (min-width: 361px) and (max-width: 768px){
     .telefono_sombra{
       color: #4F4C4D;
