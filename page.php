@@ -116,11 +116,11 @@
           <div class="col-sm-3"></div>
           <div class="col-sm-3">
             <a href='https://play.google.com/store/apps/details?id=com.tugruero.grua&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
-            ><img id="android" alt='Disponible en Google Play' src='web/img/android_button.png' style="width: 18em" /></a>
+            ><img id="android" alt='Disponible en Google Play' src='web/img/android_button.png' style="width: 14em" /></a>
           </div>
           <div class="col-sm-3">
             <a href="https://itunes.apple.com/ve/app/tu-gruero-app-para-clientes/id1107659718?mt=8">
-              <img id="apple" alt='Disponible en Google Play' src='web/img/apple_button.png' style="width: 18em" /></a>
+              <img id="apple" alt='Disponible en Google Play' src='web/img/apple_button.png' style="width: 14em" /></a>
             </div>
             <div class="col-sm-3"></div>
           </div>
@@ -254,7 +254,7 @@
                     <li><i class="fa fa-times fa-lg"></i></li>
                   </ul>
                   <div class="footer">
-                    <a href="https://tugruero.com/pl/planes/index.php" target="_blank" class="action_button">Comprar</a>
+                    <a data-toggle="modal" data-target="#myModal2" class="action_button">Comprar</a>
                   </div>
                 </li>
                 <li class="price_block">
@@ -277,7 +277,7 @@
                     <li><i class="fa fa-check fa-lg"></i></li>
                   </ul>
                   <div class="footer">
-                    <a href="https://tugruero.com/pl/planes/index.php" target="_blank" class="action_button">Comprar</a>
+                    <a data-toggle="modal" data-target="#myModal2" class="action_button">Comprar</a>
                   </div>
                 </li>
               </ul>
@@ -285,7 +285,7 @@
 
           </div>
 
-          <p align="center" class="titulo_gruero_plus" ID="" style="margin-top: 2em"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p>
+          <!-- <p align="center" class="titulo_gruero_plus" ID="" style="margin-top: 2em"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal2">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p> -->
         </div>
       </div>
     </section>
@@ -340,10 +340,10 @@
       <h1 class="titulo_planes text-center">Bancos disponibles</h1><br>
     </div>
     <div class="container">
-      <div class="row" style="color: black">
-        <p style=" text-align: center" class="titulo_gruero_plus">¡Más de 10 bancos afiliados en todo el territorio nacional!</p>
-      </div>
-      <section class="customer-logos slider" style="padding-left:8em !important; padding-right: 8em !important">
+    <div class="row" style="color: black">
+      <p style=" text-align: center" class="titulo_gruero_plus">¡Más de 10 bancos afiliados en todo el territorio nacional!</p>
+    </div>
+     <section class="customer-logos slider" style="padding-left:5em !important; padding-right: 5em !important">
         <div class="slide"><img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive"></div>
         <div class="slide"><img src="web/img/fresh/bancaribe.png" alt="Paga con BANCARIBE" class="img-responsive"></div>
         <div class="slide"><img src="web/img/fresh/banconacional.png" alt="Paga con Banco Nacional de Crédito" class="img-responsive"></div>
@@ -356,8 +356,8 @@
         <div class="slide"><img src="web/img/fresh/venezolanodecredito.png" alt="Paga con Venezolano de Crédito" class="img-responsive"></div>
         <div class="slide"><img src="web/img/fresh/banco_plaza.png" alt="Paga con Banco Plaza" class="img-responsive"></div>
         <div class="slide"><img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive"></div>
-      </section>
-    </div>
+     </section>
+  </div>
     <div class="row margin_bancos letras_bancos text-center" align="center">
       <div class="col-sm-12 text-center">
         También aceptamos
@@ -423,8 +423,7 @@
     <div class="row margin_quienessomos">
       <div class="">
         <div class="well background_caja">
-          <p class="font_caja_quienes_somos" align="justify" id="caja">Somos una empresa venezolana de base tecnológica dedica al auxilio y asistencia vial mediante una aplicación móvil y centro de monitoreo. Trabajamos las 24 horas del dia y los 365 dias del año. Buscamos a los grueros via GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
-
+          <p class="font_caja_quienes_somos" align="justify" id="caja" style="margin-left: 10px;">Somos una empresa venezolana de base tecnológica dedica al auxilio y asistencia vial mediante una aplicación móvil y centro de monitoreo. Trabajamos las 24 horas del dia y los 365 dias del año. Buscamos a los grueros via GPS y garantizamos un tiempo de respuesta menor a 30 minutos.</p>
 
         </div>
       </div>
@@ -471,7 +470,7 @@
       <div class="titulo_planes text-center">Clientes y Aliados</div>
     </div>
     <div class="container">
-      <section class="customer-logos slider" style="padding-left:8em !important; padding-right: 8em !important">
+     <section class="customer-logos slider" style="padding-left:5em !important; padding-right: 5em !important">
         <div class="slide"><img src="web/img/fresh/clientes/vitalicia.png" alt="Vitalicia"></div>
         <div class="slide"><img src="web/img/fresh/clientes/laprevisora.png" alt="La Previsora" ></div>
         <div class="slide"><img src="web/img/fresh/clientes/more.png" alt="More consulting"></div>
@@ -495,7 +494,7 @@
         <div class="slide"><img src="web/img/fresh/clientes/problinca.png" alt="Problinca"></div>
         <div class="slide"><img src="web/img/fresh/clientes/clubgruas.png" alt="Club Grúas Venezuela"></div>
         <div class="slide"><img src="web/img/fresh/clientes/asistir.png" alt="Asistir"></div>
-      </section>
+     </section>
     </div>
     <div class="row">
       <p align="center" class="propaganda_clientes">¡Y MÁS DE 3000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS!</p>
@@ -513,7 +512,7 @@
         </div>
       </div>
       <div class="row" style="text-align: center; margin-top: 3em">
-        <button class="btn btn-blanco" data-toggle="modal" data-target="#myModal3">CONTRATAR PLAN</button>
+        <button class="btn btn-blanco" data-toggle="modal" data-target="#myModal2">CONTRATAR PLAN</button>
       </div>
     </div>
   </section>
