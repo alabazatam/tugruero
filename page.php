@@ -53,6 +53,19 @@
   right: 0;
   margin-right: 0;
 }
+button.multiselect.dropdown-toggle.btn.btn-default {
+  background: transparent !important;
+  color: #fff;
+}
+ul.multiselect-container.dropdown-menu {
+  background: #000;
+}
+label.checkbox {
+  color:#fff;
+}
+label.checkbox:hover {
+  color:#000;
+}
 </style>
 <body id="page-top" class="index">
 
@@ -109,7 +122,6 @@
         <img class="img-responsive" src="web/img/fresh/logo_header.png" style="max-height: 340px; padding: 0 1em">
         <div class="intro-text text-center">
           <div class="name">¡Quedarse accidentado ya no es un problema!<br></div>
-          <p class="telefono_sombra text-center">0500-GRUERO-0 (0500-478376-0) </p>
         </div>
         <br>
         <div class="row" style="margin: 2em 0">
@@ -124,6 +136,10 @@
             </div>
             <div class="col-sm-3"></div>
           </div>
+          <div class="col-sm-12 text-center">
+            <p class="telefono_sombra text-center">0500-GRUERO-0 (0500-478376-0) </p>
+          </div>
+
 
         </div>
 
@@ -238,7 +254,7 @@
                   <h3><img src="web/img/plus.png"></h3>
                   <div class="price">
                     <div class="price_figure">
-                      <span class="price_number"><?php echo $Planes->getPlanPrecioIva(1)?>,00</span>
+                      <span class="price_number"><?php echo $Planes->getPlanPrecioIva(1)?>,<small>00</small></span>
                       <span class="price_tenure">por un año (IVA incluido)</span>
                     </div>
                   </div>
@@ -261,7 +277,7 @@
                   <h3><img src="web/img/gold.png"></h3>
                   <div class="price">
                     <div class="price_figure">
-                      <span class="price_number"><?php echo $Planes->getPlanPrecioIva(2)?>,00</span>
+                      <span class="price_number"><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
                       <span class="price_tenure">por un año (IVA incluido)</span>
                     </div>
                   </div>
@@ -896,7 +912,7 @@
 
             </div>
             <div class="col-sm-6  col-sm-offset-3 text-right">
-              <a style="" class="btn btn-success" href="https://tugruero.com/pl/planes/index.php">Continuar</a>
+              <a style="" class="btn btn-success" target="_blank" href="https://tugruero.com/pl/planes/index.php">Continuar</a>
             </div>
           </div>
         </div>

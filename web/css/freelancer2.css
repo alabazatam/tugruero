@@ -1256,17 +1256,31 @@ fieldset[disabled] .btn-success.active {
 
     background: transparent !important;
     color: #fff;
-  }
-  ul.multiselect-container.dropdown-menu {
+}
+ul.multiselect-container.dropdown-menu {
     background: transparent !important;
     color: #fff;
-  }
-  label.checkbox {
+}
+label.checkbox {
     background: #26282b !important;
     color: #ccc;
-  }
-  div.btn-group {
+}
+div.btn-group {
     width: 100%;
-  }
-  span.multiselect-selected-text {
+}
+span.multiselect-selected-text {
     width: 100%;
+}
+.toggle-transparent {
+  background: transparent !important;
+  color: #fff !important;
+}
+ul.multiselect-container.dropdown-menu {
+  background: #000;
+}
+label.checkbox {
+  color:#fff;
+}
+label.checkbox:hover {
+  color:#000;
+}
