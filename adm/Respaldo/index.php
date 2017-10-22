@@ -1,4 +1,4 @@
-<?php include("../../autoload.php");?>	
+<?php include("../../autoload.php");?>
 <?php //include("validator.php");?>
 <?php include("../security/security.php");?>
 
@@ -12,21 +12,21 @@ $values = $_REQUEST;
 $values = array_merge($values,$_FILES);
 	switch ($action) {
 		case "index":
-			executeIndex($values);	
+			executeIndex($values);
 		break;
 		case "new":
-			executeNew($values);	
+			executeNew($values);
 		break;
 		case "subir":
-			executeSubir($values);	
+			executeSubir($values);
 		break;
 		case "restaurar":
-			executeRestaurar($values);	
+			executeRestaurar($values);
 		break;
 		case "generar":
-			executeGenerar($values);	
+			executeGenerar($values);
 		break;
-	
+
 		default:
 			executeSubir($values);
 		break;
@@ -36,44 +36,45 @@ $values = array_merge($values,$_FILES);
 		require('respaldo.php');
 	}
 	function executeGenerar($values = null)
-	{    
-		
+	{
+
 		$Respaldar = new Respaldar();
 		$Respaldar->generarRespaldo();
-        
-        $values['msg'] = "Respaldo generado satisfactoriamente.";            
+
+        $values['msg'] = "Respaldo generado satisfactoriamente.";
         executeNew($values);
 	}
 	function executeNew($values = null)
-	{   
+	{
 		$values['action'] = 'generar';
 		require('form_view.php');
 	}
 	function executeSubir($values = null)
-	{    
+	{
 		$values['action'] = 'restaurar';
 		require('respaldo.php');
 	}
 	function executeRestaurar($values)
-	{   
+	{
 
 	$carpeta = "../../web/files/Restaurar";
 	$fichero_subido = $carpeta."/";
 	$unzip = true;
     $Respaldar = new Respaldar();
-    
+
             if(isset($values['zip']) and $values['zip']['size']>0){
-				
+
                 $respaldo_realizado = $Respaldar->respaldoRealizado($values['zip']['name']);
-                
+
                 if($respaldo_realizado == 1){
-                    
+
                     $values['error'] = "Ya se ha subido este respaldo";
                     executeSubir($values);die;
                 }
-                
-                
+
+
                 $nombreArchivo = "respaldo".".".pathinfo($values['zip']['name'],PATHINFO_EXTENSION);
+
 				//echo $fichero_subido.$nombreArchivo;die;
                 if (move_uploaded_file($values['zip']['tmp_name'], $fichero_subido.$nombreArchivo)){
 					if($unzip){
@@ -102,7 +103,7 @@ $values = array_merge($values,$_FILES);
 								echo 'fallo unzipping';die;
 							}
 
-					//se lee el contenido sql del 
+					//se lee el contenido sql del
 							$files_sql = glob("../../web/files/Restaurar/*.sql"); // obtiene todos los archivos
 								foreach($files_sql as $file){
 									$sql = file_get_contents($file);
@@ -112,7 +113,7 @@ $values = array_merge($values,$_FILES);
 									$filename = str_replace("../../web/files/Restaurar/", "", $file);
 									unlink($file);
 								}
-					
+
 					$Respaldar->Restaurar($sql);
                     $Respaldar->Restaurar("CALL cargar_ventas_stand();");
                     $values['Nombre'] = $values['zip']['name'];
@@ -126,7 +127,7 @@ $values = array_merge($values,$_FILES);
 
             }
 
-			
+
 			executeSubir($values);die;
 
 	}
