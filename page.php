@@ -907,7 +907,7 @@ label.checkbox:hover {
         <div class="row">
           <div class="modal-body">
             <div class="col-sm-8 col-sm-offset-3 text-center">
-              <img src="web/img/fresh/cuadro_requisitos.png" class="img-responsive text-center">
+              <img src="web/img/fresh/cuadro_requisitos.jpg" class="img-responsive text-center">
 
             </div>
             <div class="col-sm-6  col-sm-offset-3 text-right">

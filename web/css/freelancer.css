@@ -15,7 +15,7 @@
 body {
     font-family: Montserrat ;
     background: url(../img/fondos/Fondo-Tu-Gruero2.jpg) no-repeat center center fixed ;
-    
+
     overflow-x: hidden;
     margin: 0;
   -webkit-background-size: cover;
@@ -26,7 +26,7 @@ body {
 .body_operador {
     font-family: Montserrat ;
     background: url(../img/fondos/Fondo-Tu-Gruero2.jpg) no-repeat center center fixed ;
-    
+
     overflow-x: hidden;
     margin: 0;
   -webkit-background-size: cover;
@@ -35,7 +35,7 @@ body {
   background-size: cover;
 }
 @media (min-width: 200px ) and (max-width: 600px ) {
-    html { 
+    html {
     overflow-x: hidden;
     overflow-x: hidden;
     margin: 0;
@@ -45,7 +45,7 @@ body {
     background-size: cover;
     }
 }
-html { 
+html {
     font-family: Montserrat ;
 }
 
@@ -125,7 +125,7 @@ hr.star-light {
 
 hr.star-light:after {
     color: #000;
-    
+
 }
 
 hr.star-primary {
@@ -473,8 +473,8 @@ footer .footer-below {
 }
 .portfolio-modal .container{
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
-   
-    
+
+
     overflow-x: hidden;
     margin: 0;
   -webkit-background-size: cover;
@@ -484,7 +484,7 @@ footer .footer-below {
 }
 .nosotros{
      background: url(../img/grua_roja.png) no-repeat center center fixed ;
-    
+
 }
 @media(max-width:768px) {
     h2{
@@ -554,8 +554,8 @@ footer .footer-below {
   background-color: transparent;
   border: 1px solid #ddd;
 }
-@media only screen 
-and (min-device-width : 0px) 
+@media only screen
+and (min-device-width : 0px)
 and (max-device-width : 480px) {
 /* Styles */
     .mainframediv {
@@ -568,7 +568,7 @@ and (max-device-width : 480px) {
 .black {
     background-color: #000 !important;
     color: #fff !important;
-    
+
 }
 .readonly {
    background-color: #ccc !important;
@@ -622,19 +622,19 @@ section.success{
 }
 section.success2{
    background-image: url("../img/bg2.png");
-    
+
 }
 section.success3{
    background-image: url("../img/bg3.png");
-    
+
 }
 section.success4{
    background-image: url("../img/bg4.png");
-    
+
 }
 section.success5{
    background-image: url("../img/bg5_transparente.png");
-    
+
 }
 .white-font{
     color: #fff !important;
@@ -650,7 +650,7 @@ section.success5{
 
 /* Testimonials */
 /* carousel */
-#quote-carousel 
+#quote-carousel
 {
   padding: 0 10px 30px 10px;
   margin-top: 30px;
@@ -666,19 +666,19 @@ section.success5{
   margin-top: 30px;
 }
 /* Previous button  */
-#quote-carousel .carousel-control.left 
+#quote-carousel .carousel-control.left
 {
   left: -12px;
   cursor: pointer;
 }
 /* Next button  */
-#quote-carousel .carousel-control.right 
+#quote-carousel .carousel-control.right
 {
   right: -12px !important;
     cursor: pointer;
 }
 /* Changes the position of the indicators */
-#quote-carousel .carousel-indicators 
+#quote-carousel .carousel-indicators
 {
   right: 50%;
   top: auto;
@@ -686,11 +686,11 @@ section.success5{
   margin-right: -19px;
 }
 /* Changes the color of the indicators */
-#quote-carousel .carousel-indicators li 
+#quote-carousel .carousel-indicators li
 {
   background: #c0c0c0;
 }
-#quote-carousel .carousel-indicators .active 
+#quote-carousel .carousel-indicators .active
 {
   background: #333333;
 }
@@ -702,7 +702,7 @@ section.success5{
 /* End carousel */
 
 .item blockquote {
-    border-left: none; 
+    border-left: none;
     margin: 0;
 }
 
@@ -730,22 +730,22 @@ section.success5{
 */
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-    #quote-carousel 
+@media (min-width: 768px) {
+    #quote-carousel
     {
       margin-bottom: 0;
       padding: 0 40px 30px 40px;
     }
-    
+
 }
 
 /* Small devices (tablets, up to 768px) */
-@media (max-width: 768px) { 
-    
+@media (max-width: 768px) {
+
     /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
-    
+
     #quote-carousel .carousel-indicators {
-        bottom: -20px !important;  
+        bottom: -20px !important;
     }
     #quote-carousel .carousel-indicators li {
         display: inline-block;
@@ -806,7 +806,7 @@ border-radius: 4px;
     color: #fff !important;
 }
 
-    @media (min-width: 768px) { 
+    @media (min-width: 768px) {
     .icon_media{
     /*width: auto;
     -webkit-box-shadow: 10px 10px 247px 40px rgba(245,235,245,1);
@@ -847,14 +847,14 @@ h2 b {
    margin: 0 auto;
    /* probably not needed anymore, but doesn't hurt */
    -o-object-fit: contain;
-   object-fit: contain; 
+   object-fit: contain;
 
 }
 .extra_bold {
     font-weight: bold !important;
-    
+
 }
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     .font-grande-p {
         font-size: 30px;
         line-height: 1.2em;
@@ -864,7 +864,7 @@ h2 b {
             font-weight: bold;
     }
 }
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .font-grande-p {
         font-size: 16px;
     }
@@ -874,16 +874,16 @@ h2 b {
     }
 }
 .fa-quote-left{
-   color: orangered !important; 
+   color: orangered !important;
 }
 .fa-quote-right{
-    color: orangered !important;  
+    color: orangered !important;
 }
 .fa fa-chevron-left{
-        color: whitesmoke !important; 
+        color: whitesmoke !important;
 }
 .fa fa-chevron-right{
-        color: whitesmoke !important; 
+        color: whitesmoke !important;
 }
 .font-inclinado {
     font-style: italic !important;
