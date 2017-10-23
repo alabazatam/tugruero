@@ -128,10 +128,10 @@ label.checkbox:hover {
           <div class="col-sm-3"></div>
           <div class="col-sm-3">
             <a href='https://play.google.com/store/apps/details?id=com.tugruero.grua&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
-            ><img id="android" alt='Disponible en Google Play' src='web/img/android_button.png' style="width: 14em" /></a>
+            target="_blank"><img id="android" alt='Disponible en Google Play' src='web/img/android_button.png' style="width: 14em" /></a>
           </div>
           <div class="col-sm-3">
-            <a href="https://itunes.apple.com/ve/app/tu-gruero-app-para-clientes/id1107659718?mt=8">
+            <a href="https://itunes.apple.com/ve/app/tu-gruero-app-para-clientes/id1107659718?mt=8" target="_blank">
               <img id="apple" alt='Disponible en Google Play' src='web/img/apple_button.png' style="width: 14em" /></a>
             </div>
             <div class="col-sm-3"></div>
@@ -156,8 +156,8 @@ label.checkbox:hover {
           <div class="col-lg-10" >
             <br>
             <div class="intro-text">
-              <p class="titulo_gruero_plus">La primera plataforma web de servicios de grúas de Venezuela. Recibe asistencia vial
-                confiable de forma instántanea a través de nuestra aplicación y olvídate de los largos tiempos de espera.</p>
+              <p class="titulo_gruero_plus">La primera aplicación móvil de servicios de grúas de Venezuela. Recibe asistencia vial
+                confiable de forma instántanea a través de nuestra plataforma y olvídate de los largos tiempos de espera.</p>
               </div>
               <!--<img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">-->
             </div>
@@ -215,7 +215,7 @@ label.checkbox:hover {
               <div id="imagen">
                 <br>
                 <p align="center" class="titulo_gruero_plus">Adquiere nuestros planes directamente desde nuestra plataforma web y
-                  disfruta de grúas ilimitadas, sin llamadas telefónicas</p>
+                  disfruta de grúas ilimitadas.</p>
                   <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
                 </div>
               </div>
@@ -255,7 +255,7 @@ label.checkbox:hover {
                   <div class="price">
                     <div class="price_figure">
                       <span class="price_number"><?php echo $Planes->getPlanPrecioIva(1)?>,<small>00</small></span>
-                      <span class="price_tenure">por un año (IVA incluido)</span>
+                      <span class="price_tenure">(IVA incluido)</span>
                     </div>
                   </div>
                   <ul class="features">
@@ -270,7 +270,7 @@ label.checkbox:hover {
                     <li><i class="fa fa-times fa-lg"></i></li>
                   </ul>
                   <div class="footer">
-                    <a data-toggle="modal" data-target="#myModal2" class="action_button">Comprar</a>
+                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(1)">Comprar</a>
                   </div>
                 </li>
                 <li class="price_block">
@@ -278,7 +278,7 @@ label.checkbox:hover {
                   <div class="price">
                     <div class="price_figure">
                       <span class="price_number"><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
-                      <span class="price_tenure">por un año (IVA incluido)</span>
+                      <span class="price_tenure">(IVA incluido)</span>
                     </div>
                   </div>
                   <ul class="features">
@@ -293,7 +293,7 @@ label.checkbox:hover {
                     <li><i class="fa fa-check fa-lg"></i></li>
                   </ul>
                   <div class="footer">
-                    <a data-toggle="modal" data-target="#myModal2" class="action_button">Comprar</a>
+                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a>
                   </div>
                 </li>
               </ul>
@@ -529,14 +529,11 @@ label.checkbox:hover {
       </div>
       <div class="row" style="text-align: center; margin-top: 3em">
         <div>
-        <button class="btn btn-blanco " data-toggle="modal" data-target="#myModal2">CONTRATAR PLAN</button>
+        <button class="btn btn-blanco " data-toggle="modal" data-target="#myModal2" onclick="setIdPlan(0)">CONTRATAR PLAN</button>
         </div>
       </div>
     </div>
   </section>
-
-
-
   <section id="testimonios" style="display: ">
     <div class="container">
       <div class="row">
@@ -914,7 +911,7 @@ label.checkbox:hover {
 
             </div>
             <div class="col-sm-6  col-sm-offset-3 text-right">
-              <a style="" class="btn btn-success" target="_blank" href="https://tugruero.com/pl/planes/index.php">Continuar</a>
+              <a style="" class="btn btn-success" target="_blank" href="https://tugruero.com/pl/planes/index.php" id="compra">Continuar</a>
             </div>
           </div>
         </div>
@@ -1073,5 +1070,21 @@ label.checkbox:hover {
       nSelectedText: 'Seleccionados',
       allSelectedText: 'Todos Seleccionados',
     } );
+
   });
+
+  var parametros = {
+    "idPlan": 1
+  };
+  function setIdPlan(idPlan){
+
+    console.log(parametros);
+    if(idPlan != 0){
+      parametros.idPlan = idPlan;
+      $("#compra").attr("href", "https://tugruero.com/pl/planes/index.php"+"?idPlan="+parametros.idPlan);
+    }else{
+      $("#compra").attr("href", "https://tugruero.com/pl/planes/index.php");
+    }
+
+  }
   </script>
