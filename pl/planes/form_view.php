@@ -40,7 +40,7 @@
 			<div class="container text-left">
 				<a class="" href="<?php echo full_url;?>/index.php"><img class="" src="<?php echo full_url;?>/web/img/logo_blanco.png" alt="" width="150"></a>
 			</div>
-		
+
 		</div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
   </div>
@@ -52,13 +52,13 @@
 		<div class="text-center col-sm-12">
 		<label class="titulo_contratacion text-center">
 			Proceso de contratación Plan TU/GRUERO®
-		</label> 
+		</label>
 		<strong>(Parte 1 de 2)</strong>
 		</div>
         <?php if(isset($errors['global']) and $errors['global']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['global'];?></div>
 
-        <?php endif;?> 
+        <?php endif;?>
     <input type="hidden" name="action" value="<?php echo $values['action']?>">
     <input type="hidden" id="precio" name="precio" value="<?php if(isset($values['precio']))echo $values['precio']?>">
     <input type="hidden" id="IdV" name="IdV" value="<?php if(isset($values['IdV']))echo $values['IdV']?>">
@@ -82,8 +82,8 @@
         <?php if(isset($errors['idPlan']) and $errors['idPlan']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['idPlan'];?></div>
 
-        <?php endif;?> 
-  </div>    
+        <?php endif;?>
+  </div>
 	<div class="form-group col-sm-12">
 		<hr class="hr_subtitulo_planes">
 		<p class="subtitulo_planes"><strong>Información personal</strong></p>
@@ -117,7 +117,7 @@
 
         <?php endif;?>
   </div>
-    
+
         <div class="form-group col-sm-3">
           <label for="RCV" class="control-label">Sexo</label> <label class="text-danger"> * </label>
           <div class="">
@@ -137,13 +137,13 @@
           <label for="EstadoCivil" class="control-label">Estado Civil</label> <label class="text-danger"> * </label>
           <div class="">
                 <select name="EstadoCivil" class="form-control" id="EstadoCivil">
-                    <option value="">Seleccione...</option> 
+                    <option value="">Seleccione...</option>
                     <option value="Casado(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Casado(a)') echo "selected = 'selected'"?> >Casado(a)</option>
                     <option value="Divorciado(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Divorciado(a)') echo "selected = 'selected'"?> >Divorciado(a)</option>
                     <option value="Soltero(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Soltero(a)') echo "selected = 'selected'"?> >Soltero(a)</option>
                     <option value="Viudo(a)" <?php if(isset($values['EstadoCivil']) and $values['EstadoCivil']=='Viudo(a)') echo "selected = 'selected'"?> >Viudo(a)</option>
-                    
-                </select> 
+
+                </select>
           </div>
               <?php if(isset($errors['EstadoCivil']) and $errors['EstadoCivil']!=''):?>
               <div id="" class="alert alert-danger"><?php echo $errors['EstadoCivil'];?></div>
@@ -180,7 +180,7 @@
 
         <?php endif;?>
   </div>
-    <div class=""> 
+    <div class="">
         <div class="form-group col-sm-3">
           <label for="Estado" class="control-label">Estado</label> <label class="text-danger"> * </label>
           <div class="">
@@ -190,7 +190,7 @@
                     <?php foreach($list_estados as $list):?>
                         <option value="<?php echo $list['name'];?>" <?php if(isset($values['Estado']) and $values['Estado'] == $list['name'] ) echo "selected = 'selected'";?>><?php echo $list['name'];?></option>
                     <?php endforeach;?>
-                <?php endif;?>						
+                <?php endif;?>
             </select>
           </div>
               <?php if(isset($errors['Estado']) and $errors['Estado']!=''):?>
@@ -218,8 +218,8 @@
 
               <?php endif;?>
         </div>
-    </div>    
-    <div class=""> 
+    </div>
+    <div class="">
         <div class="form-group col-sm-12">
           <label for="RCV" class="control-label">¿Quiere el RCV? (Responsabilidad Civil Vehicular)</label> <label class="text-danger"> * </label>
           <div class="">
@@ -308,13 +308,13 @@
           <label for="Clase" class="control-label">Clase</label> <label class="text-danger"> * </label>
           <div class="">
                 <select name="Clase" class="form-control" id="Clase">
-                    <option value="">Seleccione...</option> 
-                    <option value="Automóvil" <?php if(isset($values['Clase']) and $values['Clase']=='Automóvil') echo "selected = 'selected'"?> >Automóvil</option>                   
-                    <option value="Camioneta" <?php if(isset($values['Clase']) and $values['Clase']=='Camioneta') echo "selected = 'selected'"?> >Camioneta</option>                   
-                    <option value="Moto" <?php if(isset($values['Clase']) and $values['Clase']=='Moto') echo "selected = 'selected'"?> >Moto</option>                   
-                    <option value="Rústico" <?php if(isset($values['Clase']) and $values['Clase']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>                   
+                    <option value="">Seleccione...</option>
+                    <option value="Automóvil" <?php if(isset($values['Clase']) and $values['Clase']=='Automóvil') echo "selected = 'selected'"?> >Automóvil</option>
+                    <option value="Camioneta" <?php if(isset($values['Clase']) and $values['Clase']=='Camioneta') echo "selected = 'selected'"?> >Camioneta</option>
+                    <option value="Moto" <?php if(isset($values['Clase']) and $values['Clase']=='Moto') echo "selected = 'selected'"?> >Moto</option>
+                    <option value="Rústico" <?php if(isset($values['Clase']) and $values['Clase']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>
 
-                </select> 
+                </select>
           </div>
         <?php if(isset($errors['Clase']) and $errors['Clase']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Clase'];?></div>
@@ -328,7 +328,7 @@
                     <option value="">Seleccione...</option>
             <?php if(count($marcas_list)>0):?>
                 <?php foreach($marcas_list as $marcas):?>
-                    <option value="<?php echo $marcas['Marca']?>" class="<?php echo $marcas['Tipo'];?>" <?php if(isset($values['Marca']) and $marcas['Marca'] == $values['Marca']) echo "selected='selected'";?>><?php echo $marcas['Marca']?></option>    
+                    <option value="<?php echo $marcas['Marca']?>" class="<?php echo $marcas['Tipo'];?>" <?php if(isset($values['Marca']) and $marcas['Marca'] == $values['Marca']) echo "selected='selected'";?>><?php echo $marcas['Marca']?></option>
                 <?php endforeach;?>
             <?php endif;?>
         </select>
@@ -337,7 +337,7 @@
         <div id="" class="alert alert-danger"><?php echo $errors['Marca'];?></div>
 
         <?php endif;?>
-  </div> 
+  </div>
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Modelo</label> <label class="text-danger"> * </label>
     <div class="">
@@ -352,23 +352,23 @@
           <label for="Tipo" class="control-label">Tipo</label> <label class="text-danger"> * </label>
           <div class="">
                 <select name="Tipo" class="form-control" id="Tipo">
-                    <option value="">Seleccione...</option> 
-                    <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>                   
-                    <option value="Cross Over" <?php if(isset($values['Tipo']) and $values['Tipo']=='Cross Over') echo "selected = 'selected'"?> >Cross Over</option>                   
-                    <option value="Furgón" <?php if(isset($values['Tipo']) and $values['Tipo']=='Furgón') echo "selected = 'selected'"?> >Furgón</option>                   
-                    <option value="Hatchback" <?php if(isset($values['Tipo']) and $values['Tipo']=='Hatchback') echo "selected = 'selected'"?> >Hatchback</option> 
-                    <option value="Panel" <?php if(isset($values['Tipo']) and $values['Tipo']=='Panel') echo "selected = 'selected'"?> >Panel</option>                     <option value="Pick Up" <?php if(isset($values['Tipo']) and $values['Tipo']=='Pick Up') echo "selected = 'selected'"?> >Pick Up</option>                   
-                    <option value="Rústico" <?php if(isset($values['Tipo']) and $values['Tipo']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>                   
-                    <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>                   
-                    <option value="Sport Wagon" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sport Wagon') echo "selected = 'selected'"?> >Sport Wagon</option>                   
+                    <option value="">Seleccione...</option>
+                    <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>
+                    <option value="Cross Over" <?php if(isset($values['Tipo']) and $values['Tipo']=='Cross Over') echo "selected = 'selected'"?> >Cross Over</option>
+                    <option value="Furgón" <?php if(isset($values['Tipo']) and $values['Tipo']=='Furgón') echo "selected = 'selected'"?> >Furgón</option>
+                    <option value="Hatchback" <?php if(isset($values['Tipo']) and $values['Tipo']=='Hatchback') echo "selected = 'selected'"?> >Hatchback</option>
+                    <option value="Panel" <?php if(isset($values['Tipo']) and $values['Tipo']=='Panel') echo "selected = 'selected'"?> >Panel</option>                     <option value="Pick Up" <?php if(isset($values['Tipo']) and $values['Tipo']=='Pick Up') echo "selected = 'selected'"?> >Pick Up</option>
+                    <option value="Rústico" <?php if(isset($values['Tipo']) and $values['Tipo']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>
+                    <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>
+                    <option value="Sport Wagon" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sport Wagon') echo "selected = 'selected'"?> >Sport Wagon</option>
 
-                </select> 
+                </select>
           </div>
               <?php if(isset($errors['Tipo']) and $errors['Tipo']!=''):?>
               <div id="" class="alert alert-danger"><?php echo $errors['Tipo'];?></div>
 
               <?php endif;?>
-        </div> 
+        </div>
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Año</label> <label class="text-danger"> * </label>
     <div class="">
@@ -376,16 +376,16 @@
                     <option value="">Seleccione...</option>
 
                 <?php for($anio = (date('Y')-37); $anio<=date('Y'); $anio++):?>
-                    <option value="<?php echo $anio?>" <?php if(isset($values['Anio']) and $anio == $values['Anio']) echo "selected='selected'";?>><?php echo $anio?></option>    
+                    <option value="<?php echo $anio?>" <?php if(isset($values['Anio']) and $anio == $values['Anio']) echo "selected='selected'";?>><?php echo $anio?></option>
                 <?php endfor;?>
- 
+
         </select>
     </div>
         <?php if(isset($errors['Anio']) and $errors['Anio']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Anio'];?></div>
 
         <?php endif;?>
-  </div> 
+  </div>
   <div class="form-group col-sm-2">
     <label for="Telefono" class="control-label">Color</label> <label class="text-danger"> * </label>
     <div class="">
@@ -415,7 +415,7 @@
         <div id="" class="alert alert-danger"><?php echo $errors['Puestos'];?></div>
 
         <?php endif;?>
-  </div>  
+  </div>
 	<div class="form-group col-sm-12">
 		<hr class="hr_subtitulo_planes">
 		<p class="subtitulo_planes"><strong>Método de pago</strong></p>
@@ -423,7 +423,7 @@
   <div class="form-group col-sm-12">
     <!--<label for="inputEmail3" class="control-label">Método de pago</label> <label class="text-danger"> * </label>-->
     <div class="">
-		
+
 		<table>
 			<tr>
 				<td><input type="radio" name="MET" class="MET " value="TDC" <?php if(isset($values['MET']) and $values['MET']=='TDC') echo "checked='checked'";?>> Tarjeta de crédito </td>
@@ -437,7 +437,7 @@
     <label class="">
     </label>
     <label class="">
-      
+
     </label>
     </div>
         <?php if(isset($errors['MET']) and $errors['MET']!=''):?>
@@ -485,14 +485,14 @@
 			<hr class="hr_subtitulo_planes">
 	</div>
   <div class="form-group col-sm-2 col-sm-offset-10 text-right PlanPrecio alert alert-success">
-      
+
 	  <p><b>Total a pagar con IVA:</b> <?php if(isset($values['precio']) and $values['precio']!='') echo "Bs. ".number_format($values['precio'],2,",",".")."."; else echo "Bs. 0,00 "?></p>
   </div>
 
 	<div class="col-sm-5">
-			
+
 	</div>
-	<div class="form-group col-sm-3">		
+	<div class="form-group col-sm-3">
 		<?php
 
 			$options = array();
@@ -517,12 +517,12 @@
 
 	</div>
 	<div class="col-sm-4">
-		
+
 	</div>
         <?php if(isset($errors['global']) and $errors['global']!=''):?>
         <div id="" class="alert alert-danger col-sm-12"><?php echo $errors['global'];?></div>
 
-        <?php endif;?> 
+        <?php endif;?>
   <div class="form-group col-xs-12">
 	<div class="col-sm-4"></div>
     <div class="col-sm-4 text-center" >
@@ -536,26 +536,28 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body text-center">
-		  
+
 			<br><br><i class="fa fa-spinner fa-spin fa-5x fa-fw"></i><br><br><br>Espere un momento por favor. <br>No cierre ni recargue la ventana.<br><br><br><br>
-			
+
       </div>
     </div>
   </div>
-</div>     
+</div>
 <?php include('../../view_footer_solicitud.php')?>
 <script>
 
 $(document).ready(function(){
-	
-	
+
+
 			$('#mensajetarjeta').hide();
             $('#mensajedeposito').hide();
 			$("#sendForm").submit(function(){
 				$('#ModalLoading').modal('show');
 			});
-			
-			
+
+<?php if(isset($values["idPlan"]) and $values["idPlan"]!=""):?>
+    calculaPrecio();
+<?php endif;?>
 <?php if(isset($values['RCV']) and $values['RCV']=='SI'):?>
             console.log('eligio si');
             $('.Puestos').show();
@@ -606,21 +608,21 @@ $(document).ready(function(){
 <?php endif;?>
 <?php if((!isset($values['MET']))):?>
         $('.DEPOSITO').hide();
-<?php endif;?> 
-	
+<?php endif;?>
+
 <?php if(isset($values['Clase']) and $values['Clase']!=''):?>
          ocultaMarcas('<?php echo $values['Clase']?>',false);
 <?php endif;?>
-	
+
 	$('#Clase').change(function(e){
 		ocultaMarcas($(this).val(),true);
     });
 	function ocultaMarcas(Clase,Cambio){
-		
+
 		if(Cambio){
 			$('#Marca option:eq("")').prop('selected', true);
 		}
-		
+
 		if(Clase != 'Moto'){
 			console.log("No es moto");
 			$('.1').css("font-weight","Bold");
@@ -639,9 +641,9 @@ $(document).ready(function(){
 			$('.2').attr("disabled",false);
 		}
 	}
-	
+
     $('#idPlan').change(function(e){
-    calculaPrecio();       
+    calculaPrecio();
     });
     $('#Clase').change(function(e){
         if($('#Clase').val()=='Moto'){
@@ -649,7 +651,7 @@ $(document).ready(function(){
         }else{
             $('.TIPO').show();
         }
-            
+
     });
     $('.RCV').change(function(e){
         calculaPrecio();
@@ -658,7 +660,7 @@ $(document).ready(function(){
             $('.Puestos').show();
             $('.CedulaDiv').show();
             $('.RifDiv').show();
-            $('.LicenciaDiv').show();            
+            $('.LicenciaDiv').show();
             $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').show();
             $('.CertificadoOrigenDiv').show();
@@ -672,9 +674,9 @@ $(document).ready(function(){
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
         }
-        
 
-        
+
+
     });
     $('.MET').change(function(e){
         calculaPrecio();
@@ -687,35 +689,35 @@ $(document).ready(function(){
             $('#mensajetarjeta').hide();
              $('#mensajedeposito').show();
         }
-        
 
-        
+
+
     });
     $('#Puestos').change(function(e){
-    calculaPrecio();       
+    calculaPrecio();
     });
-    
+
     $('#Anio').change(function(e){
-    calculaPrecio();       
+    calculaPrecio();
     });
 
     $('.MET').change(function(e){
         if($('.MET:checked').val() == 'DEP'){
             $('.DEPOSITO').show();
         }else{
-           
-            $('.DEPOSITO').hide();            
-        }
-        
 
-        
-    });    
-   
+            $('.DEPOSITO').hide();
+        }
+
+
+
+    });
+
 });
 
 
 	function submitForm(){
-		
+
 		$('#ModalLoading').modal('show');
 	}
     function calculaPrecio(){
@@ -729,8 +731,8 @@ $(document).ready(function(){
             console.log(data.precio_sin_formato);
 	},
           dataType: 'JSON'
-        });        
-        
+        });
+
     }
 
 </script>

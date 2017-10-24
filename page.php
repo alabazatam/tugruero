@@ -156,7 +156,8 @@ label.checkbox:hover {
           <div class="col-lg-10" >
             <br>
             <div class="intro-text">
-              <p class="titulo_gruero_plus">La primera aplicación móvil de servicios de grúas de Venezuela. Recibe asistencia vial
+              <p class="titulo_gruero_plus" style="margin-bottom: 0.5em;">La primera aplicación móvil de servicios de grúas de Venezuela.</p>
+              <p class="titulo_gruero_plus" style="padding: 0.2em;">Recibe asistencia vial
                 confiable de forma instántanea a través de nuestra plataforma y olvídate de los largos tiempos de espera.</p>
               </div>
               <!--<img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">-->
