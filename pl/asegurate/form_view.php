@@ -231,7 +231,7 @@
               <?php endif;?>
         </div>
     </div>
-    <!-- <div class=""> 
+    <div class="">
         <div class="form-group col-sm-12">
           <label for="RCV" class="control-label">¿Quiere el RCV? (Responsabilidad Civil Vehicular)</label> <label class="text-danger"> * </label>
           <div class="">
@@ -247,7 +247,7 @@
 
               <?php endif;?>
         </div>
-   </div> -->
+   </div>
 	<div class="form-group col-sm-12 CedulaDiv well well-sm text-warning">
 
 		<p class="subtitulo_planes_jleal"><strong>Documentos personales</strong></p>
