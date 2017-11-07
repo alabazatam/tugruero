@@ -255,7 +255,7 @@ label.checkbox:hover {
                   <h3><img src="web/img/plus.png"></h3>
                   <div class="price">
                     <div class="price_figure">
-                      <span class="price_number"><?php echo $Planes->getPlanPrecioIva(1)?>,<small>00</small></span>
+                      <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(1)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
                     </div>
                   </div>
@@ -278,7 +278,7 @@ label.checkbox:hover {
                   <h3><img src="web/img/gold.png"></h3>
                   <div class="price">
                     <div class="price_figure">
-                      <span class="price_number"><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
+                      <span class="price_number"><label class="price_currency">Bs.&nbsp;</label><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
                     </div>
                   </div>
@@ -798,7 +798,7 @@ label.checkbox:hover {
       <div class="">
         <div class="row">
           <div class="col-sm-12">
-            <p class="white-font text_footer">Copyright &copy; Soluciones Tu Gruero, C.A. 2016. J-40680605-6</p>
+            <p class="white-font text_footer">Copyright &copy; 2016. Soluciones Tu Gruero, C.A. J-40680605-6</p>
           </div>
           <div class="col-xs-2">
             <a  href="<?php echo full_url?>/terms.php" target="_blank"><small class="white-font text_footer_strong">Términos y condiciones</small></a>
