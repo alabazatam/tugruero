@@ -798,7 +798,7 @@ label.checkbox:hover {
       <div class="">
         <div class="row">
           <div class="col-sm-12">
-            <p class="white-font text_footer">Copyright &copy; 2016. Soluciones Tu Gruero, C.A. J-40680605-6</p>
+            <p class="white-font text_footer">Copyright 2016 &copy; - Soluciones Tu Gruero, C.A. J-40680605-6</p>
           </div>
           <div class="col-xs-2">
             <a  href="<?php echo full_url?>/terms.php" target="_blank"><small class="white-font text_footer_strong">Términos y condiciones</small></a>
