@@ -110,6 +110,9 @@
     .price_tenure {
       font-size: 11px;
     }
+	.price_currency {
+		text-transform: capitalize;
+	}
 
     /*Features*/
     .features {
