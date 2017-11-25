@@ -1292,3 +1292,10 @@ label.checkbox {
 label.checkbox:hover {
   color:#000;
 }
+.modal-transparent {
+  cursor: pointer;
+  background: transparent !important;
+}
+.close-white {
+  color: #fff;
+}

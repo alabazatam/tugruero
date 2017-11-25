@@ -109,7 +109,7 @@ label.checkbox:hover {
   </nav>
 
   <!-- Header -->
-  <header class=business-header>
+  <header class= "business-header">
 
 
     <div class="row">
@@ -137,7 +137,8 @@ label.checkbox:hover {
             <div class="col-sm-3"></div>
           </div>
           <div class="col-sm-12 text-center">
-            <p class="telefono_sombra text-center">0500-GRUERO-0 (0500-478376-0) </p>
+            <p class="telefono_sombra text-center"> 0212-419-0105 / 0424-135-7579 </p>
+            <!--<p class="telefono_sombra text-center">0500-GRUERO-0 (0500-478376-0) </p>-->
           </div>
 
 
@@ -789,7 +790,8 @@ label.checkbox:hover {
             </div>
             <p class="white-font text_footer">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
             <p class="white-font text_footer">info@tugruero.com</p>
-            <p class="white-font text_footer">0500-GRUERO-0 (0500-478376-0) </p>
+            <!--<p class="white-font text_footer">0500-GRUERO-0 (0500-478376-0) </p>-->
+            <p class="white-font text_footer"> 0212-419-0105 / 0424-135-7579 </p>
           </div>
         </div>
       </div>
@@ -934,7 +936,18 @@ label.checkbox:hover {
         </div>
       </div>
     </div>
-
+    <!-- Modal4 transparente -->
+    <div class="portfolio-modal modal fade" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true" onclick="closeModal4()">
+      <div class="modal-content modal-transparent">
+        <div class="row">
+          <div class="modal-body">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 ">
+              <img src="web/img/fresh/banner_numeros.png" class="img-responsive">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -956,6 +969,12 @@ label.checkbox:hover {
   <script>
 
   $(document).ready(function(){
+  /*$('#myModal4').modal({
+    keyboard: true
+  });*/
+    //$('#myModal').modal('toggle');
+    $('#myModal4').modal('show');
+
     TextCaja(1);
     $('#animationSandbox').hide();
     $('#animationSandbox2').hide();
@@ -1087,5 +1106,8 @@ label.checkbox:hover {
       $("#compra").attr("href", "https://tugruero.com/pl/planes/index.php");
     }
 
+  }
+  function closeModal4(){
+    $("#myModal4").modal("toggle");
   }
   </script>
