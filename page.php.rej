@@ -1,0 +1,9 @@
+diff a/page.php b/page.php	(rejected hunks)
+@@ -278,6 +278,7 @@
+                   <h3><img src="web/img/gold.png"></h3>
+                   <div class="price">
+                     <div class="price_figure">
++                      <span class="price_number"><label class="price_currency">Bs.&nbsp;</label><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
+                       <span class="price_tenure">(IVA incluido)</span>
+                     </div>
+                   </div>
