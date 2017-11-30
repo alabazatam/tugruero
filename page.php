@@ -9,7 +9,7 @@
   <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
   <meta name="author" content="tugruero">
   <meta name="google-site-verification" content="kXlZJPIsjo2kzjHRJpgR4ncAn-g_bF5ipNOvRSkhsE0" />
-  <link rel="alternate" hreflang="es" href="www.tugruero.com" />
+  <link rel="alternate" hreflang="es" href="www.tugruero.io" />
   <link rel="icon" href="web/img/favicon.ico" type="image/x-icon"/>
   <title>TUGRUERO®</title>
   <!-- Bootstrap Core CSS -->
@@ -249,8 +249,33 @@ label.checkbox:hover {
                     <li>Servicios de grúa urbanos ilimitados</li>
                     <li><b>RCV (opcional)</b></li>
                     <li>Un (01) servicio de grúa Extraurbano de 300km</li>
+                    <li>Un (01) servicio de grúa Urbano de 25km</li>
                   </ul>
 
+                </li>
+                <li class="price_block">
+                  <h3><img src="web/img/plus.png"></h3>
+                  <div class="price">
+                    <div class="price_figure">
+                      <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(10)?>,<small>00</small></span>
+                      <span class="price_tenure">(IVA incluido)</span>
+                    </div>
+                  </div>
+                  <ul class="features">
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-times fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-times fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                  </ul>
+                  <div class="footer">
+                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(10)">Comprar</a>
+                  </div>
                 </li>
                 <li class="price_block">
                   <h3><img src="web/img/plus.png"></h3>
@@ -269,6 +294,7 @@ label.checkbox:hover {
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-times fa-lg"></i></li>
                     <li><i class="fa fa-times fa-lg"></i></li>
                   </ul>
                   <div class="footer">
@@ -293,6 +319,7 @@ label.checkbox:hover {
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-times fa-lg"></i></li>
                   </ul>
                   <div class="footer">
                     <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a>
@@ -914,7 +941,7 @@ label.checkbox:hover {
 
             </div>
             <div class="col-sm-6  col-sm-offset-3 text-right">
-              <a style="" class="btn btn-success" target="_blank" href="https://tugruero.com/pl/planes/index.php" id="compra">Continuar</a>
+              <a style="" class="btn btn-success" target="_blank" href="https://tugruero.io/pl/planes/index.php" id="compra">Continuar</a>
             </div>
           </div>
         </div>
@@ -1101,9 +1128,9 @@ label.checkbox:hover {
     console.log(parametros);
     if(idPlan != 0){
       parametros.idPlan = idPlan;
-      $("#compra").attr("href", "https://tugruero.com/pl/planes/index.php"+"?idPlan="+parametros.idPlan);
+      $("#compra").attr("href", "https://tugruero.io/pl/planes/index.php"+"?idPlan="+parametros.idPlan);
     }else{
-      $("#compra").attr("href", "https://tugruero.com/pl/planes/index.php");
+      $("#compra").attr("href", "https://tugruero.io/pl/planes/index.php");
     }
 
   }

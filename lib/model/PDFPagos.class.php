@@ -239,7 +239,7 @@ class PDFPagos{
     . '</tr>'
     . '<tr>'
     . '<td colspan="9" style="border-style: solid; border-top-width: -1px; border-right-width: 1px; border-bottom-width: -1px; border-left-width: 1px">'
-    . '<br><strong>DECIMA CUARTA:</strong> Para mayor información le recomendamos que se tome el tiempo de leer los términos y condiciones, así como nuestra política de privacidad CUIDADOSAMENTE del producto que está adquiriendo a través de nuestro portal web www.tugruero.com y www.tugruero.com.ve.'
+    . '<br><strong>DECIMA CUARTA:</strong> Para mayor información le recomendamos que se tome el tiempo de leer los términos y condiciones, así como nuestra política de privacidad CUIDADOSAMENTE del producto que está adquiriendo a través de nuestro portal web www.tugruero.io'
     . '</td>'
     . '</tr>'
     . '</table>';
@@ -307,7 +307,7 @@ class PDFPagos{
     . '</tr>'
     . '<tr>'
     . '<td colspan="9" style="border-style: solid; border-top-width: -1px; border-right-width: 1px; border-bottom-width: -1px; border-left-width: 1px">'
-    . '<br><strong>VIGESIMA PRIMERA:</strong> Soluciones Tu Gruero, C.A. no garantiza la prestación de los servicios de grúa en las denominadas zonas rojas del territorio nacional. Entendiendose como zonas rojas: barrios, vecindarios, calles o cualquier territorio altamente peligroso debido a la inseguridad. Estas zonas rojas pueden ser verificadas en www.tugruero.com'
+    . '<br><strong>VIGESIMA PRIMERA:</strong> Soluciones Tu Gruero, C.A. no garantiza la prestación de los servicios de grúa en las denominadas zonas rojas del territorio nacional. Entendiendose como zonas rojas: barrios, vecindarios, calles o cualquier territorio altamente peligroso debido a la inseguridad. Estas zonas rojas pueden ser verificadas en www.tugruero.io'
     . '</td>'
     . '</tr>'
     . '<tr>'

@@ -180,7 +180,7 @@ $(document).ready(function(){
                                 var email = $('#email').val();
                                 var paymentMethodId = $('#paymentMethodId').val();
                                 $.ajax({
-                                   url: "https://tugruero.com/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
+                                   url: "https://tugruero.io/mercadopago/pagoServicio.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
                                    data: response ,
                                    dataType: "json",
                                    error: function(response){
@@ -195,7 +195,7 @@ $(document).ready(function(){
                                         //console.log('arriba');
                                         if(status !='rejected'){
                                             $.ajax({
-                                                    url: "https://tugruero.com/pl/jleal/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val() + "&email=" + email,
+                                                    url: "https://tugruero.io/pl/jleal/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val() + "&email=" + email,
                                                     data: data ,
                                                     dataType: "json",
                                                     error: function(response){

@@ -9,7 +9,7 @@
     <meta name="description" content="Grueros Venezuela, Grúas Venezuela">
     <meta name="author" content="tugruero">
     <meta name="google-site-verification" content="kXlZJPIsjo2kzjHRJpgR4ncAn-g_bF5ipNOvRSkhsE0" />
-    <link rel="alternate" hreflang="es" href="www.tugruero.com" />
+    <link rel="alternate" hreflang="es" href="www.tugruero.io" />
     <link rel="icon" href="<?php echo full_url?>/web/img/favicon.ico" type="image/x-icon"/>
     <title>TUGRUERO®</title>
     <!-- Bootstrap Core CSS -->
@@ -84,6 +84,7 @@
     <div class="">
         <select class="form-control" id="idPlan" name="idPlan">
             <option value="">Seleccione el plan</option>
+            <option value="10" <?php if(isset($values['idPlan']) and $values['idPlan']==10) echo "selected='selected'";?>>TU GRUERO BASICO</option>
             <option value="2" <?php if(isset($values['idPlan']) and $values['idPlan']==2) echo "selected='selected'";?>>TU GRUERO GOLD</option>
             <option value="1" <?php if(isset($values['idPlan']) and $values['idPlan']==1) echo "selected='selected'";?>>TU GRUERO PLUS</option>
         </select>

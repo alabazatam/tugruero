@@ -170,7 +170,7 @@
 
     @media only screen and (min-width : 480px) and (max-width : 768px) {
 
-      .price_block {width: 50%;}
+      .price_block {width: 100%;}
       .price_block:nth-child(odd) {border-right: 1px solid transparent;}
       .price_block:nth-child(3) {clear: both;}
 
@@ -178,7 +178,7 @@
 
     }
     @media only screen and (min-width : 768px){
-      .price_block {width: 33%;}
+      .price_block {width: 25%;}
       .price_block {border-right: 1px solid transparent; border-bottom: 0 none;}
       .price_block:last-child {border-right: 0 none;}
 

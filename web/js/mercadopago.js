@@ -180,7 +180,7 @@ $(document).ready(function(){
                                 var email = $('#email').val();
                                 var paymentMethodId = $('#paymentMethodId').val();
                                 $.ajax({
-                                   url: "https://tugruero.com/mercadopago/pagoServicioDesarrollo.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
+                                   url: "https://tugruero.io/mercadopago/pagoServicioDesarrollo.php?token="+token +"&paymentMethodId=" + paymentMethodId + "&precio=" + precio + "&email=" + email + "&descripcion=" + descripcion,
                                    data: response ,
                                    dataType: "json",
                                    error: function(response){
@@ -195,7 +195,7 @@ $(document).ready(function(){
                                         //console.log('arriba');
                                         if(status !='rejected'){
                                             $.ajax({
-                                                    url: "http://localhost/tugruero/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val() + "&email=" + email,
+                                                    url: "http://tugruero.io/pl/planes/index.php?action=pago&idSolicitudPlan=" + $('#idSolicitudPlan').val() + "&descripcion=" + descripcion + " #" + $('#idSolicitudPlan').val() + "&email=" + email,
                                                     data: data ,
                                                     dataType: "json",
                                                     error: function(response){
@@ -210,7 +210,7 @@ $(document).ready(function(){
                                                             $("#mercadopagodiv").html('');
                                                             $(".mercadopagodiv").html('');
                                                             $('#ModalLoading').modal('toggle');  
-                                                            $("#mercadopagodivpagado").html("</br></br></br></br></br></br></br><div class='col-sm-3'></div><div  class='col-sm-6 alert alert-success'>¡LISTO! Ya procesamos su pago. Le hemos enviado un correo electrónico al indicado en el proceso de registro. Por favor revise su Bandeja de entrada o Spam.</div><div class='col-sm-3'></div><div class='col-sm-12 text-center'><a class='btn btn-success' href='http://www.tugruero.com'>Aceptar</a></div>");
+                                                            $("#mercadopagodivpagado").html("</br></br></br></br></br></br></br><div class='col-sm-3'></div><div  class='col-sm-6 alert alert-success'>¡LISTO! Ya procesamos su pago. Le hemos enviado un correo electrónico al indicado en el proceso de registro. Por favor revise su Bandeja de entrada o Spam.</div><div class='col-sm-3'></div><div class='col-sm-12 text-center'><a class='btn btn-success' href='http://www.tugruero.io'>Aceptar</a></div>");
                                                         }
                                                     }
                                             });   
