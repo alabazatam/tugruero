@@ -254,7 +254,7 @@ label.checkbox:hover {
 
                 </li>
                 <li class="price_block">
-                  <h3><img src="web/img/plus.png"></h3>
+                  <h3><img src="web/img/basico.png"></h3>
                   <div class="price">
                     <div class="price_figure">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(10)?>,<small>00</small></span>
