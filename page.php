@@ -403,23 +403,38 @@ label.checkbox:hover {
         <div class="slide"><img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive"></div>
      </section>
   </div>
-    <div class="row margin_bancos letras_bancos text-center" align="center">
-      <div class="col-sm-12 text-center">
-        También aceptamos
+  <div class="col-sm-12 text-center letras_bancos">
+     También aceptamos <br><br>
+  </div>
+  <div class="col-sm-5 col-sm-offset-4">
+    <div class="col-sm-12">
+      <div class="col-sm-6 text-center vertical-line" style="" >
+        <div class="col-sm-6 text-center" >
+          <img src="web/img/fresh/visa.png" alt="Visa" class="" width="">
+        </div>
+        <div class="col-sm-6 text-center" >
+          <img src="web/img/fresh/mastercard.png" alt="Mastercard" class="" width="">
+        </div>
+        <div class="col-sm-12 letras_bancos text-center">
+          a través de
+        </div>
+        <div class="col-sm-12 text-center">
+          <div class="text-center">
+            <img src="web/img/fresh/mercadopago.png" alt="Mercado Pago" class="" width="">
+          </div>          
+        </div>
       </div>
-      <div class="col-sm-1 col-sm-offset-5"  >
-        <img src="web/img/fresh/visa.png" alt="Visa" class="" width="">
-      </div>
-      <div class="col-sm-1">
-        <img src="web/img/fresh/mastercard.png" alt="Mastercard" class="" width="">
-      </div>
-      <div class="col-sm-12 text-center">
-        a través de
-      </div>
-      <div class="col-sm-12 text-center"  >
-        <img src="web/img/fresh/mercadopago.png" alt="Mercado Pago" class="" width="">
+      <div class="col-sm-6 text-left">
+        <div class="col-xs-4 col-xs-offset-5 col-sm-offset-0 col-sm-12 text-left">
+          <a data-toggle="modal" data-target="#myModal5" style="cursor: pointer;"><img src="web/img/fresh/logo-dash.png" alt="Dash" class="" width=""></a>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="row">
+    
+  </div>
+
     <div class="row margin_bancos letras_bancos" style="text-align: center; margin-top: 3em">
       <button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">VER CUENTAS BANCARIAS</button>
     </div>
@@ -975,7 +990,22 @@ label.checkbox:hover {
         </div>
       </div>
     </div>
+    <!-- Modal5 dash -->
+    <div class="portfolio-modal modal fade " id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content" style="background-color: #fff !important; ">
+        <div class="close-modal" data-dismiss="modal">
+          <i class="fa fa-close fa-2x"></i>
+        </div>
+        <div class="row">
+          <div class="modal-body">
+            <div class="col-sm-12 col-md-6 col-md-offset-3 table-responsive">
+              <img src="web/img/fresh/dash.png" class="img-responsive">
 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
