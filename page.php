@@ -246,10 +246,10 @@ label.checkbox:hover {
                     <li>Búsqueda de grueros vía GPS</li>
                     <li>Disponible en los 24 estados del país</li>
                     <li>2000 grueros disponibles para el auxilio</li>
-                    <li>Servicios de grúa urbanos ilimitados</li>
                     <li><b>RCV (opcional)</b></li>
-                    <li>Un (01) servicio de grúa Extraurbano de 300km</li>
-                    <li>Un (01) servicio de grúa Urbano de 25km</li>
+                    <li>Un (01) servicio de grúa de 25km</li>
+                    <li>Servicios de grúa ilimitados de 50Km</li>                    
+                    <li>Un (01) servicio de grúa de 300km</li>                    
                   </ul>
 
                 </li>
@@ -268,10 +268,10 @@ label.checkbox:hover {
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-times fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-times fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-times fa-lg"></i></li>
                   </ul>
                   <div class="footer">
                     <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(10)">Comprar</a>
@@ -294,7 +294,7 @@ label.checkbox:hover {
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-times fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-times fa-lg"></i></li>
                   </ul>
                   <div class="footer">
@@ -319,7 +319,7 @@ label.checkbox:hover {
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-times fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
                   </ul>
                   <div class="footer">
                     <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a>
