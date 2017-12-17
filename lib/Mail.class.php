@@ -305,19 +305,25 @@
             
             $subject = array();
             $subject[1]='Afiliacion como proveedor de grúa';
-            $email[1]=array('operaciones@tugruero.com','jjaime@tugruero.com');
+            $email[1]=array( 'fgonzalez@tugruero.com', 'jcasanova@tugruero.com');//ready
+
             $subject[2]='Alianzas para venta de nuestros planes';
-            $email[2]=array('acostantini@tugruero.com');
+            $email[2]=array('acostantini@tugruero.com', 'vcampos@tugruero.com', 'suscripcion@tugruero.com', 'comercializacion@tugruero.com');
+
             $subject[3]='Información para Alianza internacional';
-            $email[3]=array('cecheverria@tugruero.com', 'aecheverria@tugruero.com', 'cheinze@tugruero.com');
+            $email[3]=array('cecheverria@tugruero.com', 'aecheverria@tugruero.com', 'cheinze@tugruero.com','acostantini@tugruero.com', 'vcampos@tugruero.com', 'suscripcion@tugruero.com', 'comercializacion@tugruero.com');
+
             $subject[4]='Pago de facturas a proveedores';
-            $email[4]=array('administracion@tugruero.com', 'ccisneros@tugruero.com');
+            $email[4]=array('ccisneros@tugruero.com', 'administracion@tugruero.com');
+
             $subject[5]='Precios de traslados de vehículo';
-            $email[5]=array('operaciones@tugruero.com','jjaime@tugruero.com');
+            $email[5]=array( 'fgonzalez@tugruero.com', 'lozano@tugruero.com', 'operaciones@tugruero.com');
+
             $subject[6]='Precios e información de nuestros planes';
-            $email[6]=array('acostantini@tugruero.com');
+            $email[6]=array('acostantini@tugruero.com', 'vcampos@tugruero.com', 'suscripcion@tugruero.com', 'comercializacion@tugruero.com');
+
             $subject[7]='Otro';
-            $email[7]=array('acostantini@tugruero.com');
+            $email[7]=array( 'fgonzalez@tugruero.com', 'lozano@tugruero.com','jcasanova@tugruero.com','acostantini@tugruero.com', 'vcampos@tugruero.com','ccisneros@tugruero.com','moviedo@tugruero.com');
 
             //$mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$subject." ".$values['message'];
             for($i=1;$i<8;$i++){
