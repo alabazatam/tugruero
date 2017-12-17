@@ -213,7 +213,7 @@
           /******************Validación de archivos*************************/ 
         //echo $files['Licencia']['size'];die;
 		$array_extensions = array('jpg','JPG','PNG','png','jpeg','JPEG','pdf','PDF','octet-stream');
-		if(isset($values['RCV']) and $values['RCV']=='SI'){
+		if(isset($values['RCV']) and ($values['RCV']=='SI' or $values['RCV']=='NO')){
                 
         
                 if($_FILES['CedulaDoc']['size']>0)
