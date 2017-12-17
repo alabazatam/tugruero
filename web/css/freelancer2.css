@@ -1299,3 +1299,11 @@ label.checkbox:hover {
 .close-white {
   color: #fff;
 }
+.vertical-line {
+  border-right:0px solid #fff;
+}
+@media only screen and (min-width : 820px){
+  .vertical-line {
+    border-right:2px solid #ddd;
+  }
+}

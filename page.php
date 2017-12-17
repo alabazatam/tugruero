@@ -40,33 +40,6 @@
   <link rel="stylesheet" type="text/css" href="web/css/renew.css">
   <link rel="stylesheet" href="web/css/bootstrap-multiselect.css" />
 </head>
-<style>
-.carousel-control {
-  width: 1%
-}
-.carousel-control.left .glyphicon {
-  left: 8%;
-
-  margin-left: 5%;
-}
-.carousel-control.right .glyphicon {
-  right: 0;
-  margin-right: 0;
-}
-button.multiselect.dropdown-toggle.btn.btn-default {
-  background: transparent !important;
-  color: #fff;
-}
-ul.multiselect-container.dropdown-menu {
-  background: #000;
-}
-label.checkbox {
-  color:#fff;
-}
-label.checkbox:hover {
-  color:#000;
-}
-</style>
 <body id="page-top" class="index">
 
   <!-- Navigation -->
@@ -110,8 +83,6 @@ label.checkbox:hover {
 
   <!-- Header -->
   <header class= "business-header">
-
-
     <div class="row">
       <div class="col-sm-12" >
         <input type="hidden" id="animate1" value="0">
@@ -140,12 +111,8 @@ label.checkbox:hover {
             <p class="telefono_sombra text-center"> 0212-419-0105 / 0424-135-7579 </p>
             <!--<p class="telefono_sombra text-center">0500-GRUERO-0 (0500-478376-0) </p>-->
           </div>
-
-
         </div>
-
       </div>
-
     </header>
     <section id="features">
       <div class="container">
@@ -202,7 +169,7 @@ label.checkbox:hover {
           </div>
         </div>
       </section>
-      <section id="gruero_plus" onload="">
+    <section id="gruero_plus" onload="">
         <div class="container">
           <div class="row">
             <div class="text-right" id="animationSandbox">
@@ -248,8 +215,8 @@ label.checkbox:hover {
                     <li>2000 grueros disponibles para el auxilio</li>
                     <li><b>RCV (opcional)</b></li>
                     <li>Un (01) servicio de grúa de 25km</li>
-                    <li>Servicios de grúa ilimitados de 50Km</li>                    
-                    <li>Un (01) servicio de grúa de 300km</li>                    
+                    <li>Servicios de grúa ilimitados de 50Km</li>
+                    <li>Un (01) servicio de grúa de 300km</li>
                   </ul>
 
                 </li>
@@ -327,57 +294,49 @@ label.checkbox:hover {
                 </li>
               </ul>
             </div>
-
           </div>
-
-          <!-- <p align="center" class="titulo_gruero_plus" ID="" style="margin-top: 2em"><button class="btn btn-naranja" data-toggle="modal" data-target="#myModal2">INFORMACIÓN Y CONTRATACIÓN DE PLANES</button></p> -->
         </div>
       </div>
     </section>
     <!-- About Section -->
     <section class="pasos" id="pasos">
-      <!--<div class="col-sm-12 text-center">
-      <p class="titulo_paso">¡PIDE TU GRúA EN <b class="titulo_paso_numero">3</b> SENCILLOS PASOS!</p>
-    </div>-->
-    <div class="col-sm-12 text-center">
-      <div >
-        <img src="web/img/fresh/titulopasos.png" alt="..." class="img-responsive img-centered">
+      <div class="col-sm-12 text-center">
+        <div >
+          <img src="web/img/fresh/titulopasos.png" alt="..." class="img-responsive img-centered">
+        </div>
+
       </div>
-
-    </div>
-
-    <div class="row margin_pasos">
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="web/img/fresh/cel1.png" alt="Llama a nuestro Call Center">
-          <div class="caption">
-            <br><br>
-            <!--<p class="text-center white-font">Llama a nuestro Call Center <strong><br>0500-GRUERO-0 <br>(0500-478376-0)<br> </strong> y dinos tu requerimiento</p>-->
-            <p class="text-center" style="margin-top: -3em;font-size: 1.5em;color:#fff;">Ingresa a la aplicación<br>e introduce tus datos</p>
+      <div class="row margin_pasos">
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img src="web/img/fresh/cel1.png" alt="Llama a nuestro Call Center">
+            <div class="caption">
+              <br><br>
+              <!--<p class="text-center white-font">Llama a nuestro Call Center <strong><br>0500-GRUERO-0 <br>(0500-478376-0)<br> </strong> y dinos tu requerimiento</p>-->
+              <p class="text-center" style="margin-top: -3em;font-size: 1.5em;color:#fff;">Ingresa a la aplicación<br>e introduce tus datos</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img src="web/img/fresh/cel2.png" alt="...">
+            <div class="caption">
+              <br><br>
+              <p class="text-center" style="margin-top: -3em;font-size: 1.5em;color:#fff;">Pide tu grúa</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img src="web/img/fresh/cel3.png" alt="...">
+            <div class="caption">
+              <br><br>
+              <p class="text-center" style="margin-top: -3em;font-size: 1.5em;color:#fff;">Califica el servicio y<br>vuelve a la vía </p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="web/img/fresh/cel2.png" alt="...">
-          <div class="caption">
-            <br><br>
-            <p class="text-center" style="margin-top: -3em;font-size: 1.5em;color:#fff;">Pide tu grúa</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="web/img/fresh/cel3.png" alt="...">
-          <div class="caption">
-            <br><br>
-            <p class="text-center" style="margin-top: -3em;font-size: 1.5em;color:#fff;">Califica el servicio y<br>vuelve a la vía </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
+    </section>
 
   <section id="bancos" style="background: white !important">
 
@@ -385,10 +344,10 @@ label.checkbox:hover {
       <h1 class="titulo_planes text-center">Bancos disponibles</h1><br>
     </div>
     <div class="container">
-    <div class="row" style="color: black">
-      <p style=" text-align: center" class="titulo_gruero_plus">¡Más de 10 bancos afiliados en todo el territorio nacional!</p>
-    </div>
-     <section class="customer-logos slider" style="padding-left:5em !important; padding-right: 5em !important">
+      <div class="row" style="color: black">
+        <p style=" text-align: center" class="titulo_gruero_plus">¡Más de 10 bancos afiliados en todo el territorio nacional!</p>
+      </div>
+      <section class="customer-logos slider" style="padding-left:5em !important; padding-right: 5em !important">
         <div class="slide"><img src="web/img/fresh/banesco.png" alt="Paga con BANESCO" class="img-responsive"></div>
         <div class="slide"><img src="web/img/fresh/bancaribe.png" alt="Paga con BANCARIBE" class="img-responsive"></div>
         <div class="slide"><img src="web/img/fresh/banconacional.png" alt="Paga con Banco Nacional de Crédito" class="img-responsive"></div>
@@ -401,39 +360,25 @@ label.checkbox:hover {
         <div class="slide"><img src="web/img/fresh/venezolanodecredito.png" alt="Paga con Venezolano de Crédito" class="img-responsive"></div>
         <div class="slide"><img src="web/img/fresh/banco_plaza.png" alt="Paga con Banco Plaza" class="img-responsive"></div>
         <div class="slide"><img src="web/img/fresh/bod.png" alt="Paga con Banco Occidental de Descuento" class="img-responsive"></div>
-     </section>
-  </div>
-  <div class="col-sm-12 text-center letras_bancos">
-     También aceptamos <br><br>
-  </div>
-  <div class="col-sm-5 col-sm-offset-4">
-    <div class="col-sm-12">
-      <div class="col-sm-6 text-center vertical-line" style="" >
-        <div class="col-sm-6 text-center" >
-          <img src="web/img/fresh/visa.png" alt="Visa" class="" width="">
-        </div>
-        <div class="col-sm-6 text-center" >
-          <img src="web/img/fresh/mastercard.png" alt="Mastercard" class="" width="">
-        </div>
-        <div class="col-sm-12 letras_bancos text-center">
-          a través de
-        </div>
-        <div class="col-sm-12 text-center">
-          <div class="text-center">
-            <img src="web/img/fresh/mercadopago.png" alt="Mercado Pago" class="" width="">
-          </div>          
-        </div>
+      </section>
+    </div>
+    <div class="col-sm-12 text-center letras_bancos">
+      También aceptamos
+    </div>
+    <div class="col-sm-4 col-sm-offset-4 letras_bancos" style="padding-top: 15px;">
+      <div class="col-sm-6 text-center vertical-line">
+        <img src="web/img/fresh/visa.png" alt="Visa" class="" width="">
+        <img src="web/img/fresh/mastercard.png" alt="Mastercard" class="" width="">
+        <label style="padding-top:10px;padding-bottom:10px;">a través de</label>
+        <img src="web/img/fresh/mercadopago.png" alt="Mercado Pago" class="" width="">
       </div>
-      <div class="col-sm-6 text-left">
-        <div class="col-xs-4 col-xs-offset-5 col-sm-offset-0 col-sm-12 text-left">
-          <a data-toggle="modal" data-target="#myModal5" style="cursor: pointer;"><img src="web/img/fresh/logo-dash.png" alt="Dash" class="" width=""></a>
-        </div>
+      <div class="col-sm-6 text-center">
+        <a data-toggle="modal" data-target="#myModal5" style="cursor: pointer;"><img src="web/img/fresh/logo-dash.png" alt="Dash" class="" width=""></a>
       </div>
     </div>
-  </div>
-  <div class="row">
-    
-  </div>
+    <div class="row">
+
+    </div>
 
     <div class="row margin_bancos letras_bancos" style="text-align: center; margin-top: 3em">
       <button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">VER CUENTAS BANCARIAS</button>
@@ -530,7 +475,7 @@ label.checkbox:hover {
       <div class="titulo_planes text-center">Clientes y Aliados</div>
     </div>
     <div class="container">
-     <section class="customer-logos slider" style="padding-left:5em !important; padding-right: 5em !important">
+      <section class="customer-logos slider" style="padding-left:5em !important; padding-right: 5em !important">
         <div class="slide"><img src="web/img/fresh/clientes/vitalicia.png" alt="Vitalicia"></div>
         <div class="slide"><img src="web/img/fresh/clientes/laprevisora.png" alt="La Previsora" ></div>
         <div class="slide"><img src="web/img/fresh/clientes/more.png" alt="More consulting"></div>
@@ -554,7 +499,7 @@ label.checkbox:hover {
         <div class="slide"><img src="web/img/fresh/clientes/problinca.png" alt="Problinca"></div>
         <div class="slide"><img src="web/img/fresh/clientes/clubgruas.png" alt="Club Grúas Venezuela"></div>
         <div class="slide"><img src="web/img/fresh/clientes/asistir.png" alt="Asistir"></div>
-     </section>
+      </section>
     </div>
     <div class="row">
       <p align="center" class="propaganda_clientes">¡Y MÁS DE 3000 SERVICIOS DE GRÚAS A PERSONAS NO ASEGURADAS EN TODO EL PAÍS!</p>
@@ -573,7 +518,7 @@ label.checkbox:hover {
       </div>
       <div class="row" style="text-align: center; margin-top: 3em">
         <div>
-        <button class="btn btn-blanco " data-toggle="modal" data-target="#myModal2" onclick="setIdPlan(0)">CONTRATAR PLAN</button>
+          <button class="btn btn-blanco " data-toggle="modal" data-target="#myModal2" onclick="setIdPlan(0)">CONTRATAR PLAN</button>
         </div>
       </div>
     </div>
@@ -1026,145 +971,145 @@ label.checkbox:hover {
   <script>
 
   $(document).ready(function(){
-  /*$('#myModal4').modal({
+    /*$('#myModal4').modal({
     keyboard: true
   });*/
-    //$('#myModal').modal('toggle');
-    $('#myModal4').modal('show');
+  //$('#myModal').modal('toggle');
+  $('#myModal4').modal('show');
 
-    TextCaja(1);
-    $('#animationSandbox').hide();
-    $('#animationSandbox2').hide();
-    $('#imagen').hide();
-    $('#imagen2').hide();
+  TextCaja(1);
+  $('#animationSandbox').hide();
+  $('#animationSandbox2').hide();
+  $('#imagen').hide();
+  $('#imagen2').hide();
 
-    $("#gruero_plus").bind("inview", function(isVisible) {
-      // Event is triggered once the element becomes visible in the browser's viewport, and once when it becomes invisible
-      if (isVisible) {
-        //console.log("element #foobar became visible in the browser's viewport");
-        $('#animationSandbox').show();
-        $('#animationSandbox2').show();
-        $('#imagen').show();
-        $('#imagen2').show();
+  $("#gruero_plus").bind("inview", function(isVisible) {
+    // Event is triggered once the element becomes visible in the browser's viewport, and once when it becomes invisible
+    if (isVisible) {
+      //console.log("element #foobar became visible in the browser's viewport");
+      $('#animationSandbox').show();
+      $('#animationSandbox2').show();
+      $('#imagen').show();
+      $('#imagen2').show();
 
-        if($('#animate1').val()==0){
-          testAnim2('slideInLeft');
-          testAnim('slideInRight');
-          testAnim3('slideInUp');
-          testAnim4('swing');
-          $('#animate1').val(1);
-          $('#animate2').val(1);
-          $('#animate3').val(1);
-          $('#animate4').val(1);
-        }
-
-
-      } else {
-        //console.log("element #foobar became invisible in the browser's viewport");
+      if($('#animate1').val()==0){
+        testAnim2('slideInLeft');
+        testAnim('slideInRight');
+        testAnim3('slideInUp');
+        testAnim4('swing');
+        $('#animate1').val(1);
+        $('#animate2').val(1);
+        $('#animate3').val(1);
+        $('#animate4').val(1);
       }
-    });
+
+
+    } else {
+      //console.log("element #foobar became invisible in the browser's viewport");
+    }
   });
+});
 
 
 
-  function openAdvertencia(){
+function openAdvertencia(){
 
-    $('#myModal').modal('toggle');
-    $('#myModal2').modal('show');
-  }
-  function TextCaja(caja)
+  $('#myModal').modal('toggle');
+  $('#myModal2').modal('show');
+}
+function TextCaja(caja)
+{
+  var text = '';
+  $("#nosotros").css("background-image", "url(web/img/fresh/nosotros.png)");
+  $("#quehacemos").css("background-image", "url(web/img/fresh/quehacemos.png)");
+  $("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos.png)");
+  $("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos.png)");
+  if(caja == 1)//nosotros
   {
-    var text = '';
-    $("#nosotros").css("background-image", "url(web/img/fresh/nosotros.png)");
-    $("#quehacemos").css("background-image", "url(web/img/fresh/quehacemos.png)");
-    $("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos.png)");
-    $("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos.png)");
-    if(caja == 1)//nosotros
-    {
-      text = "Somos una empresa venezolana de base tecnológica dedicada al auxilio y asistencia vial mediante una aplicación móvil y centro de monitoreo. Trabajamos las 24 horas del día y los 365 días del año. Buscamos a los grueros vía GPS y garantizamos un tiempo de respuesta menor a 30 minutos.";
-      $("#nosotros").css("background-image", "url(web/img/fresh/nosotros2.png)");
+    text = "Somos una empresa venezolana de base tecnológica dedicada al auxilio y asistencia vial mediante una aplicación móvil y centro de monitoreo. Trabajamos las 24 horas del día y los 365 días del año. Buscamos a los grueros vía GPS y garantizamos un tiempo de respuesta menor a 30 minutos.";
+    $("#nosotros").css("background-image", "url(web/img/fresh/nosotros2.png)");
 
-    }else if(caja == 2){//que hacemos
-      text = "Ofrecemos tranquilidad a los accidentados en la vía entregándoles el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación.";
-      $("#quehacemos").css("background-image", "url(web/img/fresh/quehacemos2.png)");
-    }else if(caja == 3){//a donde vamos
-      text = "TU/GRUERO® se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado";
-      $("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos2.png)");
-    }else if(caja == 4){//como funcionamos
-      text = "<strong> Puedes disfrutar de nuestros servicios de las siguientes formas: </strong><br><br>";
-      text+= "<ol>";
-      text+= "<li> <label style='text-decoration: underline;'>Compañías de Seguros:</label> Si tu compañía de seguros está afiliada a nuestros servicios, tan solo te basta tener tu póliza de automóvil con Asistencia en Viajes (consulta con tu corredor de seguros)</li>";
-      text+= "<li> <label style='text-decoration: underline;'>Planes TU/GRUERO®:</label> Adquiriendo cualquiera de nuestros Planes de Grúas ilimitados (TU/GRUERO® Plus o TU/GRUERO® Gold)</li>";
-      text+= "<li> <label style='text-decoration: underline;'>Servicios particulares:</label> Si no estás amparado por ninguna de las dos soluciones anteriores, puedes pedir tu servicio de grúa de forma particular usando nuestra App o llamando a nuestro Call Center y pagar por el servicio puntual.</li>";
-      text+= "</ol>";
-      $("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos2.png)");
-    }
-
-    $('#caja').html(text);
-
+  }else if(caja == 2){//que hacemos
+    text = "Ofrecemos tranquilidad a los accidentados en la vía entregándoles el mejor servicio de auxilio vial por medio de nuestra excelente plataforma de comunicación.";
+    $("#quehacemos").css("background-image", "url(web/img/fresh/quehacemos2.png)");
+  }else if(caja == 3){//a donde vamos
+    text = "TU/GRUERO® se perfila a ser la plataforma tecnológica número uno a nivel mundial en auxilio vial, teniendo la red de grueros más amplia, trabajando con el 100% de las compañías de seguro existentes y la mayor cantidad de personas no aseguradas del mercado";
+    $("#adondevamos").css("background-image", "url(web/img/fresh/adondevamos2.png)");
+  }else if(caja == 4){//como funcionamos
+    text = "<strong> Puedes disfrutar de nuestros servicios de las siguientes formas: </strong><br><br>";
+    text+= "<ol>";
+    text+= "<li> <label style='text-decoration: underline;'>Compañías de Seguros:</label> Si tu compañía de seguros está afiliada a nuestros servicios, tan solo te basta tener tu póliza de automóvil con Asistencia en Viajes (consulta con tu corredor de seguros)</li>";
+    text+= "<li> <label style='text-decoration: underline;'>Planes TU/GRUERO®:</label> Adquiriendo cualquiera de nuestros Planes de Grúas ilimitados (TU/GRUERO® Plus o TU/GRUERO® Gold)</li>";
+    text+= "<li> <label style='text-decoration: underline;'>Servicios particulares:</label> Si no estás amparado por ninguna de las dos soluciones anteriores, puedes pedir tu servicio de grúa de forma particular usando nuestra App o llamando a nuestro Call Center y pagar por el servicio puntual.</li>";
+    text+= "</ol>";
+    $("#comofuncionamos").css("background-image", "url(web/img/fresh/comofuncionamos2.png)");
   }
 
-  function testAnim(x) {
-    $('#animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-      $(this).removeClass();
-    });
-  };
-  function testAnim2(x) {
-    $('#animationSandbox2').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-      $(this).removeClass();
-    });
-  };
-  function testAnim3(x) {
-    $('#imagen').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-      $(this).removeClass();
-    });
-  };
-  function testAnim4(x) {
-    $('#imagen2').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-      $(this).removeClass();
-    });
-  };
-  </script>
-  <script>
-  $("nav.navbar-fixed-top").autoHidingNavbar();
-  </script>
+  $('#caja').html(text);
 
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+}
 
-  ga('create', 'UA-101125352-1', 'auto');
-  ga('send', 'pageview');
-
-  </script>
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $('#subject').multiselect( {
-      numberDisplayed: 2,
-      nonSelectedText: 'Seleccione una o más opciones',
-      nSelectedText: 'Seleccionados',
-      allSelectedText: 'Todos Seleccionados',
-    } );
-
+function testAnim(x) {
+  $('#animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    $(this).removeClass();
   });
+};
+function testAnim2(x) {
+  $('#animationSandbox2').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    $(this).removeClass();
+  });
+};
+function testAnim3(x) {
+  $('#imagen').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    $(this).removeClass();
+  });
+};
+function testAnim4(x) {
+  $('#imagen2').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    $(this).removeClass();
+  });
+};
+</script>
+<script>
+$("nav.navbar-fixed-top").autoHidingNavbar();
+</script>
 
-  var parametros = {
-    "idPlan": 1
-  };
-  function setIdPlan(idPlan){
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    console.log(parametros);
-    if(idPlan != 0){
-      parametros.idPlan = idPlan;
-      $("#compra").attr("href", "https://tugruero.io/pl/planes/index.php"+"?idPlan="+parametros.idPlan);
-    }else{
-      $("#compra").attr("href", "https://tugruero.io/pl/planes/index.php");
-    }
+ga('create', 'UA-101125352-1', 'auto');
+ga('send', 'pageview');
 
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#subject').multiselect( {
+    numberDisplayed: 2,
+    nonSelectedText: 'Seleccione una o más opciones',
+    nSelectedText: 'Seleccionados',
+    allSelectedText: 'Todos Seleccionados',
+  } );
+
+});
+
+var parametros = {
+  "idPlan": 1
+};
+function setIdPlan(idPlan){
+
+  console.log(parametros);
+  if(idPlan != 0){
+    parametros.idPlan = idPlan;
+    $("#compra").attr("href", "https://tugruero.io/pl/planes/index.php"+"?idPlan="+parametros.idPlan);
+  }else{
+    $("#compra").attr("href", "https://tugruero.io/pl/planes/index.php");
   }
-  function closeModal4(){
-    $("#myModal4").modal("toggle");
-  }
-  </script>
+
+}
+function closeModal4(){
+  $("#myModal4").modal("toggle");
+}
+</script>
