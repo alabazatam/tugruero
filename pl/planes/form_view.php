@@ -574,8 +574,8 @@ $(document).ready(function(){
             $('.Puestos').hide();
             $('.CedulaDiv').show();
             $('.RifDiv').show();
-            $('.LicenciaDiv').show();
-            $('.CarnetCirculacionDiv').hide();
+            $('.LicenciaDiv').hide();
+            $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
 <?php endif;?>
@@ -668,10 +668,10 @@ $(document).ready(function(){
         }else{
             console.log('seleccione no');
             $('.Puestos').hide();
-            $('.CedulaDiv').hide();
+            $('.CedulaDiv').show();
             $('.RifDiv').hide();
             $('.LicenciaDiv').hide();
-            $('.CarnetCirculacionDiv').hide();
+            $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
         }

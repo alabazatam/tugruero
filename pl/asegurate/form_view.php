@@ -545,17 +545,17 @@ $(document).ready(function(){
             $('.CedulaDiv').show();
             $('.RifDiv').show();
             $('.LicenciaDiv').show();
-            $('.CarnetCirculacionDiv').hide();
+            $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
 <?php endif;?>
 <?php if((!isset($values['RCV'])) or @$values['RCV']==''):?>
             console.log('No eligio nada');
             $('.Puestos').hide();
-            $('.LicenciaDiv').hide();
-            $('.CedulaDiv').hide();
+            $('.LicenciaDiv').show();
+            $('.CedulaDiv').show();
             $('.RifDiv').hide();
-            $('.CarnetCirculacionDiv').hide();
+            $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
 <?php endif;?>
@@ -669,10 +669,10 @@ $(document).ready(function(){
         }else{
             console.log('seleccione no');
             $('.Puestos').hide();
-            $('.CedulaDiv').hide();
+            $('.CedulaDiv').show();
             $('.RifDiv').hide();
             $('.LicenciaDiv').hide();
-            $('.CarnetCirculacionDiv').hide();
+            $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
         }

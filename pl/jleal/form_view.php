@@ -528,7 +528,6 @@ $(document).ready(function(){
 
 
 <?php if(isset($values['RCV']) and $values['RCV']=='SI'):?>
-            console.log('eligio si');
             $('.Puestos').show();
             $('.CedulaDiv').show();
             $('.RifDiv').show();
@@ -542,13 +541,12 @@ $(document).ready(function(){
             $('.Puestos').hide();
             $('.CedulaDiv').show();
             $('.RifDiv').show();
-            $('.LicenciaDiv').show();
-            $('.CarnetCirculacionDiv').hide();
+            $('.LicenciaDiv').hide();
+            $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
 <?php endif;?>
 <?php if((!isset($values['RCV'])) or @$values['RCV']==''):?>
-            console.log('No eligio nada');
             $('.Puestos').hide();
             $('.LicenciaDiv').hide();
             $('.CedulaDiv').hide();
@@ -634,10 +632,10 @@ $(document).ready(function(){
         }else{
             console.log('seleccione no');
             $('.Puestos').hide();
-            $('.CedulaDiv').hide();
+            $('.CedulaDiv').show();
             $('.RifDiv').hide();
             $('.LicenciaDiv').hide();
-            $('.CarnetCirculacionDiv').hide();
+            $('.CarnetCirculacionDiv').show();
             $('.CertificadoMedicoDiv').hide();
             $('.CertificadoOrigenDiv').hide();
         }
