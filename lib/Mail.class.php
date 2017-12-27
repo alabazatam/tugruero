@@ -4,10 +4,10 @@
 
     function __construct()
     {
-        $this->smtp = "tugruero.com";
+        $this->smtp = "tugruero.io";
         $this->port = 465;
         $this->secure = "ssl";
-        $this->username = "mercadeo@tugruero.com";
+        $this->username = "mercadeo@tugruero.io";
         $this->password = "tugruero123!";
 
     }
@@ -290,40 +290,40 @@
 
             try{
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "tugruero.com";
+            $smtp = "tugruero.io";
             $port = 465;
             $secure = "ssl";
-            $username = "suscripcion@tugruero.com";
+            $username = "suscripcion@tugruero.io";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com';
+            $mail_from = 'suscripcion@tugruero.io';
 
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
-            $email[0] = array('desarrollo@tugruero.com','vcampos@tugruero.com');//estos siempre reciben
+            $email[0] = array('desarrollo@tugruero.io','vcampos@tugruero.io');//estos siempre reciben
             
             $subject = array();
             $subject[1]='Afiliacion como proveedor de grúa';
-            $email[1]=array( 'fgonzalez@tugruero.com', 'jcasanova@tugruero.com');//ready
+            $email[1]=array( 'fgonzalez@tugruero.io', 'jcasanova@tugruero.io');//ready
 
             $subject[2]='Alianzas para venta de nuestros planes';
-            $email[2]=array('acostantini@tugruero.com', 'vcampos@tugruero.com', 'suscripcion@tugruero.com', 'comercializacion@tugruero.com');
+            $email[2]=array('acostantini@tugruero.io', 'vcampos@tugruero.io', 'suscripcion@tugruero.io', 'comercializacion@tugruero.io');
 
             $subject[3]='Información para Alianza internacional';
-            $email[3]=array('cecheverria@tugruero.com', 'aecheverria@tugruero.com', 'cheinze@tugruero.com','acostantini@tugruero.com', 'vcampos@tugruero.com', 'suscripcion@tugruero.com', 'comercializacion@tugruero.com');
+            $email[3]=array('cecheverria@tugruero.io', 'aecheverria@tugruero.io', 'cheinze@tugruero.io','acostantini@tugruero.io', 'vcampos@tugruero.io', 'suscripcion@tugruero.io', 'comercializacion@tugruero.io');
 
             $subject[4]='Pago de facturas a proveedores';
-            $email[4]=array('ccisneros@tugruero.com', 'administracion@tugruero.com');
+            $email[4]=array('ccisneros@tugruero.io', 'administracion@tugruero.io');
 
             $subject[5]='Precios de traslados de vehículo';
-            $email[5]=array( 'fgonzalez@tugruero.com', 'lozano@tugruero.com', 'operaciones@tugruero.com');
+            $email[5]=array( 'fgonzalez@tugruero.io', 'lozano@tugruero.io', 'operaciones@tugruero.io');
 
             $subject[6]='Precios e información de nuestros planes';
-            $email[6]=array('acostantini@tugruero.com', 'vcampos@tugruero.com', 'suscripcion@tugruero.com', 'comercializacion@tugruero.com');
+            $email[6]=array('acostantini@tugruero.io', 'vcampos@tugruero.io', 'suscripcion@tugruero.io', 'comercializacion@tugruero.io');
 
             $subject[7]='Otro';
-            $email[7]=array( 'fgonzalez@tugruero.com', 'lozano@tugruero.com','jcasanova@tugruero.com','acostantini@tugruero.com', 'vcampos@tugruero.com','ccisneros@tugruero.com','moviedo@tugruero.com');
+            $email[7]=array( 'fgonzalez@tugruero.io', 'lozano@tugruero.io','jcasanova@tugruero.io','acostantini@tugruero.io', 'vcampos@tugruero.io','ccisneros@tugruero.io','moviedo@tugruero.io');
 
             //$mensaje = $values['names']." ".$values['email']." ".$values['phone']." ".$subject." ".$values['message'];
             for($i=1;$i<8;$i++){
@@ -366,7 +366,7 @@
 					
                     //$destinatarios='hectord.mata@gmail.com';
                     $message->setTo($destinatarios);
-                    //$message->setBcc('info@tugruero.com');
+                    //$message->setBcc('info@tugruero.io');
                     // Send the message
                     $result = $mailer->send($message);
                 }
@@ -390,12 +390,12 @@
 			$Marca= $data['Marca'];
 			$Anio= $data['Anio'];
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "tugruero.com";
+            $smtp = "tugruero.io";
             $port = 465;
             $secure = "ssl";
-            $username = "suscripcion@tugruero.com";
+            $username = "suscripcion@tugruero.io";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com';
+            $mail_from = 'suscripcion@tugruero.io';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -431,7 +431,7 @@
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
-                    $message->setBcc('suscripcion@tugruero.com');
+                    $message->setBcc('suscripcion@tugruero.io');
             // Send the message
 
 
@@ -480,12 +480,12 @@
                 }
 				//print_r($correos);die;
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "tugruero.com";
+            $smtp = "tugruero.io";
             $port = 465;
             $secure = "ssl";
-            $username = "suscripcion@tugruero.com";
+            $username = "suscripcion@tugruero.io";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com';
+            $mail_from = 'suscripcion@tugruero.io';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -521,7 +521,7 @@
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($correos);
-                    $message->setBcc('suscripcion@tugruero.com');
+                    $message->setBcc('suscripcion@tugruero.io');
                     /*if($correo1_vendedor!=''){
                        $message->setBcc($correo1_vendedor);
                     }
@@ -561,12 +561,12 @@
 
             try{
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "tugruero.com";
+            $smtp = "tugruero.io";
             $port = 465;
             $secure = "ssl";
-            $username = "suscripcion@tugruero.com";
+            $username = "suscripcion@tugruero.io";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com';
+            $mail_from = 'suscripcion@tugruero.io';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -602,7 +602,7 @@
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($values['Correo']);
-                    $message->setBcc('suscripcion@tugruero.com');
+                    $message->setBcc('suscripcion@tugruero.io');
 
 
             // Send the message
@@ -636,7 +636,7 @@
             $correo2_vendedor = '';
             $correo3_vendedor = '';
             $ConcatenadoPlan = $data['concatenado_plan'];
-			$correos = array($data['Correo'],"suscripcion@tugruero.com");
+			$correos = array($data['Correo'],"suscripcion@tugruero.io");
 					//envío la aprobacion al vendedor
                 if(isset($data['IdV']) and $data['IdV']!=1)
                 {
@@ -652,12 +652,12 @@
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "tugruero.com";
+            $smtp = "tugruero.io";
             $port = 465;
             $secure = "ssl";
-            $username = "suscripcion@tugruero.com";
+            $username = "suscripcion@tugruero.io";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com';
+            $mail_from = 'suscripcion@tugruero.io';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -693,7 +693,7 @@
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($correos);
-                    //$message->setBcc('suscripcion@tugruero.com');
+                    //$message->setBcc('suscripcion@tugruero.io');
                     /*if($correo1_vendedor!=''){
                        $message->setBcc($correo1_vendedor);
                     }
@@ -745,12 +745,12 @@
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "tugruero.com";
+            $smtp = "tugruero.io";
             $port = 465;
             $secure = "ssl";
-            $username = "suscripcion@tugruero.com";
+            $username = "suscripcion@tugruero.io";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com';
+            $mail_from = 'suscripcion@tugruero.io';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
@@ -852,12 +852,12 @@
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
-            $smtp = "tugruero.com";
+            $smtp = "tugruero.io";
             $port = 465;
             $secure = "ssl";
-            $username = "suscripcion@tugruero.com";
+            $username = "suscripcion@tugruero.io";
             $password = "tugruero123!";
-            $mail_from = 'suscripcion@tugruero.com';
+            $mail_from = 'suscripcion@tugruero.io';
             $transport = Swift_SmtpTransport::newInstance( $smtp, $port, $secure)
               ->setUsername($username)
               ->setPassword($password);
