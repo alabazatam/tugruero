@@ -48,7 +48,7 @@
 				<p align='center'><strong>Para seguir con su proceso de registro en nuestra plataforma como gruero Master, dele click al siguiente botón.</strong></p>
 
 				<p align='center'>
-				<a href='".$values['url']."'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/haz_click_aqui.png'))."' alt='' /></a>
+				<a href='".$values['url']."'><img src='".$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/haz_click_aqui.png'))."' alt='' /></a>
 				</p>
 
 
@@ -57,7 +57,7 @@
 
 				<br><br>
 				<p align='center'>
-				<img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/logo_tugruero_mail.png'))."' alt='' />
+				<img src='".$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/logo_tugruero_mail.png'))."' alt='' />
 
 				</p>
 				<p align='center' style='color: #f1452b !important;font-style: italic !important;'>
@@ -118,7 +118,7 @@
 
 				<br><br>
 				<p align='center'>
-				<img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/logo_tugruero_mail.png'))."' alt='' />
+				<img src='".$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/logo_tugruero_mail.png'))."' alt='' />
 
 				</p>
 				<p align='center' style='color: #f1452b !important;font-style: italic !important;'>
@@ -175,7 +175,7 @@
 
 				<p align='justify'>Puede cambiar su clave una vez inicie sesión en el módulo de <strong>Modificación de Clave</strong> dentro de su cuenta.</p>
 				<p align='center'>
-				<a href='".full_url."/ap/index.php'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/inicie_sesion.png'))."' alt='' /></a>
+				<a href='".full_url."/ap/index.php'><img src='".$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/inicie_sesion.png'))."' alt='' /></a>
 				</p>
 
 				<p align='justify'>Si aún no ha descargado la aplicación en su teléfono, le invitamos
@@ -183,8 +183,8 @@
 				inteligente que tenga (Play Store o App Store), con el
 				nombre de: <strong>Tu Gruero</strong></p>
 				<p align='center'>
-				<a href='#'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/apps_store.png'))."' alt='' /></a>
-				<a href='#'><img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/google_play.png'))."' alt='' /></a>
+				<a href='#'><img src='".$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/apps_store.png'))."' alt='' /></a>
+				<a href='#'><img src='".$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/google_play.png'))."' alt='' /></a>
 
 				</p>
 
@@ -195,7 +195,7 @@
 				<p align='left'>Equipo – <strong>TU/GRUERO®</strong></p>
 				<br><br>
 				<p align='center'>
-				<img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/logo_tugruero_mail.png'))."' alt='' />
+				<img src='".$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/logo_tugruero_mail.png'))."' alt='' />
 
 				</p>
 				<p align='center' style='color: #f1452b !important;font-style: italic !important;'>
@@ -242,7 +242,7 @@
 
 				<br><br>
 				<p align='center'>
-				<img src='".$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/logo_tugruero_mail.png'))."' alt='' />
+				<img src='".$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/logo_tugruero_mail.png'))."' alt='' />
 
 				</p>
 				<p align='center' style='color: #f1452b !important;font-style: italic !important;'>
@@ -271,10 +271,10 @@
                             <html>
                             <body>
                             <p align='center'>
-				<a href='www.tugruero.io' target='_blank'><img width='600'  src='http://www.tugruero.io/web/img/mail/flyer1.png' alt='tugruero.io' /></a>
+				<a href='www.tugruero.io' target='_blank'><img width='600'  src='https://www.tugruero.io/web/img/mail/flyer1.png' alt='tugruero.io' /></a>
 
                             </p>
-                            <p align='justify'>Si no puede observar la imagen dele click <strong><a href='http://www.tugruero.io/tugruero.php' target='_blank'>Aquí</a></strong</p>
+                            <p align='justify'>Si no puede observar la imagen dele click <strong><a href='https://www.tugruero.io/tugruero.php' target='_blank'>Aquí</a></strong</p>
                             <p align='justify'><strong>2016. TU/GRUERO®.</strong> <strong style='color: #4C4C4C;'>Todos los Derechos Reservados.</strong></p>
                             </body>
                             </html>
@@ -302,7 +302,7 @@
               ->setPassword($password);
             $mailer = Swift_Mailer::newInstance($transport);
             $email[0] = array('desarrollo@tugruero.io','vcampos@tugruero.io');//estos siempre reciben
-            
+
             $subject = array();
             $subject[1]='Afiliacion como proveedor de grúa';
             $email[1]=array( 'fgonzalez@tugruero.io', 'jcasanova@tugruero.io');//ready
@@ -363,14 +363,14 @@
                     ',"text/html");
                     $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $destinatarios= array_merge($email[0],$email[$i]);
-					
+
                     //$destinatarios='hectord.mata@gmail.com';
                     $message->setTo($destinatarios);
                     //$message->setBcc('info@tugruero.io');
                     // Send the message
                     $result = $mailer->send($message);
                 }
-            }  
+            }
             }catch(Exception $e){
                     //echo $e->getMessage().$e->getTraceAsString();
                     die;
@@ -423,8 +423,8 @@
 				<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
-            <p><a href="http://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+            <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
         </body>
     </html>
     ',"text/html");
@@ -476,7 +476,7 @@
 					$correos[] = $correo1_vendedor;
 					$correos[] = $correo2_vendedor;
 					$correos[] = $correo3_vendedor;
-					
+
                 }
 				//print_r($correos);die;
             //$smtp = "server-0116a.gconex.net";
@@ -513,8 +513,8 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
-            <p><a href="http://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+            <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
         </body>
     </html>
     ',"text/html");
@@ -594,8 +594,8 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
-            <p><a href="http://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+            <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
         </body>
     </html>
     ',"text/html");
@@ -648,7 +648,7 @@
 					$correos[] = $correo1_vendedor;
 					$correos[] = $correo2_vendedor;
 					$correos[] = $correo3_vendedor;
-					
+
                 }
             try{
             //$smtp = "server-0116a.gconex.net";
@@ -685,8 +685,8 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
-           <p><a href="http://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+           <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
         </body>
     </html>
     ',"text/html");
@@ -798,8 +798,8 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
-            <p><a href="http://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+            <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
 		</div>
 
         </body>
@@ -891,8 +891,8 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('http://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
-            <p><a href="http://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
+			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+            <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
 		</div>
 
         </body>
