@@ -924,7 +924,7 @@
       </div>
     </div>
     <!-- Modal4 transparente -->
-    <div class="portfolio-modal modal fade" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true" onclick="closeModal4()">
+   <!-- <div class="portfolio-modal modal fade" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true" onclick="closeModal4()">
       <div class="modal-content modal-transparent">
         <div class="row">
           <div class="modal-body">
@@ -934,7 +934,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
     <!-- Modal5 dash -->
     <div class="portfolio-modal modal fade " id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-content" style="background-color: #fff !important; ">
@@ -975,7 +975,7 @@
     keyboard: true
   });*/
   //$('#myModal').modal('toggle');
-  $('#myModal4').modal('show');
+  //$('#myModal4').modal('show');
 
   TextCaja(1);
   $('#animationSandbox').hide();
@@ -1109,7 +1109,7 @@ function setIdPlan(idPlan){
   }
 
 }
-function closeModal4(){
+/*function closeModal4(){
   $("#myModal4").modal("toggle");
-}
+}*/
 </script>
