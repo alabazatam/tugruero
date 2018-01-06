@@ -381,7 +381,7 @@
     </div>
 
     <div class="row margin_bancos letras_bancos" style="text-align: center; margin-top: 3em">
-      <button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">VER CUENTAS BANCARIAS</button>
+      <!--<button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">VER CUENTAS BANCARIAS</button>-->
     </div>
   </section>
 
@@ -775,7 +775,7 @@
             <div class="text-center logo_footer">
               <img src="web/img/fresh/titulo3.png" alt="grua">
             </div>
-            <p class="white-font text_footer">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>
+            <!--<p class="white-font text_footer">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>-->
             <p class="white-font text_footer">info@tugruero.com</p>
             <!--<p class="white-font text_footer">0500-GRUERO-0 (0500-478376-0) </p>-->
             <p class="white-font text_footer"> 0212-419-0105 / 0424-135-7579 </p>
