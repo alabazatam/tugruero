@@ -423,7 +423,7 @@
 				<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+			<!--<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>-->
             <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
         </body>
     </html>
@@ -513,7 +513,7 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+			<!--<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>-->
             <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
         </body>
     </html>
@@ -594,7 +594,7 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+			<!--<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>-->
             <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
         </body>
     </html>
@@ -685,7 +685,7 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+			<!--<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>-->
            <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
         </body>
     </html>
@@ -798,7 +798,7 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+			<!--<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>-->
             <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
 		</div>
 
@@ -891,7 +891,7 @@
 		<p align="justify" style="font-size: 12px;">Para más información puede comunicarse directamente al 0500-GRUERO-0 (0500-478376-0)</p>
             </div>
 			<br><br>--<br>
-			<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>
+			<!--<p><img src="'.$message->embed(Swift_Image::fromPath('https://www.tugruero.io/web/img/firma_alessandro.png')).'" alt="" /></p>-->
             <p><a href="https://www.tugruero.io" target="_blank" style="text-decoration: none;"><font style="color:#1155CC;font-size: 18px;"><b>www.tugruero.io</b></font></a></p>
 		</div>
 
