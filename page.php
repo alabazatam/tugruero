@@ -775,10 +775,10 @@
             <div class="text-center logo_footer">
               <img src="web/img/fresh/titulo3.png" alt="grua">
             </div>
-            <!--<p class="white-font text_footer">Av. Francisco De Miranda. Edif. Provincial. Piso 8. Ofic. 8-B. Los Dos Caminos, Caracas. Venezuela. Código Postal: 1071.</p>-->
-            <p class="white-font text_footer">info@tugruero.com</p>
-            <!--<p class="white-font text_footer">0500-GRUERO-0 (0500-478376-0) </p>-->
-            <p class="white-font text_footer"> 0212-419-0105 / 0424-135-7579 </p>
+            <p class="white-font text_footer">Caracas. Venezuela.</p>
+            <p class="white-font text_footer">info@tugruero.io</p>
+            <p class="white-font text_footer"> 0212-237-9227 / 0500-GRUERO-0 (0500-478376-0) </p>
+            <!--<p class="white-font text_footer"> 0212-237-9227 / 0424-135-7579 </p>-->
           </div>
         </div>
       </div>

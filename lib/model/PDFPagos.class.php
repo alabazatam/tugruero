@@ -263,7 +263,7 @@ class PDFPagos{
 
     }
 
-    $html.='<p align="center">Tlf: <b><font style="font-size: 10px;">0500-GRUERO-0 (0500-478376-0) / 0212-2379227 / 0212-4190105 · info@tugruero.com - tugruero@gmail.com</font></b></p>'
+    $html.='<p align="center"> Caracas. Venezuela.<br>Tlf: <b><font style="font-size: 10px;">0500-GRUERO-0 (0500-478376-0) / 0212-2379227 / 0212-4190105 · info@tugruero.io - tugruero@gmail.com</font></b></p>'
     ;
     $pdf->writeHTML($html);
     $pdf->AddPage();
@@ -402,7 +402,7 @@ class PDFPagos{
 
     }
 
-    $html.='<p align="center">Tlf: <b><font style="font-size: 10px;">0500-GRUERO-0 (0500-478376-0) / 0212-2379227 / 0212-4190105 · info@tugruero.com - tugruero@gmail.com</font></b></p>'
+    $html.='<p align="center">Caracas. Venezuela. <br>Tlf: <b><font style="font-size: 10px;">0500-GRUERO-0 (0500-478376-0) / 0212-2379227 / 0212-4190105 · info@tugruero.io - tugruero@gmail.com</font></b></p>'
     ;
     $pdf->writeHTML($html);
     $pdf->Output(dir_cuadros."/".$datos_cuadro['NumProducto'].".pdf", 'F');
