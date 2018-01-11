@@ -85,7 +85,7 @@
         <select class="form-control" id="idPlan" name="idPlan">
             <option value="">Seleccione el plan</option>
             <option value="10" <?php if(isset($values['idPlan']) and $values['idPlan']==10) echo "selected='selected'";?>>TU GRUERO BASICO</option>
-            <option value="2" <?php if(isset($values['idPlan']) and $values['idPlan']==2) echo "selected='selected'";?>>TU GRUERO GOLD</option>
+            <!-- <option value="2" <?php if(isset($values['idPlan']) and $values['idPlan']==2) echo "selected='selected'";?>>TU GRUERO GOLD</option> -->
             <option value="1" <?php if(isset($values['idPlan']) and $values['idPlan']==1) echo "selected='selected'";?>>TU GRUERO PLUS</option>
         </select>
     </div>

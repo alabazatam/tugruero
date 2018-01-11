@@ -142,13 +142,29 @@
       padding: 1em 2em;
       cursor: pointer !important;
     }
+   .action_button_disabled {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      background: linear-gradient(#ccc, #ccc);
+      padding: 5px 20px;
+      font-size: 11px;
+      text-transform: uppercase;
+      padding: 1em 2em;
+      cursor: pointer !important;
+    }
 
     .action_button:hover {
       color: black !important;
       text-decoration: none;
       cursor: pointer;
     }
-
+    .action_button_disabled:hover {
+      color: #fff !important;
+      text-decoration: none;
+      cursor: pointer;
+    }
     .price_block:not(.nohover):hover {
       box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.5);
       transform: scale(1.04) translateY(-5px);

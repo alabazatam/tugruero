@@ -289,7 +289,8 @@
                     <li><i class="fa fa-check fa-lg"></i></li>
                   </ul>
                   <div class="footer">
-                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a>
+                    <a class="action_button_disabled">Comprar</a>
+                    <!-- <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a> -->
                   </div>
                 </li>
               </ul>
