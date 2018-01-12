@@ -216,7 +216,7 @@
                     <li><b>RCV (opcional)</b></li>
                     <li>Un (01) servicio de grúa de 25km</li>
                     <li>Servicios de grúa ilimitados de 50Km</li>
-                    <li>Un (01) servicio de grúa de 300km</li>
+                    <li>Un (01) servicio de grúa de 100km</li>
                   </ul>
 
                 </li>
@@ -289,8 +289,8 @@
                     <li><i class="fa fa-check fa-lg"></i></li>
                   </ul>
                   <div class="footer">
-                    <a class="action_button_disabled">Comprar</a>
-                    <!-- <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a> -->
+                    <!--<a class="action_button_disabled">Comprar</a>-->
+                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a>
                   </div>
                 </li>
               </ul>
