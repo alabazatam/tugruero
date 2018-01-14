@@ -126,7 +126,7 @@
             <div class="intro-text">
               <p class="titulo_gruero_plus" style="margin-bottom: 0.5em;">La primera aplicación móvil de servicios de grúas de Venezuela.</p>
               <p class="titulo_gruero_plus" style="padding: 0.2em;">Recibe asistencia vial
-                confiable de forma instántanea a través de nuestra plataforma y olvídate de los largos tiempos de espera.</p>
+                confiable de forma instantánea a través de nuestra plataforma y olvídate de los largos tiempos de espera.</p>
               </div>
               <!--<img class="img-responsive" src="web/img/fresh/telefono.png" alt="" id="imagen">-->
             </div>
@@ -382,7 +382,7 @@
     </div>
 
     <div class="row margin_bancos letras_bancos" style="text-align: center; margin-top: 3em">
-      <!--<button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">VER CUENTAS BANCARIAS</button>-->
+      <button class="btn btn-naranja" data-toggle="modal" data-target="#myModal3">VER CUENTAS BANCARIAS</button>
     </div>
   </section>
 
