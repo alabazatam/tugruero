@@ -185,7 +185,7 @@
                 <br>
                 <p align="center" class="titulo_gruero_plus">Adquiere nuestros planes directamente desde nuestra plataforma web y
                   disfruta de grúas ilimitadas.</p>
-                  <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
+                  <!--<p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>-->
                 </div>
               </div>
               <div class="col-lg-1"></div>
@@ -225,7 +225,7 @@
                     <div class="price_figure">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(13)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
-                      <span class="price_tenure">(Semestral)</span>
+                      <p class="price_tenure">(Semestral)</p>
                     </div>
                   </div>
                   <ul class="features">
@@ -250,7 +250,7 @@
                     <div class="price_figure">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(10)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
-                      <span class="price_tenure">(Anual)</span>
+                      <p class="price_tenure">(Anual)</p>
                     </div>
                   </div>
                   <ul class="features">
@@ -275,7 +275,7 @@
                     <div class="price_figure">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(11)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
-                      <span class="price_tenure">(Semestral)</span>
+                      <p class="price_tenure">(Semestral)</p>
                     </div>
                   </div>
                   <ul class="features">
@@ -301,7 +301,7 @@
                     <div class="price_figure">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(1)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
-                      <span class="price_tenure">(Anual)</span>
+                      <p class="price_tenure">(Anual)</p>
                     </div>
                   </div>
                   <ul class="features">
@@ -326,7 +326,7 @@
                     <div class="price_figure">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp;</label><?php echo $Planes->getPlanPrecioIva(12)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
-                      <span class="price_tenure">(Semestral)</span>
+                      <p class="price_tenure">(Semestral)</p>
                     </div>
                   </div>
                   <ul class="features">
@@ -353,7 +353,7 @@
                     <div class="price_figure">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp;</label><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
-                      <span class="price_tenure">(Anual)</span>
+                      <p class="price_tenure">(Anual)</p>
                     </div>
                   </div>
                   <ul class="features">

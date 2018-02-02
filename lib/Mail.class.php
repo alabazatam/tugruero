@@ -431,7 +431,7 @@
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($email);
-                    $message->setBcc('suscripcion@tugruero.io');
+                    $message->setBcc('comercializacion@tugruero.io');
             // Send the message
 
 
@@ -521,7 +521,7 @@
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($correos);
-                    $message->setBcc('suscripcion@tugruero.io');
+                    $message->setBcc('comercializacion@tugruero.io');
                     /*if($correo1_vendedor!=''){
                        $message->setBcc($correo1_vendedor);
                     }
@@ -602,7 +602,7 @@
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($values['Correo']);
-                    $message->setBcc('suscripcion@tugruero.io');
+                    $message->setBcc('comercializacion@tugruero.io');
 
 
             // Send the message
@@ -636,7 +636,7 @@
             $correo2_vendedor = '';
             $correo3_vendedor = '';
             $ConcatenadoPlan = $data['concatenado_plan'];
-			$correos = array($data['Correo'],"suscripcion@tugruero.io");
+			$correos = array($data['Correo'],"comercializacion@tugruero.io");
 					//envío la aprobacion al vendedor
                 if(isset($data['IdV']) and $data['IdV']!=1)
                 {
@@ -693,7 +693,7 @@
 
             $message->setFrom(array ($mail_from => 'TU/GRUERO®'));
                     $message->setTo($correos);
-                    //$message->setBcc('suscripcion@tugruero.io');
+                    //$message->setBcc('comercializacion@tugruero.io');
                     /*if($correo1_vendedor!=''){
                        $message->setBcc($correo1_vendedor);
                     }
