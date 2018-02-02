@@ -88,6 +88,7 @@
       padding: 5px 0;
       background: #333;
       margin: -10px 0 1px 0;
+      height: 50px;
     }
 
     /*Price tags*/
@@ -98,7 +99,7 @@
       height: 70px;
     }
     .price_figure {
-      font-size: 24px;
+      font-size: 14px;
       text-transform: uppercase;
       vertical-align: middle;
       display: table-cell;
@@ -194,7 +195,8 @@
 
     }
     @media only screen and (min-width : 768px){
-      .price_block {width: 25%;}
+      .price_block {width: 12.5%;}
+      .price_block.beneficios {width: 25%;}
       .price_block {border-right: 1px solid transparent; border-bottom: 0 none;}
       .price_block:last-child {border-right: 0 none;}
 
@@ -308,4 +310,8 @@ label.checkbox {
 }
 label.checkbox:hover {
   color:#000;
+}
+.img_planes {
+  /*max-width: 80px !important;*/
+  max-height: 30px !important;
 }
