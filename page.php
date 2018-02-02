@@ -108,7 +108,7 @@
             <div class="col-sm-3"></div>
           </div>
           <div class="col-sm-12 text-center">
-            <p class="telefono_sombra text-center"> 0212-419-0105 / 0424-135-7579 </p>
+            <p class="telefono_sombra text-center"> 0212-237.04.91 / 237.91.13 / 237.97.62 / 237.92.27 </p>
             <!--<p class="telefono_sombra text-center">0500-GRUERO-0 (0500-478376-0) </p>-->
           </div>
         </div>
@@ -185,7 +185,7 @@
                 <br>
                 <p align="center" class="titulo_gruero_plus">Adquiere nuestros planes directamente desde nuestra plataforma web y
                   disfruta de grúas ilimitadas.</p>
-                  <p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>
+                  <!--<p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>-->
                 </div>
               </div>
               <div class="col-lg-1"></div>
@@ -198,7 +198,7 @@
               <div class="row text-center" id="" style="display: block;">
               </div>
               <ul class="pricing_table">
-                <li class="price_block nohover">
+                <li class="price_block nohover beneficios">
                   <h3 style="visibility: hidden;"><img src="web/img/plus.png"></h3>
                   <div class="price">
                     <div class="price_figure">
@@ -218,14 +218,39 @@
                     <li>Servicios de grúa ilimitados de 50Km</li>
                     <li>Un (01) servicio de grúa de 100km</li>
                   </ul>
-
                 </li>
                 <li class="price_block">
-                  <h3><img src="web/img/basico.png"></h3>
+                  <h3><img src="web/img/basico.png" class="img_planes"></h3>
+                  <div class="price">
+                    <div class="price_figure">
+                      <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(13)?>,<small>00</small></span>
+                      <span class="price_tenure">(IVA incluido)</span>
+                      <p class="price_tenure">(Semestral)</p>
+                    </div>
+                  </div>
+                  <ul class="features">
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-times fa-lg"></i></li>
+                    <li><i class="fa fa-times fa-lg"></i></li>
+                  </ul>
+                  <div class="footer">
+                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(13)">Comprar</a>
+                  </div>
+                </li>
+                <li class="price_block">
+                  <h3><img src="web/img/basico.png" class="img_planes"></h3>
                   <div class="price">
                     <div class="price_figure">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(10)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
+                      <p class="price_tenure">(Anual)</p>
                     </div>
                   </div>
                   <ul class="features">
@@ -245,11 +270,38 @@
                   </div>
                 </li>
                 <li class="price_block">
-                  <h3><img src="web/img/plus.png"></h3>
+                  <h3><img src="web/img/plus.png" class="img_planes"></h3>
+                  <div class="price">
+                    <div class="price_figure">
+                      <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(11)?>,<small>00</small></span>
+                      <span class="price_tenure">(IVA incluido)</span>
+                      <p class="price_tenure">(Semestral)</p>
+                    </div>
+                  </div>
+                  <ul class="features">
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-times fa-lg"></i></li>
+                  </ul>
+                  <div class="footer">
+                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(11)">Comprar</a>
+
+                  </div>
+                </li>
+                <li class="price_block">
+                  <h3><img src="web/img/plus.png" class="img_planes"></h3>
                   <div class="price">
                     <div class="price_figure">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(1)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
+                      <p class="price_tenure">(Anual)</p>
                     </div>
                   </div>
                   <ul class="features">
@@ -269,11 +321,12 @@
                   </div>
                 </li>
                 <li class="price_block">
-                  <h3><img src="web/img/gold.png"></h3>
+                  <h3><img src="web/img/gold.png" class="img_planes"></h3>
                   <div class="price">
                     <div class="price_figure">
-                      <span class="price_number"><label class="price_currency">Bs.&nbsp;</label><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
+                      <span class="price_number"><label class="price_currency">Bs.&nbsp;</label><?php echo $Planes->getPlanPrecioIva(12)?>,<small>00</small></span>
                       <span class="price_tenure">(IVA incluido)</span>
+                      <p class="price_tenure">(Semestral)</p>
                     </div>
                   </div>
                   <ul class="features">
@@ -290,9 +343,36 @@
                   </ul>
                   <div class="footer">
                     <!--<a class="action_button_disabled">Comprar</a>-->
+                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(12)">Comprar</a>
+
+                  </div>
+                </li>
+                <li class="price_block">
+                  <h3><img src="web/img/gold.png" class="img_planes"></h3>
+                  <div class="price">
+                    <div class="price_figure">
+                      <span class="price_number"><label class="price_currency">Bs.&nbsp;</label><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
+                      <span class="price_tenure">(IVA incluido)</span>
+                      <p class="price_tenure">(Anual)</p>
+                    </div>
+                  </div>
+                  <ul class="features">
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
+                  </ul>
+                  <div class="footer">
                     <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a>
                   </div>
                 </li>
+
               </ul>
             </div>
           </div>
@@ -778,7 +858,7 @@
             </div>
             <p class="white-font text_footer">Caracas. Venezuela.</p>
             <p class="white-font text_footer">info@tugruero.io</p>
-            <p class="white-font text_footer"> 0212-237-9227 / 0500-GRUERO-0 (0500-478376-0) </p>
+            <p class="white-font text_footer"> 0212-237.04.91 / 237.91.13 / 237.97.62 / 237.92.27 </p>
             <!--<p class="white-font text_footer"> 0212-237-9227 / 0424-135-7579 </p>-->
           </div>
         </div>
