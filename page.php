@@ -183,7 +183,7 @@
             <div class="col-lg-10 texto_gruero_plus">
               <div id="imagen">
                 <br>
-                <p align="center" class="titulo_gruero_plus">Adquiere nuestros planes <b>semestrales</b> desde nuestra plataforma web.
+                <p align="center" class="titulo_gruero_plus">Adquiere nuestros planes <b>semestrales</b> desde nuestra plataforma web.<br>
 
 Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b></p>
                   <!--<p align="center" class="titulo_gruero_plus"><strong>¡Por todo un año!</strong></p>-->
