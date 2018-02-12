@@ -251,7 +251,7 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                       <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(13)">Comprar</a>
                     </div>
                     <div class="col-sm-6">
-                      <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(13)">Comprar</a>
+                      <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(10)">Comprar</a>
                     </div>                    
                   </div>
                 </li>
