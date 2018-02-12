@@ -415,7 +415,7 @@
             <div align="center">
 				<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 				<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
-				<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+				<p align="justify">En este momento nuestro <strong>Departamento de Comercialización</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
 				<p align="justify">Es importante que sepa que el plan estará vigente <strong>10 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 				<p align="justify">¡Esté atento!</p>
 				<p align="justify">Saludos.<br><br><br><br>
@@ -505,7 +505,7 @@
             <div align="center">
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted, y que nuestro aliado comercial <strong>'.$NombreVendedor.'</strong> le ha ofrecido.</p>
-		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+		<p align="justify">En este momento nuestro <strong>Departamento de Comercialización</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
 		<p align="justify">Es importante que sepa que el plan estará vigente <strong>10 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 		<p align="justify">¡Esté atento!</p>
 		<p align="justify">Saludos.<br><br><br><br>
@@ -586,7 +586,7 @@
             <div align="center">
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted.</p>
-		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+		<p align="justify">En este momento nuestro <strong>Departamento de Comercialización</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
 		<p align="justify">Es importante que sepa que el plan estará vigente <strong>10 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 		<p align="justify">¡Esté atento!</p>
 		<p align="justify">Saludos.<br><br><br><br>
@@ -677,7 +677,7 @@
             <div align="center">
 		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, gracias por la compra del plan <strong>'.$ConcatenadoPlan.'</strong> para su vehículo <strong>'.$Marca.' '.$Modelo.' '.$Anio.'</strong></p>
 		<p align="justify">Usted está a solo un paso de experimentar el excelente e innovador servicio de auxilio vial que hemos creado para usted, y que nuestro aliado comercial <strong>'.$NombreVendedor.'</strong> le ha ofrecido.</p>
-		<p align="justify">En este momento nuestro <strong>Departamento de Suscripción</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
+		<p align="justify">En este momento nuestro <strong>Departamento de Comercialización</strong> está validando los datos y documentos suministrados, y en menos de <strong>48 horas hábiles</strong> uno de nuestros agentes se estará comunicando con usted para darle oficialmente la bienvenida a la gran familia <strong>TU/GRUERO®</strong>.</p>
 		<p align="justify">Es importante que sepa que el plan estará vigente <strong>10 días hábiles</strong> después que el agente le dé la confirmación de su pago</p>
 		<p align="justify">¡Esté atento!</p>
 		<p align="justify">Saludos.<br><br><br><br>
@@ -768,7 +768,7 @@
         </head>
         <body style="font-size: 16px;color:#000000;">
             <div align="">
-		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Comercialización</strong>.</p>
 		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
 		<p align="justify">A continuación le indicamos los datos para acceder a la <strong>aplicación móvil TU/GRUERO®</strong> y solicitar los servicios de grúa por esa vía:</p>
 		<p align="left">
@@ -875,7 +875,7 @@
         </head>
         <body style="font-size: 16px;color:#000000;">
             <div align="">
-		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Suscripción</strong>.</p>
+		<p align="justify">'.$saludo.', <strong>'.$Nombres.' '.$Apellidos.'</strong>, tenemos el agrado de decirle que toda su información fue verificada y aprobada por nuestro <strong>Departamento de Comercialización</strong>.</p>
 		<p align="justify">Por ende, le queremos dar la más cordial <strong>¡Bienvenida a la familia TU/GRUERO®!</strong></p>
 		<br><br>
 		<p align="justify">¡Esté atento!</p>
