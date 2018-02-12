@@ -94,9 +94,9 @@ $hidden = '';
         <?php endif;?> 
   </div> 	
   <div class="form-group col-sm-3">
-    <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label>
+    <label for="Cedula" class="control-label">Cédula / RIF </label> <label class="text-danger"> * </label>
     <div class="">
-        <input <?php echo $disabled;?> type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
+        <input <?php echo $disabled;?> type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="11" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
     </div>
     
         <?php if(isset($errors['Cedula']) and $errors['Cedula']!=''):?>
