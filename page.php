@@ -223,7 +223,7 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                 <li class="price_block">
                   <h3><img src="web/img/basico.png" class="img_planes"></h3>
                   <div class="price">
-                    <div class="price_figure_lower">
+                    <div class="price_figure_lower borde-derecho">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(13)?>,<small>00</small></span>
                       <span class="price_tenure">(con IVA incluido)</span>
                       <p class="price_tenure">(Semestral)</p>
@@ -258,7 +258,7 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                 <li class="price_block">
                   <h3><img src="web/img/plus.png" class="img_planes"></h3>
                   <div class="price">
-                    <div class="price_figure_lower">
+                    <div class="price_figure_lower borde-derecho">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(11)?>,<small>00</small></span>
                       <span class="price_tenure">(con IVA incluido)</span>
                       <p class="price_tenure">(Semestral)</p>
@@ -290,11 +290,10 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                     </div>                    
                   </div>
                 </li>
-                <li class="price_block">
+                 <li class="price_block">
                   <h3><img src="web/img/gold.png" class="img_planes"></h3>
                   <div class="price">
-                  <div class="price">
-                    <div class="price_figure_lower">
+                    <div class="price_figure_lower borde-derecho">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(12)?>,<small>00</small></span>
                       <span class="price_tenure">(con IVA incluido)</span>
                       <p class="price_tenure">(Semestral)</p>
@@ -315,7 +314,7 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
+                    <li><i class="fa fa-times fa-lg"></i></li>
                   </ul>
                   <div class="footer col-sm-12">
                     <div class="col-sm-6">

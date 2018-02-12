@@ -108,6 +108,10 @@
       font-size: 14px;
       vertical-align: middle;
       display: table-cell;
+
+    }
+    .borde-derecho {
+      border-right: 1px solid white;
     }
     .price_number {
       font-weight: bold;
