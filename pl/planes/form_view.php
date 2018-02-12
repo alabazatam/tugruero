@@ -96,9 +96,9 @@
 		<p class="subtitulo_planes"><strong>Información personal</strong></p>
 	</div>
   <div class="form-group col-sm-4">
-	  <label for="Cedula" class="control-label">Cédula</label> <label class="text-danger"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;<small> (V-12345678)</small>
+	  <label for="Cedula" class="control-label">Cédula / RIF</label> <label class="text-danger"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;<small> (V-12345678) (J-123456781)</small>
     <div class="">
-        <input type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="10" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
+        <input type="text" name="Cedula" class="form-control" autocomplete="off" id="Cedula" maxlength="11" value="<?php if(isset($values['Cedula']) and $values['Cedula']!='') echo $values['Cedula'];?>" placeholder="Ejemplo: V-12345678">
     </div>
         <?php if(isset($errors['Cedula']) and $errors['Cedula']!=''):?>
         <div id="" class="alert alert-danger"><?php echo $errors['Cedula'];?></div>
