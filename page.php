@@ -223,34 +223,14 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                 <li class="price_block">
                   <h3><img src="web/img/basico.png" class="img_planes"></h3>
                   <div class="price">
-                    <div class="price_figure">
+                    <div class="price_figure_lower">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(13)?>,<small>00</small></span>
-                      <span class="price_tenure">(IVA incluido)</span>
+                      <span class="price_tenure">(con IVA incluido)</span>
                       <p class="price_tenure">(Semestral)</p>
                     </div>
-                  </div>
-                  <ul class="features">
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-times fa-lg"></i></li>
-                    <li><i class="fa fa-times fa-lg"></i></li>
-                  </ul>
-                  <div class="footer">
-                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(13)">Comprar</a>
-                  </div>
-                </li>
-                <li class="price_block">
-                  <h3><img src="web/img/basico.png" class="img_planes"></h3>
-                  <div class="price">
-                    <div class="price_figure">
+                    <div class="price_figure_lower">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(10)?>,<small>00</small></span>
-                      <span class="price_tenure">(IVA incluido)</span>
+                      <span class="price_tenure">(con IVA incluido)</span>
                       <p class="price_tenure">(Anual)</p>
                     </div>
                   </div>
@@ -266,42 +246,26 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                     <li><i class="fa fa-times fa-lg"></i></li>
                     <li><i class="fa fa-times fa-lg"></i></li>
                   </ul>
-                  <div class="footer">
-                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(10)">Comprar</a>
+                  <div class="footer col-sm-12">
+                    <div class="col-sm-6">
+                      <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(13)">Comprar</a>
+                    </div>
+                    <div class="col-sm-6">
+                      <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(13)">Comprar</a>
+                    </div>                    
                   </div>
                 </li>
                 <li class="price_block">
                   <h3><img src="web/img/plus.png" class="img_planes"></h3>
                   <div class="price">
-                    <div class="price_figure">
+                    <div class="price_figure_lower">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(11)?>,<small>00</small></span>
-                      <span class="price_tenure">(IVA incluido)</span>
+                      <span class="price_tenure">(con IVA incluido)</span>
                       <p class="price_tenure">(Semestral)</p>
                     </div>
-                  </div>
-                  <ul class="features">
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-times fa-lg"></i></li>
-                  </ul>
-                  <div class="footer">
-                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(11)">Comprar</a>
-
-                  </div>
-                </li>
-                <li class="price_block">
-                  <h3><img src="web/img/plus.png" class="img_planes"></h3>
-                  <div class="price">
-                    <div class="price_figure">
+                    <div class="price_figure_lower">
                       <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(1)?>,<small>00</small></span>
-                      <span class="price_tenure">(IVA incluido)</span>
+                      <span class="price_tenure">(con IVA incluido)</span>
                       <p class="price_tenure">(Anual)</p>
                     </div>
                   </div>
@@ -317,43 +281,27 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-times fa-lg"></i></li>
                   </ul>
-                  <div class="footer">
-                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(1)">Comprar</a>
+                  <div class="footer col-sm-12">
+                    <div class="col-sm-6">
+                      <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(11)">Comprar</a>
+                    </div>
+                    <div class="col-sm-6">
+                      <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(1)">Comprar</a>
+                    </div>                    
                   </div>
                 </li>
                 <li class="price_block">
                   <h3><img src="web/img/gold.png" class="img_planes"></h3>
                   <div class="price">
-                    <div class="price_figure">
-                      <span class="price_number"><label class="price_currency">Bs.&nbsp;</label><?php echo $Planes->getPlanPrecioIva(12)?>,<small>00</small></span>
-                      <span class="price_tenure">(IVA incluido)</span>
+                  <div class="price">
+                    <div class="price_figure_lower">
+                      <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(12)?>,<small>00</small></span>
+                      <span class="price_tenure">(con IVA incluido)</span>
                       <p class="price_tenure">(Semestral)</p>
                     </div>
-                  </div>
-                  <ul class="features">
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-check fa-lg"></i></li>
-                  </ul>
-                  <div class="footer">
-                    <!--<a class="action_button_disabled">Comprar</a>-->
-                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(12)">Comprar</a>
-
-                  </div>
-                </li>
-                <li class="price_block">
-                  <h3><img src="web/img/gold.png" class="img_planes"></h3>
-                  <div class="price">
-                    <div class="price_figure">
-                      <span class="price_number"><label class="price_currency">Bs.&nbsp;</label><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
-                      <span class="price_tenure">(IVA incluido)</span>
+                    <div class="price_figure_lower">
+                      <span class="price_number"><label class="price_currency">Bs.&nbsp; </label><?php echo $Planes->getPlanPrecioIva(2)?>,<small>00</small></span>
+                      <span class="price_tenure">(con IVA incluido)</span>
                       <p class="price_tenure">(Anual)</p>
                     </div>
                   </div>
@@ -369,11 +317,15 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
                   </ul>
-                  <div class="footer">
-                    <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a>
+                  <div class="footer col-sm-12">
+                    <div class="col-sm-6">
+                      <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(12)">Comprar</a>
+                    </div>
+                    <div class="col-sm-6">
+                      <a data-toggle="modal" data-target="#myModal2" class="action_button" onclick="setIdPlan(2)">Comprar</a>
+                    </div>                    
                   </div>
                 </li>
-
               </ul>
             </div>
           </div>
