@@ -314,7 +314,7 @@ Disfruta de un <b>20%</b> de <b>descuento</b> en nuestros planes <b>anuales.</b>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
                     <li><i class="fa fa-check fa-lg"></i></li>
-                    <li><i class="fa fa-times fa-lg"></i></li>
+                    <li><i class="fa fa-check fa-lg"></i></li>
                   </ul>
                   <div class="footer col-sm-12">
                     <div class="col-sm-6">
