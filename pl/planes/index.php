@@ -75,7 +75,13 @@ $values = array_merge($values,$_FILES);
                                                 executeMercadoPago($values,$errors);
                                                 
                                                 
-					}else
+
+					}else if ($values['MET'] == 'CUP') {
+                        $values['PagoRealizado'] = 'S';
+                        $values = $SolicitudPlan->saveSolicitudPlan($values);
+                        executePagado($values);
+                        $Mail->sendMessageDepositoPago($values);                       
+                    }else
 					{
                                                 if(($_FILES['DEP1']['size']>0) or ($_FILES['DEP2']['size']>0) or ($_FILES['DEP3']['size']>0)){
                                                 $values['PagoRealizado'] = 'S';

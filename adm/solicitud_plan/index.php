@@ -93,6 +93,11 @@ function executeAdd($values = null,$errors = array())
 			//executeMercadoPago($values,$errors);
 
 
+		}else if($values['MET'] == 'CUP') {
+			$values['PagoRealizado'] = 'S';
+			$values = $SolicitudPlan->saveSolicitudPlanAdmin($values);
+
+
 		}else
 		{
 			if(($_FILES['DEP1']['size']>0) or ($_FILES['DEP2']['size']>0) or ($_FILES['DEP3']['size']>0)){

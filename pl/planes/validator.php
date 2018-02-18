@@ -252,7 +252,25 @@
 		
                 
                 
-/***************************Validación de archivos de pago************************/                
+/***************************Validación de archivos de pago************************/    
+		if(isset($values['MET']) and  $values['MET']=='CUP')
+		{
+            
+			if(!isset($values['MedioCupon']) or $values['MedioCupon'] == ""){
+				$errors['MedioCupon'] = "Debe seleccionar el medio de promoción";
+			}
+
+            if (!preg_match("/^[Vv,Ee,Gg,Jj][-][1-9][0-9]{5,8}$/", $values['CedulaCupon'], $matches))      
+            {
+            	$errors['CedulaCupon'] = "Verifique el formato de la Cédula";
+            }
+			if(!isset($values['CodigoCupon']) or $values['CodigoCupon'] == ""){
+				$errors['CodigoCupon'] = "Debe indicar el código de canje";
+			}
+
+		}
+
+
 		if(isset($values['MET']) and  $values['MET']=='DEP')
 		{
 			if($_FILES['DEP1']['size']>0)

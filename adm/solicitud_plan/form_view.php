@@ -341,16 +341,30 @@ $hidden = '';
           <div class="">
                 <select <?php echo $disabled;?> name="Tipo" class="form-control" id="Tipo">
                     <option value="">Seleccione...</option> 
+                    
                     <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>                   
+                    
                     <option value="Cross Over" <?php if(isset($values['Tipo']) and $values['Tipo']=='Cross Over') echo "selected = 'selected'"?> >Cross Over</option>                   
+                    
                     <option value="Furgón" <?php if(isset($values['Tipo']) and $values['Tipo']=='Furgón') echo "selected = 'selected'"?> >Furgón</option>                   
+                    
                     <option value="Hatchback" <?php if(isset($values['Tipo']) and $values['Tipo']=='Hatchback') echo "selected = 'selected'"?> >Hatchback</option> 
+                    
+                    <option value="Mini Van" <?php if(isset($values['Tipo']) and $values['Tipo']=='Mini Van') echo "selected = 'selected'"?> >Mini Van</option>  
+
                     <option value="Panel" <?php if(isset($values['Tipo']) and $values['Tipo']=='Panel') echo "selected = 'selected'"?> >Panel</option> 
+                    
                     <option value="Pick Up" <?php if(isset($values['Tipo']) and $values['Tipo']=='Pick Up') echo "selected = 'selected'"?> >Pick Up</option>                   
+                    
                     <option value="Rústico" <?php if(isset($values['Tipo']) and $values['Tipo']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>                   
+                    
                     <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>                   
+                    
                     <option value="Sport Wagon" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sport Wagon') echo "selected = 'selected'"?> >Sport Wagon</option>                   
                 
+                    <option value="Station Wagon" <?php if(isset($values['Tipo']) and $values['Tipo']=='Station Wagon') echo "selected = 'selected'"?> >Station Wagon</option>  
+
+                     <option value="Techo Duro" <?php if(isset($values['Tipo']) and $values['Tipo']=='Techo Duro') echo "selected = 'selected'"?> >Techo Duro</option>                     
 
                 </select> 
           </div>
@@ -409,7 +423,7 @@ $hidden = '';
 	<div class="row">
 		
 	</div>
-  <div class="form-group col-sm-6">
+  <!--<div class="form-group col-sm-6">
     <label for="SerialMotor" class="control-label">Serial de motor</label> <label class="text-danger">  </label>
     <div class="">
         <input <?php echo $disabled;?>  type="text" name="SerialMotor" class="form-control" id="SerialMotor" autocomplete="off" maxlength="50" value="<?php if(isset($values['SerialMotor']) and $values['SerialMotor']!='') echo $values['SerialMotor'];?>">
@@ -428,7 +442,7 @@ $hidden = '';
         <div id="" class="alert alert-danger"><?php echo $errors['SerialCarroceria'];?></div>
 
         <?php endif;?>
-  </div> 
+  </div> --> 
   <div class="form-group col-sm-6">
       <label for="SerialMotor" class="control-label">Kilometraje</label> <label class="text-danger">  </label> <small> MAX 50 KM</small>
     <div class="">
@@ -457,6 +471,9 @@ $hidden = '';
     </label>
     <label class="radio-inline">
       <input <?php echo $disabled_plan?> <?php echo $disabled;?>  type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['MET']) and $values['MET']=='DEP') echo "checked='checked'";?>> Depósito o transferencia
+    </label>
+    <label class="radio-inline">
+      <input <?php echo $disabled_plan?> <?php echo $disabled;?>  type="radio" name="MET" class="MET" value="CUP" <?php if(isset($values['MET']) and $values['MET']=='CUP') echo "checked='checked'";?>> Cupones de Promoción
     </label>
     </div>
         <?php if(isset($errors['MET']) and $errors['MET']!=''):?>
@@ -512,6 +529,48 @@ $hidden = '';
 
         <?php endif;?>
   </div>
+
+
+  <div class="form-group col-sm-4 CUPONES" style="display:none;">
+    <label class="control-label">Medio de promoción de cupones</label>
+    <label class="text-danger"> * </label>
+    <div class="">
+        <select name="MedioCupon" class="form-control " id="MedioCupon">
+          <option value="">Seleccione...</option>
+          <option value="APROVECHA.COM" <?php if(isset($values['EstadoCivil']) and $values['MedioCupon']=='APROVECHA.COM') echo "selected = 'selected'"?>>APROVECHA.COM</option>
+          <option value="TUDESCUENTON.COM" <?php if(isset($values['EstadoCivil']) and $values['MedioCupon']=='TUDESCUENTON.COM') echo "selected = 'selected'"?>>TUDESCUENTON.COM</option>
+          <option value="VOLANTES TU/GRUERO" <?php if(isset($values['EstadoCivil']) and $values['MedioCupon']=='VOLANTES TU/GRUERO') echo "selected = 'selected'"?>>VOLANTES TU/GRUERO</option>
+        </select>
+    </div>
+        <?php if(isset($errors['MedioCupon']) and $errors['MedioCupon']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['MedioCupon'];?></div>
+
+        <?php endif;?>
+  </div>
+  <div class="form-group col-sm-4 CUPONES" style="display:none;">
+    <label class="control-label">Número de identificación</label>
+    <label class="text-danger"> * </label>
+    <div class="">
+      <input value="<?php if(isset($values['CedulaCupon']) and $values['CedulaCupon']!='') echo $values['CedulaCupon'];?>" type="text" name="CedulaCupon" placeholder="Ejemplo: V-12345678" maxlength = "11" class="form-control" autocomplete="off">
+    </div>
+        <?php if(isset($errors['CedulaCupon']) and $errors['CedulaCupon']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CedulaCupon'];?></div>
+
+        <?php endif;?>
+  </div>
+  <div class="form-group col-sm-4 CUPONES" style="display:none;">
+    <label class="control-label">Código de canje</label>
+    <label class="text-danger"> * </label>
+    <div class="">
+      <input value="<?php if(isset($values['CodigoCupon']) and $values['CodigoCupon']!='') echo $values['CodigoCupon'];?>" type="text" name="CodigoCupon" placeholder="" class="form-control" autocomplete="off">
+    </div>
+        <?php if(isset($errors['CodigoCupon']) and $errors['CodigoCupon']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CodigoCupon'];?></div>
+
+        <?php endif;?>
+  </div>
+
+
   <div class="form-group col-sm-6">
 	  <label for="idPlan" class="">Precio plan Tugruero</label> <label class="text-danger"> * </label>
     <div class="">
@@ -683,7 +742,10 @@ $hidden = '';
 $(document).ready(function(){
     
 $('#aprobacion').hide();    
-$('#rechazo').hide();       
+$('#rechazo').hide(); 
+$('.DEPOSITO').hide();
+$('.CUPONES').hide();
+$('#mercadopago').hide();
 <?php if(isset($values['RCV']) and $values['RCV']=='SI'):?>
             console.log('eligio si');
             $('.Puestos').show();
@@ -721,15 +783,23 @@ $('#rechazo').hide();
 
 <?php if(isset($values['MET']) and $values['MET']=='DEP'):?>
          $('.DEPOSITO').show();
+         $('.CUPONES').hide();
          $('#mercadopago').hide();
 <?php endif;?>
 <?php if(isset($values['MET']) and $values['MET']=='TDC'):?>
          $('.DEPOSITO').hide();
+         $('.CUPONES').hide();
          $('#mercadopago').show();
+<?php endif;?>
+<?php if(isset($values['MET']) and $values['MET']=='CUP'):?>
+         $('.DEPOSITO').hide();
+         $('.CUPONES').show();
+         $('#mercadopago').hide();
 <?php endif;?>
 <?php if((!isset($values['MET']))):?>
         $('.DEPOSITO').hide();
         $('#mercadopago').hide();
+        $('.CUPONES').hide();
 <?php endif;?>   
 <?php if(isset($values['Clase']) and $values['Clase']!=''):?>
          ocultaMarcas('<?php echo $values['Clase']?>',false);
@@ -805,13 +875,24 @@ $('#rechazo').hide();
     calculaPrecioRcv();
     });
     $('.MET').change(function(e){
+            $('.DEPOSITO').hide();
+            $('.CUPONES').hide();
+            $('#mercadopago').hide();
+
         if($('.MET:checked').val() == 'DEP'){
             $('.DEPOSITO').show();
+            $('.CUPONES').hide();
             $('#mercadopago').hide();
+        }else if($('.MET:checked').val() == 'CUP'){
+            $('.DEPOSITO').hide();
+            $('.CUPONES').show();
+            $('#mercadopago').hide();
+
         }else{
            
             $('.DEPOSITO').hide();
             $('#mercadopago').show();
+            $('.CUPONES').hide();
         }
         
 

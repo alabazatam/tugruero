@@ -360,14 +360,30 @@
           <div class="">
                 <select name="Tipo" class="form-control" id="Tipo">
                     <option value="">Seleccione...</option>
-                    <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>
-                    <option value="Cross Over" <?php if(isset($values['Tipo']) and $values['Tipo']=='Cross Over') echo "selected = 'selected'"?> >Cross Over</option>
-                    <option value="Furgón" <?php if(isset($values['Tipo']) and $values['Tipo']=='Furgón') echo "selected = 'selected'"?> >Furgón</option>
-                    <option value="Hatchback" <?php if(isset($values['Tipo']) and $values['Tipo']=='Hatchback') echo "selected = 'selected'"?> >Hatchback</option>
-                    <option value="Panel" <?php if(isset($values['Tipo']) and $values['Tipo']=='Panel') echo "selected = 'selected'"?> >Panel</option>                     <option value="Pick Up" <?php if(isset($values['Tipo']) and $values['Tipo']=='Pick Up') echo "selected = 'selected'"?> >Pick Up</option>
-                    <option value="Rústico" <?php if(isset($values['Tipo']) and $values['Tipo']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>
-                    <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>
-                    <option value="Sport Wagon" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sport Wagon') echo "selected = 'selected'"?> >Sport Wagon</option>
+                    
+                    <option value="Coupé" <?php if(isset($values['Tipo']) and $values['Tipo']=='Coupé') echo "selected = 'selected'"?> >Coupé</option>                   
+                    
+                    <option value="Cross Over" <?php if(isset($values['Tipo']) and $values['Tipo']=='Cross Over') echo "selected = 'selected'"?> >Cross Over</option>                   
+                    
+                    <option value="Furgón" <?php if(isset($values['Tipo']) and $values['Tipo']=='Furgón') echo "selected = 'selected'"?> >Furgón</option>                   
+                    
+                    <option value="Hatchback" <?php if(isset($values['Tipo']) and $values['Tipo']=='Hatchback') echo "selected = 'selected'"?> >Hatchback</option> 
+                    
+                    <option value="Mini Van" <?php if(isset($values['Tipo']) and $values['Tipo']=='Mini Van') echo "selected = 'selected'"?> >Mini Van</option>  
+
+                    <option value="Panel" <?php if(isset($values['Tipo']) and $values['Tipo']=='Panel') echo "selected = 'selected'"?> >Panel</option> 
+                    
+                    <option value="Pick Up" <?php if(isset($values['Tipo']) and $values['Tipo']=='Pick Up') echo "selected = 'selected'"?> >Pick Up</option>                   
+                    
+                    <option value="Rústico" <?php if(isset($values['Tipo']) and $values['Tipo']=='Rústico') echo "selected = 'selected'"?> >Rústico</option>                   
+                    
+                    <option value="Sedán" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sedán') echo "selected = 'selected'"?> >Sedán</option>                   
+                    
+                    <option value="Sport Wagon" <?php if(isset($values['Tipo']) and $values['Tipo']=='Sport Wagon') echo "selected = 'selected'"?> >Sport Wagon</option>                   
+                
+                    <option value="Station Wagon" <?php if(isset($values['Tipo']) and $values['Tipo']=='Station Wagon') echo "selected = 'selected'"?> >Station Wagon</option>  
+
+                     <option value="Techo Duro" <?php if(isset($values['Tipo']) and $values['Tipo']=='Techo Duro') echo "selected = 'selected'"?> >Techo Duro</option>
 
                 </select>
           </div>
@@ -435,10 +451,12 @@
 			<tr>
 				<td><input type="radio" name="MET" class="MET " value="TDC" <?php if(isset($values['MET']) and $values['MET']=='TDC') echo "checked='checked'";?>> Tarjeta de crédito </td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="MET" class="MET" value="DEP" <?php if(isset($values['MET']) and $values['MET']=='DEP') echo "checked='checked'";?>> Depósito o transferencia  </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="MET" class="MET" value="CUP" <?php if(isset($values['MET']) and $values['MET']=='CUP') echo "checked='checked'";?>> Cupones de Promoción  </td>
 			</tr>
 			<tr>
 				<td align="center"><img src="<?php echo full_url;?>/web/img/fresh/medios_pagos/visa.png"> <img src="<?php echo full_url;?>/web/img/fresh/medios_pagos/mastercard.png"></td>
 				<td align="center"><i class="fa fa-file-text-o fa-3x btn-info"></i></td>
+        <td align="center"><i class="fa fa-address-card fa-3x btn-info"></i></td>
 			</tr>
 		</table>
     <label class="">
@@ -458,6 +476,9 @@
 	<div id="mensajedeposito" class="col-sm-12 alert alert-info" style="display:none;">
 		Puedes pagar el monto total con una (01) o varias transferencias y/o depósitos, carga los comprobantes de todos los pagos.
 	</div>
+  <div id="mensajecupon" class="col-sm-12 alert alert-info" style="display:none;">
+    mensaje cupon
+  </div>
   <div class="form-group col-sm-12 DEPOSITO" style="display:none;">
     <label for="DEP1" class="control-label">Comprobante #1 </label> <label class="text-danger"> * </label>
     <div class="">
@@ -488,6 +509,47 @@
 
         <?php endif;?>
 	</div>
+  
+  <div class="form-group col-sm-4 CUPONES" style="display:none;">
+    <label class="control-label">Medio de promoción de cupones</label>
+    <label class="text-danger"> * </label>
+    <div class="">
+        <select name="MedioCupon" class="form-control " id="MedioCupon">
+          <option value="">Seleccione...</option>
+          <option value="APROVECHA.COM" <?php if(isset($values['EstadoCivil']) and $values['MedioCupon']=='APROVECHA.COM') echo "selected = 'selected'"?>>APROVECHA.COM</option>
+          <option value="TUDESCUENTON.COM" <?php if(isset($values['EstadoCivil']) and $values['MedioCupon']=='TUDESCUENTON.COM') echo "selected = 'selected'"?>>TUDESCUENTON.COM</option>
+          <option value="VOLANTES TU/GRUERO" <?php if(isset($values['EstadoCivil']) and $values['MedioCupon']=='VOLANTES TU/GRUERO') echo "selected = 'selected'"?>>VOLANTES TU/GRUERO</option>
+        </select>
+    </div>
+        <?php if(isset($errors['MedioCupon']) and $errors['MedioCupon']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['MedioCupon'];?></div>
+
+        <?php endif;?>
+  </div>
+  <div class="form-group col-sm-4 CUPONES" style="display:none;">
+    <label class="control-label">Número de identificación</label>
+    <label class="text-danger"> * </label>
+    <div class="">
+      <input value="<?php if(isset($values['CedulaCupon']) and $values['CedulaCupon']!='') echo $values['CedulaCupon'];?>" type="text" name="CedulaCupon" placeholder="Ejemplo: V-12345678" maxlength = "11" class="form-control" autocomplete="off">
+    </div>
+        <?php if(isset($errors['CedulaCupon']) and $errors['CedulaCupon']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CedulaCupon'];?></div>
+
+        <?php endif;?>
+  </div>
+  <div class="form-group col-sm-4 CUPONES" style="display:none;">
+    <label class="control-label">Código de canje</label>
+    <label class="text-danger"> * </label>
+    <div class="">
+      <input value="<?php if(isset($values['CodigoCupon']) and $values['CodigoCupon']!='') echo $values['CodigoCupon'];?>" type="text" name="CodigoCupon" placeholder="" class="form-control" autocomplete="off">
+    </div>
+        <?php if(isset($errors['CodigoCupon']) and $errors['CodigoCupon']!=''):?>
+        <div id="" class="alert alert-danger"><?php echo $errors['CodigoCupon'];?></div>
+
+        <?php endif;?>
+  </div>
+
+
 	<div class="col-sm-12">
 			<hr class="hr_subtitulo_planes">
 	</div>
@@ -557,7 +619,8 @@ $(document).ready(function(){
 
 
 			$('#mensajetarjeta').hide();
-            $('#mensajedeposito').hide();
+      $('#mensajedeposito').hide();
+      $('#mensajecupon').hide();
 			$("#sendForm").submit(function(){
 				$('#ModalLoading').modal('show');
 			});
@@ -604,17 +667,26 @@ $(document).ready(function(){
 
 
 <?php if(isset($values['MET']) and $values['MET']=='DEP'):?>
-         $('.DEPOSITO').show();
-		 $('#mensajetarjeta').hide();
-                 $('#mensajedeposito').show();
+          $('.DEPOSITO').show();
+		      $('#mensajetarjeta').hide();
+          $('#mensajecupon').hide();
+          $('#mensajedeposito').show();
 <?php endif;?>
 <?php if(isset($values['MET']) and $values['MET']=='TDC'):?>
-         $('.DEPOSITO').hide();
-		 $('#mensajetarjeta').show();
-                 $('#mensajedeposito').hide();
+    $('.DEPOSITO').hide();
+		$('#mensajetarjeta').show();
+    $('#mensajecupon').hide();
+    $('#mensajedeposito').hide();
+<?php endif;?>
+<?php if(isset($values['MET']) and $values['MET']=='CUP'):?>
+    $('.CUPONES').show();
+    $('#mensajetarjeta').hide();
+    $('#mensajedeposito').hide();
+    $('#mensajecupon').show();
 <?php endif;?>
 <?php if((!isset($values['MET']))):?>
         $('.DEPOSITO').hide();
+        $('.CUPONES').hide();
 <?php endif;?>
 
 <?php if(isset($values['Clase']) and $values['Clase']!=''):?>
@@ -686,16 +758,24 @@ $(document).ready(function(){
 
     });
     $('.MET').change(function(e){
-        calculaPrecio();
-        if($('.MET:checked').val() == 'TDC'){
-			console.log($('.MET:checked').val());
-			$('#mensajetarjeta').show();
-                        $('#mensajedeposito').hide();
-        }else{
-            console.log($('.MET:checked').val());
-            $('#mensajetarjeta').hide();
-             $('#mensajedeposito').show();
-        }
+    calculaPrecio();
+    $('.CUPONES').hide();
+    if($('.MET:checked').val() == 'TDC'){
+      $('#mensajetarjeta').show();
+      $('#mensajedeposito').hide();
+    }else if($('.MET:checked').val() == 'CUP') {
+      $('#mensajetarjeta').hide();
+      $('#mensajecupon').show();
+      $('#mensajedeposito').hide();
+      $('.CUPONES').show();
+
+    }
+
+    else{
+      $('#mensajetarjeta').hide();
+      $('#mensajecupon').hide();
+      $('#mensajedeposito').show();
+    }
 
 
 

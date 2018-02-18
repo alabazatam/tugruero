@@ -62,7 +62,9 @@
 					FROM SolicitudPlanSeleccion sps 
 					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan)";
-                        $columns[7] = "(CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' ELSE 'Depósito o Transferencia')";
+                        $columns[7] = "(CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' 
+                        WHEN TipoPago = 'CUP' THEN 'Cupón'
+                        ELSE 'Depósito o Transferencia' END)";
 
                         $columns[8] = "(CASE 
 					WHEN Estatus = 'ENV' 
@@ -220,7 +222,7 @@
 					FROM SolicitudPlanSeleccion sps 
 					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) AS PrecioTotal,
-                    CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' ELSE 'Depósito o Transferencia'  END AS TipoPago, pv.NombreVendedor
+                    CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' WHEN TipoPago = 'CUP' THEN 'Cupón' ELSE 'Depósito o Transferencia'  END AS TipoPago, pv.NombreVendedor
 				")
 			->where("$where and SolicitudPlan.idSolicitudPlan IN(SELECT idSolicitudPlan FROM SolicitudPlanSeleccion)")
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
@@ -229,7 +231,6 @@
 
 			->order("$column_order $order")			
 			->limit($limit,$offset);
-			//echo $q;die;
 			return $q; 			
 		}
 		public function getCountSolicitudPlanList($values)
@@ -380,10 +381,9 @@
 			$array_solicitud_plan = array(
 				'Nombres' => @$values['Nombres'],
 				'Apellidos' => @$values['Apellidos'],
-                                'Sexo' => @$values['Sexo'],
-                                'EstadoCivil' => @$values['EstadoCivil'],
-                                'FechaNacimiento' => $Utilitarios->formatFechaInput(@$values['FechaNacimiento']),
-                                
+                'Sexo' => @$values['Sexo'],
+                'EstadoCivil' => @$values['EstadoCivil'],
+                'FechaNacimiento' => $Utilitarios->formatFechaInput(@$values['FechaNacimiento']),                                
                 'Correo' => @$values['Correo'],
                 'Cedula' => @strtoupper($values['Cedula']),
 				'Rif' => @strtoupper($values['Rif']),
@@ -394,20 +394,23 @@
 				'Celular' => @$values['Celular'],
                                 'FechaSolicitud' => date('Y-m-d h:i:s'),
 				'TipoPago' => @$values['MET'],
-                                'NumeroTransaccion' => '0',
-                                'Clase' => @$values['Clase'],
-                                'Marca' => @$values['Marca'],
-                                'Modelo' => @$values['Modelo'],
-                                'Anio' => @$values['Anio'],
-                                'Color' => @$values['Color'],
-                                'Placa' => @$values['Placa'],
-                                'Tipo' => @$values['Tipo'],
-                                'Puestos' => @$values['Puestos'],
-                                'Estatus' => 'ENV',
-                                'TotalSinIva' => '0',
+				'MedioCupon' => @$values['MedioCupon'],
+				'CedulaCupon' => @$values['CedulaCupon'],
+				'CodigoCupon' => @$values['CodigoCupon'],
+                'NumeroTransaccion' => '0',
+                'Clase' => @$values['Clase'],
+                'Marca' => @$values['Marca'],
+                'Modelo' => @$values['Modelo'],
+                'Anio' => @$values['Anio'],
+                'Color' => @$values['Color'],
+                'Placa' => @$values['Placa'],
+                'Tipo' => @$values['Tipo'],
+                'Puestos' => @$values['Puestos'],
+                'Estatus' => 'ENV',
+                'TotalSinIva' => '0',
 				'TotalConIva' => '0',
-                                'PagoRealizado' => @$values['PagoRealizado'],
-                                'IdV' => @$values['IdV']
+                'PagoRealizado' => @$values['PagoRealizado'],
+                'IdV' => @$values['IdV']
 			);
               
 			try{
@@ -483,10 +486,9 @@
 			$array_solicitud_plan = array(
 				'Nombres' => @$values['Nombres'],
 				'Apellidos' => @$values['Apellidos'],
-                                'Sexo' => @$values['Sexo'],
-                                'EstadoCivil' => @$values['EstadoCivil'],
-                                'FechaNacimiento' => $Utilitarios->formatFechaInput(@$values['FechaNacimiento']),
-                                
+                'Sexo' => @$values['Sexo'],
+                'EstadoCivil' => @$values['EstadoCivil'],
+                'FechaNacimiento' => $Utilitarios->formatFechaInput(@$values['FechaNacimiento']),
                 'Correo' => @$values['Correo'],
                 'Cedula' => @strtoupper($values['Cedula']),
 				'Rif' => @strtoupper($values['Rif']),
@@ -495,22 +497,25 @@
                 'Domicilio' => $values['Domicilio'],
                 'Telefono' => @$values['Telefono'],
 				'Celular' => @$values['Celular'],
-                                'FechaSolicitud' => date('Y-m-d h:i:s'),
+                'FechaSolicitud' => date('Y-m-d h:i:s'),
 				'TipoPago' => @$values['MET'],
-                                'NumeroTransaccion' => '0',
-                                'Clase' => @$values['Clase'],
-                                'Marca' => @$values['Marca'],
-                                'Modelo' => @$values['Modelo'],
-                                'Anio' => @$values['Anio'],
-                                'Color' => @$values['Color'],
-                                'Placa' => @$values['Placa'],
-                                'Tipo' => @$values['Tipo'],
-                                'Puestos' => @$values['Puestos'],
-                                'Estatus' => 'ENV',
-                                'TotalSinIva' => '0',
+				'MedioCupon' => @$values['MedioCupon'],
+				'CedulaCupon' => @$values['CedulaCupon'],
+				'CodigoCupon' => @$values['CodigoCupon'],
+                'NumeroTransaccion' => '0',
+                'Clase' => @$values['Clase'],
+                'Marca' => @$values['Marca'],
+                'Modelo' => @$values['Modelo'],
+                'Anio' => @$values['Anio'],
+                'Color' => @$values['Color'],
+                'Placa' => @$values['Placa'],
+                'Tipo' => @$values['Tipo'],
+                'Puestos' => @$values['Puestos'],
+                'Estatus' => 'ENV',
+                'TotalSinIva' => '0',
 				'TotalConIva' => '0',
-                                'PagoRealizado' => @$values['PagoRealizado'],
-                                'IdV' => @$values['IdV'],
+                'PagoRealizado' => @$values['PagoRealizado'],
+                'IdV' => @$values['IdV'],
 				"SerialMotor" =>  @$values['SerialMotor'],
 				"SerialCarroceria" =>  @$values['SerialCarroceria']
 			);
@@ -601,31 +606,34 @@
 		function updateSolicitudPlan($values){	
 			//print_r($values);die;
 			$Utilitarios = new Utilitarios();
-                            $array_solicitud_plan = array(
+                $array_solicitud_plan = array(
 				'Nombres' => @$values['Nombres'],
 				'Apellidos' => @$values['Apellidos'],
-    				'EstadoCivil' => @$values['EstadoCivil'],
-    				'Sexo' => @$values['Sexo'],
-    				'FechaNacimiento' => $Utilitarios->formatFechaInput(@$values['FechaNacimiento']),
-                                'Correo' => @$values['Correo'],
-                                'Cedula' => @strtoupper($values['Cedula']),
+    			'EstadoCivil' => @$values['EstadoCivil'],
+    			'Sexo' => @$values['Sexo'],
+    			'FechaNacimiento' => $Utilitarios->formatFechaInput(@$values['FechaNacimiento']),
+                'Correo' => @$values['Correo'],
+                'Cedula' => @strtoupper($values['Cedula']),
 				'Rif' => @strtoupper($values['Rif']),
-                                'Estado' => $values['Estado'],
-                                'Ciudad' => $values['Ciudad'],           
-                                'Domicilio' => $values['Domicilio'],
-                                'Telefono' => @$values['Telefono'],
+                'Estado' => $values['Estado'],
+                'Ciudad' => $values['Ciudad'],           
+                'Domicilio' => $values['Domicilio'],
+                'Telefono' => @$values['Telefono'],
 				'Celular' => @$values['Celular'],
-                                'Marca' => @$values['Marca'],
-                                'Modelo' => @$values['Modelo'],
-                                'Tipo' => @$values['Tipo'],
-                                'Anio' => @$values['Anio'],
-                                'Color' => @$values['Color'],
-                                'Placa' => @$values['Placa'],
-                                'Puestos' => @$values['Puestos'],
+                'Marca' => @$values['Marca'],
+                'Modelo' => @$values['Modelo'],
+                'Tipo' => @$values['Tipo'],
+                'Anio' => @$values['Anio'],
+                'Color' => @$values['Color'],
+                'Placa' => @$values['Placa'],
+                'Puestos' => @$values['Puestos'],
 				'SerialMotor' => @$values['SerialMotor'],
 				'SerialCarroceria' => @$values['SerialCarroceria'],
-                                'Kilometraje' => @$values['Kilometraje'],
-                                'CantidadServicios' => @$values['CantidadServicios']
+                'Kilometraje' => @$values['Kilometraje'],
+                'CantidadServicios' => @$values['CantidadServicios'],
+				'MedioCupon' => @$values['MedioCupon'],
+				'CedulaCupon' => @$values['CedulaCupon'],
+				'CodigoCupon' => @$values['CodigoCupon'],
                                 
 			);
                         
@@ -724,7 +732,9 @@
 					FROM SolicitudPlanSeleccion sps 
 					RIGHT JOIN Planes p ON p.idPlan = sps.idPlan
 					WHERE sps.idSolicitudPlan = SolicitudPlan.idSolicitudPlan) AS PrecioTotal,
-                                CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' ELSE 'Depósito o Transferencia'  END AS TipoPago
+                                CASE WHEN TipoPago = 'TDC' THEN 'Tarjeta de crédito' 
+                                	WHEN TipoPago = 'CUP' THEN 'Cupón'
+                                 ELSE 'Depósito o Transferencia'  END AS TipoPago
 				")
 			->where("SolicitudPlan.idSolicitudPlan=?",$idSolicitudPlan)
 			->join("SolicitudPagoDetalle","LEFT JOIN SolicitudPagoDetalle spd on spd.idSolicitudPlan = SolicitudPlan.idSolicitudPlan")
